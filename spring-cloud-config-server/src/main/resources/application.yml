@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${uri}
+          username: ${username}
+          password: ${password}
+server:
+  port: 8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 8889
