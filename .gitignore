@@ -1,0 +1,20 @@
+# Default ignored files
+/workspace.xml
+/dictionaries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+target/
+log/
+aws.xml
+compiler.xml
+encodings.xml
+codeStyles
+libraries
+out/
+vcs.xml
+uiDesigner.xml
+inspectionProfiles
+.idea/
+dataSources.xml
+/production/
