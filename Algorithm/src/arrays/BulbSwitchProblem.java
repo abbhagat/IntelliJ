@@ -41,10 +41,8 @@ public class BulbSwitchProblem {
             if (x == 1)
                 countOne++;
         }
-        int glows = 0, count = 0;
-        if (countOne >= (int) Math.ceil(a.length / 2)) {
-            glows = 1;
-        }
+        int count = 0;
+        int glows = (countOne >= (int) Math.ceil(a.length / 2)) ? 1 : 0;
         for (int i = 0; i < q.length; i++) {
             int prev = glows;
             if (a[q[i] - 1] == 1) {

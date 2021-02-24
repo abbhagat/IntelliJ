@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-boot-security
+  datasource:
+    username: V705417
+    password: V705417
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url:
+
+server:
+  port: 8081
+
