@@ -1,0 +1,22 @@
+package strings;
+
+public class PrintBinaryPermutation {
+
+    private static void binaryPermutation(String s, int itr) {
+        if (itr == 0) {
+            System.out.println(s);
+        } else {
+            binaryPermutation(s + "0", itr - 1);
+            binaryPermutation(s + "1", itr - 1);
+            /*
+            binaryPermutation(s + "A", itr - 1);
+            binaryPermutation(s + "B", itr - 1);
+            binaryPermutation(s + "C", itr - 1);
+             */
+        }
+    }
+
+    public static void main(String[] args) {
+        binaryPermutation("", 3);
+    }
+}

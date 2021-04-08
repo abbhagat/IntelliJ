@@ -1,47 +1,54 @@
 package sorting;
 
+import java.util.stream.IntStream;
+
 public class NthHighestElement {
 
-    private static int[] a = {1, 3, 6, 5, 2, 7, 8, 9, 10, 4};
-    private static int n = a.length - 1;
+    private static int[] a = {20, 3, 16, 6, 9, 30, 2, 1, 5, 8, 7, 15};
+    private static int n = a.length -1;
+    private static int kth = 4;
 
-    private static void buildMaxHeap() {
+    public static void buildheap() {
         for (int i = n / 2; i >= 0; i--) {
-            maxHeap(i);
+            maxheap(i);
         }
     }
 
-    private static void maxHeap(int i) {
+    public static void maxheap(int i) {
         int left = 2 * i;
         int right = 2 * i + 1;
         int largest = (left <= n && a[left] > a[i]) ? left : i;
-        largest = (right <= n && a[right] > a[largest]) ? right : largest;
-        if (i != largest) {
+        if (right <= n && a[right] > a[largest]) {
+            largest = right;
+        }
+        if (largest != i) {
             swap(i, largest);
-            maxHeap(largest);
+            maxheap(largest);
         }
     }
 
-    private static void swap(int x, int y) {
-        int t = a[x];
-        a[x] = a[y];
-        a[y] = t;
+    public static void swap(int i, int j) {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
     }
 
-    private static int maxHeapSort(int nth) {
-        buildMaxHeap();
+    public static void sort() {
+        buildheap();
         int c = 0;
         for (int i = n; i >= 0; i--) {
             swap(0, i);
+            n = n - 1;
             c++;
-            if (c == nth) {
-                return a[c];
+            if (c == kth) {
+                System.out.println(a[i]);
             }
+            maxheap(0);
         }
-        return -1;
     }
 
     public static void main(String[] args) {
-        System.out.println(maxHeapSort(3));
+        sort();
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

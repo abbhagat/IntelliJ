@@ -20,13 +20,6 @@
         <property name="cache.use_query_cache">true</property>
         <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 
-<!--         OneToOne -->
-<!--        <mapping class="oneToOne.Employee"></mapping>-->
-<!--        <mapping class="oneToOne.Department"></mapping>-->
-
-        <!-- OneToMany -->
-        <mapping class="oneToMany.Employee"></mapping>
-        <mapping class="oneToMany.Department"></mapping>
     </session-factory>
 
 </hibernate-configuration>

@@ -1,25 +1,26 @@
 package trees;
 
-import static trees.TreeHeight.treeHeight;
-
 public class LevelOrderTreeTraversal {
 
-    public static void printTree(Node root) {
-        for (int i = 1; i <= treeHeight(root); i++) {
+    TreeHeight th = new TreeHeight();
+
+    public void levelOrderTreeTraversal(BST root) {
+
+        for (int i = 1; i <= th.treeHeight(root); i++) {
             printLevelOrder(root, i);
         }
     }
 
-    private static void printLevelOrder(Node root, int level) {
+    public void printLevelOrder(BST root, int i) {
         if (root == null) {
             return;
         }
-        if (level == 1) {
-            System.out.println(root.num);
+        if (i == 1) {
+            System.out.print(root.num + " ");
         }
-        if (level > 1) {
-            printLevelOrder(root.left, level - 1);
-            printLevelOrder(root.right, level - 1);
+        if (i > 1) {
+            printLevelOrder(root.left,  i - 1);
+            printLevelOrder(root.right, i - 1);
         }
     }
 }

@@ -1,17 +1,20 @@
 package strings;
 
+import static java.lang.Integer.toBinaryString;
+
 public class DecimalToBinary {
 
-    private static String decimalToBinary(String binary, int mask, int num) {
-        if (mask != 0) {
-            binary += (num & mask) == 0 ? 0 : 1;
-            return decimalToBinary(binary, mask >> 1, num);
+    private static String decimalToBinary(int n, int mask, String binaryString) {
+        if (mask == 0) {
+            return binaryString;
         }
-        return binary;
+        binaryString += (n & mask) == 0 ? "0" : "1";
+        return decimalToBinary(n, mask >> 1, binaryString);
     }
 
     public static void main(String[] args) {
-        System.out.println(decimalToBinary("", 32768, 15));
-        System.out.println(decimalToBinary("", 32768, 10));
+        String binaryString = decimalToBinary(100, 32768, "");
+        System.out.println(binaryString.substring(binaryString.indexOf('1')));
+        System.out.println(toBinaryString(100));
     }
 }

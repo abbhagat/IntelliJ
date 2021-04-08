@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: manage-orders
+  cloud:
+    config:
+      uri: "http://localhost:8888/"
+  datasource:
+    tomcat:
+      max-active: 2
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: manage-supplier
+  cloud:
+    config:
+      uri: "http://localhost:8888/"
+  datasource:
+    tomcat:
+      max-active: 3

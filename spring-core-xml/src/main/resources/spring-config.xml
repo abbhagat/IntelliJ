@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="shape"/>
+
+<!--    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle"
+          name="triangles">
+        <property name="points">
+            <list>
+                <bean id="zeroPoint" class="shape.Point" name="zeroPoints">
+                    <constructor-arg name="X" value="${point.X}"/>
+                    <constructor-arg name="Y" value="${point.Y}"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <alias name="triangle" alias="Triangle"/>-->
+
+    <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!--        <property name="basename" value="points"></property>-->  <!-- Used for a single property file name-->
+        <property name="basenames">
+            <list>
+                <value>message</value>
+            </list>
+        </property>
+        <property name="concurrentRefresh" value="true"></property>
+    </bean>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations" value="points.properties"/>
+    </bean>
+
+    <bean id="address" class="shape.Address" scope="prototype">
+        <property name="addressName" value="Bengaluru"/>
+    </bean>
+
+    <bean id="employee" class="shape.Employee" scope="singleton">
+        <constructor-arg name="empID" value="1"/>
+        <constructor-arg name="address" ref="address"/>
+    </bean>
+
+</beans>
