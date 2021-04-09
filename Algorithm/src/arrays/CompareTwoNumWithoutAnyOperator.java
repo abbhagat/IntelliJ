@@ -1,4 +1,4 @@
-package amazon;
+package arrays;
 
 public class CompareTwoNumWithoutAnyOperator {
 

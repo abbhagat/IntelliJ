@@ -1,8 +1,8 @@
-package jpmorgan;
+package arrays;
 
 public class ParseIntImplementation {
 
-    static int parseInt(String s) {
+    public static int parseInt(String s) {
         int sum = 0, i, n = 1;
         for (i = s.length() - 1; i >= 0; i--) {
             char c = s.charAt(i);

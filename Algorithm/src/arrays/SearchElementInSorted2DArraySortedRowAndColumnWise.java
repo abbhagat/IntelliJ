@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 /*
  * Start with top right element

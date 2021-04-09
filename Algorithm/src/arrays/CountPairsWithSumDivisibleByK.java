@@ -1,4 +1,4 @@
-package geeks;
+package arrays;
 
 /**
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4

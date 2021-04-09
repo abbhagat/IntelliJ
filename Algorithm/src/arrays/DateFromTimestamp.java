@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

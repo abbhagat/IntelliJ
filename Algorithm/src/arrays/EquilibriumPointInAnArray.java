@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 /*
  * Find a point in an array where sum of left side array members(wrt to that point)

@@ -1,4 +1,4 @@
-package geeks;
+package arrays;
 
 public class LongestPalindromeSubsequence {
 

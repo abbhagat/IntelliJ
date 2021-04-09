@@ -1,4 +1,4 @@
-package jpmorgan;
+package arrays;
 
 /**
  * I/P :- int[] a = { 4, 3, 2, 0, 1 }; char[] c = { 'e', 'd', 'c', 'a', 'b' };

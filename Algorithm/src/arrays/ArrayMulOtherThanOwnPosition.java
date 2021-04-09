@@ -1,4 +1,4 @@
-package samsung;
+package arrays;
 
 public class ArrayMulOtherThanOwnPosition {
 

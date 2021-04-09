@@ -1,4 +1,4 @@
-package jpmorgan;
+package arrays;
 
 public class PrintFuzzOrBuzz {
 

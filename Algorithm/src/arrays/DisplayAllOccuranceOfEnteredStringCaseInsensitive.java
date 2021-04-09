@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

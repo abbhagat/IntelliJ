@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 // same solution as of anagram
 

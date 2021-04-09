@@ -1,4 +1,4 @@
-package microsoft;
+package arrays;
 
 import java.util.Stack;
 

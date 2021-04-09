@@ -1,4 +1,4 @@
-package jpmorgan;
+package arrays;
 
 import java.util.LinkedList;
 import java.util.List;

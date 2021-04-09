@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;

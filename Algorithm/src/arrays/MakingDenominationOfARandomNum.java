@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 /*
  * You have infinite number of 3Rs coins and 5Rs coins.

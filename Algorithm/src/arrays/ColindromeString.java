@@ -1,4 +1,4 @@
-package geeks;
+package arrays;
 
 /*
 A string is said to be colindrome if it has consecutive 3 alphabets

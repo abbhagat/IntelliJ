@@ -1,4 +1,4 @@
-package goldmansach;
+package arrays;
 
 /*
  * Input  :- String str = "Today is Wednesday";

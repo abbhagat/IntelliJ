@@ -1,4 +1,4 @@
-package jpmorgan;
+package arrays;
 
 /*
  *  1234567  --> 1234567
