@@ -1,4 +1,4 @@
-package parking;
+package designing.parking;
 
 import java.util.Arrays;
 import java.util.List;
