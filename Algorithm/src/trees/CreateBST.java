@@ -2,8 +2,7 @@ package trees;
 
 public class CreateBST {
 
-    static Node createBST(Node root, int num) {
-
+    public static Node createBST(Node root, int num) {
         if (root == null) {
             root = new Node();
             root.num = num;

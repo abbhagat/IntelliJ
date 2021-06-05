@@ -6,7 +6,6 @@ class PostIndex {
 
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
 
-
     public static Node buildTree(int[] inorder, int[] postOrder, int start, int end, PostIndex postIndex) {
 
         if (start > end) {
@@ -22,6 +21,7 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
         if (start == end) {
             return root;
         }
+
         int index = search(inorder, root.num, start, end);
         root.right = buildTree(inorder, postOrder, index + 1, end, postIndex);
         root.left  = buildTree(inorder, postOrder, start, index - 1, postIndex);
