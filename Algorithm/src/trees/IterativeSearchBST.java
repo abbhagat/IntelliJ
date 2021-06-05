@@ -2,8 +2,8 @@ package trees;
 
 public class IterativeSearchBST {
 
-    BST searchBST(BST root, int num) {
-        BST node = null;
+    Node searchBST(Node root, int num) {
+        Node node = null;
         while (root != null) {
             if (root.num == num) {
                 return root;

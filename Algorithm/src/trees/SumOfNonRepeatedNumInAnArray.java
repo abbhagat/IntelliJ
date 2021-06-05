@@ -4,7 +4,7 @@ public class SumOfNonRepeatedNumInAnArray {
 
     static int sum = 0;
 
-    static void inorder(BST root) {
+    static void inorder(Node root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.num + " ");
@@ -12,7 +12,7 @@ public class SumOfNonRepeatedNumInAnArray {
         }
     }
 
-    static void findSum(BST root) {
+    static void findSum(Node root) {
         if (root != null) {
             findSum(root.left);
             sum += root.num;
@@ -23,7 +23,7 @@ public class SumOfNonRepeatedNumInAnArray {
     public static void main(String[] args) {
 
         int[] a = { 1, 2, 3, 4, 5, 1, 2, 10, 9, 8, 7, 6, 10, 9 };
-        BST root = null;
+        Node root = null;
         CreateBST bst = new CreateBST();
         for (int num : a) {
             root = bst.createBST(root, num);

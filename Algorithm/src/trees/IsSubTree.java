@@ -2,7 +2,7 @@ package trees;
 
 public class IsSubTree {
 
-    private static boolean isSubTree(BST rootSuper, BST rootSub) {
+    private static boolean isSubTree(Node rootSuper, Node rootSub) {
 
         if (rootSuper == rootSub & rootSuper == null) {
             return true;
@@ -18,7 +18,7 @@ public class IsSubTree {
 
     public static void main(String[] args) {
         int[] a = { 30, 10, 50, 5, 20, 40, 60, 1 };
-        BST rootSuper = null, rootSub = null;
+        Node rootSuper = null, rootSub = null;
         CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
             rootSuper = bst.createBST(rootSuper, a[i]);

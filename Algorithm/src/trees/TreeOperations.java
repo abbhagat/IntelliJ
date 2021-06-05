@@ -4,7 +4,7 @@ public class TreeOperations {
 
     public static void main(String... args) {
         int[] a = { 30, 10, 50, 5, 20, 40, 60 };
-        BST root = null;
+        Node root = null;
         CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
             root = bst.createBST(root, a[i]);

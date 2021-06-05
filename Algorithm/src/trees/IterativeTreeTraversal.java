@@ -4,11 +4,11 @@ import java.util.Stack;
 
 public class IterativeTreeTraversal {
 
-    static void iterativeTreeTraversal(BST root) {
+    static void iterativeTreeTraversal(Node root) {
         if (null == root) {
             return;
         }
-        Stack<BST> stack = new Stack<>();
+        Stack<Node> stack = new Stack<>();
         stack.push(root);
         while (!stack.empty()) {
             root = stack.pop();
@@ -24,7 +24,7 @@ public class IterativeTreeTraversal {
 
     public static void main(String[] args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60, 1};
-        BST root = null;
+        Node root = null;
         CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
             root = bst.createBST(root, a[i]);

@@ -7,13 +7,13 @@ class PostIndex {
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
 
 
-    public static BST buildTree(int[] inorder, int[] postOrder, int start, int end, PostIndex postIndex) {
+    public static Node buildTree(int[] inorder, int[] postOrder, int start, int end, PostIndex postIndex) {
 
         if (start > end) {
             return null;
         }
 
-        BST root = new BST();
+        Node root = new Node();
         root.num = postOrder[postIndex.postIndex];
         (postIndex.postIndex)--;
         root.left = null;

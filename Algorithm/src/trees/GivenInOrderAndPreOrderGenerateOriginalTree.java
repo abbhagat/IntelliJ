@@ -4,13 +4,13 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
 
     private static int preIndex = 0;
 
-    public static BST buildTree(int[] inorder, int[] preorder, int start, int end) {
+    public static Node buildTree(int[] inorder, int[] preorder, int start, int end) {
 
         if(start > end){
             return null;
         }
 
-        BST root = new BST();
+        Node root = new Node();
         root.num = preorder[preIndex++];
         root.left = null;
         root.right = null;

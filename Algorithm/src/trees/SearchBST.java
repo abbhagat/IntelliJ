@@ -2,7 +2,7 @@ package trees;
 
 public class SearchBST {
 
-    BST searchBST(BST root, int num) {
+    Node searchBST(Node root, int num) {
         if (root != null) {
             if (root.num == num) {
                 return root;

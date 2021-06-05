@@ -4,14 +4,14 @@ public class LevelOrderTreeTraversal {
 
     TreeHeight th = new TreeHeight();
 
-    public void levelOrderTreeTraversal(BST root) {
+    public void levelOrderTreeTraversal(Node root) {
 
         for (int i = 1; i <= th.treeHeight(root); i++) {
             printLevelOrder(root, i);
         }
     }
 
-    public void printLevelOrder(BST root, int i) {
+    public void printLevelOrder(Node root, int i) {
         if (root == null) {
             return;
         }

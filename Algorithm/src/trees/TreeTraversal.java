@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class TreeTraversal {
 
-    public static void inorder(BST root) {
+    public static void inorder(Node root) {
         if (null != root) {
             inorder(root.left);
             System.out.print(root.num + " ");
@@ -12,7 +12,7 @@ public class TreeTraversal {
         }
     }
 
-    public static void preorder(BST root) {
+    public static void preorder(Node root) {
         if (null != root) {
             System.out.print(root.num + " ");
             preorder(root.left);
@@ -20,7 +20,7 @@ public class TreeTraversal {
         }
     }
 
-    public static void postorder(BST root) {
+    public static void postorder(Node root) {
         if (null != root) {
             postorder(root.left);
             postorder(root.right);
@@ -28,11 +28,11 @@ public class TreeTraversal {
         }
     }
 
-    public static void preOrderWithoutRecursion(BST root) {
-        Stack<BST> stack = new Stack<>();
+    public static void preOrderWithoutRecursion(Node root) {
+        Stack<Node> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            BST current = stack.pop();
+            Node current = stack.pop();
             System.out.print(current.num + " ");
             if (current.right != null) {
                 stack.push(current.right);
@@ -43,8 +43,8 @@ public class TreeTraversal {
         }
     }
 
-    public static void postOrderWithoutRecursion(BST root) {
-        Stack<BST> stack = new Stack<>();
+    public static void postOrderWithoutRecursion(Node root) {
+        Stack<Node> stack = new Stack<>();
         while (true) {
             while (root != null) {
                 stack.push(root);
@@ -64,8 +64,8 @@ public class TreeTraversal {
         }
     }
 
-    public static void inOrderWithoutRecursion(BST root) {
-        Stack<BST> stack = new Stack<>();
+    public static void inOrderWithoutRecursion(Node root) {
+        Stack<Node> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {    /* Reach the left most BST of the curr BST */
                 stack.push(root);    /* place pointer to a tree BST on the stack before traversing the BST's left subtree */

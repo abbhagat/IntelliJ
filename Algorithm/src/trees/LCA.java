@@ -2,7 +2,7 @@ package trees;
 
 public class LCA {
 
-    BST LCA(BST root, int num1, int num2) {
+    Node LCA(Node root, int num1, int num2) {
 
         if (root != null && num1 < root.num && num2 > root.num) {
             return root;

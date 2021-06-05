@@ -4,7 +4,7 @@ public class TreeHeight {
 
     int lHeight, rHeight;
 
-    void height(BST root) {
+    void height(Node root) {
         if (root != null) {
             if (root.left != null) {
                 lHeight++;
@@ -17,7 +17,7 @@ public class TreeHeight {
         }
     }
 
-    int treeHeight(BST root) {
+    int treeHeight(Node root) {
         height(root);
         return lHeight > rHeight ? lHeight : rHeight;
     }

@@ -1,7 +1,7 @@
 package trees;
 
 public class IsBST {
-    public static final boolean isBST(BST root, int min, int max) {
+    public static final boolean isBST(Node root, int min, int max) {
         if (root == null) {
             return true;
         }

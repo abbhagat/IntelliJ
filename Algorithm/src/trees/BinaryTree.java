@@ -2,9 +2,9 @@ package trees;
 
 public class BinaryTree {
 
-    public static BST createBT(int num, BST root) {
+    public static Node createBT(int num, Node root) {
         if (root == null) {
-            root = new BST();
+            root = new Node();
             root.num = num;
             root.left = null;
             root.right = null;

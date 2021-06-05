@@ -3,7 +3,7 @@ package trees;
 
 public class IsMirrorImage {
 
-    static boolean isMirrorImage(BST root1, BST root2) {
+    static boolean isMirrorImage(Node root1, Node root2) {
         if (root1 == null && root2 == null) {
             return true;
         }
@@ -16,7 +16,7 @@ public class IsMirrorImage {
     public static void main(String[] args) {
         int[] a = {'X', 'D', 'C', 'B', 'A'};
         int[] b = {'X', 'C', 'D', 'A', 'B'};
-        BST rootSuper = null, rootSub = null;
+        Node rootSuper = null, rootSub = null;
         BinaryTree bt = new BinaryTree();
         for (int i = 0; i < a.length; i++) {
             rootSuper = bt.createBT(a[i], rootSuper);

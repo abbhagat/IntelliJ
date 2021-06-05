@@ -2,12 +2,12 @@ package trees;
 
 public class TreeMirrorImage {
 
-    BST mirrorImage(BST root) {
+    Node mirrorImage(Node root) {
         if (root == null) {
             return root;
         }
-        BST left = mirrorImage(root.left);
-        BST right = mirrorImage(root.right);
+        Node left = mirrorImage(root.left);
+        Node right = mirrorImage(root.right);
         root.left = right;
         root.right = left;
         return root;

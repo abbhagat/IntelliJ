@@ -2,7 +2,7 @@ package trees;
 
 public class DeleteNodeFromBST {
 
-    BST deleteNodeFromBST(BST root, int num) {
+    Node deleteNodeFromBST(Node root, int num) {
         if (null == root) {
             return root;
         }
@@ -12,15 +12,15 @@ public class DeleteNodeFromBST {
             root.right = deleteNodeFromBST(root.right, num);
         } else {
             if (root.left == null) {
-                BST temp = root.right;
+                Node temp = root.right;
                 root = null;
                 return temp;
             } else if (root.right == null) {
-                BST temp = root.left;
+                Node temp = root.left;
                 root = null;
                 return temp;
             } else {
-                BST temp = minValueNode(root.right);
+                Node temp = minValueNode(root.right);
                 root.num = temp.num;
                 root.right = deleteNodeFromBST(root.right, temp.num);
             }
@@ -28,7 +28,7 @@ public class DeleteNodeFromBST {
         return root;
     }
 
-    private BST minValueNode(BST root) {
+    private Node minValueNode(Node root) {
         while (root.left != null) {
             root = root.left;
         }

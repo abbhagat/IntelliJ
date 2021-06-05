@@ -2,10 +2,10 @@ package trees;
 
 public class CreateBST {
 
-    static BST createBST(BST root, int num) {
+    static Node createBST(Node root, int num) {
 
         if (root == null) {
-            root = new BST();
+            root = new Node();
             root.num = num;
             root.left = null;
             root.right = null;

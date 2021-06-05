@@ -7,7 +7,7 @@ public class DeleteLastNodeInBinaryTree {
 
     public static void main(String[] args) {
         int[] a = {6, 5, 4, 1, 2, 5};
-        BST root = null;
+        Node root = null;
         for (int x : a) {
             root = createBT(x, root);
         }
@@ -18,13 +18,13 @@ public class DeleteLastNodeInBinaryTree {
         System.out.println();
     }
 
-    private static void deleteLastNodeInBinaryTree(BST root) {
+    private static void deleteLastNodeInBinaryTree(Node root) {
         for (int i = 1; i <= new TreeHeight().treeHeight(root); i++) {
             deleteLeafNode(root, i);
         }
     }
 
-    private static void deleteLeafNode(BST root, int i) {
+    private static void deleteLeafNode(Node root, int i) {
         if (null == root) {
             return;
         }

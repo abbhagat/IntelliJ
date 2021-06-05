@@ -2,7 +2,7 @@ package trees;
 
 public class IsCompleteBT {
 
-    boolean isCompleteBT(BST root) {
+    boolean isCompleteBT(Node root) {
         if (root == null) {
             return true;
         }
