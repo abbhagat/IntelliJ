@@ -2,7 +2,7 @@ package trees;
 
 public class TreeMirrorImage {
 
-    Node mirrorImage(Node root) {
+    public static Node mirrorImage(Node root) {
         if (root == null) {
             return root;
         }

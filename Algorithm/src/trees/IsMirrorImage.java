@@ -1,6 +1,10 @@
 package trees;
 
 
+import static trees.CreateBST.createBST;
+import static trees.TreeMirrorImage.mirrorImage;
+import static trees.TreeTraversal.inorder;
+
 public class IsMirrorImage {
 
     static boolean isMirrorImage(Node root1, Node root2) {
@@ -14,21 +18,15 @@ public class IsMirrorImage {
     }
 
     public static void main(String[] args) {
-        int[] a = {'X', 'D', 'C', 'B', 'A'};
-        int[] b = {'X', 'C', 'D', 'A', 'B'};
-        Node rootSuper = null, rootSub = null;
-        BinaryTree bt = new BinaryTree();
+        int[] a = {5, 3, 6, 2, 4};
+        Node root = null;
         for (int i = 0; i < a.length; i++) {
-            rootSuper = bt.createBT(a[i], rootSuper);
+            root = createBST(root, a[i]);
         }
-        for (int i = 0; i < b.length; i++) {
-            rootSub = bt.createBT(b[i], rootSub);
-        }
-        TreeTraversal t = new TreeTraversal();
-        t.postorder(rootSuper);
+        inorder(root);
+        Node mirrorRoot = mirrorImage(root);
         System.out.println();
-        t.postorder(rootSub);
-        System.out.println();
-        System.out.println(isMirrorImage(rootSuper, rootSub) ? "Mirror Image" : "Not a Mirror Image");
+        inorder(mirrorRoot);
+        System.out.println(isMirrorImage(root, mirrorRoot) ? "Mirror Image" : "Not a Mirror Image");
     }
 }
