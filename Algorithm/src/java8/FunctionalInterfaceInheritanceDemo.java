@@ -1,4 +1,4 @@
-package java;
+package java8;
 
 @FunctionalInterface
 interface I1 {
