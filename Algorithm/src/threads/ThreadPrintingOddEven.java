@@ -7,7 +7,7 @@ public class ThreadPrintingOddEven {
         new OddEvenThreadPrinter("EVEN");
     }
 
-    static class OddEvenThreadPrinter {
+    private static class OddEvenThreadPrinter {
 
         private static final Object monitor = new Object();
         private static String threadIDToRun = "ODD";

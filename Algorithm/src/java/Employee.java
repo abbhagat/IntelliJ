@@ -1,4 +1,4 @@
-package java8;
+package java;
 
 public class Employee {
 

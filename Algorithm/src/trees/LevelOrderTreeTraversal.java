@@ -5,7 +5,6 @@ public class LevelOrderTreeTraversal {
     TreeHeight th = new TreeHeight();
 
     public void levelOrderTreeTraversal(Node root) {
-
         for (int i = 1; i <= th.treeHeight(root); i++) {
             printLevelOrder(root, i);
         }
