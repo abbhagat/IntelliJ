@@ -6,7 +6,7 @@
 
     <context:component-scan base-package="shape"/>
 
-<!--    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle"
+    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle"
           name="triangles">
         <property name="points">
             <list>
@@ -18,7 +18,7 @@
         </property>
     </bean>
 
-    <alias name="triangle" alias="Triangle"/>-->
+    <alias name="triangle" alias="Triangle"/>
 
     <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <!--        <property name="basename" value="points"></property>-->  <!-- Used for a single property file name-->
