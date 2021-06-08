@@ -4,25 +4,20 @@ import java.util.Arrays;
 
 public class CharacterBinarySearch {
 
-    private static char[] c = { 'a', 'b', 'c', 'd', 'e', 'f' };
-
     public static void main(String[] args) {
-        Arrays.sort(c);
-        binarySearch(0, c.length - 1, 'c');
+        char[] a = {'a', 'b', 'c', 'd', 'e', 'f'};
+        Arrays.sort(a);
+        System.out.println(binarySearch(a, 0, a.length - 1, 'c') ? "Present" : "Not Present");
     }
 
-    private static void binarySearch(int low, int high, char ch) {
+    private static boolean binarySearch(char[] a, int low, int high, char ch) {
         if (low <= high) {
             int mid = (low + high) / 2;
-            if (ch == c[mid]) {
-                System.out.println("Present at index " + "\t" + mid);
-            } else if (ch < c[mid]) {
-                binarySearch(low, mid - 1, ch);
-            } else {
-                binarySearch(mid + 1, high, ch);
+            if (ch == a[mid]) {
+                return true;
             }
-        } else {
-            System.out.println("Not Present");
+            return ch < a[mid] ? binarySearch(a, low, mid - 1, ch) : binarySearch(a, mid + 1, high, ch);
         }
+        return false;
     }
 }

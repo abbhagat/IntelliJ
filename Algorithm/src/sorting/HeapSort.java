@@ -2,6 +2,18 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+
+/*
+Heap sort is a comparison-based sorting technique based on Binary Heap data structure.
+It is similar to selection sort where we first find the minimum element and place the minimum element at the beginning.
+We repeat the same process for the remaining elements.
+
+
+A Binary Heap is a Complete Binary Tree where items are stored in a special order
+such that the value in a parent node is greater(or smaller) than the values in its two children nodes.
+The former is called max heap and the latter is called min-heap. The heap can be represented by a binary tree or array.
+
+ */
 public class HeapSort {
 
     private static int[] a = {3, 8, 1, 9, 4, 2, 6, 7, 10, 5};

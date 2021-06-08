@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class MergeSort {
 
-    private static int[] a = {20, 3, 15, 6, 9, 8, 2, 1, 6, 8, 7, 15, 20, 19};
+    private static int[] a = {4, 5, 1, 3, 2};
     private static int temp[] = new int[a.length];
 
     public static void main(String[] args) {

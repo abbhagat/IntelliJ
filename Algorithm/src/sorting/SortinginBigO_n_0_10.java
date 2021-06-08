@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.stream.IntStream;
+
 /**
  * I/P :- int[] a = { 4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6 }
  * <p>
@@ -21,9 +23,6 @@ public class SortinginBigO_n_0_10 {
 
     public static void main(String[] args) {
         for(int i = 0; i< a.length; i = (i != a[i]) ? swap(i, a[i]): ++i);
-        for (int x : a) {
-            System.out.print(x + " ");
-        }
-        System.out.println();
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

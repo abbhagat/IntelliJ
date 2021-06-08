@@ -1,13 +1,15 @@
 package sorting;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 class MapUtility<K, V> {
 
     public static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> sortOnValues(Map<K, V> map) {
-        Map<K, V> sortedMap = new TreeMap<>((k1, k2) -> map.get(k1).compareTo(map.get(k2)));
+        //Map<K, V> sortedMap = new TreeMap<>((k1, k2) -> map.get(k1).compareTo(map.get(k2)));
+        Map<K, V> sortedMap = new TreeMap<>(new ValueComparator<>(map));
         sortedMap.putAll(map);
         return sortedMap;
     }
@@ -24,14 +26,14 @@ class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
     public int compare(K k1, K k2) {
         V v1 = map.get(k1);
         V v2 = map.get(k2);
-        return v1.compareTo(v2);
+        return v2.compareTo(v1);
     }
 }
 
 public class TreeMapValueSort {
 
 	public static void main(String[] args) {
-        Map<String, Integer> tm = new TreeMap<>();
+        Map<String, Integer> tm = new HashMap<>();
         tm.put("A", 1);
         tm.put("Z", 2);
         tm.put("C", 3);
