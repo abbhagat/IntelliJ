@@ -6,13 +6,13 @@ package geeks;
  * <p>
  * Examples:
  * <p>
- * Input:   price[] = {10, 22, 5, 75, 65, 80}
+ * Input:   price[] = {10, 22, 5, 75, 65, 80};
  * Output:  87
  * Trader earns 87 as sum of 12, 75
  * Buy at 10, sell at 22,
  * Buy at 5 and sell at 80
  * <p>
- * Input:   price[] = {2, 30, 15, 10, 8, 25, 80}
+ * Input:   price[] = {2, 30, 15, 10, 8, 25, 80};
  * Output:  100
  * Trader earns 100 as sum of 28 and 72
  * Buy at price 2, sell at 30, buy at 8 and sell at 80
@@ -21,21 +21,36 @@ package geeks;
  * Output:  72
  * Buy at price 8 and sell at 80.
  * <p>
- * Input:   price[] = {90, 80, 70, 60, 50}
+ * Input:   price[] = {90, 80, 70, 60, 50};
  * Output:  0
  * Not possible to earn.
  */
 public class MaxProfitBuyAndSellSharesTwice {
 
     public static void main(String[] args) {
-        int price[] = {10, 22, 5, 75, 65, 80};
-        int profit = 0;
-        for (int i = 1; i < price.length; i++) {
-            int diff = price[i] - price[i - 1];
-            if (diff > 0) {
-                profit += diff;
+        int[] a = {100, 30, 15, 10, 8, 25, 80};
+        int buyVal = 0, sellVal = 0, i;
+        for (i = 1; i < a.length; i++) {
+            if (a[i] - a[i - 1] > 0) {
+                buyVal = a[i - 1];
+                sellVal = a[i];
+                break;
             }
         }
-        System.out.println("Maximum Profit=" + profit);
+        int profit = sellVal - buyVal;
+        if (i == a.length) {
+            System.out.println(profit);
+        } else if (i + 1 == a.length - 1 && a[a.length - 1] - buyVal > 0) {
+            System.out.println(a[a.length - 1] - buyVal);
+        } else {
+            int max = a[i], min = a[i];
+            for (int j = i; j < a.length; j++) {
+                max = max < a[j] ? a[j] : max;
+                min = min > a[j] ? a[j] : min;
+            }
+            profit += max - min;
+            System.out.println(profit);
+        }
     }
+
 }
