@@ -7,7 +7,6 @@ import java.util.List;
 class Subject {
 
     private int state;
-    private List<Observer> observers = new ArrayList<>();
 
     public int getState() {
         return state;
@@ -17,6 +16,8 @@ class Subject {
         this.state = state;
         notifyAllObservers();
     }
+
+    private List<Observer> observers = new ArrayList<>();
 
     public void attach(Observer observer) {
         observers.add(observer);
