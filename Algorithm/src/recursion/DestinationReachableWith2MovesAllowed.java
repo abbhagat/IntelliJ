@@ -25,7 +25,7 @@ public class DestinationReachableWith2MovesAllowed {
         if (sx == dx && sy == dy) {  // current point is equal to destination
             return true;
         }
-        return (isReachable(sx + sy, sy, dx, dy) || isReachable(sx, sy + sx, dx, dy));  // check for other 2 possibilities
+        return (isReachable(sx, sx + sy, dx, dy) || isReachable(sx + sy, sy, dx, dy));  // check for other 2 possibilities
     }
 
     public static void main(String[] args) {

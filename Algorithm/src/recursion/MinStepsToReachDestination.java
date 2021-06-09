@@ -28,7 +28,7 @@ public class MinStepsToReachDestination {
          dest -> destination vertex
     */
     private static int steps(int source, int step, int dest) {
-        if (Math.abs(source) > (dest)) {  // base cases
+        if (Math.abs(source) > dest) {  // base cases
             return Integer.MAX_VALUE;
         }
         if (source == dest) {

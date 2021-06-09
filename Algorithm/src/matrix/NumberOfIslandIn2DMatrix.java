@@ -35,7 +35,7 @@ public class NumberOfIslandIn2DMatrix {
         return row >= 0 && row < ROW && col >= 0 && col < COL && (M[row][col] == 1 && !visited[row][col]);
     }
 
-    // A utility function to do DFS for a 2D boolean matrix. It only considers the 8 neighbors as adjacent vertices
+    // A utility function to do DFS for a 2D boolean matrix. It only considers the 8 neighbours as adjacent vertices
     private static void DFS(int row, int col) {
         // These arrays are used to get row and column numbers of 8 neighbours of a given cell
         int rowNbr[] = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
