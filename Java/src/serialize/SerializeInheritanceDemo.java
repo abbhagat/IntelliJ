@@ -10,9 +10,9 @@ class XYZ implements Serializable{
 }
 
 class PQR extends XYZ implements Serializable{
-//    int x = 100;
-//    transient int y = 200;
-//    static int z = 300;
+    int x = 100;
+    transient int y = 200;
+    static int z = 300;
     private static final long serialVersionUID = 1L;
 }
 
