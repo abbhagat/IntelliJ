@@ -48,8 +48,8 @@ public class SecondLevelCache {
 
         session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(UserDetails.class).addOrder(Order.asc("userID"));
-        criteria.add(Restrictions.gt("userID", 1))
-                .add(Restrictions.eq("userName", "V705417"));
+        criteria.add(Restrictions.or(Restrictions.gt("userID", 1), Restrictions.eq("userName", "V705417")));
+        criteria.add(Restrictions.gt("userID", 1)).add(Restrictions.eq("userName", "V705417"));
         criteria.setProjection(Projections.property("userID"));
         criteria.list();
 
