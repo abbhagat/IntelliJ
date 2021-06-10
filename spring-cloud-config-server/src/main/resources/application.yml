@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: ${uri, "https://github.com/abbhagat/springboot-config"}
+          uri: ${uri, "https://github.com/abbhagat/spring-boot-config-server"}
           username: ${username, "abbhagat"}
           password: ${password, "Shada$1986"}
 

@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class SecondLevelCache {
 
         session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        List<UserDetails> userDetails = session.getNamedNativeQuery("ALL_USERS").getResultList();
+        List userDetails = session.getNamedNativeQuery("ALL_USERS").getResultList();
         System.out.println(userDetails);
         transaction.commit();
         session.close();
@@ -47,6 +48,8 @@ public class SecondLevelCache {
 
         session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(UserDetails.class).addOrder(Order.asc("userID"));
+        criteria.add(Restrictions.gt("userID", 1))
+                .add(Restrictions.eq("userName", "V705417"));
         criteria.setProjection(Projections.property("userID"));
         criteria.list();
 

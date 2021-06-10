@@ -20,25 +20,25 @@ public class AllPermutationsOfVowels {
     }
 
     public int countVowelPermutation(int n) {
-        int[][] arr = new int[5][n];
+        int[][] a = new int[5][n];
         int count = 0;
         for (char c : map.keySet()) {
-            count = (count + countStrings(arr, c, 1, n)) % mod;
+            count = (count + countStrings(a, c, 1, n)) % mod;
         }
         return count;
     }
 
-    private int countStrings(int[][] arr, char c, int i, int n) {
+    private int countStrings(int[][] a, char c, int i, int n) {
         if (i == n) {
             return 1;
         } else {
-            if (arr[charIndex(c)][i - 1] > 0) {
-                return arr[charIndex(c)][i - 1];
+            if (a[charIndex(c)][i - 1] > 0) {
+                return a[charIndex(c)][i - 1];
             }
             for (char ch : map.get(c)) {
-                arr[charIndex(c)][i - 1] = (arr[charIndex(c)][i - 1] + countStrings(arr, ch, i + 1, n)) % mod;
+                a[charIndex(c)][i - 1] = (a[charIndex(c)][i - 1] + countStrings(a, ch, i + 1, n)) % mod;
             }
-            return arr[charIndex(c)][i - 1];
+            return a[charIndex(c)][i - 1];
         }
     }
 

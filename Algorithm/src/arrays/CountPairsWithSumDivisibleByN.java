@@ -1,7 +1,7 @@
 package arrays;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4
@@ -22,14 +22,21 @@ import java.util.List;
 public class CountPairsWithSumDivisibleByN {
 
     private static final int[] a = {2, 2, 1, 7, 5, 3};
-    private static final int[] b = {2, 2, 1, 7, 5, 3};
+    private static Map<Integer, Integer> map = new LinkedHashMap<>();
 
     private static void countKdivPairs(int n) {
-        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
-            list.add(a[i] % n);
+            map.put(a[i], a[i] % n);
         }
-        System.out.println(list);
+        int count = 0;
+        for (int x : a) {
+            int mod = x % n;
+//            if (map.keySet().contains(5))){
+//                System.out.println("(" + x + "," + ")");
+//                count++;
+//            }
+        }
+        System.out.println(count);
     }
 
     public static void main(String[] args) {
