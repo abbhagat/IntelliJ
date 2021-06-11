@@ -6,9 +6,7 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.MessageSource;
+import org.springframework.context.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -16,7 +14,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, InitializingBean, DisposableBean {
+public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, InitializingBean, DisposableBean, ApplicationEventPublisherAware {
 
     private List<Point> points;
 
@@ -25,9 +23,13 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
 
     private ApplicationContext applicationContext;
 
+    private ApplicationEventPublisher applicationEventPublisher;
+
     public void draw() {
-        System.out.println(this.getMessageSource().getMessage("triangle.type", new Object[]{"Equilateral" , "Triangle"}, "Drawing Default Triangle", null));
+        System.out.println(this.getMessageSource().getMessage("triangle.type", new Object[]{"Equilateral", "Triangle"}, "Drawing Default Triangle", null));
         this.points.forEach(point -> System.out.println("Point (" + point.getX() + "," + point.getY() + ")"));
+        MyAppEvent myAppEvent = new MyAppEvent(this);
+        applicationEventPublisher.publishEvent(myAppEvent);
     }
 
     @Override
@@ -68,4 +70,8 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
         System.out.println("@PostConstruct");
     }
 
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
+    }
 }
