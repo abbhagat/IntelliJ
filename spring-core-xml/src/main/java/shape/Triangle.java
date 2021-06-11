@@ -26,7 +26,7 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
     private ApplicationContext applicationContext;
 
     public void draw() {
-        System.out.println(this.getMessageSource().getMessage("triangle.type", null, "Drawing Default Triangle", null));
+        System.out.println(this.getMessageSource().getMessage("triangle.type", new Object[]{"Equilateral" , "Triangle"}, "Drawing Default Triangle", null));
         this.points.forEach(point -> System.out.println("Point (" + point.getX() + "," + point.getY() + ")"));
     }
 

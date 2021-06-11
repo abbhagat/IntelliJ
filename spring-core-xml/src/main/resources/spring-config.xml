@@ -20,8 +20,8 @@
 
     <alias name="triangle" alias="Triangle"/>
 
-    <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <!--        <property name="basename" value="points"></property>-->  <!-- Used for a single property file name-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!--        <property name="basename" value="message"></property>-->  <!-- Used for a single property file name-->
         <property name="basenames">
             <list>
                 <value>message</value>

@@ -21,25 +21,27 @@ import java.util.Map;
 
 public class CountPairsWithSumDivisibleByN {
 
-    private static final int[] a = {2, 2, 1, 7, 5, 3};
+    //private static final int[] a = {2, 1, 7, 5, 3, 2};
+    private static final int[] a = {5, 9, 36, 74, 52, 31, 42};
     private static Map<Integer, Integer> map = new LinkedHashMap<>();
 
     private static void countKdivPairs(int n) {
         for (int i = 0; i < a.length; i++) {
-            map.put(a[i], a[i] % n);
+            map.put(i, a[i] % n);
         }
+        System.out.println(map);
         int count = 0;
         for (int x : a) {
             int mod = x % n;
-//            if (map.keySet().contains(5))){
-//                System.out.println("(" + x + "," + ")");
-//                count++;
-//            }
+            int num = n - mod;
+            if(map.containsValue(num)){
+                count++;
+            }
         }
         System.out.println(count);
     }
 
     public static void main(String[] args) {
-        countKdivPairs(4);
+        countKdivPairs(3);
     }
 }

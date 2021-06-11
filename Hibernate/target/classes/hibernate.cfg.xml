@@ -10,7 +10,7 @@
         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="connection.username">V705417</property>
         <property name="connection.password">V705417</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="show_sql">true</property>
@@ -27,9 +27,9 @@
         <!--        <mapping class="ManyToMany.UserDetails"></mapping>-->
         <!--        <mapping class="ManyToMany.Vehicles"></mapping>-->
 <!--        <mapping class="secondLevelCache.UserDetails"></mapping>-->
-        <mapping class="selectBeforeUpdate.UserDetails"></mapping>
-        <!--        <mapping class="attributeOverrides.UserDetails"></mapping>-->
-        <!--        <mapping class="attributeOverridesCollections.UserDetails"></mapping>-->
+<!--        <mapping class="selectBeforeUpdate.UserDetails"></mapping>-->
+<!--                <mapping class="attributeOverrides.UserDetails"></mapping>-->
+                <mapping class="attributeOverridesCollections.UserDetails"></mapping>
     </session-factory>
 
 </hibernate-configuration>

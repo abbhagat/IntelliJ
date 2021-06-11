@@ -22,7 +22,7 @@ public class Vehicle {
  * <p>
  * ID   dtype         Name      steeringHandle    steeringWheel
  * 1   Vehicle       Car         null               null
- * 2   TwoWheeler    Bike        BikeSteering
+ * 2   TwoWheeler    Bike        BikeSteering       null
  * 3   FourWheeler   Porsche     null               PorscheSteering
  * <p>
  * <p>
