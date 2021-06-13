@@ -4,7 +4,7 @@ package arrays;
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4
  * Output : 5
  * Explanation :
- * There are five pairs possible whose sum
+ * There are five pairs possible whose count
  * is divisible by '4' i.e., (2, 2),
  * (1, 7), (7, 5), (1, 3) and (5, 3)
  * <p>
@@ -26,14 +26,14 @@ public class CountPairsWithSumDivisibleByK {
         for (int x : a) {           // Count occurrences of all remainders
             freq[x % k]++;
         }
-        int sum = freq[0] * (freq[0] - 1) / 2;                // If both pairs are divisible by 'k'
+        int count = freq[0] * (freq[0] - 1) / 2;                // If both pairs are divisible by 'k'
         for (int i = 1; i <= k / 2 && i != (k - i); i++) {    // count for all i and (k-i) freq pairs
-            sum += freq[i] * freq[k - i];
+            count += freq[i] * freq[k - i];
         }
         if (k % 2 == 0) {                              // If k is even
-            sum += freq[k / 2] * (freq[k / 2] - 1) / 2;
+            count += freq[k / 2] * (freq[k / 2] - 1) / 2;
         }
-        return sum;
+        return count;
     }
 
     public static void main(String[] args) {

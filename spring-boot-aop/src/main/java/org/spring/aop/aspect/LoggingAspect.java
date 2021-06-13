@@ -19,7 +19,7 @@ public class LoggingAspect {
 
     @After("triangle())")
     public void afterLoggingAdvice() {
-        System.out.println("@Around Before TargetAfter");
+        System.out.println("@After");
     }
 
     @AfterReturning(pointcut = "triangle()", returning = "name")
