@@ -16,20 +16,20 @@ package recursion;
  */
 public class MinJumpsToReachEnd {
 
-    static int minJumps(int arr[], int l, int h) {
+    static int minJumps(int a[], int l, int h) {
         if (l == h) {   // Base case: when source and destination are same
             return 0;
         }
-        if (arr[l] == 0) {   // When nothing is reachable from the given source
-            return Integer.MAX_VALUE;
+        if (a[l] == 0) {   // When nothing is reachable from the given source
+            return -1;
         }
-        // Traverse through all the points reachable from arr[l]. Recursively get the minimum number of jumps
-        // needed to reach arr[h] from these reachable points.
+        // Traverse through all the points reachable from array. Recursively get the minimum number of jumps needed to reach arr[h] from these reachable points.
         int min = Integer.MAX_VALUE;
-        for (int i = l + 1; i <= h && i <= l + arr[l]; i++) {
-            int jumps = minJumps(arr, i, h);
-            if (jumps != Integer.MAX_VALUE && jumps + 1 < min)
+        for (int i = l + 1; i <= h && i <= l + a[l]; i++) {
+            int jumps = minJumps(a, i, h);
+            if (jumps != Integer.MAX_VALUE && jumps + 1 < min) {
                 min = jumps + 1;
+            }
         }
         return min;
     }
