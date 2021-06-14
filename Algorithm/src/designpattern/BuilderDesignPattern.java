@@ -9,9 +9,7 @@ import java.util.List;
 
 interface Item {
     String name();
-
     float price();
-
     Packing packing();
 }
 
