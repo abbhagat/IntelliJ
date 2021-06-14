@@ -53,9 +53,9 @@ public class LoggingAspect {
     public void withinTriangle() {
     }
 
-//    @Before("argsWithShapeParameter()")
-//    public void adviceForShapeArgs() {
-//        System.out.println("Args with Shape param called");
+//    @Before("argsWithShapeParameter(shape)")
+//    public void adviceForShapeArgs(Shape shape) {
+//        System.out.println("Args with Shape param called" + shape);
 //    }
 
     /*
