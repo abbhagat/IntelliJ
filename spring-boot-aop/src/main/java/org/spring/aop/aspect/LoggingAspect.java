@@ -1,5 +1,6 @@
 package org.spring.aop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -13,13 +14,13 @@ public class LoggingAspect {
     }
 
     @Before("triangle())")
-    public void beforeAdvice() {
-        System.out.println("@Before");
+    public void beforeAdvice(JoinPoint joinPoint) {
+        System.out.println("@Before" + joinPoint.getTarget());
     }
 
     @After("triangle())")
-    public void afterLoggingAdvice() {
-        System.out.println("@After");
+    public void afterLoggingAdvice(JoinPoint joinPoint) {
+        System.out.println("@After" + joinPoint.getTarget());
     }
 
     @AfterReturning(pointcut = "triangle()", returning = "name")

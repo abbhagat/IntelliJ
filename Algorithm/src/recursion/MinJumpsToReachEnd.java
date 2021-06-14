@@ -16,7 +16,7 @@ package recursion;
  */
 public class MinJumpsToReachEnd {
 
-    static int minJumps(int a[], int l, int h) {
+    private static int minJumps(int a[], int l, int h) {
         if (l == h) {   // Base case: when source and destination are same
             return 0;
         }
