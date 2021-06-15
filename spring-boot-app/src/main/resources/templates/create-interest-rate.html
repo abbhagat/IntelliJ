@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        <th:block th:text="${manageInterestRate}"/>
+    </title>
+</head>
+<body>
+<div><h1>Enter Interest Rate Details</h1><br/></div>
+<div>
+    <form th:action="@{/interestRate/saveInterestRate}" th:object="${interestRates}" method="post">
+
+        <label>Interest Rate</label> <input type="text" th:field="*{interestRate}" id="interestRate">
+        &emsp;&emsp;&emsp;&emsp;
+        <label>Months</label> <input type="text" th:field="*{months}" id="months">
+        &emsp;&emsp;&emsp;&emsp;
+        <label>Years</label> <input type="text" th:field="*{years}" id="email">
+
+        <label>Days</label> <input type="text" th:field="*{days}" id="phoneNumber">
+        <input th:type="submit" th:name="action" th:id="save" th:value="Save">&emsp;
+    </form>
+</div>
+</body>
+</html>

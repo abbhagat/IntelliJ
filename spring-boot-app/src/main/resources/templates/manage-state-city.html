@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<fieldset>
+    <head>
+        <style>
+            table {
+                width: 30%;
+            }
+
+            table td, table th {
+                border: 2px solid grey;
+            }
+
+            table th {
+                background: #eee;
+            }
+        </style>
+        <title>
+            <th:block th:text="${PAGE_TITLE}"/>
+        </title>
+        <div>
+            <h1>
+                <center>Manage State City</center>
+            </h1>
+            <br/>
+        </div>
+
+        <div class="row">
+            <form th:action="@{/stateCity/searchStateCity}" th:object="${stateCity}" method="post">
+                State: <input type="text" th:field="*{state}" id="state">&emsp;
+                City: <input type="text" th:field="*{city}" id="city">
+                &emsp;&emsp;&emsp;&emsp;
+                <input type="submit" value="Search"/>&emsp;
+                <input type="button" value="Clear" id="btnClear" onclick="clearSearch()"/><br/>
+            </form>
+        </div>
+    </head>
+    <body>
+    <br/><br/>
+    <form action="#" th:action="@{/stateCity/performAction}" th:object="${stateCityList}" method="post">
+        <div th:switch="${stateCityList}" class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 th:case="null">No State City Details</h2>
+                    <div th:case="*">
+                        <h2 class="my-5">State City Details</h2>
+                        <br/>
+                        <input type="submit" th:name="action" th:id="save" th:value="Save">&emsp;
+                        <input type="submit" th:name="action" th:id="create" th:value="Create">&emsp;
+                        <input type="submit" th:name="action" th:id="cancel" th:value="Cancel">&emsp;
+                        <input type="submit" th:name="action" th:id="export" th:value="Export">&emsp;
+                        <div style="height: 300px; overflow: auto">
+                            <table class="table table-striped table-responsive-md" th:border="3">
+                                <thead>
+                                <tr>
+                                    <th> SN</th>
+                                    <th> State</th>
+                                    <th> City</th>
+                                    <th> Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="stateCity, iteration : *{listOfStateCity}">
+                                    <td th:text="${iteration.index} + 1"></td>
+                                    <input th:type="hidden" th:id="id" th:field="*{listOfStateCity[__${iteration.index}__].stateCityID}">
+                                    <td><input th:field="*{listOfStateCity[__${iteration.index}__].state}"/></td>
+                                    <td><input th:field="*{listOfStateCity[__${iteration.index}__].city}"/></td>
+                                    <td>
+                                        <a th:href="@{/stateCity/deleteStateCity/{stateCityID}(stateCityID=*{listOfStateCity[__${iteration.index}__].stateCityID})}"
+                                           th:text="Delete"></a></td>
+                                    <td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </body>
+</fieldset>
+</html>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/stateCity/getAllStateCity}]]";
+    }
+
+</script>

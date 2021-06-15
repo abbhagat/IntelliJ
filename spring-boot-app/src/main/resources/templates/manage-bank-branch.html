@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <style>
+            table {
+                width: 30%;
+            }
+
+            table td, table th {
+                border: 2px solid grey;
+            }
+
+            table th {
+                background: #eee;
+            }
+        </style>
+        <title>
+            <th:block th:text="${PAGE_TITLE}"/>
+        </title>
+        <div>
+            <h1>
+                <center><th:block th:text="${PAGE_TITLE}"/></center>
+            </h1>
+            <br/>
+        </div>
+
+        <div class="row">
+            <form action="#" th:action="@{/bankBranch/searchBankBranch}" th:object="${bankBranch}" method="post">
+                <label>Branch Name </label> <input type="text" th:field="*{branchName}" th:id="branchName">&emsp;
+                <label>IFSC </label> <input type="text" th:field="*{ifscCode}" th:id="ifscCode">&emsp;
+                <label>MICR </label> <input type="text" th:field="*{micrCode}" th:id="micrCode">
+                <p></p><br/>
+                <label>Manager &emsp;</label> <input type="text" th:field="*{branchManager}" th:id="branchManager">&emsp;
+                <label>City</label><select th:field="*{stateCityID}">
+                    <option value=""></option>
+                    <option th:each="stateCity : ${stateCityList}"
+                            th:value="${stateCity.stateCityID}"
+                            th:utext="${stateCity.city}"/>
+                </select>
+                <label>Status </label> <input type="text" th:field="*{micrCode}" th:id="status">
+                &emsp;&emsp;&emsp;&emsp;<p></p><br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="submit" value="Search"/>&emsp;
+                <input type="reset" value="Clear" id="btnClear" onclick="clearSearch()"/><br/>
+            </form>
+        </div>
+    </head>
+    <body>
+    <br/><br/>
+    <form th:action="@{/bankBranch/performAction}" th:object="${bankBranchList}" method="post">
+        <div th:switch="${bankBranchList}" class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 th:case="null">No Branch Details</h2>
+                    <div th:case="*">
+                        <h2 class="my-5">Branch Details</h2>
+                        <br/>
+                        <input type="submit" th:name="action" th:id="save" th:value="Save">&emsp;
+                        <input type="submit" th:name="action" th:id="create" th:value="Create">&emsp;
+                        <input type="submit" th:name="action" th:id="cancel" th:value="Cancel">&emsp;
+                        <input type="submit" th:name="action" th:id="export" th:value="Export">&emsp;
+                        <div style="height: 300px; overflow: auto">
+                            <table class="table table-striped table-responsive-md" th:border="3" th:multiple="multiple">
+                                <thead>
+                                <tr>
+                                    <th> SN</th>
+                                    <th> Branch Name</th>
+                                    <th> Address</th>
+                                    <th> State City ID</th>
+                                    <th> Contact</th>
+                                    <th> IFSC</th>
+                                    <th> MICR</th>
+                                    <th> Branch Manager</th>
+                                    <th> Status</th>
+                                    <th> Start Date</th>
+                                    <th> Disable Date</th>
+                                    <th> Description</th>
+                                    <th> XML</th>
+                                    <th> Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="bankBranch, iteration : *{bankBranchList}">
+                                    <td th:text="${iteration.index} + 1"></td>
+                                    <input th:type="hidden" th:id="id" th:field="*{bankBranchList[__${iteration.index}__].branchID}">
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].branchName}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].address}"/></td>
+                                    <td>
+                                        <select th:field="*{bankBranchList[__${iteration.index}__].stateCityID}">
+                                            <option value="0">--</option>
+                                            <option th:each="stateCity : ${stateCityList}"
+                                                    th:value="${stateCity.stateCityID}"
+                                                    th:utext="${stateCity.city}"/>
+                                        </select>
+                                    </td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].phoneNumber}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].ifscCode}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].micrCode}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].branchManager}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].status}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].startDate}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].disableDate}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].description}"/></td>
+                                    <td><input th:field="*{bankBranchList[__${iteration.index}__].xml}"/></td>
+                                    <td>
+                                        <a th:href="@{/bankBranch/deleteBankBranch/{branchID}(branchID=*{bankBranchList[__${iteration.index}__].branchID})}" th:text="Delete"></a></td>
+                                    <td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </body>
+</html>
+
+<script type="text/javascript">
+    function clearSearch() {
+        document.getElementById("branchName").reset();
+        document.getElementById("ifscCode").reset();
+        document.getElementById("micrCode").reset();
+        document.getElementById("branchManager").reset();
+        document.getElementById("stateCityID").reset();
+        document.getElementById("status").reset();
+    }
+
+</script>

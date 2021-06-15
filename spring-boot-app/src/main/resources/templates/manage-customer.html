@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>
+        <th:block th:text="${PAGE_TITLE}"/>
+    </title>
+
+    <div>
+        <h2>
+            <center>
+                <th:block th:text="${PAGE_HEADER}"/>
+            </center>
+        </h2>
+    </div>
+
+    <div class="row">
+        <form th:action="@{/customer/searchCustomer}" th:object="${customer}" method="post">
+            <fieldset>
+                <h3><p>Search</p></h3>
+                First Name <input type="text" th:field="*{firstName}" id="firstName">&emsp;&emsp;
+                Last Name <input type="text" th:field="*{lastName}" id="lastName">&emsp;&emsp;
+                Date of Birth &nbsp; <input type="date" th:field="*{dob}" id="dob">&emsp;&emsp;
+                Phone Number <input type="text" th:field="*{phoneNumber}" id="phoneNumber">&emsp;&emsp;
+                Email&emsp;&emsp;<input type="text" th:field="*{email}" id="email">
+                <p></p>
+                Address &emsp;&ensp;<input type="text" th:field="*{email}" id="address">&emsp;&emsp;
+                Pincode <input type="text" th:field="*{pinCode}" id="pinCode">&ensp;&ensp;
+                <label>Marital Status</label>
+                <select class="form-control" th:field="*{maritalStatus}">
+                    <option value="">Select</option>
+                    <option value="Married">Married</option>
+                    <option value="Bachelor">Bachelor</option>
+                </select>&emsp;&emsp;&emsp;&emsp;
+                <label>Gender</label>
+                <select class="form-control" th:field="*{gender}">
+                    <option value="">Select</option>
+                    <option value="Married">Male</option>
+                    <option value="Bachelor">Female</option>
+                </select>&emsp;&emsp;&emsp;&emsp;
+                <label>City</label>
+                <select th:field="*{stateCityID}">
+                    <option value="Select">Select</option>
+                    <option th:each="stateCity : ${stateCityList}"
+                            th:value="${stateCity.stateCityID}"
+                            th:utext="${stateCity.city}"/>
+                </select>
+                <p></p>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="submit" value="Search"/>&emsp;
+                <input type="button" value="Clear" id="btnClear" onclick="clearSearch()"/><br/><br/>
+            </fieldset>
+        </form>
+    </div>
+</head>
+<p></p>
+<br/>
+<body>
+<fieldset>
+    <form action="#" th:action="@{/customer/performAction}" th:object="${cutomerList}" method="post">
+        <h3>Customer Details</h3>
+        <br/>
+        <input type="submit" th:name="action" th:id="create" th:value="Create">&emsp;
+        <input type="submit" th:name="action" th:id="cancel" th:value="Cancel">&emsp;
+        <input type="submit" th:name="action" th:id="email" th:value="Email">
+        <p></p>
+        <div style="height: 300px; overflow: auto">
+            <table class="table table-striped table-responsive-md" th:border="3">
+                <thead>
+                <tr>
+                    <th> Customer ID</th>
+                    <th> First Name</th>
+                    <th> Middle Name</th>
+                    <th> Last Name</th>
+                    <th> Date of Birth</th>
+                    <th> Gender</th>
+                    <th> Phone</th>
+                    <th> Email</th>
+                    <th> Marital Status</th>
+                    <th> Father Name</th>
+                    <th> Mother Name</th>
+                    <th> Present Address</th>
+                    <th> Permanent Address</th>
+                    <th> State City</th>
+                    <th> Pin Code</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cust,index : ${cutomerList}" th:style="${index.odd}? 'font-weight: normal;'">
+                    <td th:align="center"><a th:href="@{/customer/editCustomer/{customerID}(customerID=${cust.customerID})}" th:text="${cust.customerID}"/></td>
+                    <td th:align="center" th:text="${cust.firstName}"></td>
+                    <td th:align="center" th:text="${cust.middleName}"></td>
+                    <td th:align="center" th:text="${cust.lastName}"></td>
+                    <td th:align="center" th:text="${#dates.format(cust.dob, 'dd-MMM-yyyy')}"></td>
+                    <td th:align="center" th:text="${cust.gender}"></td>
+                    <td th:align="center" th:text="${cust.phoneNumber}"></td>
+                    <td th:align="center" th:text="${cust.email}"></td>
+                    <td th:align="center" th:text="${cust.maritalStatus}"></td>
+                    <td th:align="center" th:text="${cust.fatherName}"></td>
+                    <td th:align="center" th:text="${cust.motherName}"></td>
+                    <td th:align="center" th:text="${cust.presentAddress}"></td>
+                    <td th:align="center" th:text="${cust.permanentAddress}"></td>
+                    <td th:align="center" th:text="${cust.stateCityID}"></td>
+                    <td th:align="center" th:text="${cust.pinCode}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</fieldset>
+</body>
+</html>
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/customer/getAllCustomer}]]";
+    }
+</script>

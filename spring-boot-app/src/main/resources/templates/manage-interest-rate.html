@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<table th:border="3">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Rate</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Days</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="interestRate : ${interestRates}">
+        <td th:text="${interestRate.interestRateID}"></td>
+        <td th:text="${interestRate.interestRate}"></td>
+        <td th:text="${interestRate.months}"></td>
+        <td th:text="${interestRate.years}"></td>
+        <td th:text="${interestRate.days}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
