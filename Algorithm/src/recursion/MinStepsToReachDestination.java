@@ -25,7 +25,7 @@ public class MinStepsToReachDestination {
     /*    Function to count number of steps required to reach a destination
           source -> source vertex
           step -> value of last step taken
-         dest -> destination vertex
+          dest -> destination vertex
     */
     private static int steps(int source, int step, int dest) {
         if (Math.abs(source) > dest) {  // base cases
