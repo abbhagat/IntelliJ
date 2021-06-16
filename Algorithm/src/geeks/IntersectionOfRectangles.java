@@ -1,4 +1,4 @@
-package recursion;
+package geeks;
 
 class Point {
     int x, y;

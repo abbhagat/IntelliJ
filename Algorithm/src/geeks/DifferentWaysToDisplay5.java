@@ -1,4 +1,4 @@
-package recursion;
+package geeks;
 
 public class DifferentWaysToDisplay5 {
 

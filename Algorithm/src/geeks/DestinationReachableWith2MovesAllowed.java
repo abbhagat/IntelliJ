@@ -1,4 +1,4 @@
-package recursion;
+package geeks;
 
 /*
 Given coordinates of a source point (x1, y1) determine if it is possible to reach the destination point (x2, y2).
