@@ -2,20 +2,16 @@ package geeks;
 
 /**
  * Given an integer N, the task is to count the values of K ( where 1 ≤ K≤ N ), such that 1< GCD(K, N) < K.
- * <p>
  * Examples:
- * <p>
  * Input: N = 10
  * Output: 3
  * Explanation: The values of K which satisfies the given conditions are:
- * <p>
  * K = 4, gcd(4, 10) = 2
  * K = 6, gcd(6, 10) = 2
  * K = 8, gcd(8, 10) = 2
  * Input: N = 15
  * Output: 4
  * Explanation: The values of K which satisfies the given conditions are:
- * <p>
  * K = 6, gcd(6, 15) = 3
  * K = 9, gcd(9, 15) = 3
  * K = 10, gcd(10, 15) = 5
