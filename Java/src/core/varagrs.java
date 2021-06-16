@@ -26,6 +26,10 @@ public class varagrs {
         System.out.println("Primitive 1D array args");
     }
 
+//    public static void display(int[] x) {
+//        System.out.println("Primitive 1D array args");
+//    }
+
     // Array of 2D arrays
     public static void display(int[][]... x) {
         System.out.println("Primitive 2D array args");

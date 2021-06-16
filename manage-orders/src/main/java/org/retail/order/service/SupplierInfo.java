@@ -21,6 +21,11 @@ public class SupplierInfo {
                          @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
                          @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
                          @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
+            },
+            threadPoolKey = "supplierThreadPoolKey",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "20"),
+                    @HystrixProperty(name = "maxQueueSize", value = "10"),
             }
     )
     public Supplier getSupplier(OrderItems orderItems) {

@@ -57,6 +57,6 @@ public class StateCity implements Serializable {
     @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
     private Date lastModifiedDate;
 
-    @Column(name = "VERSION", updatable = false)
+    @Column(name = "VERSION")
     private Integer version;
 }
