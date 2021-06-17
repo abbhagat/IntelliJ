@@ -6,8 +6,7 @@ public class MoveAllPositiveToEndAndNegativeToBeginning {
 
     private static int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
 
-    private static void move() {
-        int low = 0, high = a.length - 1;
+    private static void move(int low, int high) {
         while (low <= high) {
             if (a[low] < 0 && a[high] < 0) {
                 low++;
@@ -28,7 +27,7 @@ public class MoveAllPositiveToEndAndNegativeToBeginning {
 
     public static void main(String[] args) {
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
-        move();
+        move(0, a.length - 1);
         System.out.println();
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
