@@ -34,7 +34,7 @@ public class TrappingRainWater {
                 if (a[high] > right_max) {
                     right_max = a[high];  // update right maximum
                 } else {
-                    result += right_max - a[high];
+                    result += right_max - a[high];  // water on curr element = max - curr
                 }
                 high--;
             }
