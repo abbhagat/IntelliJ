@@ -7,13 +7,13 @@ public class OperatorDemo {
         ++x;
         x *= x++ + x + ++x;
         System.out.println(x);
-        String s;
-        s = new String("Java");
+        String s = new String("Java");
         String t = s.intern();
         System.out.println(t == s);
         System.out.println(t.equals(s));
         System.out.println(s.substring(1, 4));
         System.out.println(s.equals(null));
+        System.out.println(null == null);
         // System.out.println(null.equals(null));
     }
 }
