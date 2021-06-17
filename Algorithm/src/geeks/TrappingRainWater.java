@@ -1,46 +1,48 @@
 package geeks;
 
 /*
-Approach: At every index, The amount of rainwater stored is the difference between current index height and a minimum of left max height and right max height
-Algorithm :
-Take two pointers low and high. Initialize low to the starting index 0 and high to the last index n-1
-Since low is the first element, left_max would be 0, and right max for high would be 0
-While low <= high , iterate the array. We have two possible conditions
-Condition1 : left_max <= right max
-Consider Element at index low
-Since we have traversed all elements to the left of low, left_max is known
-For the right max of low, We can say that the right max would  always be >= current r_max here
-So, min(left_max,right_max) would always equal to left_max in this case
-Increment low
-Condition2 : left_max >  right max
-Consider Element at index high
-Since we have traversed all elements to the right of high, right_max is known
-For the left max of low, We can say that the left max would  always be >= current l_max here
-So, min(left_max,right_max) would always equal to right_max in this case decrement high
-Time Complexity: O(n)
-Auxiliary Space: O(1)
+Approach: The idea is to traverse every array element and find the highest bars on the left and right sides.
+Take the smaller of two heights. The difference between the smaller height and height of the current element
+is the amount of water that can be stored in this array element.
+Algorithm:
+Traverse the array from start to end.
+For every element, traverse the array from start to that index and find the maximum height (a) and traverse the array from the current index to end, and find the maximum height (b).
+The amount of water that will be stored in this column is min(a,b) – array[i], add this value to the total amount of water stored
+Print the total amount of water stored.
+
+Instead of maintaining two arrays of size n for storing the left and a right max of each element,
+maintain two variables to store the maximum till that point.
+Since water trapped at any element = min(max_left, max_right) – arr[i].
+Calculate water trapped on smaller elements out of A[low] and A[high] first and move the pointers till low doesn’t cross high.
  */
 public class TrappingRainWater {
 
-    private static int maxWater(int[] a, int low, int high) {
-        int l_max = 0, r_max = 0;     // To store Left max and high max for two pointers low and high
-        int result = 0;              // To store the total amount of rain water trapped
+    private static int[] a = {3, 0, 2, 0, 4};
+
+    private static int findWater(int low, int high) {
+        int result = 0;
+        int left_max = 0, right_max = 0; // maximum element on left and right
         while (low <= high) {
-            if (l_max <= r_max) {
-                result += Math.max(0, l_max - a[low]);  // Add the difference between current value and low max at index low
-                l_max = Math.max(l_max, a[low]);  // Update low max
-                low++;  // Update low pointer
-            } else {  // We need check for minimum of low and high max for each element
-                result += Math.max(0, r_max - a[high]);  // Add the difference between current value and high max at index high
-                r_max = Math.max(r_max, a[high]);  // Update high max
-                high--;  // Update high pointer
+            if (a[low] < a[high]) {
+                if (a[low] > left_max) {
+                    left_max = a[low];  // update max in left
+                } else {
+                    result += left_max - a[low];  // water on curr element = max - curr
+                }
+                low++;
+            } else {
+                if (a[high] > right_max) {
+                    right_max = a[high];  // update right maximum
+                } else {
+                    result += right_max - a[high];
+                }
+                high--;
             }
         }
         return result;
     }
 
     public static void main(String[] args) {
-        int[] a = {3, 0, 2, 0, 4};
-        System.out.print(maxWater(a, 0, a.length - 1));
+        System.out.print(findWater(0, a.length - 1));
     }
 }
