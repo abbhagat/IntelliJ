@@ -40,7 +40,7 @@ public class MaxProfitBuyAndSellSharesTwice {
         int profit = sellVal - buyVal;
         if (i == a.length) {
             System.out.println(profit);
-        } else if (i + 1 == a.length - 1 && a[a.length - 1] - buyVal > 0) {
+        } else if (i + 1 == a.length - 1 && a[a.length - 1] > buyVal) {
             System.out.println(a[a.length - 1] - buyVal);
         } else {
             int max = a[i], min = a[i];
