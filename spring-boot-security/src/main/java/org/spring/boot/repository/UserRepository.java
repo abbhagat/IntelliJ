@@ -1,5 +1,6 @@
-package org.spring.boot.security;
+package org.spring.boot.repository;
 
+import org.spring.boot.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    Optional<User> findUserDetailsByUserName(String userName);
+    Optional<User> findByUserName(String userName);
 }
