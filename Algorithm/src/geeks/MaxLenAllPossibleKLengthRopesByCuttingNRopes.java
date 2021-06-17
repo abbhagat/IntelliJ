@@ -24,7 +24,7 @@ Initialize 3 variables, say low as 1, high as the maximum value of array arr[], 
 to store the left boundary right boundary for the binary search and to store the maximum possible length of K ropes.
 Iterate until low is less than high and perform the following steps:
 Find the mid-value of the range [low, high] and store it in a variable say mid.
-Traverse the array arr[] and find the count of ropes of length mid that can be obtained by cutting the ropes and store it in a variable say, count.
+Traverse the array a[] and find the count of ropes of length mid that can be obtained by cutting the ropes and store it in a variable say, count.
 If the value of count is at least K, then update the value of mid as result and update the value of low as (mid + 1).
 Otherwise, update the value of high as (mid – 1).
 After completing the steps, print the value of result as the result.
@@ -36,7 +36,7 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
     private static int maximumSize(Integer[] a, int k) {
         int low = 1;
         int high = Collections.max(Arrays.asList(a));  // Stores the left and the right boundaries
-        int result = -1; // Stores the maximum length of rope possible
+        int result = 0; // Stores the maximum length of rope possible
         while (low <= high) {  // Iterate while low is less than or equal to high
             int mid = (low + high) / 2;  // Stores the mid value of the range [low, high]
             int count = 0;   // Stores the count of ropes of length mid
@@ -54,8 +54,8 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {1, 2, 3, 4, 9};
-        int K = 6;
-        System.out.println(maximumSize(a, K));
+        Integer[] a = {5, 2, 7, 4, 9};
+        int k = 5;
+        System.out.println(maximumSize(a, k));
     }
 }
