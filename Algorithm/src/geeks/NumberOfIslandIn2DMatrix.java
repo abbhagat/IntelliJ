@@ -1,4 +1,4 @@
-package graphs;
+package geeks;
 
 /**
  * Input : mat[][] = {{1, 1, 0, 0, 0},
