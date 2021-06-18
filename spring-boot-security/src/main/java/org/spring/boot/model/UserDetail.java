@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserDetail implements UserDetails {
@@ -14,7 +13,7 @@ public class UserDetail implements UserDetails {
     private String userName;
     private String password;
     private boolean active;
-    private List<GrantedAuthority> authorities;
+    private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetail() {
 
