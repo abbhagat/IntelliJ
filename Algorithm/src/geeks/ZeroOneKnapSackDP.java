@@ -3,15 +3,18 @@ package geeks;
 import static java.lang.Math.max;
 
 /**
- * Approach: In the Dynamic programming we will work considering the same cases as mentioned in the recursive approach. In a DP[][] table let’s consider all the possible weights from ‘1’ to ‘W’ as the columns and weights that can be kept as the rows.
- * The state DP[i][j] will denote maximum value of ‘j-weight’ considering all values from ‘1 to ith’. So if we consider ‘wi’ (weight in ‘ith’ row) we can fill it in all columns which have ‘weight values > wi’. Now two possibilities can take place:
- * <p>
- * Fill ‘wi’ in the given column.
- * Do not fill ‘wi’ in the given column.
- * Now we have to take a maximum of these two possibilities, formally if we do not fill ‘ith’ weight in ‘jth’ column then DP[i][j] state will be same as DP[i-1][j] but if we fill the weight, DP[i][j] will be equal to the value of ‘wi’+ value of the column weighing ‘j-wi’ in the previous row. So we take the maximum of these two possibilities to fill the current state. This visualization will make the concept clear:
- * <p>
- * <p>
- * <p>
+ * Approach: In the Dynamic programming we will work considering the same cases as mentioned in the recursive approach.
+ * In a DP[][] table let’s consider all the possible weights from ‘1’ to ‘W’ as the columns and weights that can be kept as the rows.
+ * The state DP[i][j] will denote maximum value of ‘j-weight’ considering all values from ‘1 to ith’.
+ * So if we consider ‘wi’ (weight in ‘ith’ row) we can fill it in all columns which have ‘weight values > wi’.
+ * Now two possibilities can take place:
+ * 1. Fill ‘wi’ in the given column. 2. Do not fill ‘wi’ in the given column.
+ * Now we have to take a maximum of these two possibilities,
+ * formally if we do not fill ‘ith’ weight in ‘jth’ column then DP[i][j]
+ * state will be same as DP[i-1][j] but if we fill the weight, DP[i][j]
+ * will be equal to the value of ‘wi’+ value of the column weighing ‘j-wi’ in the previous row.
+ * So we take the maximum of these two possibilities to fill the current state.
+ * This visualization will make the concept clear:
  * Let weight elements = {1, 2, 3}
  * Let weight values = {10, 15, 40}
  * Capacity=6
@@ -84,9 +87,9 @@ public class ZeroOneKnapSackDP {
     }
 
     public static void main(String args[]) {
-        int val[] = new int[]{60, 100, 120};
-        int wt[] = new int[]{10, 20, 30};
-        int W = 50;
+        int val[] = new int[]{10, 15, 40};
+        int wt[] = new int[]{1, 2, 3};
+        int W = 6;
         int n = val.length;
         System.out.println(knapSack(W, wt, val, n));
     }
