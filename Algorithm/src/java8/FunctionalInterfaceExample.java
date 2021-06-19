@@ -41,6 +41,7 @@ public class FunctionalInterfaceExample {
 
     public static void main(String[] args) {
         List<String> list = Arrays.asList("Java ", "is ", "an ", "OOP.");
+        I.isNull("ABC");
         I i = s -> s.length();
         for (String s : list) {
             System.out.print(i.getLength(s));
