@@ -1,5 +1,7 @@
 package linkedlist;
 
+//Time Complexity:  Since we are traversing through the two lists fully.
+// So, the time complexity is O(m+n) where m and n are the lengths of the two lists to be merged.
 public class MergeTwoSortedList {
 
     public static Node mergeTwoLists(Node a, Node b) {
