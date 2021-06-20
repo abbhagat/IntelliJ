@@ -16,20 +16,22 @@ public class SecondLevelCache {
 
     public static void main(String[] args) {
         Session session = sessionFactory.openSession();
+        session.beginTransaction();
         session.get(UserDetails.class, 1);
         Query query1 = session.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class).setCacheable(true).setCacheRegion("USER1");
         query1.setParameter("userID", 1);
         query1.setParameter("userName", "V705417");
         query1.getResultList();
-        //session.merge(session.get(UserDetails.class,1));
+        session.getTransaction().commit();
         session.close();
 
-        session = sessionFactory.openSession();
-        session.get(UserDetails.class, 1);
-        Query query2 = session.createQuery("from UserDetails", UserDetails.class).setCacheable(true).setCacheRegion("USER1");
+        Session session2 = sessionFactory.openSession();
+        session2.beginTransaction();
+        session2.get(UserDetails.class, 1);
+        Query query2 = session2.createQuery("from UserDetails", UserDetails.class).setCacheable(true).setCacheRegion("USER1");
         query2.getResultList();
-        session.close();
-        //System.out.println(sessionFactory.getStatistics());
+        session2.getTransaction().commit();
+        session2.close();
 
         session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -44,7 +46,6 @@ public class SecondLevelCache {
         System.out.println(userDetails);
         transaction.commit();
         session.close();
-
 
         session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(UserDetails.class).addOrder(Order.asc("userID"));
