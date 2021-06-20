@@ -8,7 +8,8 @@ import static java.lang.Math.max;
  * The state DP[i][j] will denote maximum value of ‘j-weight’ considering all values from ‘1 to ith’.
  * So if we consider ‘wi’ (weight in ‘ith’ row) we can fill it in all columns which have ‘weight values > wi’.
  * Now two possibilities can take place:
- * 1. Fill ‘wi’ in the given column. 2. Do not fill ‘wi’ in the given column.
+ * 1. Fill ‘wi’ in the given column.
+ * 2. Do not fill ‘wi’ in the given column.
  * Now we have to take a maximum of these two possibilities,
  * formally if we do not fill ‘ith’ weight in ‘jth’ column then DP[i][j]
  * state will be same as DP[i-1][j] but if we fill the weight, DP[i][j]
@@ -18,17 +19,11 @@ import static java.lang.Math.max;
  * Let weight elements = {1, 2, 3}
  * Let weight values = {10, 15, 40}
  * Capacity=6
- * <p>
  * 0   1   2   3   4   5   6
- * <p>
  * 0  0   0   0   0   0   0   0
- * <p>
  * 1  0  10  10  10  10  10  10
- * <p>
  * 2  0  10  15  25  25  25  25
- * <p>
  * 3  0
- * <p>
  * Explanation:
  * For filling 'weight = 2' we come
  * across 'j = 3' in which
@@ -70,10 +65,9 @@ import static java.lang.Math.max;
 public class ZeroOneKnapSackDP {
 
     private static int knapSack(int W, int wt[], int val[], int n) {
-        int i, w;
         int K[][] = new int[n + 1][W + 1];
-        for (i = 0; i <= n; i++) {
-            for (w = 0; w <= W; w++) {
+        for (int i = 0; i <= n; i++) {
+            for (int w = 0; w <= W; w++) {
                 if (i == 0 || w == 0) {
                     K[i][w] = 0;
                 } else if (wt[i - 1] <= w) {
