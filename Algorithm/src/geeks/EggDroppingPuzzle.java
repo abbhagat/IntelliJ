@@ -36,7 +36,7 @@ We take worst case possibility for surety, so 1+max(1, 0)=2.
 The final answer is min(1st, 2nd, 3rd….., kth floor)
 So answer here is ‘2’.
  */
-public class EggDroppingPuzzel {
+public class EggDroppingPuzzle {
 
     private static int eggDrop(int n, int k) {
         if (k == 1 || k == 0) {  // If there are no floors, then no trials needed or if there is one floor only one trial needed
