@@ -10,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
+import javax.persistence.Version;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -31,7 +32,7 @@ public class Uom implements Serializable {
     @Column(name = "UOM_ID")
     private Long uomID;
 
-    @Column(name = "UNIT_OF_MEASURE", nullable = false, updatable = true)
+    @Column(name = "UNIT_OF_MEASURE", nullable = false)
     private String uom;
 
     @Column(name = "STATUS")
@@ -57,10 +58,8 @@ public class Uom implements Serializable {
     @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
     private Date lastModifiedDate;
 
-    @Column(name = "VERSION", updatable = false)
+    @Version
+    @Column(name = "VERSION")
     private Integer version;
 
-    public void setVersion(Integer version) {
-        this.version = null == version ? 1 : version + 1;
-    }
 }
