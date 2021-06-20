@@ -1,0 +1,57 @@
+There are two types of locking in Hibernate.
+
+1. Optimistic  Locking  -> Based on Version Column of Database
+2. Pessimistic Locking  -> Based on Read Lock which will prevent Write Operation.
+
+Example :-
+
+User A reads his account details balance as Rs 100 on Net Banking UI
+Meanwhile User B also opens the User A account details on NetBanking UI and see Rs100.
+
+Now User B updates the Balance to Rs 20 and commits it to the database.
+But User A still sees the balance on UI as Rs 100 and he goes ahead and tries to transfer Rs 50 to User C.
+Here User A is not aware that a parallel transaction has taken place due to which his account balace was Rs 20
+and therefore his transaction of Rs 50 failed.
+
+To prevent this we can go for either Optimistic Locking or Pessimistic Locking.
+
+In case of Pessimistic Locking when User A reads his balance from account he acquires a READ Lock on his account row.
+Same way when User B reads User A balance from account he acquires a READ Lock on his account row.
+
+Now since both User has acquired read lock individually none can do an update on the row unless the lock is released
+by either User. This is called pessimistic locking where User is not aware of the parallel transaction taking place.
+
+In case of Optimistic Locking there is a version column in the database table which is used to prevent the conflict.
+When User A reads his balance from account he see the account balance as Rs 100 with Version 1.
+When User B reads User A balance from account he see the account balance as Rs 100 with Version 1.
+Now User B updates the Balance to Rs 20 and commits it to the database. As soon as the transaction is commited the balance changes to Rs20 and Version 2.
+Now when User A tries to make a transaction no record will be updated since the version is changed to 2 and Hibernate will throw OptimisticLockException.
+
+Pessimistic Locking in Hibernate can be acquired by LockMode class.
+The LockMode class provides the following set of locks, which can be obtained in a Hibernate application:
+
+LockMode.WRITE: This lock is obtained when Hibernate updates or inserts a new row.
+                LockMode.WRITE is an internal mode (default) and is not specified in the application
+                because it is obtained automatically when a new row is inserted to the database by the framework.
+
+LockMode.UPGRADE: This lock is obtained when a user makes an explicit request using SELECT .. FOR UPDATE.
+                  This lock is valid only on databases that support the SELECT .. FOR UPDATE SQL syntax.
+
+LockMode.UPGRADE_NOWAIT: This lock is acquired when a user makes an explicit request using SELECT. . FOR UPDATE NOWAIT, which is supported only by Oracle.
+
+LockMode.READ: This lock is obtained automatically when the framework reads the data under Repeatable Read or Serializable Isolation mode.
+               A version check is performed to compare the version number of the object in memory to the record in the database.
+               This lock can be acquired explicitly by invoking Hibernate APIs (more on this shortly).
+
+LockMode.NONE: This represents the absence of a lock. At the end of each transaction objects attain this lock mode.
+
+
+The user can acquire locks explicitly by invoking one of the following Hibernate API:
+
+Session.load(): This method is invoked by specifying the locking mode as UPGRADE or UPDATE_NOWAIT .
+                If the object is not loaded by session, then SELECT .. FOR UPDATE is executed to load the object. If the object is loaded with a less restrictive lock, then the framework invokes lock() for that object.
+
+Session.lock(): This method performs a version number check when the lock mode is READ, UPGRADE or UPGRADE_NOWAIT.
+                When the lock mode is UPGRADE or UPGRADE_NOWAIT, the SELECT .. FOR UPDATE statement is used.
+
+Query.setLockMode(): This method is used to set the lock mode for the object specified in the FROM clause of the Query string.
