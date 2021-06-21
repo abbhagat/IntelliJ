@@ -1,7 +1,6 @@
 package arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MaxArrayGivenSum {
@@ -9,7 +8,7 @@ public class MaxArrayGivenSum {
     public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum) {
 
         if (curSum == givenSum) {
-            System.out.println(Arrays.toString(al.toArray()));
+            System.out.println(al);
         }
 
         if (curSum > givenSum) {
@@ -26,8 +25,8 @@ public class MaxArrayGivenSum {
     }
 
     public static void main(String[] args) {
-        int[] a = {0, 15, -2, 2, -8, 1, 7, 10, 23};
-        int givenSum = 10;
+        int[] a = {1, 2, 3};
+        int givenSum = 3;
         int curSum = 0;
         combinationForSum(a, 0, new ArrayList<>(), givenSum, curSum);
     }
