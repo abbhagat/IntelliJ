@@ -26,7 +26,7 @@ Therefore,Total ways = (consonantCount! / duplicateConsonant!) * C(consonantCoun
 public class StringPermutationWithNoTwoAdjacentVowels {
 
     private static int factorial(int n) {
-        return n == 1 ? 1 : n * factorial(n - 1);
+        return n == 0 ? 1 : n * factorial(n - 1);
     }
 
     private static int ncr(int n, int r) {  // Function to find c(n, r)
