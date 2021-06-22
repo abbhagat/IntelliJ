@@ -1,5 +1,6 @@
 package org.retail.product.model.product;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "PRODUCT")
 @EntityListeners(AuditingEntityListener.class)
 public class Product implements Serializable {
@@ -55,26 +57,27 @@ public class Product implements Serializable {
     private String productCategory;
 
     @CreatedBy
-    @Column(name = "CREATED_BY", updatable = false)
+    @Column(name = "CREATED_BY")
     private String createdBy;
 
-    @Column(name = "CREATED_DATE", updatable = false)
+    @Column(name = "CREATED_DATE")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd-MMM-yyyy")
     @CreatedDate
     private Date createdDate;
 
     @LastModifiedBy
-    @Column(name = "LAST_MODIFIED_BY", updatable = false)
+    @Column(name = "LAST_MODIFIED_BY")
     private String lastModifiedBy;
 
     @LastModifiedDate
     @Temporal(TemporalType.DATE)
-    @Column(name = "LAST_MODIFIED_DATE", updatable = false)
+    @Column(name = "LAST_MODIFIED_DATE")
     @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
     private Date lastModifiedDate;
 
-    @Column(name = "VERSION", updatable = false)
+    @Version
+    @Column(name = "VERSION")
     private Integer version;
 
 }

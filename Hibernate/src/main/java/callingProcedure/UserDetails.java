@@ -1,14 +1,20 @@
 package callingProcedure;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "USER_DETAILS")
 @NamedNativeQueries(
-        @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userdId,:userName)", resultClass = UserDetails.class)
+        @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userId,:userName)", resultClass = UserDetails.class)
 )
 public class UserDetails {
 
