@@ -26,6 +26,7 @@ public class Main {
 
         transaction.commit();
         session.close();
+
         userDetailsList.forEach(userDetails -> System.out.println(userDetails.getUserId() + "\t" + userDetails.getName()));
         userDetailsList1.forEach(userDetails -> System.out.println(userDetails.getUserId() + "\t" + userDetails.getName()));
     }
