@@ -11,7 +11,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
-        <property name="show_sql">true</property>
+        <property name="hibernate.show_sql">true</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.cache.use_second_level_cache">true</property>

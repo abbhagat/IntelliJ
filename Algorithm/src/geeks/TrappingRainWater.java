@@ -18,24 +18,22 @@ Calculate water trapped on smaller elements out of A[low] and A[high] first and 
  */
 public class TrappingRainWater {
 
-    private static int[] a = {3, 0, 2, 0, 4};
-
-    private static int findWater(int low, int high) {
+    private static int findWater(int[] a, int low, int high) {
         int result = 0;
-        int left_max = 0, right_max = 0; // maximum element on left and right
+        int max_left = 0, max_right = 0; // maximum element on left and right
         while (low <= high) {
             if (a[low] < a[high]) {
-                if (a[low] > left_max) {
-                    left_max = a[low];  // update max in left
+                if (max_left < a[low]) {
+                    max_left = a[low];  // update max in left
                 } else {
-                    result += left_max - a[low];  // water on curr element = max - curr
+                    result += max_left - a[low];  // water on curr element = max - curr
                 }
                 low++;
             } else {
-                if (a[high] > right_max) {
-                    right_max = a[high];  // update right maximum
+                if (max_right < a[high]) {
+                    max_right = a[high];  // update right maximum
                 } else {
-                    result += right_max - a[high];  // water on curr element = max - curr
+                    result += max_right - a[high];  // water on curr element = max - curr
                 }
                 high--;
             }
@@ -44,6 +42,7 @@ public class TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        System.out.print(findWater(0, a.length - 1));
+        int[] a = new int[]{3, 0, 2, 0, 4};
+        System.out.print(findWater(a, 0, a.length - 1));
     }
 }
