@@ -2,7 +2,7 @@ package geeks;
 
 public class ToBinaryFromDecimal {
 
-    static String toBinary(int n) {
+    public static String toBinary(int n) {
         String s = "";
         while (n != 0) {
             s += n % 2;
