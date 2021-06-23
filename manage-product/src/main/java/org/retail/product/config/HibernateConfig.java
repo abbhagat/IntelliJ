@@ -6,17 +6,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableTransactionManagement
 public class HibernateConfig {
 
     @Autowired
     private Environment env;
 
-    @Bean
+    @Bean(name = {"entityManagerFactory", "sessionFactory"})
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -27,7 +29,7 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource ds = new DriverManagerDataSource ();
+        DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(env.getProperty("datasource.driver-class-name"));
         ds.setUrl(env.getProperty("datasource.url"));
         ds.setUsername(env.getProperty("datasource.username"));
@@ -42,4 +44,5 @@ public class HibernateConfig {
         hibernate.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         return hibernate;
     }
+
 }

@@ -25,7 +25,6 @@ public class UomController {
     @GetMapping(value = "/getAllUoms", produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<Uom> getAllUoms() {
-        //em = sessionFactory.createEntityManager();
         return service.getAllUoms();
     }
 
