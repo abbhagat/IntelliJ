@@ -1,14 +1,19 @@
 package singleTableStrategy;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "VEHICLE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "VECHILE_TYPE", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("Vehicles")
 public class Vehicle {
 
     @Id
