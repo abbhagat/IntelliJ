@@ -2,7 +2,7 @@ package geeks;
 
 public class MinCostPathRecursion {
 
-    private static int minOfThreeNum(int x, int y, int z) {
+    private static int min(int x, int y, int z) {
         return x < y ? x < z ? x : z : y < z ? y : z;
     }
 
@@ -12,7 +12,7 @@ public class MinCostPathRecursion {
         } else if (m == 0 && n == 0) {
             return cost[m][n];
         } else {
-            return cost[m][n] + minOfThreeNum(minCost(cost, m, n - 1), minCost(cost, m - 1, n - 1), minCost(cost, m - 1, n));
+            return cost[m][n] + min(minCost(cost, m, n - 1), minCost(cost, m - 1, n - 1), minCost(cost, m - 1, n));
         }
     }
 
