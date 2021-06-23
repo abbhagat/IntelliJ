@@ -38,10 +38,10 @@ public class EditDistanceOfString {
         int count = 0;
         for (int x : temp) {
             if (x < 0) {
-                count++;
+                count += x;
             }
         }
-        return count;
+        return Math.abs(count);
     }
 
     public static void main(String[] args) {
