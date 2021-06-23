@@ -43,6 +43,4 @@ public class ProductController {
     public void deleteProductByID(@PathVariable Long productID) {
         service.deleteProductByID(productID);
     }
-
 }
-
