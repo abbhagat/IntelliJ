@@ -17,7 +17,7 @@ import static java.lang.Math.min;
 public class LCMSumFrom1toN {
 
     private static int lcm(int x, int y, int lcm) {
-        return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, ++lcm);
+        return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm += y);
     }
 
     public static void main(String[] args) {
