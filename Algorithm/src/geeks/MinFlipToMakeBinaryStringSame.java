@@ -15,22 +15,22 @@ package geeks;
 public class MinFlipToMakeBinaryStringSame {
 
     private static int minimumOperation(char[] a, char[] b) {
-        int minOperation = 0;
+        int minFlips = 0;
         for (int i = 0; i < a.length; ) {
             if (a[i] == b[i]) {
                 i++;
                 continue;
             } else if (a[i] == b[i + 1] && a[i + 1] == b[i] && i < a.length) {
-                minOperation++;
+                minFlips++;
                 i = i + 2;
             } else if (a[i] != b[i]) {
-                minOperation++;
+                minFlips++;
                 i++;
             } else {
                 i++;
             }
         }
-        return minOperation;
+        return minFlips;
     }
 
     public static void main(String[] args) {
