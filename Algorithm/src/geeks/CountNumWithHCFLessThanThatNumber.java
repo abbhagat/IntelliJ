@@ -20,14 +20,14 @@ package geeks;
 public class CountNumWithHCFLessThanThatNumber {
 
     private static int findHCF(int x, int y) {
-        return x % y == 0 ? y : findHCF(y, x % y);
+        return y % x == 0 ? x : findHCF(y % x, x);
     }
 
     public static void main(String[] args) {
         int n = 15, count = 0;
         for (int i = 1; i <= n; i++) {
             int hcf = i;
-            hcf = findHCF(Math.max(hcf, n), Math.min(hcf, n));
+            hcf = findHCF(Math.min(hcf, n), Math.max(hcf, n));
             if (hcf > 1 && hcf < i) {
                 count++;
             }
