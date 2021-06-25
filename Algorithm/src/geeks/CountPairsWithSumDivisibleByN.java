@@ -1,7 +1,9 @@
 package geeks;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4
@@ -21,27 +23,32 @@ import java.util.Map;
 
 public class CountPairsWithSumDivisibleByN {
 
-    //private static final int[] a = {2, 1, 7, 5, 3, 2};
-    private static final int[] a = {5, 9, 36, 74, 52, 31, 42};
-    private static Map<Integer, Integer> map = new LinkedHashMap<>();
+    private static final int[] a = {2, 1, 7, 5, 3, 2};
+    private static int[] temp = new int[a.length];
+    private static List<String> list = new ArrayList<>();
+    private static Set<Integer> set = new HashSet<>();
 
-    private static void countKdivPairs(int n) {
+    private static void countKdivPairs(int k) {
         for (int i = 0; i < a.length; i++) {
-            map.put(i, a[i] % n);
+            temp[i] = a[i] % k;
+            set.add(temp[i]);
         }
-        System.out.println(map);
         int count = 0;
-        for (int x : a) {
-            int mod = x % n;
-            int num = n - mod;
-            if(map.containsValue(num)){
+        for (int x : temp) {
+            if (x == 0) {
                 count++;
+            } else if ((set.contains(k - x))) {
+                if (x != k - x) {
+                    list.add(x + "," + (k - x));
+                } else if (!list.contains(x + "," + (k - x))) {
+                    list.add(x + "," + (k - x));
+                }
             }
         }
-        System.out.println(count);
+        System.out.println(count + list.size());
     }
 
     public static void main(String[] args) {
-        countKdivPairs(3);
+        countKdivPairs(4);
     }
 }

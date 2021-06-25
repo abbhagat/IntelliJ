@@ -56,8 +56,8 @@ public class CountPairsWithPerfectSquareSum {
             set.add(a[i]);
         }
         int count = 0;
-        for (int i = 0; i < a.length; i++) {
-            count += countPairsWith(a[i], perfectSquares, set);  // Add count of the elements that when added with a[i] give a perfect square
+        for (int n : a) {
+            count += countPairsWith(n, perfectSquares, set);  // Add count of the elements that when added with a[i] give a perfect square
         }
         return count;
     }

@@ -6,7 +6,7 @@ public class BulbSwitchProblem {
     private static int[] q = {4, 3, 6};
 
     private static int solve() {
-        int countOne = 1;
+        int countOne = 0;
         for (int x : a) {
             if (x == 1) {
                 countOne++;

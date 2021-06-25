@@ -16,12 +16,12 @@ public class AllStringCombinationByPlacingSpace {
 
     private static List<String> spaceString(String str) {
         List<String> al = new ArrayList<>();
-        if (str.length() == 1) {  // Check if str.length() is 1
+        if (str.length() == 1) {
             al.add(str);
             return al;
         }
         List<String> list = spaceString(str.substring(1));
-        for (int i = 0; i < list.size(); i++) {  // Iterate over alTemp
+        for (int i = 0; i < list.size(); i++) {
             al.add(str.charAt(0) + list.get(i));
             al.add(str.charAt(0) + " " + list.get(i));
         }
