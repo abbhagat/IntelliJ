@@ -23,7 +23,7 @@ import java.util.Set;
 
 public class CountPairsWithSumDivisibleByN {
 
-    private static final int[] a = {2, 1, 7, 5, 3, 2};
+    private static final int[] a = {2, 2, 1, 7, 5, 3, 4, 4};
     private static int[] temp = new int[a.length];
     private static List<String> list = new ArrayList<>();
     private static Set<Integer> set = new HashSet<>();
@@ -45,7 +45,7 @@ public class CountPairsWithSumDivisibleByN {
                 }
             }
         }
-        System.out.println(count + list.size());
+        System.out.println(count > 2 ? (count + list.size()) : list.size());
     }
 
     public static void main(String[] args) {
