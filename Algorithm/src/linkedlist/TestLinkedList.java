@@ -9,6 +9,7 @@ public class TestLinkedList {
         for (int x : a) {
             first = LinkList.add(x, null);
         }
+        TraverseList.traverseList(first);
         first = ReverseList.reverseList(first);
         TraverseList.traverseList(first);
         //TraverseList.traverseList(LinkedListRotation.rotateList(first, 3));

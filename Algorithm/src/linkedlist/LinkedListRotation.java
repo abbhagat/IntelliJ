@@ -9,19 +9,14 @@ package linkedlist;
 public class LinkedListRotation {
 
     static Node rotateList(Node first, int k) {
-        if (k > LinkList.size || LinkList.size == 0) {
-            System.out.println("Rotation not possible");
-        } else {
-            Node temp = first, last;
-            for (last = first; last.next != null; last = last.next) ;
-            for (int i = 1; i < k; i++) {
-                temp = temp.next;
-            }
-            last.next = first;
-            first = temp.next;
-            temp.next = null;
-
+        Node temp = first, last;
+        for (last = first; last.next != null; last = last.next) ;
+        for (int i = 1; i < k; i++) {
+            temp = temp.next;
         }
+        last.next = first;
+        first = temp.next;
+        temp.next = null;
         return first;
     }
 }

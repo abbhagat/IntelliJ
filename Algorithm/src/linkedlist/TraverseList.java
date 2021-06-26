@@ -3,11 +3,8 @@ package linkedlist;
 public class TraverseList {
 
     public static void traverseList(Node first) {
-        Node temp = first;
-        while (temp != null) {
+        for (Node temp = first; temp != null; temp = temp.next) {
             System.out.print(temp.num + " ");
-            temp = temp.next;
         }
-        System.out.println("\nSize :" + LinkList.size);
     }
 }
