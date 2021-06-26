@@ -43,4 +43,14 @@
         <constructor-arg name="address" ref="address"/>
     </bean>
 
+    <bean name="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="NullPointerException" value="NullPointerException"/>
+                <entry key="IOException" value="IOException"/>
+            </map>
+        </property>
+        <property name="defaultErrorView" value="Exception"/>
+        <property name="warnLogCategory" value="MVCLogger"/>
+    </bean>
 </beans>
