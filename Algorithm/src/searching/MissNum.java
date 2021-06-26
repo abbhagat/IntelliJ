@@ -1,4 +1,4 @@
-package sorting;
+package searching;
 
 public class MissNum {
     public static void main(String[] args) {

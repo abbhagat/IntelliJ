@@ -1,4 +1,4 @@
-package sorting;
+package searching;
 
 public class MissingNumber {
 
