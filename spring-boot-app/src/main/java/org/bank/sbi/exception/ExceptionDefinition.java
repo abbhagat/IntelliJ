@@ -22,9 +22,9 @@ public class ExceptionDefinition extends ResponseEntityExceptionHandler {
         return "exception-page";
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<Object> handleCityNotFoundException(Exception e, WebRequest request) {
+    @ExceptionHandler(CityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<Object> handleCityNotFoundException(CityNotFoundException e, WebRequest request) {
         Map<String, Object> responseBody = new LinkedHashMap<>();
         responseBody.put("timestamp", LocalDateTime.now());
         responseBody.put("message", "City not found");

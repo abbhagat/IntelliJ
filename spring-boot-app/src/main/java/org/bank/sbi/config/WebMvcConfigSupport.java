@@ -15,7 +15,6 @@ public class WebMvcConfigSupport extends WebMvcConfigurationSupport {
     @Autowired
     private MaintenanceInterceptor maintenanceInterceptor2;
 
-
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(maintenanceInterceptor).addPathPatterns("/stateCity/*");
