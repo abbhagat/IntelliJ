@@ -22,7 +22,7 @@ public class SortinginBigO_n_0_10 {
     }
 
     public static void main(String[] args) {
-        for(int i = 0; i< a.length; i = (i != a[i]) ? swap(i, a[i]): ++i);
+        for (int i = 0; i < a.length; i = (i != a[i]) ? swap(i, a[i]) : ++i) ;
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }
