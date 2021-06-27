@@ -17,11 +17,11 @@ public class MergeSort {
         return finalHead;
     }
 
-    private static Node merge(Node head1, Node head2) {  // Function to merge two linked lists
+    private static Node merge(Node head1, Node head2) {
         Node merged = new Node();
         Node temp = merged;
 
-        while (head1 != null && head2 != null) {  // While head1 is not null and head2 is not null
+        while (head1 != null && head2 != null) {
             if (head1.num < head2.num) {
                 temp.next = head1;
                 head1 = head1.next;
@@ -32,13 +32,13 @@ public class MergeSort {
             temp = temp.next;
         }
 
-        while (head1 != null) {  // While head1 is not null
+        while (head1 != null) {
             temp.next = head1;
             head1 = head1.next;
             temp = temp.next;
         }
 
-        while (head2 != null) {  // While head2 is not null
+        while (head2 != null) {
             temp.next = head2;
             head2 = head2.next;
             temp = temp.next;
