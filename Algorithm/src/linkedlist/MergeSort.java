@@ -1,27 +1,60 @@
 package linkedlist;
 
+import static linkedlist.MidPointOfLinkedList.findMid;
+
 public class MergeSort {
 
-    void mergeSort(Node head) {
-
-        Node temp = head;
-        Node a = null, b = null;
-        // If the list has 0 or 1 node no need to sort
-        if (temp == null || temp.next == null) {
-            return;
+    private static Node mergeSort(Node head) {
+        if (head.next == null) {
+            return head;
         }
-        // Diving the list into 2 equal halves
-        partition(temp, a, b);
-        mergeSort(a);
-        mergeSort(b);
-        head = merge(a, b);
+        Node mid = findMid(head);
+        Node head2 = mid.next;
+        mid.next = null;
+        Node newHead1 = mergeSort(head);
+        Node newHead2 = mergeSort(head2);
+        Node finalHead = merge(newHead1, newHead2);
+        return finalHead;
     }
 
-    void partition(Node temp, Node a, Node b) {
+    private static Node merge(Node head1, Node head2) {  // Function to merge two linked lists
+        Node merged = new Node();
+        Node temp = merged;
 
+        while (head1 != null && head2 != null) {  // While head1 is not null and head2 is not null
+            if (head1.num < head2.num) {
+                temp.next = head1;
+                head1 = head1.next;
+            } else {
+                temp.next = head2;
+                head2 = head2.next;
+            }
+            temp = temp.next;
+        }
+
+        while (head1 != null) {  // While head1 is not null
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+
+        while (head2 != null) {  // While head2 is not null
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return merged.next;
     }
-
-    Node merge(Node a, Node b) {
-        return null;
+    
+    public static void main(String[] args) {
+        Node head = null;
+        for (int x : new int[]{1, 3, 5, 2, 4}) {
+            head = LinkList.add(x, null);
+        }
+        TraverseList.traverseList(head);
+        System.out.println();
+        head = mergeSort(head);
+        TraverseList.traverseList(head);
     }
 }
+

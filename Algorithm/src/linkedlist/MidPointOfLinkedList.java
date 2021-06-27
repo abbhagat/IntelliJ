@@ -2,7 +2,7 @@ package linkedlist;
 
 public class MidPointOfLinkedList {
 
-    static Node midList(Node first) {
+    public static Node findMid(Node first) {
         Node slow = first;
         Node fast = first.next;
         while (fast != null && fast.next != null) {

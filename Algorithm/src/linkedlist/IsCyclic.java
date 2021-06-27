@@ -2,7 +2,7 @@ package linkedlist;
 
 public class IsCyclic {
 
-    private static boolean hasCycle(Node first) {
+    public static boolean hasCycle(Node first) {
         Node slow = first;
         Node fast = first.next;
         while (true) {

@@ -12,8 +12,8 @@ public class TestLinkedList {
         TraverseList.traverseList(first);
         first = ReverseList.reverseList(first);
         TraverseList.traverseList(first);
-        //TraverseList.traverseList(LinkedListRotation.rotateList(first, 3));
-        System.out.println(MidPointOfLinkedList.midList(first).num);
-//       System.out.println(MidPointOfLinkedList.midItrList(first).num);
+        TraverseList.traverseList(LinkedListRotation.rotateList(first, 3));
+        System.out.println(MidPointOfLinkedList.findMid(first).num);
+        System.out.println(MidPointOfLinkedList.midItrList(first).num);
     }
 }
