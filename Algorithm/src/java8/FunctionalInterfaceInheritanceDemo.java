@@ -4,6 +4,7 @@ package java8;
 interface I1 {
 
     void display();
+    String toString();   // We can override Object class method as an abstract method and this will not be counted as an abstract method.
 
     default void defaultMethod() {
         System.out.println("Default Method of I1");
@@ -18,6 +19,8 @@ interface I1 {
 interface I2 {
 
     void display();
+
+    String toString();   // We can override Object class method as an abstract method and this will not be counted as an abstract method.
 
     default void defaultMethod() {
         System.out.println("Default Method of I2");
@@ -52,5 +55,7 @@ public class FunctionalInterfaceInheritanceDemo {
         a.defaultMethod();
         I1.staticMethod();
         I2.staticMethod();
+        A a1 = new A();
+        a1.defaultMethod();
     }
 }

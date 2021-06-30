@@ -1,0 +1,61 @@
+package leetcode;
+
+/*
+Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+
+Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
+Output: 6
+Explanation: [1,1,1,0,0,1,1,1,1,1,1]
+
+Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
+Output: 10
+Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
+
+ */
+public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
+
+    private static int findZeroes(int[] nums, int k) {
+        int wL = 0, wR = 0;              // Left and right indexes of current window
+        int bestL = 0, bestWindow = 0;  // Left index and size of the widest window
+        int zeroCount = 0;             // Count of zeroes in current window
+        while (wR < nums.length) {     // While right boundary of current window doesn't cross right end
+            if (zeroCount <= k) {    // If zero count of current window is less than m widen the window toward right
+                if (nums[wR] == 0) {
+                    zeroCount++;
+                }
+                wR++;
+            }
+            if (zeroCount > k) {  // If zero count of current window is more than k reduce the window from left
+                if (nums[wL] == 0) {
+                    zeroCount--;
+                }
+                wL++;
+            }
+            if ((wR - wL > bestWindow) && (zeroCount <= k)) {   // Update widest window if this window size is more
+                bestWindow = wR - wL;
+                bestL = wL;
+            }
+        }
+        for (int i = 0; i < bestWindow; i++) {    // Print positions of zeroes in the widest window
+            if (nums[bestL + i] == 0) {
+                nums[bestL + i] = 1;
+            }
+        }
+        int maxLength = 0, currentLength = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                currentLength++;
+            } else {
+                maxLength = Math.max(maxLength, currentLength);
+                currentLength = 0;
+            }
+        }
+        return Math.max(maxLength, currentLength);
+    }
+
+    public static void main(String[] args) {
+        int a[] = new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1};
+        int k = 2;
+        System.out.println(findZeroes(a, k));
+    }
+}
