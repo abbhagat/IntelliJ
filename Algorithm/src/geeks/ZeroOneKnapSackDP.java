@@ -59,7 +59,8 @@ import static java.lang.Math.max;
  * we take maximum of (25, 40 + DP[2][6-3])
  * = 65
  *
- * Time Complexity: O(N*W). where ‘N’ is the number of weight element and ‘W’ is capacity. As for every weight element we traverse through all weight capacities 1<=w<=W.
+ * Time Complexity: O(N*W). where ‘N’ is the number of weight element and ‘W’ is capacity.
+ * As for every weight element we traverse through all weight capacities 1<=w<=W.
  * Auxiliary Space: O(N*W). The use of 2-D array of size ‘N*W’.
  */
 public class ZeroOneKnapSackDP {
