@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class UserDetail implements UserDetails {
 
+    private int id;
     private String userName;
     private String password;
     private boolean active;
@@ -20,6 +21,7 @@ public class UserDetail implements UserDetails {
     }
 
     public UserDetail(User user) {
+        this.id = user.getId();
         this.userName = user.getUserName();
         this.password = user.getPassword();
         this.active = user.isActive();
