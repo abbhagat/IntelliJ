@@ -2,7 +2,7 @@ package linkedlist;
 
 public class ReverseList {
 
-    static Node reverseList(Node node) {
+    public static Node reverseList(Node node) {
         if (node == null || node.next == null) {
             return node;
         }
