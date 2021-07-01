@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.stream.IntStream;
+
 /*
 Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
 
@@ -15,20 +17,16 @@ Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
     private static int findZeroes(int[] nums, int k) {
-        int wL = 0, wR = 0;              // Left and right indexes of current window
-        int bestL = 0, bestWindow = 0;  // Left index and size of the widest window
-        int zeroCount = 0;             // Count of zeroes in current window
-        while (wR < nums.length) {     // While right boundary of current window doesn't cross right end
-            if (zeroCount <= k) {    // If zero count of current window is less than m widen the window toward right
-                if (nums[wR] == 0) {
-                    zeroCount++;
-                }
+        int wL = 0, wR = 0;                     // Left and right indexes of current window
+        int bestL = 0, bestWindow = 0;         // Left index and size of the widest window
+        int zeroCount = 0;                    // Count of zeroes in current window
+        while (wR < nums.length) {           // While right boundary of current window doesn't cross right end
+            if (zeroCount <= k) {           // If zero count of current window is less than m widen the window toward right
+                zeroCount = nums[wR] == 0 ? zeroCount + 1 : zeroCount;
                 wR++;
             }
-            if (zeroCount > k) {  // If zero count of current window is more than k reduce the window from left
-                if (nums[wL] == 0) {
-                    zeroCount--;
-                }
+            if (zeroCount > k) {         // If zero count of current window is more than k reduce the window from left
+                zeroCount = nums[wL] == 0 ? zeroCount - 1 : zeroCount;
                 wL++;
             }
             if ((wR - wL > bestWindow) && (zeroCount <= k)) {   // Update widest window if this window size is more
@@ -36,11 +34,14 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
                 bestL = wL;
             }
         }
-        for (int i = 0; i < bestWindow; i++) {    // Print positions of zeroes in the widest window
-            if (nums[bestL + i] == 0) {
-                nums[bestL + i] = 1;
+        for (int i = bestL; i < bestWindow + bestL; i++) {    // Print positions of zeroes in the widest window
+            if (nums[i] == 0) {
+                nums[i] = 1;
+                System.out.print(i + " ");
             }
         }
+        System.out.println("\nChanged Array After Flip");
+        IntStream.range(0, nums.length).forEach(i -> System.out.print(nums[i] + " "));
         int maxLength = 0, currentLength = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 1) {
@@ -56,6 +57,6 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
     public static void main(String[] args) {
         int a[] = new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1};
         int k = 2;
-        System.out.println(findZeroes(a, k));
+        System.out.println("\n" + findZeroes(a, k));
     }
 }
