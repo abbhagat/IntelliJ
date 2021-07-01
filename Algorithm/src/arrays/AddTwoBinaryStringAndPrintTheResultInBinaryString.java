@@ -1,5 +1,6 @@
 package arrays;
 
+import geeks.ParseIntImplementation;
 import geeks.ToBinaryFromDecimal;
 
 public class AddTwoBinaryStringAndPrintTheResultInBinaryString {

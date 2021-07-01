@@ -1,4 +1,4 @@
-package arrays;
+package geeks;
 
 /*
  *  1234567  --> 1234567
