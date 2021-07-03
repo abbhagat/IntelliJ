@@ -24,17 +24,30 @@ public class GroupStringAnagrams {
     }
 
     public static void main(String[] args) {
-        List<String> al = new ArrayList<>();
-        String[] s = { "Java", "avaJ", "anagram", "xyz", "pqr", "zxy", "raanagm" };
-        for (int i = 0; i < s.length; i++) {
-            for (int j = i + 1; j < s.length; j++) {
-                if (isAnagram(s[i], s[j])) {
-                    System.out.println(s[i] + " is anagram of " + s[j]);
-                    al.add(s[i]);
-                    al.add(s[j]);
+        List<List<String>> list = new ArrayList<>();
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        label:
+        for (int i = 0; i < strs.length; i++) {
+            List<String> al = new ArrayList<>();
+            if (!list.isEmpty()) {
+                for (List k : list) {
+                    if (k.contains(strs[i])) {
+                        continue label;
+                    }
                 }
             }
+            al.add(strs[i]);
+            for (int j = i + 1; j < strs.length; j++) {
+                if (isAnagram(strs[i], strs[j])) {
+                    if(!al.contains(strs[i]))
+                    al.add(strs[i]);
+                    al.add(strs[j]);
+                }
+            }
+            if (!al.isEmpty()) {
+                list.add(al);
+            }
         }
-        System.out.println(al);
+        System.out.println(list);
     }
 }

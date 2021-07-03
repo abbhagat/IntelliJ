@@ -2,7 +2,6 @@ package searching;
 
 public class MissNum {
     public static void main(String[] args) {
-
         int[] a = {9, 7, 3, 4, 10, 1, 2, 8, 6};
         int max = a[0], min = a[0];
         int n = a.length + 1;
