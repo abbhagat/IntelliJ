@@ -1,4 +1,4 @@
-package arrays;
+package geeks;
 
 /*
  * Soln 1 :  using nums hashmap
