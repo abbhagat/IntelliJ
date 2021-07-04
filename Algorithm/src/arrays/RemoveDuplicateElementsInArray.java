@@ -31,6 +31,5 @@ public class RemoveDuplicateElementsInArray {
         } else {
             System.out.println(0);
         }
-
     }
 }
