@@ -1,7 +1,7 @@
 package geeks;
 
 /**
- * Given a knapsack weight W and a set of n items with certain value vali and weight wti,
+ * Given a knapsack weight W and a set of n items with certain value val i and weight wt i,
  * we need to calculate the maximum amount that could make up this quantity exactly.
  * Input : W = 100
  * val[]  = {1, 30}
