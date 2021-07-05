@@ -29,7 +29,7 @@ final class Emp {
             return false;
         }
         final Emp obj = (Emp) o;
-        return obj.getDate().equals(this.getDate());
+        return obj.getDate().compareTo(this.getDate()) == 0;
     }
 }
 
