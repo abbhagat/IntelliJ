@@ -60,9 +60,7 @@ public class EggDroppingPuzzle {
         int min = Integer.MAX_VALUE;
         for (int i = 1; i <= floor; i++) {  // Consider all droppings from 1st floor to kth floor and return the minimum of these values plus 1
             int result = Math.max(eggDrop(eggs - 1, i - 1), eggDrop(eggs, floor - i));
-            if (result < min) {
-                min = result;
-            }
+            min = result < min ? result : min;
         }
         return min + 1;
     }
