@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class FormattedDate {
 
-    static String getFormattedDate(String date) {
+    private static String getFormattedDate(String date) {
         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date oDate = sdFormat.parse(date);
@@ -15,11 +15,9 @@ public class FormattedDate {
         } catch (ParseException e) {
             return null;
         }
-
     }
 
     public static void main(String[] args) {
         System.out.println(getFormattedDate("07-OCT-1986"));
     }
-
 }

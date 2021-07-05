@@ -4,23 +4,22 @@ import java.util.stream.IntStream;
 
 public class ArrayDelete3rdElement {
 
-    private static int[] n = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    private static int size = n.length;
+    private static int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    private static int n = a.length;
 
-    void deleteElement(int pos) {
-        for (int i = pos; i < size - 1; i++) {
-            n[i] = n[i + 1];
+    private static void  deleteElement(int pos) {
+        for (int i = pos; i < n - 1; i++) {
+            a[i] = a[i + 1];
         }
-        size--;
+        n--;
     }
 
     public static void main(String[] args) {
-        ArrayDelete3rdElement a = new ArrayDelete3rdElement();
         int pos = 3;
-        for (int i = --pos; i < a.size; i += pos) {
-            a.deleteElement(i);
+        for (int i = --pos; i < n; i += pos) {
+            deleteElement(i);
         }
-        IntStream.range(0, size).forEach(i -> System.out.print(n[i] + " "));
+        IntStream.range(0, n).forEach(i -> System.out.print(a[i] + " "));
         System.out.println();
     }
 }

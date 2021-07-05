@@ -1,17 +1,18 @@
 package arrays;
 
-import geeks.ParseIntImplementation;
-import geeks.ToBinaryFromDecimal;
+import static arrays.ToDecimalFromBinary.toDecimal;
+import static geeks.ParseIntImplementation.parseInt;
+import static geeks.ToBinaryFromDecimal.toBinary;
 
 public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
     public static void main(String[] args) {
         String x = "1111";
         String y = "1010";
-        int a = ToDecimalFromBinary.toDecimal(ParseIntImplementation.parseInt(x));
-        int b = ToDecimalFromBinary.toDecimal(ParseIntImplementation.parseInt(y));
+        int a = toDecimal(parseInt(x));
+        int b = toDecimal(parseInt(y));
         int c = a + b;
-        String z = ToBinaryFromDecimal.toBinary(c);
+        String z = toBinary(c);
         System.out.println(z);
     }
 }

@@ -13,17 +13,6 @@ Output : String is Colindrome
  */
 public class ColindromeString {
 
-    boolean isCollindrome(char[] a) {
-        if (a.length % 6 == 0) {
-            for (int i = 0, j = 3; i < a.length && j < a.length; i++) {
-                while (!(a[i] == a[j])) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
         String s = "mollomaappaa111";
         boolean isColindromeString = true;

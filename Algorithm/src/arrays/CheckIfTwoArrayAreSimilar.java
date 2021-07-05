@@ -8,7 +8,6 @@ import java.util.List;
 public class CheckIfTwoArrayAreSimilar {
 
     public static void main(String[] args) {
-
         int[] a = {1, 2, 4, 3, 5, 5, 4, 7};
         int[] b = {7, 5, 4, 5, 4, 3, 2, 1};
         if (a.length != b.length) {
@@ -16,14 +15,12 @@ public class CheckIfTwoArrayAreSimilar {
             System.exit(0);
         }
         List<Integer> al = new ArrayList<>();
-        for (int v : a) {
-            al.add(v);
+        for (int x : a) {
+            al.add(x);
         }
-        for (int v : b) {
-            al.remove(Integer.valueOf(v));
+        for (int x : b) {
+            al.remove(Integer.valueOf(x));
         }
         System.out.println(al.size() == 0 ? "Same Array" : "Different Array");
-
     }
-
 }

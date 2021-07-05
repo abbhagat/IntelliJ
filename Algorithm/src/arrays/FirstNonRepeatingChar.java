@@ -10,7 +10,6 @@ public class FirstNonRepeatingChar {
         for (char a : c) {
             if (temp[a] == 1) {
                 System.out.println(a);
-                break;
             }
         }
     }

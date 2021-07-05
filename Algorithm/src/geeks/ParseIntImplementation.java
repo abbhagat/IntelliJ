@@ -3,15 +3,11 @@ package geeks;
 public class ParseIntImplementation {
 
     public static int parseInt(String s) {
-        int sum = 0, i, n = 1;
-        for (i = s.length() - 1; i >= 0; i--) {
-            char c = s.charAt(i);
-            if (c >= 48 && c <= 57) {
-                sum += (c - 48) * n;
-                n *= 10;
-            }
+        int num = 0;
+        for (int i = 0, j = s.length() - 1; i < s.length(); i++, j--) {
+            num += (s.charAt(i) - 48) * Math.pow(10, j);
         }
-        return sum;
+        return num;
     }
 
     public static void main(String[] args) {

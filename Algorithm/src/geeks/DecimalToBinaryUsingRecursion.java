@@ -13,6 +13,7 @@ public class DecimalToBinaryUsingRecursion {
 
     public static void main(String[] args) {
         String binaryString = decimalToBinary(35, 32768, "");
+        System.out.println(binaryString);
         System.out.println(binaryString.substring(binaryString.indexOf("1")));
     }
 }
