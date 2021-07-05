@@ -16,7 +16,7 @@ public class ClosestSumPairInAnArray {
                 y = j;
                 diff = sum;
             }
-            int k = (a[i] + a[j] < n) ? i++ : j--;
+            int k = a[i] + a[j] < n ? i++ : j--;
         }
         System.out.println("The closest pair is " + a[x] + " and " + a[y]);
     }

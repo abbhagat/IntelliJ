@@ -16,12 +16,11 @@ public class ArrayUnionIntersection {
         for (int i = 0; i < a.length; i++) {
             if (map.get(a[i]) != null) {
                 System.out.print(a[i] + " ");
+            }else{
+                map.put(a[i], 1);
             }
         }
         System.out.println("\nArray Union");
-        for (int i = 0; i < a.length; i++) {
-            map.put(a[i], 1);
-        }
-        map.keySet().forEach(System.out::println);
+        map.keySet().forEach(System.out::print);
     }
 }
