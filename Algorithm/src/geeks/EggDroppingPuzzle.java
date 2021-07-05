@@ -2,16 +2,28 @@ package geeks;
 
 /*
 Method 1: Recursion.
-In this post, we will discuss a solution to a general problem with ‘n’ eggs and ‘k’ floors. The solution is to try dropping an egg from every floor(from 1 to k) and recursively calculate the minimum number of droppings needed in the worst case. The floor which gives the minimum value in the worst case is going to be part of the solution.
-In the following solutions, we return the minimum number of trials in the worst case; these solutions can be easily modified to print floor numbers of every trial also.
-Meaning of a worst-case scenario: Worst case scenario gives the user the surety of the threshold floor. For example- If we have ‘1’ egg and ‘k’ floors, we will start dropping the egg from the first floor till the egg breaks suppose on the ‘kth’ floor so the number of tries to give us surety is ‘k’.
+In this post, we will discuss a solution to a general problem with ‘n’ eggs and ‘k’ floors.
+The solution is to try dropping an egg from every floor(from 1 to k) and recursively
+calculate the minimum number of droppings needed in the worst case.
+The floor which gives the minimum value in the worst case is going to be part of the solution.
+In the following solutions, we return the minimum number of trials in the worst case;
+these solutions can be easily modified to print floor numbers of every trial also.
+Meaning of a worst-case scenario: Worst case scenario gives the user the surety of the threshold floor.
+For example- If we have ‘1’ egg and ‘k’ floors, we will start dropping the egg from the first floor till
+the egg breaks suppose on the ‘kth’ floor so the number of tries to give us surety is ‘k’.
 1) Optimal Substructure:
 When we drop an egg from a floor x, there can be two cases (1) The egg breaks (2) The egg doesn’t break.
 
 
-If the egg breaks after dropping from ‘xth’ floor, then we only need to check for floors lower than ‘x’ with remaining eggs as some floor should exist lower than ‘x’ in which egg would not break; so the problem reduces to x-1 floors and n-1 eggs.
-If the egg doesn’t break after dropping from the ‘xth’ floor, then we only need to check for floors higher than ‘x’; so the problem reduces to ‘k-x’ floors and n eggs.
-Since we need to minimize the number of trials in worst case, we take the maximum of two cases. We consider the max of above two cases for every floor and choose the floor which yields minimum number of trials.
+If the egg breaks after dropping from ‘xth’ floor, then we only need to check for floors lower than ‘x’
+with remaining eggs as some floor should exist lower than ‘x’ in which egg would not break;
+so the problem reduces to x-1 floors and n-1 eggs.
+If the egg doesn’t break after dropping from the ‘xth’ floor,
+then we only need to check for floors higher than ‘x’;
+so the problem reduces to ‘k-x’ floors and n eggs.
+Since we need to minimize the number of trials in worst case,
+we take the maximum of two cases. We consider the max of above two
+cases for every floor and choose the floor which yields minimum number of trials.
 
 
 k ==> Number of floors
@@ -38,18 +50,18 @@ So answer here is ‘2’.
  */
 public class EggDroppingPuzzle {
 
-    private static int eggDrop(int n, int k) {
-        if (k == 1 || k == 0) {  // If there are no floors, then no trials needed or if there is one floor only one trial needed
-            return k;
+    private static int eggDrop(int eggs, int floor) {
+        if (floor == 1 || floor == 0) {  // If there are no floors, then no trials needed or if there is one floor only one trial needed
+            return floor;
         }
-        if (n == 1) { // We need k trials for one egg and k floors
-            return k;
+        if (eggs == 1) { // We need k trials for one egg and k floors
+            return floor;
         }
         int min = Integer.MAX_VALUE;
-        for (int i = 1; i <= k; i++) {  // Consider all droppings from 1st floor to kth floor and return the minimum of these values plus 1
-            int res = Math.max(eggDrop(n - 1, i - 1), eggDrop(n, k - i));
-            if (res < min) {
-                min = res;
+        for (int i = 1; i <= floor; i++) {  // Consider all droppings from 1st floor to kth floor and return the minimum of these values plus 1
+            int result = Math.max(eggDrop(eggs - 1, i - 1), eggDrop(eggs, floor - i));
+            if (result < min) {
+                min = result;
             }
         }
         return min + 1;

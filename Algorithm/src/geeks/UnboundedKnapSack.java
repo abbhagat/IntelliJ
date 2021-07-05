@@ -33,7 +33,7 @@ package geeks;
  */
 public class UnboundedKnapSack {
 
-    private static int unboundedKnapsack(int W, int n, int[] val, int[] wt) {
+    private static int unboundedKnapsack(int W, int[] wt, int[] val, int n) {
         int dp[] = new int[W + 1];  // dp[i] is going to store maximum value with knapsack capacity i.
         for (int i = 0; i <= W; i++) {
             for (int j = 0; j <= n; j++) {
@@ -48,7 +48,7 @@ public class UnboundedKnapSack {
     public static void main(String[] args) {
         int W = 100;
         int val[] = {10, 30, 20};
-        int wt[]  = {5, 10, 15};
-        System.out.println(unboundedKnapsack(W, val.length - 1, val, wt));
+        int wt[] = {5, 10, 15};
+        System.out.println(unboundedKnapsack(W, wt, val, val.length - 1));
     }
 }
