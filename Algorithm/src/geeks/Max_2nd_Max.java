@@ -17,7 +17,5 @@ public class Max_2nd_Max {
             }
         }
         System.out.println("Max : " + max + "  _2ndMax : " + _2ndMax);
-        System.out.println(null != null);
-        System.out.println(null == null);
     }
 }

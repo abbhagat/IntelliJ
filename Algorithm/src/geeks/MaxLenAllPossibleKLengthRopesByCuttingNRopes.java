@@ -3,7 +3,7 @@ package geeks;
 import java.util.Arrays;
 import java.util.Collections;
 
-/*
+/**
 Given an array arr[] consisting of N positive integers representing the lengths of N ropes and a positive integer K,
 the task is to find the maximum length of the rope that has a frequency of at least K by cutting any ropes in any number of pieces.
 Examples:
@@ -36,18 +36,18 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
     private static int maximumSize(Integer[] a, int k) {
         int low = 1;
         int high = Collections.max(Arrays.asList(a));  // Stores the left and the right boundaries
-        int result = 0; // Stores the maximum length of rope possible
-        while (low <= high) {  // Iterate while low is less than or equal to high
-            int mid = (low + high) / 2;  // Stores the mid value of the range [low, high]
-            int count = 0;   // Stores the count of ropes of length mid
+        int result = 0;                               // Stores the maximum length of rope possible
+        while (low <= high) {                        // Iterate while low is less than or equal to high
+            int mid = (low + high) / 2;             // Stores the mid value of the range [low, high]
+            int count = 0;                         // Stores the count of ropes of length mid
             for (int i = 0; i < a.length; i++) {
                 count += a[i] / mid;
             }
-            if (count >= k) {    // If count is at least K
-                result = mid;       // Assign mid to result
-                low = mid + 1;  // Update the value of low
+            if (count >= k) {                   // If count is at least K
+                result = mid;                  // Assign mid to result
+                low = mid + 1;                // Update the value of low
             } else {
-                high = mid - 1;  // Otherwise, update the value of high
+                high = mid - 1;             // Otherwise, update the value of high
             }
         }
         return result;

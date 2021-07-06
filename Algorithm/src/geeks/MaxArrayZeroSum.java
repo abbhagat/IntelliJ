@@ -16,11 +16,11 @@ public class MaxArrayZeroSum {
             if (sum == 0) {
                 max_len = i;
             }
-            Integer prev_i = hm.get(sum); // Look this sum in hashmap
-            if (prev_i != null) { // If this sum is seen before, then update max_len if required
+            Integer prev_i = hm.get(sum);        // Look this sum in hashmap
+            if (prev_i != null) {               // If this sum is seen before, then update max_len if required
                 max_len = Math.max(max_len, i - prev_i);
             } else {
-                hm.put(sum, i); // Else put this sum in hashmap
+                hm.put(sum, i);               // Else put this sum in hashmap
             }
         }
         return max_len;
@@ -28,7 +28,6 @@ public class MaxArrayZeroSum {
 
     public static void main(String[] args) {
         int a[] = {15, -2, 2, -8, 1, 7, 10, 23};
-        //int a[] = {1, 2, 3};
         System.out.println("Length of the longest Zero Sum subarray is " + maxLen(a));
     }
 }

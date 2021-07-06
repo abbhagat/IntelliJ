@@ -43,6 +43,6 @@ public class LongestPalindromicString {
     }
 
     public static void main(String[] args) {
-        System.out.println(findLongestPalindromicString("forgeeksskeegfor"));
+        System.out.println(findLongestPalindromicString("Geeks"));
     }
 }
