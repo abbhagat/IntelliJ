@@ -3,7 +3,7 @@ package geeks;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IsmorphicStrings {
+public class IsomorphicStrings {
 
     private static boolean isIsomorphic(char[] c1, char[] c2) {
 
