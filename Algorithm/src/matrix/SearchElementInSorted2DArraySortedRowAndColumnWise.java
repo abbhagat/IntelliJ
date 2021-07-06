@@ -1,4 +1,4 @@
-package geeks;
+package matrix;
 
 /*
  * Start with top right element

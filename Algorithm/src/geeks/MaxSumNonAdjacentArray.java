@@ -1,6 +1,6 @@
 package geeks;
 
-/*
+/**
 
 Input : arr[] = {5, 5, 10, 100, 10, 5}
 Output : 110

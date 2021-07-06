@@ -3,7 +3,8 @@ package geeks;
 import java.util.Arrays;
 
 /**
- * Given an array arr[] consisting of N integers(N > 2), the task is to minimize the maximum difference between any pair of elements (arr[i], arr[j]) by removing exactly one element.
+ * Given an array arr[] consisting of N integers(N > 2), the task is to minimize the maximum difference between any pair of elements
+ * (arr[i], arr[j]) by removing exactly one element.
  * Examples:
     <p>
     Input: arr[] = {1, 3, 4, 7}
@@ -23,7 +24,8 @@ import java.util.Arrays;
     So, removing the maximum element or removing the minimum element always gives the optimal answer.
     Time Complexity: O(N*log N)
     Auxiliary Space: O(N)
-    Therefore, the idea is to sort the given array in ascending order and print the minimum of the value (arr[N – 2] – arr[0]) and (arr[N – 1] – arr[1]) as the resultant minimized maximum difference.
+    Therefore, the idea is to sort the given array in ascending order and print the minimum of the value
+    (arr[N – 2] – arr[0]) and (arr[N – 1] – arr[1]) as the resultant minimized maximum difference.
  */
 public class MinimizeMaxDiffByRemovalExactlyOneElement {
 
@@ -33,7 +35,7 @@ public class MinimizeMaxDiffByRemovalExactlyOneElement {
     }
 
     public static void main(String[] args) {
-        System.out.println(findMinDifference(new int[]{1, 3, 4, 7}));
+        System.out.println(findMinDifference(new int[]{-1, 3, 4, 7}));
     }
 
 }
