@@ -21,10 +21,10 @@ public class PrintKClosestElementInAnArray {
     }
 
     private static void printKClosestElementInAnArray(int[] a, int n, int k) {
-        int left = binarySearch(a, 0, a.length - 1, n);
-        int right, count = 0;
-        right = left + 1;
-        left = left - 1;
+        int mid = binarySearch(a, 0, a.length - 1, n);
+        int left, right, count = 0;
+        right = mid + 1;
+        left = mid - 1;
         while (left >= 0 && right < a.length && count < k) {
             System.out.println(n - a[left] < a[right] - n ? a[left--] : a[right++]);
             count++;
