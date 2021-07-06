@@ -13,36 +13,41 @@ Output: "ee"
  */
 public class LongestPalindromicString {
 
-    private static boolean isPalindrome(char[] c) {
-        int i = 0, j = c.length - 1;
-        while (i < j) {
-            if (c[i++] != c[j--]) {
-                return false;
+    private static int longestPalSubstr(String str) {
+        int n = str.length();
+        boolean table[][] = new boolean[n][n];
+        int maxLength = 1;  // All substrings of length 1 are palindromes
+        for (int i = 0; i < n; ++i) {
+            table[i][i] = true;
+        }
+        int start = 0;  // check for sub-string of length 2.
+        for (int i = 0; i < n - 1; ++i) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                table[i][i + 1] = true;
+                start = i;
+                maxLength = 2;
             }
         }
-        return true;
-    }
 
-    private static String findLongestPalindromicString(String str) {
-        String maxPalindrome = "", maxPalindrome1 = "", maxPalindrome2 = "", maxPalindrome3 = "";
-        for (int i = 0, j = str.length(); i < str.length() && j > 0; i++, j--) {
-            if (isPalindrome(str.substring(i).toCharArray())) {
-                maxPalindrome1 = str.substring(i);
+        for (int k = 3; k <= n; ++k) {  // Check for lengths greater than 2  is length of substring
+            for (int i = 0; i < n - k + 1; ++i) {              // Fix the starting index
+                int j = i + k - 1;                            // Get the ending index of substring from starting index i and length k
+                // checking for sub-string from ith index to index iff str.charAt(i+1) to str.charAt(j-1) is a palindrome
+                if (table[i + 1][j - 1] && str.charAt(i) == str.charAt(j)) {
+                    table[i][j] = true;
+                    if (k > maxLength) {
+                        start = i;
+                        maxLength = k;
+                    }
+                }
             }
-            if (i < j && isPalindrome(str.substring(i, j).toCharArray())) {
-                maxPalindrome2 = str.substring(i, j);
-            }
-            if (j > 0 && isPalindrome(str.substring(0, j).toCharArray())) {
-                maxPalindrome3 = str.substring(0, j);
-            }
-            maxPalindrome = maxPalindrome1.length() > maxPalindrome.length() ? maxPalindrome1 : maxPalindrome;
-            maxPalindrome = maxPalindrome2.length() > maxPalindrome.length() ? maxPalindrome2 : maxPalindrome;
-            maxPalindrome = maxPalindrome3.length() > maxPalindrome.length() ? maxPalindrome3 : maxPalindrome;
         }
-        return maxPalindrome;
+        System.out.print("Longest palindrome substring is : " + str.substring(start, start + maxLength - 1));
+        return maxLength;
     }
 
     public static void main(String[] args) {
-        System.out.println(findLongestPalindromicString("Geeks"));
+        String str = "forgeeksskeegfor";
+        System.out.println("\nLength is: " + longestPalSubstr(str));
     }
 }
