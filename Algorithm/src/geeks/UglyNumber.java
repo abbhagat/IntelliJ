@@ -9,11 +9,11 @@ public class UglyNumber {
         return n == 1 ? true : false;
     }
 
-    private static int maxDivide(int a, int b) {
-        while (a % b == 0) {
-            a /= b;
+    private static int maxDivide(int n, int x) {
+        while (n % x == 0) {
+            n /= x;
         }
-        return a;
+        return n;
     }
 
     public static void main(String[] args) {
