@@ -5,9 +5,9 @@ public class IsBST {
         if (root == null) {
             return true;
         }
-        if (root.left.num < min || root.right.num > max) {
+        if (root.num < min || root.num > max) {
             return false;
         }
-        return isBST(root.left, min, root.num) && isBST(root.right, root.num, max);
+        return isBST(root.left, min, root.num - 1) && isBST(root.right, root.num + 1, max);
     }
 }

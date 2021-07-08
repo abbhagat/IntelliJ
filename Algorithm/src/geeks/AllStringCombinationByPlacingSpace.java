@@ -29,9 +29,6 @@ public class AllStringCombinationByPlacingSpace {
     }
 
     public static void main(String args[]) {
-        List<String> patterns = spaceString("ABC");
-        for (String s : patterns) {
-            System.out.println(s);
-        }
+        System.out.println(spaceString("ABC"));
     }
 }
