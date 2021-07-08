@@ -42,16 +42,7 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
         }
         System.out.println("\nChanged Array After Flip");
         IntStream.range(0, nums.length).forEach(i -> System.out.print(nums[i] + " "));
-        int maxLength = 0, currentLength = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1) {
-                currentLength++;
-            } else {
-                maxLength = Math.max(maxLength, currentLength);
-                currentLength = 0;
-            }
-        }
-        return Math.max(maxLength, currentLength);
+        return bestWindow;
     }
 
     public static void main(String[] args) {
