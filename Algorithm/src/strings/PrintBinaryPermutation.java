@@ -8,11 +8,6 @@ public class PrintBinaryPermutation {
         } else {
             binaryPermutation(s + "0", itr - 1);
             binaryPermutation(s + "1", itr - 1);
-            /*
-            binaryPermutation(s + "A", itr - 1);
-            binaryPermutation(s + "B", itr - 1);
-            binaryPermutation(s + "C", itr - 1);
-             */
         }
     }
 

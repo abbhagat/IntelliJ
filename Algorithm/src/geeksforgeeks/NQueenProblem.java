@@ -4,15 +4,6 @@ public class NQueenProblem {
 
     private static final int N = 4;
 
-    private static void printSolution(int board[][]) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                System.out.print(" " + board[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
     // A utility function to check if a queen can be placed on board[row][col].
     // Note that this function is called when "col" queens are already placed
     // in columns from 0 to col -1. So we need to check only left side for attacking queens
@@ -68,6 +59,11 @@ public class NQueenProblem {
             System.out.print("Solution does not exist");
             System.exit(0);
         }
-        printSolution(board);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(" " + board[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
