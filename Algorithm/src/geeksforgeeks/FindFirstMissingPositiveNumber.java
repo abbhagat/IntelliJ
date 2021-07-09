@@ -1,4 +1,4 @@
-package searching;
+package geeksforgeeks;
 
 /**
  * Traverse the array, Ignore the elements which are greater than n and less than 1.
