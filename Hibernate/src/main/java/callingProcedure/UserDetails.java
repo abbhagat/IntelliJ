@@ -14,14 +14,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "USER_DETAILS")
 @NamedNativeQueries(
-        @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userId,:userName)", resultClass = UserDetails.class)
+        @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
 )
 public class UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    @Column(name = "USER_ID")
+    private int userID;
 
-    private String name;
+    @Column(name = "USER_NAME", nullable = false)
+    private String userName;
 
 }

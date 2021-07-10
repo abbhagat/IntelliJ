@@ -44,5 +44,4 @@ public class HibernateConfig {
         hibernate.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         return hibernate;
     }
-
 }

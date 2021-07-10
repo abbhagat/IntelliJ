@@ -10,7 +10,7 @@ Meanwhile User B also opens the User A account details on NetBanking UI and see 
 
 Now User B updates the Balance to Rs 20 and commits it to the database.
 But User A still sees the balance on UI as Rs 100 and he goes ahead and tries to transfer Rs 50 to User C.
-Here User A is not aware that a parallel transaction has taken place due to which his account balace was Rs 20
+Here User A is not aware that a parallel transaction has taken place due to which his account balance was Rs 20
 and therefore his transaction of Rs 50 failed.
 
 To prevent this we can go for either Optimistic Locking or Pessimistic Locking.
@@ -48,7 +48,7 @@ LockMode.NONE: This represents the absence of a lock. At the end of each transac
 
 The user can acquire locks explicitly by invoking one of the following Hibernate API:
 
-Session.load(): This method is invoked by specifying the locking mode as UPGRADE or UPDATE_NOWAIT .
+Session.load(): This method is invoked by specifying the locking mode as UPGRADE or UPDATE_NOWAIT.
                 If the object is not loaded by session, then SELECT .. FOR UPDATE is executed to load the object. If the object is loaded with a less restrictive lock, then the framework invokes lock() for that object.
 
 Session.lock(): This method performs a version number check when the lock mode is READ, UPGRADE or UPGRADE_NOWAIT.
