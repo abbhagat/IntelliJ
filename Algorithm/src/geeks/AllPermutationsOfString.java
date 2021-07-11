@@ -1,4 +1,4 @@
-package strings;
+package geeks;
 
 public class AllPermutationsOfString {
 
