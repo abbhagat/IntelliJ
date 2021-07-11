@@ -19,14 +19,10 @@ public class LongestPalindromeFinder {
         }
         String longest = s.substring(0, 1);
         for (int i = 0; i < s.length() - 1; i++) {
-            String palindrome = intermediatePalindrome(s, i, i);  //odd cases like 121
-            if (palindrome.length() > longest.length()) {
-                longest = palindrome;
-            }
-            palindrome = intermediatePalindrome(s, i, i + 1);  //even cases like 1221
-            if (palindrome.length() > longest.length()) {
-                longest = palindrome;
-            }
+            String palindrome = intermediatePalindrome(s, i, i);                            //odd cases like 121
+            longest = palindrome.length() > longest.length() ? palindrome : longest;
+            palindrome = intermediatePalindrome(s, i, i + 1);                        //even cases like 1221
+            longest = palindrome.length() > longest.length() ? palindrome : longest;
         }
         return longest;
     }
