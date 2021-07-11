@@ -1,17 +1,15 @@
 package leetcode;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class MaxArea {
 
     public static int maxArea(int[] a) {
-        int low = 0, high = a.length - 1;
-        int area = 0;
+        int low = 0, high = a.length - 1, area = 0;
         while (low < high) {
-            area = Math.max(area, Math.min(a[low], a[high]) * (high - low));
-            if (a[low] < a[high]) {
-                low++;
-            } else {
-                high--;
-            }
+            area = max(area, min(a[low], a[high]) * (high - low));
+            int i = a[low] < a[high] ? low++ : high--;
         }
         return area;
     }

@@ -19,8 +19,8 @@ public class InsertNodeInSortedLinkedList {
                 }
                 prev = temp;
             }
+            return first;
         }
-        return first;
     }
 
     public static void main(String[] args) {

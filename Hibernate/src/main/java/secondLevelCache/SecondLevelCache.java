@@ -59,7 +59,8 @@ public class SecondLevelCache {
 
         session = sessionFactory.openSession();
         Query query = session.createSQLQuery("SELECT * FROM USER_DETAILS");
-        List<UserDetails> userDetailsList = query.getResultList();
+        Query query3 = session.createQuery("from UserDetails"); // Creates HQL Query
+        List<UserDetails> userDetailsList = query.list();
         transaction.commit();
         session.close();
 

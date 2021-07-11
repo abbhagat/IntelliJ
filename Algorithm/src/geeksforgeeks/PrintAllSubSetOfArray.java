@@ -35,7 +35,11 @@ public class PrintAllSubSetOfArray {
         System.out.println(result);
     }
 
-    //Recursively traverse the array, there are two situations for each element: 1. Select the element 2. Not select the element
+    /*Recursively traverse the array, there are two situations for each element:
+      1. Select the element
+      2. Not select the element
+      */
+
     public static void findSubSet(int[] nums, int index, LinkedList<Integer> list) {
         if (index == nums.length) {                      //All elements have been traversed
             result.add(new LinkedList<>(list));
