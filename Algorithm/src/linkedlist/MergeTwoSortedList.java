@@ -23,10 +23,10 @@ public class MergeTwoSortedList {
     public static void main(String[] args) {
         Node a = null, b = null;
         for (int x : new int[]{1, 3}) {
-            a = LinkList.add(null, x);
+            a = LinkList.add(a, x);
         }
         for (int x : new int[]{2, 4}) {
-            b = LinkList.add(null, x);
+            b = LinkList.add(b, x);
         }
         TraverseList.traverseList(a);
         TraverseList.traverseList(b);

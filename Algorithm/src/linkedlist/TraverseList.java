@@ -6,5 +6,6 @@ public class TraverseList {
         for (Node temp = first; temp != null; temp = temp.next) {
             System.out.print(temp.num + " ");
         }
+        System.out.println();
     }
 }

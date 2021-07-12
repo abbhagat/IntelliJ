@@ -19,10 +19,10 @@ public class InsertNodeInSortedLinkedList {
     }
 
     public static void main(String[] args) {
-        Node a = null;
+        Node first = null;
         for (int x : new int[]{1, 3, 5, 9}) {
-            a = LinkList.add(null, x);
+            first = LinkList.add(first, x);
         }
-        TraverseList.traverseList(insertNodeInSortedLinkedList(a, 8));
+        TraverseList.traverseList(insertNodeInSortedLinkedList(first, 8));
     }
 }

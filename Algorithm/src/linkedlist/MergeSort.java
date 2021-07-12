@@ -49,7 +49,7 @@ public class MergeSort {
     public static void main(String[] args) {
         Node head = null;
         for (int x : new int[]{1, 3, 5, 2, 4}) {
-            head = LinkList.add(null, x);
+            head = LinkList.add(head, x);
         }
         TraverseList.traverseList(head);
         System.out.println();

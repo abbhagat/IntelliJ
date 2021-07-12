@@ -23,11 +23,11 @@ public class AddTwoNumInLinkedList {
         int[] b = {5, 6, 4};
         Node l1 = null, l2 = null;
         for (int x : a) {
-            l1 = add(null, x);
+            l1 = add(l1, x);
         }
         LinkList.temp = LinkList.last = null;
         for (int x : b) {
-            l2 = add(null, x);
+            l2 = add(l2, x);
         }
         l1 = reverseList(l1);
         l2 = reverseList(l2);
