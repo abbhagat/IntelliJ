@@ -27,6 +27,5 @@ public class AOP implements CommandLineRunner {
         } catch (Exception e) {
             System.out.println("Exception Caught");
         }
-
     }
 }

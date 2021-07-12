@@ -15,12 +15,12 @@ public class LoggingAspect {
 
     @Before("triangle())")
     public void beforeAdvice(JoinPoint joinPoint) {
-        System.out.println("@Before" + joinPoint.getTarget());
+        System.out.println("@Before " + joinPoint.getTarget());
     }
 
     @After("triangle())")
     public void afterLoggingAdvice(JoinPoint joinPoint) {
-        System.out.println("@After" + joinPoint.getTarget());
+        System.out.println("@After " + joinPoint.getTarget());
     }
 
     @AfterReturning(pointcut = "triangle()", returning = "name")
@@ -35,6 +35,7 @@ public class LoggingAspect {
 
     @Around("triangle()")
     public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+        System.out.println("******************************************************");
         System.out.println("@Around Before Target");
         try {
             proceedingJoinPoint.proceed();  // Executes the target method
@@ -53,22 +54,18 @@ public class LoggingAspect {
     public void withinTriangle() {
     }
 
-//    @Before("argsWithShapeParameter(shape)")
-//    public void adviceForShapeArgs(Shape shape) {
-//        System.out.println("Args with Shape param called" + shape);
-//    }
+/*    @Before("argsWithShapeParameter()")
+    public void adviceForShapeArgs(Shape shape) {
+        System.out.println("Args with Shape param called" + shape);
+    }
 
-    /*
-        @Before("execution(* *org.spring.aop..*(..))")
-        public void loggingAdviceForAllMethodsHavingZeroOrMoreArgs() {
-            System.out.println("Generic Advice Called Packages and Sub Packages for methods having 0 or more args");
-        }
+    @Before("execution(* *org.spring.aop..*(..))")
+    public void loggingAdviceForAllMethodsHavingZeroOrMoreArgs() {
+        System.out.println("Generic Advice Called Packages and Sub Packages for methods having 0 or more args");
+    }
 
-        @Before("execution(* *org.spring.aop..*(*))")
-        public void loggingAdviceForAllMethodsHavingOneOrMoreArgs() {
-            System.out.println("Generic Advice Called Packages and Sub Packages for methods having 1 or more args");
-        }
-
-    */
-
+    @Before("execution(* *org.spring.aop..*(*))")
+    public void loggingAdviceForAllMethodsHavingOneOrMoreArgs() {
+        System.out.println("Generic Advice Called Packages and Sub Packages for methods having 1 or more args");
+    }*/
 }
