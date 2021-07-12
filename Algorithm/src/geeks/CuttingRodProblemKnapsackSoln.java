@@ -9,7 +9,7 @@ public class CuttingRodProblemKnapsackSoln {
             wt[i] = i + 1;
         }
         int W = wt.length;
-        System.out.println(cuttingRodSoln(W, wt, price, price.length-1));
+        System.out.println(cuttingRodSoln(W, wt, price, price.length - 1));
     }
 
     private static int cuttingRodSoln(int W, int[] wt, int[] price, int n) {

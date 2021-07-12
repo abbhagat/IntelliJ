@@ -63,7 +63,7 @@ import static java.lang.Math.max;
  * As for every weight element we traverse through all weight capacities 1<=w<=W.
  * Auxiliary Space: O(N*W). The use of 2-D array of size ‘N*W’.
  */
-public class ZeroOneKnapSackDP {
+public class ZeroOneKnapSackDPBounded {
 
     private static int knapSack(int W, int wt[], int val[], int n) {
         int DP[][] = new int[n + 1][W + 1];

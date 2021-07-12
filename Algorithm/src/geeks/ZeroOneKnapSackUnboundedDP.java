@@ -31,7 +31,7 @@ package geeks;
  * dp[i] = max(dp[i], dp[i-wt[j]] + val[j] where j varies from 0 to n-1 such that wt[j] <= i
  * result = d[W]
  */
-public class UnboundedKnapSack {
+public class ZeroOneKnapSackUnboundedDP {
 
     private static int unboundedKnapsack(int W, int[] wt, int[] val, int n) {
         int dp[] = new int[W + 1];  // dp[i] is going to store maximum value with knapsack capacity i.
