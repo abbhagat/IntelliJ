@@ -1,13 +1,12 @@
 package org.spring.aop.shape;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
-@AllArgsConstructor
 public class Triangle {
 
     private String name;
+
+    public Triangle(String name){
+        this.name = name;
+    }
 
     public String getName() {
         System.out.println(this.name);

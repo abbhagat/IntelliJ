@@ -6,9 +6,9 @@ import org.spring.aop.shape.Triangle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
 @Getter
 @Setter
+@Component
 public class Shape {
 
     @Autowired
