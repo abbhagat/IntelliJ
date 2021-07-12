@@ -2,17 +2,11 @@ package linkedlist;
 
 public class LinkList {
 
-    static Node temp, first, last;
-    static int size;
+    static Node temp, last;
 
-    public static Node add(int num, Node node) {
-        if (null == node) {
-            node = new Node();
-            node.num = num;
-            node.next = null;
-            size++;
-        }
-        if (null == first) {
+    public static Node add(Node first, int num) {
+        Node node = new Node(num, null);
+        if(null == first) {
             temp = first = node;
         } else {
             temp.next = node;

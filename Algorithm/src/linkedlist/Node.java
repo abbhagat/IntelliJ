@@ -1,6 +1,15 @@
 package linkedlist;
 
 public class Node {
-    int num;
-    Node next;
+    public int num;
+    public Node next;
+
+    public Node() {
+
+    }
+    
+    public Node(int num, Node next) {
+        this.num = num;
+        this.next = next;
+    }
 }

@@ -7,13 +7,12 @@ public class TestLinkedList {
         int[] a = {1, 2, 3, 4, 5};
         Node first = null;
         for (int x : a) {
-            first = LinkList.add(x, null);
+            first = LinkList.add(null, x);
         }
         TraverseList.traverseList(first);
         first = ReverseList.reverseList(first);
         TraverseList.traverseList(first);
         TraverseList.traverseList(LinkedListRotation.rotateList(first, 3));
         System.out.println(MidPointOfLinkedList.findMid(first).num);
-        System.out.println(MidPointOfLinkedList.midItrList(first).num);
     }
 }

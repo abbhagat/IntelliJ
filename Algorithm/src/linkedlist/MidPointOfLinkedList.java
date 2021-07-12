@@ -11,12 +11,4 @@ public class MidPointOfLinkedList {
         }
         return slow;
     }
-
-    static Node midItrList(Node head) {
-        Node temp = head;
-        for (int i = 0; i < LinkList.size / 2; i++) {
-            temp = temp.next;
-        }
-        return temp;
-    }
 }
