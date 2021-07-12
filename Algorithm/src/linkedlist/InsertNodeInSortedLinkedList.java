@@ -6,14 +6,13 @@ public class InsertNodeInSortedLinkedList {
         if (null == first || first.num > num) {
             return new Node(num, first);
         } else {
-            for (Node temp = first, prev = temp; temp != null; temp = temp.next) {
-                if (num < temp.num) {
-                    Node node = new Node(num, temp);
-                    prev.next = node;
-                    return first;
-                }
+            Node prev = null;
+            for (Node temp = first; temp != null && temp.num < num; temp = temp.next) {
                 prev = temp;
             }
+            Node node = new Node(num, null);
+            node.next = prev.next;
+            prev.next = node;
             return first;
         }
     }
