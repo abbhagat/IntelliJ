@@ -21,10 +21,10 @@ public class DuplicateElementsInArray {
             int j = a[i] % a.length;
             a[j] += a.length;
         }
-        System.out.println("The repeating elements are : ");
+        System.out.print("The repeating elements are : ");
         for (int i = 0; i < a.length; i++) {
             if (a[i] >= a.length * 2) {
-                System.out.println(i + " ");
+                System.out.print(i + " ");
             }
         }
     }

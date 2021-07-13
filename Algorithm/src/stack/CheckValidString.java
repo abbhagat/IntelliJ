@@ -1,4 +1,4 @@
-package leetcode;
+package stack;
 
 import java.util.Stack;
 
@@ -24,7 +24,7 @@ public class CheckValidString {
             return true;
         }
         while (!stack.isEmpty()) {
-            if (stack.pop() != '*') {
+            if (stack.pop() == ')') {
                 return false;
             }
         }
@@ -32,7 +32,7 @@ public class CheckValidString {
     }
 
     public static void main(String[] args) {
-        String s = "(*)";
+        String s = ")(";
         System.out.println(checkValidString(s));
     }
 }
