@@ -29,7 +29,7 @@ public class MinBracketRemovalToMakeBracketBalanced {
         }
         int result = open / 2 + close / 2;
         close %= 2;    // For the case: "}{" or when one closing and one opening bracket remains for pairing, then both need to be reversed.
-        result = close != 0 ? result + 2 : result;
+        result += close != 0 ? 2 : 0;
         return result;
     }
 
