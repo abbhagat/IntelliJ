@@ -11,7 +11,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
-        <property name="show_sql">true</property>
+        <property name="hibernate.show_sql">true</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.cache.use_second_level_cache">true</property>
@@ -20,13 +20,13 @@
         <!--        <property name="cache.region.factory_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>-->
 <!--        <mapping class="OneToOne.UserDetails"></mapping>-->
 <!--        <mapping class="OneToOne.Vehicles"></mapping>-->
-<!--        <mapping class="OneToMany.UserDetails"></mapping>-->
-<!--        <mapping class="OneToMany.Vehicles"></mapping>-->
+        <mapping class="OneToMany.UserDetails"></mapping>
+        <mapping class="OneToMany.Vehicles"></mapping>
 <!--        <mapping class="ManyToMany.UserDetails"></mapping>-->
 <!--        <mapping class="ManyToMany.Vehicles"></mapping>-->
 <!--        <mapping class="secondLevelCache.UserDetails"></mapping>-->
 <!--        <mapping class="selectBeforeUpdate.UserDetails"></mapping>-->
 <!--        <mapping class="attributeOverrides.UserDetails"></mapping>-->
-        <mapping class="attributeOverridesCollections.UserDetails"></mapping>
+<!--        <mapping class="attributeOverridesCollections.UserDetails"></mapping>-->
     </session-factory>
 </hibernate-configuration>

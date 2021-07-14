@@ -8,6 +8,7 @@ tablePerClassStrategy\TwoWheeler.class
 attributeOverridesCollections\UserDetails.class
 joinedTableStrategy\TwoWheeler.class
 attributeOverridesCollections\Address.class
+callingProcedure\Main.class
 OneToOne\UserDetails.class
 attributeOverrides\Main.class
 callingProcedure\UserDetails.class

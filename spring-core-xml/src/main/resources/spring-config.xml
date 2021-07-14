@@ -6,8 +6,7 @@
 
     <context:component-scan base-package="shape"/>
 
-    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle"
-          name="triangles">
+    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle" name="triangles">
         <property name="points">
             <list>
                 <bean id="zeroPoint" class="shape.Point" name="zeroPoints">
@@ -43,7 +42,7 @@
         <constructor-arg name="address" ref="address"/>
     </bean>
 
-    <bean name="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--    <bean name="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <map>
                 <entry key="NullPointerException" value="NullPointerException"/>
@@ -52,5 +51,5 @@
         </property>
         <property name="defaultErrorView" value="Exception"/>
         <property name="warnLogCategory" value="MVCLogger"/>
-    </bean>
+    </bean>-->
 </beans>

@@ -60,14 +60,14 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
         System.out.println("MyDestroy");
     }
 
-    @PreDestroy
-    public void preDestroy() {
-        System.out.println("@PreDestroy");
-    }
-
     @PostConstruct
     public void postConstruct() {
         System.out.println("@PostConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("@PreDestroy");
     }
 
     @Override
