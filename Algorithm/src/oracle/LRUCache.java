@@ -3,7 +3,7 @@ package oracle;
 import java.util.HashMap;
 
 /*
- * LRU cache is implemented using a doubly linked list and a hash map.
+LRU cache is implemented using a doubly linked list and a hash map.
 Doubly Linked List is used to store list of pages with most recently used page at the start of the list.
 So, as more pages are added to the list, least recently used pages are moved to the end of the list with
 page at tail being the least recently used page in the list.
