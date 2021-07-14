@@ -1,6 +1,6 @@
 package oracle;
 
-public class ReplaceAllSpacesinAStringWithPercentage20 {
+public class ReplaceAllSpacesInAStringWithPercentage {
 
     static private char[] replaceAllSpace(char[] a) {
         int c = 0;

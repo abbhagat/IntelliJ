@@ -6,7 +6,7 @@ public class VendingMachine {
            return true;
         }
         n %= 7;
-        if (n % 5 == 0) {
+        if (n % 5 == 0 || n % 3 == 0) {
             return true;
         } else {
             n = n % 5;
