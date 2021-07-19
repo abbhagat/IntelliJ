@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package geeks;
 
 public class NQueenProblem {
 

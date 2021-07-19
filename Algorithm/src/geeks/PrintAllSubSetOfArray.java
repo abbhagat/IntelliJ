@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package geeks;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class MergeSort {
 
-    private static int[] a = {20, 3, 15, 6, 9, 8, 2, 1, 6, 8, 7, 15};
+    private static int[] a = {100, 23, 4, 19, 18, 2, 1, 36, 55, 87};
     private static int[] temp = new int[a.length];
 
     public static void main(String[] args) {
@@ -22,37 +22,20 @@ public class MergeSort {
     }
 
     private static void merge(int low, int mid, int high) {
-
-        int i = low;
-        int j = mid + 1;
-        int k = low;
-        int l = 0;
-
+        int i = low, j = mid + 1, k = low;
         while (i <= mid && j <= high) {
-            if (a[i] < a[j]) {
-                temp[k] = a[i];
-                k++;
-                i++;
-            } else {
-                temp[k] = a[j];
-                k++;
-                j++;
-            }
+            temp[k++] = a[i] < a[j] ? a[i++] : a[j++];
         }
-
         if (i > mid) {
-            for (l = i; l <= high; l++) {
-                temp[k] = a[l];
-                k++;
+            for (int l = i; l <= high; l++) {
+                temp[k++] = a[l];
             }
         } else {
-            for (l = i; l <= mid; l++) {
-                temp[k] = a[l];
-                k++;
+            for (int l = i; l <= mid; l++) {
+                temp[k++] = a[l];
             }
         }
-
-        for (l = low; l <= high; l++) {
+        for (int l = low; l <= high; l++) {
             a[l] = temp[l];
         }
     }
