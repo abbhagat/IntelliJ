@@ -3,18 +3,17 @@ package geeks;
 public class Max_2nd_Max {
 
     public static void main(String[] args) {
-        int[] a = {-3, -6};
-        int max, min;
-        max = min = a[0];
+        int[] a = {1, 2};
+        int max, _2ndMax;
+        max = _2ndMax = Integer.MIN_VALUE;
         for (int x : a) {
-            max = max < x ? x : max;
-            min = min > x ? x : min;
-        }
-        int _2ndMax = min;
-        for (int x : a) {
-            if (x < max && x >= _2ndMax) {
+            if (x > max) {
+                _2ndMax = max;
+                max = x;
+            } else if (x > _2ndMax) {
                 _2ndMax = x;
             }
+
         }
         System.out.println("Max : " + max + "  _2ndMax : " + _2ndMax);
     }
