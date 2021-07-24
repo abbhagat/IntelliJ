@@ -5,29 +5,24 @@ import java.util.Arrays;
 public class UnionOfTwoArrays {
 
     public static void main(String[] args) {
-        int a[] = { 1, 3, 5, 12, 1, 12, 2 };
-        int b[] = { 1, 2, 4, 1, 2, 12, };
-        int i = 0, j = 0;
+        int a[] = {1, 2, 3, 5, 7};
+        int b[] = {1, 2, 4, 5, 6};
         Arrays.sort(a);
         Arrays.sort(b);
-        while (i < a.length && j < b.length) {
-            if (a[i] < b[j]) {
+        System.out.println("Intersection ");
+        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
+            if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");
-                i++;
-            } else if (a[i] > b[j]) {
-                System.out.print(b[j] + " ");
-                j++;
-            } else {
-                //System.out.print(a[i] + " ");
-                i++;
-                j++;
             }
         }
-        while (i < a.length) {
-            System.out.print(a[i++] + " ");
+        System.out.println("\nUnion ");
+        for(int x : a){
+            System.out.print(x + " ");
         }
-        while (j < b.length) {
-            System.out.print(b[j++] + " ");
+        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
+            if (a[i] != b[j]) {
+                System.out.print(b[j] + " ");
+            }
         }
     }
 
