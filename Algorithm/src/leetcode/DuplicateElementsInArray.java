@@ -16,9 +16,9 @@ package leetcode;
 public class DuplicateElementsInArray {
 
     public static void main(String[] args) {
-        int a[] = {1, 2, 3, 2, 3, 4};
+        int a[] = {-1, -1, 1, 1, 2, 3, 2, 3, 4};
         for (int i = 0; i < a.length; i++) {
-            int j = a[i] % a.length;
+            int j = Math.abs(a[i] % a.length);
             a[j] += a.length;
         }
         System.out.print("The repeating elements are : ");
