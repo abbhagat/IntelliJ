@@ -13,7 +13,6 @@ public class RemoveInValidBracket {
         }
         Set<String> set = new HashSet<>();              // set to ignore already visited string
         Queue<String> queue = new LinkedList<>();      // queue to maintain BFS
-        boolean level = false;
         queue.add(str);                              // pushing given string as starting node into queue
         set.add(str);
 
@@ -21,9 +20,6 @@ public class RemoveInValidBracket {
             str = queue.poll();
             if (isValidString(str)) {
                 System.out.println(str);
-                level = true;                     // If answer is found, make level true so that valid string of only that level are processed.
-            }
-            if (level) {
                 continue;
             }
             for (int i = 0; i < str.length(); i++) {
@@ -60,10 +56,8 @@ public class RemoveInValidBracket {
     }
 
     public static void main(String[] args) {
-        String expression = "()())()";
-        removeInvalidParenthesis(expression);
-        expression = "()v)";
-        removeInvalidParenthesis(expression);
+        removeInvalidParenthesis("()())()");
+        removeInvalidParenthesis("()v)");
     }
 }
 
