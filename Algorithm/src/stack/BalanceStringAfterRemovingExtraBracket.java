@@ -1,8 +1,8 @@
 package stack;
 
 /*
-Input: exp = “gau)ra)v(ku(mar(rajput))”
-Output: gaurav(ku(mar(rajput)))
+Input: exp = “abh)ina)w(ku(mar(bhagat))”
+Output: abhinaw(ku(mar(bhagat)))
 Input: exp = “1+5)+5+)6+(5+9)*9”
 Output: 1+5+5+6+(5+9)*9
 
@@ -16,15 +16,15 @@ And in last if the count is not equal to zero then print ‘)’ equal to the nu
 public class BalanceStringAfterRemovingExtraBracket {
     public static void balancedString(char[] exp) {
         int count = 0;
-        for (int i = 0; i < exp.length; i++) {
-            if (exp[i] == '(') {
-                System.out.print(exp[i]);               // print exp[i] and increment count by 1
+        for (char c : exp) {
+            if (c == '(') {
+                System.out.print(c);               // print c and increment count by 1
                 count++;
-            } else if (exp[i] == ')' && count != 0) {  // check if closing bracket and count != 0
-                System.out.print(exp[i]);
+            } else if (c == ')' && count != 0) {  // check if closing bracket and count != 0
+                System.out.print(c);
                 count--;
-            } else if (exp[i] != ')') {               // if exp[i] not a closing brackets print it
-                System.out.print(exp[i]);
+            } else if (c != ')') {               // if c not a closing brackets print it
+                System.out.print(c);
             }
         }
         if (count != 0) {                             // balance the brackets if opening brackets are more then closing brackets
@@ -35,6 +35,6 @@ public class BalanceStringAfterRemovingExtraBracket {
     }
 
     public static void main(String args[]) {
-        balancedString("gau)ra)v(ku(mar(rajput))".toCharArray());
+        balancedString("abh)ina)w(ku(mar(bhagat))".toCharArray());
     }
 }
