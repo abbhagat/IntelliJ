@@ -14,10 +14,8 @@ public class HeightDiffOfTwoNodes {
         Node root1 = search.searchBST(root, num1);
         Node root2 = search.searchBST(root, num2);
         TreeHeight th1 = new TreeHeight();
-        th1.height(root1);
         int height1 = th1.treeHeight(root1);
         TreeHeight th2 = new TreeHeight();
-        th2.height(root2);
         int height2 = th2.treeHeight(root2);
         System.out.println(Math.abs(height1 - height2));
     }

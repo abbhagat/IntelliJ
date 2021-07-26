@@ -1,5 +1,19 @@
 package geeks;
 
+/*
+    Let the given string be "banana".
+
+    0 banana                          5 a
+    1 anana     Sort the Suffixes     3 ana
+    2 nana      ---------------->     1 anana
+    3 ana        alphabetically       0 banana
+    4 na                              4 na
+    5 a                               2 nana
+
+    So the suffix array for "banana" is {5, 3, 1, 0, 4, 2}
+ */
+
+
 import java.util.Map;
 import java.util.TreeMap;
 

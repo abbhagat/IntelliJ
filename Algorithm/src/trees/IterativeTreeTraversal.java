@@ -1,23 +1,21 @@
 package trees;
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class IterativeTreeTraversal {
 
     static void iterativeTreeTraversal(Node root) {
-        if (null == root) {
-            return;
-        }
-        Stack<Node> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.empty()) {
-            root = stack.pop();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (q.size() > 0) {
+            root = q.poll();
             System.out.print(root.num + " ");
-            if(root.left != null){
-                stack.push(root.left);
+            if (root.left != null) {
+                q.add(root.left);
             }
-            if(root.right != null){
-                stack.push(root.right);
+            if (root.right != null) {
+                q.add(root.right);
             }
         }
     }

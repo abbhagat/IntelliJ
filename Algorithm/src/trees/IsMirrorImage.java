@@ -1,8 +1,17 @@
 package trees;
 
+/*
+For two trees ‘a’ and ‘b’ to be mirror images, the following three conditions must be true:
 
-import static trees.CreateBST.createBST;
-import static trees.TreeMirrorImage.mirrorImage;
+
+Their root node’s key must be same
+Left subtree of root of ‘a’ and right subtree root of ‘b’ are mirror.
+Right subtree of ‘a’ and left subtree of ‘b’ are mirror.
+ */
+// Time Complexity : O(n)
+
+import static trees.BinaryTree.createBT;
+import static trees.TreeMirrorImage.mirrorImageUsingIteration;
 import static trees.TreeTraversal.inorder;
 
 public class IsMirrorImage {
@@ -18,13 +27,13 @@ public class IsMirrorImage {
     }
 
     public static void main(String[] args) {
-        int[] a = {5, 3, 6, 2, 4};
+        int[] a = {1,2,3,4,5};
         Node root = null;
         for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+            root = createBT(a[i], root);
         }
         inorder(root);
-        Node mirrorRoot = mirrorImage(root);
+        Node mirrorRoot = mirrorImageUsingIteration(root);
         System.out.println();
         inorder(mirrorRoot);
         System.out.println(isMirrorImage(root, mirrorRoot) ? "Mirror Image" : "Not a Mirror Image");
