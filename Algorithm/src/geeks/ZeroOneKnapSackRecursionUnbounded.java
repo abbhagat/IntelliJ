@@ -9,7 +9,8 @@ import static java.lang.Math.max;
  * such that sum of the weights of this subset is smaller than or equal to W.
  * You cannot break an item, either pick the complete item or don’t pick it (0-1 property).
  *  Recursion by Brute-Force algorithm OR Exhaustive Search.
- * Approach: A simple solution is to consider all subsets of items and calculate the total weight and value of all subsets. Consider the only subsets whose total weight is smaller than W. From all such subsets, pick the maximum value subset.
+ * Approach: A simple solution is to consider all subsets of items and calculate the total weight and value of all subsets.
+ * Consider the only subsets whose total weight is smaller than W. From all such subsets, pick the maximum value subset.
  * Optimal Sub-structure: To consider all subsets of items, there can be two cases for every item.
  *
  * Case 1: The item is included in the optimal subset.

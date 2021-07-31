@@ -1,4 +1,4 @@
-package leetcode;
+package geeksforgeeks;
 
 /**
  * Programmer Sam is planning to escape from prison! The prison's gate consists of horizontal and vertical bars that are spaced one unit apart,

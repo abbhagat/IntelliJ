@@ -1,4 +1,4 @@
-package geeks;
+package geeksforgeeks;
 
 import java.util.Arrays;
 
@@ -44,8 +44,8 @@ public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
     }
 
     private static int maxDistance(int cell[], int p) {
-        Arrays.sort(cell);                     // Sort the array so that binary search can be applied on it
-        int start = 0;                        // Minimum possible distance for the search space
+        Arrays.sort(cell);                               // Sort the array so that binary search can be applied on it
+        int start = 0;                                  // Minimum possible distance for the search space
         int end = cell[cell.length - 1] - cell[0];     // Maximum possible distance for the search space
         int ans = 0;
         while (start <= end) {
