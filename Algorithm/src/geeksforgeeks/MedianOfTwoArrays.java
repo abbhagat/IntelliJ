@@ -20,45 +20,22 @@ package geeksforgeeks;
  */
 public class MedianOfTwoArrays {
 
-    private static int getMedian(int[] a, int[] b) {
-        int i = 0, j = 0, m = -1, n = -1;
-        if ((a.length + b.length) % 2 == 1) {
-            for (int k = 0; k <= (a.length + b.length) / 2; k++) {
-                if (i != a.length && j != b.length) {
-                    m = (a[i] > b[j]) ? b[j++] : a[i++];
-                } else {
-                    m = i < a.length ? a[i++] : b[j++];
-                }
-            }
-            return m;
-        } else {
-            for (int k = 0; k <= (a.length + b.length) / 2; k++) {
-                n = m;
-                if (i != a.length && j != b.length) {
-                    m = (a[i] > b[j]) ? b[j++] : a[i++];
-                } else {
-                    m = i < a.length ? a[i++] : b[j++];
-                }
-            }
-            return (m + n) / 2;
-        }
-    }
-
     private static int findMedian(int[] a, int[] b) {
-        int i = 0, j = 0, median = 0;
-        for (int k = 0; k <= (a.length + b.length) / 2; k++) {
+        int i = 0, j = 0, prev_median = 0, median = 0, l = a.length + b.length;
+        for (int k = 0; k <= l / 2; k++) {
+            prev_median = l % 2 == 0 ? median : 0;
             if (i != a.length && j != b.length) {
-                median = (a[i] > b[j]) ? b[j++] : a[i++];
+                median = a[i] < b[j] ? a[i++] : b[j++];
             } else {
                 median = i < a.length ? a[i++] : b[j++];
             }
         }
-        return median;
+        return l % 2 == 0 ? (median + prev_median) / 2 : median;
     }
 
     public static void main(String[] args) {
-        System.out.println(getMedian(new int[]{900}, new int[]{5, 8, 10, 20}));
-        System.out.println(getMedian(new int[]{-5, 3, 6, 12, 15}, new int[]{-12, -10, -6, -3, 4, 10}));
-        System.out.println(getMedian(new int[]{2, 3, 5, 8}, new int[]{10, 12, 14, 16, 18, 20}));
+        System.out.println(findMedian(new int[]{30, 40}, new int[]{5, 8, 10, 20}));
+        System.out.println(findMedian(new int[]{-5, 3, 6, 12, 15}, new int[]{-12, -10, -6, -3, 4, 10}));
+        System.out.println(findMedian(new int[]{2, 3, 5, 8}, new int[]{10, 12, 14, 16, 18, 20}));
     }
 }
