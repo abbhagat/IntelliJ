@@ -17,20 +17,16 @@ public class Vehicle {
 }
 
 /**
- * Table Generated
- * <p>
+ * Tables Generated
  * Vehicle
- * <p>
  * ID   Name
  * 1    Car
- * <p>
+ * ***********************
  * TwoWheeler
- * <p>
  * ID   Name  steeringHandle
  * 2    Bike   BikeSteering
- * <p>
+ *************************
  * FourWheeler
- * <p>
  * ID   Name      steeringWheel
  * 3    Porsche   PorscheSteering
  */

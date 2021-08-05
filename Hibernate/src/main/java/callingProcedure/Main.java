@@ -13,16 +13,17 @@ public class Main {
     public static void main(String[] args) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
+        Query query;
 
-        Query query = session.getNamedNativeQuery("userDetailsProcedure");
+        query = session.getNamedNativeQuery("userDetailsProcedure");
         query.setParameter("userID", 1);
         query.setParameter("userName", "V705417");
         List<UserDetails> userDetailsList = query.list();
 
-        Query query1 = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class);
-        query1.setParameter("userID", 1);
-        query1.setParameter("userName", "V705417");
-        List<UserDetails> userDetailsList1 = query1.list();
+        query = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class);
+        query.setParameter("userID", 1);
+        query.setParameter("userName", "V705417");
+        List<UserDetails> userDetailsList1 = query.list();
 
         transaction.commit();
         session.close();

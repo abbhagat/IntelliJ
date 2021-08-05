@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "VEHICLE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "VECHILE_TYPE", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("Vehicles")
+@DiscriminatorValue("Vehicle")
 public class Vehicle {
 
     @Id
@@ -24,15 +24,14 @@ public class Vehicle {
 
 /**
  * Table Generated
- * <p>
+ *
  * ID   dtype         Name      steeringHandle    steeringWheel
  * 1   Vehicle       Car         null               null
  * 2   TwoWheeler    Bike        BikeSteering       null
  * 3   FourWheeler   Porsche     null               PorscheSteering
- * <p>
- * <p>
+ *******************************************************************
  * ID   VECHILE_TYPE  Name      steeringHandle    steeringWheel
  * 1   Vehicle       Car         null               null
- * 2   Bike          Bike        BikeSteering
+ * 2   Bike          Bike        BikeSteering       null
  * 3   Car           Porsche     null               PorscheSteering
  */
