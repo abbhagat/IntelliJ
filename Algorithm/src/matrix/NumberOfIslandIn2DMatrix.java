@@ -12,12 +12,13 @@ package matrix;
  * So, unlike standard DFS(), where we recursively call for all adjacent vertices,
  * here we can recursively call for 8 neighbours only.
  * We keep track of the visited 1s so that they are not visited again.
- *
+ * <p>
  * Time complexity: O(ROW x COL)
  */
 public class NumberOfIslandIn2DMatrix {
 
-    private static int M[][] = new int[][]{{1, 1, 0, 0, 0},
+    private static int M[][] = new int[][]{
+            {1, 1, 0, 0, 0},
             {0, 1, 0, 0, 1},
             {1, 0, 0, 1, 1},
             {0, 0, 0, 0, 0},

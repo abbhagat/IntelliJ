@@ -1,6 +1,6 @@
 package matrix;
 
-public class EasyPrintSpiralMatrixSolution {
+public class SpiralMatrix {
 
     public static void main(String[] args) {
         final int n = 4;
