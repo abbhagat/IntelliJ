@@ -20,13 +20,13 @@
         <!--        <property name="cache.region.factory_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>-->
 <!--        <mapping class="OneToOne.UserDetails"></mapping>-->
 <!--        <mapping class="OneToOne.Vehicles"></mapping>-->
-<!--        <mapping class="OneToMany.UserDetails"></mapping>-->
-<!--        <mapping class="OneToMany.Vehicles"></mapping>-->
+        <mapping class="OneToMany.UserDetails"></mapping>
+        <mapping class="OneToMany.Vehicles"></mapping>
 <!--        <mapping class="ManyToMany.UserDetails"></mapping>-->
 <!--        <mapping class="ManyToMany.Vehicles"></mapping>-->
 <!--        <mapping class="secondLevelCache.UserDetails"></mapping>-->
 <!--        <mapping class="selectBeforeUpdate.UserDetails"></mapping>-->
 <!--        <mapping class="attributeOverrides.UserDetails"></mapping>-->
-        <mapping class="attributeOverridesCollections.UserDetails"></mapping>
+<!--        <mapping class="attributeOverridesCollections.UserDetails"></mapping>-->
     </session-factory>
 </hibernate-configuration>

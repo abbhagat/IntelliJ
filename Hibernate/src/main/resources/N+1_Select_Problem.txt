@@ -1,0 +1,22 @@
+Let's say we have a collection of Order objects (database rows), and each Order has a collection of Order Items objects (also rows).
+In other words, Order → OrderItems is a 1-to-many relationship.
+
+Now, let's say you need to iterate through all the Orders, and for each one, print out a list of the Order Items.
+The naive O/R implementation would do the following:
+
+SELECT * FROM Order;
+And then for each order:
+
+SELECT * FROM OrderItems WHERE orderId = ?
+
+In other words, you have one select for the Order, and then N additional selects, where N is the total number of Orders.
+
+Alternatively, one could get all Order Items and perform the lookups in memory:
+
+SELECT * FROM OrderItems;
+
+This reduces the number of round-trips to the database from N+1 to 2.
+Most ORM tools give you several ways to prevent N+1 selects.
+This is solved using
+
+@Fetch(FetchMode.SUBSELECT)
