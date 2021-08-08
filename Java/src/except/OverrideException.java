@@ -27,7 +27,7 @@ public class OverrideException {
     public static void main(String[] args) throws IOException {
         Super s = new Sub();
         System.out.println(s.x);
-//        Sub s1 = s.getInstance(s, "String"); // Error
+        Sub s11 = (Sub) s.getInstance(s, "String"); // Error
         Super s1 = s.getInstance(s, "String");
         System.out.println(s1.x); // s.getInstance(s, "String") -> returns an instanceof Super
         Sub sub = new Sub();
