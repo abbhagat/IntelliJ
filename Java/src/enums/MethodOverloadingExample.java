@@ -1,6 +1,6 @@
 package enums;
 
-// short -> short -> int -> long -> float -> double -> Short -> Number -> Object
+// short -> int -> long -> float -> double -> Short -> Number -> Object
 
 public class MethodOverloadingExample {
 

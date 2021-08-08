@@ -16,7 +16,8 @@ public class StaticDemo {
     }
 
     public static void main(String[] args) {
-        out.println(new StaticDemo().x);
-        out.println((int)pow(10, 2));
+        StaticDemo staticDemo = new StaticDemo();
+        out.println(staticDemo.x);
+        out.println((int) pow(staticDemo.x, 2));
     }
 }
