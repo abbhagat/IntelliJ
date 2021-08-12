@@ -10,20 +10,31 @@ public class UnionOfTwoArrays {
         Arrays.sort(a);
         Arrays.sort(b);
         System.out.println("Intersection ");
-        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
+        int i = 0, j = 0;
+        while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");
             }
+            i++;
+            j++;
         }
-        System.out.println("\nUnion ");
-        for(int x : a){
-            System.out.print(x + " ");
-        }
-        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
-            if (a[i] != b[j]) {
-                System.out.print(b[j] + " ");
+        i = 0;
+        j = 0;
+        System.out.println();
+        while (i < a.length && j < b.length) {
+            if (a[i] == b[j]) {
+                System.out.print(a[i] + " ");
+                i++;
+                j++;
+            } else {
+                System.out.print(a[i] < b[j] ? a[i++] + " " : b[j++] + " ");
             }
         }
+        while (i < a.length) {
+            System.out.print(a[i++] + " ");
+        }
+        while (j < b.length) {
+            System.out.print(a[j++] + " ");
+        }
     }
-
 }
