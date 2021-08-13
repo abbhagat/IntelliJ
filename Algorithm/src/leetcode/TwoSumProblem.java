@@ -45,11 +45,29 @@ public class TwoSumProblem {
         return K;
     }
 
+    public static void twoSum1(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int x : nums) {
+            Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
+        }
+        for (int x : nums) {
+            int y = target - x;
+            if (x == y && map.get(x) == 1) {
+                continue;
+            } else if (map.containsKey(y)) {
+                System.out.println("(" + x + "," + y + ")");
+                map.remove(y);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        int[] nums = new int[]{3, 2, 4};
+        int[] nums = new int[]{3, 2, 4, 2};
         int target = 6;
         for (int x : twoSum(nums, target)) {
             System.out.print(x + ",");
         }
+        System.out.println();
+        twoSum1(nums, target);
     }
 }
