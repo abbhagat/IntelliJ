@@ -1,9 +1,8 @@
 package leetcode;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 public class RemoveInValidBracket {
 
@@ -12,12 +11,12 @@ public class RemoveInValidBracket {
             return;
         }
         Set<String> set = new HashSet<>();              // set to ignore already visited string
-        Queue<String> queue = new LinkedList<>();      // queue to maintain BFS
-        queue.add(str);                              // pushing given string as starting node into queue
+        Stack<String> stack = new Stack<>();           // queue to maintain BFS
+        stack.push(str);                              // pushing given string as starting node into queue
         set.add(str);
 
-        while (!queue.isEmpty()) {
-            str = queue.poll();
+        while (!stack.isEmpty()) {
+            str = stack.pop();
             if (isValidString(str)) {
                 System.out.println(str);
                 continue;
@@ -28,7 +27,7 @@ public class RemoveInValidBracket {
                 }
                 String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str and pushing into queue,if not visited already
                 if (!set.contains(temp)) {
-                    queue.add(temp);
+                    stack.push(temp);
                     set.add(temp);
                 }
             }

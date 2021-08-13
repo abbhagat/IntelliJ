@@ -25,15 +25,18 @@ public class RemoveOneElementToMakeArrayStrictlyIncreasing {
             System.out.println(a[index]);
             return true;
         }
-        if (a[index - 2] < a[index]) {  // If a[index - 1] is removed
+        if (index - 2 >= 0 && a[index - 2] < a[index]) {  // If a[index - 1] is removed
             System.out.println(a[index]);
+            return true;
+        }
+        if(index < 0) {       // if there is no element to compare
             return true;
         }
         return false;
     }
 
     public static void main(String args[]) {
-        int[] a = {1, 2, 5, 3, 5};
+        int[] a = {1, 5, 4, 6};
         System.out.println(check(a) ? Boolean.TRUE : Boolean.FALSE);
     }
 }

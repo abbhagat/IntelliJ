@@ -22,11 +22,11 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
         int zeroCount = 0;                    // Count of zeroes in current window
         while (wR < nums.length) {           // While right boundary of current window doesn't cross right end
             if (zeroCount <= k) {           // If zero count of current window is less than m widen the window toward right
-                zeroCount = nums[wR] == 0 ? zeroCount + 1 : zeroCount;
+                zeroCount += nums[wR] == 0 ? 1 : 0;
                 wR++;
             }
             if (zeroCount > k) {         // If zero count of current window is more than k reduce the window from left
-                zeroCount = nums[wL] == 0 ? zeroCount - 1 : zeroCount;
+                zeroCount -= nums[wL] == 0 ? 1 : 0;
                 wL++;
             }
             if ((wR - wL > bestWindow) && (zeroCount <= k)) {   // Update widest window if this window size is more
