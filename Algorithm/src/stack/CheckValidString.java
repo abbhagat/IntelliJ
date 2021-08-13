@@ -34,7 +34,7 @@ public class CheckValidString {
     public static boolean checkValidString(char[] exp) {
         int low = 0, high = 0;
         for (char c : exp) {
-            low  += c == '(' ? 1 : -1;
+            low += c == '(' ? 1 : -1;
             high += c != ')' ? 1 : -1;
             if (high < 0) break;
             low = Math.max(low, 0);
@@ -42,7 +42,37 @@ public class CheckValidString {
         return low == 0;
     }
 
+    public static boolean checkValid(char[] exp) {
+        int x = 0, y = 0;
+        for (char c : exp) {
+            if (c == '(') {
+                x++;
+            }
+            else if (c == '*') {
+                y++;
+            }
+            else if (c == ')' && x > 0) {
+                x--;
+            }
+            else if (c == ')' && x == 0) {
+                return false;
+            }
+        }
+        return x <= y;
+    }
+
     public static void main(String[] args) {
         System.out.println(checkValidString(")(".toCharArray()));
+        System.out.println(checkValidString("(*".toCharArray()));
+        System.out.println(checkValidString("(()())".toCharArray()));
+        System.out.println(checkValidString("(***)".toCharArray()));
+        System.out.println(checkValidString("())()".toCharArray()));
+        System.out.println();
+        System.out.println(checkValidString(")(".toCharArray()));
+        System.out.println(checkValidString("(*".toCharArray()));
+        System.out.println(checkValidString("(()())".toCharArray()));
+        System.out.println(checkValidString("(***)".toCharArray()));
+        System.out.println(checkValidString("())()".toCharArray()));
+
     }
 }

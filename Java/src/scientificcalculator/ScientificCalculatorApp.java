@@ -22,10 +22,15 @@ public class ScientificCalculatorApp implements ActionListener {
     private JButton[] jbtn;
     private JPanel jplbtn, jplmaster, jplback, jplctrl;
     private JTextField jtfd;
-    private static int i, k, d, e;
-    private String s1, s2, s3, msg, str;
+    private static int i;
+    private static int k;
+    private static int e;
+    private String s1;
+    private String s2;
+    private String s3;
+    private String msg;
     private static double firstNumber, lastNumber;
-    private static boolean dmode, gmode, rmode;
+    private static boolean dmode;
     private UIManager.LookAndFeelInfo[] looks = UIManager.getInstalledLookAndFeels();
 
     private ScientificCalculatorApp() {
@@ -267,6 +272,7 @@ public class ScientificCalculatorApp implements ActionListener {
         }
         jfrm.setResizable(false);
         jfrm.setVisible(true);
+        String str;
         s1 = s2 = s3 = str = msg = "";
         i = 0;
     }
@@ -274,6 +280,8 @@ public class ScientificCalculatorApp implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         try {
             String str = ae.getActionCommand();
+            boolean gmode;
+            boolean rmode;
             if (str.equals("Exit")) {
                 int response = JOptionPane.showConfirmDialog(jfrm, "Are U Sure To Exit");
                 switch (response) {
@@ -387,6 +395,7 @@ public class ScientificCalculatorApp implements ActionListener {
                 msg = jtfd.getText();
                 s1 = msg;
                 s3 = jtfd.getText();
+                int d;
                 k = d = e = 0;
             } else if (str.equals("sqrt")) {
                 firstNumber = assignValue(s1);
