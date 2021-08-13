@@ -31,5 +31,6 @@ public class MinBracketRemovalToMakeBracketBalanced {
 
     public static void main(String args[]) {
         System.out.println(countMinReversals("}{".toCharArray()));
+        System.out.println(countMinReversals("}{{}}{{{".toCharArray()));
     }
 }

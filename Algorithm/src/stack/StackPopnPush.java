@@ -2,28 +2,24 @@ package stack;
 
 public class StackPopnPush {
 
-    Node temp, first;
+    Node first;
     char c;
 
     Node push(char num, Node node) {
         if (node == null) {
             node = new Node();
             node.num = num;
-            node.next = null;
         }
-        if (first == null) {
-            temp = first = node;
-        } else {
-            node.next = temp;
-            temp = first = node;
-        }
-        return first;
+        node.next = first;
+        first = node;
+        return node;
     }
 
     Node pop(Node first) {
         Node temp = null;
         if (first != null) {
             temp = first.next;
+            first = null;
         }
         return temp;
     }
