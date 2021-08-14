@@ -27,5 +27,4 @@ public class DeepEqualsDemo {
 		System.out.println("Objects.deepEquals(list2,list3) --> " + Objects.deepEquals(list2, list3));
 		System.out.println("list2.equals(list3) --> " + list2.equals(list3));
 	}
-
 }

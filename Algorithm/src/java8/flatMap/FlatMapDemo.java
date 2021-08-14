@@ -2,6 +2,7 @@ package java8.flatMap;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FlatMapDemo {
 
@@ -13,7 +14,11 @@ public class FlatMapDemo {
         Collection<List<String>> list = people.values();
         System.out.println(list);
         List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
-        Set<String> names =  people.keySet();
         phones.forEach(System.out::println);
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("John", "555-1123");
+        map.put("Mary", "555-2243");
+        map.put("Steve", "555-6654");
+        map.values().stream().flatMap(Stream::of).collect(Collectors.toList()).forEach(System.out::println);
     }
 }

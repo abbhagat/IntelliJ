@@ -3,6 +3,11 @@ package java8.interfaces;
 interface InterfaceA {
     default void defaultMethod() {
         System.out.println("Interface A default method");
+        staticMethod();
+    }
+
+    static void staticMethod(){
+        System.out.println("Interface A static method");
     }
 }
 
@@ -24,8 +29,8 @@ class Impl implements InterfaceA, InterfaceB {
 public class DefaultMethodInInterfaces {
 
     public static void main(String[] args) {
-        //new Impl().defaultMethod();
         new Impl().defaultMethod();
-        new Impl().defaultMethod();
+        InterfaceA.staticMethod();
+        //InterfaceA.defaultMethod();
     }
 }

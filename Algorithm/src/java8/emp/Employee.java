@@ -1,9 +1,9 @@
 package java8.emp;
 
-public class Employee {
+public final class Employee {
 
-    private String name;
-    private Integer id;
+    private final String name;
+    private final Integer id;
 
     public Employee(String name, Integer id) {
         this.name = name;
@@ -14,16 +14,8 @@ public class Employee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String toString() {
