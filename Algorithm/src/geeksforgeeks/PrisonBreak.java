@@ -35,9 +35,9 @@ import java.util.List;
 
 public class PrisonBreak {
 
-    public static long prison(int n, int m, List<Integer> h, List<Integer> v) {
-        boolean[] x = new boolean[n + 1];
-        boolean[] y = new boolean[m + 1];
+    public static long prison(int m, int n, List<Integer> h, List<Integer> v) {
+        boolean[] x = new boolean[m + 1];
+        boolean[] y = new boolean[n + 1];
 
         int cx = 0, cy = 0;
         int ox = Integer.MIN_VALUE;
@@ -51,7 +51,7 @@ public class PrisonBreak {
             y[v.get(i)] = true;
         }
 
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= m; i++) {
             if (x[i]) {
                 cx++;
                 ox = Math.max(ox, cx);
@@ -60,7 +60,7 @@ public class PrisonBreak {
                 cx = 0;
             }
         }
-        for (int i = 1; i <= m; i++) {
+        for (int i = 1; i <= n; i++) {
             if (y[i]) {
                 cy++;
                 oy = Math.max(oy, cy);
@@ -69,10 +69,10 @@ public class PrisonBreak {
             }
         }
         return (ox + 1) * (oy + 1);
-
     }
 
     public static void main(String[] args) {
-        System.out.println(prison(6, 6, Arrays.asList(1, 3, 5), Arrays.asList(2, 4, 6)));
+        System.out.println(prison(3, 3, Arrays.asList(2), Arrays.asList(2)));
+        System.out.println(prison(3, 2, Arrays.asList(1, 2, 3), Arrays.asList(1, 2)));
     }
 }

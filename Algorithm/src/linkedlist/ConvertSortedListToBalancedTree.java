@@ -12,7 +12,7 @@ class TNode {
 public class ConvertSortedListToBalancedTree {
 
     private static TNode sortedListToBST(Node node) {
-        int n = countNodes(node);             //Count the number of nodes in Linked List
+        int n = countNodes(node);                   //Count the number of nodes in Linked List
         return sortedListToBSTRecur(node, n);      // Construct BST
     }
 

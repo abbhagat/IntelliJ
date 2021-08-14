@@ -1,5 +1,7 @@
 package linkedlist;
 
+import static linkedlist.MidPointOfLinkedList.findMid;
+
 class TreeNode {
     int num;
     TreeNode left, right;
@@ -13,20 +15,19 @@ class TreeNode {
 
 public class ConvertSortedListToBalancedTree2 {
 
-    private static TreeNode root;
-
-    private static TreeNode sortedListToBST(TreeNode root, Node first) {
-        if (first.next != null) {
-            Node mid = MidPointOfLinkedList.findMid(first);
-            Node first2 = mid.next;
-            mid.next = null;
-            root = new TreeNode(mid.num);
-            root.left = sortedListToBST(root.left, MidPointOfLinkedList.findMid(first));
-            root.right = sortedListToBST(root.right, MidPointOfLinkedList.findMid(first2));
-            return root;
-        }else{
-            return root;
+    private static TreeNode sortedListToBST(Node first, Node mid) {
+        if (first == mid) {
+            return null;
         }
+        mid = findMid(first);
+        Node first2 = mid.next;
+        mid.next = null;
+        TreeNode root = new TreeNode(mid.num);
+        System.out.println(root.num);
+
+        root.left = sortedListToBST(first,mid);
+        root.right = sortedListToBST(first2,mid);
+        return root;
     }
 
     private static void preOrder(TreeNode node) {
@@ -43,7 +44,7 @@ public class ConvertSortedListToBalancedTree2 {
         for (int x : a) {
             first = LinkList.add(first, x);
         }
-        TreeNode root = sortedListToBST(null, first);
-        preOrder(root);
+        TreeNode root = sortedListToBST(first, findMid(first));
+        //preOrder(root);
     }
 }
