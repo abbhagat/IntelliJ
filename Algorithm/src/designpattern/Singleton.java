@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Singleton implements Cloneable, Serializable {
 
     private static Singleton _instance;
+    private static final long serialVersionUID = 1L;
 
     private Singleton() {
         if (_instance != null) {

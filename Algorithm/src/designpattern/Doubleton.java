@@ -15,6 +15,9 @@ public class Doubleton implements Cloneable, Serializable {
     private static volatile int index;
 
     private Doubleton() {
+        if (instance1 != null || instance2 != null) {
+            throw new RuntimeException("Can't instantiate singleton twice");
+        }
     }
 
     public static synchronized Doubleton getInstance() {

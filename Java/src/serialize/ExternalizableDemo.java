@@ -57,7 +57,7 @@ public class ExternalizableDemo {
             os.flush();
             fos.close();
             os.close();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
@@ -68,7 +68,7 @@ public class ExternalizableDemo {
             fis.close();
             in.close();
             System.out.println(e);
-        } catch (Exception ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             ex.printStackTrace();
         }
     }
