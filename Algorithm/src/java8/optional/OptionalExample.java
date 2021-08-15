@@ -5,15 +5,14 @@ import java.util.Optional;
 public class OptionalExample {
 	public static void main(String[] args) {
 		String[] str = new String[10];
-		str[5] = "JAVA OPTIONAL CLASS EXAMPLE"; // Setting value for 5th index
-		Optional<String> empty = Optional.empty(); // It returns an empty instance of Optional class
-		System.out.println(empty); // It returns a non-empty Optional
-		Optional<String> value = Optional.of(str[5]); // If value is present, it returns an Optional otherwise returns an empty Optional
+		str[5] = "JAVA OPTIONAL CLASS EXAMPLE";          // Setting value for 5th index
+		Optional<String> empty = Optional.empty();      // It returns an empty instance of Optional class
+		System.out.println(empty);                     // It returns a non-empty Optional
+		Optional<String> value = Optional.of(str[5]); // If value is present, it returns an Optional otherwise throws NPE
 		System.out.println("Filtered value: " + value.filter((s) -> s.equals("Abc")));
 		System.out.println("Filtered value: " + value.filter((s) -> s.equals("JAVA OPTIONAL CLASS EXAMPLE")));
 
-		System.out.println("Getting value: " + value.get());// It returns value of an Optional. if value is not present,
-															// it throws NoSuchElementException
+		System.out.println("Getting value: " + value.get()); // It returns value of an Optional. if value is not present, throws NoSuchElementException
 
 		System.out.println("Getting hashCode: " + value.hashCode());// It returns hashCode of the value
 
