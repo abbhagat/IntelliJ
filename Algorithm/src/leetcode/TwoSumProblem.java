@@ -15,6 +15,7 @@ Output: [1,2]
 Input: nums = [3,3], target = 6
 Output: [0,1]
  */
+
 public class TwoSumProblem {
 
     public static <K, V> K getKey(Map<K, V> map, V value) {
@@ -45,29 +46,24 @@ public class TwoSumProblem {
         return K;
     }
 
-    public static void twoSum1(int[] nums, int target) {
+    public static void countUniquePairs(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : nums) {
             Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
         }
         for (int x : nums) {
             int y = target - x;
-            if (x == y && map.get(x) == 1) {
-                continue;
-            } else if (map.containsKey(y)) {
-                System.out.println("(" + x + "," + y + ")");
+            if (map.containsKey(y)) {
+                System.out.println(x + "\t" + y);
+                map.remove(x);
                 map.remove(y);
             }
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3, 2, 4, 2};
-        int target = 6;
-        for (int x : twoSum(nums, target)) {
-            System.out.print(x + ",");
-        }
-        System.out.println();
-        twoSum1(nums, target);
+        int[] nums = new int[]{2, 6, 7, 1, 8, 3 };
+        int target = 10;
+        countUniquePairs(nums, target);
     }
 }
