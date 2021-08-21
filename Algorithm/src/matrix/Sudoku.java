@@ -2,33 +2,34 @@ package matrix;
 
 public class Sudoku {
 
-    private int[][] a = { {3, 0, 6, 5, 0, 8, 4, 0, 0},
-                          {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                          {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                          {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                          {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                          {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                          {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                          {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                          {0, 0, 5, 2, 0, 6, 3, 0, 0}
-                        };
+    private int[][] a = {
+            {3, 0, 6, 5, 0, 8, 4, 0, 0},
+            {5, 2, 0, 0, 0, 0, 0, 0, 0},
+            {0, 8, 7, 0, 0, 0, 0, 3, 1},
+            {0, 0, 3, 0, 1, 0, 0, 8, 0},
+            {9, 0, 0, 8, 6, 3, 0, 0, 5},
+            {0, 5, 0, 0, 9, 0, 6, 0, 0},
+            {1, 3, 0, 0, 0, 0, 2, 5, 0},
+            {0, 0, 0, 0, 0, 0, 0, 7, 4},
+            {0, 0, 5, 2, 0, 6, 3, 0, 0}
+    };
 
     private int row, col;
 
     private boolean solveSudoku() {
-      if (!findUnassignedLocation()) {
-          return true; // success!
-      }
-      for (int num = 1; num <= 9; num++) {
-          if (isSafe(row, col, num)) {
-              a[row][col] = num; // make tentative assignment
-              if (solveSudoku()) {
-                  return true; // return, if success
-              }
-              a[row][col] = 0; // failure, unmake & try again
-          }
-      }
-      return false;
+        if (!findUnassignedLocation()) {
+            return true; // success!
+        }
+        for (int num = 1; num <= 9; num++) {
+            if (isSafe(row, col, num)) {
+                a[row][col] = num; // make tentative assignment
+                if (solveSudoku()) {
+                    return true; // return, if success
+                }
+                a[row][col] = 0; // failure, unmake & try again
+            }
+        }
+        return false;
     }
 
     private boolean findUnassignedLocation() {
