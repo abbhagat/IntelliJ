@@ -3,6 +3,7 @@ package org.retail.order.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.data.annotation.AccessType;
@@ -30,7 +31,8 @@ import java.util.List;
 })
 @AccessType(Type.PROPERTY)
 @EntityListeners(AuditingEntityListener.class)
-
+// @DynamicUpdate - Mean the update sql statement is generated at runtime and contains only those columns whose values have changed.
+@DynamicUpdate(value=true)
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -113,6 +115,6 @@ public class Orders implements Serializable {
     private Date lastModifiedDate;
 
     @Column(name = "VERSION", updatable = false)
-    @Version
+    @Version  // @Version - Hibernate framework will check the version of the record before updating it.
     private Integer version;
 }

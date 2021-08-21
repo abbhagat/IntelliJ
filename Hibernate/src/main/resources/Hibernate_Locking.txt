@@ -55,3 +55,16 @@ Session.lock(): This method performs a version number check when the lock mode i
                 When the lock mode is UPGRADE or UPGRADE_NOWAIT, the SELECT .. FOR UPDATE statement is used.
 
 Query.setLockMode(): This method is used to set the lock mode for the object specified in the FROM clause of the Query string.
+
+List cars = entityManager.createQuery("select c from Car c", Car.class)
+                .setLockMode(LockModeType.PESSIMISTIC_WRITE)
+                .getResultList();
+
+PESSIMISTIC_READ	Rows are locked and can be read by other transactions, but they cannot be deleted or modified.
+                    PESSIMISTIC_READ guarantees repeatable reads.
+
+PESSIMISTIC_WRITE	Rows are locked and cannot be read, modified or deleted by other transactions.
+                    For PESSIMISTIC_WRITE no phantom reads can occur and access to data must be serialized.
+
+PESSIMISTIC_FORCE_INCREMENT	Rows are locked and cannot be modified or deleted.
+                            For versioned entities, their version number is incremented as soon as the query executes.
