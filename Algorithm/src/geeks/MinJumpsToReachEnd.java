@@ -26,12 +26,10 @@ public class MinJumpsToReachEnd {
         // Traverse through all the points reachable from array. Recursively get the minimum number of jumps needed to reach arr[h] from these reachable points.
         int min = Integer.MAX_VALUE;
         for (int i = l + 1; i <= h && i <= l + a[l]; i++) {
-            int jumps = minJumps(a, i, h);
-            if (jumps != Integer.MAX_VALUE && jumps + 1 < min) {
-                min = jumps + 1;
-            }
+            int result = minJumps(a, i, h);
+            min = result < min ? result : min;
         }
-        return min;
+        return min + 1;
     }
 
     public static void main(String[] args) {
