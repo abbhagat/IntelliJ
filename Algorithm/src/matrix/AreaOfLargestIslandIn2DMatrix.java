@@ -28,7 +28,7 @@ public class AreaOfLargestIslandIn2DMatrix {
 
     private static int M[][] = new int[][]{
             {1, 1, 0, 0, 0},
-            {0, 1, 0, 0, 1},
+            {1, 1, 0, 1, 1},
             {1, 0, 0, 1, 1},
             {0, 0, 0, 0, 0},
             {1, 0, 1, 0, 1}
@@ -61,7 +61,7 @@ public class AreaOfLargestIslandIn2DMatrix {
         int max_area = 0;
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
-                if (M[i][j] == 1) {
+                if (M[i][j] == 1 && !visited[i][j]) {
                     area = 1;
                     DFS(i, j);
                     max_area = Math.max(max_area, area);
