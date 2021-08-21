@@ -10,7 +10,7 @@ package geeks;
  * Therefore, the total number of operations is 3.
  * <p>
  * Input: A = “11”, B = “00”
- * Output: 3
+ * Output: 2
  */
 public class MinFlipToMakeBinaryStringSame {
 
@@ -20,7 +20,7 @@ public class MinFlipToMakeBinaryStringSame {
             if (a[i] == b[i]) {
                 i++;
                 continue;
-            } else if (a[i] == b[i + 1] && a[i + 1] == b[i] && i < a.length) {
+            } else if ((i + 1 < a.length) && a[i] == b[i + 1] && a[i + 1] == b[i]) {
                 minFlips++;
                 i = i + 2;
             } else if (a[i] != b[i]) {
@@ -35,5 +35,6 @@ public class MinFlipToMakeBinaryStringSame {
 
     public static void main(String[] args) {
         System.out.println(minimumOperation("10010010".toCharArray(), "00001000".toCharArray()));
+        System.out.println(minimumOperation("11".toCharArray(), "00".toCharArray()));
     }
 }
