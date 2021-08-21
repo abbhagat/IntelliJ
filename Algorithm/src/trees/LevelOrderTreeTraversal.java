@@ -2,15 +2,16 @@ package trees;
 
 public class LevelOrderTreeTraversal {
 
-    TreeHeight th = new TreeHeight();
+    private static TreeHeight th = new TreeHeight();
 
-    public void levelOrderTreeTraversal(Node root) {
-        for (int i = 1; i <= th.treeHeight(root); i++) {
+    public static void levelOrderTreeTraversal(Node root) {
+        int treeHeight = th.treeHeight(root);
+        for (int i = 1; i <= treeHeight + 1; i++) {
             printLevelOrder(root, i);
         }
     }
 
-    public void printLevelOrder(Node root, int i) {
+    public static void printLevelOrder(Node root, int i) {
         if (root == null) {
             return;
         }

@@ -19,7 +19,8 @@ public class DeleteLastNodeInBinaryTree {
     }
 
     private static void deleteLastNodeInBinaryTree(Node root) {
-        for (int i = 1; i <= new TreeHeight().treeHeight(root); i++) {
+        int treeHeight = new TreeHeight().treeHeight(root);
+        for (int i = 1; i <= treeHeight; i++) {
             deleteLeafNode(root, i);
         }
     }
