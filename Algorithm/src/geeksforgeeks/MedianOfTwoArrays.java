@@ -34,6 +34,6 @@ public class MedianOfTwoArrays {
     }
 
     public static void main(String[] args) {
-        System.out.println(findMedian(new int[]{30, 40}, new int[]{5, 8, 10, 20}));
+        System.out.println(findMedian(new int[]{10,20,30}, new int[]{40,50,60}));
     }
 }

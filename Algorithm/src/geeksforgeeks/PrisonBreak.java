@@ -43,12 +43,12 @@ public class PrisonBreak {
         int ox = Integer.MIN_VALUE;
         int oy = Integer.MIN_VALUE;
 
-        for (int i = 0; i < h.size(); i++) {
-            x[h.get(i)] = true;
+        for (int k : h) {
+            x[k] = true;
         }
 
-        for (int i = 0; i < v.size(); i++) {
-            y[v.get(i)] = true;
+        for (int k : v) {
+            y[k] = true;
         }
 
         for (int i = 1; i <= m; i++) {
