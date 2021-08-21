@@ -17,6 +17,4 @@ public class PrintAllKLengthStrings {
     public static void main(String[] args) {
         printAllKLength("", 3);
     }
-
-
 }
