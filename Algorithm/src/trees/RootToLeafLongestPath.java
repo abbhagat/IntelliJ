@@ -13,7 +13,7 @@ public class RootToLeafLongestPath {
         }
         List<Integer> left = longestPath(root.left);      // Recursive call on root.left
         List<Integer> right = longestPath(root.right);   // Recursive call on root.right
-        boolean b = right.size() < left.size() ? left.add(root.num) : right.add(root.num); // Compare the size of the two ArrayList and insert current node accordingly
+        boolean b = left.size() > right.size() ? left.add(root.num) : right.add(root.num); // Compare the size of the two ArrayList and insert current node accordingly
         return left.size() > right.size() ? left : right;  // Return the appropriate ArrayList
     }
 

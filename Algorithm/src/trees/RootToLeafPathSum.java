@@ -14,7 +14,7 @@ public class RootToLeafPathSum {
         return pathExist(root.left, sum - root.num) || pathExist(root.right, sum - root.num);
     }
 
-    public static void findPathSum(Node root, int sum, List<Integer> list) {
+    public static void rootToLeafPathSum(Node root, int sum, List<Integer> list) {
         if (root == null) {
             return;
         }
@@ -23,8 +23,8 @@ public class RootToLeafPathSum {
             list.add(sum);
             return;
         }
-        findPathSum(root.left, sum, list);
-        findPathSum(root.right, sum, list);
+        rootToLeafPathSum(root.left, sum, list);
+        rootToLeafPathSum(root.right, sum, list);
     }
 
     public static void findPath(Node root, int sum, List<Integer> list) {
@@ -50,7 +50,7 @@ public class RootToLeafPathSum {
         }
         System.out.println(pathExist(root, 35));
         List<Integer> list = new ArrayList<>();
-        findPathSum(root, 0, list);
+        rootToLeafPathSum(root, 0, list);
         System.out.println(list);
         findPath(root, 35, new ArrayList<>());
 
