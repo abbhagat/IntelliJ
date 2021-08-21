@@ -4,13 +4,13 @@ public class PrintAllKLengthStrings {
 
     private static char set[] = {'A', 'B', 'C'};
 
-    private static void printAllKLength(String prefix, int iterations) {
-        if (iterations == 0) {
+    private static void printAllKLength(String prefix, int itr) {
+        if (itr == 0) {
             System.out.println(prefix);
-            return;
-        }
-        for (int i = 0; i < set.length; i++) {
-            printAllKLength(prefix + set[i], iterations - 1);
+        } else {
+            for (int i = 0; i < set.length; i++) {
+                printAllKLength(prefix + set[i], itr - 1);
+            }
         }
     }
 
