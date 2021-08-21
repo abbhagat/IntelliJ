@@ -4,33 +4,59 @@ import java.util.Stack;
 
 import static trees.BinaryTree.createBT;
 
+interface Iterator {
+    boolean hasNext();
+    Node curr();
+    Node next();
+}
+
+interface Container {
+    Iterator iterator();
+}
+
+class TreeIterator implements Container {
+
+    private Stack<Node> stack;
+
+    public TreeIterator() {
+        stack = new Stack<>();
+    }
+
+    public Stack<Node> getStack() {
+        return stack;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new BSTreeIterator();
+    }
+
+    class BSTreeIterator implements Iterator {
+
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        @Override
+        public Node curr() {
+            return stack.peek();
+        }
+
+        @Override
+        public Node next() {
+            Node temp = stack.peek().right;
+            Node node = stack.pop();
+            while (temp != null) {
+                stack.push(temp);
+                temp = temp.left;
+            }
+            return node;
+        }
+    }
+}
+
 public class BinarySearchTreeIterator {
-
-    private static Stack<Node> stack;
-
-    private static Node curr() {
-        return stack.peek();
-    }
-
-    private static void next() {
-        Node temp = stack.peek().right;
-        stack.pop();
-        while (temp != null) {
-            stack.push(temp);
-            temp = temp.left;
-        }
-    }
-
-    private static boolean hasNext() {
-        return !stack.isEmpty();
-    }
-
-    private static void iterate() {
-        while (hasNext()) {
-            System.out.print(curr().num + " ");
-            next();
-        }
-    }
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 5};
@@ -38,12 +64,17 @@ public class BinarySearchTreeIterator {
         for (int i = 0; i < a.length; i++) {
             root = createBT(a[i], root);
         }
-        stack = new Stack<>();
+        TreeIterator treeIterator = new TreeIterator();
         Node curr = root;
         while (curr != null) {
-            stack.push(curr);
+            treeIterator.getStack().push(curr);
             curr = curr.left;
         }
-        iterate();
+        System.out.println("Iterating the Tree");
+        Iterator iterator = treeIterator.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.curr().num + " ");
+            iterator.next();
+        }
     }
 }
