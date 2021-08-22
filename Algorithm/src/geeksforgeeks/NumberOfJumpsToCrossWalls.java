@@ -27,7 +27,7 @@ public class NumberOfJumpsToCrossWalls {
                 i++;
             } else {
                 jumps++;
-                a[i] = a[i] - (x + y);
+                a[i] = a[i] - x + y;
             }
         }
         return jumps;
@@ -48,7 +48,7 @@ public class NumberOfJumpsToCrossWalls {
                 break;
             } else {
                 jumps++;
-                height -= (x + y);
+                height = height - x + y;
             }
         }
         System.out.println(jumps);
