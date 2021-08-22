@@ -6,6 +6,8 @@ public class BalancedBracket {
 
     public static void main(String[] args) {
         System.out.println(areParenthesisBalanced("]".toCharArray()) ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("[]".toCharArray()) ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("(())".toCharArray()) ? "Balanced" : "Not Balanced");
     }
 
     private static boolean areParenthesisBalanced(char[] exp) {
@@ -14,7 +16,7 @@ public class BalancedBracket {
             if (c == '{' || c == '(' || c == '[') {
                 s.push(c);
             }
-            if ((c == '}' || c == ')' || c == ']') && (s.isEmpty() || (!s.isEmpty() && !isMatchingPair(s.pop(), c)))) {
+            if ((c == '}' || c == ')' || c == ']') && (s.isEmpty() || !isMatchingPair(s.pop(), c))) {
                 return false;
             }
         }
