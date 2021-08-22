@@ -23,7 +23,7 @@ public class MedianOfTwoArrays {
     private static int findMedian(int[] a, int[] b) {
         int i = 0, j = 0, prev_median = 0, median = 0, l = a.length + b.length;
         for (int k = 0; k <= l / 2; k++) {
-            prev_median = l % 2 == 0 ? median : 0;
+            prev_median = median;
             if (i != a.length && j != b.length) {
                 median = a[i] < b[j] ? a[i++] : b[j++];
             } else {
@@ -34,6 +34,6 @@ public class MedianOfTwoArrays {
     }
 
     public static void main(String[] args) {
-        System.out.println(findMedian(new int[]{10,20,30}, new int[]{40,50,60}));
+        System.out.println(findMedian(new int[]{10, 20}, new int[]{30, 40}));
     }
 }

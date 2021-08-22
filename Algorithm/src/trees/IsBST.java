@@ -1,5 +1,7 @@
 package trees;
 
+// Time Complexity O(n)
+
 public class IsBST {
     public static final boolean isBST(Node root, int min, int max) {
         if (root == null) {

@@ -1,5 +1,8 @@
 package strings;
 
+/*
+Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a permutation.
+ */
 public class AllPossibleCombinationOfString {
 
     private static char[] c = {'A', 'B', 'C'};
