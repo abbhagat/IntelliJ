@@ -22,7 +22,7 @@ public class CountSubString {
     private static void permute(int index, String s) {
         if (index != s.length()) {
             for (int i = index; i < s.length(); i++) {
-                set.add(((Character) (s.charAt(i))).toString());
+                set.add("" + s.charAt(i));
                 set.add(s.substring(i));
                 if (i > 0) {
                     set.add(s.substring(0, i));
@@ -37,5 +37,4 @@ public class CountSubString {
         set.remove("abcab");
         System.out.println(set);
     }
-
 }
