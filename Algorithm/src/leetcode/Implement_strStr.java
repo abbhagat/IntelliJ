@@ -18,7 +18,7 @@ public class Implement_strStr {
                 s += s1.charAt(i);
                 j++;
             } else if (s.equals(s2)) {
-                break;
+                return index;
             } else {
                 i = index != -1 ? index : i;
                 index = -1;
@@ -34,5 +34,6 @@ public class Implement_strStr {
         System.out.println(strStr("mississippi", "issipi"));
         System.out.println(strStr("mississippi", "issip"));
         System.out.println(strStr("abc", "c"));
+        System.out.println(strStr("ABEFGCDEFG", "EFG"));
     }
 }

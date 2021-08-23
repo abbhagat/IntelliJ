@@ -2,30 +2,32 @@ package strings;
 
 public class SubstringCheck {
 
-    private static boolean isSubString(char[] s1, char[] s2) {
-        int c = 0, k = 0, j = 0;
+    private static boolean subString(String s1, String s2) {
+        if (s2.equals("") || s1.equals(s2)) {
+            return true;
+        }
+        if (s2.length() > s1.length()) {
+            return false;
+        }
         int index = -1;
-        for (int i = 0; i < s1.length; i++) {
-            if (s1[i] == s2[0]) {
-                index = i;
-                break;
+        String s = "";
+        int i = 0, j = 0;
+        while (i < s1.length() && j < s2.length()) {
+            if (s1.charAt(i) == s2.charAt(j)) {
+                index = index == -1 ? i : index;
+                s += s1.charAt(i);
+                j++;
+            } else if (s.equals(s2)) {
+                return true;
+            } else {
+                i = index != -1 ? index : i;
+                index = -1;
+                j = 0;
+                s = "";
             }
+            i++;
         }
-        if (index != -1) {
-            for (int i = index; i < s1.length; i++) {
-                if (j < s2.length && s1[i] == s2[j]) {
-                    c++;
-                    j++;
-                }
-                if (c == s2.length) {
-                    k++;
-                    j = 0;
-                    c = 0;
-                }
-            }
-        }
-        System.out.println("No of Substrings " + k);
-        return k != 0 ? true : false;
+        return s.equals(s2) ? true : false;
     }
 
     private static boolean isSubString(String s1, String s2) {
@@ -52,7 +54,7 @@ public class SubstringCheck {
 
     public static void main(String[] args) {
         System.out.println(isSubString("ABEFGCDEFG", "EFG") ? "Is a substring" : "Not a substring");
-        System.out.println(isSubString("ABEFGCDEFG".toCharArray(), "EFG".toCharArray()) ? "Substring" : "Not Substring");
+        System.out.println(subString("ABEFAGCDEFG", "EFG") ? "Substring" : "Not Substring");
     }
 
 }
