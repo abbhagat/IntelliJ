@@ -1,42 +1,57 @@
 package trees;
 
-import static trees.BinaryTree.createBT;
+import static trees.CreateBST.createBST;
 import static trees.TreeTraversal.inorder;
 
 public class DeleteLastNodeInBinaryTree {
 
     public static void main(String[] args) {
-        int[] a = {6, 5, 4, 1, 2, 5};
+        int[] a = {6, 15, 4, 1, 2};
         Node root = null;
         for (int x : a) {
-            root = createBT(x, root);
+            root = createBST(root, x);
         }
         inorder(root);
         System.out.println();
-        deleteLastNodeInBinaryTree(root);
+        //root = deleteLastNodeInBinaryTree(root);
+        root = deleteLastNode(root);
         inorder(root);
         System.out.println();
     }
 
-    private static void deleteLastNodeInBinaryTree(Node root) {
+
+    private static Node deleteLastNodeInBinaryTree(Node root) {
         int treeHeight = new TreeHeight().treeHeight(root);
-        for (int i = 1; i <= treeHeight; i++) {
-            deleteLeafNode(root, i);
+        for (int i = 0; i <= treeHeight; i++) {
+            root = deleteLeafNode(root, i);
         }
+        return root;
     }
 
-    private static void deleteLeafNode(Node root, int i) {
-        if (null == root) {
-            return;
+    private static Node deleteLastNode(Node root) {
+        if (root != null) {
+            if (root.left == root.right & root.left == null) {
+                return null;
+            }
+            root.left = deleteLastNode(root.left);
+            root.right = deleteLastNode(root.right);
         }
-        if (i == 1) {
+        return root;
+    }
+
+    private static Node deleteLeafNode(Node root, int i) {
+        if (null == root) {
+            return root;
+        }
+        if (i == 0) {
             if (null == root.left && null == root.right) {
-                root = null;
+                return null;
             }
         }
-        if (i > 1) {
-            deleteLeafNode(root.left, i - 1);
-            deleteLeafNode(root.right, i - 1);
+        if (i > 0) {
+            root.left = deleteLeafNode(root.left, i - 1);
+            root.right = deleteLeafNode(root.right, i - 1);
         }
+        return root;
     }
 }

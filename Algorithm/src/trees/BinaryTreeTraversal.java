@@ -16,6 +16,7 @@ public class BinaryTreeTraversal {
         }
         System.out.println("Level Order Or BFS Traversal : ");
         levelOrderTreeTraversal(root);
+        System.out.println();
         inorder(root);
         System.out.println();
         inOrderWithoutRecursion(root);

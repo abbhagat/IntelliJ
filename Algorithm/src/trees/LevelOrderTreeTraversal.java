@@ -6,7 +6,7 @@ public class LevelOrderTreeTraversal {
 
     public static void levelOrderTreeTraversal(Node root) {
         int treeHeight = th.treeHeight(root);
-        for (int i = 1; i <= treeHeight + 1; i++) {
+        for (int i = 0; i <= treeHeight; i++) {
             printLevelOrder(root, i);
         }
     }
@@ -15,10 +15,10 @@ public class LevelOrderTreeTraversal {
         if (root == null) {
             return;
         }
-        if (i == 1) {
+        if (i == 0) {
             System.out.print(root.num + " ");
         }
-        if (i > 1) {
+        if (i > 0) {
             printLevelOrder(root.left,  i - 1);
             printLevelOrder(root.right, i - 1);
         }
