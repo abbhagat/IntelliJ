@@ -1,7 +1,6 @@
 package geeks;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -28,11 +27,8 @@ import java.util.List;
 
 public class PrintAllSubSetOfArray {
 
-    private static List<List<Integer>> result = new ArrayList<>();
-
     public static void main(String[] args) {
-        findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());
-        System.out.println(result);
+        findSubSet(new int[]{1, 2, 3}, 0, new ArrayList<>());
     }
 
     /*Recursively traverse the array, there are two situations for each element:
@@ -40,15 +36,16 @@ public class PrintAllSubSetOfArray {
       2. Not select the element
       */
 
-    public static void findSubSet(int[] nums, int index, LinkedList<Integer> list) {
+    public static void findSubSet(int[] nums, int index, List<Integer> list) {
         if (index == nums.length) {                      //All elements have been traversed
-            result.add(new LinkedList<>(list));
+            if (!list.isEmpty()) {
+                System.out.println(list);
+            }
             return;
         }
         findSubSet(nums, index + 1, list);   // Do not select the current index element
         list.add(nums[index]);                    // Select the current index element
         findSubSet(nums, index + 1, list);  // Unselect the current index element (backtracking)
-        list.removeLast();
+        list.remove(list.size() - 1);
     }
 }
-
