@@ -21,6 +21,6 @@ public class LargestContiguousSumArrayPrint {
             }
         }
         System.out.println(max_sum);
-        IntStream.range(start,end).forEach(i -> System.out.print(a[i] + " "));
+        IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
     }
 }
