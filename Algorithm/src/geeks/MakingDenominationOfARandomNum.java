@@ -12,27 +12,30 @@ package geeks;
 
 public class MakingDenominationOfARandomNum {
 
-    public static boolean isSumOfCoins(int a, int b, int n) {
-
-        if (n % a == 0) {
-            System.out.println(a+"*"+n/a+"+0*"+b);
-            return true;
+    public static void isSumOfCoins(int x, int y, int n) {
+        if (n % x == 0) {
+            System.out.println(x + "*" + n / x + "+0*" + y);
+            return;
         }
-        if (n % b == 0) {
-            System.out.println(b+"*"+n/b+"+0*"+a);
-            return true;
+        if (n % y == 0) {
+            System.out.println(y + "*" + n / y + "+0*" + x);
+            return;
         }
-        for (int i = 1; i <= b; i++) {
-            int k = n - (b * i);
-            if (k % a == 0) {
-                System.out.println(a +"*" + k/a + "+" + b + "*" + i);
-                return true;
+        int i = 1, k = 0;
+        while (true) {
+            if ((n - (x * i)) % y == 0) {
+                k = (n - (x * i)) / y;
+                break;
             }
+            i++;
         }
-        return false;
+        System.out.println(x + "*" + i + "+" + y + "*" + k);
     }
 
     public static void main(String[] args) {
-        System.out.println(isSumOfCoins(3, 5, 19));
+        isSumOfCoins(3, 5, 19);
+        isSumOfCoins(3, 5, 23);
+        isSumOfCoins(3, 5, 16);
+        isSumOfCoins(3, 5, 17);
     }
 }
