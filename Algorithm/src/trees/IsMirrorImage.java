@@ -17,7 +17,7 @@ import static trees.TreeTraversal.inorder;
 public class IsMirrorImage {
 
     static boolean isMirrorImage(Node root1, Node root2) {
-        if (root1 == null && root2 == null) {
+        if (root1 == root2 & root1 == null) {
             return true;
         }
         if (root1 == null || root2 == null) {
