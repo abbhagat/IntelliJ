@@ -14,11 +14,11 @@ public class MakingDenominationOfARandomNum {
 
     public static void isSumOfCoins(int x, int y, int n) {
         if (n % x == 0) {
-            System.out.println(x + "*" + n / x + "+0*" + y);
+            System.out.println(x + " * " + n / x + " + 0 *" + y + " = " + n);
             return;
         }
         if (n % y == 0) {
-            System.out.println(y + "*" + n / y + "+0*" + x);
+            System.out.println(y + " * " + n / y + " + 0 *" + x + " = " + n);
             return;
         }
         int i = 1, k = 0;
@@ -29,7 +29,7 @@ public class MakingDenominationOfARandomNum {
             }
             i++;
         }
-        System.out.println(x + "*" + i + "+" + y + "*" + k);
+        System.out.println(x + " * " + i + " + " + y + " * " + k + " = " + n);
     }
 
     public static void main(String[] args) {
