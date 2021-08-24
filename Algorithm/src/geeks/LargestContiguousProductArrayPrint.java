@@ -9,7 +9,6 @@ public class LargestContiguousProductArrayPrint {
         int max_end = 1;            // max positive product ending at the current position
         int min_end = 1;           // min negative product ending at the current position
         int max_product = 0;      // Initialize overall max product
-        boolean flag = false;
         /* Traverse through the array. Following values are maintained after the ith iteration:
         max_end is always 1 or some positive product ending with a[i]
         min_end is always 1 or some negative product ending with a[i] */
@@ -18,7 +17,6 @@ public class LargestContiguousProductArrayPrint {
             if (a[i] > 0) {
                 max_end = max_end * a[i];
                 min_end = min(min_end * a[i], 1);
-                flag = true;
             } else if (a[i] == 0) {  // If this element is 0, then the maximum product cannot end here,
                 max_end = 1;  // make both max_end and min_ending _here 0. Assumption: Output is alway greater than or equal to 1.
                 min_end = 1;
@@ -34,11 +32,13 @@ public class LargestContiguousProductArrayPrint {
             }
             max_product = max_product < max_end ? max_end : max_product;   // update max_product, if needed
         }
-        return flag && max_product == 0 ? 0 : max_product;
+        return max_product == 0 ? 0 : max_product;
     }
 
     public static void main(String[] args) {
         int a[] = {-2, -40, 0, -2, -3};
+        System.out.println("Maximum Sub array product is " + maxSubarrayProduct(a));
+        a = new int[]{-2, 0, 0, -2, -3};
         System.out.println("Maximum Sub array product is " + maxSubarrayProduct(a));
     }
 }
