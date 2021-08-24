@@ -11,14 +11,15 @@ package geeks;
 public class KthSmallestOddLengthPalindrome {
 
     public static void main(String[] args) {
-        int n = 7;
-        int last = n % 10;
+        int n = 10;
+        int m = n;
         int rev = 0;
-        while (last != 0) {
-            int k = last % 10;
+        while (n != 0) {
+            int k = n % 10;
             rev = rev * 10 + k;
-            last /= 10;
+            n /= 10;
         }
-        System.out.println(n + "" + rev);
+        rev = rev % 10;
+        System.out.println(m + "" + rev);
     }
 }
