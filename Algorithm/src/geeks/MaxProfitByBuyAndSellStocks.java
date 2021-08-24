@@ -1,7 +1,8 @@
 package geeks;
 
 /**
- * Given an array of positive integers containing the price of stocks and transaction fee, the task is to find the maximum profit and the difference of days on which you are getting the maximum profit.
+ * Given an array of positive integers containing the price of stocks and transaction fee,
+ * the task is to find the maximum profit and the difference of days on which you are getting the maximum profit.
  * Examples:
  *
  *

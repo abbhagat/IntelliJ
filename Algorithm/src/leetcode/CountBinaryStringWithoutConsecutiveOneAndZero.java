@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given a positive integer N, count all possible distinct binary strings of length N such that there are no consecutive 1’s.
 
@@ -28,6 +31,17 @@ Similarly, b[i] represents binary strings for input length i+1.
  */
 public class CountBinaryStringWithoutConsecutiveOneAndZero {
 
+    private static List<String> list = new ArrayList<>();
+
+    private static void permutation(String s, int itr) {
+        if (itr == 0) {
+            list.add(s);
+        } else {
+            permutation(s + "0", itr - 1);
+            permutation(s + "1", itr - 1);
+        }
+    }
+
     private static int countStrings(int n) {
         int a[] = new int[n];
         int b[] = new int[n];
@@ -51,7 +65,16 @@ public class CountBinaryStringWithoutConsecutiveOneAndZero {
     }
 
     public static void main(String args[]) {
-        System.out.println(countStrings(2));
-        System.out.println(countStringsZero(2));
+        System.out.println(countStrings(3));
+        System.out.println(countStringsZero(3));
+        permutation("", 3);
+        int count = 0;
+        for (String s : list) {
+            if (!s.contains("11")) {
+                System.out.println(s);
+                count++;
+            }
+        }
+        System.out.println(count);
     }
 }
