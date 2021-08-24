@@ -53,6 +53,5 @@ public class RootToLeafPathSum {
         rootToLeafPathSum(root, 0, list);
         System.out.println(list);
         findPath(root, 35, new ArrayList<>());
-
     }
 }
