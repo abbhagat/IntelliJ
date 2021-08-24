@@ -31,20 +31,20 @@ package geeks;
 public class MaxMango {
 
     private static boolean check(int W, int C, int x, int y, int mid) {
-        int temp = C;   // Store the coins
-        if (mid > W) {   // If watermelons needed are greater than given watermelons
+        int temp = C;                   // Store the coins
+        if (mid > W) {                 // If watermelons needed are greater than given watermelons
             return false;
         }
-        int ex = W - mid; // Store remaining watermelons if mid watermelons are used to buy mangoes
-        ex *= y;     // Store the value of coins if these watermelon get sold
-        temp += ex;  // Increment coins by ex
-        int cr = temp / x;  // Number of mangoes that can be buyed if only x coins needed for one mango
-        return cr >= mid ? true : false;
+        int remainingWaterMelon = W - mid;             // Store remaining watermelons if mid watermelons are used to buy mangoes
+        int coinsEarned = remainingWaterMelon * y;    // Store the value of coins if these watermelon get sold
+        temp += coinsEarned;                         // Increment coins by ex
+        int mangoes = temp / x;                     // Number of mangoes that can be buyed if only x coins needed for one mango
+        return mangoes >= mid ? true : false;
     }
 
     private static int maximizeMangoes(int W, int C, int x, int y) {
         int low = 0, high = W;    // Initialize the boundary values
-        int result = 0;             // Store the required result
+        int result = 0;           // Store the required result
         while (low <= high) {
             int mid = (low + high) / 2;
             if (check(W, C, x, y, mid)) {  // Check if it is possible to buy mid number of mangoes
@@ -61,5 +61,4 @@ public class MaxMango {
         int W = 4, C = 8, x = 4, y = 4;
         System.out.println(maximizeMangoes(W, C, x, y));
     }
-
 }

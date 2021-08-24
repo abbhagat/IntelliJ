@@ -45,20 +45,20 @@ public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
 
     private static int maxDistance(int cell[], int p) {
         Arrays.sort(cell);                               // Sort the array so that binary search can be applied on it
-        int start = 0;                                  // Minimum possible distance for the search space
-        int end = cell[cell.length - 1] - cell[0];     // Maximum possible distance for the search space
-        int ans = 0;
-        while (start <= end) {
-            int mid = (start + end) / 2;
+        int low = 0;                                  // Minimum possible distance for the search space
+        int high = cell[cell.length - 1] - cell[0];     // Maximum possible distance for the search space
+        int result = 0;
+        while (low <= high) {
+            int mid = (low + high) / 2;
             // If the prisoners can be placed such that the minimum distance between any two prisoners is at least mid
             if (canPlace(cell, p, mid)) {
-                ans = mid;
-                start = mid + 1;
+                result = mid;
+                low = mid + 1;
             } else {
-                end = mid - 1;
+                high = mid - 1;
             }
         }
-        return ans;
+        return result;
     }
 
     public static void main(String[] args) {
