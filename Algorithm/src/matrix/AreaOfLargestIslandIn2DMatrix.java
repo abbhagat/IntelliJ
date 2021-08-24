@@ -63,7 +63,7 @@ public class AreaOfLargestIslandIn2DMatrix {
             for (int j = 0; j < COL; j++) {
                 if (M[i][j] == 1 && !visited[i][j]) {
                     area = 1;
-                    DFS(i, j);
+                    System.out.println("Area of Each Island " + DFS(i, j));
                     max_area = Math.max(max_area, area);
                 }
             }
