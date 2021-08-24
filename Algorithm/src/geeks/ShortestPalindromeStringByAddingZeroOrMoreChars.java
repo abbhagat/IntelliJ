@@ -19,7 +19,7 @@ public class ShortestPalindromeStringByAddingZeroOrMoreChars {
         } else {
             String str = s;
             for (int i = 0; i < s.length(); i++) {
-                str = s.charAt(i) + str;
+                str = s.charAt(s.length() - 1 - i) + str;
                 if (isPalindrome(str)) {
                     System.out.println(str);
                     break;
