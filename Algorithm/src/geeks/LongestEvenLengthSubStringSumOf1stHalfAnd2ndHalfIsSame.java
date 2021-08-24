@@ -40,7 +40,7 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
         for (int i = 0; i < n - 1; i++) {      // Consider all possible midpoints one by one
             int l = i, r = i + 1;              // For current midpoint 'i', keep expanding substring on both sides, if sum of both sides becomes equal update maxLength
             int lsum = 0, rsum = 0;           // initialize left and right sum
-            while (r < n && l >= 0) {        // move on both sides till indexes go out of bounds
+            while (l >= 0 && r < n) {        // move on both sides till indexes go out of bounds
                 lsum += str.charAt(l) - '0';
                 rsum += str.charAt(r) - '0';
                 if (lsum == rsum) {
