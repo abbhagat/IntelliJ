@@ -21,7 +21,6 @@ press switch 2 : [1 1 1 0]
 press switch 3 : [1 1 1 1]
 */
 
-
 public class MinSwitchNeedToTurnAllBulb {
     private static int solve(int[] a) {
         int state = 0, ans = 0;
@@ -37,5 +36,7 @@ public class MinSwitchNeedToTurnAllBulb {
     public static void main(String[] args) {
         System.out.println(solve(new int[]{0, 1, 0, 1}));
         System.out.println(solve(new int[]{1, 0, 0, 0}));
+        System.out.println(solve(new int[]{1, 1, 1, 1}));
+        System.out.println(solve(new int[]{1, 1, 1, 0}));
     }
 }
