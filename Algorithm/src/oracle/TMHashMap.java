@@ -59,14 +59,12 @@ public class TMHashMap {
         Entry e = table[hash];
         if (null != e) {
             if (null == e.getKey() || key.equals(e.getKey())) {
-                Entry prev = null;
-                while (e != null) {
-                    prev = e;
+                while (e.next != null) {
                     e = e.next;
                 }
                 table[hash] = new Entry(key, value);
-                prev.next = table[hash];
-                return prev.getValue();
+                e.next = table[hash];
+                return e.getValue();
             }
         }
         table[hash] = new Entry(key, value);
