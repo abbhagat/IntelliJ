@@ -1,5 +1,7 @@
 package geeks;
 
+import static java.lang.Math.abs;
+
 /*
 Given a sorted array arr[] and a value X, find the k closest elements to X in arr[]
 
@@ -26,7 +28,7 @@ public class PrintKClosestElementInAnArray {
         right = mid + 1;
         left = mid - 1;
         while (left >= 0 && right < a.length && count < k) {
-            System.out.println(n - a[left] < a[right] - n ? a[left--] : a[right++]);
+            System.out.println(abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++]);
             count++;
         }
         while (left >= 0 && right == a.length - 1 && count < k) {
