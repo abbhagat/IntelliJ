@@ -13,7 +13,7 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
         int count = 0;
         for (int x : a) {
             int y = target / x;
-            if (map.containsKey(y)) {
+            if ((x == y && (map.containsKey(x) && map.get(x) > 1)) || map.containsKey(y)) {
                 map.remove(x);
                 map.remove(y);
                 System.out.println("(" + x + "," + y + ")");
