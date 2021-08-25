@@ -38,14 +38,12 @@ public class PrintAllSubSetOfArray {
 
     public static void findSubSet(int[] nums, int index, List<Integer> list) {
         if (index == nums.length) {                      //All elements have been traversed
-            if (!list.isEmpty()) {
-                System.out.println(list);
-            }
-            return;
+            System.out.println(list);
+        } else {
+            findSubSet(nums, index + 1, list);   // Do not select the current index element
+            list.add(nums[index]);                    // Select the current index element
+            findSubSet(nums, index + 1, list);  // Unselect the current index element (backtracking)
+            list.remove(list.size() - 1);
         }
-        findSubSet(nums, index + 1, list);   // Do not select the current index element
-        list.add(nums[index]);                    // Select the current index element
-        findSubSet(nums, index + 1, list);  // Unselect the current index element (backtracking)
-        list.remove(list.size() - 1);
     }
 }
