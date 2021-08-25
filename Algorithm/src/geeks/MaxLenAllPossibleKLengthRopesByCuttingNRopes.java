@@ -34,7 +34,7 @@ Auxiliary Space: O(1)
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
     private static int maximumSize(Integer[] a, int k) {
-        int low = 1;
+        int low = 0;
         int high = Collections.max(Arrays.asList(a));  // Stores the left and the right boundaries
         int result = 0;                               // Stores the maximum length of rope possible
         while (low <= high) {                        // Iterate while low is less than or equal to high
