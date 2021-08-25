@@ -26,13 +26,13 @@ import java.util.Arrays;
 
 public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
 
-    private static boolean canPlace(int[] a, int p, int sep) {
+    private static boolean canPlace(int[] a, int p, int mid) {
         int prisoners_placed = 1;         // Considering the first prisoner is placed at 1st cell
         // If the first prisoner is placed at the first cell then the last_prisoner_placed will be the first prisoner placed and that will be in cell[0]
         int last_prisoner_placed = a[0];
         for (int i = 1; i < a.length; i++) {
             int current_cell = a[i];
-            if (current_cell - last_prisoner_placed >= sep) {  // Checking if the prisoner can be placed at ith cell or not
+            if (current_cell - last_prisoner_placed >= mid) {  // Checking if the prisoner can be placed at ith cell or not
                 prisoners_placed++;
                 last_prisoner_placed = current_cell;
                 if (prisoners_placed == p) {                  // If all the prisoners got placed then return true
@@ -44,8 +44,8 @@ public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
     }
 
     private static int maxDistance(int cell[], int p) {
-        Arrays.sort(cell);                               // Sort the array so that binary search can be applied on it
-        int low = 0;                                  // Minimum possible distance for the search space
+        Arrays.sort(cell);                                // Sort the array so that binary search can be applied on it
+        int low = 0;                                     // Minimum possible distance for the search space
         int high = cell[cell.length - 1] - cell[0];     // Maximum possible distance for the search space
         int result = 0;
         while (low <= high) {

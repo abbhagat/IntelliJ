@@ -20,7 +20,7 @@ public class BalanceStringAfterRemovingExtraBracket {
             if (c == '(') {
                 System.out.print(c);               // print c and increment count by 1
                 count++;
-            } else if (c == ')' && count != 0) {  // check if closing bracket and count != 0
+            } else if (c == ')' && count > 0) {  // check if closing bracket and count != 0
                 System.out.print(c);
                 count--;
             } else if (c != ')') {               // if c not a closing brackets print it
