@@ -6,14 +6,14 @@ public class MinCoinToMakeAValue {
         if (value == 0) {
             return 0;
         }
-        int result = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i < coins.length; i++) {
             if (coins[i] <= value) {
-                int min = minCoins(coins, value - coins[i]);
-                result = min < result ? min + 1 : result;
+                int result = minCoins(coins, value - coins[i]);
+                min = result < min ? result : min;
             }
         }
-        return result;
+        return min + 1;
     }
 
     public static void main(String[] args) {
