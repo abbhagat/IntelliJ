@@ -62,7 +62,7 @@ public class TwoSumProblem {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 6, 7, 1, 8, 3 };
+        int[] nums = new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5};
         int target = 10;
         countUniquePairs(nums, target);
     }

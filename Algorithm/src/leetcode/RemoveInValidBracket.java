@@ -11,8 +11,8 @@ public class RemoveInValidBracket {
             return;
         }
         Set<String> set = new HashSet<>();              // set to ignore already visited string
-        Stack<String> stack = new Stack<>();           // queue to maintain BFS
-        stack.push(str);                              // pushing given string as starting node into queue
+        Stack<String> stack = new Stack<>();
+        stack.push(str);
         set.add(str);
 
         while (!stack.isEmpty()) {

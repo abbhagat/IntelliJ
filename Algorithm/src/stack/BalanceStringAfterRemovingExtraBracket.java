@@ -28,7 +28,7 @@ public class BalanceStringAfterRemovingExtraBracket {
             }
         }
         if (count != 0) {                             // balance the brackets if opening brackets are more then closing brackets
-            for (int i = 0; i < count; i++) {
+            for (int i = 1; i <= count; i++) {
                 System.out.print(")");              // print remaining closing brackets
             }
         }
@@ -36,5 +36,7 @@ public class BalanceStringAfterRemovingExtraBracket {
 
     public static void main(String args[]) {
         balancedString("abh)ina)w(ku(mar(bhagat))".toCharArray());
+        System.out.println();
+        balancedString("1+5)+5+)6+(5+9)*9".toCharArray());
     }
 }
