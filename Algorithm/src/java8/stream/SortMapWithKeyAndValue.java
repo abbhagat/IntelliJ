@@ -18,7 +18,7 @@ public class SortMapWithKeyAndValue {
         map.put("B", 66);
         map.put("Y", 89);
         map.put("C", 67);
-        map.put(null,1);
+        map.put("D",1);
         System.out.println(map);
         map.forEach((k, v) -> System.out.println(k + "  " + v));
         Map<String, Integer> result = map.entrySet().stream()
