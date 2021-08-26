@@ -1,4 +1,4 @@
-package strings;
+package geeksforgeeks;
 
 import java.util.*;
 
