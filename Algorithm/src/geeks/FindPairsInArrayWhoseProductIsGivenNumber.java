@@ -13,7 +13,10 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
         int count = 0;
         for (int x : a) {
             int y = target / x;
-            if ((x == y && (map.containsKey(x) && map.get(x) > 1)) || map.containsKey(y)) {
+            if ((x == y && (map.containsKey(x) && map.get(x) == 1))) {
+                continue;
+            }
+            if (map.containsKey(y)) {
                 map.remove(x);
                 map.remove(y);
                 System.out.println("(" + x + "," + y + ")");
@@ -24,7 +27,7 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 6, 12, 8, 3, 4, 12, 12, 144, 1};
+        int[] nums = new int[]{12, 3, 6, 12, 8, 3, 4, 144, 1};
         int target = 144;
         System.out.println(countUniquePairs(nums, target));
     }

@@ -53,6 +53,9 @@ public class TwoSumProblem {
         }
         for (int x : nums) {
             int y = target - x;
+            if ((x == y && map.containsKey(y) && map.get(y) == 1)) {
+                continue;
+            }
             if (map.containsKey(y)) {
                 System.out.println(x + "\t" + y);
                 map.remove(x);
@@ -62,7 +65,7 @@ public class TwoSumProblem {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5};
+        int[] nums = new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5};
         int target = 10;
         countUniquePairs(nums, target);
     }
