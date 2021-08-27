@@ -8,11 +8,11 @@ public class TowerOfHanoi {
         } else {
             towerOfHanoi(n - 1, source, aux, destination);
             System.out.println(source + " --> " + destination);
-            towerOfHanoi(n - 1, aux, destination, source);
+            //towerOfHanoi(n - 1, aux, destination, source);
         }
     }
 
     public static void main(String[] args) {
-        towerOfHanoi(3, "A", "C", "B");
+        towerOfHanoi(2, "A", "C", "B");
     }
 }
