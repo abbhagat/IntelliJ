@@ -46,27 +46,11 @@ public class TwoSumProblem {
         return K;
     }
 
-    public static void countUniquePairs(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int x : nums) {
-            Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
-        }
-        for (int x : nums) {
-            int y = target - x;
-            if ((x == y && map.containsKey(y) && map.get(y) == 1)) {
-                continue;
-            }
-            if (map.containsKey(y)) {
-                System.out.println(x + "\t" + y);
-                map.remove(x);
-                map.remove(y);
-            }
-        }
-    }
-
     public static void main(String[] args) {
         int[] nums = new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5};
         int target = 10;
-        countUniquePairs(nums, target);
+        for(int x : twoSum(nums, target)){
+            System.out.println(x);
+        }
     }
 }
