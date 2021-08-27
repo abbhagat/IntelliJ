@@ -27,7 +27,7 @@ public class MinSwitchNeedToTurnAllBulb {
         for (int i = 0; i < a.length; i++) {
             if (a[i] == state) {
                 ans++;
-                state = 1 - state;
+                state ^= 1;
             }
         }
         return ans;
