@@ -18,5 +18,6 @@ public class BeautifulNumber {
     public static void main(String[] args) {
         System.out.println(isBeautiful(31) ? "Beautiful" : "Not Beautiful");
         System.out.println(isBeautiful(32) ? "Beautiful" : "Not Beautiful");
+        System.out.println(isBeautiful(33) ? "Beautiful" : "Not Beautiful");
     }
 }

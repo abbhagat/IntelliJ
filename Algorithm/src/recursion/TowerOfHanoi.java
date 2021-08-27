@@ -8,7 +8,7 @@ public class TowerOfHanoi {
         } else {
             towerOfHanoi(n - 1, source, aux, destination);
             System.out.println(source + " --> " + destination);
-            //towerOfHanoi(n - 1, aux, destination, source);
+            towerOfHanoi(n - 1, aux, destination, source);
         }
     }
 
