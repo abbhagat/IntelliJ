@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /*
@@ -28,20 +29,26 @@ public class TwoSumProblem {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, LinkedList<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(i, nums[i]);
+            LinkedList list = null;
+            if (map.get(i) == null) {
+                list = new LinkedList();
+            } else {
+                list = map.get(i);
+            }
+            list.add(i);
+            map.put(nums[i], list);
         }
         int[] K = new int[2];
         for (int i = 0; i < nums.length; i++) {
-            int temp = map.get(nums[i]) != null ? map.get(nums[i]) : Integer.MIN_VALUE;
-            map.put(i, Integer.MIN_VALUE);
-            if (map.containsValue(target - nums[i])) {
-                K[0] = i;
-                K[1] = getKey(map, target - nums[i]);
+            int x = nums[i];
+            int y = target - x;
+            if ((x == y && map.containsKey(y) && map.get(y).size() >= 2) || map.containsKey(y)) {
+                K[0] = map.get(x).get(0);
+                K[1] = map.get(y).get(0);
                 break;
             }
-            map.put(nums[i], temp);
         }
         return K;
     }
@@ -49,7 +56,7 @@ public class TwoSumProblem {
     public static void main(String[] args) {
         int[] nums = new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5};
         int target = 10;
-        for(int x : twoSum(nums, target)){
+        for (int x : twoSum(nums, target)) {
             System.out.println(x);
         }
     }

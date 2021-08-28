@@ -41,5 +41,6 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
     public static void main(String[] args) {
         findPairs();
+        findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5}, 10);
     }
 }
