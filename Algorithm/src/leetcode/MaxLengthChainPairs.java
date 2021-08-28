@@ -6,7 +6,7 @@ package leetcode;
  * Find the longest chain which can be formed from a given set of pairs.
  * For example, if the given pairs are {{5, 24}, {39, 60}, {15, 28}, {27, 40}, {50, 90} },
  * then the longest chain that can be formed is of length 3, and the chain is {{5, 24}, {27, 40}, {50, 90}}
-
+ * <p>
  * Recommended: Please solve it on “PRACTICE” first, before moving on to the solution.
  * This problem is a variation of standard Longest Increasing Subsequence problem. Following is a simple two step process.
  * 1) Sort given pairs in increasing order of first (or smaller) element. Why do not need sorting?
@@ -52,10 +52,11 @@ public class MaxLengthChainPairs {
     public static void main(String[] args) {
         Pair[] pair = new Pair[]
                 {
-                        new Pair(5, 24),
-                        new Pair(15, 25),
-                        new Pair(27, 40),
-                        new Pair(50, 60)};
+                   new Pair(5, 24),
+                   new Pair(15, 25),
+                   new Pair(27, 40),
+                   new Pair(50, 60)
+                };
         System.out.println("Length of maximum size chain is " + maxChainLength(pair, pair.length));
     }
 }

@@ -29,7 +29,7 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
                 zeroCount -= nums[wL] == 0 ? 1 : 0;
                 wL++;
             }
-            if ((wR - wL > bestWindow) && (zeroCount <= k)) {   // Update widest window if this window size is more
+            if (wR - wL > bestWindow && zeroCount <= k) {   // Update widest window if this window size is more
                 bestWindow = wR - wL;
                 bestL = wL;
             }

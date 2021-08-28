@@ -21,7 +21,7 @@ press switch 2 : [1 1 1 0]
 press switch 3 : [1 1 1 1]
 */
 
-public class MinSwitchNeedToTurnAllBulb {
+public class MinSwitchNeedToTurnOnAllBulb {
     private static int solve(int[] a) {
         int state = 0, ans = 0;
         for (int i = 0; i < a.length; i++) {
