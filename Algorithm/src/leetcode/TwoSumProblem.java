@@ -1,7 +1,8 @@
 package leetcode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -29,11 +30,11 @@ public class TwoSumProblem {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, LinkedList<Integer>> map = new HashMap<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            LinkedList list = null;
+            List list = null;
             if (map.get(i) == null) {
-                list = new LinkedList();
+                list = new ArrayList();
             } else {
                 list = map.get(i);
             }
