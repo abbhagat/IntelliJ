@@ -1,24 +1,10 @@
 package trees;
 
+import static java.lang.Math.max;
+
 public class TreeHeight {
 
-    private int lHeight, rHeight;
-
-    private void height(Node root) {
-        if (root != null) {
-            if (root.left != null) {
-                lHeight++;
-                height(root.left);
-            }
-            if (root.right != null) {
-                rHeight++;
-                height(root.right);
-            }
-        }
-    }
-
-    public int treeHeight(Node root) {
-        height(root);
-        return lHeight > rHeight ? lHeight : rHeight;
+    public static int treeHeight(Node root) {
+        return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 }
