@@ -13,12 +13,17 @@ Output : String is Colindrome
  */
 public class ColindromeString {
 
+    private static boolean isPalindrome(String s, int i, int j) {
+        while (i <= j && s.charAt(i++) != s.charAt(j--)) {
+            return false;
+        }
+        return true;
+    }
+
     private static boolean isColindromeString(String s) {
         if (s.length() % 6 == 0) {
-            for (int i = 0, j = 3; i < s.length() && j < s.length(); i += 6, j = i + 3) {
-                String s1 = s.substring(i, j);
-                String s2 = new StringBuffer(s.substring(j, j + 3)).reverse().toString();
-                if (!s1.equals(s2)) {
+            for (int i = 0; i < s.length(); i += 6) {
+                if (!isPalindrome(s.substring(i, i + 6), 0, 5)) {
                     return false;
                 }
             }
@@ -28,8 +33,8 @@ public class ColindromeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(isColindromeString("mollomaappaa111") ? "ColindromeString" : "Not ColindromeString");
-        System.out.println(isColindromeString("cappaccappac") ? "ColindromeString" : "Not ColindromeString");
-        System.out.println(isColindromeString("mollomaappaa") ? "ColindromeString" : "Not ColindromeString");
+        System.out.println(isColindromeString("mollomaappaa111") ? "Colindrome" : "Not Colindrome");
+        System.out.println(isColindromeString("cappaccappac") ? "Colindrome" : "Not Colindrome");
+        System.out.println(isColindromeString("mollomaappaa") ? "Colindrome" : "Not Colindrome");
     }
 }
