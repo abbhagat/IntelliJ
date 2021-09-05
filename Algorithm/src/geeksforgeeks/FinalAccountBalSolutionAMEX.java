@@ -1,25 +1,35 @@
 package geeksforgeeks;
 
+import java.util.*;
+
 public class FinalAccountBalSolutionAMEX {
 
     public static int solution(int[] A, String[] D) {
-        if(A.length == 0 || D.length == 0){
-            return 0;
-        }
-        int balance = A[0];
-        String prevMonth = D[0].substring(5, 7);
-        int cardPaymentInAMonth = balance < 0 ? 1 : 0;
-        int totalAmtPaidThroughCard = Math.min(balance, 0);
-        int waiver = 0;
-        for (int i = 1; i < D.length; i++) {
-            balance += A[i];
-            if (prevMonth.equals(D[0].substring(5, 7)) && A[i] < 0) {
-                cardPaymentInAMonth++;
-                totalAmtPaidThroughCard += Math.abs(A[i]);
+        Map<String, List<Integer>> map = new HashMap<>();
+        for (int i = 0; i < A.length; i++) {
+            if (map.containsKey(D[i].substring(5, 7))) {
+                List<Integer> list = map.get(D[i].substring(5, 7));
+                list.add(A[i]);
             } else {
-                cardPaymentInAMonth = totalAmtPaidThroughCard = 0;
+                List<Integer> list = new ArrayList<>();
+                list.add(A[i]);
+                map.put(D[i].substring(5, 7), list);
             }
-            if (cardPaymentInAMonth == 3 && totalAmtPaidThroughCard >= 100) {
+        }
+        int waiver = 0;
+        int balance = 0;
+        Set<Map.Entry<String, List<Integer>>> set = map.entrySet();
+        for (Map.Entry<String, List<Integer>> m : set) {
+            int cardPaymentInAMonth=0, totalAmtPaidThroughCard = 0;
+            List<Integer> amount = m.getValue();
+            for(int bal : amount){
+                balance += bal;
+                if(bal < 0){
+                    totalAmtPaidThroughCard += Math.abs(bal);
+                    cardPaymentInAMonth++;
+                }
+            }
+            if (cardPaymentInAMonth >= 3 && totalAmtPaidThroughCard >= 100) {
                 waiver++;
             }
         }

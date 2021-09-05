@@ -1,109 +1,158 @@
 package geeksforgeeks;
 
-import java.util.Vector;
-
 class GFG{
 
-    static int sum;
+    public static int V = 4;
 
-    // Function to implement DFS
-    static void depthFirst(int v,
-                           Vector<Integer> graph[],
-                           boolean []visited,
-                           Vector<Integer> values)
+    // Function to find index of max-weight
+    // vertex from set of unvisited vertices
+    static int findMaxVertex(boolean visited[],
+                             int weights[])
     {
 
-        // Marking the visited vertex as true
-        visited[v] = true;
+        // Stores the index of max-weight vertex
+        // from set of unvisited vertices
+        int index = -1;
 
-        // Updating the value of connection
-        sum += values.get(v - 1);
+        // Stores the maximum weight from
+        // the set of unvisited vertices
+        int maxW = Integer.MIN_VALUE;
 
-        // Traverse for all adjacent nodes
-        for(int i : graph[v])
+        // Iterate over all possible
+        // nodes of a graph
+        for (int i = 0; i < V; i++)
         {
-            if (visited[i] == false)
+
+            // If the current node is unvisited
+            // and weight of current vertex is
+            // greater than maxW
+            if (visited[i] == false && weights[i] > maxW)
             {
 
-                // Recursive call to the DFS algorithm
-                depthFirst(i, graph, visited, values);
+                // Update maxW
+                maxW = weights[i];
+
+                // Update index
+                index = i;
             }
+        }
+        return index;
+    }
+
+    // Utility function to find the maximum
+    // spanning tree of graph
+    static void printMaximumSpanningTree(int graph[][],
+                                         int parent[])
+    {
+
+        // Stores total weight of
+        // maximum spanning tree
+        // of a graph
+        int MST = 0;
+
+        // Iterate over all possible nodes
+        // of a graph
+        for (int i = 1; i < V; i++)
+        {
+
+            // Update MST
+            MST += graph[i][parent[i]];
+        }
+
+        System.out.println("Weight of the maximum Spanning-tree "
+                + MST);
+        System.out.println();
+        System.out.println("Edges \tWeight");
+
+        // Print the Edges and weight of
+        // maximum spanning tree of a graph
+        for (int i = 1; i < V; i++)
+        {
+            System.out.println(parent[i] + " - " + i + " \t"
+                    + graph[i][parent[i]]);
         }
     }
 
-    static void maximumSumOfValues(Vector<Integer> graph[],
-                                   int vertices,
-                                   Vector<Integer> values)
+    // Function to find the maximum spanning tree
+    static void maximumSpanningTree(int[][] graph)
     {
 
-        // Initializing boolean array to
-        // mark visited vertices
-        boolean []visited = new boolean[values.size() + 1];
+        // visited[i]:Check if vertex i
+        // is visited or not
+        boolean[] visited = new boolean[V];
 
-        // maxChain stores the maximum chain size
-        int maxValueSum = Integer.MIN_VALUE;
+        // weights[i]: Stores maximum weight of
+        // graph to connect an edge with i
+        int[] weights = new int[V];
 
-        // Following loop invokes DFS algorithm
-        for(int i = 1; i <= vertices; i++)
-        {
-            if (visited[i] == false)
-            {
+        // parent[i]: Stores the parent node
+        // of vertex i
+        int[] parent = new int[V];
 
-                // Variable to hold temporary values
-                sum = 0;
+        // Initialize weights as -INFINITE,
+        // and visited of a node as false
+        for (int i = 0; i < V; i++) {
+            visited[i] = false;
+            weights[i] = Integer.MIN_VALUE;
+        }
 
-                // DFS algorithm
-                depthFirst(i, graph, visited, values);
+        // Include 1st vertex in
+        // maximum spanning tree
+        weights[0] = Integer.MAX_VALUE;
+        parent[0] = -1;
 
-                // Conditional to update max value
-                if (sum > maxValueSum)
-                {
-                    maxValueSum = sum;
+        // Search for other (V-1) vertices
+        // and build a tree
+        for (int i = 0; i < V - 1; i++) {
+
+            // Stores index of max-weight vertex
+            // from a set of unvisited vertex
+            int maxVertexIndex
+                    = findMaxVertex(visited, weights);
+
+            // Mark that vertex as visited
+            visited[maxVertexIndex] = true;
+
+            // Update adjacent vertices of
+            // the current visited vertex
+            for (int j = 0; j < V; j++) {
+
+                // If there is an edge between j
+                // and current visited vertex and
+                // also j is unvisited vertex
+                if (graph[j][maxVertexIndex] != 0
+                        && visited[j] == false) {
+
+                    // If graph[v][x] is
+                    // greater than weight[v]
+                    if (graph[j][maxVertexIndex]
+                            > weights[j]) {
+
+                        // Update weights[j]
+                        weights[j]
+                                = graph[j][maxVertexIndex];
+
+                        // Update parent[j]
+                        parent[j] = maxVertexIndex;
+                    }
                 }
             }
         }
 
-        // Printing the heaviest chain value
-        System.out.print("Max Sum value = ");
-        System.out.print(maxValueSum + "\n");
+        // Print maximum spanning tree
+        printMaximumSpanningTree(graph, parent);
     }
 
-    // Driver code
+    // Driver Code
     public static void main(String[] args)
     {
 
-        // Initializing graph in the form
-        // of adjacency list
-        @SuppressWarnings("unchecked")
-        Vector<Integer> []graph = new Vector[1001];
+        // Given graph
+        int[][] graph = { { 2, 2, 1, 2 },
+                { 1, 3, 4, 4 },
+                };
 
-        for(int i = 0; i < graph.length; i++)
-            graph[i] = new Vector<Integer>();
-
-        // Defining the number of edges and vertices
-        int E = 4, V = 7;
-
-        // Assigning the values for each
-        // vertex of the undirected graph
-        Vector<Integer> values = new Vector<Integer>();
-        values.add(10);
-        values.add(25);
-        values.add(5);
-        values.add(15);
-        values.add(5);
-        values.add(20);
-        values.add(0);
-
-        // Constructing the undirected graph
-        graph[1].add(2);
-        graph[2].add(1);
-        graph[3].add(4);
-        graph[4].add(3);
-        graph[3].add(5);
-        graph[5].add(3);
-        graph[6].add(7);
-        graph[7].add(6);
-
-        maximumSumOfValues(graph, V, values);
+        // Function call
+        maximumSpanningTree(graph);
     }
 }

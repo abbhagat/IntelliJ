@@ -6,12 +6,12 @@ import java.util.List;
 public class MaxPossibleSumOfValuesInGraph {
     static int sum;
 
-    static void depthFirst(int v, List<List<Integer>> graph, boolean[] visited,List<Integer> values) {
+    static void depthFirst(int v, List<List<Integer>> graph, boolean[] visited, List<Integer> values) {
         visited[v] = true;
         sum += values.get(v - 1);
         System.out.println(sum);
-        for (int i : graph.get(v-1)) {
-            if (visited[i] == false) {
+        for (int i : graph.get(v - 1)) {
+            if (!visited[i]) {
                 depthFirst(i, graph, visited, values);
             }
         }
@@ -21,7 +21,7 @@ public class MaxPossibleSumOfValuesInGraph {
         boolean[] visited = new boolean[values.size() + 1];
         int maxValueSum = Integer.MIN_VALUE;
         for (int i = 1; i < vertices; i++) {
-            if (visited[i] == false) {
+            if (!visited[i]) {
                 sum = 0;
                 depthFirst(i, graph, visited, values);
                 if (sum > maxValueSum) {
@@ -38,10 +38,10 @@ public class MaxPossibleSumOfValuesInGraph {
         int[] B = {1, 3, 4, 4};
 
         List<Integer> values = new ArrayList<>();
-        values.add(3);
         values.add(5);
-        values.add(2);
         values.add(4);
+        values.add(3);
+        values.add(2);
         values.add(1);
         List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < A.length; i++) {
@@ -49,8 +49,6 @@ public class MaxPossibleSumOfValuesInGraph {
             graph.get(i).add(A[i]);
             graph.get(i).add(B[i]);
         }
-        int V = N;
-        int E = A.length;
         maximumSumOfValues(graph, N, values);
     }
 }
