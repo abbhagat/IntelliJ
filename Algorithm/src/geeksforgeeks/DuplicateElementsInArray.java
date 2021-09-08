@@ -1,4 +1,4 @@
-package leetcode;
+package geeksforgeeks;
 
 /**
  * Approach: The basic idea is to use a HashMap to solve the problem. But there is a catch, the numbers in the array are from 0 to n-1,

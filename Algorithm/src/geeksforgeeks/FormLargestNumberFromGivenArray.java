@@ -1,4 +1,4 @@
-package leetcode;
+package geeksforgeeks;
 
 /*
 A simple solution that comes to our mind is to sort all numbers in descending order, but simply sorting doesn’t work.

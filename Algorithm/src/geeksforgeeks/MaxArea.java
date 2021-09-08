@@ -1,4 +1,4 @@
-package leetcode;
+package geeksforgeeks;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;

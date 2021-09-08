@@ -1,4 +1,4 @@
-package leetcode;
+package geeksforgeeks;
 
 public class StringPermutation {
 
