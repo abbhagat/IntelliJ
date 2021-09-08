@@ -1,39 +1,34 @@
 package geeksforgeeks;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FinalAccountBalSolutionAMEX {
 
     public static int solution(int[] A, String[] D) {
         Map<String, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < A.length; i++) {
-            if (map.containsKey(D[i].substring(5, 7))) {
-                List<Integer> list = map.get(D[i].substring(5, 7));
-                list.add(A[i]);
-            } else {
-                List<Integer> list = new ArrayList<>();
-                list.add(A[i]);
-                map.put(D[i].substring(5, 7), list);
-            }
+            List<Integer> list = map.containsKey(D[i].substring(5, 7)) ? map.get(D[i].substring(5, 7)) : new ArrayList<>();
+            list.add(A[i]);
+            map.put(D[i].substring(5, 7), list);
         }
-        int waiver = 0;
-        int balance = 0;
+        AtomicInteger waiver = new AtomicInteger();
+        AtomicInteger balance = new AtomicInteger();
         Set<Map.Entry<String, List<Integer>>> set = map.entrySet();
-        for (Map.Entry<String, List<Integer>> m : set) {
-            int cardPaymentInAMonth=0, totalAmtPaidThroughCard = 0;
-            List<Integer> amount = m.getValue();
-            for(int bal : amount){
-                balance += bal;
-                if(bal < 0){
+        map.forEach((k,v) ->{
+            int cardPaymentInAMonth = 0, totalAmtPaidThroughCard = 0;
+            for (int bal : v) {
+                balance.addAndGet(bal);
+                if (bal < 0) {
                     totalAmtPaidThroughCard += Math.abs(bal);
                     cardPaymentInAMonth++;
                 }
             }
             if (cardPaymentInAMonth >= 3 && totalAmtPaidThroughCard >= 100) {
-                waiver++;
+                waiver.getAndIncrement();
             }
-        }
-        return balance - (12 - waiver) * 5;
+        });
+        return balance.get() - (12 - waiver.get()) * 5;
     }
 
     public static void main(String[] args) {
