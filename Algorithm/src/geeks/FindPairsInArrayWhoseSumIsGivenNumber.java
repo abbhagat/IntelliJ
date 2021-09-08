@@ -28,10 +28,10 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
         }
         for (int x : nums) {
             int y = target - x;
-            if ((x == y && map.containsKey(y) && map.get(y) == 1)) {
-                continue;
-            }
             if (map.containsKey(y)) {
+                if(x == y && map.get(y) == 1){
+                   continue;
+                }
                 System.out.println(x + "\t" + y);
                 map.remove(x);
                 map.remove(y);
@@ -41,6 +41,6 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
     public static void main(String[] args) {
         findPairs();
-        findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5}, 10);
+        findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 10);
     }
 }
