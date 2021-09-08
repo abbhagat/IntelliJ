@@ -88,7 +88,7 @@ package geeks;
  *
  */
 
-public class CountPairsWithSumDivisibleByK {
+public class FindPairCountWithSumDivisibleByK {
 
     private static final int[] a = {2, 2, 1, 7, 5, 3};
 

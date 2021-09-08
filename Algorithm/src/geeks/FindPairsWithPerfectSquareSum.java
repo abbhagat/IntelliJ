@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CountPairsWithPerfectSquareSum {
+public class FindPairsWithPerfectSquareSum {
 
     private static int a[] = {2, 3, 6, 9, 10, 20};
 
