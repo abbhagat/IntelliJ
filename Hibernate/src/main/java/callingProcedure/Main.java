@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.LockModeType;
 import java.util.List;
 
 import static util.Util.sessionFactory;
@@ -15,12 +16,12 @@ public class Main {
         Transaction transaction = session.beginTransaction();
         Query query;
 
-        query = session.getNamedNativeQuery("userDetailsProcedure");
+        query = session.getNamedNativeQuery("userDetailsProcedure").setLockMode(LockModeType.PESSIMISTIC_WRITE);
         query.setParameter("userID", 1);
         query.setParameter("userName", "V705417");
         List<UserDetails> userDetailsList = query.list();
 
-        query = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class);
+        query = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
         query.setParameter("userID", 1);
         query.setParameter("userName", "V705417");
         List<UserDetails> userDetailsList1 = query.list();

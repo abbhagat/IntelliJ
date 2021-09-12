@@ -10,7 +10,9 @@ package designpattern;
 abstract class Game {
 
     abstract void initialize();
+
     abstract void startPlay();
+
     abstract void endPlay();
 
     public final void play() {
@@ -22,10 +24,6 @@ abstract class Game {
 
 class Cricket extends Game {
 
-    void endPlay() {
-        System.out.println("Cricket Game Finished!");
-    }
-
     void initialize() {
         System.out.println("Cricket Game Initialized! Start playing.");
     }
@@ -33,13 +31,13 @@ class Cricket extends Game {
     void startPlay() {
         System.out.println("Cricket Game Started. Enjoy the game!");
     }
+
+    void endPlay() {
+        System.out.println("Cricket Game Finished!");
+    }
 }
 
 class Football extends Game {
-
-    void endPlay() {
-        System.out.println("Football Game Finished!");
-    }
 
     void initialize() {
         System.out.println("Football Game Initialized! Start playing.");
@@ -47,6 +45,10 @@ class Football extends Game {
 
     void startPlay() {
         System.out.println("Football Game Started. Enjoy the game!");
+    }
+
+    void endPlay() {
+        System.out.println("Football Game Finished!");
     }
 }
 
