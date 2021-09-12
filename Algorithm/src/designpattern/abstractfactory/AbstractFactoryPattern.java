@@ -61,7 +61,7 @@ abstract class AbstractFactory {
 class ShapeFactory extends AbstractFactory {
 
     public Shape getShape(String shape) {
-        switch (shape) {
+        switch (shape.toLowerCase()) {
             case "circle":    return new Circle();
             case "square":    return new Square();
             case "rectangle": return new Rectangle();
@@ -77,7 +77,7 @@ class ShapeFactory extends AbstractFactory {
 class ColorFactory extends AbstractFactory {
 
     Color getColor(String color) {
-        switch (color) {
+        switch (color.toLowerCase()) {
             case "red":    return new Red();
             case "green":  return new Green();
             case "blue":   return new Blue();

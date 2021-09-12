@@ -16,7 +16,7 @@ public class Doubleton implements Cloneable, Serializable {
 
     private Doubleton() {
         if (instance1 != null || instance2 != null) {
-            throw new RuntimeException("Can't instantiate singleton twice");
+            throw new RuntimeException("Can't instantiate doubleton twice");
         }
     }
 
@@ -32,6 +32,11 @@ public class Doubleton implements Cloneable, Serializable {
     }
 
     public Object readResolve(){
+        return getInstance();
+    }
+
+    @Override
+    public Object clone(){
         return getInstance();
     }
 

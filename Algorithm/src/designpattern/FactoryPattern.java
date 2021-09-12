@@ -32,7 +32,7 @@ class Square implements Shape {
 class ShapeFactory {
 
     public Shape getShape(String shape) {
-        switch (shape) {
+        switch (shape.toLowerCase()) {
             case "circle":    return new Circle();
             case "square":    return new Square();
             case "rectangle": return new Rectangle();
