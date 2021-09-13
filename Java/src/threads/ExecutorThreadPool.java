@@ -12,8 +12,6 @@ public class ExecutorThreadPool {
             executor.execute(worker);
         }
         executor.shutdown();
-        while (!executor.isTerminated()) {
-
-        }
+        while (!executor.isTerminated());
     }
 }

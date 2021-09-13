@@ -24,12 +24,12 @@ public class Main {
         query = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
         query.setParameter("userID", 1);
         query.setParameter("userName", "V705417");
-        List<UserDetails> userDetailsList1 = query.list();
+        List<UserDetails> userDetailLists = query.list();
 
         transaction.commit();
         session.close();
 
         userDetailsList.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
-        userDetailsList1.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
+        userDetailLists.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
     }
 }

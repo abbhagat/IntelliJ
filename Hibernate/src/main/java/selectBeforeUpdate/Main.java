@@ -14,7 +14,7 @@ public class Main {
         session.getTransaction().commit();
         session.close();
 
-        user.setUserName("Updated User Name");
+        //user.setUserName("Updated User Name");
 
         session = sessionFactory.openSession();
         session.beginTransaction();

@@ -10,7 +10,7 @@ public class TimerDemo {
         Timer timer;
         ActionListener al = new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                System.out.println("Hello Java");
+                System.out.println(ae);
             }
         };
         timer = new Timer(100, System.out::println);

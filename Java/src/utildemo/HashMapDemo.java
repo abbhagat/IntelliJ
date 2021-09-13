@@ -26,7 +26,6 @@ public class HashMapDemo {
         Set<Map.Entry<String, Integer>> set = synchronizedMap.entrySet();
         for (Map.Entry<String, Integer> m : set) {
             System.out.println(m.getKey() + "\t" + m.getValue());
-
         }
         Iterator<Map.Entry<String, Integer>> itr = hm.entrySet().iterator();
         while (itr.hasNext()) {

@@ -1,7 +1,6 @@
 package secondLevelCache;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicUpdate;
@@ -12,12 +11,6 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@Table(name = "USER_DETAILS")
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
-// @DynamicUpdate - Mean the update sql statement is generated at runtime and contains only those columns whose values have changed.
-@DynamicUpdate(value=true)
 @NamedNativeQueries(
         {
                 @NamedNativeQuery(name = "ALL_USERS", query = "SELECT * FROM USER_DETAILS", resultClass = UserDetails.class)
@@ -28,6 +21,10 @@ import java.io.Serializable;
                 @NamedQuery(name = "ALL_USERS1", query = "from UserDetails")
         }
 )
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
+@DynamicUpdate(value=true) // Mean the update sql statement is generated at runtime and contains only those columns whose values have changed.
+@Table(name = "USER_DETAILS")
 public class UserDetails implements Serializable {
 
     private static final Long serialVersionUID = 1L;
