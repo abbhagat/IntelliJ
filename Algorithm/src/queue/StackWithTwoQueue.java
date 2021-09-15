@@ -5,7 +5,6 @@ class Node {
     Node next;
 }
 
-
 public class StackWithTwoQueue {
 
 }

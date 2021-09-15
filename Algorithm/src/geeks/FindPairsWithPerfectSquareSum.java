@@ -36,10 +36,10 @@ public class FindPairsWithPerfectSquareSum {
     // Function to return the count of numbers that when added with n give a perfect square
     public static int countPairsWith(int x, List<Integer> perfectSquares, Set<Integer> set) {
         int count = 0;
-        for (int i = 0; i < perfectSquares.size(); i++) {
-            int temp = perfectSquares.get(i) - x;
-            if (temp > x && set.contains(temp)) {  // temp > n is checked so that pairs (x, y) and (y, x) don't get counted twice
-                System.out.println(x + "," + temp);
+        for (int target : perfectSquares) {
+            int y = target - x;
+            if (y > x && set.contains(y)) {  // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
+                System.out.println(x + "," + y);
                 count++;
             }
         }

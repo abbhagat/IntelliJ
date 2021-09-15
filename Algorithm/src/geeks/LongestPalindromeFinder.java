@@ -14,11 +14,11 @@ public class LongestPalindromeFinder {
     }
 
     public static String longestPalindromeString(String s) {
-        if (s == null) {
+        if (s.isEmpty()) {
             return null;
         }
         String longest = s.substring(0, 1);
-        for (int i = 0; i < s.length() - 1; i++) {
+        for (int i = 0; i < s.length(); i++) {
             String palindrome = intermediatePalindrome(s, i, i);                            //odd cases like 121
             longest = palindrome.length() > longest.length() ? palindrome : longest;
             palindrome = intermediatePalindrome(s, i, i + 1);                        //even cases like 1221
@@ -31,5 +31,6 @@ public class LongestPalindromeFinder {
         System.out.println(longestPalindromeString("forgeeksskeegfor"));
         System.out.println(longestPalindromeString("geeks"));
         System.out.println(longestPalindromeString("geeksfskeeg"));
+        System.out.println(longestPalindromeString("hackerrekcahba"));
     }
 }

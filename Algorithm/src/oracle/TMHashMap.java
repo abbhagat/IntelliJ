@@ -5,7 +5,7 @@ public class TMHashMap {
     private final static int SIZE = 128;
     private Entry[] table = new Entry[SIZE];
 
-    class Entry {
+    private final class Entry {
         private final String key;
         private Integer value;
         private Entry next;
@@ -20,12 +20,12 @@ public class TMHashMap {
             return key;
         }
 
-        public void setValue(Integer value) {
-            this.value = value;
-        }
-
         public Integer getValue() {
             return value;
+        }
+
+        public void setValue(Integer value) {
+            this.value = value;
         }
     }
 
@@ -46,7 +46,7 @@ public class TMHashMap {
         Entry e = table[hash];
         while (e != null) {
             if (null == e.getKey() || e.getKey().equals(key)) {
-                table[hash] = null;
+                e.setValue(null);
                 return true;
             }
             e = e.next;
