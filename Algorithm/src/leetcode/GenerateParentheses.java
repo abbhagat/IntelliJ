@@ -7,7 +7,6 @@ public class GenerateParentheses {
 
     private static void generateParentheses(String bracket, int open, int close, int n, List<String> list) {
         if (bracket.length() == 2 * n) {
-            list.add(bracket);
             System.out.println(bracket);
         }
         if (open < n) {
