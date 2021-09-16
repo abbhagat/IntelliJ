@@ -32,12 +32,7 @@ public class TwoSumProblem {
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            List list = null;
-            if (map.get(i) == null) {
-                list = new ArrayList();
-            } else {
-                list = map.get(i);
-            }
+            List list = map.containsKey(nums[i]) ? map.get(nums[i]) : new ArrayList();
             list.add(i);
             map.put(nums[i], list);
         }
@@ -45,7 +40,12 @@ public class TwoSumProblem {
         for (int i = 0; i < nums.length; i++) {
             int x = nums[i];
             int y = target - x;
-            if ((x == y && map.containsKey(y) && map.get(y).size() >= 2) || map.containsKey(y)) {
+            if ((x == y && map.get(y).size() >= 2)) {
+                K[0] = map.get(x).get(0);
+                K[1] = map.get(y).get(1);
+                break;
+            }
+            if (map.containsKey(y)) {
                 K[0] = map.get(x).get(0);
                 K[1] = map.get(y).get(0);
                 break;
