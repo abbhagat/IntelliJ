@@ -11,16 +11,16 @@ public class LevelOrderTreeTraversal {
         }
     }
 
-    public static void printLevelOrder(Node root, int i) {
+    public static void printLevelOrder(Node root, int level) {
         if (root == null) {
             return;
         }
-        if (i == 0) {
+        if (level == 0) {
             System.out.print(root.num + " ");
         }
-        if (i > 0) {
-            printLevelOrder(root.left,  i - 1);
-            printLevelOrder(root.right, i - 1);
+        if (level > 0) {
+            printLevelOrder(root.left,  level - 1);
+            printLevelOrder(root.right, level - 1);
         }
     }
 }

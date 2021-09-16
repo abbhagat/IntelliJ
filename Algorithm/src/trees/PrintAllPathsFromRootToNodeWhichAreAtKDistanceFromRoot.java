@@ -25,6 +25,21 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
         return lists;
     }
 
+    private static void findPath(Node root, int k, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.num);
+        if (k == 0) {
+            System.out.println(list);
+            return;
+        }
+        findPath(root.left, k - 1, list);
+        list.remove(list.size() - 1);
+        findPath(root.right, k - 1, list);
+        list.remove(list.size() - 1);
+    }
+
     public static void main(String[] args) {
         int[] a = {50, 25, 100, 10, 30, 90, 120};
         Node root = null;

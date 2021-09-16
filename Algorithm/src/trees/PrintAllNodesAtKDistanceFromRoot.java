@@ -1,26 +1,20 @@
 package trees;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static trees.CreateBST.createBST;
 
 public class PrintAllNodesAtKDistanceFromRoot {
 
-    private static List<Integer> list = new ArrayList<>();
-
-    private static List<Integer> printNodes(Node root, int level) {
+    private static void printNodes(Node root, int level) {
         if (root == null) {
-            return null;
+            return;
         }
         if (level == 0) {
-            list.add(root.num);
+            System.out.print(root.num + " ");
         }
         if (level > 0) {
             printNodes(root.left, level - 1);
             printNodes(root.right, level - 1);
         }
-        return list;
     }
 
     public static void main(String[] args) {
@@ -29,6 +23,6 @@ public class PrintAllNodesAtKDistanceFromRoot {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        System.out.println(printNodes(root, 2));
+        printNodes(root, 2);
     }
 }
