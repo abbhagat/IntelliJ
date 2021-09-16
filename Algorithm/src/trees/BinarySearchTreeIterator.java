@@ -16,11 +16,7 @@ interface Container {
 
 class TreeIterator implements Container {
 
-    private Stack<Node> stack;
-
-    public TreeIterator() {
-        stack = new Stack<>();
-    }
+    private Stack<Node> stack = new Stack<>();
 
     public Stack<Node> getStack() {
         return stack;
@@ -45,11 +41,11 @@ class TreeIterator implements Container {
 
         @Override
         public Node next() {
-            Node temp = stack.peek().right;
+            Node curr = stack.peek().right;
             Node node = stack.pop();
-            while (temp != null) {
-                stack.push(temp);
-                temp = temp.left;
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
             }
             return node;
         }
