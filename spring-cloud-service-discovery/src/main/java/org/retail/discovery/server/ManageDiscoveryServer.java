@@ -11,5 +11,4 @@ public class ManageDiscoveryServer {
     public static void main(String[] args) {
         SpringApplication.run(ManageDiscoveryServer.class, args);
     }
-
 }
