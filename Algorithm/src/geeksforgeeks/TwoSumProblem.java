@@ -32,7 +32,7 @@ public class TwoSumProblem {
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            List list = map.containsKey(nums[i]) ? map.get(nums[i]) : new ArrayList();
+            List<Integer> list = map.containsKey(nums[i]) ? map.get(nums[i]) : new ArrayList();
             list.add(i);
             map.put(nums[i], list);
         }

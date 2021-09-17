@@ -17,12 +17,12 @@ package geeksforgeeks;
  */
 
 class Pair {
-    int a;
-    int b;
+    int x;
+    int y;
 
-    public Pair(int a, int b) {
-        this.a = a;
-        this.b = b;
+    public Pair(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
 
@@ -36,7 +36,7 @@ public class MaxLengthChainPairs {
 
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
-                if (pair[i].a > pair[j].b && mcl[i] < mcl[j] + 1) {
+                if (pair[i].x > pair[j].y && mcl[i] < mcl[j] + 1) {
                     mcl[i] = mcl[j] + 1;
                 }
             }
