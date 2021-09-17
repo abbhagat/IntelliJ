@@ -1,4 +1,4 @@
-package geeks;
+package operators;
 
 public class AddTwoNumWithoutAnyOperator {
 

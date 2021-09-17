@@ -22,7 +22,7 @@ import static java.lang.Math.max;
  * If the weight of ‘nth’ item is greater than ‘W’, then the nth item cannot be included and Case 1 is the only possibility.
  * The time complexity of this naive recursive solution is exponential (2^n).  Auxiliary Space :O(1).
  */
-public class ZeroOneKnapSackRecursionUnbounded {
+public class ZeroOneKnapSackRecursionBounded {
 
     private static int knapSack(int W, int wt[], int val[], int n) {
         if (n == 0 || W == 0) {  // Base Case
