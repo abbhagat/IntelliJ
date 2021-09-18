@@ -19,8 +19,8 @@ public class SubTwoNumWithoutAnyOperator {
         int x = 13;
         int y = 5;
         System.out.println(x + ~y + 1);
-        System.out.println(sub(13, y));
-        System.out.println(subtract(13, y));
+        System.out.println(sub(x, y));
+        System.out.println(subtract(x, y));
     }
 
 }

@@ -3,11 +3,11 @@ package cisco;
 public class CountWordsInASentence {
 
     public static int howMany(String sentence) {
-        String[] s = sentence.split(" ");
+        String[] str = sentence.split(" ");
         int count = 0;
-        for (String x : s) {
-            if (!x.isEmpty()) {
-                char[] a = x.trim().toCharArray();
+        for (String s : str) {
+            if (!s.isEmpty()) {
+                char[] a = s.trim().toCharArray();
                 boolean flag = true;
                 for (char c : a) {
                     if (!(c >= 65 && c <= 90 || c >= 97 && c <= 122 || c == '-' || c == ',' || c == '?' || c == '.' || c == '!')) {
