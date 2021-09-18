@@ -2,7 +2,7 @@ package cisco;
 
 public class DoubleBasePalindrome {
 
-    private static void doubleBasePalindrome(int n) {
+    private static int doubleBasePalindrome(int n) {
         int count = 0;
         for (int i = 1; i <= n; i++) {
             String s = Integer.toString(i);
@@ -13,6 +13,7 @@ public class DoubleBasePalindrome {
                 count++;
             }
         }
+        return count;
     }
 
     private static boolean isPalindrome(String s) {
@@ -34,6 +35,6 @@ public class DoubleBasePalindrome {
 
 
     public static void main(String[] args) {
-        doubleBasePalindrome(100);
+        System.out.println("Count := " + doubleBasePalindrome(100));
     }
 }
