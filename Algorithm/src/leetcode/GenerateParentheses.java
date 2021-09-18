@@ -18,6 +18,10 @@ public class GenerateParentheses {
     }
 
     public static void main(String[] args) {
+        generateParentheses("", 0, 0, 1, new ArrayList<>());
+        System.out.println();
+        generateParentheses("", 0, 0, 2, new ArrayList<>());
+        System.out.println();
         generateParentheses("", 0, 0, 3, new ArrayList<>());
     }
 }
