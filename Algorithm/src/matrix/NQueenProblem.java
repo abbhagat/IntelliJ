@@ -50,18 +50,18 @@ public class NQueenProblem {
 
     public static void main(String args[]) {
         int board[][] = {
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0}
-                       };
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
         if (!solveNQUtil(board, 0)) {
             System.out.print("Solution does not exist");
             System.exit(0);
         }
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                System.out.print(" " + board[i][j] + " ");
+        for (int[] a : board) {
+            for (int x : a) {
+                System.out.print(" " + x + " ");
             }
             System.out.println();
         }
