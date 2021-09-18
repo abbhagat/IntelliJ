@@ -5,7 +5,7 @@ import static linkedlist.MidPointOfLinkedList.findMid;
 public class MergeSort {
 
     private static Node mergeSort(Node head) {
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         Node mid = findMid(head);
