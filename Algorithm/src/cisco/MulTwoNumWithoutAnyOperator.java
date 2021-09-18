@@ -1,4 +1,4 @@
-package operators;
+package cisco;
 
 public class MulTwoNumWithoutAnyOperator {
 
