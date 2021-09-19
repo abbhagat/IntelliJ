@@ -131,7 +131,7 @@ class DoublyLinkedList {
         Node next = pageNode.next;
         prev.next = next;
         if (next != null) {
-            next.prev = (prev);
+            next.prev = prev;
         }
         pageNode.prev = null;
         pageNode.next = head;
