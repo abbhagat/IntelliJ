@@ -11,8 +11,7 @@ public class FinalAccountBalSolutionAMEX {
             list.add(A[i]);
             map.put(D[i].substring(5, 7), list);
         }
-        int waiver = 0;
-        int balance = 0;
+        int waiver = 0, balance = 0;
         Set<Map.Entry<String, List<Integer>>> set = map.entrySet();
         for (Map.Entry<String, List<Integer>> m : set) {
             int cardPaymentInAMonth = 0, totalAmtPaidThroughCard = 0;
