@@ -21,7 +21,6 @@ To keep the code simple, numbers are considered as strings, the vector is used i
  */
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class FormLargestNumberFromGivenArray {
@@ -31,23 +30,19 @@ public class FormLargestNumberFromGivenArray {
         int countZero = 0;
         for (int x : nums) {
             list.add(Integer.toString(x));
-            if(x == 0){
+            if (x == 0) {
                 countZero++;
             }
         }
-        if(countZero == nums.length){
+        if (countZero == nums.length) {
             return "0";
         }
-        Collections.sort(list, (x, y) -> {
-            String xy = x + y;
-            String yx = y + x;
-            return yx.compareTo(xy);
-        });
-        String result = "";
+        list.sort((x, y) -> (y + x).compareTo(x + y));
+        StringBuilder result = new StringBuilder();
         for (String s : list) {
-            result += s;
+            result.append(s);
         }
-        return result;
+        return result.toString();
     }
 
     public static void main(String[] args) {
