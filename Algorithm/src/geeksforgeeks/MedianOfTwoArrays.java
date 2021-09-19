@@ -21,8 +21,9 @@ package geeksforgeeks;
 public class MedianOfTwoArrays {
 
     private static int findMedian(int[] a, int[] b) {
-        int i = 0, j = 0, prev_median = 0, median = 0, l = a.length + b.length;
-        for (int k = 0; k <= l / 2; k++) {
+        int median = 0, prev_median = 0;
+        int l = a.length + b.length;
+        for (int i = 0, j = 0, k = 0; k <= l / 2; k++) {
             prev_median = median;
             if (i != a.length && j != b.length) {
                 median = a[i] < b[j] ? a[i++] : b[j++];
