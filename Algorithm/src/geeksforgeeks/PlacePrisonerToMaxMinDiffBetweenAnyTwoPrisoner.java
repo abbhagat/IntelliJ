@@ -27,15 +27,13 @@ import java.util.Arrays;
 public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
 
     private static boolean canPlace(int[] a, int p, int mid) {
-        int prisoners_placed = 1;         // Considering the first prisoner is placed at 1st cell
-        // If the first prisoner is placed at the first cell then the last_prisoner_placed will be the first prisoner placed and that will be in cell[0]
-        int last_prisoner_placed = a[0];
+        int prisoner_placed = a[0];    // first prisoner is placed at 1st cell
+        int numOfPrisonerPlaced = 1;
         for (int i = 1; i < a.length; i++) {
-            int current_cell = a[i];
-            if (current_cell - last_prisoner_placed >= mid) {  // Checking if the prisoner can be placed at ith cell or not
-                prisoners_placed++;
-                last_prisoner_placed = current_cell;
-                if (prisoners_placed == p) {                  // If all the prisoners got placed then return true
+            if (a[i] - prisoner_placed >= mid) {  // Checking if the prisoner can be placed at ith cell or not
+                numOfPrisonerPlaced++;
+                prisoner_placed = a[i];
+                if (numOfPrisonerPlaced == p) {  // If all the prisoners got placed then return true
                     return true;
                 }
             }
