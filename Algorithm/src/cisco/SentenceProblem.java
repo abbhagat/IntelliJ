@@ -1,6 +1,8 @@
 package cisco;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.TreeMap;
 
 public class SentenceProblem {
 
@@ -18,12 +20,11 @@ public class SentenceProblem {
             }
         }
         StringBuilder sb = new StringBuilder();
-        Set<Map.Entry<Integer, List<String>>> set = map.entrySet();
-        for (Map.Entry<Integer, List<String>> m : set) {
-            for (String x : m.getValue()) {
+        map.forEach((k, v) -> {
+            for (String x : v) {
                 sb.append(x + " ");
             }
-        }
+        });
         String result = sb.toString().trim();
         result += ".";
         result = result.toLowerCase();
@@ -31,7 +32,8 @@ public class SentenceProblem {
         if (c >= 97 && c <= 122) {
             c -= 32;
         }
-        return "" + c + result.substring(1);
+        result = "" + c + result.substring(1);
+        return result;
     }
 
     public static void main(String[] args) {
