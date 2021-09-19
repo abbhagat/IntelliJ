@@ -1,4 +1,4 @@
-package geeks;
+package cisco;
 
 import java.util.stream.IntStream;
 

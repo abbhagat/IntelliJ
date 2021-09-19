@@ -1,4 +1,4 @@
-package geeks;
+package cisco;
 
 class Point {
     int x, y;

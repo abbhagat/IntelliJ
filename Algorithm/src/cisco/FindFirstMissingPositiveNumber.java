@@ -1,4 +1,4 @@
-package geeks;
+package cisco;
 
 public class FindFirstMissingPositiveNumber {
 
