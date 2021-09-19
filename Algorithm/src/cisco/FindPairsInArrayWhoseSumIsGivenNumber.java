@@ -41,8 +41,6 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
     public static void main(String[] args) {
         findPairs();
-        System.out.println(new Exception().getStackTrace()[0].getLineNumber());
-        System.out.println(new Exception().getStackTrace()[0].getLineNumber());
         findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 10);
     }
 }
