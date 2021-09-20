@@ -32,7 +32,7 @@ public class LargestContiguousProductArrayPrint {
             }
             max_product = max_product < max_end ? max_end : max_product;   // update max_product, if needed
         }
-        return max_product == 0 ? 0 : max_product;
+        return max_product;
     }
 
     public static void main(String[] args) {
