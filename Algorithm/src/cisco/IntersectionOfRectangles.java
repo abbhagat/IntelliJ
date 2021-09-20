@@ -1,15 +1,16 @@
 package cisco;
 
-class Point {
-    int x, y;
-
-    Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
 
 public class IntersectionOfRectangles {
+
+    static class Point {
+        int x, y;
+
+        Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 
     private static boolean doOverlap(Point l1, Point r1, Point l2, Point r2) {
 

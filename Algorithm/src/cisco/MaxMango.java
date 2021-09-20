@@ -31,14 +31,13 @@ package cisco;
 public class MaxMango {
 
     private static boolean check(int W, int C, int x, int y, int mid) {
-        int temp = C;                   // Store the coins
         if (mid > W) {                 // If watermelons needed are greater than given watermelons
             return false;
         }
         int remainingWaterMelon = W - mid;             // Store remaining watermelons if mid watermelons are used to buy mangoes
         int coinsEarned = remainingWaterMelon * y;    // Store the value of coins if these watermelon get sold
-        temp += coinsEarned;                         // Increment coins by ex
-        int mangoes = temp / x;                     // Number of mangoes that can be buyed if only x coins needed for one mango
+        C += coinsEarned;                         // Increment coins by ex
+        int mangoes = C / x;                     // Number of mangoes that can be buyed if only x coins needed for one mango
         return mangoes >= mid ? true : false;
     }
 
