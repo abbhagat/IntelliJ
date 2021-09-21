@@ -12,17 +12,23 @@ import java.util.stream.IntStream;
 
 public class SortinginBigO_n_0_10 {
 
-    static int[] a = {4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6};
+    private static int[] a = {4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6};
 
-    static int swap(int i, int j) {
+    private static void swap(int i, int j) {
         a[i] ^= a[j];
         a[j] ^= a[i];
         a[i] ^= a[j];
-        return i;
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < a.length; i = (i != a[i]) ? swap(i, a[i]) : ++i) ;
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        int i = 0;
+        while (i < a.length) {
+            if (a[i] != i) {
+                swap(i, a[i]);
+            } else {
+                i++;
+            }
+        }
+        IntStream.range(0, a.length).forEach(j -> System.out.print(a[j] + " "));
     }
 }
