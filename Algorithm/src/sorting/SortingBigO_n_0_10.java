@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
  * Both the array has to be sorted in O(n).
  */
 
-public class SortinginBigO_n_0_10 {
+public class SortingBigO_n_0_10 {
 
     private static int[] a = {4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6};
 
