@@ -43,10 +43,11 @@ public class NumberOfIslandIn2DMatrix {
         int colNbr[] = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
         visited[row][col] = true;  // Mark this cell as visited
         // Recur for all connected neighbours
-        for (int k = 0; k < 8; k++)
+        for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowNbr[k], col + colNbr[k])) {
                 DFS(row + rowNbr[k], col + colNbr[k]);
             }
+        }
     }
 
     private static int countIslands() {
