@@ -18,7 +18,6 @@ public class AreaOfLargestIslandIn2DMatrix {
     private static int area = 0;
     private static boolean[][] visited = new boolean[ROW][COL];
 
-
     private static boolean isSafe(int row, int col) {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];
     }

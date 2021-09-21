@@ -15,10 +15,8 @@ package matrix;
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
     static boolean search(int[][] a, int key) {
-        int R1 = 0;
-        int C1 = 0;
-        int R2 = a.length - 1;
-        int C2 = a[0].length - 1;
+        int R1 = 0, R2 = a.length - 1;
+        int C1 = 0, C2 = a[0].length - 1;
         while (R1 <= R2 && C1 <= C2) {
             if (key < a[R1][C2]) {
                 C2--;
