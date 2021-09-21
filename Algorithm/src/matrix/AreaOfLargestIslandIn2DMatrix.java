@@ -46,7 +46,7 @@ public class AreaOfLargestIslandIn2DMatrix {
 
     private static int DFS(int row, int col) {
         int[] rowIdx = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] colIdx = {-1, 0, 1, 1, 1, -1, 0, 1};
+        int[] colIdx = {-1, 0, 1, -1, 1, -1, 0, 1};
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
