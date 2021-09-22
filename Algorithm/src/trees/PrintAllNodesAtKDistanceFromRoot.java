@@ -10,11 +10,10 @@ public class PrintAllNodesAtKDistanceFromRoot {
         }
         if (level == 0) {
             System.out.print(root.num + " ");
+            return;
         }
-        if (level > 0) {
-            printNodes(root.left, level - 1);
-            printNodes(root.right, level - 1);
-        }
+        printNodes(root.left, level - 1);
+        printNodes(root.right, level - 1);
     }
 
     public static void main(String[] args) {
