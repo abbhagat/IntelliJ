@@ -4,10 +4,10 @@ import static trees.CreateBST.createBST;
 
 public class PrintAllLeafNodesOfABinaryTree {
 
-    private static void inorder(Node root) {
+    private static void postOrder(Node root) {
         if (root != null) {
-            inorder(root.left);
-            inorder(root.right);
+            postOrder(root.left);
+            postOrder(root.right);
             if (root.left == null && root.right == null) {
                 System.out.println(root.num);
             }
@@ -20,6 +20,6 @@ public class PrintAllLeafNodesOfABinaryTree {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        inorder(root);
+        postOrder(root);
     }
 }
