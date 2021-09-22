@@ -1,10 +1,11 @@
 package trees;
 
-class PostIndex {
-    int postIndex;
-}
 
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
+
+    static class PostIndex {
+        int postIndex;
+    }
 
     public static Node buildTree(int[] inorder, int[] postOrder, int start, int end, PostIndex postIndex) {
 

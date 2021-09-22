@@ -35,7 +35,7 @@ public class BinaryTreeTraversal {
         root = buildTree(inorder, preorder, 0, inorder.length - 1);
         postorder(root);
         System.out.println();
-        PostIndex postIndex = new PostIndex();
+        GivenInOrderAndPostOrderGenerateOriginalTree.PostIndex postIndex = new GivenInOrderAndPostOrderGenerateOriginalTree.PostIndex();
         postIndex.postIndex = postorder.length - 1;
         root = buildTree(inorder, postorder, 0, inorder.length - 1, postIndex);
         preorder(root);

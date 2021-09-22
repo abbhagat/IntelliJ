@@ -1,12 +1,13 @@
 package trees;
 
-class BSTree {
-    int num;
-    int count;
-    BSTree left, right;
-}
 
 public class FrequencyOfEachElementInAnArray {
+
+    static class BSTree {
+        int num;
+        int count;
+        BSTree left, right;
+    }
 
     static BSTree createBST(BSTree root, int num) {
         if (root == null) {
