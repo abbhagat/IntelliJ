@@ -73,6 +73,5 @@ public class CheckValidString {
         System.out.println(checkValid("(()())".toCharArray()));
         System.out.println(checkValid("(***)".toCharArray()));
         System.out.println(checkValid("())()".toCharArray()));
-
     }
 }
