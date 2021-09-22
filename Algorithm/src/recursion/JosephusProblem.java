@@ -32,12 +32,16 @@ public class JosephusProblem {
 
     private static int josephusItr(int n, int k) {
         int res = 0;
-        for (int i = 1; i <= n; ++i)
+        for (int i = 1; i <= n; i++) {
             res = (res + k) % i;
+        }
         return res + 1;
     }
 
     public static void main(String[] args) {
+        System.out.println(josephus(5, 2));
+        System.out.println(josephus(6, 3));
         System.out.println(josephus(14, 2));
+        System.out.println(josephusItr(14, 2));
     }
 }
