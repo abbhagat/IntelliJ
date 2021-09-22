@@ -68,11 +68,11 @@ public class CheckValidString {
         System.out.println(checkValidString("(***)".toCharArray()));
         System.out.println(checkValidString("())()".toCharArray()));
         System.out.println();
-        System.out.println(checkValidString(")(".toCharArray()));
-        System.out.println(checkValidString("(*".toCharArray()));
-        System.out.println(checkValidString("(()())".toCharArray()));
-        System.out.println(checkValidString("(***)".toCharArray()));
-        System.out.println(checkValidString("())()".toCharArray()));
+        System.out.println(checkValid(")(".toCharArray()));
+        System.out.println(checkValid("(*".toCharArray()));
+        System.out.println(checkValid("(()())".toCharArray()));
+        System.out.println(checkValid("(***)".toCharArray()));
+        System.out.println(checkValid("())()".toCharArray()));
 
     }
 }
