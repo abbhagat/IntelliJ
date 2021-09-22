@@ -3,6 +3,9 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static trees.BinaryTree.createBT;
+import static trees.TreeTraversal.inorder;
+
 /*
 Tree Array = {1,2,3,4,5}
 Inorder traversal of the constructed tree is
@@ -41,5 +44,16 @@ public class TreeMirrorImage {
             }
         }
         return root;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4, 5};
+        Node root = null;
+        for (int x : a) {
+            root = createBT(x, null);
+        }
+        inorder(root);
+        root = mirrorImage(root);
+        inorder(root);
     }
 }
