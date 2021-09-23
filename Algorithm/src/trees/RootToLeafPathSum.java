@@ -14,19 +14,6 @@ public class RootToLeafPathSum {
         return pathExist(root.left, sum - root.num) || pathExist(root.right, sum - root.num);
     }
 
-    public static void rootToLeafPathSum(Node root, int sum, List<Integer> list) {
-        if (root == null) {
-            return;
-        }
-        sum += root.num;
-        if (root.left == null && root.right == null) {
-            list.add(sum);
-            return;
-        }
-        rootToLeafPathSum(root.left, sum, list);
-        rootToLeafPathSum(root.right, sum, list);
-    }
-
     public static void findPath(Node root, int sum, List<Integer> list) {
         if (root == null) {
             return;
@@ -42,8 +29,21 @@ public class RootToLeafPathSum {
         }
     }
 
+    public static void rootToLeafPathSum(Node root, int sum, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        sum += root.num;
+        if (root.left == null && root.right == null) {
+            list.add(sum);
+            return;
+        }
+        rootToLeafPathSum(root.left, sum, list);
+        rootToLeafPathSum(root.right, sum, list);
+    }
+
     public static void main(String[] args) {
-        int[] a = {20, 10, 30, 5};
+        int[] a = {20, 10, 30, 5, 2, 9, 25, 50};
         Node root = null;
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
