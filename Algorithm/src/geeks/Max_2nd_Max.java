@@ -13,7 +13,6 @@ public class Max_2nd_Max {
             } else if (x > _2ndMax) {
                 _2ndMax = x;
             }
-
         }
         System.out.println("Max : " + max + "  _2ndMax : " + _2ndMax);
     }

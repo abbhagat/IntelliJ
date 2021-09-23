@@ -48,8 +48,8 @@ public class MaxProfitBuyAndSellSharesTwice {
         } else {
             int max = a[i], min = a[i];
             for (int j = i; j < a.length; j++) {
-                max = max < a[j] ? a[j] : max;
-                min = min > a[j] ? a[j] : min;
+                max = Math.max(max, a[j]);
+                min = Math.min(min, a[j]);
             }
             profit += max - min;
             System.out.println(profit);
