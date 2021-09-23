@@ -13,24 +13,14 @@ public class DeleteLastNodeInBinaryTree {
         }
         inorder(root);
         System.out.println();
-        //root = deleteLastNodeInBinaryTree(root);
         root = deleteLastNode(root);
         inorder(root);
         System.out.println();
     }
 
-
-    private static Node deleteLastNodeInBinaryTree(Node root) {
-        int treeHeight = new TreeHeight().treeHeight(root);
-        for (int i = 0; i <= treeHeight; i++) {
-            root = deleteLeafNode(root, i);
-        }
-        return root;
-    }
-
     private static Node deleteLastNode(Node root) {
         if (root != null) {
-            if (root.left == null && root.left == null) {
+            if (root.left == null && root.right == null) {
                 return null;
             }
             root.left = deleteLastNode(root.left);
@@ -39,19 +29,4 @@ public class DeleteLastNodeInBinaryTree {
         return root;
     }
 
-    private static Node deleteLeafNode(Node root, int i) {
-        if (null == root) {
-            return root;
-        }
-        if (i == 0) {
-            if (null == root.left && null == root.right) {
-                return null;
-            }
-        }
-        if (i > 0) {
-            root.left = deleteLeafNode(root.left, i - 1);
-            root.right = deleteLeafNode(root.right, i - 1);
-        }
-        return root;
-    }
 }
