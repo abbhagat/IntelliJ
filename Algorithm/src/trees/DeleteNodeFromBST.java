@@ -11,7 +11,10 @@ public class DeleteNodeFromBST {
         } else if (num > root.num) {
             root.right = deleteNodeFromBST(root.right, num);
         } else {
-            if (root.left == null) {
+            if (root.left == null && root.right == null) {
+                root = null;
+                return null;
+            } else if (root.left == null) {
                 Node temp = root.right;
                 root = null;
                 return temp;

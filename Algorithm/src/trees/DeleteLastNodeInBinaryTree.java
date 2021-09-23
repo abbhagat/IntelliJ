@@ -30,7 +30,7 @@ public class DeleteLastNodeInBinaryTree {
 
     private static Node deleteLastNode(Node root) {
         if (root != null) {
-            if (root.left == root.right & root.left == null) {
+            if (root.left == null && root.left == null) {
                 return null;
             }
             root.left = deleteLastNode(root.left);
