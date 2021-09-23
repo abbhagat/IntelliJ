@@ -1,9 +1,7 @@
 package trees;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-import static trees.BinaryTree.createBT;
 import static trees.TreeTraversal.inorder;
 
 /*
@@ -28,18 +26,18 @@ public class TreeMirrorImage {
 
     public static Node mirrorImageUsingIteration(Node root) {
         if (null != root) {
-            Queue<Node> q = new LinkedList<>();
-            q.add(root);
-            while (q.size() > 0) {
-                Node node = q.poll();
+            Stack<Node> s = new Stack<>();
+            s.add(root);
+            while (!s.isEmpty()) {
+                Node node = s.pop();
                 Node temp = node.left;
                 node.left = node.right;
                 node.right = temp;
                 if (node.left != null) {
-                    q.add(node.left);
+                    s.add(node.left);
                 }
                 if (node.right != null) {
-                    q.add(node.right);
+                    s.add(node.right);
                 }
             }
         }
@@ -47,13 +45,14 @@ public class TreeMirrorImage {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5};
-        Node root = null;
-        for (int x : a) {
-            root = createBT(x, null);
-        }
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
         inorder(root);
-        root = mirrorImage(root);
+        root = mirrorImageUsingIteration(root);
+        System.out.println();
         inorder(root);
     }
 }
