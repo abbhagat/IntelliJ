@@ -10,7 +10,7 @@ public class IsomorphicStrings {
         if (c1.length == c2.length) {
             Map<Character, Character> map = new HashMap<>();
             for (int i = 0; i < c1.length; i++) {
-                if (null != map.get(c1[i]) && map.get(c1[i]) != c2[i]) {
+                if (map.containsKey(c1[i]) && map.get(c1[i]) != c2[i]) {
                     return false;
                 }
                 map.put(c1[i], c2[i]);
