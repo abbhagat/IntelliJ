@@ -10,7 +10,7 @@ public class MinCoinToMakeAValue {
         for (int i = 0; i < coins.length; i++) {
             if (coins[i] <= value) {
                 int result = minCoins(coins, value - coins[i]);
-                min = result < min ? result : min;
+                min = Math.min(min,result);
             }
         }
         return min + 1;
