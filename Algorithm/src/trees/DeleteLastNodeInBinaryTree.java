@@ -6,7 +6,7 @@ import static trees.TreeTraversal.inorder;
 public class DeleteLastNodeInBinaryTree {
 
     public static void main(String[] args) {
-        int[] a = {6, 15, 4, 1, 2};
+        int[] a = {6, 15, 4, 1, 2, 12, 30};
         Node root = null;
         for (int x : a) {
             root = createBST(root, x);
