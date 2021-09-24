@@ -33,7 +33,6 @@ public class RestoreIPAddress {
         if (dot == 0) {
             if (isValid(s)) {
                 ip += s;
-                System.out.println(ip);
                 result.add(ip);
             }
             return;
