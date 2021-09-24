@@ -23,20 +23,32 @@ final class FinalClass {
     }
 
     public Date getDate() {
-        return (Date)this.date.clone();
+        return (Date) this.date.clone();
     }
 
     public String toString() {
         return key + "\t" + value + "\t" + date;
     }
 
-    //    public boolean equals(Object obj){
-    //        return false;
-    //    }
-    //
-    //    public int hashCode(){
-    //        return 1;
-    //    }
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (null == obj && this.getClass() != obj.getClass()) {
+            return false;
+        }
+        final FinalClass fcObj = (FinalClass) obj;
+        return this.getKey() == fcObj.getKey() && this.getValue() == fcObj.getValue() && this.getDate().compareTo(fcObj.getDate()) == 0;
+    }
+
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + value;
+        result = prime * result + (this.getKey() == null ? 0 : this.getKey().hashCode());
+        result = prime * result + (this.getDate() == null ? 0 : this.getDate().hashCode());
+        return result;
+    }
 }
 
 public class TestFinalClass {
