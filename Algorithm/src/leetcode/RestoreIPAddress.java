@@ -30,19 +30,17 @@ public class RestoreIPAddress {
     }
 
     private static void restoreIP(String s, int dot, List<String> result, String ip) {
-        if (dot == 0) {
-            if (isValid(s)) {
-                ip += s;
-                result.add(ip);
+        if (dot == 0 && isValid(s)) {
+            ip += s;
+            result.add(ip);
+        } else {
+            for (int i = 1; i <= 3 && i < s.length(); i++) {
+                String address = s.substring(0, i);
+                if (!isValid(address)) {
+                    continue;
+                }
+                restoreIP(s.substring(i), dot - 1, result, ip + address + ".");
             }
-            return;
-        }
-        for (int i = 1; i <= 3 && i < s.length(); i++) {
-            String address = s.substring(0, i);
-            if (!isValid(address)) {
-                continue;
-            }
-            restoreIP(s.substring(i), dot - 1, result, ip + address + ".");
         }
     }
 

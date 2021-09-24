@@ -7,9 +7,6 @@ package strings;
 public class NewTypePalindromeString {
 
     private static boolean isNewTypePalindrome(String s) {
-        if (s.isEmpty()) {
-            return false;
-        }
         while (true) {
             if (s.isEmpty() || s.length() == 1) {
                 return true;
