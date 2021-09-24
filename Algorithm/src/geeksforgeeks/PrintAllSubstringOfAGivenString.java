@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
 Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
@@ -15,6 +16,7 @@ Output :  a
           abc
           bcd
           abcd
+
           Input :  abc
           a
           b
@@ -43,16 +45,8 @@ public class PrintAllSubstringOfAGivenString {
     }
 
     public static void main(String[] args) {
-        String str = "abcd";
+        String str = "abc";
         permute(str.length() - 1, str);
         System.out.println(set);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = i + 1; j <= str.length(); j++) {
-                list.add(str.substring(i, j));
-            }
-        }
-        Collections.sort(list);
-        System.out.println(list);
     }
 }
