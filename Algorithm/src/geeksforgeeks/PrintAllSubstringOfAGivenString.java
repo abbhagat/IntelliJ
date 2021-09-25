@@ -1,7 +1,7 @@
 package geeksforgeeks;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 /*
 Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
@@ -28,7 +28,7 @@ Output :  a
 
 public class PrintAllSubstringOfAGivenString {
 
-    private static Set<String> set = new HashSet<>();
+    private static Set<String> set = new TreeSet<>(String::compareTo);
 
     private static void permute(int index, String s) {
         if (index != 0) {
@@ -47,6 +47,6 @@ public class PrintAllSubstringOfAGivenString {
     public static void main(String[] args) {
         String str = "abc";
         permute(str.length() - 1, str);
-        System.out.println(set);
+        set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
     }
 }
