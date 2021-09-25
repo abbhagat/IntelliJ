@@ -44,7 +44,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
     }
 
     public T remove(int index) {
-        if (index >= size || index < 0) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         T oldValue = list[index];
@@ -59,7 +59,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
     private void validateCapacity(int minCapacity) {
         int oldCapacity = list.length;
         if (minCapacity > oldCapacity) {
-            Object oldData[] = list;
+            T oldData[] = list;
             int newCapacity = oldCapacity * 3 / 2 + 1; //Size increases by 1.5 times.
             if (newCapacity < minCapacity) {
                 newCapacity = minCapacity;
