@@ -41,7 +41,7 @@ public class MatrixRotationBy90Degree {
                     a[R2][i] = prev;
                     prev = curr;
                 }
-                for (int i = R2 - 1; i >= R1; i--) {
+                for (int i = R2 - 1; i >= R1 + 1; i--) {
                     curr = a[i][C1];
                     a[i][C1] = prev;
                     prev = curr;
