@@ -27,19 +27,18 @@ public class ConvertSortedListToBalancedTree {
         prevMid.next = null;
 
         TreeNode root = new TreeNode(mid.num);
-        
-        root.left = sortedListToBST(head);
+
+        root.left  = sortedListToBST(head);
         root.right = sortedListToBST(mid.next);
         return root;
     }
 
     private static void preOrder(TreeNode node) {
-        if (node == null) {
-            return;
+        if (node != null) {
+            System.out.print(node.num + " ");
+            preOrder(node.left);
+            preOrder(node.right);
         }
-        System.out.print(node.num + " ");
-        preOrder(node.left);
-        preOrder(node.right);
     }
 
     public static void main(String[] args) {
