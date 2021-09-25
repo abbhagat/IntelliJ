@@ -1,5 +1,7 @@
 package linkedlist;
 
+import static linkedlist.TraverseList.traverseList;
+
 //Time Complexity:  Since we are traversing through the two lists fully.
 // So, the time complexity is O(m+n) where m and n are the lengths of the two lists to be merged.
 public class MergeTwoSortedList {
@@ -28,8 +30,8 @@ public class MergeTwoSortedList {
         for (int x : new int[]{2, 4}) {
             b = LinkList.add(b, x);
         }
-        TraverseList.traverseList(a);
-        TraverseList.traverseList(b);
-        TraverseList.traverseList(mergeTwoLists(a, b));
+        traverseList(a);
+        traverseList(b);
+        traverseList(mergeTwoLists(a, b));
     }
 }
