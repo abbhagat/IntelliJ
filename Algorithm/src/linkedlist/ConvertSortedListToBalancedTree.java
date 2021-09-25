@@ -1,5 +1,7 @@
 package linkedlist;
 
+import static linkedlist.MidPointOfLinkedList.findMidPoint;
+
 class TreeNode {
     int num;
     TreeNode left, right;
@@ -20,18 +22,14 @@ public class ConvertSortedListToBalancedTree {
         if (head.next == null) {
             return new TreeNode(head.num);
         }
-        Node slow = head;
-        Node fast = head.next;
-        Node previousSlow = null;
-        while (fast != null && fast.next != null) {
-            previousSlow = slow;
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        previousSlow.next = null;
-        TreeNode root = new TreeNode(slow.num);
+        Node prevMid = findMidPoint(head);
+        Node mid = prevMid.next;
+        prevMid.next = null;
+
+        TreeNode root = new TreeNode(mid.num);
+        
         root.left = sortedListToBST(head);
-        root.right = sortedListToBST(slow.next);
+        root.right = sortedListToBST(mid.next);
         return root;
     }
 
