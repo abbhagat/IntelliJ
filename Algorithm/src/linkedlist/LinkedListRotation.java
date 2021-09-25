@@ -5,11 +5,13 @@ package linkedlist;
  *   Output -> 4 5 1 2 3
  */
 
+import static linkedlist.TraverseList.traverseList;
+
 public class LinkedListRotation {
 
     public static Node rotateList(Node first, int k) {
         Node temp = first, last;
-        for (last = first; last.next != null; last = last.next);
+        for (last = first; last.next != null; last = last.next) ;
         for (int i = 1; i < k; i++) {
             temp = temp.next;
         }
@@ -26,7 +28,7 @@ public class LinkedListRotation {
         for (int x : a) {
             first = LinkList.add(first, x);
         }
-        TraverseList.traverseList(first);
-        TraverseList.traverseList(LinkedListRotation.rotateList(first, 3));
+        traverseList(first);
+        traverseList(rotateList(first, 3));
     }
 }
