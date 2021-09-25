@@ -7,11 +7,11 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private transient Object[] list;
+    private transient T[] list;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
-    public Object[] getList() {
+    public T[] getList() {
         return list;
     }
 
@@ -27,7 +27,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         if (initialCapacity <= 0) {
             throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
         }
-        this.list = new Object[initialCapacity];
+        this.list = (T[]) new Object[initialCapacity];
     }
 
     public boolean add(T obj) {
@@ -36,18 +36,18 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         return true;
     }
 
-    public Object get(int index) {
+    public T get(int index) {
         if (index >= size || index < 0) {
             throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
         }
         return list[index];
     }
 
-    public Object remove(int index) {
+    public T remove(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-        Object oldValue = list[index];
+        T oldValue = list[index];
         int numMoved = size - index - 1;
         if (numMoved > 0) {
             System.arraycopy(list, index + 1, list, index, numMoved);
@@ -64,7 +64,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
             if (newCapacity < minCapacity) {
                 newCapacity = minCapacity;
             }
-            list = new Object[newCapacity];
+            list = (T[]) new Object[newCapacity];
             System.arraycopy(oldData, 0, list, 0, size);
         }
     }
@@ -75,12 +75,12 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         al.add(2);
         al.add(3);
         for (int i = 0; i < al.size(); i++) {
-            System.out.println(al.list[i]);
+            System.out.println(al.get(i));
         }
         al.remove(2);
         System.out.println("Changed List");
         for (int i = 0; i < al.size(); i++) {
-            System.out.println(al.list[i]);
+            System.out.println(al.get(i));
         }
     }
 }
