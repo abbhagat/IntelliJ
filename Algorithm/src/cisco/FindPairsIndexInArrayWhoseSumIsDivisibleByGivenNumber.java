@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package cisco;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
  */
 
-public class TwoSumProblem {
+public class FindPairsIndexInArrayWhoseSumIsDivisibleByGivenNumber {
 
     public static <K, V> K getKey(Map<K, V> map, V value) {
         for (Map.Entry<K, V> entry : map.entrySet()) {
