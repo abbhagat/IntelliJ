@@ -45,7 +45,7 @@ public class RestoreIPAddress {
     }
 
     private static boolean isValid(String s) {
-        if (s.startsWith("0") && s.length() > 1 || Integer.valueOf(s) > 255) {
+        if (s.charAt(0) == '0' && s.length() != 1 || Integer.valueOf(s) > 255) {
             return false;
         }
         return true;
