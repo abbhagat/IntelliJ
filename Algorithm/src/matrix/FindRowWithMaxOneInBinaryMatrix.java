@@ -36,7 +36,7 @@ public class FindRowWithMaxOneInBinaryMatrix {
     }
 
     private static int rowWithMax1s(int mat[][]) {
-        int max_row_index = 0, max = -1;
+        int max_row_index = 0, max = 0;
         for (int i = 0; i < R; i++) {
             int index = binarySearch(mat[i], 0, C - 1);
             if (C - index > max) {
@@ -48,7 +48,7 @@ public class FindRowWithMaxOneInBinaryMatrix {
     }
 
     private static int rowWithMax0s(int mat[][]) {
-        int max_row_index = 0, max = -1;
+        int max_row_index = 0, max = 0;
         for (int i = 0; i < R; i++) {
             int index = binarySearch(mat[i], 0, C - 1);
             if (index >= max) {
