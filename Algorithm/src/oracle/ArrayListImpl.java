@@ -37,7 +37,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
     }
 
     public T get(int index) {
-        if (index >= size || index < 0) {
+        if (index < 0 || index >= size) {
             throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
         }
         return list[index];
