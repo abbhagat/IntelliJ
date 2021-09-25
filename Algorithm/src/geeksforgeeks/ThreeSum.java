@@ -7,10 +7,8 @@ import java.util.List;
 public class ThreeSum {
 
     public static void combinationForSum(int[] a, int index, int currSum, int givenSum, List<Integer> al, List<List<Integer>> list) {
-        if (currSum == givenSum) {
-            if (al.size() == 3 && !list.contains(al)) {
-                list.add((new ArrayList<>(al)));
-            }
+        if (currSum == givenSum && al.size() == 3 && !list.contains(al)) {
+            list.add((new ArrayList<>(al)));
         }
         if (currSum > givenSum) {
             return;
