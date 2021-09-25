@@ -22,7 +22,7 @@ public class AreaOfLargestIslandIn2DMatrix {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];
     }
 
-    private static int DFS(int row, int col) {
+    private static void DFS(int row, int col) {
         int[] rowIdx = {1, -1, 0, 0};
         int[] colIdx = {0, 0, 1, -1};
         visited[row][col] = true;
@@ -32,23 +32,22 @@ public class AreaOfLargestIslandIn2DMatrix {
                 DFS(row + rowIdx[k], col + colIdx[k]);
             }
         }
-        return area;
     }
 
     private static int findMaxArea() {
-        int max_area = 0;
-        int count = 0;
+        int numOfIsland = 0, max_area = 0;
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (M[i][j] == 1 && !visited[i][j]) {
                     area = 1;
-                    System.out.println("Area of Each Island " + DFS(i, j));
-                    count++;
+                    DFS(i, j);
+                    System.out.println("Area of Each Island " + area);
                     max_area = Math.max(max_area, area);
+                    numOfIsland++;
                 }
             }
         }
-        System.out.println("Number of islands is: " + count);
+        System.out.println("Number of islands is: " + numOfIsland);
         return max_area;
     }
 
