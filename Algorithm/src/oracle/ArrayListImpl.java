@@ -69,6 +69,10 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         }
     }
 
+    public T clone(){
+        return (T) list.clone();
+    }
+
     public static void main(String[] args) {
         ArrayListImpl<Integer> al = new ArrayListImpl();
         al.add(1);
