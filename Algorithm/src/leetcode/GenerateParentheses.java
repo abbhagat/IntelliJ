@@ -1,27 +1,24 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GenerateParentheses {
 
-    private static void generateParentheses(String bracket, int open, int close, int n, List<String> list) {
+    private static void generateParentheses(String bracket, int open, int close, int n) {
         if (bracket.length() == 2 * n) {
             System.out.println(bracket);
         }
         if (open < n) {
-            generateParentheses(bracket + "(", open + 1, close, n, list);
+            generateParentheses(bracket + "(", open + 1, close, n);
         }
         if (close < open) {
-            generateParentheses(bracket + ")", open, close + 1, n, list);
+            generateParentheses(bracket + ")", open, close + 1, n);
         }
     }
 
     public static void main(String[] args) {
-        generateParentheses("", 0, 0, 1, new ArrayList<>());
+        generateParentheses("", 0, 0, 1);
         System.out.println();
-        generateParentheses("", 0, 0, 2, new ArrayList<>());
+        generateParentheses("", 0, 0, 2);
         System.out.println();
-        generateParentheses("", 0, 0, 3, new ArrayList<>());
+        generateParentheses("", 0, 0, 3);
     }
 }
