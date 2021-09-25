@@ -19,7 +19,7 @@ public class FindRowWithMaxOneInBinaryMatrix {
     private static int M[][] = {
             {1, 0, 0, 1},
             {0, 0, 1, 1},
-            {0, 0, 0, 1},
+            {0, 0, 0, 0},
             {0, 1, 1, 1}
     };
     private static int R = M.length, C = M[0].length;
