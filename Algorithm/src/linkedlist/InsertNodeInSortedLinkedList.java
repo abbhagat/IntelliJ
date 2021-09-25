@@ -22,6 +22,9 @@ public class InsertNodeInSortedLinkedList {
         for (int x : new int[]{1, 3, 5, 9}) {
             first = LinkList.add(first, x);
         }
-        TraverseList.traverseList(insertNodeInSortedLinkedList(first, 8));
+        first = insertNodeInSortedLinkedList(first, 0);
+        first = insertNodeInSortedLinkedList(first, 8);
+        first = insertNodeInSortedLinkedList(first, 10);
+        TraverseList.traverseList(first);
     }
 }
