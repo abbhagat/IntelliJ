@@ -1,5 +1,7 @@
 package linkedlist;
 
+import static linkedlist.TraverseList.traverseList;
+
 public class InsertNodeInSortedLinkedList {
 
     public static Node insertNodeInSortedLinkedList(Node first, int num) {
@@ -25,6 +27,6 @@ public class InsertNodeInSortedLinkedList {
         first = insertNodeInSortedLinkedList(first, 0);
         first = insertNodeInSortedLinkedList(first, 8);
         first = insertNodeInSortedLinkedList(first, 10);
-        TraverseList.traverseList(first);
+        traverseList(first);
     }
 }
