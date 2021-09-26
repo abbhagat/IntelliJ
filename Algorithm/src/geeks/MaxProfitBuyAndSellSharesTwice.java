@@ -34,7 +34,7 @@ public class MaxProfitBuyAndSellSharesTwice {
         int[] a = {100, 30, 15, 10, 8, 25, 80};
         int buyVal = 0, sellVal = 0, i;
         for (i = 1; i < a.length; i++) {
-            if (a[i] - a[i - 1] > 0) {
+            if (a[i - 1] < a[i]) {
                 buyVal = a[i - 1];
                 sellVal = a[i];
                 break;
@@ -43,7 +43,7 @@ public class MaxProfitBuyAndSellSharesTwice {
         int profit = sellVal - buyVal;
         if (i == a.length) {
             System.out.println(profit);
-        } else if (i + 1 == a.length - 1 && a[a.length - 1] > buyVal) {
+        } else if (i + 1 == a.length - 1 && a[a.length - 1] > sellVal) {
             System.out.println(a[a.length - 1] - buyVal);
         } else {
             int max = a[i], min = a[i];

@@ -30,9 +30,7 @@ public class MaxArrayGivenSum {
     public static void main(String[] args) {
         int[] a = {-1, 0, 1, 2, -1, -4};
         Arrays.sort(a);
-        int givenSum = 0;
-        int curSum = 0;
-        combinationForSum(a, 0, new ArrayList<>(), givenSum, curSum);
+        combinationForSum(a, 0, new ArrayList<>(), 0, 0);
         System.out.println(list);
     }
 }
