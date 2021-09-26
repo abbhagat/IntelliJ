@@ -6,21 +6,23 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Date;
 
-public class CalculateSizeOfObject {
-    static class Employee implements Serializable {
+class Employee implements Serializable {
 
-        private int id;
-        private String name;
-        private Date dob;
+    private int id;
+    private String name;
+    private Date dob;
 
-        Employee() {}
-
-        Employee(int id, String name, Date dob) {
-            this.id = id;
-            this.name = name;
-            this.dob = dob;
-        }
+    Employee() {
     }
+
+    Employee(int id, String name, Date dob) {
+        this.id = id;
+        this.name = name;
+        this.dob = dob;
+    }
+}
+
+public class CalculateSizeOfObject {
 
     public static void main(String[] args) throws Exception {
         Employee emp = new Employee(1, "Abhinaw", new Date("07-OCT-1986"));
@@ -28,6 +30,6 @@ public class CalculateSizeOfObject {
         ObjectOutputStream os = new ObjectOutputStream(fos);
         os.writeObject(emp);
         File file = new File("Student.txt");
-        System.out.println(file.length()+" bytes");
+        System.out.println(file.length() + " bytes");
     }
 }
