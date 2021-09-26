@@ -1,10 +1,12 @@
 package trees;
 
+import static trees.TreeTraversal.inorder;
+
 public class DeleteNodeFromBST {
 
-    Node deleteNodeFromBST(Node root, int num) {
+    private static Node deleteNodeFromBST(Node root, int num) {
         if (null == root) {
-            return root;
+            return null;
         }
         if (num < root.num) {
             root.left = deleteNodeFromBST(root.left, num);
@@ -31,10 +33,24 @@ public class DeleteNodeFromBST {
         return root;
     }
 
-    private Node minValueNode(Node root) {
+    private static Node minValueNode(Node root) {
         while (root.left != null) {
             root = root.left;
         }
         return root;
+    }
+
+    public static void main(String... args) {
+        int[] a = {30, 10, 50, 5, 20, 40, 60};
+        Node root = null;
+        CreateBST bst = new CreateBST();
+        for (int i = 0; i < a.length; i++) {
+            root = bst.createBST(root, a[i]);
+        }
+        inorder(root);
+        System.out.println();
+        root = deleteNodeFromBST(root, 40);
+        inorder(root);
+        System.out.println();
     }
 }
