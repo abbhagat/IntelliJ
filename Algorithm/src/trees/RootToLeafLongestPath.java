@@ -11,7 +11,7 @@ public class RootToLeafLongestPath {
         if (root == null) {                                  // If root is null means there is no binary tree so return a empty list
             return new ArrayList<>();
         }
-        List<Integer> leftList = longestPath(root.left);      // Recursive call on root.left
+        List<Integer> leftList  = longestPath(root.left);      // Recursive call on root.left
         List<Integer> rightList = longestPath(root.right);   // Recursive call on root.right
         boolean b = leftList.size() > rightList.size() ? leftList.add(root.num) : rightList.add(root.num); // Compare the size of the two ArrayList and insert current node accordingly
         return      leftList.size() > rightList.size() ? leftList : rightList;  // Return the appropriate ArrayList
