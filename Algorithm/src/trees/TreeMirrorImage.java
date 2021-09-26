@@ -1,6 +1,7 @@
 package trees;
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import static trees.TreeTraversal.inorder;
 
@@ -26,18 +27,18 @@ public class TreeMirrorImage {
 
     public static Node mirrorImageUsingIteration(Node root) {
         if (null != root) {
-            Stack<Node> s = new Stack<>();
-            s.add(root);
-            while (!s.isEmpty()) {
-                Node node = s.pop();
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            while (!q.isEmpty()) {
+                Node node = q.poll();
                 Node temp = node.left;
                 node.left = node.right;
                 node.right = temp;
                 if (node.left != null) {
-                    s.add(node.left);
+                    q.add(node.left);
                 }
                 if (node.right != null) {
-                    s.add(node.right);
+                    q.add(node.right);
                 }
             }
         }
