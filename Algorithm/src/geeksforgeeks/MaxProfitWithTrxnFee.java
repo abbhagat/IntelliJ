@@ -1,24 +1,19 @@
 package geeksforgeeks;
 
-import java.util.Arrays;
+import static java.lang.Integer.max;
 
 public class MaxProfitWithTrxnFee {
 
-    private static void max_profit(int[] a, int fee) {
-        Arrays.sort(a);
-        int max_profit = 0, days = 0;
-        for (int i = 0, j = a.length - 1; i < a.length / 2; i++, j--) {
-            int profit = a[j] - a[i] - fee;
-            if (profit > 0) {
-                max_profit += profit;
-            }
-            days++;
+    private static int max_profit(int[] a, int fee) {
+        int buying = 0, selling = -a[0];
+        for (int i = 1; i < a.length; i++) {
+            buying  = max(buying, selling + a[i] - fee);
+            selling = max(selling, buying - a[i]);
         }
-        System.out.println("Max Profit " + max_profit);
-        System.out.println("Max Days " + days);
+        return buying;
     }
 
     public static void main(String args[]) {
-        max_profit(new int[]{1, 3, 2, 8, 4, 9}, 2);
+        System.out.println(max_profit(new int[]{1, 3, 2, 8, 4, 9}, 2));
     }
 }
