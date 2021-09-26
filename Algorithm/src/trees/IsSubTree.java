@@ -1,5 +1,7 @@
 package trees;
 
+import static trees.TreeTraversal.inorder;
+
 public class IsSubTree {
 
     private static boolean isSubTree(Node rootSuper, Node rootSub) {
@@ -17,26 +19,21 @@ public class IsSubTree {
     }
 
     public static void main(String[] args) {
-        int[] a = { 30, 10, 50, 5, 20, 40, 60, 1 };
+        int[] a = {30, 10, 50, 5, 20, 40, 60, 1};
         Node rootSuper = null, rootSub = null;
         CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
             rootSuper = bst.createBST(rootSuper, a[i]);
         }
-        int[] b = { 10, 5, 20, 1 };
+        int[] b = {10, 5, 20, 1};
         bst = new CreateBST();
         for (int i = 0; i < b.length; i++) {
             rootSub = bst.createBST(rootSub, b[i]);
         }
-        TreeTraversal t = new TreeTraversal();
-        t.inorder(rootSuper);
+        inorder(rootSuper);
         System.out.println();
-        t.inorder(rootSub);
+        inorder(rootSub);
         System.out.println();
-        if (isSubTree(rootSuper, rootSub)) {
-            System.out.println("Is a sub tree");
-        } else {
-            System.out.println("Not a sub tree");
-        }
+        System.out.println(isSubTree(rootSuper, rootSub) ? "Is a sub tree" : "Not a sub tree");
     }
 }
