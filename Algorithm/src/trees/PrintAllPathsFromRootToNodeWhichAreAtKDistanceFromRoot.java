@@ -1,13 +1,14 @@
 package trees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static trees.CreateBST.createBST;
 
 public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
 
-    private static List<List<Integer>> findPath(Node root, int k, List<Integer> list, List<List<Integer>> lists) {
+    private static List<List<Integer>> findPath(Node root, int k, LinkedList<Integer> list, List<List<Integer>> lists) {
         if (root == null) {
             return new ArrayList<>();
         }
@@ -19,13 +20,13 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
             return lists;
         }
         findPath(root.left, k - 1, list, lists);
-        list.remove(list.size() - 1);
+        list.removeLast();
         findPath(root.right, k - 1, list, lists);
-        list.remove(list.size() - 1);
+        list.removeLast();
         return lists;
     }
 
-    private static void findPath(Node root, int k, List<Integer> list) {
+    private static void findPath(Node root, int k, LinkedList<Integer> list) {
         if (root == null) {
             return;
         }
@@ -35,9 +36,9 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
             return;
         }
         findPath(root.left, k - 1, list);
-        list.remove(list.size() - 1);
+        list.removeLast();
         findPath(root.right, k - 1, list);
-        list.remove(list.size() - 1);
+        list.removeLast();
     }
 
     public static void main(String[] args) {
@@ -46,7 +47,7 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        List<List<Integer>> lists = findPath(root, 2, new ArrayList<>(), new ArrayList<>());
+        List<List<Integer>> lists = findPath(root, 2, new LinkedList<>(), new ArrayList<>());
         System.out.println(lists);
     }
 }
