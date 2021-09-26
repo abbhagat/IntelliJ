@@ -12,7 +12,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
             System.out.println(root.num);
             return;
         }
-        printKDistanceNodeDown(root.left, k - 1);
+        printKDistanceNodeDown(root.left,  k - 1);
         printKDistanceNodeDown(root.right, k - 1);
     }
 
