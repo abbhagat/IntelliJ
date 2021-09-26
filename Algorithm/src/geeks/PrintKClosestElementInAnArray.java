@@ -11,22 +11,16 @@ Note that if the element is present in array, then it should not be in output, o
  */
 public class PrintKClosestElementInAnArray {
 
-    private static int binarySearch(int[] a, int low, int high, int n) {
-        if (low <= high) {
-            int mid = (low + high) / 2;
-            if (a[mid] == n) {
-                return mid;
-            }
-            return n < a[mid] ? binarySearch(a, low, mid - 1, n) : binarySearch(a, mid + 1, high, n);
-        }
-        return -1;
-    }
-
     private static void printKClosestElementInAnArray(int[] a, int n, int k) {
-        int mid = binarySearch(a, 0, a.length - 1, n);
-        int left, right, count = 0;
-        right = mid + 1;
-        left = mid - 1;
+        int mid = -1;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == n) {
+                mid = i;
+            }
+        }
+        int count = 0;
+        int left = mid - 1;
+        int right = mid + 1;
         while (left >= 0 && right < a.length && count < k) {
             System.out.println(abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++]);
             count++;
