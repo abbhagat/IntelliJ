@@ -49,7 +49,7 @@ So answer here is ‘2’.
 public class EggDroppingPuzzle {
 
     private static int eggDrop(int eggs, int floor) {
-        if (floor == 1 || floor == 0) {  // If there are no floors, then no trials needed or if there is one floor only one trial needed
+        if (floor == 0 || floor == 1) {  // If there are no floors, then no trials needed or if there is one floor only one trial needed
             return floor;
         }
         if (eggs == 1) { // We need k trials for one egg and k floors
