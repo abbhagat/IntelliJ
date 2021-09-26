@@ -15,8 +15,8 @@ package geeks;
 public class MinFlipToMakeBinaryStringSame {
 
     private static int minimumOperation(char[] a, char[] b) {
-        int minFlips = 0;
-        for (int i = 0; i < a.length; ) {
+        int i = 0, minFlips = 0;
+        while (i < a.length) {
             if (a[i] == b[i]) {
                 i++;
                 continue;

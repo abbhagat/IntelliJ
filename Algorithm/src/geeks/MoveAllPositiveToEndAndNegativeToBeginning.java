@@ -8,9 +8,9 @@ public class MoveAllPositiveToEndAndNegativeToBeginning {
 
     private static void move(int low, int high) {
         while (low <= high) {
-            if (a[low] < 0 && a[high] < 0) {
+            if (a[low] < 0) {
                 low++;
-            } else if (a[low] > 0 && a[high] > 0) {
+            } else if (a[high] > 0) {
                 high--;
             } else if (a[low] > 0 && a[high] < 0) {
                 int t = a[low];
