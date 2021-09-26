@@ -1,13 +1,12 @@
 package trees;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 import static trees.CreateBST.createBST;
 
 public class PrintAllPathFromRootToLeafNodes {
 
-    private static void findPath(Node root, List<Integer> list) {
+    private static void findPath(Node root, LinkedList<Integer> list) {
         if (root == null) {
             return;
         }
@@ -17,9 +16,9 @@ public class PrintAllPathFromRootToLeafNodes {
             return;
         }
         findPath(root.left, list);
-        list.remove(list.size() - 1);
+        list.removeLast();
         findPath(root.right, list);
-        list.remove(list.size() - 1);
+        list.removeLast();
     }
 
     public static void main(String[] args) {
@@ -28,6 +27,6 @@ public class PrintAllPathFromRootToLeafNodes {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        findPath(root, new ArrayList<>());
+        findPath(root, new LinkedList<>());
     }
 }
