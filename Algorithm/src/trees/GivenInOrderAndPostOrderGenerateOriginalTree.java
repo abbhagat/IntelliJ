@@ -14,19 +14,16 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
             return null;
         }
 
-        Node root = new Node();
-        root.num = postOrder[postIndex.postIndex];
-        (postIndex.postIndex)--;
-        root.left = null;
-        root.right = null;
+        Node root = new Node(postOrder[postIndex.postIndex]);
+        postIndex.postIndex--;
 
         if (start == end) {
             return root;
         }
 
-        int index = search(inorder, root.num, start, end);
+        int index  = search(inorder, root.num, start, end);
         root.right = buildTree(inorder, postOrder, index + 1, end, postIndex);
-        root.left = buildTree(inorder, postOrder, start, index - 1, postIndex);
+        root.left  = buildTree(inorder, postOrder, start, index - 1, postIndex);
         return root;
     }
 

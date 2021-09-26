@@ -7,22 +7,18 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
     private static int preIndex = 0;
 
     public static Node buildTree(int[] inorder, int[] preorder, int start, int end) {
-
         if (start > end) {
             return null;
         }
 
-        Node root = new Node();
-        root.num = preorder[preIndex++];
-        root.left = null;
-        root.right = null;
+        Node root = new Node(preorder[preIndex++]);
 
         if (start == end) {
             return root;
         }
 
-        int index = search(inorder, root.num, start, end);
-        root.left = buildTree(inorder, preorder, start, index - 1);
+        int index  = search(inorder, root.num, start, end);
+        root.left  = buildTree(inorder, preorder, start, index - 1);
         root.right = buildTree(inorder, preorder, index + 1, end);
         return root;
     }
