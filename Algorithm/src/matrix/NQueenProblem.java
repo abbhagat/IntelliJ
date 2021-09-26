@@ -40,7 +40,7 @@ public class NQueenProblem {
                 board[i][col] = 0; // If placing queen in board[i][col] doesn't lead to a solution then remove queen from board[i][col]  BACKTRACK
             }
         }
-        return false;  // If the queen can not be placed in any row in this colum col, then return false
+        return false;  // If the queen can not be placed in any row in this column col, then return false
     }
 
     /* This function solves the N Queen problem using Backtracking.
