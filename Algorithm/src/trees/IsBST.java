@@ -3,13 +3,23 @@ package trees;
 // Time Complexity O(n)
 
 public class IsBST {
-    public static final boolean isBST(Node root, int min, int max) {
+    private static boolean isBST(Node root, int min, int max) {
         if (root == null) {
             return true;
         }
         if (root.num < min || root.num > max) {
             return false;
         }
-        return isBST(root.left, min, root.num - 1) && isBST(root.right, root.num + 1, max);
+        return isBST(root.left, min, root.num) && isBST(root.right, root.num, max);
+    }
+
+    public static void main(String[] args) {
+        int[] a = {30, 10, 50, 5, 20, 40, 60};
+        Node root = null;
+        CreateBST bst = new CreateBST();
+        for (int i = 0; i < a.length; i++) {
+            root = bst.createBST(root, a[i]);
+        }
+        System.out.println("Is BST :" + isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 }
