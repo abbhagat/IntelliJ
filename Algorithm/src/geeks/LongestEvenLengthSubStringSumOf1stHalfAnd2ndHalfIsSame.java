@@ -37,5 +37,7 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
     public static void main(String[] args) {
         String str = Integer.toString(1538023);
         System.out.println("Length of the substring is " + findLength(str, str.length()));
+        str = Integer.toString(15380231);
+        System.out.println("Length of the substring is " + findLength(str, str.length()));
     }
 }
