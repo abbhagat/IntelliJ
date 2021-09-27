@@ -26,10 +26,10 @@ public class RemoveOneElementToMakeArrayStrictlyIncreasing {
             return true;
         }
         if (index - 2 >= 0 && a[index - 2] < a[index]) {  // If a[index - 1] is removed
-            System.out.println(a[index]);
+            System.out.println(a[index - 1]);
             return true;
         }
-        if(index < 0) {       // if there is no element to compare
+        if (index < 0) {       // if there is no element to compare
             return true;
         }
         return false;
