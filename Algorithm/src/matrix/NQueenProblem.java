@@ -55,15 +55,13 @@ public class NQueenProblem {
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}
         };
-        if (!solveNQUtil(board, 0)) {
-            System.out.print("Solution does not exist");
-            System.exit(0);
-        }
-        for (int[] a : board) {
-            for (int x : a) {
-                System.out.print(" " + x + " ");
+        if (solveNQUtil(board, 0)) {
+            for (int[] a : board) {
+                for (int x : a) {
+                    System.out.print(" " + x + " ");
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 }
