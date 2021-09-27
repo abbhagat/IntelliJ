@@ -1,17 +1,19 @@
 package trees;
 
-public class LevelOrderTreeTraversal {
+import static trees.TreeHeight.treeHeight;
 
-    private static TreeHeight th = new TreeHeight();
+public class SpiralOrderTreeTraversal {
 
     public static void levelOrderTreeTraversal(Node root) {
-        int treeHeight = th.treeHeight(root);
+        int treeHeight = treeHeight(root);
+        boolean flag = true;
         for (int i = 0; i <= treeHeight; i++) {
-            printLevelOrder(root, i);
+            printLevelOrder(root, i, flag);
+            flag = !flag;
         }
     }
 
-    public static void printLevelOrder(Node root, int level) {
+    public static void printLevelOrder(Node root, int level, boolean flag) {
         if (root == null) {
             return;
         }
@@ -19,8 +21,13 @@ public class LevelOrderTreeTraversal {
             System.out.print(root.num + " ");
         }
         if (level > 0) {
-            printLevelOrder(root.left, level - 1);
-            printLevelOrder(root.right, level - 1);
+            if (flag) {
+                printLevelOrder(root.left, level - 1, flag);
+                printLevelOrder(root.right, level - 1, flag);
+            } else {
+                printLevelOrder(root.right, level - 1, flag);
+                printLevelOrder(root.left, level - 1, flag);
+            }
         }
     }
 

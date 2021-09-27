@@ -1,6 +1,5 @@
 package trees;
 
-import static trees.LevelOrderTreeTraversal.levelOrderTreeTraversal;
 import static trees.TreeTraversal.*;
 
 public class BinaryTreeTraversal {
@@ -12,9 +11,6 @@ public class BinaryTreeTraversal {
         for (int x : a) {
             root = BT.createBT(x, root);
         }
-        System.out.println("Level Order Or BFS Traversal : ");
-        levelOrderTreeTraversal(root);
-        System.out.println();
         inorder(root);
         System.out.println();
         inOrderWithoutRecursion(root);
@@ -27,15 +23,5 @@ public class BinaryTreeTraversal {
         System.out.println();
         postOrderWithoutRecursion(root);
         System.out.println();
-        TreeHeight height = new TreeHeight();
-        System.out.println("\nTree Height :" + height.treeHeight(root));
-        CreateBST BST = new CreateBST();
-        root = null;
-        for (int x : a) {
-            root = BST.createBST(root, x);
-        }
-        preorder(root);
-        height = new TreeHeight();
-        System.out.println("\nTree Height :" + height.treeHeight(root));
     }
 }
