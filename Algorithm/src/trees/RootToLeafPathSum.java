@@ -9,9 +9,12 @@ public class RootToLeafPathSum {
 
     public static boolean pathExist(Node root, int sum) {
         if (root == null) {
-            return sum == 0;
+            return false;
         }
-        return pathExist(root.left, sum - root.num) || pathExist(root.right, sum - root.num);
+        if (sum == root.num) {
+            return true;
+        }
+        return (sum - root.num < root.num) ? pathExist(root.left, sum - root.num) : pathExist(root.right, sum - root.num);
     }
 
     public static void findPath(Node root, int sum, List<Integer> list) {
@@ -24,7 +27,7 @@ public class RootToLeafPathSum {
             return;
         } else if (sum - root.num < root.num) {
             findPath(root.left, sum - root.num, list);
-        } else if (sum > root.num) {
+        } else if (sum - root.num > root.num) {
             findPath(root.right, sum - root.num, list);
         }
     }
