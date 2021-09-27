@@ -5,10 +5,10 @@ import java.util.Queue;
 
 public class IterativeTreeTraversal {
 
-    static void iterativeTreeTraversal(Node root) {
+    public static void iterativeTreeTraversal(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
-        while (q.size() > 0) {
+        while (!q.isEmpty()) {
             root = q.poll();
             System.out.print(root.num + " ");
             if (root.left != null) {
