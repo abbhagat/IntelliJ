@@ -5,6 +5,17 @@ import static trees.TreeTraversal.inorder;
 
 public class DeleteLastNodeInBinaryTree {
 
+    private static Node deleteLastNode(Node root) {
+        if (root != null) {
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+            root.left  = deleteLastNode(root.left);
+            root.right = deleteLastNode(root.right);
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
         int[] a = {6, 15, 4, 1, 2, 12, 30};
         Node root = null;
@@ -15,18 +26,5 @@ public class DeleteLastNodeInBinaryTree {
         System.out.println();
         root = deleteLastNode(root);
         inorder(root);
-        System.out.println();
     }
-
-    private static Node deleteLastNode(Node root) {
-        if (root != null) {
-            if (root.left == null && root.right == null) {
-                return null;
-            }
-            root.left = deleteLastNode(root.left);
-            root.right = deleteLastNode(root.right);
-        }
-        return root;
-    }
-
 }

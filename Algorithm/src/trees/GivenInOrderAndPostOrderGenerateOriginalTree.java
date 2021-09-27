@@ -4,7 +4,7 @@ package trees;
 import static trees.TreeTraversal.postorder;
 
 class PostIndex {
-    int postIndex;
+    int index;
 }
 
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
@@ -14,8 +14,8 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
             return null;
         }
 
-        Node root = new Node(postOrder[postIndex.postIndex]);
-        postIndex.postIndex--;
+        Node root = new Node(postOrder[postIndex.index]);
+        postIndex.index--;
 
         if (start == end) {
             return root;
@@ -41,7 +41,7 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
         int[] inorder = {10, 8, 6, 4, 2, 1, 3, 5, 7, 9};
         int[] postorder = {10, 8, 6, 4, 2, 9, 7, 5, 3, 1};
         PostIndex postIndex = new PostIndex();
-        postIndex.postIndex = postorder.length - 1;
+        postIndex.index = postorder.length - 1;
         Node root = buildTree(inorder, postorder, 0, inorder.length - 1, postIndex);
         postorder(root);
     }

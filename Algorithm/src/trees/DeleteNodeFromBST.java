@@ -14,16 +14,11 @@ public class DeleteNodeFromBST {
             root.right = deleteNodeFromBST(root.right, num);
         } else {
             if (root.left == null && root.right == null) {
-                root = null;
                 return null;
             } else if (root.left == null) {
-                Node temp = root.right;
-                root = null;
-                return temp;
+                return root.right;
             } else if (root.right == null) {
-                Node temp = root.left;
-                root = null;
-                return temp;
+                return root.left;
             } else {
                 Node temp = minValueNode(root.right);
                 root.num = temp.num;

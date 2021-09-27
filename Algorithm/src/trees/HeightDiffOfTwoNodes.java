@@ -1,5 +1,6 @@
 package trees;
 
+import static trees.SearchBST.searchBST;
 import static trees.TreeHeight.treeHeight;
 
 public class HeightDiffOfTwoNodes {
@@ -13,12 +14,9 @@ public class HeightDiffOfTwoNodes {
         }
         System.out.println(treeHeight(root));
         int num1 = 13, num2 = 6;
-        SearchBST search = new SearchBST();
-        Node root1 = search.searchBST(root, num1);
-        Node root2 = search.searchBST(root, num2);
-        TreeHeight th1 = new TreeHeight();
+        Node root1 = searchBST(root, num1);
+        Node root2 = searchBST(root, num2);
         int height1 = treeHeight(root1);
-        TreeHeight th2 = new TreeHeight();
         int height2 = treeHeight(root2);
         System.out.println(Math.abs(height1 - height2));
     }
