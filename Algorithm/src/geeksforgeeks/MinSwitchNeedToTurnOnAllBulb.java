@@ -24,8 +24,8 @@ press switch 3 : [1 1 1 1]
 public class MinSwitchNeedToTurnOnAllBulb {
     private static int solve(int[] a) {
         int state = 0, ans = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == state) {
+        for (int x : a) {
+            if (x == state) {
                 ans++;
                 state ^= 1;
             }

@@ -28,8 +28,7 @@ public class MoveZeroesToEnd {
         int j = 0;
         for (int i = 0; i < a.length; i++) {
             if (!zeroPositions.contains(i)) {
-                a[j] = a[i];
-                j++;
+                a[j++] = a[i];
             }
         }
         for (int i = j; i < a.length; i++) {
