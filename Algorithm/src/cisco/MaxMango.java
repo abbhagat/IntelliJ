@@ -36,8 +36,8 @@ public class MaxMango {
         }
         int remainingWaterMelon = W - mid;             // Store remaining watermelons if mid watermelons are used to buy mangoes
         int coinsEarned = remainingWaterMelon * y;    // Store the value of coins if these watermelon get sold
-        C += coinsEarned;                         // Increment coins by ex
-        int mangoes = C / x;                     // Number of mangoes that can be buyed if only x coins needed for one mango
+        C += coinsEarned;                            // Increment coins by x
+        int mangoes = C / x;                        // No of mangoes that can be bought if only x coins needed for one mango
         return mangoes >= mid ? true : false;
     }
 
