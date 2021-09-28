@@ -38,7 +38,6 @@ public class RemoveInValidBracket {
         return ((c == '(') || (c == ')'));
     }
 
-
     private static boolean isValidString(String str) {   // method returns true if string contains valid parenthesis
         int count = 0;
         for (char x : str.toCharArray()) {
@@ -59,4 +58,3 @@ public class RemoveInValidBracket {
         removeInvalidParenthesis("()v)");
     }
 }
-
