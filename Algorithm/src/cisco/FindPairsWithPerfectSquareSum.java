@@ -23,10 +23,10 @@ public class FindPairsWithPerfectSquareSum {
     public static int maxPairSum() {
         int max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
         for (int x : a) {
-            if (x > max) {
+            if (max < x) {
                 secondMax = max;
                 max = x;
-            } else if (x > secondMax) {
+            } else if (secondMax< x) {
                 secondMax = x;
             }
         }

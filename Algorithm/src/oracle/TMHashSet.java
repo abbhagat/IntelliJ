@@ -14,7 +14,7 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
     }
 
     public E get(E e) {
-        return (E)map.get(e);
+        return (E) map.get(e);
     }
 
     public boolean add(E e) {
