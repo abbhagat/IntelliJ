@@ -1,24 +1,48 @@
 package leetcode;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LongestCommonSuffix {
 
-	public static void main(String[] args) {
-		String[] str = "ABCDEBUILD,OUCTBUILD".split(",");
-		String s1 = str[0];
-		String s2 = str[1];
-		String s = "";
-		int i = s1.length() - 1, j = s2.length() - 1;
-		while (i >= 0 && j >= 0) {
-			if (s1.charAt(i) == s2.charAt(j)) {
-				s += s1.charAt(i);
-			} else {
-				break;
-			}
-			i--;
-			j--;
-		}
-		StringBuilder sb = new StringBuilder(s);
-    	System.out.println(sb.length() == 0 ? "NULL" : sb.reverse());
-	}
+    private static String longestCommonSuffix(List<String> list) {
+        if (list.isEmpty()) {
+            return "";
+        }
+        String[] strs = new String[list.size()];
+        strs = list.toArray(strs);
+        return longestCommonSuffix(strs, 0, strs.length - 1);
+    }
 
+    private static String longestCommonSuffix(String[] strs, int low, int high) {
+        if (low == high) {
+            return strs[low];
+        } else {
+            int mid = (low + high) / 2;
+            String lcsLeft = longestCommonSuffix(strs, low, mid);
+            String lcsRight = longestCommonSuffix(strs, mid + 1, high);
+            return longestSuffix(lcsLeft, lcsRight);
+        }
+    }
+
+    private static String longestSuffix(String left, String right) {
+        if (left.length() > right.length()) {
+            String temp = left;
+            left = right;
+            right = temp;
+        }
+        int min = left.length() - 1;
+        int j = right.length() - left.length();
+        for (int i = min; i >= 0; i--) {
+            if (left.charAt(i) != right.charAt(i + j)) {
+                return left.substring(i + 1);
+            }
+        }
+        return left;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestCommonSuffix(Arrays.asList("ABCDEBUILD", "OUCTBUILD")));
+        System.out.println(longestCommonSuffix(Arrays.asList("ABCDEBUILD", "ABCDEBUILD")));
+    }
 }
