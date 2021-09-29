@@ -1,4 +1,4 @@
-package arrays;
+package leetcode;
 
 public class LongestCommonSuffix {
 
