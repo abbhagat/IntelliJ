@@ -3,33 +3,30 @@ package geeksforgeeks;
 public class RemoveOneElementToMakeArrayStrictlyIncreasing {
 
     public static boolean check(int a[]) {
-        int count = 0;                               // Stores the count of numbers that are needed to be removed
-        int index = -1, n = a.length - 1;           // Store the index of the element that needs to be removed
-        for (int i = 1; i < n; i++) {              // Traverse the range [1, N - 1]
-            if (a[i - 1] >= a[i]) {               // If a[i-1] is greater than or equal to a[i]
-                count++;                         // Increment the count by 1
-                index = i;                      // Update index
+        int count = 0;
+        int index = -1, n = a.length - 1;
+        for (int i = 1; i < n; i++) {
+            if (a[i - 1] >= a[i]) {
+                count++;
+                index = i;
             }
         }
-        if (count > 1) {                          // If count is greater than one
+        if (count > 1) {
             return false;
         }
-        if (count == 0) {                        // If no element is removed
+        if (count == 0 || index == -1) {
             return true;
         }
-        if (index == 1 || index == n) {        // If only the last or the first element is removed
+        if (index == 1 || index == n) {
             System.out.println(a[index]);
             return true;
         }
-        if (a[index - 1] < a[index + 1]) {   // If a[index] is removed
+        if (a[index - 1] < a[index + 1]) {
             System.out.println(a[index]);
             return true;
         }
-        if (index - 2 >= 0 && a[index - 2] < a[index]) {  // If a[index - 1] is removed
+        if (index - 2 >= 0 && a[index - 2] < a[index]) {
             System.out.println(a[index - 1]);
-            return true;
-        }
-        if (index < 0) {       // if there is no element to compare
             return true;
         }
         return false;
