@@ -31,8 +31,8 @@ public class MoveZeroesToEnd {
                 a[j++] = a[i];
             }
         }
-        for (int i = j; i < a.length; i++) {
-            a[i] = 0;
+        while (j < a.length) {
+            a[j++] = 0;
         }
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }

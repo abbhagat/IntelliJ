@@ -30,7 +30,7 @@ public class PrintAllSubstringOfAGivenString {
 
     private static Set<String> set = new TreeSet<>(String::compareTo);
 
-    private static void permute(int index, String s) {
+    private static void permute(String s, int index) {
         if (index != 0) {
             for (int i = 0; i < s.length(); i++) {
                 set.add("" + s.charAt(i));
@@ -40,13 +40,13 @@ public class PrintAllSubstringOfAGivenString {
                     set.add(s.substring(i, index));
                 }
             }
-            permute(index - 1, s);
+            permute(s, index - 1);
         }
     }
 
     public static void main(String[] args) {
         String str = "abc";
-        permute(str.length() - 1, str);
+        permute(str, str.length() - 1);
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
     }
 }
