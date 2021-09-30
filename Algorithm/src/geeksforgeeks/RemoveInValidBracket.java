@@ -10,7 +10,7 @@ public class RemoveInValidBracket {
         if (str.isEmpty()) {
             return;
         }
-        Set<String> set = new HashSet<>();              // set to ignore already visited string
+        Set<String> set = new HashSet<>();   // set to ignore already visited string
         Stack<String> stack = new Stack<>();
         stack.push(str);
         set.add(str);
@@ -25,8 +25,8 @@ public class RemoveInValidBracket {
                 if (!isParenthesis(str.charAt(i))) {
                     continue;
                 }
-                String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str and pushing into queue,if not visited already
-                if (!set.contains(temp)) {
+                String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str and
+                if (!set.contains(temp)) {                                //  Pushing into stack if not visited already
                     stack.push(temp);
                     set.add(temp);
                 }
@@ -43,7 +43,8 @@ public class RemoveInValidBracket {
         for (char x : str.toCharArray()) {
             if (x == '(') {
                 count++;
-            } else if (x == ')') {
+            }
+            if (x == ')') {
                 count--;
             }
             if (count < 0) {
