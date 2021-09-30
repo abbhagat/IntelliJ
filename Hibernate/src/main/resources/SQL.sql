@@ -476,13 +476,9 @@ SELECT TRUNC(SYSDATE,'YEAR') FROM DUAL;
 
 SELECT TO_CHAR(SALARY,'$099,99,999') FROM EMPLOYEE;
 
-SELECTINSTR('ABCDEFGEJIEESS','E')
-FROMDUAL
-;
+SELECT INSTR('ABCDEFGEJIEESS','E') FROM DUAL;
 
-SELECTNEXT_DAY(SYSDATE,'SUNDAY')
-FROMDUAL
-;
+SELECT NEXT_DAY(SYSDATE,'SUNDAY') FROM DUAL;
 
 SELECT  DESIGNATION, COUNT(DESIGNATION), COUNT(EMP_NAME) FROM  EMPLOYEE GROUP BY  DESIGNATION;
 
@@ -557,24 +553,16 @@ DECLARE
     I INTEGER :=0;
     J INTEGER :=0;
 BEGIN
-    SELECT    COUNT(*)
-    INTO    I
-    FROM    EMPLOYEE
-    ;
-    
-    DBMS_OUTPUT.PUT_LINE('Total No of Rows '
-    ||I);
+    SELECT COUNT(*) INTO I FROM EMPLOYEE;
+    DBMS_OUTPUT.PUT_LINE('Total No of Rows '||I);
     J :=I;
     I :=0;
-    FOR CUR IN
-    (    SELECT *    FROM       EMPLOYEE
-    )
+    FOR CUR IN (SELECT * FROM EMPLOYEE)
     LOOP EXIT WHEN I=J; DBMS_OUTPUT.PUT_LINE(LPAD(CUR.EMP_NAME,14,'*')); I := I+1;
     END LOOP;
 END;
 --------------------------------------------------------
-      **********IMPLICIT
-CURSOR*********
+**********IMPLICIT CURSOR*********
     BEGIN UPDATE    EMP_INFORMATION SET    EMP_DEPT='Web Developer' WHERE    EMP_NAME='Saulin' ;
     
     IF SQL%FOUND THEN DBMS_OUTPUT.PUT_LINE('Updated - If Found');
@@ -592,75 +580,63 @@ CURSOR*********
     BEGIN PRC_NAME('X');
     END;
     --PROCEDURE TO FIND THE FACTORIAL OF A NUMBER
-    CREATE OR REPLACE PROCEDURE FACT_PRC                             (                                 N IN INTEGER                             )
-    IS FACT INTEGER :=1; I    INTEGER :=1;
-    BEGIN IF N        >=0 THEN WHILE I <= N LOOP     FACT := FACT * I;     EXIT WHEN I=N;     I := I+1; END LOOP; DBMS_OUTPUT.PUT_LINE('Factorial is : ' || FACT); ELSE DBMS_OUTPUT.PUT_LINE('Factorial is : NA'); END IF;
+
+    CREATE OR REPLACE PROCEDURE FACT_PRC (N IN INTEGER)
+    IS
+    FACT INTEGER :=1;
+    I    INTEGER :=1;
+    BEGIN
+    IF N >=0 THEN WHILE I <= N
+       LOOP
+       FACT := FACT * I;
+       EXIT WHEN I=N;
+       I := I+1;
+       END LOOP;
+       DBMS_OUTPUT.PUT_LINE('Factorial is : ' || FACT);
+    ELSE
+       DBMS_OUTPUT.PUT_LINE('Factorial is : NA');
+    END IF;
     END;
+
     SET SERVEROUTPUT ON;
     BEGIN FACT_PRC(0);
     END;
     BEGIN FACT_PRC(-5);
     END;
-    SELECT *
-    FROM    EMPLOYEE
-    ;
+    SELECT * FROM EMPLOYEE;
     
-    SELECT *
-    FROM  EMPLOYEE
-    ORDER BY  ADDRESS ASC
-    ;
+    SELECT * FROM  EMPLOYEE ORDER BY  ADDRESS ASC;
     
     DESC EMPLOYEE;
-    UPDATE    EMPLOYEE
-    SET    SALARY=1000000
-    WHERE    EMP_NAME='Abhinaw_Bhagat'
-    ;
+    UPDATE EMPLOYEE SET SALARY=1000000 WHERE EMP_NAME='Abhinaw_Bhagat';
     
-    UPDATE    EMPLOYEE
-    SET    ADDRESS=NULL
-    WHERE    EMP_ID=101
-    ;
+    UPDATE EMPLOYEE SET ADDRESS=NULL WHERE EMP_ID=101;
     
-    UPDATE    EMPLOYEE
-    SET    ADDRESS='Bhagalpur'
-    WHERE    EMP_ID=101
-    ;
+    UPDATE EMPLOYEE SET ADDRESS='Bhagalpur' WHERE EMP_ID=101;
     
     --- Query to generate sequence from 50 to 100
-    SELECT    ROWNUM
-    FROM    DUAL CONNECT BY ROWNUM <=100
+    SELECT ROWNUM FROM DUAL CONNECT BY ROWNUM <=100
     MINUS
-    SELECT    ROWNUM
-    FROM    DUAL CONNECT BY ROWNUM <=50
-    ;
+    SELECT ROWNUM FROM    DUAL CONNECT BY ROWNUM <=50;
     
     -- Query to display in single string "ABCD,EFGH,IJKL,PQRS"
-    SELECT    REPLACE ('ABCD#EFGH#IJKL#PQRS','#')
-    FROM    DUAL
-    ;
+    SELECT REPLACE ('ABCD#EFGH#IJKL#PQRS','#') FROM DUAL;
     
-    SELECT    REPLACE ('ABCD#EFGH#IJKL#PQRS','#',',')
-    FROM    DUAL
-    ;
+    SELECT REPLACE ('ABCD#EFGH#IJKL#PQRS','#',',') FROM DUAL;
     
     -- Query to Count each Alphabet in the String
-    SELECT    LENGTH(regexp_replace('s,a,d,abc',','))"Count Alphabet"
-    FROM    DUAL
-    ;
+    SELECT LENGTH(regexp_replace('s,a,d,abc',','))"Count Alphabet" FROM DUAL;
     
-    SELECT    REPLACE ('s,a,d,abc',',')
-    FROM    DUAL
-    ;
+    SELECT REPLACE ('s,a,d,abc',',') FROM DUAL;
     
-    SELECT    LENGTH(REPLACE ('s,a,d,abc',','))"Count Alphabet"
-    FROM    DUAL
-    ;
+    SELECT LENGTH(REPLACE ('s,a,d,abc',','))"Count Alphabet" FROM DUAL;
     
     A database table can have a maximum of 12 triggers CREATE SEQUENCE CUST_SEQ START WITH 1 INCREMENT BY 1 CACHE 20;
+
     CREATE TRIGGER CUSTOMER_ID_TRIG BEFORE
-    INSERT
-    ON    CUSTOMERS FOR EACH ROW DECLARE BEGIN IF :NEW.CUSTOMER_ID IS NULL THEN
-    SELECT       CONCAT('C',CONCAT(CUST_SEQ.NEXTVAL,TO_CHAR(SYSDATE,'ddmmyyyyhhmiss')))
+    INSERT ON CUSTOMERS
+    FOR EACH ROW DECLARE BEGIN IF :NEW.CUSTOMER_ID IS NULL THEN
+    SELECT  CONCAT('C',CONCAT(CUST_SEQ.NEXTVAL,TO_CHAR(SYSDATE,'ddmmyyyyhhmiss')))
     INTO    :NEW.CUSTOMER_ID
     FROM    DUAL
     ;
@@ -698,14 +674,13 @@ INSERT INTO EMPLOYEE VALUES(1 ,'Abhinaw' ,'07-OCT-1986');
 L_INSERT_COUNTER := SQL%ROWCOUNT;
 UTASSERT.EQ ('Rows inserted',L_INSERT_COUNTER,1); -- Make sure rows are inserted
 
-Clustered Index: The clustered index
-is
-    used to reorder the physical order of the table
-    and
-    search based on the key values. Each table can have only one clustered index. 
-    
-    NonClustered Index: NonClustered Index does not alter the physical order of the table and maintains logical order of data. Each table can have 999 non-clustered indexes.
-    -------------------------------- Working with BLOB/CLOB and XML------------------------------
+Clustered Index: The clustered index is used to reorder the physical order of the table and search based on the key values.
+                 Each table can have only one clustered index.
+
+NonClustered Index: NonClustered Index does not alter the physical order of the table and maintains logical order of data.
+                    Each table can have 999 non-clustered indexes.
+
+-------------------------------- Working with BLOB/CLOB and XML------------------------------
     UPDATE    EMPLOYEE SET XML = UTL_RAW.CAST_TO_RAW('<?xml version = "1.0" encoding="UTF-8" standalone="yes"?>
 <EMP>
 	<EMP_ID>1</EMP_ID>
