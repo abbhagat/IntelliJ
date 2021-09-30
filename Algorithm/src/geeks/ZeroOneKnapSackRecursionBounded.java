@@ -36,9 +36,9 @@ public class ZeroOneKnapSackRecursionBounded {
     }
 
     public static void main(String args[]) {
-        int val[] = new int[]{60, 100, 120};
-        int wt[] = new int[]{10, 20, 30};
-        int W = 50;
+        int W = 8;
+        int val[] = {10, 40, 50, 70};
+        int wt[] =  {1, 3, 4, 5};
         int n = val.length - 1;
         System.out.println(knapSack(W, wt, val, n));
     }

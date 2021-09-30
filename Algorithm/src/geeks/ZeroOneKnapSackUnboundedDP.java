@@ -43,9 +43,9 @@ public class ZeroOneKnapSackUnboundedDP {
     }
 
     public static void main(String[] args) {
-        int W = 100;
-        int val[] = {10, 30, 20};
-        int wt[] = {5, 10, 15};
+        int W = 8;
+        int val[] = {10, 40, 50, 70};
+        int wt[] = {1, 3, 4, 5};
         int n = val.length - 1;
         System.out.println(unboundedKnapsack(W, wt, val, n));
     }
