@@ -17,9 +17,9 @@ public class PrimeNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPrime(0) ? "Prime" : "Not Prime");
-        System.out.println(isPrime(1) ? "Prime" : "Not Prime");
-        System.out.println(isPrime(2) ? "Prime" : "Not Prime");
+        System.out.println(isPrime(0 ) ? "Prime" : "Not Prime");
+        System.out.println(isPrime(1 ) ? "Prime" : "Not Prime");
+        System.out.println(isPrime(2 ) ? "Prime" : "Not Prime");
         System.out.println(isPrime(13) ? "Prime" : "Not Prime");
         System.out.println(isPrime(15) ? "Prime" : "Not Prime");
     }
