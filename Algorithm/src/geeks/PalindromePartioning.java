@@ -31,7 +31,7 @@ minPalPartion(str, i, j) = Min { minPalPartion(str, i, k) + 1 + minPalPartion(st
 public class PalindromePartioning {
 
     private static boolean isPalindrome(String str, int i, int j) {
-        while (i < j) {
+        while (i <= j) {
             if (str.charAt(i++) != str.charAt(j--)) {
                 return false;
             }
@@ -43,18 +43,24 @@ public class PalindromePartioning {
         if (low >= high || isPalindrome(str, low, high)) {
             return 0;
         }
-        int result = Integer.MAX_VALUE, count;
+        int min = Integer.MAX_VALUE;
         for (int i = low; i < high; i++) {
-            count = minPalindromePartition(str, low, i) + minPalindromePartition(str, i + 1, high) + 1;
-            result = Math.min(result, count);
+            int result = minPalindromePartition(str, low, i) + minPalindromePartition(str, i + 1, high);
+            min = Math.min(min, result);
         }
-        return result;
+        return min + 1;
     }
 
     public static void main(String[] args) {
         String str = "ababbbabbababa";
         System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
         str = "abcde";
+        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        str = "abbac";
+        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        str = "geek";
+        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        str = "aaaa";
         System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
     }
 }

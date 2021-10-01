@@ -19,7 +19,7 @@ public class PrintKClosestElementInAnArray {
             }
         }
         int count = 0;
-        int left = mid - 1;
+        int left  = mid - 1;
         int right = mid + 1;
         while (left >= 0 && right < a.length && count < k) {
             System.out.println(abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++]);
