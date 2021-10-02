@@ -25,10 +25,10 @@ public class ExceptionDefinition extends ResponseEntityExceptionHandler {
     @ExceptionHandler(CityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<Object> handleCityNotFoundException(CityNotFoundException e, WebRequest request) {
-        Map<String, Object> responseBody = new LinkedHashMap<>();
-        responseBody.put("timestamp", LocalDateTime.now());
-        responseBody.put("message", "City not found");
-        responseBody.put("error", e.getCause());
-        return new ResponseEntity<>(responseBody, HttpStatus.NOT_FOUND);
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("timestamp", LocalDateTime.now());
+        map.put("message", "City not found");
+        map.put("error", e.getCause());
+        return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
     }
 }

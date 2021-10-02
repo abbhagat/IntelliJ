@@ -10,14 +10,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 public class WebMvcConfigSupport extends WebMvcConfigurationSupport {
 
     @Autowired
-    private MaintenanceInterceptor maintenanceInterceptor;
+    private MaintenanceInterceptor maintenanceInterceptor1;
 
     @Autowired
     private MaintenanceInterceptor maintenanceInterceptor2;
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(maintenanceInterceptor).addPathPatterns("/stateCity/*");
+        registry.addInterceptor(maintenanceInterceptor1).addPathPatterns("/stateCity/*");
         registry.addInterceptor(maintenanceInterceptor2).addPathPatterns("/stateCity/*");
     }
 }

@@ -8,6 +8,8 @@ import java.util.Date;
 
 class Employee implements Serializable {
 
+    private static long serialVersionUID = 1L;
+
     private int id;
     private String name;
     private Date dob;
