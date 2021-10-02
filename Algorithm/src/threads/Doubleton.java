@@ -15,6 +15,10 @@ public class Doubleton implements Cloneable, Serializable {
         return getInstance();
     }
 
+    public Object clone(){
+        return getInstance();
+    }
+
     public static synchronized Doubleton getInstance() {
         if (null == _instance1) {
             _instance1 = new Doubleton();
@@ -25,9 +29,5 @@ public class Doubleton implements Cloneable, Serializable {
             return _instance2;
         }
         return x++ % 2 == 0 ? _instance1 : _instance2;
-    }
-
-    public Object clone(){
-        return getInstance();
     }
 }
