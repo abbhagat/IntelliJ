@@ -3,12 +3,6 @@ package searching;
 public class FindTransitionIndexInSortedBinaryArray {
 
     private static int binarySearch(int[] a, int low, int high) {
-        if(a[low] == 1){
-            return low;
-        }
-        if(a[high] == 0){
-            return high;
-        }
         if (low <= high) {
             int mid = (low + high) / 2;
             if ((mid == 0 || a[mid - 1] == 0) && a[mid] == 1) {
