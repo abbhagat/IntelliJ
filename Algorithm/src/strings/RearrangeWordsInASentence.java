@@ -33,6 +33,6 @@ public class RearrangeWordsInASentence {
     }
 
     public static void main(String[] args) {
-        System.out.println(arrangeWords("Thirty days challengue"));
+        System.out.println(arrangeWords("Thirty days challenge"));
     }
 }

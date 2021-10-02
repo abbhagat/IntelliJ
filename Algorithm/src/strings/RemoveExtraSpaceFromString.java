@@ -1,8 +1,5 @@
 package strings;
 
-import java.util.Arrays;
-import java.util.List;
-
 /*
  * Input: str = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
    Output: s =  "Hello Geeks. Welcome to GeeksforGeeks."
@@ -10,18 +7,18 @@ import java.util.List;
 public class RemoveExtraSpaceFromString {
 
     public static void main(String[] args) {
-        String str = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
-        List<String> listOfStrings = Arrays.asList(str.split(" "));
+        String x = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
+        String[] str = x.trim().split(" ");
         String output = "";
-        for (String s : listOfStrings) {
-            if (!"".equals(s.trim())) {
-                if (".".equals(s)) {
-                    output = output.trim() + s + " ";
-                }else{
-                    output += s + " ";
+        for (String s : str) {
+            if (!s.isEmpty()) {
+                if (s.equals(".")) {
+                    output = output.trim() + ".";
+                } else {
+                    output += " " + s.trim();
                 }
             }
         }
-        System.out.println(output);
+        System.out.println(output.trim());
     }
 }
