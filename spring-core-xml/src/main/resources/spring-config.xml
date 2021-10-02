@@ -29,8 +29,32 @@
         <property name="concurrentRefresh" value="true"></property>
     </bean>
 
+    <bean id="pointA" class="shape.Point" name="pointA">
+        <constructor-arg name="X" value="${point.X}"/>
+        <constructor-arg name="Y" value="${point.Y}"/>
+    </bean>
+
+    <bean id="pointB" class="shape.Point" name="pointB">
+        <constructor-arg name="X" value="${point.X}"/>
+        <constructor-arg name="Y" value="${point.Y}"/>
+    </bean>
+
+    <bean id="rectangle" class="shape.Rectangle">
+        <property name="pointArray">
+            <list>
+                <ref bean="pointA"/>
+                <ref bean="pointB"/>
+            </list>
+        </property>
+    </bean>
+
     <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-        <property name="locations" value="points.properties"/>
+        <property name="locations">
+            <list>
+                <value>points.properties</value>
+                <value>pointx.properties</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="address" class="shape.Address" scope="prototype">
@@ -42,14 +66,14 @@
         <constructor-arg name="address" ref="address"/>
     </bean>
 
-<!--    <bean name="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <map>
-                <entry key="NullPointerException" value="NullPointerException"/>
-                <entry key="IOException" value="IOException"/>
-            </map>
-        </property>
-        <property name="defaultErrorView" value="Exception"/>
-        <property name="warnLogCategory" value="MVCLogger"/>
-    </bean>-->
+    <!--    <bean name="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+            <property name="exceptionMappings">
+                <map>
+                    <entry key="NullPointerException" value="NullPointerException"/>
+                    <entry key="IOException" value="IOException"/>
+                </map>
+            </property>
+            <property name="defaultErrorView" value="Exception"/>
+            <property name="warnLogCategory" value="MVCLogger"/>
+        </bean>-->
 </beans>

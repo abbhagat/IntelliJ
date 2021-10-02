@@ -1,8 +1,6 @@
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import shape.Address;
-import shape.Employee;
-import shape.Shape;
+import shape.*;
 
 public class Main {
 
@@ -22,8 +20,12 @@ public class Main {
         System.out.println("Address1 HashCode :- " + add1.hashCode());
         System.out.println("Address2 HashCode :- " + add2.hashCode());
         System.out.println("Bean Count " + context.getBeanDefinitionCount());
-        for(String beanName : context.getBeanDefinitionNames()){
+        for (String beanName : context.getBeanDefinitionNames()) {
             System.out.println(beanName);
+        }
+        Rectangle rectangle = context.getBean("rectangle", Rectangle.class);
+        for (Point p : rectangle.getPointArray()) {
+            System.out.println(p.getX() + "," + p.getY());
         }
         context.close();
     }

@@ -9,12 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Point implements Shape{
+public class Rectangle {
 
-    private int X;
-    private int Y;
-
-    public void draw() {
-        System.out.println("Point (" + getX() + "," + getY() + ")");
-    }
+    private Point[] pointArray;
+    
 }
