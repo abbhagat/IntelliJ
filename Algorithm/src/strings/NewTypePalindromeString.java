@@ -10,9 +10,8 @@ public class NewTypePalindromeString {
         if (s.isEmpty() || s.length() == 1) {
             return true;
         }
-        char[] a = s.toCharArray();
-        int mid = (a.length - 1) / 2;
-        int lastIndex = s.lastIndexOf(a[0]);
+        int mid = (s.length() - 1) / 2;
+        int lastIndex = s.lastIndexOf(s.charAt(0));
         if (lastIndex > mid) {
             String s1 = s.substring(lastIndex);
             char lastCharInS1 = s1.charAt(s1.length() - 1);
