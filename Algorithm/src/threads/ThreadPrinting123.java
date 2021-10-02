@@ -44,4 +44,3 @@ public class ThreadPrinting123 {
         new PrinterThread(3);
     }
 }
-
