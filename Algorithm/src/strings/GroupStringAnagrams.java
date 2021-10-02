@@ -1,6 +1,8 @@
 package strings;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class GroupStringAnagrams {
@@ -24,18 +26,27 @@ public class GroupStringAnagrams {
 
     public static void main(String[] args) {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        Set<String> set = new HashSet<>();
+        List<Set<String>> list = new ArrayList<>();
         for (int i = 0; i < strs.length; i++) {
-            if (!set.isEmpty()) {
-                System.out.println(set);
-            }
-            set = new HashSet<>();
+            Set<String> set = new HashSet<>();
             for (int j = i + 1; j < strs.length; j++) {
                 if (isAnagram(strs[i], strs[j])) {
                     set.add(strs[i]);
                     set.add(strs[j]);
                 }
             }
+            boolean flag = true;
+            if (!set.isEmpty()) {
+                for (Set<String> s : list) {
+                    if (s.contains(set.iterator().next())) {
+                        flag = false;
+                    }
+                }
+            }
+            if (flag && !set.isEmpty()) {
+                list.add(set);
+            }
         }
+        System.out.println(list);
     }
 }
