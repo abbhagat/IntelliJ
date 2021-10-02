@@ -32,11 +32,10 @@ public class ConvertSortedArrayToBalancedTree {
             return null;
         }
         int mid = (start + end) / 2;
-        Node node = new Node();
-        node.num = arr[mid];
-        node.left  = sortedArrayToBST(arr, start, mid - 1);
-        node.right = sortedArrayToBST(arr, mid + 1, end);
-        return node;
+        Node root = new Node(arr[mid]);
+        root.left  = sortedArrayToBST(arr, start, mid - 1);
+        root.right = sortedArrayToBST(arr, mid + 1, end);
+        return root;
     }
 
     public static void main(String[] args) {
