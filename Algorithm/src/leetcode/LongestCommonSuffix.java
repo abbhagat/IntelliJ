@@ -19,25 +19,22 @@ public class LongestCommonSuffix {
             return str[low];
         } else {
             int mid = (low + high) / 2;
-            String lcsLeft =  longestCommonSuffix(str, low, mid);
+            String lcsLeft = longestCommonSuffix(str, low, mid);
             String lcsRight = longestCommonSuffix(str, mid + 1, high);
             return longestSuffix(lcsLeft, lcsRight);
         }
     }
 
     private static String longestSuffix(String left, String right) {
-        if (left.length() > right.length()) {
-            String temp = left;
-            left = right;
-            right = temp;
-        }
-        int j = right.length() - left.length();
-        for (int i = left.length() - 1; i >= 0; i--) {
-            if (left.charAt(i) != right.charAt(i + j)) {
-                return left.substring(i + 1);
+        left  = new StringBuilder(left).reverse().toString();
+        right = new StringBuilder(right).reverse().toString();
+        int min = Math.min(left.length(), right.length());
+        for (int i = 0; i < min; i++) {
+            if (left.charAt(i) != right.charAt(i)) {
+                return new StringBuilder(left.substring(0, i)).reverse().toString();
             }
         }
-        return left;
+        return new StringBuilder(left.substring(0, min)).reverse().toString();
     }
 
     public static void main(String[] args) {
