@@ -9,18 +9,18 @@ public class LongestCommonPrefix {
         if (list.isEmpty()) {
             return "";
         }
-        String[] strs = new String[list.size()];
-        strs = list.toArray(strs);
-        return longestCommonPrefix(strs, 0, list.size() - 1);
+        String[] str = new String[list.size()];
+        str = list.toArray(str);
+        return longestCommonPrefix(str, 0, list.size() - 1);
     }
 
-    private static String longestCommonPrefix(String[] strs, int low, int high) {
+    private static String longestCommonPrefix(String[] str, int low, int high) {
         if (low == high) {
-            return strs[low];
+            return str[low];
         } else {
             int mid = (low + high) / 2;
-            String lcpLeft  = longestCommonPrefix(strs, low, mid);
-            String lcpRight = longestCommonPrefix(strs, mid + 1, high);
+            String lcpLeft  = longestCommonPrefix(str, low, mid);
+            String lcpRight = longestCommonPrefix(str, mid + 1, high);
             return commonPrefix(lcpLeft, lcpRight);
         }
     }

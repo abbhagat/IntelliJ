@@ -1,13 +1,12 @@
 package trees;
 
 import static trees.CreateBST.createBST;
+import static trees.TreeHeight.treeHeight;
 
 public class LevelOrderTreeTraversal {
 
-    private static TreeHeight th = new TreeHeight();
-
     public static void levelOrderTreeTraversal(Node root) {
-        int treeHeight = th.treeHeight(root);
+        int treeHeight = treeHeight(root);
         for (int i = 0; i <= treeHeight; i++) {
             printLevelOrder(root, i);
         }
