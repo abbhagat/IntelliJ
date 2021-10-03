@@ -19,7 +19,7 @@ public class LongestCommonSuffix {
             return str[low];
         } else {
             int mid = (low + high) / 2;
-            String lcsLeft = longestCommonSuffix(str, low, mid);
+            String lcsLeft  = longestCommonSuffix(str, low, mid);
             String lcsRight = longestCommonSuffix(str, mid + 1, high);
             return longestSuffix(lcsLeft, lcsRight);
         }
