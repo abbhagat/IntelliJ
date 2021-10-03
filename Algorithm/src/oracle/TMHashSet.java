@@ -13,10 +13,6 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
         map = new HashMap<>();
     }
 
-    public E get(E e) {
-        return (E) map.get(e);
-    }
-
     public boolean add(E e) {
         return map.put(e, PRESENT) == null;
     }
@@ -66,7 +62,6 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
             System.out.println(itr.next());
         }
         System.out.println(set.contains(2));
-        System.out.println(set.get(3));
         set.clear();
         System.out.println(set.isEmpty());
     }

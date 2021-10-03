@@ -7,15 +7,19 @@ public class FrequencyOfEachElementInAnArray {
         int num;
         int count;
         BSTree left, right;
+
+        public BSTree(){}
+
+        public BSTree(int num){
+            this.num = num;
+            this.count = 1;
+            this.left = this.right = null;
+        }
     }
 
     static BSTree createBST(BSTree root, int num) {
         if (root == null) {
-            root = new BSTree();
-            root.num = num;
-            root.count = 1;
-            root.left = null;
-            root.right = null;
+            root = new BSTree(num);
         } else {
             if (num < root.num) {
                 root.left = createBST(root.left, num);
