@@ -9,18 +9,18 @@ public class LongestCommonSuffix {
         if (list.isEmpty()) {
             return "";
         }
-        String[] strs = new String[list.size()];
-        strs = list.toArray(strs);
-        return longestCommonSuffix(strs, 0, strs.length - 1);
+        String[] str = new String[list.size()];
+        str = list.toArray(str);
+        return longestCommonSuffix(str, 0, str.length - 1);
     }
 
-    private static String longestCommonSuffix(String[] strs, int low, int high) {
+    private static String longestCommonSuffix(String[] str, int low, int high) {
         if (low == high) {
-            return strs[low];
+            return str[low];
         } else {
             int mid = (low + high) / 2;
-            String lcsLeft = longestCommonSuffix(strs, low, mid);
-            String lcsRight = longestCommonSuffix(strs, mid + 1, high);
+            String lcsLeft =  longestCommonSuffix(str, low, mid);
+            String lcsRight = longestCommonSuffix(str, mid + 1, high);
             return longestSuffix(lcsLeft, lcsRight);
         }
     }

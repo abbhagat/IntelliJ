@@ -11,7 +11,7 @@ public class LongestCommonPrefix {
         }
         String[] str = new String[list.size()];
         str = list.toArray(str);
-        return longestCommonPrefix(str, 0, list.size() - 1);
+        return longestCommonPrefix(str, 0, str.length - 1);
     }
 
     private static String longestCommonPrefix(String[] str, int low, int high) {
