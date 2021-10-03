@@ -9,23 +9,21 @@ public class LongestCommonSuffix {
         if (list.isEmpty()) {
             return "";
         }
-        String[] str = new String[list.size()];
-        str = list.toArray(str);
-        return longestCommonSuffix(str, 0, str.length - 1);
+        return longestCommonSuffix(list, 0, list.size() - 1);
     }
 
-    private static String longestCommonSuffix(String[] str, int low, int high) {
+    private static String longestCommonSuffix(List<String> list, int low, int high) {
         if (low == high) {
-            return str[low];
+            return list.get(low);
         } else {
             int mid = (low + high) / 2;
-            String lcsLeft  = longestCommonSuffix(str, low, mid);
-            String lcsRight = longestCommonSuffix(str, mid + 1, high);
-            return longestSuffix(lcsLeft, lcsRight);
+            String lcsLeft  = longestCommonSuffix(list, low, mid);
+            String lcsRight = longestCommonSuffix(list, mid + 1, high);
+            return longestCommonSuffix(lcsLeft, lcsRight);
         }
     }
 
-    private static String longestSuffix(String left, String right) {
+    private static String longestCommonSuffix(String left, String right) {
         left  = new StringBuilder(left).reverse().toString();
         right = new StringBuilder(right).reverse().toString();
         int min = Math.min(left.length(), right.length());
