@@ -20,20 +20,20 @@ public class TrappingRainWater {
 
     private static int findWater(int[] a, int low, int high) {
         int result = 0;
-        int max_left = 0, max_right = 0; // maximum element on left and right
+        int max_left = 0, max_right = 0;
         while (low <= high) {
             if (a[low] < a[high]) {
                 if (max_left < a[low]) {
-                    max_left = a[low];  // update max in left
+                    max_left = a[low];
                 } else {
-                    result += max_left - a[low];  // water on curr element = max - curr
+                    result += max_left - a[low];
                 }
                 low++;
             } else {
                 if (max_right < a[high]) {
-                    max_right = a[high];  // update right maximum
+                    max_right = a[high];
                 } else {
-                    result += max_right - a[high];  // water on curr element = max - curr
+                    result += max_right - a[high];
                 }
                 high--;
             }
