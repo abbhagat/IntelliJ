@@ -2,6 +2,8 @@ package cisco;
 
 import java.util.stream.IntStream;
 
+import static java.lang.Math.max;
+
 public class LargestContiguousSumArrayPrint {
 
     public static void main(String[] args) {
@@ -10,8 +12,8 @@ public class LargestContiguousSumArrayPrint {
         cur_sum = max_sum = a[0];
         start = end = s = 0;
         for (int i = 1; i < a.length; i++) {
-            cur_sum = Math.max(a[i], cur_sum + a[i]);
-            max_sum = Math.max(cur_sum, max_sum);
+            cur_sum = max(a[i], cur_sum + a[i]);
+            max_sum = max(cur_sum, max_sum);
             if (cur_sum < max_sum) {
                 start = s;
                 end = i;
