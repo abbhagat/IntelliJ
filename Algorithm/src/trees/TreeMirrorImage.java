@@ -15,13 +15,12 @@ Inorder traversal of the mirror tree is
 public class TreeMirrorImage {
 
     public static Node mirrorImage(Node root) {
-        if (root == null) {
-            return root;
+        if (root != null) {
+            Node left  = mirrorImage(root.left);
+            Node right = mirrorImage(root.right);
+            root.left  = right;
+            root.right = left;
         }
-        Node left = mirrorImage(root.left);
-        Node right = mirrorImage(root.right);
-        root.left = right;
-        root.right = left;
         return root;
     }
 
