@@ -20,7 +20,7 @@ public class MinCostPathRecursion {
         int cost[][] = { {1, 2, 3},
                          {4, 8, 2},
                          {1, 5, 3}
-                      };
+                       };
         System.out.print(minCost(cost, 2, 2));
     }
 }
