@@ -31,9 +31,8 @@ public class LongestCommonSuffix {
             left = right;
             right = temp;
         }
-        int min = left.length() - 1;
         int j = right.length() - left.length();
-        for (int i = min; i >= 0; i--) {
+        for (int i = left.length() - 1; i >= 0; i--) {
             if (left.charAt(i) != right.charAt(i + j)) {
                 return left.substring(i + 1);
             }
