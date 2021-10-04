@@ -5,10 +5,11 @@ import static java.lang.Math.min;
 
 public class LargestContiguousProductArrayPrint {
 
-    private static int maxSubarrayProduct(int a[]) {
+    private static void maxSubarrayProduct(int a[]) {
         int max_end = 1;            // max positive product ending at the current position
         int min_end = 1;           // min negative product ending at the current position
         int max_product = 0;      // Initialize overall max product
+        int min_product = 0;      // Initialize overall max product
         /* Traverse through the array. Following values are maintained after the ith iteration:
         max_end is always 1 or some positive product ending with a[i]
         min_end is always 1 or some negative product ending with a[i] */
@@ -31,14 +32,14 @@ public class LargestContiguousProductArrayPrint {
                 min_end = temp * a[i];
             }
             max_product = max(max_product, max_end);   // update max_product, if needed
+            min_product = min(min_product, min_end);
         }
-        return max_product;
+        System.out.println("Maximum Sub array product is " + max_product);
+        System.out.println("Minimum Sub array product is " + min_product);
     }
 
     public static void main(String[] args) {
-        int a[] = {-2, -40, 0, -2, -3};
-        System.out.println("Maximum Sub array product is " + maxSubarrayProduct(a));
-        a = new int[]{-2, 0, 0, -2, -3};
-        System.out.println("Maximum Sub array product is " + maxSubarrayProduct(a));
+        maxSubarrayProduct(new int[]{-2, -40, 0, -2, -3});
+        maxSubarrayProduct(new int[]{-1, -2, 10, -10});
     }
 }
