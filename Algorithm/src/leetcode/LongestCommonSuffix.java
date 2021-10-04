@@ -15,12 +15,11 @@ public class LongestCommonSuffix {
     private static String longestCommonSuffix(List<String> list, int low, int high) {
         if (low == high) {
             return list.get(low);
-        } else {
-            int mid = (low + high) / 2;
-            String lcsLeft  = longestCommonSuffix(list, low, mid);
-            String lcsRight = longestCommonSuffix(list, mid + 1, high);
-            return longestCommonSuffix(lcsLeft, lcsRight);
         }
+        int mid = (low + high) / 2;
+        String lcsLeft  = longestCommonSuffix(list, low, mid);
+        String lcsRight = longestCommonSuffix(list, mid + 1, high);
+        return longestCommonSuffix(lcsLeft, lcsRight);
     }
 
     private static String longestCommonSuffix(String left, String right) {
