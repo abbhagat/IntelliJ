@@ -27,7 +27,6 @@ public class JosephusProblem {
 
     private static int josephus(int n, int k) {
         return n == 1 ? 1 : (josephus(n - 1, k) + k - 1) % n + 1;
-
     }
 
     private static int josephusItr(int n, int k) {
