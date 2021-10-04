@@ -1,5 +1,8 @@
 package searching;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 public class MissingNumber {
 
     public static void main(String[] args) {
@@ -8,8 +11,8 @@ public class MissingNumber {
         int n = a.length + 1;
         int sum1 = 0, sum2;
         for (int x : a) {
-            max = max < x ? x : max;
-            min = min > x ? x : min;
+            max = max(max, x);
+            min = min(min, x);
             sum1 += x;
         }
         sum2 = ((min + max) * n) / 2;
