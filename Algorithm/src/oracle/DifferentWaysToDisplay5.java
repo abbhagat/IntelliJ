@@ -11,7 +11,6 @@ public class DifferentWaysToDisplay5 {
         }
         for (int i = 1; i <= n; i++) {
             String newPrefix = prefix + (prefix == "" ? "" : "+") + i;
-            //String newPrefix = prefix + i;
             countWays(newPrefix, n - i);
         }
     }
