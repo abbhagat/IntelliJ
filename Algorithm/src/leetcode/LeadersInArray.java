@@ -9,12 +9,12 @@ public class LeadersInArray {
 
     public static void main(String[] args) {
         int[] a = {16, 17, 4, 3, 5, 2};
-        int maxRight = a[a.length - 1];
-        System.out.print(maxRight + " ");
+        int max = a[a.length - 1];
+        System.out.print(max + " ");
         for (int i = a.length - 2; i >= 0; i--) {
-            if (maxRight < a[i]) {
+            if (max < a[i]) {
                 System.out.print(a[i] + " ");
-                maxRight = a[i];
+                max = a[i];
             }
         }
     }
