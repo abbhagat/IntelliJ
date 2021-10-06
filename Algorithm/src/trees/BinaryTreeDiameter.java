@@ -9,10 +9,10 @@ public class BinaryTreeDiameter {
         if (root == null) {
             return 0;
         }
-        int leftHeight = treeHeight(root.left);
+        int leftHeight  = treeHeight(root.left);
         int rightHeight = treeHeight(root.right);
 
-        int leftDiameter = diameter(root.left);
+        int leftDiameter  = diameter(root.left);
         int rightDiameter = diameter(root.right);
         return max(leftHeight + rightHeight + 1, max(leftDiameter, rightDiameter));
     }
