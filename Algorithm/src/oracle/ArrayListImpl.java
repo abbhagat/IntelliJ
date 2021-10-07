@@ -69,7 +69,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         }
     }
 
-    public T clone(){
+    public T clone() {
         return (T) list.clone();
     }
 
@@ -82,9 +82,15 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
             System.out.println(al.get(i));
         }
         al.remove(2);
+
         System.out.println("Changed List");
+
+        Integer[] a = new Integer[al.size()];
         for (int i = 0; i < al.size(); i++) {
-            System.out.println(al.get(i));
+            a[i] = al.get(i);
+        }
+        for (int x : a) {
+            System.out.println(x);
         }
     }
 }
