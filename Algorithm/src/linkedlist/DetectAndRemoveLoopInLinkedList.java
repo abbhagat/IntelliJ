@@ -41,7 +41,7 @@ public class DetectAndRemoveLoopInLinkedList {
         for (int x : a) {
             first = add(first, x);
         }
-        LinkList.last.next = first.next.next;
+        first.next = first.next.next.next;
         detectAndRemoveLoop(first);
         traverseList(first);
     }
