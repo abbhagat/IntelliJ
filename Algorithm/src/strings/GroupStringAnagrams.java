@@ -40,6 +40,7 @@ public class GroupStringAnagrams {
                 for (Set<String> s : list) {
                     if (s.contains(set.iterator().next())) {
                         flag = false;
+                        break;
                     }
                 }
             }
