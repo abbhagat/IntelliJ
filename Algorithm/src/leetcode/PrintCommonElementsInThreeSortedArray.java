@@ -1,4 +1,4 @@
-package linkedlist;
+package leetcode;
 
 public class PrintCommonElementsInThreeSortedArray {
 
