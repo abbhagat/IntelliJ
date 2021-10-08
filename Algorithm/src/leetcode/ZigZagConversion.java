@@ -7,7 +7,8 @@ public class ZigZagConversion {
         for (int i = 0; i < rows; i++) {
             sb[i] = new StringBuilder();
         }
-        for (int i = 0; i < s.length(); ) {
+        int i = 0;
+        while (i < s.length()) {
             for (int j = 0; j < rows && i < s.length(); j++) {
                 sb[j].append(s.charAt(i++));
             }
@@ -15,7 +16,7 @@ public class ZigZagConversion {
                 sb[j].append(s.charAt(i++));
             }
         }
-        for (int i = 1; i < rows; i++) {
+        for (i = 1; i < rows; i++) {
             sb[0].append(sb[i]);
         }
         return sb[0].toString();
