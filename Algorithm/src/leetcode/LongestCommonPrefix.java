@@ -1,24 +1,14 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class LongestCommonPrefix {
 
-    public static String longestCommonPrefix(List<String> list) {
-        if (list.isEmpty()) {
-            return "";
-        }
-        return longestCommonPrefix(list, 0, list.size() - 1);
-    }
-
-    private static String longestCommonPrefix(List<String> list, int low, int high) {
+    private static String longestCommonPrefix(String[] str, int low, int high) {
         if (low == high) {
-            return list.get(0);
+            return str[low];
         }
         int mid = (low + high) / 2;
-        String lcpLeft  = longestCommonPrefix(list, low, mid);
-        String lcpRight = longestCommonPrefix(list, mid + 1, high);
+        String lcpLeft  = longestCommonPrefix(str, low, mid);
+        String lcpRight = longestCommonPrefix(str, mid + 1, high);
         return commonPrefix(lcpLeft, lcpRight);
     }
 
@@ -33,7 +23,8 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        System.out.println(longestCommonPrefix(Arrays.asList("flower", "flow", "flight")));
-        System.out.println(longestCommonPrefix(Arrays.asList("flower")));
+        System.out.println(longestCommonPrefix(new String[]{"flower", "flow", "flight"}, 0, 2));
+        System.out.println(longestCommonPrefix(new String[]{"flower", "flow"}, 0, 1));
+        System.out.println(longestCommonPrefix(new String[]{"flower"}, 0, 0));
     }
 }
