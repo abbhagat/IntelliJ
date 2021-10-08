@@ -36,12 +36,12 @@ public class DetectAndRemoveLoopInLinkedList {
     }
 
     public static void main(String[] args) {
-        int[] a = {2, 4, 3};
+        int[] a = {1, 2, 3, 4, 5};
         Node first = null;
         for (int x : a) {
             first = add(first, x);
         }
-        LinkList.last.next = first;
+        LinkList.last.next = first.next.next;
         detectAndRemoveLoop(first);
         traverseList(first);
     }
