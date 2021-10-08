@@ -10,8 +10,8 @@ public class PrintMissingElementFrom0To99 {
                 b[x] = true;
             }
         }
-
-        for (int i = 0; i < b.length;) {
+        int i = 0;
+        while (i < b.length) {
             if (!b[i]) {
                 int j = i + 1;
                 while (j < b.length && !b[j]) {
