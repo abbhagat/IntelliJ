@@ -16,5 +16,6 @@ public class TreeHeight {
             root = BT.createBT(x, root);
         }
         System.out.println("\nTree Height :" + treeHeight(root));
+        System.out.println("\nTree Height :" + treeHeight(null));
     }
 }
