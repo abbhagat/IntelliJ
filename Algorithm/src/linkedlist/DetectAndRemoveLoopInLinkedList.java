@@ -6,30 +6,29 @@ import static linkedlist.TraverseList.traverseList;
 public class DetectAndRemoveLoopInLinkedList {
 
     private static void detectAndRemoveLoop(Node first) {
-        if (first == null || first.next == null) {
-            return;
-        }
-        Node slow = first.next;
-        Node fast = first.next.next;
-        while (fast != null && fast.next != null) {
-            if (slow == fast) {
-                removeCycle(fast, first);
+        Node slow = first;
+        Node fast = first.next;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                return;
+            }
+            if (fast == slow || fast.next == slow) {
                 break;
             }
             slow = slow.next;
             fast = fast.next.next;
         }
-    }
-
-    private static void removeCycle(Node fast, Node first) {
-        Node slow = first;
-        if (slow != fast) {
-            while (slow.next != fast.next) {
-                slow = slow.next;
+        if (slow == fast) {
+            while (fast.next != slow) {
                 fast = fast.next;
             }
-        } else {
-            while (fast.next != slow) {  // This case is added if fast and slow pointer meet at first position.
+        }
+        fast.next = null;
+    }
+
+    private static void removeCycle(Node slow, Node fast) {
+        if (slow == fast) {
+            while (fast.next != slow) {
                 fast = fast.next;
             }
         }
