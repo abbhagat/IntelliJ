@@ -6,31 +6,29 @@ import static linkedlist.TraverseList.traverseList;
 public class DetectAndRemoveLoopInLinkedList {
 
     private static void detectAndRemoveLoop(Node first) {
-        if (first == null || first.next == null) {
-            return;
-        }
-        Node slow = first.next;
-        Node fast = first.next.next;
+        Node slow = first;
+        Node fast = first.next;
         while (fast != null && fast.next != null) {
             if (slow == fast) {
+                removeCycle(slow, first);
                 break;
             }
             slow = slow.next;
             fast = fast.next.next;
         }
-        if (slow == fast) {
-            slow = first;
-            if (slow != fast) {
-                while (slow.next != fast.next) {
-                    slow = slow.next;
-                    fast = fast.next;
-                }
-                fast.next = null;               // since fast->next is the looping point remove loop
-            } else {
-                while (fast.next != slow) {   // This case is added if fast and slow pointer meet at first position.
-                    fast = fast.next;
-                }
-                fast.next = null;
+    }
+
+    private static void removeCycle(Node slow, Node first) {
+        for (Node curr = first; curr != null; curr = curr.next) {
+            Node temp = slow;
+            while (temp.next != slow && temp.next != curr) {
+                temp = temp.next;
+            }
+            // If `temp` meets `curr`, then that means there is a loop, and `curr`
+            // points to the first node of the loop and `temp` points to the last node
+            if (temp.next == curr) {
+                temp.next = null;
+                return;
             }
         }
     }
@@ -41,7 +39,7 @@ public class DetectAndRemoveLoopInLinkedList {
         for (int x : a) {
             first = add(first, x);
         }
-        first.next = first.next.next.next;
+        first.next.next.next.next.next = first.next.next;
         detectAndRemoveLoop(first);
         traverseList(first);
     }
