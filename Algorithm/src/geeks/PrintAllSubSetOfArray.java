@@ -24,18 +24,18 @@ import java.util.List;
 
 public class PrintAllSubSetOfArray {
 
-    public static void main(String[] args) {
-        findSubSet(new int[]{1, 2, 3}, 0, new ArrayList<>());
-    }
-
-    public static void findSubSet(int[] nums, int index, List<Integer> list) {
-        if (index == nums.length) {                      //All elements have been traversed
+    public static void findSubSet(int[] a, int index, List<Integer> list) {
+        if (index == a.length) {
             System.out.println(list);
         } else {
-            findSubSet(nums, index + 1, list);    // Do not select the current index element
-            list.add(nums[index]);                       // Select the current index element
-            findSubSet(nums, index + 1, list);  // Unselect the current index element (backtracking)
+            findSubSet(a, index + 1, list);
+            list.add(a[index]);
+            findSubSet(a, index + 1, list);
             list.remove(list.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        findSubSet(new int[]{1, 2, 3}, 0, new ArrayList<>());
     }
 }
