@@ -31,25 +31,21 @@ public class TMHashMap {
 
     public Integer get(String key) {
         int hash = key == null ? 0 : key.hashCode() % SIZE;
-        Entry e = table[hash];
-        while (e != null) {
+        for (Entry e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
                 return e.getValue();
             }
-            e = e.next;
         }
         return null;
     }
 
     public boolean remove(String key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry e = table[hash];
-        while (e != null) {
+        for (Entry e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
                 e.setValue(null);
                 return true;
             }
-            e = e.next;
         }
         return false;
     }
@@ -74,7 +70,7 @@ public class TMHashMap {
     public void traverseHashMap() {
         for (int i = 0; i < SIZE; i++) {
             if (null != table[i]) {
-                System.out.println("Key :" + table[i].getKey() + "\tValue" + table[i].getValue());
+                System.out.println("Key : " + table[i].getKey() + "\tValue : " + table[i].getValue());
             }
         }
     }
