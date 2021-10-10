@@ -7,10 +7,10 @@ public class Max_2nd_Max {
         int max, _2ndMax;
         max = _2ndMax = Integer.MIN_VALUE;
         for (int x : a) {
-            if (x > max) {
+            if (max < x) {
                 _2ndMax = max;
                 max = x;
-            } else if (x > _2ndMax) {
+            } else if (_2ndMax < x) {
                 _2ndMax = x;
             }
         }
