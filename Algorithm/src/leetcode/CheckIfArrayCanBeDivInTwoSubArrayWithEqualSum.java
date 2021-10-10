@@ -11,10 +11,11 @@ public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
         }
         int sum_so_far = 0;
         for (int i = 0; i < a.length; i++) {
-            if (2 * sum_so_far + a[i] == sum) {
+            if (sum_so_far * 2 + a[i] == sum) {
                 IntStream.range(0, i).forEach(j -> System.out.print(a[j] + " "));
                 System.out.println();
                 IntStream.range(i + 1, a.length).forEach(j -> System.out.print(a[j] + " "));
+                System.out.println();
                 return true;
             }
             sum_so_far += a[i];
