@@ -12,7 +12,7 @@ public class LeadersInArray {
         int leader = a[a.length - 1];
         System.out.print(leader + " ");
         for (int i = a.length - 2; i >= 0; i--) {
-            if (a[i] > leader) {
+            if (leader < a[i]) {
                 leader = a[i];
                 System.out.print(leader + " ");
             }
