@@ -6,7 +6,8 @@ package matrix;
  */
 public class BooleanMatrix {
 
-    private static void modifyMatrix(int[][] M, int R, int C) {
+    private static void modifyMatrix(int[][] M) {
+        int R = M.length, C = M[0].length;
         int[] row = new int[R];
         int[] col = new int[C];
         int i, j;
@@ -28,11 +29,11 @@ public class BooleanMatrix {
         }
     }
 
-    public static void printMatrix(int mat[][], int R, int C) {
-        int i, j;
-        for (i = 0; i < R; i++) {
-            for (j = 0; j < C; j++) {
-                System.out.print(mat[i][j] + " ");
+    public static void printMatrix(int M[][]) {
+        int R = M.length, C = M[0].length;
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                System.out.print(M[i][j] + " ");
             }
             System.out.println();
         }
@@ -43,10 +44,9 @@ public class BooleanMatrix {
                        {0, 0, 1, 0},
                        {0, 0, 0, 0}
                       };
-        System.out.println("Matrix Initially");
-        printMatrix(mat, 3, 4);
-        modifyMatrix(mat, 3, 4);
-        System.out.println("Matrix after modification");
-        printMatrix(mat, 3, 4);
+        printMatrix (mat);
+        modifyMatrix(mat);
+        System.out.println();
+        printMatrix (mat);
     }
 }
