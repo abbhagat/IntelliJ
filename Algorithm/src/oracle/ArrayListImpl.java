@@ -61,9 +61,6 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
         if (minCapacity > oldCapacity) {
             T oldData[] = list;
             int newCapacity = oldCapacity * 3 / 2 + 1; //Size increases by 1.5 times.
-            if (newCapacity < minCapacity) {
-                newCapacity = minCapacity;
-            }
             list = (T[]) new Object[newCapacity];
             System.arraycopy(oldData, 0, list, 0, size);
         }
