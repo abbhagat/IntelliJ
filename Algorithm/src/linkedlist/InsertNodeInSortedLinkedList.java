@@ -5,7 +5,7 @@ import static linkedlist.TraverseList.traverseList;
 public class InsertNodeInSortedLinkedList {
 
     public static Node insertNodeInSortedLinkedList(Node first, int num) {
-        if (null == first || first.num > num) {
+        if (null == first || num < first.num) {
             return new Node(num, first);
         } else {
             Node prev = null;
