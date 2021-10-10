@@ -1,39 +1,39 @@
 package oracle;
 
-public class TMHashMap {
+public class TMHashMap<K,V> {
 
     private final static int SIZE = 128;
     private Entry[] table = new Entry[SIZE];
 
-    private final class Entry {
-        private final String key;
-        private Integer value;
+    private final class Entry<K,V> {
+        private final K key;
+        private V value;
         private Entry next;
 
-        public Entry(String key, Integer value) {
+        public Entry(K key, V value) {
             this.key = key;
             this.value = value;
             this.next = null;
         }
 
-        public String getKey() {
+        public K getKey() {
             return key;
         }
 
-        public Integer getValue() {
+        public V getValue() {
             return value;
         }
 
-        public void setValue(Integer value) {
+        public void setValue(V value) {
             this.value = value;
         }
     }
 
-    public Integer get(String key) {
+    public V get(String key) {
         int hash = key == null ? 0 : key.hashCode() % SIZE;
         for (Entry e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
-                return e.getValue();
+                return (V) e.getValue();
             }
         }
         return null;
@@ -50,7 +50,7 @@ public class TMHashMap {
         return false;
     }
 
-    public Integer put(String key, int value) {
+    public V put(String key, int value) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
         Entry e = table[hash];
         if (null != e) {
@@ -60,7 +60,7 @@ public class TMHashMap {
                 }
                 table[hash] = new Entry(key, value);
                 e.next = table[hash];
-                return e.getValue();
+                return (V) e.getValue();
             }
         }
         table[hash] = new Entry(key, value);
@@ -76,7 +76,7 @@ public class TMHashMap {
     }
 
     public static void main(String[] args) {
-        TMHashMap map = new TMHashMap();
+        TMHashMap<String,Integer> map = new TMHashMap<>();
         System.out.println(map.put("Abhinaw", 65));
         map.put("Bhagat", 66);
         map.put("D", 68);
