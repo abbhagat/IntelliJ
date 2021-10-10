@@ -10,18 +10,17 @@ public class BooleanMatrix {
         int R = M.length, C = M[0].length;
         int[] row = new int[R];
         int[] col = new int[C];
-        int i, j;
 
-        for (i = 0; i < R; i++) {
-            for (j = 0; j < C; j++) {
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
                 if (M[i][j] == 1) {
                     row[i] = col[j] = 1;
                 }
             }
         }
 
-        for (i = 0; i < R; i++) {
-            for (j = 0; j < C; j++) {
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
                 if (row[i] == 1 || col[j] == 1) {
                     M[i][j] = 1;
                 }
