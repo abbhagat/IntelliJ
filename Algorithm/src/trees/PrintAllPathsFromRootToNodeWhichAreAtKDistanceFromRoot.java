@@ -35,7 +35,7 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
             System.out.println(list);
             return;
         }
-        findPath(root.left, k - 1, list);
+        findPath(root.left,  k - 1, list);
         list.removeLast();
         findPath(root.right, k - 1, list);
         list.removeLast();
