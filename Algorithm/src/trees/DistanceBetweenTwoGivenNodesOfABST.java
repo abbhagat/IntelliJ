@@ -5,7 +5,7 @@ import static trees.LCA.LCA;
 
 public class DistanceBetweenTwoGivenNodesOfABST {
 
-    public static int findLevel(Node root, int num, int level) {
+    private static int findLevel(Node root, int num, int level) {
         if (root == null) {
             return -1;
         }
