@@ -10,7 +10,7 @@ Tree Array = {1,2,3,4,5}
 Inorder traversal of the constructed tree is
 4 2 5 1 3
 Inorder traversal of the mirror tree is
-3 1 5 2 4
+7 3 6 1 5 2 4
  */
 public class TreeMirrorImage {
 
@@ -45,13 +45,15 @@ public class TreeMirrorImage {
     }
 
     public static void main(String[] args) {
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.right = new Node(3);
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
+        Node root        = new Node(1);
+        root.left        = new Node(2);
+        root.right       = new Node(3);
+        root.left.left   = new Node(4);
+        root.left.right  = new Node(5);
+        root.right.left  = new Node(6);
+        root.right.right = new Node(7);
         inorder(root);
-        root = mirrorImageUsingIteration(root);
+        root = mirrorImage(root);
         System.out.println();
         inorder(root);
     }
