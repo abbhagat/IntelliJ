@@ -9,6 +9,6 @@ public class SearchBST {
             }
             return num < root.num ? searchBST(root.left, num) : searchBST(root.right, num);
         }
-        return root;
+        return null;
     }
 }
