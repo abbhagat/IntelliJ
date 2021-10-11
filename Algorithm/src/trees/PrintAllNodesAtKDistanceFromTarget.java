@@ -31,7 +31,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
             } else {
                 printKDistanceNodeDown(root.right, k - dl - 2);  // Else go to right subtree and print all k-dl-2 distant nodes Note that the right child is 2 edges away from left child
             }
-            return 1 + dl;   // Add 1 to the distance and return value for parent calls
+            return dl + 1;   // Add 1 to the distance and return value for parent calls
         }
         // MIRROR OF ABOVE CODE FOR RIGHT SUBTREE  Note that we reach here only when root was not found in left subtree
         int dr = printKDistanceNode(root.right, target, k);
@@ -41,7 +41,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
             } else {
                 printKDistanceNodeDown(root.left, k - dr - 2);
             }
-            return 1 + dr;
+            return dr + 1;
         }
         return -1;   // If target was neither present in left nor in right subtree
     }
