@@ -11,4 +11,8 @@ public class SearchBST {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

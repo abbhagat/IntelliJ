@@ -1,23 +1,11 @@
 package trees;
 
+import static trees.SearchBT.searchBT;
+
 public class LCAOfBinaryTree {
 
     static class NodeWrapper {
         public Node node;
-
-        NodeWrapper(Node node) {
-            this.node = node;
-        }
-    }
-
-    public static boolean isNodePresent(Node root, Node node) {
-        if (root == null) {
-            return false;
-        }
-        if (root == node) {
-            return true;
-        }
-        return isNodePresent(root.left, node) || isNodePresent(root.right, node);
     }
 
     public static boolean findLCA(Node root, NodeWrapper lca, Node x, Node y) {
@@ -30,16 +18,16 @@ public class LCAOfBinaryTree {
         }
         boolean left  = findLCA(root.left,  lca, x, y);
         boolean right = findLCA(root.right, lca, x, y);
-        if (left && right) {      // if `x` is found in one subtree and `y` is found in the other subtree update lca to the current node
+        if (left && right) {
             lca.node = root;
         }
-        return left || right;   // return true if `x` or `y` is found in either left or right subtree
+        return left || right;
     }
 
     public static void findLCA(Node root, Node x, Node y) {
         Node lca = null;
-        NodeWrapper LCA = new NodeWrapper(null);                  // Wrap the `lca` node, so its reference can be changed inside the findLCA() method
-        if (isNodePresent(root, x) && isNodePresent(root, y)) {  // call LCA procedure only if both `x` and `y` are present in the tree
+        NodeWrapper LCA = new NodeWrapper();
+        if (searchBT(root, x) && searchBT(root, y)) {
             findLCA(root, LCA, x, y);
             lca = LCA.node;
         }
