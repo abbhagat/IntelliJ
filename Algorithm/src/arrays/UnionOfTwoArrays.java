@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class UnionOfTwoArrays {
 
     public static void main(String[] args) {
-        int a[] = {1, 2, 3, 5, 7};
-        int b[] = {1, 2, 4, 5, 6};
+        int[] a = {2, 4, 6, 7, 1, 8, 9, 5, 10};
+        int[] b = {1, 2, 6, 8, 4, 9, 3, 10, 7};
         Arrays.sort(a);
         Arrays.sort(b);
         System.out.println("Intersection ");
@@ -29,12 +29,6 @@ public class UnionOfTwoArrays {
             } else {
                 System.out.print(a[i] < b[j] ? a[i++] + " " : b[j++] + " ");
             }
-        }
-        while (i < a.length) {
-            System.out.print(a[i++] + " ");
-        }
-        while (j < b.length) {
-            System.out.print(a[j++] + " ");
         }
     }
 }
