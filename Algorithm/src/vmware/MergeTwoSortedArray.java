@@ -15,13 +15,10 @@ public class MergeTwoSortedArray {
         i = j = k = 0;
         while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
-                c[k] = a[i];
-                i++;
+                c[k++] = a[i++];
                 j++;
-                k++;
             } else {
-                c[k] = a[i] < b[j] ? a[i++] : b[j++];
-                k++;
+                c[k++] = a[i] < b[j] ? a[i++] : b[j++];
             }
         }
         IntStream.range(0, k).forEach(l -> System.out.print(c[l] + " "));
