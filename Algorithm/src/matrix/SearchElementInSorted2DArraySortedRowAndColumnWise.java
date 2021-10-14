@@ -14,7 +14,7 @@ package matrix;
 
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
-    static boolean search(int[][] a, int key) {
+    private static boolean search(int[][] a, int key) {
         int R1 = 0, R2 = a.length - 1;
         int C1 = 0, C2 = a[0].length - 1;
         while (R1 <= R2 && C1 <= C2) {
@@ -31,8 +31,10 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
     }
 
     public static void main(String[] args) {
-        int[][] a = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        int[][] a;
+        a = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
         System.out.println(search(a, 5) ? "Present" : "Not Present");
-        System.out.println(search(new int[][]{{1,1}}, 5) ? "Present" : "Not Present");
+        a = new int[][]{{1, 1}};
+        System.out.println(search(a, 5) ? "Present" : "Not Present");
     }
 }
