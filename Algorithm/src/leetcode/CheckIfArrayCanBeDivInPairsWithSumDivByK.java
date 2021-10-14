@@ -14,7 +14,7 @@ public class CheckIfArrayCanBeDivInPairsWithSumDivByK {
             }
             for (int x : a) {
                 int y = x % k;
-                if (((y == 0 || y * 2 == k) && map.get(y) % 2 == 1) || map.get(k - y) != map.get(y)) {
+                if (((y == 0 || y * 2 == k) && map.get(y) % 2 == 1) || map.get(y) != map.get(k - y)) {
                     return false;
                 }
             }
