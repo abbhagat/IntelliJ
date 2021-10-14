@@ -29,7 +29,7 @@ public class AreaOfLargestIslandIn2DMatrix {
         for (int k = 0; k < 4; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
                 area++;
-                DFS(row + rowIdx[k], col + colIdx[k]);
+                DFS(   row + rowIdx[k], col + colIdx[k]);
             }
         }
     }
