@@ -17,11 +17,11 @@ package matrix;
 public class FindRowWithMaxOneInBinaryMatrix {
 
     private static int[][] M = {
-            {0, 0, 0, 1},
-            {0, 0, 1, 1},
-            {0, 0, 0, 0},
-            {0, 1, 1, 1}
-    };
+                                 {0, 0, 0, 1},
+                                 {0, 0, 1, 1},
+                                 {0, 0, 0, 0},
+                                 {0, 1, 1, 1}
+                               };
     private static int R = M.length, C = M[0].length;
 
     private static int binarySearch(int a[], int low, int high) {
