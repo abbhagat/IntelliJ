@@ -2,17 +2,17 @@ package leetcode;
 
 public class ValidateIPAddress {
 
-    private static boolean isValidIPv4(String ip) {
+    private static boolean isValidIPv4(String ipv4) {
         int count = 0;
-        for (int i = 0; i < ip.length(); i++) {
-            if (ip.charAt(i) == '.') {
+        for (int i = 0; i < ipv4.length(); i++) {
+            if (ipv4.charAt(i) == '.') {
                 count++;
             }
         }
         if (count != 3) {
             return false;
         }
-        for (String s : ip.split(".")) {
+        for (String s : ipv4.split(".")) {
             if (s.length() == 0 || s.length() > 3) {
                 return false;
             }
@@ -31,10 +31,10 @@ public class ValidateIPAddress {
         return true;
     }
 
-    private static boolean isValidIPv6(String ip) {
+    private static boolean isValidIPv6(String ipv6) {
         int count = 0;
-        for (int i = 0; i < ip.length(); i++) {
-            if (ip.charAt(i) == ':') {
+        for (int i = 0; i < ipv6.length(); i++) {
+            if (ipv6.charAt(i) == ':') {
                 count++;
             }
         }
@@ -42,7 +42,7 @@ public class ValidateIPAddress {
             return false;
         }
         String hexDigits = "0123456789abcdefABCDEF";
-        for (String s : ip.split(":")) {
+        for (String s : ipv6.split(":")) {
             if (s.length() == 0 || s.length() > 4) {
                 return false;
             }
