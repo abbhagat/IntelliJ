@@ -16,7 +16,7 @@ package matrix;
 
 public class FindRowWithMaxOneInBinaryMatrix {
 
-    private static int M[][] = {
+    private static int[][] M = {
             {0, 0, 0, 1},
             {0, 0, 1, 1},
             {0, 0, 0, 0},
@@ -35,10 +35,10 @@ public class FindRowWithMaxOneInBinaryMatrix {
         return a.length - 1;
     }
 
-    private static int rowWithMax1s(int mat[][]) {
+    private static int rowWithMax1s(int[][] M) {
         int max_row_index = 0, max = 0;
         for (int i = 0; i < R; i++) {
-            int index = binarySearch(mat[i], 0, C - 1);
+            int index = binarySearch(M[i], 0, C - 1);
             if (C - index > max) {
                 max = C - index;
                 max_row_index = i;
@@ -47,10 +47,10 @@ public class FindRowWithMaxOneInBinaryMatrix {
         return max_row_index;
     }
 
-    private static int rowWithMax0s(int mat[][]) {
+    private static int rowWithMax0s(int[][] M) {
         int max_row_index = 0, max = 0;
         for (int i = 0; i < R; i++) {
-            int index = binarySearch(mat[i], 0, C - 1);
+            int index = binarySearch(M[i], 0, C - 1);
             if (index >= max) {
                 max = index;
                 max_row_index = i;
