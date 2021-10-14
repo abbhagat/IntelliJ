@@ -24,7 +24,7 @@ public class FindRowWithMaxOneInBinaryMatrix {
                                };
     private static int R = M.length, C = M[0].length;
 
-    private static int binarySearch(int a[], int low, int high) {
+    private static int binarySearch(int[] a, int low, int high) {
         if (low <= high) {
             int mid = (low + high) / 2;
             if ((mid == 0 || (a[mid - 1] == 0)) && a[mid] == 1) {
