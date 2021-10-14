@@ -6,7 +6,7 @@ public class PrintMissingElementFrom0To99 {
         int[] a = {88, 105, 3, 2, 200, 0, 10};
         boolean[] b = new boolean[100];
         for (int x : a) {
-            if (x >= 0 && x < 100) {
+            if (x >= 0 && x <= b.length) {
                 b[x] = true;
             }
         }
