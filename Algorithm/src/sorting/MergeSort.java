@@ -41,6 +41,7 @@ public class MergeSort {
                 temp[k++] = a[l];
             }
         }
+
         for (int l = low; l <= high; l++) {
             a[l] = temp[l];
         }
