@@ -13,12 +13,12 @@ public class BulbSwitchProblem {
             }
         }
         int count = 0;
-        int glows = countOne >= Math.ceil(a.length / 2) ? 1 : 0;
+        boolean glows = countOne >= Math.ceil(a.length / 2) ? true : false;
         for (int x : q) {
-            int prev = glows;
+            boolean prev = glows;
             countOne += (a[x - 1] == 0) ? 1 : -1;
             a[x - 1] ^= 1;
-            glows = countOne >= Math.ceil(a.length / 2) ? 1 : 0;
+            glows = countOne >= Math.ceil(a.length / 2) ? true : false;
             if (prev != glows) {
                 count++;
             }
