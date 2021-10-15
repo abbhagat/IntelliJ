@@ -16,51 +16,47 @@ package matrix;
 
 public class FindRowWithMaxOneInBinaryMatrix {
 
-    private static int[][] M = {
-                                 {0, 0, 0, 1},
-                                 {0, 0, 1, 1},
-                                 {0, 0, 0, 0},
-                                 {0, 1, 1, 1}
-                               };
-    private static int R = M.length, C = M[0].length;
-
-    private static int binarySearch(int[] a, int low, int high) {
-        if (low <= high) {
-            int mid = (low + high) / 2;
-            if ((mid == 0 || (a[mid - 1] == 0)) && a[mid] == 1) {
-                return mid;
-            }
-            return a[mid] == 0 ? binarySearch(a, mid + 1, high) : binarySearch(a, low, mid - 1);
+    private static int rowWithMax1s(int[] a, int low, int high) {
+        if (a[low] == 1) {
+            return high - low + 1;
         }
-        return a.length - 1;
+        if (a[high] == 0) {
+            return 0;
+        }
+        int mid = (low + high) / 2;
+        return rowWithMax1s(a, low, mid) + rowWithMax1s(a, mid + 1, high);
     }
 
-    private static int rowWithMax1s(int[][] M) {
-        int max_row_index = 0, max = 0;
-        for (int i = 0; i < R; i++) {
-            int index = binarySearch(M[i], 0, C - 1);
-            if (C - index > max) {
-                max = C - index;
-                max_row_index = i;
-            }
+    private static int rowWithMax0s(int[] a, int low, int high) {
+        if (a[low] == 1) {
+            return 0;
         }
-        return max_row_index;
-    }
-
-    private static int rowWithMax0s(int[][] M) {
-        int max_row_index = 0, max = 0;
-        for (int i = 0; i < R; i++) {
-            int index = binarySearch(M[i], 0, C - 1);
-            if (index >= max) {
-                max = index;
-                max_row_index = i;
-            }
+        if (a[high] == 0) {
+            return high - low + 1;
         }
-        return max_row_index;
+        int mid = (low + high) / 2;
+        return rowWithMax0s(a, low, mid) + rowWithMax0s(a, mid + 1, high);
     }
 
     public static void main(String[] args) {
-        System.out.println("Index of row with maximum 1s is " + rowWithMax1s(M));
-        System.out.println("Index of row with maximum 0s is " + rowWithMax0s(M));
+        int[][] M = {
+                {0, 0, 0, 1},
+                {0, 0, 1, 1},
+                {0, 0, 0, 0},
+                {0, 1, 1, 1}
+        };
+        int maxOneRowIndex = 0, maxZeroRowIndex = 0, maxCountOne = 0, maxCountZero = 0;
+        for (int i = 0; i < M.length; i++) {
+            if (maxCountOne < rowWithMax1s(M[i], 0, M[0].length - 1)) {
+                maxCountOne = rowWithMax1s(M[i], 0, M[0].length - 1);
+                maxOneRowIndex = i;
+            }
+            if (maxCountZero < rowWithMax0s(M[i], 0, M[0].length - 1)) {
+                maxCountZero = rowWithMax0s(M[i], 0, M[0].length - 1);
+                maxZeroRowIndex = i;
+            }
+        }
+        System.out.println("MaxOneRowIndex  " + maxOneRowIndex);
+        System.out.println("MaxZeroRowIndex " + maxZeroRowIndex);
     }
 }
