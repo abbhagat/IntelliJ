@@ -23,5 +23,4 @@ public class EquilibriumPointInAnArray {
             sum1 -= x;
         }
     }
-
 }
