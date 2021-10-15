@@ -23,7 +23,7 @@ public class BinaryTreeMaxWidth {
         int height = treeHeight(root);
         for (int i = 0; i <= height; i++) {
             levelOrderTraversal(root, i);
-            System.out.println("Width of Each Level " + width);
+            System.out.println("Width of Level " + i + " -> " + width);
             maxWidth = Math.max(maxWidth, width);
             width = 0;
         }
@@ -35,8 +35,6 @@ public class BinaryTreeMaxWidth {
             return;
         }
         if (level == 0) {
-            System.out.print(root.num + " ");
-            System.out.println();
             width++;
         }
         if (level > 0) {
