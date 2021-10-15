@@ -17,18 +17,18 @@ public class NoOfTimesAGivenNumOccursInASortedArray {
         if (low <= high) {
             int mid = (low + high) / 2;
             if ((mid == 0 || a[mid - 1] == n) && a[mid] != n) {
-                return mid;
+                return mid - 1;
             }
-            return a[mid] < n ? binarySearch1(a, mid + 1, high, n) : binarySearch1(a, low, mid - 1, n);
+            return a[mid] <= n ? binarySearch1(a, mid + 1, high, n) : binarySearch1(a, low, mid - 1, n);
         }
         return a.length - 1;
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 1, 2, 2, 2, 2, 2, 2, 3};
-        int n = 2;
-        int startIndex = binarySearch(a, 0, a.length - 1, n);
-        int endIndex   = binarySearch1(a, startIndex, a.length - 1, n);
-        System.out.println(endIndex - startIndex);
+        int[] a = {1, 1, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5};
+        int n = 4;
+        int startIndex = binarySearch (a, 0, a.length - 1, n);
+        int endIndex   = binarySearch1(a, startIndex + 1, a.length - 1, n);
+        System.out.println(startIndex == endIndex ? 1 : endIndex - startIndex + 1);
     }
 }
