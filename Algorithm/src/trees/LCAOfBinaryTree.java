@@ -25,17 +25,11 @@ public class LCAOfBinaryTree {
     }
 
     public static void findLCA(Node root, Node x, Node y) {
-        Node lca = null;
-        NodeWrapper LCA = new NodeWrapper();
+        NodeWrapper lca = new NodeWrapper();
         if (searchBT(root, x) && searchBT(root, y)) {
-            findLCA(root, LCA, x, y);
-            lca = LCA.node;
+            findLCA(root, lca, x, y);
         }
-        if (lca != null) {
-            System.out.println("LCA is " + lca.num);
-        } else {
-            System.out.print("LCA does not exist\n");
-        }
+        System.out.println(lca.node != null ? "LCA is " + lca.node.num : "LCA does not exist");
     }
 
     public static void main(String[] args) {
