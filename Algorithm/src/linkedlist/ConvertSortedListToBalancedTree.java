@@ -1,5 +1,7 @@
 package linkedlist;
 
+// Time complexity: O(nLogn) where n is the number of nodes in Linked List.
+
 import static linkedlist.MidPointOfLinkedList.findMidPoint;
 
 class TreeNode {
