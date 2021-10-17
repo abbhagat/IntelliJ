@@ -24,15 +24,16 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     public static void findPairs(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : nums) {
-            Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
+            // Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
+            map.put(x, map.getOrDefault(x, 1) + 1);
         }
         for (int x : nums) {
             int y = target - x;
             if (map.containsKey(y)) {
-                if(x == y && map.get(y) == 1){
-                   continue;
+                if (x == y && map.get(y) == 1) {
+                    continue;
                 }
-                System.out.println(x + "\t" + y);
+                System.out.println(x + "," + y);
                 map.remove(x);
                 map.remove(y);
             }
@@ -41,6 +42,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
     public static void main(String[] args) {
         findPairs();
+        System.out.println();
         findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 10);
     }
 }
