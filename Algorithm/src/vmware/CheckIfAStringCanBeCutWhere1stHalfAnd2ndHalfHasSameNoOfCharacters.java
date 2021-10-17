@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class CheckIfAStrigCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
+public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
 
     public static boolean sameFrequencyCharactersInString(String str) {
@@ -14,7 +14,7 @@ public class CheckIfAStrigCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
         Set<Integer> values = new HashSet<>();
-        for (Integer value : map.values()) {
+        for (int value : map.values()) {
             if (!values.add(value)) {
                 return false;
             }
