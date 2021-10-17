@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
-
     public static boolean sameFrequencyCharactersInString(String str) {
         Map<Character, Integer> map = new HashMap<>();
         for (char x : str.toCharArray()) {
