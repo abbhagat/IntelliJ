@@ -12,10 +12,7 @@ public class MergeSort {
         Node mid = findMid(head);
         Node head2 = mid.next;
         mid.next = null;
-        Node newHead1  = mergeSort(head);
-        Node newHead2  = mergeSort(head2);
-        Node finalHead = merge(newHead1, newHead2);
-        return finalHead;
+        return merge(mergeSort(head), mergeSort(head2));
     }
 
     private static Node merge(Node head1, Node head2) {
