@@ -33,13 +33,14 @@ public class AddTwoNumInLinkedList {
         }
         l1 = reverseList(l1);
         l2 = reverseList(l2);
-        String num1 = "", num2 = "";
+        StringBuilder num1 = new StringBuilder();
+        StringBuilder num2 = new StringBuilder();
         for (Node temp = l1; temp != null; temp = temp.next) {
-            num1 += temp.num;
+            num1.append(temp.num);
         }
         for (Node temp = l2; temp != null; temp = temp.next) {
-            num2 += temp.num;
+            num2.append(temp.num);
         }
-        System.out.println(parseInt(num1) + parseInt(num2));
+        System.out.println(parseInt(num1.toString()) + parseInt(num2.toString()));
     }
 }
