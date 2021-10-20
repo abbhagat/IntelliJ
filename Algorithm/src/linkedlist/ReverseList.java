@@ -19,7 +19,7 @@ public class ReverseList {
             first = LinkList.add(first, x);
         }
         TraverseList.traverseList(first);
-        first = ReverseList.reverseList(first);
+        first = reverseList(first);
         TraverseList.traverseList(first);
     }
 }
