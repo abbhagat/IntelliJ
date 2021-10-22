@@ -43,7 +43,6 @@ public class BooleanMatrix {
                       };
         printMatrix (mat);
         modifyMatrix(mat);
-        System.out.println();
         printMatrix (mat);
     }
 }
