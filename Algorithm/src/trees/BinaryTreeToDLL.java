@@ -2,20 +2,20 @@ package trees;
 
 public class BinaryTreeToDLL {
 
-    private static Node prev, head;
+    private static Node temp, head;
 
     private static Node convertTreeToDLL(Node root) {
         if (root == null) {
             return null;
         }
         convertTreeToDLL(root.left);
-        if (prev == null) {
+        if (temp == null) {
             head = root;
         } else {
-            prev.right = root;
-            root.left = prev;
+            temp.right = root;
+            root.left = temp;
         }
-        prev = root;
+        temp = root;
         convertTreeToDLL(root.right);
         return head;
     }
