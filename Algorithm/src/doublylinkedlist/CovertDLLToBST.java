@@ -15,4 +15,21 @@ public class CovertDLLToBST {
         root.right = sortedListToBST(n - n / 2 - 1);  // Recursively construct the right subtree and link it with root.
         return root;                                     // The number of nodes in right subtree  is total nodes - nodes in left subtree - 1 (for root)
     }
+
+    private static void preOrder(Node node) {
+        if (node != null) {
+            System.out.print(node.num + " ");
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        for (int i = 10; i <= 100; i += 10) {
+            head = CreateList.createList(i, null);
+        }
+        TraverseList.traverseList(head);
+        Node root = sortedListToBST(CreateList.size);
+        preOrder(root);
+    }
 }
