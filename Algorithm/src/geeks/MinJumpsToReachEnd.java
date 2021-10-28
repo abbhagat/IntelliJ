@@ -1,5 +1,7 @@
 package geeks;
 
+import static java.lang.Integer.max;
+
 /**
  * Given an array of integers where each element represents the max number of steps that can be made forward from that element.
  * Write a function to return the minimum number of jumps to reach the end of the array (starting from the first element).
@@ -32,8 +34,40 @@ public class MinJumpsToReachEnd {
         return min + 1;
     }
 
+    private static int minJumps(int[] a) {
+        int steps = 0, current = 0, last = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (i > last) {
+                last = current;
+                steps++;
+                if (last >= a.length) {
+                    return steps;
+                }
+            }
+            current = max(current, i + a[i]);
+        }
+        return steps;
+    }
+
+    private static boolean isReachable(int[] a) {
+        int lastPosition = a.length - 1;
+        for (int i = a.length - 1; i >= 0; i--) {
+            if (i + a[i] >= lastPosition) {
+                lastPosition = i;
+            }
+        }
+        return lastPosition == 0;
+    }
+
     public static void main(String[] args) {
-        int a[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
-        System.out.print("Minimum number of jumps to reach end is " + minJumps(a, 0, a.length - 1));
+        int[] a = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+        System.out.println("Minimum number of jumps to reach end is " + minJumps(a, 0, a.length - 1));
+        System.out.println("Minimum number of jumps to reach end is " + isReachable(a));
+        System.out.println("Minimum number of jumps to reach end is " + minJumps(a));
+        System.out.println();
+        int b[] = {2, 3, 1, 1, 4};
+        System.out.println("Minimum number of jumps to reach end is " + minJumps(b, 0, b.length - 1));
+        System.out.println("Minimum number of jumps to reach end is " + isReachable(b));
+        System.out.println("Minimum number of jumps to reach end is " + minJumps(b));
     }
 }
