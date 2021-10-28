@@ -21,6 +21,7 @@ public class LargestSquareHaving1InBooleanMatrix {
                 S[i][j] = M[i][j] == 1 ? min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) + 1 : 0;
             }
         }
+
         int max = S[0][0], max_i = 0, max_j = 0;
         for (int i = 1; i < R; i++) {
             for (int j = 1; j < C; j++) {
