@@ -18,24 +18,24 @@ public class MinCoinToMakeAValue {
     }
 
     // Time Complexity (mV)
-    private static int minCoinsDP(int coins[], int value) {
-        int table[] = new int[value + 1];
-        table[0] = 0;                                    // Base case (If given value value is 0)
-        for (int i = 1; i <= value; i++) {
-            table[i] = Integer.MAX_VALUE;              // Initialize all table values as Infinite
+    private static int minCoinsDP(int coins[], int V) {
+        int dp[] = new int[V + 1];
+        dp[0] = 0;                                        // Base case (If given value value is 0)
+        for (int i = 1; i <= V; i++) {
+            dp[i] = Integer.MAX_VALUE;                  // Initialize all dp values as Infinite
         }
-        for (int i = 1; i <= value; i++) {            // Compute minimum coins required for all values from 1 to value
+        for (int i = 1; i <= V; i++) {                // Compute minimum coins required for all values from 1 to value
             for (int j = 0; j < coins.length; j++)   // Go through all coins smaller than i
                 if (coins[j] <= i) {
-                    int result = table[i - coins[j]];
-                    if (result != Integer.MAX_VALUE && result + 1 < table[i])
-                        table[i] = result + 1;
+                    int result = dp[i - coins[j]];
+                    if (result != Integer.MAX_VALUE && result + 1 < dp[i])
+                        dp[i] = result + 1;
                 }
         }
-        if (table[value] == Integer.MAX_VALUE) {
+        if (dp[V] == Integer.MAX_VALUE) {
             return -1;
         }
-        return table[value];
+        return dp[V];
     }
 
     public static void main(String[] args) {
