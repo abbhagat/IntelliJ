@@ -12,10 +12,12 @@ public class MaxDistanceBetweenAnyNodes {
         }else{
             int leftHeight  = height(root.left);
             int rightHeight = height(root.right);
-            int height = leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
-            return max(max_sum, height);
+            System.out.println("Left Height" + leftHeight + "\t" + "Right Height" + rightHeight);
+            return max(max_sum, leftHeight + rightHeight);
         }
     }
+
+
 
     public static void main(String[] args) {
         Node root = new Node(1);
