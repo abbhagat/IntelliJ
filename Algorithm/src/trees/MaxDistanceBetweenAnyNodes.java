@@ -10,7 +10,7 @@ public class MaxDistanceBetweenAnyNodes {
         if (root == null) {
             return -1;
         }else{
-            int leftHeight = height(root.left);
+            int leftHeight  = height(root.left);
             int rightHeight = height(root.right);
             int height = leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
             return max(max_sum, height);
