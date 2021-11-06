@@ -14,7 +14,8 @@ public class TreeHeight {
         }else{
             int leftHeight  = height(root.left);
             int rightHeight = height(root.right);
-            return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+            int height = leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+            return height;
         }
     }
 
