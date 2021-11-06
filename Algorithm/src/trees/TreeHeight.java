@@ -8,6 +8,16 @@ public class TreeHeight {
         return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 
+    public static int height(Node root) {
+        if (root == null) {
+            return -1;
+        }else{
+            int leftHeight  = height(root.left);
+            int rightHeight = height(root.right);
+            return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+        }
+    }
+
     public static void main(String[] args) {
         BinaryTree BT = new BinaryTree();
         Node root = null;
@@ -16,6 +26,8 @@ public class TreeHeight {
             root = BT.createBT(x, root);
         }
         System.out.println("\nTree Height :" + treeHeight(root));
+        System.out.println("\nTree Height :" + height(root));
         System.out.println("\nTree Height :" + treeHeight(null));
+        System.out.println("\nTree Height :" + height(null));
     }
 }
