@@ -16,10 +16,7 @@ Output : Left rotation : "ertyuqw"
 public class StringRotation {
 
     private static boolean isRotation(String s1, String s2) {
-        if (s1.length() == s2.length()) {
-            return (s1 + s1).contains(s2);
-        }
-        return false;
+        return s1.length() == s2.length() ? (s1 + s1).contains(s2) : false;
     }
 
     private static String leftRotation(String s, int k) {
