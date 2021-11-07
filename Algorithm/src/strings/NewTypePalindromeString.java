@@ -18,10 +18,7 @@ public class NewTypePalindromeString {
             int firstIndex = s.indexOf(lastCharInS1);
             if (firstIndex <= mid && firstIndex != -1) {
                 String s2 = s.substring(0, firstIndex + 1);
-                if (!s1.equals(s2)) {
-                    return false;
-                }
-                return isNewTypePalindrome(s.substring(firstIndex + 1, lastIndex));
+                return s1.equals(s2) ? isNewTypePalindrome(s.substring(firstIndex + 1, lastIndex)) : false;
             }
         }
         return false;
