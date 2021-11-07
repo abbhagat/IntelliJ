@@ -1,4 +1,4 @@
-package geeksforgeeks;
+package stack;
 
 import java.util.HashSet;
 import java.util.Set;
