@@ -10,8 +10,8 @@ public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
         int i = 0, carry = 0, l1 = num1.length() - 1, l2 = num2.length() - 1;
         StringBuilder result = new StringBuilder();
         while (i <= l1 || i <= l2) {
-            int x = i <= num1.length() ? num1.charAt(l1 - i) - '0' : 0;
-            int y = i <= num2.length() ? num2.charAt(l2 - i) - '0' : 0;
+            int x = i <= l1 ? num1.charAt(l1 - i) - '0' : 0;
+            int y = i <= l2 ? num2.charAt(l2 - i) - '0' : 0;
             int sum = x + y + carry;
             carry = sum / 2;
             result.insert(0, sum % 2);
