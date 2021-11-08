@@ -2,23 +2,23 @@ package leetcode;
 
 public class AddLargeNumInsufficientDataTypeToHold {
 
-    public static void main(String[] args) {
-        String num1 = "111", num2 = "100";
+    private static String add(String num1, String num2) {
+        int i = 0, carry = 0, l1 = num1.length() - 1, l2 = num2.length() - 1;
         StringBuilder result = new StringBuilder();
-        int i = num1.length() - 1, j = num2.length() - 1, carry = 0;
-        while (i >= 0 || j >= 0) {
-            int x = i >= 0 ? num1.charAt(i) - '0' : 0;
-            int y = j >= 0 ? num2.charAt(i) - '0' : 0;
+        while (i <= l1 || i <= l2) {
+            int x = i <= num1.length() ? num1.charAt(l1 - i) - '0' : 0;
+            int y = i <= num2.length() ? num2.charAt(l2 - i) - '0' : 0;
             int sum = x + y + carry;
-            int mod = sum % 10;
-            result.append(mod);
             carry = sum / 10;
-            i--;
-            j--;
+            result.insert(0, sum % 10);
+            i++;
         }
-        if (carry != 0) {
-            result.append(carry);
-        }
-        System.out.println(result.reverse());
+        return carry == 0 ? result.toString() : "1" + result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(add("111", "100"));
+        System.out.println(add("10", "20"));
+        System.out.println(add("5", "3"));
     }
 }
