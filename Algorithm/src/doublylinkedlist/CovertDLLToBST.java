@@ -25,7 +25,7 @@ public class CovertDLLToBST {
     }
 
     public static void main(String[] args) {
-        for (int i = 10; i <= 100; i += 10) {
+        for (int i = 1; i <= 3; i++) {
             head = CreateList.createList(i, null);
         }
         TraverseList.traverseList(head);
