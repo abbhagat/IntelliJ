@@ -7,10 +7,12 @@ E:\IntelliJ\Hibernate\src\main\java\attributeOverridesCollections\Address.java
 E:\IntelliJ\Hibernate\src\main\java\selectBeforeUpdate\UserDetails.java
 E:\IntelliJ\Hibernate\src\main\java\joinedTableStrategy\TwoWheeler.java
 E:\IntelliJ\Hibernate\src\main\java\secondLevelCache\SecondLevelCache.java
+E:\IntelliJ\Hibernate\src\main\java\locking\PessimisticLocking.java
 E:\IntelliJ\Hibernate\src\main\java\callingProcedure\UserDetails.java
 E:\IntelliJ\Hibernate\src\main\java\ManyToMany\Vehicles.java
 E:\IntelliJ\Hibernate\src\main\java\tablePerClassStrategy\TwoWheeler.java
 E:\IntelliJ\Hibernate\src\main\java\OneToMany\UserDetails.java
+E:\IntelliJ\Hibernate\src\main\java\locking\OptimisticLocking.java
 E:\IntelliJ\Hibernate\src\main\java\attributeOverrides\UserDetails.java
 E:\IntelliJ\Hibernate\src\main\java\callingProcedure\Main.java
 E:\IntelliJ\Hibernate\src\main\java\OneToOne\Vehicles.java

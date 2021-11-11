@@ -13,6 +13,8 @@ OneToOne\UserDetails.class
 attributeOverrides\Main.class
 callingProcedure\UserDetails.class
 OneToMany\OneToManyMain.class
+locking\OptimisticLocking.class
+locking\PessimisticLocking.class
 ManyToMany\UserDetails.class
 util\Util.class
 OneToOne\OneToOneMain.class

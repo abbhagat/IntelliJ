@@ -5,7 +5,7 @@ import static java.lang.Integer.min;
 public class MinCoinToMakeAValue {
 
     // Time Complexity Exponential Has Overlapping Sub problems
-    private static int minCoins(int coins[], int value) {
+    private static int minCoins(int[] coins, int value) {
         if (value == 0) {
             return 0;
         }
@@ -20,7 +20,7 @@ public class MinCoinToMakeAValue {
     }
 
     // Time Complexity (mV)
-    private static int minCoinsDP(int coins[], int V) {
+    private static int minCoinsDP(int[] coins, int V) {
         int dp[] = new int[V + 1];
         dp[0] = 0;                                        // Base case (If given value is 0)
         for (int i = 1; i <= V; i++) {

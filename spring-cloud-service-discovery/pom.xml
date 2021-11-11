@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.retail.discovery.server</groupId>
-    <artifactId>manage-discovery-server</artifactId>
+    <artifactId>spring-cloud-service-discovery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>manage-discovery-server</name>
     <description>Demo project for Spring Boot</description>
