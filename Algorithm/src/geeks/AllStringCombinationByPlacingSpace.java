@@ -21,9 +21,9 @@ public class AllStringCombinationByPlacingSpace {
             return al;
         }
         List<String> list = spaceString(str.substring(1));
-        for (int i = 0; i < list.size(); i++) {
-            al.add(str.charAt(0) + list.get(i));
-            al.add(str.charAt(0) + " " + list.get(i));
+        for (String s : list) {
+            al.add(str.charAt(0) + s);
+            al.add(str.charAt(0) + " " + s);
         }
         return al;
     }

@@ -13,8 +13,7 @@ public class CompareTwoNumWithoutAnyOperator {
     }
 
     public static void main(String[] args) {
-        int x = 5;
-        int y = 5;
+        int x = 5, y = 5;
         System.out.println(isEqual(x, y) ? "Equal" : "Not Equal");
         System.out.println((x ^ y) == 0  ? "Equal" : "Not Equal");
     }

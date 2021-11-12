@@ -3,8 +3,8 @@ package geeks;
 public class CuttingRodProblemKnapsackSoln {
 
     public static void main(String[] args) {
-        int price[] = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
-        int wt[] = new int[price.length];
+        int[] price = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
+        int[] wt = new int[price.length];
         for (int i = 0; i < wt.length; i++) {
             wt[i] = i + 1;
         }

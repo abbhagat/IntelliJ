@@ -23,7 +23,7 @@ package geeks;
 
 public class CuttingRodProblem {
 
-    private static int cutRod(int price[], int n) {
+    private static int cutRod(int[] price, int n) {
         if (n == 0) {
             return 0;
         }
