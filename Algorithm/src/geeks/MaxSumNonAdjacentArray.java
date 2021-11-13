@@ -32,7 +32,7 @@ public class MaxSumNonAdjacentArray {
         int incl = a[0], excl = 0;
         for (int i = 1; i < a.length; i++) {
             int excl_new = Math.max(incl, excl);  /* current max excluding i */
-            incl = excl + a[i];                  /* current max including i */
+            incl = excl + a[i];                  /*  current max including i */
             excl = excl_new;
         }
         System.out.println(Math.max(incl, excl));  /* return max of incl and excl */

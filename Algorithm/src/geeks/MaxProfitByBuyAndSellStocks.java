@@ -22,8 +22,8 @@ public class MaxProfitByBuyAndSellStocks {
     private static void max_profit(int[] a, int fee) {
         int buying = 0, selling = -a[0], diff_days = 1;
         for (int i = 1; i < a.length; i++) {
-            buying = max(buying, selling + a[i] - fee);
-            selling = max(selling, buying - a[i]);
+            buying  = max(buying,  selling + a[i] - fee);
+            selling = max(selling, buying  - a[i]);
             if (buying < selling) {
                 diff_days++;
             }
