@@ -12,9 +12,9 @@ public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
         for (char x : str.toCharArray()) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        Set<Integer> values = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for (int value : map.values()) {
-            if (!values.add(value)) {
+            if (!set.add(value)) {
                 return false;
             }
         }
