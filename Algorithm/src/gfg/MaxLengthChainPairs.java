@@ -28,12 +28,11 @@ public class MaxLengthChainPairs {
         }
     }
 
-    private static int maxChainLength(Pair pair[], int n) {
-        int mcl[] = new int[n];
+    private static int maxChainLength(Pair[] pair, int n) {
+        int[] mcl = new int[n];
         for (int i = 0; i < n; i++) {      // Initialize MCL (max chain length) values for all indexes
             mcl[i] = 1;
         }
-
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (pair[i].x > pair[j].y && mcl[i] < mcl[j] + 1) {
