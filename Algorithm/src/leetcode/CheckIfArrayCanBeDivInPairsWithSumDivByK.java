@@ -10,7 +10,7 @@ public class CheckIfArrayCanBeDivInPairsWithSumDivByK {
             Map<Integer, Integer> map = new HashMap<>();
             for (int x : a) {
                 int y = x % k;
-                map.put(y, map.getOrDefault(y, 1) + 1);
+                map.put(y, map.getOrDefault(y, 0) + 1);
             }
             for (int x : a) {
                 int y = x % k;
