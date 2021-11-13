@@ -8,7 +8,7 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
     private static int countUniquePairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {
-            map.put(x, map.getOrDefault(x, 1) + 1);
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
         int count = 0;
         for (int x : a) {

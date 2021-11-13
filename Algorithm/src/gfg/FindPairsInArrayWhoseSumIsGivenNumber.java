@@ -24,8 +24,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     public static void findPairs(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : nums) {
-            // Integer k = map.get(x) == null ? map.put(x, 1) : map.put(x, map.get(x) + 1);
-            map.put(x, map.getOrDefault(x, 1) + 1);
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
         for (int x : nums) {
             int y = target - x;
