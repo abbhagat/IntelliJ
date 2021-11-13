@@ -1,7 +1,10 @@
 package vmware;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 import static java.lang.Integer.max;
 
@@ -13,13 +16,12 @@ class Interval {
         this.start = start;
         this.end = end;
     }
-
 }
 
 public class IntervalMerging {
 
     private static LinkedList<Interval> mergeInterval(List<Interval> intervalList) {
-        Collections.sort(intervalList, Comparator.comparingInt(x -> x.start));
+        intervalList.sort(Comparator.comparingInt(x -> x.start));
         LinkedList<Interval> mergedInterval = new LinkedList<>();
         for (Interval interval : intervalList) {
             if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {
