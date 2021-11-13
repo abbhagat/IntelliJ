@@ -10,8 +10,7 @@ package gfg;
  */
 public class KthSmallestOddLengthPalindrome {
 
-    public static void main(String[] args) {
-        int n = 10;
+    private static String findKthSmallestOddLengthPalindrome(int n){
         int m = n;
         int rev = 0;
         while (n != 0) {
@@ -19,7 +18,11 @@ public class KthSmallestOddLengthPalindrome {
             rev = rev * 10 + k;
             n /= 10;
         }
-        rev = rev % 10;
-        System.out.println(m + "" + rev);
+        return m + "" + (rev % 10);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findKthSmallestOddLengthPalindrome(10));
+        System.out.println(findKthSmallestOddLengthPalindrome(11));
     }
 }
