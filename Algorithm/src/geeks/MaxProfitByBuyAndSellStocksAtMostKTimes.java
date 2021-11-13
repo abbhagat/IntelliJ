@@ -21,7 +21,7 @@ public class MaxProfitByBuyAndSellStocksAtMostKTimes {
     }
 
     public static void main(String[] args) {
-        int[] price = {12, 14, 17, 10, 14, 13, 12, 15};
-        System.out.println("Maximum profit is: " + maxProfit(price, price.length, 3));
+        int[] price = {100, 30, 15, 10, 8, 25, 80};
+        System.out.println("Maximum profit is: " + maxProfit(price, price.length, 2));
     }
 }
