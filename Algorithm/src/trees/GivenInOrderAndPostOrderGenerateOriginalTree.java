@@ -13,15 +13,14 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
             return null;
         }
 
-        Node root = new Node(postOrder[postIndex.index]);
-        postIndex.index--;
+        Node root = new Node(postOrder[postIndex.index--]);
 
         if (start == end) {
             return root;
         }
 
         int index  = search(inorder, root.num, start, end);
-        root.right = buildTree(inorder, postOrder, index + 1, end, postIndex);
+        root.right = buildTree(inorder, postOrder, index + 1,  end, postIndex);
         root.left  = buildTree(inorder, postOrder, start, index - 1, postIndex);
         return root;
     }

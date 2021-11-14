@@ -19,7 +19,7 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
 
         int index  = search(inorder, root.num, start, end);
         root.left  = buildTree(inorder, preorder, start, index - 1);
-        root.right = buildTree(inorder, preorder, index + 1, end);
+        root.right = buildTree(inorder, preorder, index + 1,   end);
         return root;
     }
 
