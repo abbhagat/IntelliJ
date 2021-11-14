@@ -9,10 +9,7 @@ public class NextGreaterElement {
         Stack<Integer> stack = new Stack<>();
         stack.push(a[0]);
         for (int i = 1; i < a.length; i++) {
-            int element = 0;
-            if (!stack.isEmpty()) {
-                element = stack.pop();
-            }
+            int element = stack.isEmpty() ? 0 : stack.pop();
             while (element <= a[i]) {
                 System.out.println(element + " " + a[i]);
                 if (stack.isEmpty()) {

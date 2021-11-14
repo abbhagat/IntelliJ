@@ -9,7 +9,7 @@ public class Singleton implements Cloneable, Serializable {
 
     private Singleton() throws Exception{
         if(_instance != null){
-            throw new Exception("Singletion is Already Initialized");
+            throw new Exception("Singleton is Already Initialized");
         }
     }
 
