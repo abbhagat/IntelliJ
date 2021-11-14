@@ -5,15 +5,22 @@ import static java.lang.Integer.max;
 public class MaxDistanceBetweenAnyNodes {
 
     private static int max_sum = Integer.MIN_VALUE;
+    private static int lH, rH;
 
-    public static int height(Node root) {
+    public static void height(Node root) {
         if (root == null) {
-            return -1;
+            return;
         }else{
-            int leftHeight  = height(root.left);
-            int rightHeight = height(root.right);
-            System.out.println("Left Height" + leftHeight + "\t" + "Right Height" + rightHeight);
-            return max(max_sum, leftHeight + rightHeight);
+            if(root.left != null){
+                lH++;
+                height(root.left);
+            }
+            if(root.right != null){
+                rH++;
+                height(root.right);
+            }
+            System.out.println(lH + "\t" + rH);
+            max_sum = max(max_sum, lH + rH - 2);
         }
     }
 
@@ -26,8 +33,12 @@ public class MaxDistanceBetweenAnyNodes {
         root.left.left = new Node(4);
         root.left.left.left = new Node(6);
         root.left.left.left.right = new Node(7);
+        root.left.left.left.right.left = new Node(17);
+        root.left.left.left.right.left.left = new Node(27);
         root.left.right = new Node(5);
         root.left.right.right = new Node(15);
-        System.out.println(height(root));
+        root.left.right.right.right = new Node(25);
+        height(root);
+        System.out.println(max_sum);
     }
 }
