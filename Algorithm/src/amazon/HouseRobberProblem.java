@@ -49,13 +49,13 @@ public class HouseRobberProblem {
         if (n == 2) {
             return max(a[0], a[1]);
         }
-        int table[] = new int[n];          // table[i] represent the maximum value stolen so far after reaching house i.
-        table[0] = a[0];                  // Initialize the table[0] and table[1]
-        table[1] = max(a[0], a[1]);
+        int[] dp = new int[n];            // dp[i] represent the maximum value stolen so far after reaching house i.
+        dp[0] = a[0];
+        dp[1] = max(a[0], a[1]);
         for (int i = 2; i < n; i++) {
-            table[i] = max(a[i] + table[i - 2], table[i - 1]);      // Fill remaining positions
+            dp[i] = max(a[i] + dp[i - 2], dp[i - 1]);
         }
-        return table[n - 1];
+        return dp[n - 1];
     }
 
     public static void main(String[] args) {
