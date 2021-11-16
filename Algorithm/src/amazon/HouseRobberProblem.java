@@ -34,7 +34,7 @@ public class HouseRobberProblem {
         if (n <= 0) {
             return 0;
         }
-        int selected   = maxGoldLooted(a, n - 2) + a[n - 1];
+        int selected   = a[n - 1] + maxGoldLooted(a, n - 2);
         int unselected = maxGoldLooted(a, n - 1);
         return max(selected, unselected);
     }
