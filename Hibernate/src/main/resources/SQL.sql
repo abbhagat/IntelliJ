@@ -1,3 +1,7 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
 ALTER SESSION SET CURRENT_SCHEMA = V705417;
 
 ALTER USER V705417 ACCOUNT UNLOCK;
