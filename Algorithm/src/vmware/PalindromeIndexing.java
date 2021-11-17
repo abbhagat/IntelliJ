@@ -48,22 +48,13 @@ public class PalindromeIndexing {
                 return -1;
             }
         }
-        return -2;
+        return -1;
     }
 
     public static void main(String[] args) {
-        String s = "MAXDAM";
-        int low = 0, high = s.length() - 1;
-        int index = findPalindromeIndex(s, low, high);
-        switch (index) {
-            case -1:
-                System.out.println("Not Possible");
-                break;
-            case -2:
-                System.out.println("Possible Without Removing");
-                break;
-            default:
-                System.out.println("Possible by removing character at index " + index);
+        int index = findPalindromeIndex("MAXDAM", 0, "MAXDAM".length() - 1);
+        if (index >= 0) {
+            System.out.println("Possible by removing character at index " + index);
         }
     }
 }
