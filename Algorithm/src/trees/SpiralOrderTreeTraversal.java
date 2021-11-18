@@ -19,16 +19,16 @@ public class SpiralOrderTreeTraversal {
         }
         if (level == 0) {
             System.out.print(root.num + " ");
+            return;
         }
-        if (level > 0) {
-            if (flag) {
-                printLevelOrder(root.left,  level - 1, true);
-                printLevelOrder(root.right, level - 1, true);
-            } else {
-                printLevelOrder(root.right, level - 1, false);
-                printLevelOrder(root.left,  level - 1, false);
-            }
+        if (flag) {
+            printLevelOrder(root.left,  level - 1, true);
+            printLevelOrder(root.right, level - 1, true);
+        } else {
+            printLevelOrder(root.right, level - 1, false);
+            printLevelOrder(root.left,  level - 1, false);
         }
+
     }
 
     public static void main(String[] args) {
