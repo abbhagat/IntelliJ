@@ -56,5 +56,8 @@ public class TreeMirrorImage {
         root = mirrorImage(root);
         System.out.println();
         inorder(root);
+        root = mirrorImageUsingIteration(root);
+        System.out.println();
+        inorder(root);
     }
 }
