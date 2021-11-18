@@ -28,7 +28,6 @@ public class SpiralOrderTreeTraversal {
             printLevelOrder(root.right, level - 1, false);
             printLevelOrder(root.left,  level - 1, false);
         }
-
     }
 
     public static void main(String[] args) {
