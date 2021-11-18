@@ -1,5 +1,7 @@
 package leetcode;
 
+import static java.lang.Integer.max;
+
 /**
  * Given a positive number N, the target is to find the largest number that can be formed after removing any K digits from N.
  * Examples:
@@ -12,13 +14,13 @@ public class LargestSumAfterRemovingKDigit {
 
     private static int maxNumber(int n, int k) {
         for (int j = 1; j <= k; j++) {
-            int ans = 0, i = 1;
+            int result = 0, i = 1;
             while (n / i > 0) {                                // Remove the last digit after every iteration
                 int temp = (n / (i * 10)) * i + (n % i);      // Store the numbers formed after removing every digit once
                 i *= 10;
-                ans = Math.max(ans, temp);
+                result = max(result, temp);
             }
-            n = ans;
+            n = result;
         }
         return n;
     }
