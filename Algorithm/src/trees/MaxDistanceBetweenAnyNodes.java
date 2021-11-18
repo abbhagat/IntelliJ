@@ -4,7 +4,7 @@ import static java.lang.Integer.max;
 
 public class MaxDistanceBetweenAnyNodes {
 
-    private static int max_sum = Integer.MIN_VALUE;
+    private static int max_dist = Integer.MIN_VALUE;
     private static int lH, rH;
 
     public static void height(Node root) {
@@ -20,7 +20,7 @@ public class MaxDistanceBetweenAnyNodes {
                 height(root.right);
             }
             System.out.println(lH + "\t" + rH);
-            max_sum = max(max_sum, lH + rH - 2);
+            max_dist = max(max_dist, lH + rH - 2);
         }
     }
 
@@ -39,6 +39,6 @@ public class MaxDistanceBetweenAnyNodes {
         root.left.right.right = new Node(15);
         root.left.right.right.right = new Node(25);
         height(root);
-        System.out.println(max_sum);
+        System.out.println(max_dist);
     }
 }

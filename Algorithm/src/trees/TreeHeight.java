@@ -13,10 +13,10 @@ public class TreeHeight {
     public static int height(Node root) {
         if (root == null) {
             return -1;
-        }else{
+        } else {
             int leftHeight  = height(root.left);
             int rightHeight = height(root.right);
-            int height = leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+            int height = max(leftHeight, rightHeight) + 1;
             return height;
         }
     }
@@ -24,18 +24,18 @@ public class TreeHeight {
     public static int heights(Node root) {
         if (root == null) {
             return -1;
-        }else{
-            if(root.left != null){
+        } else {
+            if (root.left != null) {
                 lH++;
                 heights(root.left);
             }
-            if(root.right != null){
+            if (root.right != null) {
                 rH++;
                 heights(root.right);
             }
             System.out.println(lH + "\t" + rH);
         }
-        return max(lH,rH);
+        return max(lH, rH);
     }
 
     public static int heightOfEachNode(Node root) {
@@ -45,7 +45,7 @@ public class TreeHeight {
     public static void main(String[] args) {
         BinaryTree BT = new BinaryTree();
         Node root = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13};
+        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
         for (int x : a) {
             root = BT.createBT(x, root);
         }

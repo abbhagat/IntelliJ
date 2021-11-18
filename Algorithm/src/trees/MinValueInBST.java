@@ -4,7 +4,7 @@ import static trees.CreateBST.createBST;
 
 public class MinValueInBST {
 
-    public static Node minValueinBST(Node root) {
+    public static Node minValueInBST(Node root) {
         if (root != null) {
             while (root.left != null) {
                 root = root.left;
@@ -27,6 +27,6 @@ public class MinValueInBST {
             root = createBST(root, a[i]);
         }
         System.out.println(minValueBST(root).num);
-        System.out.println(minValueinBST(root).num);
+        System.out.println(minValueInBST(root).num);
     }
 }
