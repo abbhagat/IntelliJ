@@ -9,10 +9,11 @@ public class ComparatorDemo {
 
         List<Employee> empList = Arrays.asList(new Employee("Abhinaw", 1, new Date("07-OCT-1986")),
                 new Employee("Nikita", 2, new Date("26-APR-1986")), new Employee("Kritika", 3, new Date("18-AUG-1993")),
-                new Employee("Richaa", 4, new Date("12-AUG-1985")),
+                new Employee("Richa", 4, new Date("12-AUG-1985")),
                 new Employee("Indrasan", 5, new Date("12-SEP-1982")));
 
         Comparator<Employee> byName = (e1, e2) -> e1.getName().compareTo(e2.getName());
+        // Comparator<Employee> byName = Comparator.comparing(Employee::getName);
         Collections.sort(empList, byName);
         empList.forEach(System.out::println);
         System.out.println();
@@ -30,5 +31,4 @@ public class ComparatorDemo {
         empList.forEach(System.out::println);
         System.out.println();
     }
-
 }
