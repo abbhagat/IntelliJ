@@ -4,22 +4,27 @@ import java.util.stream.IntStream;
 
 public class ReArrangeArrayToOddEvenPlace {
 
-    public static void main(String[] args) {
-        int[] a = {2, 1, 3, 4, 7, 9, 24, 98};
-        int oddIdx = 0, evenIdx = 1;
-        while (oddIdx < a.length - 1 && evenIdx < a.length) {
-            if (a[oddIdx] % 2 == 1) {
-                oddIdx += 2;
+    private static void reArrangeArrayToOddEvenPlace(int[] a) {
+        int i = 0, j = 1;
+        while (i < a.length - 1 && j < a.length) {
+            if (a[i] % 2 == 1) {
+                i += 2;
             } else {
-                if (a[evenIdx] % 2 == 1) {
-                    int t = a[oddIdx];
-                    a[oddIdx] = a[evenIdx];
-                    a[evenIdx] = t;
+                if (a[j] % 2 == 1) {
+                    int t = a[i];
+                    a[i] = a[j];
+                    a[j] = t;
                 } else {
-                    evenIdx += 2;
+                    j += 2;
                 }
             }
         }
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+    }
+
+    public static void main(String[] args) {
+        reArrangeArrayToOddEvenPlace(new int[]{2, 1, 3, 4, 7, 9, 24, 98});
+        System.out.println();
+        reArrangeArrayToOddEvenPlace(new int[]{2, 1, 5, 6});
     }
 }
