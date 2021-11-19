@@ -1,6 +1,6 @@
 package stack;
 
-public class StackPopnPush {
+public class StackPopNPush {
 
     Node first;
     char c;

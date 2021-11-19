@@ -2,7 +2,7 @@ package stack;
 
 public class StackOperations {
     public static void main(String[] args) {
-        StackPopnPush s = new StackPopnPush();
+        StackPopNPush s = new StackPopNPush();
         Node first = null;
         String str = "abcde";
         for (char c : str.toCharArray()) {
