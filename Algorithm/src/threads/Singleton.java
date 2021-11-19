@@ -33,7 +33,7 @@ public class Singleton implements Cloneable, Serializable {
     @Override
     public Singleton clone() {
         try {
-            return getInstance();
+            _instance = getInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
