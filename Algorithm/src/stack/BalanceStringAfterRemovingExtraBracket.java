@@ -27,10 +27,8 @@ public class BalanceStringAfterRemovingExtraBracket {
                 System.out.print(c);
             }
         }
-        if (count != 0) {                             // balance the brackets if opening brackets are more then closing brackets
-            for (int i = 1; i <= count; i++) {
-                System.out.print(")");              // print remaining closing brackets
-            }
+        for (int i = 1; i <= count; i++) {
+            System.out.print(")");              // print remaining closing brackets
         }
     }
 

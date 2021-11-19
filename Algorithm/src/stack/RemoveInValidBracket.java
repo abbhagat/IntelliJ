@@ -7,35 +7,26 @@ import java.util.Stack;
 public class RemoveInValidBracket {
 
     private static void removeInvalidParenthesis(String str) {
-        if (str.isEmpty()) {
-            return;
-        }
-        Set<String> set = new HashSet<>();   // set to ignore already visited string
+        Set<String> set = new HashSet<>();                                             // set to ignore already visited string
         Stack<String> stack = new Stack<>();
         stack.push(str);
         set.add(str);
-
         while (!stack.isEmpty()) {
             str = stack.pop();
             if (isValidString(str)) {
                 System.out.println(str);
-                continue;
-            }
-            for (int i = 0; i < str.length(); i++) {
-                if (!isParenthesis(str.charAt(i))) {
-                    continue;
-                }
-                String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str and
-                if (!set.contains(temp)) {                                //  Pushing into stack if not visited already
-                    stack.push(temp);
-                    set.add(temp);
+            } else {
+                for (int i = 0; i < str.length(); i++) {
+                    if (str.charAt(i) == '(' || str.charAt(i) == ')') {
+                        String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str
+                        if (!set.contains(temp)) {                                //  Pushing into stack if not visited already
+                            stack.push(temp);
+                            set.add(temp);
+                        }
+                    }
                 }
             }
         }
-    }
-
-    private static boolean isParenthesis(char c) {  // method checks if character is parenthesis(open or closed)
-        return ((c == '(') || (c == ')'));
     }
 
     private static boolean isValidString(String str) {   // method returns true if string contains valid parenthesis
