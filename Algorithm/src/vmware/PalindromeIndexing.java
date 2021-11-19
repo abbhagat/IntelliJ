@@ -54,7 +54,7 @@ public class PalindromeIndexing {
     public static void main(String[] args) {
         int index = findPalindromeIndex("MAXDAM", 0, "MAXDAM".length() - 1);
         if (index >= 0) {
-            System.out.println("Possible by removing character at index " + index);
+            System.out.println("Palindrome Index :- " + index);
         }
     }
 }
