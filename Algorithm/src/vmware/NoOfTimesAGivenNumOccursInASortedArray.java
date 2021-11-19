@@ -26,18 +26,12 @@ public class NoOfTimesAGivenNumOccursInASortedArray {
 
     public static void main(String[] args) {
         int[] a = {1, 1, 2, 2, 2};
-        int n = 2;
-        int low = 0, high = a.length - 1;
-        if (a[low] == a[high] & a[low] == n) {
-            System.out.println(high - low + 1);
-        } else {
-            int startIndex = binarySearchStartIndex(a, 0, a.length - 1, n);
-            if (startIndex == -1) {
-                System.out.println("Element Not Found");
-            } else {
-                int endIndex   = binarySearchEndIndex(a, startIndex + 1, a.length - 1, n);
-                System.out.println(startIndex == endIndex ? 1 : endIndex - startIndex + 1);
-            }
+        int n = 2, count = 0;
+        int startIndex = binarySearchStartIndex(a, 0, a.length - 1, n);
+        if (startIndex != -1) {
+            int endIndex = binarySearchEndIndex(a, startIndex + 1, a.length - 1, n);
+            count = startIndex == endIndex ? 1 : endIndex - startIndex + 1;
         }
+        System.out.println(count);
     }
 }
