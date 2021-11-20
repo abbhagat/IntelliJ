@@ -10,8 +10,8 @@ public class MaxDistanceBetweenAnyNodes {
         if (root == null) {
             return 0;
         }
-        int lH  = getMaxDist(root.left);
-        int rH  = getMaxDist(root.right);
+        int lH   = getMaxDist(root.left);
+        int rH   = getMaxDist(root.right);
         max_dist = max(max_dist, lH + rH);
         return Math.max(lH, rH) + 1;
     }
