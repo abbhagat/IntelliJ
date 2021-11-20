@@ -12,12 +12,12 @@ public class ClosestSumPairInAnArray {
         while (i < j) {
             int sum = Math.abs(a[i] + a[j] - n);
             if (sum < diff) {
-                x = i;
-                y = j;
+                x = a[i];
+                y = a[j];
                 diff = sum;
             }
             int k = a[i] + a[j] < n ? i++ : j--;
         }
-        System.out.println("The closest pair is " + a[x] + " and " + a[y]);
+        System.out.println("The closest pair is " + x + " and " + y);
     }
 }
