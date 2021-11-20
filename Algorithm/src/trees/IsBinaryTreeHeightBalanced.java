@@ -10,12 +10,12 @@ public class IsBinaryTreeHeightBalanced {
         if (root == null) {
             return 0;
         }
-        int leftHeight  = maxHeight(root.left);
-        int rightHeight = maxHeight(root.right);
-        if (leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) {
+        int lH  = maxHeight(root.left);
+        int rH  = maxHeight(root.right);
+        if (lH == -1 || rH == -1 || Math.abs(lH - rH) > 1) {
             return -1;
         }
-        return Math.max(leftHeight, rightHeight) + 1;
+        return Math.max(lH, rH) + 1;
     }
 
     public static void main(String[] args) {
