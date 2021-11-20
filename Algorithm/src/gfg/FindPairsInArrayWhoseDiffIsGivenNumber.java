@@ -1,19 +1,24 @@
 package gfg;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
     private static void findPairs(int[] a, int target) {
-        Set<Integer> set = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {
-            set.add(x);
+            map.put(x, map.getOrDefault(x,0) + 1);
         }
         for (int x : a) {
             int y = x - target;
-            if (set.contains(y)) {
+            if (map.containsKey(y)) {
+                if (x == y && map.get(x) == 1) {
+                    continue;
+                }
                 System.out.println("(" + x + "," + y + ")");
+                map.remove(x);
+                map.remove(y);
             }
         }
     }
