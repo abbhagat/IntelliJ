@@ -38,16 +38,15 @@ public class TreeHeight {
     }
 
     public static void main(String[] args) {
-        BinaryTree BT = new BinaryTree();
-        Node root = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-        for (int x : a) {
-            root = BT.createBT(x, root);
-        }
-        System.out.println("\nTree Height :" + treeHeight(root));
-        System.out.println("\nTree Height :" + height(root));
-        System.out.println("\nTree Height :" + heights(root));
-        System.out.println("\nTree Height :" + treeHeight(null));
-        System.out.println("\nTree Height :" + height(null));
+        Node root       = new Node(1);
+        root.left       = new Node(2);
+        root.right      = new Node(3);
+        root.left.left  = new Node(4);
+        root.left.right = new Node(5);
+        System.out.println("Tree Height :" + treeHeight(root));
+        System.out.println("Tree Height :" + height(root));
+        System.out.println("Tree Height :" + heights(root));
+        System.out.println("Tree Height :" + treeHeight(null));
+        System.out.println("Tree Height :" + height(null));
     }
 }

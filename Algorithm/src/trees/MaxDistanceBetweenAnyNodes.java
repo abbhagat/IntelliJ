@@ -5,23 +5,6 @@ import static java.lang.Integer.max;
 public class MaxDistanceBetweenAnyNodes {
 
     private static int max_dist = Integer.MIN_VALUE;
-    private static int lH, rH;
-
-    public static void height(Node root) {
-        if (root == null) {
-            return;
-        }else{
-            if(root.left != null){
-                lH++;
-                height(root.left);
-            }
-            if(root.right != null){
-                rH++;
-                height(root.right);
-            }
-            max_dist = max(max_dist, lH + rH - 2);
-        }
-    }
 
     private static int getMaxDist(Node root) {
         if (root == null) {
@@ -45,8 +28,6 @@ public class MaxDistanceBetweenAnyNodes {
         root.left.right = new Node(5);
         root.left.right.right = new Node(15);
         root.left.right.right.right = new Node(25);
-        height(root);
-        System.out.println(max_dist);
         getMaxDist(root);
         System.out.println(max_dist);
     }
