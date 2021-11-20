@@ -3,15 +3,14 @@ package strings;
 public class SubstringCheck {
 
     private static boolean subString(String s1, String s2) {
-        if (s2.equals("") || s1.equals(s2)) {
+        if (s2.isEmpty() || s2.equals(s1)) {
             return true;
         }
         if (s2.length() > s1.length()) {
             return false;
         }
-        int i = 0, j = 0, index = -1;
-        String s = "";
-        while (i < s1.length() && j < s2.length()) {
+        String s = ""; int index = -1;
+        for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);
@@ -24,7 +23,6 @@ public class SubstringCheck {
                 j = 0;
                 s = "";
             }
-            i++;
         }
         return s.equals(s2) ? true : false;
     }
