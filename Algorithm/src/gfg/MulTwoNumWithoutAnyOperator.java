@@ -1,18 +1,25 @@
 package gfg;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 public class MulTwoNumWithoutAnyOperator {
 
     private static int add(int x, int y) {
         return y == 0 ? x : add(x ^ y, (x & y) << 1);
     }
 
-    public static void main(String[] args) {
-        int x = 3;
-        int y = 15;
+    private static int mul(int x, int y) {
         int mul = 0;
-        for (int i = 1; i <= Math.min(x, y); i++) {
-            mul = add(mul, Math.max(x, y));
+        for (int i = 1; i <= min(x, y); i++) {
+            mul = add(mul, max(x, y));
         }
-        System.out.println(mul);
+        return mul;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(mul(3, 15));
+        System.out.println(mul(13, 5));
+        System.out.println(mul(3, 10));
     }
 }
