@@ -1,5 +1,11 @@
 package trees;
 
+
+/**
+ * To check if a tree is height-balanced, get the height of left and right subtrees.
+ * Return true if difference between heights is not more than 1 and left and right subtrees are balanced, otherwise return false.
+ * A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree.
+ */
 public class IsBinaryTreeHeightBalanced {
 
     private static boolean isBinaryTreeHeightBalanced(Node root) {

@@ -19,12 +19,19 @@ public class MaxDistanceBetweenAnyNodes {
                 rH++;
                 height(root.right);
             }
-            System.out.println(lH + "\t" + rH);
             max_dist = max(max_dist, lH + rH - 2);
         }
     }
 
-
+    private static int getMaxDist(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int lH  = getMaxDist(root.left);
+        int rH  = getMaxDist(root.right);
+        max_dist = max(max_dist, lH + rH);
+        return Math.max(lH, rH) + 1;
+    }
 
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -39,6 +46,8 @@ public class MaxDistanceBetweenAnyNodes {
         root.left.right.right = new Node(15);
         root.left.right.right.right = new Node(25);
         height(root);
+        System.out.println(max_dist);
+        getMaxDist(root);
         System.out.println(max_dist);
     }
 }
