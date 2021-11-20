@@ -14,7 +14,6 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
             int y = x - target;
             if (set.contains(y)) {
                 System.out.println("(" + x + "," + y + ")");
-                set.remove(y);
             }
         }
     }
@@ -25,5 +24,7 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         findPairs(new int[]{10, 5, 15, 5, 0}, 5);
         System.out.println();
         findPairs(new int[]{10, 5, 15}, 5);
+        System.out.println();
+        findPairs(new int[]{10, 5, 15, 5, 0}, 0);
     }
 }

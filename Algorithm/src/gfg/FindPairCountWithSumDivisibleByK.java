@@ -99,7 +99,7 @@ public class FindPairCountWithSumDivisibleByK {
             freq[x % k]++;
         }
         int count = freq[0] * (freq[0] - 1) / 2;                // If both pairs are divisible by 'k'
-        for (int i = 1; i <= k / 2 && i != (k - i); i++) {    // count for all i and (k-i) freq pairs
+        for (int i = 1; i <= k / 2 && i != (k - i); i++) {     // count for all i and (k-i) freq pairs
             count += freq[i] * freq[k - i];
         }
         if (k % 2 == 0) {                              // If k is even
