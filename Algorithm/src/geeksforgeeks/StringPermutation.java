@@ -3,7 +3,6 @@ package geeksforgeeks;
 public class StringPermutation {
 
     public static boolean checkInclusion(char[] c1, char[] c2) {
-
         if (c1.length > c2.length) {
             return false;
         }
@@ -13,16 +12,15 @@ public class StringPermutation {
             c1Data[c1[i]]++;
             c2Data[c2[i]]++;
         }
-        int windowStart = 0;
-        int windowEnd = c1.length;
-        while (windowEnd < c2.length) {
+        int i = 0, j = c1.length;
+        while (j < c2.length) {
             if (matches(c1Data, c2Data)) {
                 return true;
             }
-            c2Data[c2[windowEnd]]++;
-            c2Data[c2[windowStart]]--;
-            windowStart++;
-            windowEnd++;
+            c2Data[c2[j]]++;
+            c2Data[c2[i]]--;
+            i++;
+            j++;
         }
         return matches(c1Data, c2Data) ? true : false;
     }
