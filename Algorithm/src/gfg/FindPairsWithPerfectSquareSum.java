@@ -11,8 +11,8 @@ public class FindPairsWithPerfectSquareSum {
 
     public static List<Integer> getPerfectSquares(int sum) {
         List<Integer> perfectSquares = new ArrayList<>();
-        int n = 1;
-        for (int i = 1; n < sum; ) {
+        int n = 1, i = 1;
+        while (n < sum) {
             perfectSquares.add(n);
             n = (int) Math.pow(++i, 2);
         }
@@ -25,7 +25,7 @@ public class FindPairsWithPerfectSquareSum {
             if (max < x) {
                 secondMax = max;
                 max = x;
-            } else if (secondMax< x) {
+            } else if (secondMax < x) {
                 secondMax = x;
             }
         }
