@@ -9,7 +9,7 @@ public class Min_2nd_Min {
         for (int x : a) {
             if (x < min) {
                 _2ndMin = min;
-                min = x;
+                    min = x;
             } else if (x < _2ndMin) {
                 _2ndMin = x;
             }
