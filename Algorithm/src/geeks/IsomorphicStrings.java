@@ -6,7 +6,6 @@ import java.util.Map;
 public class IsomorphicStrings {
 
     private static boolean isIsomorphic(char[] c1, char[] c2) {
-
         if (c1.length == c2.length) {
             Map<Character, Character> map = new HashMap<>();
             for (int i = 0; i < c1.length; i++) {

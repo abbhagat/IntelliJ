@@ -1,18 +1,17 @@
 package geeks;
 
+import static java.lang.Math.abs;
+
 public class LargeNumberDivisibleBy11 {
 
     private static boolean isDivisibleBy11(long n){
         String s = Long.toString(n);
-        int oddSum = 0, evenSum = 0;
+        int sum = 0;
         for(int i = 0; i < s.length(); i++){
-            if(i % 2 == 1){
-                oddSum  += s.charAt(i) - '0';
-            }else{
-                evenSum += s.charAt(i) - '0';
-            }
+            int k = s.charAt(i) - '0';
+            sum += i % 2 == 1 ? k : -k;
         }
-        return Math.abs(oddSum - evenSum) % 11 == 0;
+        return abs(sum) % 11 == 0;
     }
 
     public static void main(String[] args) {
