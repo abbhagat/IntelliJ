@@ -31,11 +31,11 @@ public class MaxSumNonAdjacentArray {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3};
-        int incl = a[0], excl = 0;
+        int incl = a[0], excl = 0, excl_new = 0;
         for (int i = 1; i < a.length; i++) {
-            int excl_new = max(incl, excl);       // current max excluding i
-            incl = excl + a[i];                  //  current max including i
-            excl = excl_new;
+            excl_new = max(incl, excl);       // current max excluding i
+            incl     = excl + a[i];           //  current max including i
+            excl     = excl_new;
         }
         System.out.println(max(incl, excl));   // return max of incl and excl
     }
