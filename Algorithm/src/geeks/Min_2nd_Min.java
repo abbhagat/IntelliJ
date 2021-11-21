@@ -14,7 +14,6 @@ public class Min_2nd_Min {
                 _2ndMin = x;
             }
         }
-
         System.out.println("Min : " + min + "\t _2ndMin : " + _2ndMin);
     }
 }
