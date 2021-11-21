@@ -1,5 +1,7 @@
 package geeks;
 
+import static java.lang.Integer.max;
+
 /**
 
 Input : arr[] = {5, 5, 10, 100, 10, 5}
@@ -24,17 +26,17 @@ Max sum including the current element will be excl + current element
 At the end of the loop return max of incl and excl.
 */
 
-//Maximum sum such that no two elements are adjacent
+// Maximum sum such that no two elements are adjacent
 public class MaxSumNonAdjacentArray {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3};
         int incl = a[0], excl = 0;
         for (int i = 1; i < a.length; i++) {
-            int excl_new = Math.max(incl, excl);  /* current max excluding i */
-            incl = excl + a[i];                  /*  current max including i */
+            int excl_new = max(incl, excl);       // current max excluding i
+            incl = excl + a[i];                  //  current max including i
             excl = excl_new;
         }
-        System.out.println(Math.max(incl, excl));  /* return max of incl and excl */
+        System.out.println(max(incl, excl));   // return max of incl and excl
     }
 }
