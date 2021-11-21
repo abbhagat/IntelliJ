@@ -36,6 +36,6 @@ public class CuttingRodProblem {
 
     public static void main(String args[]) {
         int price[] = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
-        System.out.println("Maximum Obtainable Value is " + cutRod(price, price.length));
+        System.out.println(cutRod(price, price.length));
     }
 }
