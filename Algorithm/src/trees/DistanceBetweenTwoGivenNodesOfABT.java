@@ -1,7 +1,6 @@
 package trees;
 
-import static trees.BinaryTree.createBT;
-import static trees.LCA.LCA;
+import static trees.LCAOfBinaryTree.findLCA;
 
 public class DistanceBetweenTwoGivenNodesOfABT {
 
@@ -19,17 +18,17 @@ public class DistanceBetweenTwoGivenNodesOfABT {
         return distance;
     }
 
-    private static int findDistance(Node root, int num1, int num2) {
-        Node lca = LCA(root, num1, num2);
-        return findLevel(lca, null, 0) + findLevel(lca, null, 0);
+    private static int findDistance(Node root, Node x, Node y) {
+        Node lca = findLCA(root, x, y);
+        return findLevel(lca, x, 0) + findLevel(lca, y, 0);
     }
 
     public static void main(String[] args) {
-        int[] a = {30, 10, 50, 5, 20, 40, 60, 1, 6};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBT(a[i],root);
-        }
-        System.out.println(findDistance(root, 1, 20));
+        Node root       = new Node(1);
+        root.left       = new Node(2);
+        root.right      = new Node(3);
+        root.left.left  = new Node(4);
+        root.left.right = new Node(5);
+        System.out.println(findDistance(root, root.left.left, root.right));
     }
 }
