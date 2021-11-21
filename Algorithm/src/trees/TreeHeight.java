@@ -14,9 +14,10 @@ public class TreeHeight {
         if (root == null) {
             return -1;
         } else {
-            int leftHeight  = height(root.left);
-            int rightHeight = height(root.right);
-            int height = max(leftHeight, rightHeight) + 1;
+            int lH  = height(root.left);
+            int rH = height(root.right);
+            int height = max(lH, rH) + 1;
+            System.out.println("Height of Each Node :" + height);
             return height;
         }
     }

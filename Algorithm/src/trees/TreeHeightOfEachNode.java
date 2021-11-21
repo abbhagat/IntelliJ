@@ -1,20 +1,26 @@
 package trees;
 
-import static trees.TreeHeight.height;
+import static java.lang.Integer.max;
 
 public class TreeHeightOfEachNode {
 
-    public static int heightOfEachNode(Node root) {
-        return root == null ? 0 : height(root) + heightOfEachNode(root.left) + heightOfEachNode(root.right);
+    private static int heightOfEachNode(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        int lH   = heightOfEachNode(root.left);
+        int rH   = heightOfEachNode(root.right);
+        int heightOfEachNode = max(lH, rH) + 1;
+        System.out.println(heightOfEachNode);
+        return heightOfEachNode;
     }
 
     public static void main(String[] args) {
-        BinaryTree BT = new BinaryTree();
-        Node root = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-        for (int x : a) {
-            root = BT.createBT(x, root);
-        }
+        Node root       = new Node(1);
+        root.left       = new Node(2);
+        root.right      = new Node(3);
+        root.left.left  = new Node(4);
+        root.left.right = new Node(5);
         heightOfEachNode(root);
     }
 }
