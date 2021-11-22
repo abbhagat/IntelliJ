@@ -8,9 +8,7 @@ import static java.lang.Integer.max;
  * A thief is planning to carry a heist in this neighborhood. He knows how much gold is concealed in each of the houses.
  * However, in order to avoid triggering an alarm and raise suspicion, he plans to carry heist in such a way that no two consecutive houses are looted.
  * i.e. if the house at index = i is looted, the houses at i-1 and i+1 are not looted.
- * <p>
  * Find out what is the maximum number of gold the thief can steal following the given constraints.
- * <p>
  * Input 1: arr[] = [2,3,4,2,3]
  * Maximum gold = [2, X, 4, X, 3] = 9
  * Output: 6
@@ -20,9 +18,7 @@ import static java.lang.Integer.max;
  * Input 2: arr[] = [3,8,10,4,2,3,11]
  * Maximum gold = [3, X, 10, X, 2, X, 11] = 26
  * Output: 26
- * <p>
  * Explanation: in example 2, the thief has to get to 1st, 3rd, and 6th house to collect the maximum number of gold given the constraints.
- * <p>
  * Start traversing arr[] from right to left.
  * If an element arr[i] is selected then the next element (arr[i-1]) cannot be selected.
  * If an element(arr[i]) is not selected then the next element arr[i-1] can be selected.
@@ -55,10 +51,10 @@ public class HouseRobberProblem {
     }
 
     public static void main(String[] args) {
-        int[] a = {3, 8, 10, 4, 2, 3};
+        int[] a = {6, 7, 1, 3, 8, 2, 4};
         System.out.println("Max Gold Looted :" + maxGoldLooted(a, a.length));
         System.out.println("Max Gold Looted :" + maxGoldLootedDP(a, a.length));
-        int[] b = {2,3,4,2,3};
+        int[] b = {5, 3, 4, 11, 2};
         System.out.println("Max Gold Looted :" + maxGoldLooted(b, b.length));
         System.out.println("Max Gold Looted :" + maxGoldLootedDP(b, b.length));
     }
