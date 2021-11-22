@@ -36,11 +36,10 @@ public class BinaryTreeMaxWidth {
         }
         if (level == 0) {
             width++;
+            return;
         }
-        if (level > 0) {
-            levelOrderTraversal(root.left,  level - 1);
-            levelOrderTraversal(root.right, level - 1);
-        }
+        levelOrderTraversal(root.left,  level - 1);
+        levelOrderTraversal(root.right, level - 1);
     }
 
     public static void main(String[] args) {
