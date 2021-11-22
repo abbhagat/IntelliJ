@@ -1,4 +1,4 @@
-package arrays;
+package amazon;
 
 // same solution as of anagram
 

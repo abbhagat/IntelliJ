@@ -1,4 +1,4 @@
-package arrays;
+package amazon;
 
 //a%b = a - int(a/b)*b
 
