@@ -5,17 +5,17 @@ import static java.lang.Math.min;
 
 public class LargestContiguousProductArrayPrint {
 
-    private static void maxSubarrayProduct(int[] nums) {
-        int maxVal = nums[0], minVal = nums[0], maxProduct = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] < 0) {
-                int t = maxVal;
-                maxVal = minVal;
-                minVal = t;
+    private static void maxSubarrayProduct(int[] a) {
+        int max = a[0], min = a[0], maxProduct = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < 0) {
+                int t = max;
+                max = min;
+                min = t;
             }
-            maxVal = max(nums[i], maxVal * nums[i]);
-            minVal = min(nums[i], minVal * nums[i]);
-            maxProduct = max(maxProduct, maxVal);
+            max = max(a[i], max * a[i]);
+            min = min(a[i], min * a[i]);
+            maxProduct = max(maxProduct, max);
         }
         System.out.println(maxProduct);
     }
