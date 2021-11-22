@@ -28,7 +28,9 @@ If none of the above conditions is true, then minPalPartion(str, i, j) can be ca
 minPalPartion(str, i, j) = Min { minPalPartion(str, i, k) + 1 + minPalPartion(str, k+1, j) }  where k varies from i to j-1
  */
 
-public class PalindromePartioning {
+import static java.lang.Integer.min;
+
+public class PalindromePartitioning {
 
     private static boolean isPalindrome(String str, int i, int j) {
         while (i <= j) {
@@ -46,7 +48,7 @@ public class PalindromePartioning {
         int min = Integer.MAX_VALUE;
         for (int i = low; i < high; i++) {
             int result = minPalindromePartition(str, low, i) + minPalindromePartition(str, i + 1, high);
-            min = Math.min(min, result);
+            min = min(min, result);
         }
         return min + 1;
     }
