@@ -7,12 +7,9 @@ import java.util.Set;
 
 public class GetRequestGIF {
 
-    private static final Scanner scan = new Scanner(System.in);
-
     public static void main(String args[]) throws Exception {
-        // read the string filename
-        String filename;
-        filename = scan.nextLine();
+        Scanner scan = new Scanner(System.in);
+        String filename = scan.nextLine();
         OutputStream os = null;
         String data = readFile(filename);
         String resultFileName = "gifs_" + filename;
