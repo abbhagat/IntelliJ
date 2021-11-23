@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class ManageSplitwiseApplication implements CommandLineRunner {
+public class ManageSplitWiseApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(ManageSplitwiseApplication.class, args);
+        SpringApplication.run(ManageSplitWiseApplication.class, args);
     }
 
     @Override
