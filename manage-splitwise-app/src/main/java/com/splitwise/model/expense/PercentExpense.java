@@ -9,8 +9,8 @@ import java.util.List;
 public class PercentExpense extends Expense {
 
 
-    public PercentExpense(String id, double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
-        super(id, amount, paidBy, splits, metadata);
+    public PercentExpense(double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
+        super(amount, paidBy, splits, metadata);
     }
 
     @Override

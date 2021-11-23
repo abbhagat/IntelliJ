@@ -8,8 +8,8 @@ import java.util.List;
 
 public class EqualExpense extends Expense {
 
-    public EqualExpense(String id, double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
-        super(id, amount, paidBy, splits, metadata);
+    public EqualExpense(double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
+        super(amount, paidBy, splits, metadata);
     }
 
     @Override

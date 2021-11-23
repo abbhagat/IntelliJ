@@ -9,8 +9,8 @@ import java.util.List;
 public class ExactExpense extends Expense {
 
 
-    public ExactExpense(String id, double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
-        super(id, amount, paidBy, splits, metadata);
+    public ExactExpense(double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
+        super(amount, paidBy, splits, metadata);
     }
 
     @Override

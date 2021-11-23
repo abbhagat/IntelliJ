@@ -2,7 +2,6 @@ package com.splitwise.model.expense;
 
 import com.splitwise.model.User;
 import com.splitwise.model.split.Split;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public abstract class Expense {
 
     private String id;
@@ -18,6 +16,13 @@ public abstract class Expense {
     private User paidBy;
     private List<Split> splits;
     private ExpenseMetadata metadata;
+
+    public Expense(double amount, User paidBy, List<Split> splits, ExpenseMetadata metadata) {
+        this.amount = amount;
+        this.paidBy = paidBy;
+        this.splits = splits;
+        this.metadata = metadata;
+    }
 
     public abstract boolean validate();
 }
