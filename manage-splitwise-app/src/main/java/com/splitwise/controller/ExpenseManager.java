@@ -19,14 +19,14 @@ public class ExpenseManager {
     public Map<String, Map<String, Double>> balanceSheet;
 
     public ExpenseManager() {
-        expenses = new ArrayList<Expense>();
-        userMap = new HashMap<String, User>();
-        balanceSheet = new HashMap<String, Map<String, Double>>();
+        expenses = new ArrayList<>();
+        userMap = new HashMap<>();
+        balanceSheet = new HashMap<>();
     }
 
     public void addUser(User user) {
         userMap.put(user.getId(), user);
-        balanceSheet.put(user.getId(), new HashMap<String, Double>());
+        balanceSheet.put(user.getId(), new HashMap<>());
     }
 
     public void addExpense(ExpenseType expenseType, double amount, String paidBy, List<Split> splits, ExpenseMetadata expenseMetadata) {
