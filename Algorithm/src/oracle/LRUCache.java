@@ -30,6 +30,25 @@ public class LRUCache {
         pageMap = new HashMap<>();
     }
 
+    public Node getPage(int num) {
+        Node pageNode = null;
+        if (pageMap.containsKey(num)) {
+            pageNode = pageMap.get(num);
+            pageList.movePageToHead(pageNode);
+        }
+        return pageNode;
+    }
+
+    public void addPage(int num) {
+        Node pageNode = null;
+        if (pageList.currSize == cacheSize) {
+            pageMap.remove(pageList.tail.num);
+        } else {
+            pageNode = pageList.addPageToList(num);
+        }
+        pageMap.put(num, pageNode);
+    }
+
     public void accessPage(int num) {
         Node pageNode;
         if (pageMap.containsKey(num)) {   // If page is present in the cache, move the page to the start of list
