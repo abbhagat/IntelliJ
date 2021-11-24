@@ -29,7 +29,7 @@ public class TMHashMap<K,V> {
         }
     }
 
-    public V get(String key) {
+    public V get(K key) {
         int hash = key == null ? 0 : key.hashCode() % SIZE;
         for (Entry e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
@@ -39,7 +39,7 @@ public class TMHashMap<K,V> {
         return null;
     }
 
-    public boolean remove(String key) {
+    public boolean remove(K key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
         for (Entry e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
@@ -50,7 +50,7 @@ public class TMHashMap<K,V> {
         return false;
     }
 
-    public V put(String key, int value) {
+    public V put(K key, V value) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
         Entry e = table[hash];
         if (null != e) {
