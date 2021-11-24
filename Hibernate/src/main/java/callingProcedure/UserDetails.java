@@ -16,6 +16,9 @@ import javax.persistence.*;
 @NamedNativeQueries(
         @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
 )
+@NamedQueries(
+        @NamedQuery(name = "userDetails", query = "from UserDetails where userID = :userID and userName =:userName")
+)
 public class UserDetails {
 
     @Id
