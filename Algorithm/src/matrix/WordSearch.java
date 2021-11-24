@@ -18,7 +18,7 @@ public class WordSearch {
             return false;
         }
         char t = M[row][col];
-        M[row][col] = '#';
+        M[row][col] = '*';
         int rowIdx[] = {0, 1, 0, -1};
         int colIdx[] = {1, 0, -1, 0};
         for (int k = 0; k < 4; k++) {
@@ -29,7 +29,7 @@ public class WordSearch {
         return false;
     }
 
-    private static boolean exist(char[][] M, String word) {
+    private static boolean exist(String word) {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (DFS(i, j, word, 0)) {
@@ -41,6 +41,6 @@ public class WordSearch {
     }
 
     public static void main(String args[]) {
-        System.out.println(exist(M, "ABHINAWKUMAR"));
+        System.out.println(exist("Abhinaw".toUpperCase()));
     }
 }
