@@ -19,8 +19,8 @@ public class WordSearch {
         }
         char t = M[row][col];
         M[row][col] = '*';
-        int rowIdx[] = {0, 1, 0, -1};
-        int colIdx[] = {1, 0, -1, 0};
+        int[] rowIdx = {1, -1, 0, 0};
+        int[] colIdx = {0, 0, 1, -1};
         for (int k = 0; k < 4; k++) {
             if (DFS(row + rowIdx[k], col + colIdx[k], word, index + 1))
                 return true;
