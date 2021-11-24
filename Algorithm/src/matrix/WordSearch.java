@@ -9,6 +9,8 @@ public class WordSearch {
     };
     private static int ROW = M.length;
     private static int COL = M[0].length;
+    private static int[] rowIdx = {1, -1, 0, 0};
+    private static int[] colIdx = {0, 0, 1, -1};
 
     private static boolean DFS(int row, int col, String word, int index) {
         if (index >= word.length()) {
@@ -19,8 +21,6 @@ public class WordSearch {
         }
         char t = M[row][col];
         M[row][col] = '*';
-        int[] rowIdx = {1, -1, 0, 0};
-        int[] colIdx = {0, 0, 1, -1};
         for (int k = 0; k < 4; k++) {
             if (DFS(row + rowIdx[k], col + colIdx[k], word, index + 1))
                 return true;
