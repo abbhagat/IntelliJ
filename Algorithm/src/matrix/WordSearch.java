@@ -4,8 +4,8 @@ public class WordSearch {
 
     private static char[][] M = {
             {'A', 'B', 'H', 'I'},
-            {'S', 'F', 'C', 'N'},
-            {'A', 'D', 'W', 'A'}
+            {'M', 'A', 'R', 'N'},
+            {'U', 'K', 'W', 'A'}
     };
     private static int ROW = M.length;
     private static int COL = M[0].length;
@@ -41,6 +41,6 @@ public class WordSearch {
     }
 
     public static void main(String args[]) {
-        System.out.println(exist(M, "ABHINAW"));
+        System.out.println(exist(M, "ABHINAWKUMAR"));
     }
 }
