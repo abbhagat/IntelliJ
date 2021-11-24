@@ -10,7 +10,7 @@ public class WordSearch {
     private static int ROW = M.length;
     private static int COL = M[0].length;
 
-    public static boolean exist(char[][] M, String word) {
+    private static boolean exist(char[][] M, String word) {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (DFS(i, j, M, word, 0)) {
@@ -21,7 +21,7 @@ public class WordSearch {
         return false;
     }
 
-    static boolean DFS(int row, int col, char[][] M, String word, int index) {
+    private static boolean DFS(int row, int col, char[][] M, String word, int index) {
         if (index >= word.length()) {
             return true;
         }
