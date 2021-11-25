@@ -20,7 +20,7 @@ public class RomanToInteger {
     private static int romanToInt(String s) {
         int sum = 0, n = s.length();
         for (int i = 0; i < n; i++) {
-            if (roman.get(s.charAt(i)) < roman.get(s.charAt(i + 1))) {
+            if (i != n && roman.get(s.charAt(i)) < roman.get(s.charAt(i + 1))) {
                 sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));
                 i++;
             } else {
@@ -30,7 +30,8 @@ public class RomanToInteger {
         return sum;
     }
 
-    public static void main(String[] args) { ;
+    public static void main(String[] args) {
+        ;
         System.out.print(romanToInt("IX"));
         System.out.print(romanToInt("MCMIV"));
     }
