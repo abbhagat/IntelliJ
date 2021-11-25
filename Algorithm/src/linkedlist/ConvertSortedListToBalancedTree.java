@@ -2,6 +2,7 @@ package linkedlist;
 
 // Time complexity: O(nLogn) where n is the number of nodes in Linked List.
 
+import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMidPoint;
 
 class TreeNode {
@@ -27,9 +28,7 @@ public class ConvertSortedListToBalancedTree {
         Node prevMid = findMidPoint(head);
         Node mid = prevMid.next;
         prevMid.next = null;
-
         TreeNode root = new TreeNode(mid.num);
-
         root.left  = sortedListToBST(head);
         root.right = sortedListToBST(mid.next);
         return root;
@@ -47,7 +46,7 @@ public class ConvertSortedListToBalancedTree {
         int[] a = {1, 2, 3};
         Node first = null;
         for (int x : a) {
-            first = LinkList.add(first, x);
+            first = add(first, x);
         }
         TreeNode root = sortedListToBST(first);
         preOrder(root);

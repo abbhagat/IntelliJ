@@ -1,5 +1,6 @@
 package linkedlist;
 
+import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 public class DeleteNthNodeFromEnd {
@@ -21,12 +22,12 @@ public class DeleteNthNodeFromEnd {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) {
-            first = LinkList.add(first, x);
+        for (int x : new int[]{1, 2, 3, 4, 5}) {
+            first = add(first, x);
         }
         traverseList(first);
         System.out.println();
-        first = deleteNthNode(first, 7);
+        first = deleteNthNode(first, 2);
         traverseList(first);
     }
 }
