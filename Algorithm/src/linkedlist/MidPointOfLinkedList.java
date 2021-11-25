@@ -1,10 +1,11 @@
 package linkedlist;
 
+import static linkedlist.LinkList.add;
+
 public class MidPointOfLinkedList {
 
     public static Node findMid(Node first) {
-        Node slow = first;
-        Node fast = first.next;
+        Node slow = first, fast = first.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -13,9 +14,7 @@ public class MidPointOfLinkedList {
     }
 
     public static Node findMidPoint(Node first) {
-        Node slow = first;
-        Node fast = first.next;
-        Node prev_slow = slow;
+        Node slow = first, fast = first.next, prev_slow = slow;
         while (fast != null && fast.next != null) {
             prev_slow = slow;
             slow = slow.next;
@@ -28,8 +27,8 @@ public class MidPointOfLinkedList {
         int[] a = {1, 2, 3, 4, 5, 6};
         Node first = null;
         for (int x : a) {
-            first = LinkList.add(first, x);
+            first = add(first, x);
         }
-        System.out.println(MidPointOfLinkedList.findMid(first).num);
+        System.out.println(findMid(first).num);
     }
 }

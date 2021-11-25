@@ -5,6 +5,7 @@ package linkedlist;
  *   Output -> 4 5 1 2 3
  */
 
+import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 public class LinkedListRotation {
@@ -22,11 +23,10 @@ public class LinkedListRotation {
     }
 
     public static void main(String[] args) {
-
         int[] a = {1, 2, 3, 4, 5};
         Node first = null;
         for (int x : a) {
-            first = LinkList.add(first, x);
+            first = add(first, x);
         }
         traverseList(first);
         traverseList(rotateList(first, 3));

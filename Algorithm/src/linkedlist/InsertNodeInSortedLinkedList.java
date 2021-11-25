@@ -1,5 +1,6 @@
 package linkedlist;
 
+import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 public class InsertNodeInSortedLinkedList {
@@ -22,7 +23,7 @@ public class InsertNodeInSortedLinkedList {
     public static void main(String[] args) {
         Node first = null;
         for (int x : new int[]{1, 3, 5, 9}) {
-            first = LinkList.add(first, x);
+            first = add(first, x);
         }
         first = insertNodeInSortedLinkedList(first, 0);
         first = insertNodeInSortedLinkedList(first, 8);

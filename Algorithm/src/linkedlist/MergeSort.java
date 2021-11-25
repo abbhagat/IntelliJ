@@ -1,5 +1,6 @@
 package linkedlist;
 
+import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMid;
 import static linkedlist.TraverseList.traverseList;
 
@@ -47,7 +48,7 @@ public class MergeSort {
     public static void main(String[] args) {
         Node head = null;
         for (int x : new int[]{1, 3, 5, 2, 4}) {
-            head = LinkList.add(head, x);
+            head = add(head, x);
         }
         traverseList(head);
         System.out.println();
