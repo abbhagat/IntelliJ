@@ -40,7 +40,8 @@ public class ReArrangePositiveAndNegativeNumber {
     }
 
     private static void reArrangePositiveAndNegativeNumber(int[] a) {
-        for (int i = 0, j = 1; i < a.length && j < a.length; ) {
+        int i = 0, j = 1;
+        while (i < a.length && j < a.length ) {
             if (a[i] < 0) {
                 i += 2;
             } else if (a[j] >= 0) {
@@ -53,7 +54,7 @@ public class ReArrangePositiveAndNegativeNumber {
                 i += 2;
             }
         }
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
         System.out.println();
     }
 
