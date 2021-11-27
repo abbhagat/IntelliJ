@@ -29,7 +29,7 @@ public class FindPairsWithPerfectSquareSum {
                 secondMax = x;
             }
         }
-        return (max + secondMax);
+        return max + secondMax;
     }
 
     public static int countPairsWith(int x, List<Integer> perfectSquares, Set<Integer> set) {
