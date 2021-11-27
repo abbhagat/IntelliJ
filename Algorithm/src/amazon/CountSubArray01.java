@@ -3,13 +3,6 @@ package amazon;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-            if (!map.containsKey(sum)) {
-                map.put(sum, 1);
-            } else {
-                map.put(sum, map.get(sum) + 1);
-            }
- */
 public class CountSubArray01 {
 
     public static int getSubArrayWithEqual01(int[] a) {
