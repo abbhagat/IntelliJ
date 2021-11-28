@@ -18,7 +18,6 @@ public class OrdersService {
     @Autowired
     private OrdersRepository ordersDAO;
 
-
     @Autowired
     private SupplierInfo supplierInfo;
 
@@ -28,7 +27,6 @@ public class OrdersService {
     public List<Orders> getAllOrders() {
         return ordersDAO.findAll();
     }
-
 
     public void saveOrders(Orders orders) {
         orders.getOrderItems().forEach(orderItems -> {
