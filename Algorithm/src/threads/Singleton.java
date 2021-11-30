@@ -6,7 +6,7 @@ public class Singleton implements Cloneable, Serializable {
 
     private static final Long serialVersionUID = 1L;
 
-    private static Singleton _instance;
+    private static volatile Singleton _instance;
 
     private Singleton() throws Exception {
         if (null != _instance) {

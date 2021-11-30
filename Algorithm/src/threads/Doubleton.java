@@ -6,20 +6,29 @@ public class Doubleton implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static Doubleton _instance1, _instance2;
-    private static int x = 1;
+    private static volatile Doubleton _instance1, _instance2;
+    private static volatile int x = 1;
 
-    private Doubleton() { }
+    private Doubleton() throws Exception {
+        if (null != _instance1 || null != _instance2) {
+            throw new Exception();
+        }
+    }
 
-    protected Object readResolve(){
+    protected Object readResolve() throws Exception {
         return getInstance();
     }
 
-    public Object clone(){
-        return getInstance();
+    public Object clone() {
+        try {
+            return getInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public static synchronized Doubleton getInstance() {
+    public static synchronized Doubleton getInstance() throws Exception {
         if (null == _instance1) {
             _instance1 = new Doubleton();
             return _instance1;
