@@ -8,14 +8,6 @@ public class LargestSquareHaving1InBooleanMatrix {
         int R = M.length, C = M[0].length;
         int[][] S = new int[R][C];
 
-        for (int i = 0; i < R; i++) {
-            S[i][0] = M[i][0];
-        }
-
-        for (int i = 0; i < C; i++) {
-            S[0][i] = M[0][i];
-        }
-
         for (int i = 1; i < R; i++) {
             for (int j = 1; j < C; j++) {
                 S[i][j] = M[i][j] == 1 ? min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) + 1 : 0;
