@@ -1,5 +1,7 @@
 package matrix;
 
+import static java.lang.Integer.max;
+
 /*
 
 Consider a matrix with rows and columns, where each cell contains either a ‘0’ or a ‘1’ and any cell containing a 1 is called a filled cell.
@@ -24,7 +26,7 @@ In the following example, there are 2 regions one with length 1 and the other as
  */
 public class AreaOfLargestIslandIn2DMatrix {
 
-    private static int M[][] = new int[][]{
+    private static int[][] M = new int[][]{
             {1, 1, 0, 0, 0},
             {1, 1, 0, 1, 1},
             {1, 0, 0, 1, 1},
@@ -56,19 +58,18 @@ public class AreaOfLargestIslandIn2DMatrix {
     }
 
     private static int findMaxArea() {
-        int max_area = 0;
-        int count = 0;
+        int max_area = 0, numOfIsland = 0;
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (M[i][j] == 1 && !visited[i][j]) {
                     area = 1;
                     System.out.println("Area of Each Island " + DFS(i, j));
-                    count++;
-                    max_area = Math.max(max_area, area);
+                    numOfIsland++;
+                    max_area = max(max_area, area);
                 }
             }
         }
-        System.out.println("Number of islands is: " + count);
+        System.out.println("Number of islands is: " + numOfIsland);
         return max_area;
     }
 

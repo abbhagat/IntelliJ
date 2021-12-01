@@ -4,9 +4,10 @@ public class NQueenProblem {
 
     private static final int N = 4;
 
-    // A utility function to check if a queen can be placed on board[row][col].
-    // Note that this function is called when "col" queens are already placed
-    // in columns from 0 to col -1. So we need to check only left side for attacking queens
+/* A utility function to check if a queen can be placed on board[row][col].
+   Note that this function is called when "col" queens are already placed
+   in columns from 0 to col -1. So we need to check only left side for attacking queens.
+*/
 
     private static boolean isSafe(int board[][], int row, int col) {
         for (int i = 0; i < col; i++) {  // Check this row on left side
