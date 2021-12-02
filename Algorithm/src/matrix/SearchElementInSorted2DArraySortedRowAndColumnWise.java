@@ -1,30 +1,45 @@
 package matrix;
 
 /*
- * Start with top right element
+   Start with top right element
    Loop:
      Compare this element e with x
      i) if they are equal then return its position
     ii) e < x then move it to down
    iii) e > x then move it to left
-   		Repeat above 3 steps till you find element
-		If not found return false
- *
+   		Repeat above 3 steps till you find element if not found return false
  */
 
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
+    private static boolean binarySearch(int M[][], int i, int low, int high, int n) {
+        if (low <= high) {
+            int mid = (low + high) / 2;
+            if (M[i][mid] == n) {
+                System.out.println("Found at (" + i + ", " + mid + ")");
+                return true;
+            }
+            return n < M[i][mid] ? binarySearch(M, i, low, mid - 1, n) : binarySearch(M, i, mid + 1, high, n);
+        }
+        return false;
+    }
+
     private static boolean search(int[][] M, int key) {
         int R1 = 0, R2 = M.length - 1;
         int C1 = 0, C2 = M[0].length - 1;
+        int count = 0;
         while (R1 <= R2 && C1 <= C2) {
             if (key < M[R1][C2]) {
                 C2--;
+                count++;
             } else if (key > M[R1][C2]) {
                 R1++;
             } else {
                 System.out.println("[" + R1 + "]" + "[" + C2 + "]");
                 return true;
+            }
+            if (count == 2 && binarySearch(M, R1, 0, C2, key)) {
+                 return true;
             }
         }
         return false;
