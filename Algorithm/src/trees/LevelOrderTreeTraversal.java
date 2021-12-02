@@ -7,7 +7,7 @@ public class LevelOrderTreeTraversal {
 
     public static void levelOrderTreeTraversal(Node root) {
         int treeHeight = treeHeight(root);
-        for (int i = 0; i <= treeHeight; i++) {
+        for (int i = 0; i < treeHeight; i++) {
             printLevelOrder(root, i);
         }
     }

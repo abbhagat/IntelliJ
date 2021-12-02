@@ -14,12 +14,12 @@ public class CreateList {
             size++;
         }
         if (first == null) {
-            first = node;
+            first = last = node;
             temp = node;
         } else {
             temp.right = node;
             node.left = temp;
-            temp = node;
+            temp = last = node;
         }
         return first;
     }

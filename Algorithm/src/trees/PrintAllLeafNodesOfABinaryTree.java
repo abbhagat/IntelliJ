@@ -4,13 +4,13 @@ import static trees.CreateBST.createBST;
 
 public class PrintAllLeafNodesOfABinaryTree {
 
-    private static void postOrder(Node root) {
+    private static void printLeafNodes(Node root) {
         if (root != null) {
-            postOrder(root.left);
-            postOrder(root.right);
             if (root.left == null && root.right == null) {
                 System.out.println(root.num);
             }
+            printLeafNodes(root.left);
+            printLeafNodes(root.right);
         }
     }
 
@@ -20,6 +20,6 @@ public class PrintAllLeafNodesOfABinaryTree {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        postOrder(root);
+        printLeafNodes(root);
     }
 }
