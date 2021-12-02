@@ -16,7 +16,7 @@ public class SearchAnElementInSortedAndRotatedArray {
         return a[0] <= key ? binarySearch(a, 0, pivot - 1, key) : binarySearch(a, pivot + 1, n - 1, key);
     }
 
-    private static int findPivot(int a[], int low, int high) {
+    private static int findPivot(int[] a, int low, int high) {
         if(low <= high) {
             int mid = (low + high) / 2;
             if (mid < high && a[mid] > a[mid + 1]) {
@@ -25,7 +25,7 @@ public class SearchAnElementInSortedAndRotatedArray {
             if (mid > low && a[mid] < a[mid - 1]) {
                 return mid - 1;
             }
-            return a[low] >= a[mid] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);
+            return a[mid] <= a[low] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);
         }
         return -1;
     }
