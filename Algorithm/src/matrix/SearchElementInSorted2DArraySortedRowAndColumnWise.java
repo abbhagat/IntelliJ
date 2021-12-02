@@ -1,15 +1,5 @@
 package matrix;
 
-/*
-   Start with top right element
-   Loop:
-     Compare this element e with x
-     i) if they are equal then return its position
-    ii) e < x then move it to down
-   iii) e > x then move it to left
-   		Repeat above 3 steps till you find element if not found return false
- */
-
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
     private static boolean binarySearch(int M[][], int i, int low, int high, int n) {
