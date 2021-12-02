@@ -2,7 +2,7 @@ package geeks;
 
 public class PrimeNumber {
 
-    private static boolean isPrime(int n) {
+    public static boolean isPrime(int n) {
         switch (n) {
             case 0:
             case 1: return false;
