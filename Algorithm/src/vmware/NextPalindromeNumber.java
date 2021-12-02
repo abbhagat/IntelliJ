@@ -19,12 +19,13 @@ public class NextPalindromeNumber {
     }
 
     public static void main(String[] args) {
-//        System.out.println(findNextPalindrome(45312));   // 45354
-//        System.out.println(findNextPalindrome(12345));   // 12421
-//        System.out.println(findNextPalindrome(12945));   // 13031
-//        System.out.println(findNextPalindrome(4531));    // 4554
-//        System.out.println(findNextPalindrome(1459));   // 1551
-//        System.out.println(findNextPalindrome(1997));   // 2002
-        System.out.println(findNextPalindrome(12));   // 2002
+        System.out.println(findNextPalindrome(12));        // 121
+        System.out.println(findNextPalindrome(123));      // 131
+        System.out.println(findNextPalindrome(45312));   // 45354
+        System.out.println(findNextPalindrome(12345));   // 12421
+        System.out.println(findNextPalindrome(12945));   // 13031
+        System.out.println(findNextPalindrome(4531));    // 4554
+        System.out.println(findNextPalindrome(1459));   // 1551
+        System.out.println(findNextPalindrome(1997));   // 2002
     }
 }
