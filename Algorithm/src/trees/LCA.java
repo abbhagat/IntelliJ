@@ -1,5 +1,7 @@
 package trees;
 
+//Expected Time Complexity: O(Height of the BST).
+//Expected Auxiliary Space: O(Height of the BST).
 public class LCA {
 
     public static Node LCA(Node root, int num1, int num2) {
@@ -14,7 +16,7 @@ public class LCA {
                 return LCA(root.right, num1, num2);
             }
         }
-        return null;
+        return root;
     }
 
     public static void main(String[] args) {
