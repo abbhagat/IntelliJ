@@ -9,9 +9,9 @@ import java.util.List;
 
 public class AllPalindromicPermutationOfAString {
 
-    private static boolean isPalindrome(String str, int i, int j) {
-        while (i <= j) {
-            if (str.charAt(i++) != str.charAt(j--)) {
+    private static boolean isPalindrome(String str, int low, int high) {
+        while (low <= high) {
+            if (str.charAt(low++) != str.charAt(high--)) {
                 return false;
             }
         }
@@ -19,16 +19,15 @@ public class AllPalindromicPermutationOfAString {
     }
 
     private static void findAllPalindromicPermutation(int index, String str, List<List<String>> lists, LinkedList<String> deque) {
-        if (index == str.length()) {         // If 'index' has reached len
+        if (index == str.length()) {
             lists.add(new ArrayList<>(deque));
             return;
         }
-        // Pick all possible ending points for substrings
         for (int i = index; i < str.length(); i++) {
-            if (isPalindrome(str, index, i)) {                                     // If substring str[index..i] is palindrome
-                deque.addLast(str.substring(index, i + 1));                       // Add the substring to result
-                findAllPalindromicPermutation(i + 1, str, lists, deque);   // Recur for remaining remaining substring
-                deque.removeLast();                                             // Remove substring str[index..i] from current partition
+            if (isPalindrome(str, index, i)) {
+                deque.addLast(str.substring(index, i + 1));
+                findAllPalindromicPermutation(i + 1, str, lists, deque);
+                deque.removeLast();
             }
         }
     }
