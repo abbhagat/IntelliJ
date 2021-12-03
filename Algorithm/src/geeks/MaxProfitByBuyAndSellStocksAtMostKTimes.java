@@ -2,12 +2,12 @@ package geeks;
 
 
 /*
-        for (int i = 0; i <= k; i++) {    // For day 0, you can't earn money irrespective of how many times you trade
-            profit[i][0] = 0;
-        }
-        for (int i = 0; i <= n; i++) {  // profit is 0 if we don't do any transaction (i.e. k =0)
-            profit[0][i] = 0;
-        }
+  for (int i = 0; i <= k; i++) {    // For day 0, you can't earn money irrespective of how many times you trade
+         profit[i][0] = 0;
+  }
+  for (int i = 0; i <= n; i++) {  // profit is 0 if we don't do any transaction (i.e. k =0)
+        profit[0][i] = 0;
+  }
  */
 
 import static java.lang.Integer.max;
