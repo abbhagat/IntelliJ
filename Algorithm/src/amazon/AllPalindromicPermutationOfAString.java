@@ -4,7 +4,6 @@ package amazon;
 // Expected Auxiliary Space: O(N^2), where N is the length of the String
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,8 +18,8 @@ public class AllPalindromicPermutationOfAString {
         return true;
     }
 
-    private static void findAllPalindromicPermutation(int index, String str, List<List<String>> lists, Deque<String> deque) {
-        if (index >= str.length()) {         // If 'index' has reached len
+    private static void findAllPalindromicPermutation(int index, String str, List<List<String>> lists, LinkedList<String> deque) {
+        if (index == str.length()) {         // If 'index' has reached len
             lists.add(new ArrayList<>(deque));
             return;
         }
@@ -36,7 +35,7 @@ public class AllPalindromicPermutationOfAString {
 
     private static void findAllPalindromicPermutation(String str) {
         List<List<String>> lists = new ArrayList<>();                      // To Store all palindromic partitions
-        Deque<String>      deque = new LinkedList<>();                    // To store current palindromic partition
+        LinkedList<String> deque = new LinkedList<>();                    // To store current palindromic partition
         findAllPalindromicPermutation(0, str, lists, deque);
         for (List<String> list : lists) {
             for (String s : list) {
