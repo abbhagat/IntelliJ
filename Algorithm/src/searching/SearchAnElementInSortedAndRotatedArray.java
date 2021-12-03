@@ -13,16 +13,13 @@ public class SearchAnElementInSortedAndRotatedArray {
         if (a[pivot] == key) {
             return pivot;
         }
-        return a[0] <= key ? binarySearch(a, 0, pivot - 1, key) : binarySearch(a, pivot + 1, n - 1, key);
+        return key < a[0] ? binarySearch(a, pivot + 1, n - 1, key) : binarySearch(a, 0, pivot - 1, key);
     }
 
     private static int findPivot(int[] a, int low, int high) {
         if(low <= high) {
             int mid = (low + high) / 2;
-            if (mid < high && a[mid] > a[mid + 1]) {
-                return mid;
-            }
-            if (mid > low && a[mid] < a[mid - 1]) {
+            if(a[mid - 1] > a[mid]){
                 return mid - 1;
             }
             return a[mid] <= a[low] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);
