@@ -2,20 +2,15 @@ package vmware;
 
 public class NextPalindromeNumber {
 
-    private static String reverse(String s) {
-        return new StringBuilder(s).reverse().toString();
-    }
-
     private static String findNextPalindrome(int n) {
         String s = Integer.toString(n);
         int mid = s.length() / 2 - 1;
         s = s.substring(0, mid + 1);
-        String rev = s.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
+        String rev =  s.length() % 2 == 1 ? new StringBuilder(s.substring(0, mid)).reverse().toString() : new StringBuilder(s).reverse().toString();
         if (s.charAt(mid) == '9' || Integer.parseInt(s + rev) < n) {
             s = "" + (Integer.parseInt(s) + 1);
         }
-        s += s.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
-        return s;
+        return s += s.length() % 2 == 1 ? new StringBuilder(s.substring(0, mid)).reverse().toString() : new StringBuilder(s).reverse().toString();
     }
 
     public static void main(String[] args) {
