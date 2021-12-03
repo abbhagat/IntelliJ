@@ -31,7 +31,7 @@ public class MaxProfitByBuyAndSellStocks {
         System.out.println(buying + " " + diff_days);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         max_profit(new int[]{1, 3, 2, 8, 4, 9}, 2);
         max_profit(new int[]{6, 1, 7, 2, 8, 4}, 2);
         max_profit(new int[]{7, 1, 5, 3, 6, 4}, 1);
