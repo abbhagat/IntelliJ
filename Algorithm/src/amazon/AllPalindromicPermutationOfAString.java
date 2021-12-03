@@ -19,25 +19,25 @@ public class AllPalindromicPermutationOfAString {
         return true;
     }
 
-    private static void allPalPartitionsUtil(List<List<String>> lists, Deque<String> deque, int start, int n, String input) {
-        if (start >= n) {         // If 'start' has reached len
+    private static void findAllPalindromicPermutation(int index, String str, List<List<String>> lists, Deque<String> deque) {
+        if (index >= str.length()) {         // If 'index' has reached len
             lists.add(new ArrayList<>(deque));
             return;
         }
         // Pick all possible ending points for substrings
-        for (int i = start; i < n; i++) {
-            if (isPalindrome(input, start, i)) {                              // If substring str[start..i] is palindrome
-                deque.addLast(input.substring(start, i + 1));                // Add the substring to result
-                allPalPartitionsUtil(lists, deque, i + 1, n, input);   // Recur for remaining remaining substring
-                deque.removeLast();                                        // Remove substring str[start..i] from current partition
+        for (int i = index; i < str.length(); i++) {
+            if (isPalindrome(str, index, i)) {                                     // If substring str[index..i] is palindrome
+                deque.addLast(str.substring(index, i + 1));                       // Add the substring to result
+                findAllPalindromicPermutation(i + 1, str, lists, deque);   // Recur for remaining remaining substring
+                deque.removeLast();                                             // Remove substring str[index..i] from current partition
             }
         }
     }
 
     private static void findAllPalindromicPermutation(String str) {
         List<List<String>> lists = new ArrayList<>();                      // To Store all palindromic partitions
-        Deque<String> deque = new LinkedList<>();                         // To store current palindromic partition
-        allPalPartitionsUtil(lists, deque, 0, str.length(), str);
+        Deque<String>      deque = new LinkedList<>();                    // To store current palindromic partition
+        findAllPalindromicPermutation(0, str, lists, deque);
         for (List<String> list : lists) {
             for (String s : list) {
                 System.out.print(s + " ");
