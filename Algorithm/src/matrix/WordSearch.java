@@ -22,8 +22,9 @@ public class WordSearch {
         char t = M[row][col];
         M[row][col] = '*';
         for (int k = 0; k < 4; k++) {
-            if (DFS(row + rowIdx[k], col + colIdx[k], word, index + 1))
+            if (DFS(row + rowIdx[k], col + colIdx[k], word, index + 1)) {
                 return true;
+            }
         }
         M[row][col] = t;
         return false;
