@@ -1,7 +1,7 @@
 package amazon;
 
-// Expected Time Complexity: O(N*2^N)
-// Expected Auxiliary Space: O(N^2), where N is the length of the String
+//Time Complexity: O(N*2^N)
+//Auxiliary Space: O(N^2), where N is the length of the String
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -33,15 +33,10 @@ public class AllPalindromicPermutationOfAString {
     }
 
     private static void findAllPalindromicPermutation(String str) {
-        List<List<String>> lists = new ArrayList<>();                      // To Store all palindromic partitions
-        LinkedList<String> deque = new LinkedList<>();                    // To store current palindromic partition
+        List<List<String>> lists = new ArrayList<>();
+        LinkedList<String> deque = new LinkedList<>();
         findAllPalindromicPermutation(0, str, lists, deque);
-        for (List<String> list : lists) {
-            for (String s : list) {
-                System.out.print(s + " ");
-            }
-            System.out.println();
-        }
+        System.out.println(lists);
     }
 
     public static void main(String[] args) {
