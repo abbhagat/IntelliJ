@@ -1,10 +1,9 @@
 package vmware;
 
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
-class WorkerThread implements Runnable {
+class WorkerThread implements Callable<Integer> {
 
     private int start, end;
     private volatile int sum = 0;
@@ -16,17 +15,17 @@ class WorkerThread implements Runnable {
 
 
     @Override
-    public void run() {
+    public Integer call() {
         for (int i = start; i <= end; i++) {
             sum += i;
         }
-        System.out.println(sum);
+        return sum;
     }
 }
 
 public class AdditionUsingFiveThreads {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         ExecutorService service = Executors.newFixedThreadPool(5);
         WorkerThread[] workerThreads = new WorkerThread[5];
         workerThreads[0] = new WorkerThread(1, 10);
@@ -35,7 +34,8 @@ public class AdditionUsingFiveThreads {
         workerThreads[3] = new WorkerThread(10, 20);
         workerThreads[4] = new WorkerThread(15, 20);
         for (int i = 0; i < workerThreads.length; i++) {
-            service.execute(workerThreads[i]);
+            Future<Integer> future = service.submit(workerThreads[i]);
+            System.out.println(future.get());
             Thread.sleep(1000);
         }
         service.shutdown();
