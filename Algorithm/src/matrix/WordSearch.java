@@ -2,17 +2,17 @@ package matrix;
 
 public class WordSearch {
 
-    private static char[][] M = {
+    char[][] M = {
             {'A', 'B', 'H', 'I'},
             {'M', 'A', 'R', 'N'},
             {'U', 'K', 'W', 'A'}
     };
-    private static int ROW = M.length;
-    private static int COL = M[0].length;
-    private static int[] rowIdx = {1, -1, 0, 0};
-    private static int[] colIdx = {0, 0, 1, -1};
+    int ROW = M.length;
+    int COL = M[0].length;
+    int[] rowIdx = {1, -1, 0, 0};
+    int[] colIdx = {0, 0, 1, -1};
 
-    private static boolean DFS(int row, int col, String word, int index) {
+    boolean DFS(int row, int col, String word, int index) {
         if (index >= word.length()) {
             return true;
         }
@@ -30,7 +30,7 @@ public class WordSearch {
         return false;
     }
 
-    private static boolean exist(String word) {
+    boolean exist(String word) {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (DFS(i, j, word, 0)) {
@@ -42,6 +42,6 @@ public class WordSearch {
     }
 
     public static void main(String[] args) {
-        System.out.println(exist("Abhinaw".toUpperCase()));
+        System.out.println(new WordSearch().exist("Abhinaw".toUpperCase()));
     }
 }
