@@ -30,9 +30,19 @@ public class HouseRobberProblem {
         if (n <= 0) {
             return 0;
         }
-        int selected   = a[n - 1] + maxGoldLooted(a, n - 2);
+        int selected = a[n - 1] + maxGoldLooted(a, n - 2);
         int unselected = maxGoldLooted(a, n - 1);
         return max(selected, unselected);
+    }
+
+    private static int maxGoldLooted(int[] a) {
+        int incl = a[0], excl = 0;
+        for (int i = 1; i < a.length; i++) {
+            int excl_new = max(incl, excl);
+            incl = excl + a[i];
+            excl = excl_new;
+        }
+        return max(incl, excl);
     }
 
     private static int maxGoldLootedDP(int[] a, int n) {
@@ -54,8 +64,14 @@ public class HouseRobberProblem {
         int[] a = {6, 7, 1, 3, 8, 2, 4};
         System.out.println("Max Gold Looted :" + maxGoldLooted(a, a.length));
         System.out.println("Max Gold Looted :" + maxGoldLootedDP(a, a.length));
+        System.out.println("Max Gold Looted :" + maxGoldLooted(a));
         int[] b = {5, 3, 4, 11, 2};
         System.out.println("Max Gold Looted :" + maxGoldLooted(b, b.length));
         System.out.println("Max Gold Looted :" + maxGoldLootedDP(b, b.length));
+        System.out.println("Max Gold Looted :" + maxGoldLooted(b));
+        int[] c = {3, 5, 7};
+        System.out.println("Max Gold Looted :" + maxGoldLooted(c, c.length));
+        System.out.println("Max Gold Looted :" + maxGoldLootedDP(c, c.length));
+        System.out.println("Max Gold Looted :" + maxGoldLooted(c));
     }
 }

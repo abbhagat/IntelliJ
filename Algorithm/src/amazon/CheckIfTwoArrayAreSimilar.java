@@ -3,8 +3,6 @@ package amazon;
 import java.util.ArrayList;
 import java.util.List;
 
-// same solution as of anagram
-
 public class CheckIfTwoArrayAreSimilar {
 
     public static void main(String[] args) {
