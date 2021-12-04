@@ -3,9 +3,7 @@ package amazon;
 //Time Complexity: O(N*2^N)
 //Auxiliary Space: O(N^2), where N is the length of the String
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class AllPalindromicPermutationOfAString {
 
@@ -18,25 +16,22 @@ public class AllPalindromicPermutationOfAString {
         return true;
     }
 
-    private static void findAllPalindromicPermutation(int index, String str, List<List<String>> lists, LinkedList<String> deque) {
+    private static void findAllPalindromicPermutation(int index, String str, LinkedList<String> list) {
         if (index == str.length()) {
-            lists.add(new ArrayList<>(deque));
+            System.out.println(list);
             return;
         }
         for (int i = index; i < str.length(); i++) {
             if (isPalindrome(str, index, i)) {
-                deque.addLast(str.substring(index, i + 1));
-                findAllPalindromicPermutation(i + 1, str, lists, deque);
-                deque.removeLast();
+                list.add(str.substring(index, i + 1));
+                findAllPalindromicPermutation(i + 1, str, list);
+                list.removeLast();
             }
         }
     }
 
     private static void findAllPalindromicPermutation(String str) {
-        List<List<String>> lists = new ArrayList<>();
-        LinkedList<String> deque = new LinkedList<>();
-        findAllPalindromicPermutation(0, str, lists, deque);
-        System.out.println(lists);
+        findAllPalindromicPermutation(0, str, new LinkedList<>());
     }
 
     public static void main(String[] args) {
