@@ -8,7 +8,7 @@ public class FindInsertionPositionInSortedArray {
                 return i;
             }
         }
-        return n < a[0] ? 0 : a.length;
+        return a.length;
     }
 
     public static void main(String[] args) {

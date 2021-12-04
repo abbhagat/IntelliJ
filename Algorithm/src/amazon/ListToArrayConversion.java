@@ -8,7 +8,7 @@ public class ListToArrayConversion {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("A", "B", "C");
         String[] str = new String[list.size()];
-        str = list.toArray(str);
+        list.toArray(str);
         int i = 0;
         do {
             System.out.println(str[i++]);
