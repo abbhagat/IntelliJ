@@ -9,10 +9,9 @@ import java.util.List;
 import static java.lang.Integer.max;
 
 class Interval {
-    int start;
-    int end;
+    int start, end;
 
-    public Interval(int start, int end) {
+    Interval(int start, int end) {
         this.start = start;
         this.end = end;
     }
