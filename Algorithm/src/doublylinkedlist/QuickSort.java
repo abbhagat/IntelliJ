@@ -1,11 +1,12 @@
 package doublylinkedlist;
 
+import static doublylinkedlist.CreateList.createList;
 import static doublylinkedlist.CreateList.last;
 import static doublylinkedlist.TraverseList.traverseList;
 
 public class QuickSort {
 
-    private static Node partition(Node last, Node head) {
+    private static Node partition(Node head, Node last) {
         int x = head.num;
         Node i = last.left;                             // similar to i = last-1 for array implementation
         for (Node j = last; j != null; j = j.right) {  // Similar to "for (int j = last; j <= head- 1; j++)"
@@ -35,10 +36,10 @@ public class QuickSort {
         Node head = null;
         int[] a = {10, 3, 4, 6, 9, 2, 1, 5, 8, 7};
         for (int x : a) {
-            head = CreateList.createList(x, null);
+            head = createList(x, null);
         }
         traverseList(head);
-        quickSort(last, head);
+        quickSort(head, last);
         traverseList(head);
     }
 }

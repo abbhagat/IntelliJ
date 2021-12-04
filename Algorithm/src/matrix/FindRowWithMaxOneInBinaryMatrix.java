@@ -47,12 +47,12 @@ public class FindRowWithMaxOneInBinaryMatrix {
         };
         int maxOneRowIndex = 0, maxZeroRowIndex = 0, maxCountOne = 0, maxCountZero = 0;
         for (int i = 0; i < M.length; i++) {
-            int countOne = rowWithMax1s(M[i], 0, M[0].length - 1);
+            int countOne = rowWithMax1s(M[i], 0, M[i].length - 1);
             if (maxCountOne < countOne) {
                 maxCountOne = countOne;
                 maxOneRowIndex = i;
             }
-            int countZero = rowWithMax0s(M[i], 0, M[0].length - 1);
+            int countZero = rowWithMax0s(M[i], 0, M[i].length - 1);
             if (maxCountZero < countZero) {
                 maxCountZero = countZero;
                 maxZeroRowIndex = i;

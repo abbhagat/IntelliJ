@@ -30,7 +30,6 @@ public class SpiralMatrixPatternWithOandX {
             C2--;
             c = c == 'X' ? 'O' : 'X';
         }
-
         System.out.println("The Spiral Matrix is:");
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
