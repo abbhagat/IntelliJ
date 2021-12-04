@@ -32,7 +32,7 @@ public class BalanceStringAfterRemovingExtraBracket {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         balancedString("abh)ina)w(ku(mar(bhagat))".toCharArray());
         System.out.println();
         balancedString("1+5)+5+)6+(5+9)*9".toCharArray());
