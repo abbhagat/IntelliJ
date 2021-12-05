@@ -5,6 +5,10 @@ import static java.lang.Integer.max;
 /**
  * Given an array of positive integers containing the price of stocks and transaction fee,
  * the task is to find the maximum profit and the difference of days on which you are getting the maximum profit.
+ * Our task is to find the maximum profit under the following restrictions:
+ *
+ * we can’t buy a new stock if we have not sold the previous stock. that is at a time we can have at most one stock.
+ * we can do as many transactions as we want.
  * Examples:
  * <p>
  * <p>
@@ -35,5 +39,6 @@ public class MaxProfitByBuyAndSellStocks {
         max_profit(new int[]{1, 3, 2, 8, 4, 9}, 2);
         max_profit(new int[]{6, 1, 7, 2, 8, 4}, 2);
         max_profit(new int[]{7, 1, 5, 3, 6, 4}, 1);
+        max_profit(new int[]{7, 1, 5, 3, 6, 4}, 0);
     }
 }

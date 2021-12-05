@@ -7,7 +7,7 @@ public class TreeHeight {
     private static int lH, rH;
 
     public static int treeHeight(Node root) {
-        return null == root ? 0 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
+        return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 
     public static int heights(Node root) {

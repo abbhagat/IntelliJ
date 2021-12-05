@@ -94,15 +94,15 @@ public class FindPairCountWithSumDivisibleByK {
 
     private static int countKdivPairs(int k) {
 
-        int[] freq = new int[k];     // freq[] to count occurrences of all remainders when divided by k
-        for (int x : a) {           // Count occurrences of all remainders
+        int[] freq = new int[k];
+        for (int x : a) {
             freq[x % k]++;
         }
-        int count = freq[0] * (freq[0] - 1) / 2;                // If both pairs are divisible by 'k'
-        for (int i = 1; i <= k / 2 && i != (k - i); i++) {     // count for all i and (k-i) freq pairs
+        int count = freq[0] * (freq[0] - 1) / 2;
+        for (int i = 1; i <= k / 2 && i != (k - i); i++) {
             count += freq[i] * freq[k - i];
         }
-        if (k % 2 == 0) {                              // If k is even
+        if (k % 2 == 0) {
             count += freq[k / 2] * (freq[k / 2] - 1) / 2;
         }
         return count;
