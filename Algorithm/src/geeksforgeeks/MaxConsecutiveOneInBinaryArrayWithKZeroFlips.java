@@ -21,15 +21,11 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
         wL = wR = bestL = bestWindow = zeroCount = 0;
         while (wR < nums.length) {
             if (zeroCount <= k) {
-                if(nums[wR] == 0){
-                    zeroCount++;
-                }
+                zeroCount += nums[wR] == 0 ? 1 : 0;
                 wR++;
             }
             if (zeroCount > k) {
-                if(nums[wL] == 0){
-                    zeroCount--;
-                }
+                zeroCount -= nums[wL] == 0 ? 1 : 0;
                 wL++;
             }
             if (wR - wL > bestWindow && zeroCount <= k) {
