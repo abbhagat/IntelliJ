@@ -40,12 +40,12 @@ public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
         return false;
     }
 
-    private static int maxDistance(int[] a, int p) {
+    private static int maxDistance(int[] a, int n) {
         Arrays.sort(a);
         int low = 0, high = a[a.length - 1] - a[0], result = 0;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (canPlace(a, p, mid)) {
+            if (canPlace(a, n, mid)) {
                 result = mid;
                 low = mid + 1;
             } else {
