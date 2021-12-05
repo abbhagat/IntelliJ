@@ -17,28 +17,27 @@ Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
     private static int findZeroes(int[] nums, int k) {
-        int wL = 0, wR = 0;                     // Left and right indexes of current window
-        int bestL = 0, bestWindow = 0;         // Left index and size of the widest window
-        int zeroCount = 0;                    // Count of zeroes in current window
-        while (wR < nums.length) {           // While right boundary of current window doesn't cross right end
-            if (zeroCount <= k) {           // If zero count of current window is less than m widen the window toward right
+        int wL, wR, bestL, bestWindow, zeroCount;
+        wL = wR = bestL = bestWindow = zeroCount = 0;
+        while (wR < nums.length) {
+            if (zeroCount <= k) {
                 if(nums[wR] == 0){
                     zeroCount++;
                 }
                 wR++;
             }
-            if (zeroCount > k) {         // If zero count of current window is more than k reduce the window from left
+            if (zeroCount > k) {
                 if(nums[wL] == 0){
                     zeroCount--;
                 }
                 wL++;
             }
-            if (wR - wL > bestWindow && zeroCount <= k) {   // Update widest window if this window size is more
+            if (wR - wL > bestWindow && zeroCount <= k) {
                 bestWindow = wR - wL;
                 bestL = wL;
             }
         }
-        for (int i = bestL; i < bestWindow + bestL; i++) {    // Print positions of zeroes in the widest window
+        for (int i = bestL; i < bestWindow + bestL; i++) {
             if (nums[i] == 0) {
                 nums[i] = 1;
                 System.out.print(i + " ");
