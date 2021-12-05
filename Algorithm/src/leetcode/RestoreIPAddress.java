@@ -36,10 +36,9 @@ public class RestoreIPAddress {
         } else {
             for (int i = 1; i <= 3 && i < s.length(); i++) {
                 String address = s.substring(0, i);
-                if (!isValid(address)) {
-                    continue;
+                if (isValid(address)) {
+                    restoreIP(s.substring(i), dot - 1, result, ip + address + ".");
                 }
-                restoreIP(s.substring(i), dot - 1, result, ip + address + ".");
             }
         }
     }

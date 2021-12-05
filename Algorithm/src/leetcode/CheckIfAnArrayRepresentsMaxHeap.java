@@ -15,8 +15,8 @@ public class CheckIfAnArrayRepresentsMaxHeap {
     }
 
     public static void main(String[] args) {
-        int a[] = {90, 15, 10, 7, 12, 2, 7, 3};
-        int b[] = {10, 50, 80, 55, 57, 85, 90};
+        int[] a = {90, 15, 10, 7, 12, 2, 7, 3};
+        int[] b = {10, 50, 80, 55, 57, 85, 90};
         System.out.println(isMaxHeap(a, 0, a.length - 1) ? "Yes" : "No");
         System.out.println(isMaxHeap(b, 0, a.length - 1) ? "Yes" : "No");
     }
