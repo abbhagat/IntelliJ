@@ -3,7 +3,7 @@ package geeksforgeeks;
 public class Implement_strStr {
 
     public static int strStr(String s1, String s2) {
-        if (s2.equals("") || s1.equals(s2)) {
+        if (s2.isEmpty() || s2.equals(s1)) {
             return 0;
         }
         if (s2.length() > s1.length()) {
