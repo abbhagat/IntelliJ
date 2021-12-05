@@ -18,11 +18,10 @@ public class LevelOrderTreeTraversal {
         }
         if (level == 0) {
             System.out.print(root.num + " ");
+            return;
         }
-        if (level > 0) {
-            printLevelOrder(root.left,  level - 1);
-            printLevelOrder(root.right, level - 1);
-        }
+        printLevelOrder(root.left,  level - 1);
+        printLevelOrder(root.right, level - 1);
     }
 
     public static void main(String[] args) {

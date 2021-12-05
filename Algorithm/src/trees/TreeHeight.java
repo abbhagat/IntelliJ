@@ -13,15 +13,14 @@ public class TreeHeight {
     public static int heights(Node root) {
         if (root == null) {
             return -1;
-        } else {
-            if (root.left != null) {
-                lH++;
-                heights(root.left);
-            }
-            if (root.right != null) {
-                rH++;
-                heights(root.right);
-            }
+        }
+        if (root.left != null) {
+            lH++;
+            heights(root.left);
+        }
+        if (root.right != null) {
+            rH++;
+            heights(root.right);
         }
         return max(lH, rH);
     }

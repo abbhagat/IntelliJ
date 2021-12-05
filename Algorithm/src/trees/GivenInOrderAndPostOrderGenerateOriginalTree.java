@@ -19,9 +19,9 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
             return root;
         }
 
-        int index  = search(inorder, root.num, start, end);
-        root.right = buildTree(inorder, postOrder, index + 1,  end, postIndex);
-        root.left  = buildTree(inorder, postOrder, start, index - 1, postIndex);
+        int mid  = search(inorder, root.num, start, end);
+        root.right = buildTree(inorder, postOrder, mid + 1,  end, postIndex);
+        root.left  = buildTree(inorder, postOrder, start, mid - 1, postIndex);
         return root;
     }
 

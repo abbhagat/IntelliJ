@@ -39,7 +39,7 @@ public class ConvertSortedArrayToBalancedTree {
     }
 
     public static void main(String[] args) {
-        int a[] = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7};
         Node root = sortedArrayToBST(a, 0, a.length - 1);
         inorder(root);
     }
