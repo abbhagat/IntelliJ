@@ -5,15 +5,15 @@ package searching;
 
 public class SearchAnElementInSortedAndRotatedArray {
 
-    private static int pivotedBinarySearch(int[] a, int n, int key) {
-        int pivot = findPivot(a, 0, n - 1);
+    private static int pivotedBinarySearch(int[] a, int key) {
+        int pivot = findPivot(a, 0, a.length - 1);
         if (pivot == -1) {
-            return binarySearch(a, 0, n - 1, key);
+            return binarySearch(a, 0, a.length - 1, key);
         }
         if (a[pivot] == key) {
             return pivot;
         }
-        return key < a[0] ? binarySearch(a, pivot + 1, n - 1, key) : binarySearch(a, 0, pivot - 1, key);
+        return key < a[0] ? binarySearch(a, pivot + 1, a.length - 1, key) : binarySearch(a, 0, pivot - 1, key);
     }
 
     private static int findPivot(int[] a, int low, int high) {
@@ -36,15 +36,15 @@ public class SearchAnElementInSortedAndRotatedArray {
             if (key == a[mid]) {
                 return mid;
             }
-            return key > a[mid] ? binarySearch(a, (mid + 1), high, key) : binarySearch(a, low, (mid - 1), key);
+            return key < a[mid] ? binarySearch(a, low, mid - 1, key) : binarySearch(a, mid + 1, high, key);
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        int[] a = {5, 6, 7, 8, 9, 10, 1, 2, 3};
-        System.out.println(pivotedBinarySearch(a, a.length, 3));
-        System.out.println(pivotedBinarySearch(a, a.length, 5));
-        System.out.println(pivotedBinarySearch(a, a.length, 9));
+        int[] a = {5, 4, 1, 2, 3};
+        System.out.println(pivotedBinarySearch(a, 3));
+        System.out.println(pivotedBinarySearch(a, 5));
+        System.out.println(pivotedBinarySearch(a, 9));
     }
 }
