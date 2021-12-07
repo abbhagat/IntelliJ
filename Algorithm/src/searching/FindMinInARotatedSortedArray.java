@@ -16,7 +16,7 @@ public class FindMinInARotatedSortedArray {
         return a[high];
     }
 
-    private static int findMaximum(int[] a, int low, int high) {
+    private static int findMax(int[] a, int low, int high) {
         int mid = (low + high) / 2;
         while (low <= high) {
             mid = (low + high) / 2;
@@ -33,7 +33,7 @@ public class FindMinInARotatedSortedArray {
         return a[mid];
     }
 
-    private static int findMax(int[] a, int low, int high) {
+    private static int findMaximum(int[] a, int low, int high) {
         if (high == low) {
             return a[low];
         }
@@ -48,7 +48,7 @@ public class FindMinInARotatedSortedArray {
         int arr1[] = {5, 6, 1, 1, 1, 2, 3, 4, 4, 5};
         int n1 = arr1.length;
         System.out.println("Min :" + findMin(arr1, 0, n1 - 1));
-        System.out.println("Max :" + findMaximum(arr1, 0, n1 - 1));
+        System.out.println("Max :" + findMax(arr1, 0, n1 - 1));
 
         int arr2[] = {1, 2, 3, 4};
         int n2 = arr2.length;
