@@ -3,6 +3,8 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static trees.CreateBST.createBST;
+
 public class IterativeTreeTraversal {
 
     public static void iterativeTreeTraversal(Node root) {
@@ -23,9 +25,8 @@ public class IterativeTreeTraversal {
     public static void main(String[] args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60, 1};
         Node root = null;
-        CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
-            root = bst.createBST(root, a[i]);
+            root = createBST(root, a[i]);
         }
         iterativeTreeTraversal(root);
         System.out.println();
