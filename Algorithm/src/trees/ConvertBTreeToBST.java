@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static trees.CreateBST.createBST;
 import static trees.TreeTraversal.inorder;
 
 //Expected Time Complexity: O(NLogN).
@@ -13,29 +12,35 @@ import static trees.TreeTraversal.inorder;
 public class ConvertBTreeToBST {
 
     private static List<Integer> list = new ArrayList<>();
+    private static int index;
 
-    public static void preOrder(Node root) {
+    public static void createList(Node root) {
         if (null != root) {
             list.add(root.num);
-            preOrder(root.left);
-            preOrder(root.right);
+            createList(root.left);
+            createList(root.right);
+        }
+    }
+
+    private static void listToBST(List<Integer> list, Node root) {
+        if (root != null) {
+            listToBST(list, root.left);
+            root.num = list.get(index++);
+            listToBST(list, root.right);
         }
     }
 
     public static void main(String[] args) {
-        Node root         = new Node(10);
-        root.left         = new Node(30);
-        root.right        = new Node(15);
-        root.left.left    = new Node(20);
-        root.right.right  = new Node(5);
+        Node root        = new Node(10);
+        root.left        = new Node(30);
+        root.right       = new Node(15);
+        root.left.left   = new Node(20);
+        root.right.right = new Node(5);
         inorder(root);
-        preOrder(root);
-        System.out.println();
+        createList(root);
         Collections.sort(list);
-        root = null;
-        for (int x : list) {
-            root = createBST(root, x);
-        }
+        System.out.println();
+        listToBST(list, root);
         inorder(root);
     }
 }
