@@ -12,14 +12,11 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
         if (start > end) {
             return null;
         }
-
         Node root = new Node(postOrder[postIndex.index--]);
-
         if (start == end) {
             return root;
         }
-
-        int mid  = search(inorder, root.num, start, end);
+        int mid    = search(inorder, root.num, start, end);
         root.right = buildTree(inorder, postOrder, mid + 1,  end, postIndex);
         root.left  = buildTree(inorder, postOrder, start, mid - 1, postIndex);
         return root;

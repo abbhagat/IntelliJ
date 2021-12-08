@@ -15,7 +15,7 @@ class PrinterThread implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 synchronized (monitor) {
                     if (threadId != threadIdToRun) {
                         monitor.wait();
