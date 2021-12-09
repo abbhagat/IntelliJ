@@ -2,6 +2,9 @@ package leetcode;
 
 import java.util.LinkedList;
 
+// Time Complexity: O(n * (2 ^ n)). For every index i two recursive cases originate, So Time Complexity is O(2^n)
+// Space Complexity: O(n).
+
 public class PrintAllSubsetOfString {
 
     private static void findSubset(char[] a, int index, LinkedList<String> list) {
