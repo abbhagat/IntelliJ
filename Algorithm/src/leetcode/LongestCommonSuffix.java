@@ -15,8 +15,8 @@ public class LongestCommonSuffix {
     }
 
     private static String longestCommonSuffix(String left, String right) {
-        left  = new StringBuilder( left).reverse().toString();
-        right = new StringBuilder(right).reverse().toString();
+        left    = new StringBuilder( left).reverse().toString();
+        right   = new StringBuilder(right).reverse().toString();
         int min = min(left.length(), right.length());
         for (int i = 0; i < min; i++) {
             if (left.charAt(i) != right.charAt(i)) {
@@ -27,7 +27,10 @@ public class LongestCommonSuffix {
     }
 
     public static void main(String[] args) {
-        System.out.println(longestCommonSuffix(new String[]{"ABCDEBUILD", "QOUCTBUILD"}, 0, 1));
-        System.out.println(longestCommonSuffix(new String[]{"ABCDEBUILD", "ABCDEBUILD"}, 0, 1));
+        String[] s;
+        s = new String[]{"ABCDEBUILD", "QOUCTBUILD"};
+        System.out.println(longestCommonSuffix(s, 0, s.length - 1));
+        s = new String[]{"ABCDEBUILD", "ABCDEBUILD"};
+        System.out.println(longestCommonSuffix(s, 0, s.length - 1));
     }
 }
