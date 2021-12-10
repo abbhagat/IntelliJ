@@ -15,7 +15,7 @@ public class CuttingRodProblemKnapsackSoln {
     }
 
     private static int cuttingRodSoln(int W, int[] wt, int[] price, int n) {
-        int dp[] = new int[W + 1];
+        int[] dp = new int[W + 1];
         for (int i = 0; i <= W; i++) {
             for (int j = 0; j <= n; j++) {
                 if ( i >= wt[j]) {

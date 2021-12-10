@@ -2,6 +2,8 @@ package geeks;
 
 import java.util.*;
 
+// Time Complexity: O(n*(2^n))
+
 public class ArraySum {
 
     private static int[] a = {0, 15, -2, 2, -8, 1, 7, 10, 23};
