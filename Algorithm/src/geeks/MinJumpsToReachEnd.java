@@ -62,13 +62,13 @@ public class MinJumpsToReachEnd {
 
     public static void main(String[] args) {
         int[] a = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
-        System.out.println("Min jumps to reach end is " + minJumps(a, 0, a.length - 1));
-        System.out.println("Min jumps to reach end is " + isReachable(a));
-        System.out.println("Min jumps to reach end is " + minJumps(a));
+        System.out.println("Min jumps to reach end " + minJumps(a, 0, a.length - 1));
+        System.out.println("Min jumps to reach end " + isReachable(a));
+        System.out.println("Min jumps to reach end " + minJumps(a));
         System.out.println();
         int b[] = {2, 3, 1, 1, 4};
-        System.out.println("Min jumps to reach end is " + minJumps(b, 0, b.length - 1));
-        System.out.println("Min jumps to reach end is " + isReachable(b));
-        System.out.println("Min jumps to reach end is " + minJumps(b));
+        System.out.println("Min jumps to reach end " + minJumps(b, 0, b.length - 1));
+        System.out.println("Min jumps to reach end " + isReachable(b));
+        System.out.println("Min jumps to reach end " + minJumps(b));
     }
 }
