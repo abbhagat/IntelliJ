@@ -31,20 +31,21 @@ public class NextPalindromeNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(findNextPalindrome(45312));   // 45354
-        System.out.println(findNextPalindrome(12345));   // 12421
-        System.out.println(findNextPalindrome(12945));   // 13031
-        System.out.println(findNextPalindrome(4531));    // 4554
-        System.out.println(findNextPalindrome(1459));   // 1551
-        System.out.println(findNextPalindrome(1997));   // 2002
         System.out.println(findNextPalindrome(9));      // 11
         System.out.println(findNextPalindrome(3));      // 11
-        System.out.println(findNextPalindrome(13));      // 22
-        System.out.println(findNextPalindrome(55));      // 66
+        System.out.println(findNextPalindrome(13));     // 22
+        System.out.println(findNextPalindrome(55));     // 66
         System.out.println(findNextPalindrome(99));     // 101
         System.out.println(findNextPalindrome(93));     // 101
-        System.out.println(findNextPalindrome(101));     // 111
-        System.out.println(findNextPalindrome(191));     // 202
-        System.out.println(findNextPalindrome(141));     // 151
+        System.out.println(findNextPalindrome(101));    // 111
+        System.out.println(findNextPalindrome(191));    // 202
+        System.out.println(findNextPalindrome(141));    // 151
+        System.out.println(findNextPalindrome(45312));  // 45354
+        System.out.println(findNextPalindrome(12345));  // 12421
+        System.out.println(findNextPalindrome(12945));  // 13031
+        System.out.println(findNextPalindrome(4531));   // 4554
+        System.out.println(findNextPalindrome(1459));   // 1551
+        System.out.println(findNextPalindrome(1997));   // 2002
+
     }
 }
