@@ -1,6 +1,7 @@
 package geeks;
 
 import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 /**
  * Given an array of integers where each element represents the max number of steps that can be made forward from that element.
@@ -29,7 +30,7 @@ public class MinJumpsToReachEnd {
         int min = Integer.MAX_VALUE;
         for (int i = l + 1; i <= h && i <= l + a[l]; i++) {
             int result = minJumps(a, i, h);
-            min = Math.min(min, result);
+            min = min(min, result);
         }
         return min + 1;
     }
@@ -50,13 +51,13 @@ public class MinJumpsToReachEnd {
     }
 
     private static boolean isReachable(int[] a) {
-        int lastPosition = a.length - 1;
+        int last = a.length - 1;
         for (int i = a.length - 1; i >= 0; i--) {
-            if (i + a[i] >= lastPosition) {
-                lastPosition = i;
+            if (i + a[i] >= last) {
+                last = i;
             }
         }
-        return lastPosition == 0;
+        return last == 0;
     }
 
     public static void main(String[] args) {
