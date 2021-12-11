@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class RomanToInteger {
 
-    private static final Map<Character, Integer> roman = new HashMap<>() {
+    private static final Map<Character, Integer> map = new HashMap<>() {
         {
             put('I', 1);
             put('V', 5);
@@ -20,11 +20,11 @@ public class RomanToInteger {
     private static int romanToInt(String s) {
         int sum = 0, n = s.length();
         for (int i = 0; i < n; i++) {
-            if (i != n && roman.get(s.charAt(i)) < roman.get(s.charAt(i + 1))) {
-                sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));
+            if (i != n && map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
+                sum +=    map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                 i++;
             } else {
-                sum += roman.get(s.charAt(i));
+                sum += map.get(s.charAt(i));
             }
         }
         return sum;

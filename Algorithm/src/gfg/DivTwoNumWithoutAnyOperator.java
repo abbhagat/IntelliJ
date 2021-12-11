@@ -1,5 +1,8 @@
 package gfg;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 public class DivTwoNumWithoutAnyOperator {
 
     private static int divide(int x, int y) {
@@ -24,7 +27,7 @@ public class DivTwoNumWithoutAnyOperator {
 
     public static void main(String[] args) {
         int x = 16, y = 3;
-        divide(Math.max(x, y), Math.min(x, y));
-        divide(Math.max(x, y), Math.min(x, y),0);
+        divide(max(x, y), min(x, y));
+        divide(max(x, y), min(x, y),0);
     }
 }
