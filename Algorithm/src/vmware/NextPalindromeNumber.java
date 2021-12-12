@@ -9,7 +9,7 @@ public class NextPalindromeNumber {
     private static String findNextPalindrome(int n) {
         String s = Integer.toString(n);
         if (s.length() == 1) {
-            return "11";
+            return (n >= 0 && n <= 8) ? Integer.toString(n + 1) : "11";
         }
         if (s.length() == 2) {
             s = "" + (s.charAt(0) - '0' + 1);

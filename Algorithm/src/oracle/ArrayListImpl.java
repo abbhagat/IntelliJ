@@ -79,9 +79,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
             System.out.println(al.get(i));
         }
         al.remove(2);
-
         System.out.println("Changed List");
-
         Integer[] a = new Integer[al.size()];
         for (int i = 0; i < al.size(); i++) {
             a[i] = al.get(i);

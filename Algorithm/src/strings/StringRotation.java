@@ -10,9 +10,10 @@ Output : Left Rotation  : "eksforGeeksGe"
 
 Input : s = "qwertyu"
         d = 2
-Output : Left rotation : "ertyuqw"
+Output : Left rotation  : "ertyuqw"
          Right rotation : "yuqwert"
  */
+
 public class StringRotation {
 
     private static boolean isRotation(String s1, String s2) {

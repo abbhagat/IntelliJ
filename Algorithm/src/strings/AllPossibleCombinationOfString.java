@@ -10,6 +10,7 @@ public class AllPossibleCombinationOfString {
     private static void permute(int start, int end) {
         if (start == end) {
             System.out.println(c);
+            return;
         }
         for (int i = start; i <= end; i++) {
             swap(i, start);
