@@ -1,7 +1,7 @@
 package trees;
 
-//Expected Time Complexity: O(Height of the BST).
-//Expected Auxiliary Space: O(Height of the BST).
+//Time Complexity: O(Height of the BST)
+//Auxiliary Space: O(Height of the BST)
 public class LCA {
 
     public static Node LCA(Node root, int num1, int num2) {

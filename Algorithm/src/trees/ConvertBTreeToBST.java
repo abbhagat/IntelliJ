@@ -6,8 +6,8 @@ import java.util.List;
 
 import static trees.TreeTraversal.inorder;
 
-//Expected Time Complexity: O(NLogN).
-//Expected Auxiliary Space: O(N).
+//Time Complexity: O(NLogN).
+//Auxiliary Space: O(N).
 
 public class ConvertBTreeToBST {
 
