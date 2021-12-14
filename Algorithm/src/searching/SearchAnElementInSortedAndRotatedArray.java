@@ -42,7 +42,7 @@ public class SearchAnElementInSortedAndRotatedArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {5, 4, 1, 2, 3};
+        int[] a = {4, 5, 1, 2, 3};
         System.out.println(pivotedBinarySearch(a, 3));
         System.out.println(pivotedBinarySearch(a, 5));
         System.out.println(pivotedBinarySearch(a, 9));

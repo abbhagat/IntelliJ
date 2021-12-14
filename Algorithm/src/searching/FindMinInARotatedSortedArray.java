@@ -33,17 +33,6 @@ public class FindMinInARotatedSortedArray {
         return a[mid];
     }
 
-    private static int findMaximum(int[] a, int low, int high) {
-        if (high == low) {
-            return a[low];
-        }
-        int mid = (low + high) / 2;
-        if (mid == 0 && a[mid] > a[mid + 1]) {  // Check if mid reaches 0 ,it is greater than next element or not
-            return a[mid];
-        }
-        return a[low] > a[mid] ? findMax(a, low, mid - 1) : findMax(a, mid + 1, high);
-    }
-
     public static void main(String[] args) {
         int arr1[] = {5, 6, 1, 1, 1, 2, 3, 4, 4, 5};
         int n1 = arr1.length;
