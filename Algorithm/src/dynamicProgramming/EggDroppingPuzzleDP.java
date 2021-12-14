@@ -1,4 +1,4 @@
-package geeks;
+package dynamicProgramming;
 
 // Time Complexity: O(n*k^2)
 

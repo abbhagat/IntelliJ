@@ -1,4 +1,4 @@
-package geeks;
+package dynamicProgramming;
 
 import static java.lang.Integer.min;
 

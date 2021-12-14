@@ -1,4 +1,4 @@
-package geeks;
+package dynamicProgramming;
 
 /**
  * Given a knapsack weight W and a set of n items with certain value val i and weight wt i,

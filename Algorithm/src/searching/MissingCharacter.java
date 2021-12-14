@@ -1,4 +1,4 @@
-package geeks;
+package searching;
 
 public class MissingCharacter {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package amazon;
+package dynamicProgramming;
 
 
 import static java.lang.Integer.max;
