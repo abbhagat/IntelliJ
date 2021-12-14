@@ -29,7 +29,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
         for (int x : nums) {
             int y = target - x;
             if (map.containsKey(y)) {
-                if (x == y && map.get(y) == 1) {
+                if (x == y && map.get(x) == 1) {
                     continue;
                 }
                 System.out.println(x + "," + y);

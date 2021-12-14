@@ -48,10 +48,7 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         }
         for (int x : a) {
             int y = x - target;
-            if(target == 0 && map.get(y) != null && map.get(y) > 1){
-                set.add(new Pair(x,y));
-            }
-            else if (target != 0 && map.containsKey(y)) {
+            if(map.containsKey(y) && ((target == 0 && map.get(y) > 1) || target != 0)){
                 set.add(new Pair(x,y));
             }
         }
