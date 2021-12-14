@@ -1,4 +1,4 @@
-package geeks;
+package sorting;
 
 import java.util.stream.IntStream;
 
@@ -16,7 +16,7 @@ public class SortArrayWithZeroAndOneWithoutCalculatingArrayLength {
         a[y] = temp;
     }
 
-    private static void move() {
+    private static void sort() {
         int i = 0, j = 0;
         while (true) {
             try {
@@ -32,7 +32,7 @@ public class SortArrayWithZeroAndOneWithoutCalculatingArrayLength {
     }
 
     public static void main(String[] args) {
-        move();
+        sort();
         IntStream.range(0, a.length - 1).forEach(i -> System.out.print(a[i] + " "));
     }
 }

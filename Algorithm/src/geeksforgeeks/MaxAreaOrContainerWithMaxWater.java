@@ -6,21 +6,21 @@ import static java.lang.Math.min;
 public class MaxAreaOrContainerWithMaxWater {
 
     public static int maxArea(int[] a) {
-        int low = 0, high = a.length - 1, area = 0;
+        int low = 0, high = a.length - 1, max = 0;
         while (low < high) {
-            area = max(area, min(a[low], a[high]) * (high - low));
+            max = max(max, min(a[low], a[high]) * (high - low));
             int i = a[low] < a[high] ? low++ : high--;
         }
-        return area;
+        return max;
     }
 
     public static int minArea(int[] a) {
-        int low = 0, high = a.length - 1, area = 0;
+        int low = 0, high = a.length - 1, max = 0;
         while (low < high) {
-            area = max(area, min(a[low], a[high]) * (high - low));
+            max = max(max, min(a[low], a[high]) * (high - low));
             int i = a[low] > a[high] ? low++ : high--;
         }
-        return area;
+        return max;
     }
 
     public static void main(String[] args) {

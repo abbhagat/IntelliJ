@@ -1,4 +1,4 @@
-package geeks;
+package sorting;
 
 import java.util.stream.IntStream;
 
