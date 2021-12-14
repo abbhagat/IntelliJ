@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package recursion;
 
 /**
  * Given a number line from -infinity to +infinity. You start at 0 and can go either to the left or to the right.

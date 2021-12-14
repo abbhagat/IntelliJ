@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package recursion;
 
 public class MinCostPathRecursion {
 
