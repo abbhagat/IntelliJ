@@ -1,4 +1,4 @@
-package gfg;
+package binarySearchImpl;
 
 import java.util.Arrays;
 import java.util.Collections;

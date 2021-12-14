@@ -1,4 +1,4 @@
-package gfg;
+package binarySearchImpl;
 
 /**
  * Given two integers W and C, representing the number of watermelons and coins,
