@@ -1,4 +1,4 @@
-package geeks;
+package recursion;
 
 /*
 As another example, if the given sequence is “BBABCBCAB”, then the output should be 7 as “BABCBAB”
