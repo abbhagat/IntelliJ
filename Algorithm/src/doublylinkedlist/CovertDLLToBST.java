@@ -1,5 +1,7 @@
 package doublylinkedlist;
 
+// Time Complexity: O(n)
+
 public class CovertDLLToBST {
 
     private static Node head;
