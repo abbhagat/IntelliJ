@@ -1,5 +1,7 @@
 package linkedlist;
 
+import static linkedlist.TraverseList.traverseList;
+
 public class ReverseList {
 
     public static Node reverseList(Node node) {
@@ -18,8 +20,8 @@ public class ReverseList {
         for (int x : a) {
             first = LinkList.add(first, x);
         }
-        TraverseList.traverseList(first);
+        traverseList(first);
         first = reverseList(first);
-        TraverseList.traverseList(first);
+        traverseList(first);
     }
 }

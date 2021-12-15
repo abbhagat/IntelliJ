@@ -1,5 +1,7 @@
 package amazon;
 
+// Time  Complexity  O(n)
+
 public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
     private static String add(String num1, String num2) {

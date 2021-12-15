@@ -2,6 +2,9 @@ package amazon;
 
 import java.util.stream.IntStream;
 
+// Time  Complexity  O(n)    if 0 is not present
+// Time  Complexity  O(n ^2) if 0 is present
+
 public class ArrayMulOtherThanOwnPosition {
 
     private static int[] productExceptSelf(int[] nums) {

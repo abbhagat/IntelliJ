@@ -3,6 +3,9 @@ package amazon;
 import java.util.HashMap;
 import java.util.Map;
 
+// Time  Complexity  O(n)
+// Space Complexity  O(n)
+
 public class RomanToInteger {
 
     private static final Map<Character, Integer> map = new HashMap<>() {

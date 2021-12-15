@@ -2,6 +2,9 @@ package amazon;
 
 import java.util.stream.IntStream;
 
+// Time  Complexity  O(n)
+// Space Complexity  O(1)
+
 public class ReArrangePositiveAndNegativeNumber {
 
     private static void reArrangePositiveAndNegativeNumber(int[] a) {

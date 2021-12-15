@@ -30,13 +30,9 @@ public class AllPalindromicPermutationOfAString {
         }
     }
 
-    private static void findAllPalindromicPermutation(String str) {
-        findAllPalindromicPermutation(0, str, new LinkedList<>());
-    }
-
     public static void main(String[] args) {
-        findAllPalindromicPermutation("madam");
-        findAllPalindromicPermutation("nitin");
-        findAllPalindromicPermutation("geeks");
+        findAllPalindromicPermutation(0,"madam", new LinkedList<>());
+        findAllPalindromicPermutation(0,"nitin", new LinkedList<>());
+        findAllPalindromicPermutation(0,"geeks", new LinkedList<>());
     }
 }
