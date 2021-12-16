@@ -21,9 +21,7 @@ public class MatrixRotationBy90Degree {
         for (int k = 1; k < M.length; k++) {
             int R1 = 0, R2 = M.length - 1;
             int C1 = 0, C2 = M[0].length - 1;
-
             int prev, curr;
-
             while (R1 <= R2 && C1 <= C2) {
                 prev = M[R1 + 1][C1];
                 for (int i = C1; i <= C2; i++) {

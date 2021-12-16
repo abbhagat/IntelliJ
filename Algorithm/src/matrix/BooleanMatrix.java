@@ -26,7 +26,7 @@ public class BooleanMatrix {
         }
     }
 
-    public static void printMatrix(int M[][]) {
+    public static void printMatrix(int[][] M) {
         int R = M.length, C = M[0].length;
         for (int i = 0; i < R; i++) {
             for (int j = 0; j < C; j++) {

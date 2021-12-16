@@ -1,19 +1,16 @@
 package matrix;
 
-/**
- * Given a boolean 2D array, where each row is sorted. Find the row with the maximum number of 1s.
- * <p>
- * Example:
- * <p>
- * Input matrix
- * 0 1 1 1
- * 0 0 1 1
- * 1 1 1 1  // this row has maximum 1s
- * 0 0 0 0
- * <p>
- * Output: 2
+/*
+  Given a boolean 2D array, where each row is sorted. Find the row with the maximum number of 1s.
+  Input matrix
+  0 1 1 1
+  0 0 1 1
+  1 1 1 1  // this row has maximum 1s
+  0 0 0 0 // this row has maximum 0s
+  Output: 2
  */
 
+// Time Complexity O(nlogn)
 public class FindRowWithMaxOneInBinaryMatrix {
 
     private static int rowWithMax1s(int[] a, int low, int high) {

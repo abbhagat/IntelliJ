@@ -2,7 +2,7 @@ package matrix;
 
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
-    private static boolean binarySearch(int M[][], int i, int low, int high, int n) {
+    private static boolean binarySearch(int[][] M, int i, int low, int high, int n) {
         if (low <= high) {
             int mid = (low + high) / 2;
             if (M[i][mid] == n) {
