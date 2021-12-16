@@ -8,7 +8,6 @@ public class DecimalToBinaryUsingRecursion {
         }
         binaryString += (num & mask) == 0 ? 0 : 1;
         return decimalToBinary(num, mask >> 1, binaryString);
-
     }
 
     public static void main(String[] args) {
