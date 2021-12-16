@@ -1,5 +1,6 @@
 package matrix;
 
+// Time Complexity O(M*N)
 public class SpiralMatrixPrint {
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package matrix;
 
+// Time Complexity O(M*N)
 public class NQueenProblem {
 
     private static final int N = 4;

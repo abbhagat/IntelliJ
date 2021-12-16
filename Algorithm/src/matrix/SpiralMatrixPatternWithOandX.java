@@ -1,5 +1,6 @@
 package matrix;
 
+// Time Complexity O(M^2*N)
 public class SpiralMatrixPatternWithOandX {
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package matrix;
 
+// Time Complexity O(M*N)
+
 public class SpiralMatrix {
 
     public static void main(String[] args) {

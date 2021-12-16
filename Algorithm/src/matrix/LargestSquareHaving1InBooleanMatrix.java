@@ -2,6 +2,7 @@ package matrix;
 
 import static java.lang.Integer.min;
 
+// Time Complexity O(M*N)
 public class LargestSquareHaving1InBooleanMatrix {
 
     private static void findMatrix(int[][] M) {
