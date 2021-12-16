@@ -10,12 +10,12 @@ public class PrintAllSubsetOfString {
     private static void findSubset(char[] a, int index, LinkedList<String> list) {
         if (index == a.length) {
             System.out.println(list);
-        } else {
-            findSubset(a, index + 1, list);
-            list.add("" + a[index]);
-            findSubset(a, index + 1, list);
-            list.removeLast();
+            return;
         }
+        findSubset(a, index + 1, list);
+        list.add("" + a[index]);
+        findSubset(a, index + 1, list);
+        list.removeLast();
     }
 
     public static void main(String[] args) {

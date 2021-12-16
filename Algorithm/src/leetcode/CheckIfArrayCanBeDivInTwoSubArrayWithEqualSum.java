@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
 
     private static boolean check(int[] a) {
-        int sum = 0, sum_so_far = 0;;
+        int sum = 0, sum_so_far = 0;
         for (int x : a) {
             sum += x;
         }

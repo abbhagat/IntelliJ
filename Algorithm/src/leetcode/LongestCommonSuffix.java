@@ -2,6 +2,8 @@ package leetcode;
 
 import static java.lang.Integer.min;
 
+// Time Complexity O(nlogn)
+
 public class LongestCommonSuffix {
 
     private static String longestCommonSuffix(String[] str, int low, int high) {

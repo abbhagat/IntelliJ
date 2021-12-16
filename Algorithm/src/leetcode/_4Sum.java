@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+// Time Complexity O(n*2^n) + O(nlog(n))
 
 public class _4Sum {
 

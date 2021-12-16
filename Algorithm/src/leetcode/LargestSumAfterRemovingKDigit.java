@@ -27,5 +27,6 @@ public class LargestSumAfterRemovingKDigit {
 
     public static void main(String[] args) {
         System.out.println(maxNumber(6358, 1));
+        System.out.println(maxNumber(2589, 2));
     }
 }
