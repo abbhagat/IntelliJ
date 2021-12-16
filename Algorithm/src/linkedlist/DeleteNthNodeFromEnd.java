@@ -3,6 +3,8 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Time Complexity : O(n)
+
 public class DeleteNthNodeFromEnd {
 
     private static Node deleteNthNode(Node first, int n) {
