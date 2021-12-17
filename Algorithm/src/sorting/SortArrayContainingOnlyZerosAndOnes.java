@@ -1,6 +1,6 @@
 package sorting;
 
-import java.util.stream.IntStream;
+import static java.util.stream.IntStream.range;
 
 public class SortArrayContainingOnlyZerosAndOnes {
 
@@ -13,11 +13,7 @@ public class SortArrayContainingOnlyZerosAndOnes {
             }
         }
         final int c = countZero;
-        IntStream.range(0, a.length).forEach(i -> {
-            a[i] = (i < c) ? 0 : 1;
-        });
-        IntStream.range(0, a.length).forEach(i -> {
-            System.out.print(a[i] + " ");
-        });
+        range(0, a.length).forEach(i -> a[i] = (i < c) ? 0 : 1);
+        range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }
