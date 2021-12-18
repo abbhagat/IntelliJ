@@ -2,6 +2,7 @@ package trees;
 
 import static trees.CreateBST.createBST;
 
+// Time Complexity: The function does a simple traversal of the tree, so the complexity is O(n).
 public class PrintLeftViewOfABinaryTree {
 
     private static int max_level = 0;

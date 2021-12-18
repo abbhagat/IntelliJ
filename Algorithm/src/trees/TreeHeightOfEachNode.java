@@ -11,7 +11,7 @@ public class TreeHeightOfEachNode {
         int lH   = heightOfEachNode(root.left);
         int rH   = heightOfEachNode(root.right);
         int heightOfEachNode = max(lH, rH) + 1;
-        System.out.println(heightOfEachNode);
+        System.out.println("Height of Node " + root.num + " --> " + heightOfEachNode);
         return heightOfEachNode;
     }
 
