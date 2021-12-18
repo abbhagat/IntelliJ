@@ -12,7 +12,8 @@ public class NextPalindromeNumber {
             return (n >= 0 && n <= 8) ? Integer.toString(n + 1) : "11";
         }
         if (s.length() == 2) {
-            s = "" + (s.charAt(0) - '0' + 1);
+            int k = s.charAt(0) - '0';
+            s = (k <= s.charAt(1) - '0') ? Integer.toString(k + 1) : Integer.toString(k);
             return s + s.charAt(0);
         }
         if (s.length() == 3) {
@@ -34,6 +35,7 @@ public class NextPalindromeNumber {
         System.out.println(findNextPalindrome(9));      // 11
         System.out.println(findNextPalindrome(3));      // 11
         System.out.println(findNextPalindrome(13));     // 22
+        System.out.println(findNextPalindrome(43));     // 44
         System.out.println(findNextPalindrome(55));     // 66
         System.out.println(findNextPalindrome(99));     // 101
         System.out.println(findNextPalindrome(93));     // 101
