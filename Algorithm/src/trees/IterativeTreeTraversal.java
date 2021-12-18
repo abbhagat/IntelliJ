@@ -5,6 +5,8 @@ import java.util.Queue;
 
 import static trees.CreateBST.createBST;
 
+// Time Complexity  : O(n)
+// Space Complexity : O(2^h)
 public class IterativeTreeTraversal {
 
     public static void iterativeTreeTraversal(Node root) {

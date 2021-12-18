@@ -5,16 +5,14 @@ import static trees.CreateBST.createBST;
 public class MinValueInBST {
 
     public static Node minValueInBST(Node root) {
-        if (root != null) {
-            while (root.left != null) {
-                root = root.left;
-            }
+        while (null != root && null != root.left) {
+            root = root.left;
         }
         return root;
     }
 
     public static Node minValueBST(Node root) {
-        if (root != null && root.left != null) {
+        if (null != root && null != root.left) {
             root = minValueBST(root.left);
         }
         return root;
