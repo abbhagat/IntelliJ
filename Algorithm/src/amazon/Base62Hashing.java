@@ -31,7 +31,7 @@ public class Base62Hashing {
     private static String base62Encode(long value) {
         String s = "";
         while (value != 0) {
-            s = base62.charAt((int) (value % 62)) + s;
+            s += base62.charAt((int) (value % 62));
             value /= 62;
         }
         int l = s.length();
