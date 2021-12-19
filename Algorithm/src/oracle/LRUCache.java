@@ -40,7 +40,7 @@ public class LRUCache {
     }
 
     public void addPage(int num) {
-        Node pageNode = null;
+        Node pageNode;
         if (pageList.currSize == cacheSize) {
             pageMap.remove(pageList.tail.num);
         }

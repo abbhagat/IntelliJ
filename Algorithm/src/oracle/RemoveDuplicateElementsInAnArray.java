@@ -11,8 +11,7 @@ public class RemoveDuplicateElementsInAnArray {
             System.out.print(x + " ");
         }
         System.out.println();
-        int i = 1;
-        for (i = 1; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
             if (a[i - 1] != a[i]) {
                 System.out.print(a[i - 1] + " ");
             }
