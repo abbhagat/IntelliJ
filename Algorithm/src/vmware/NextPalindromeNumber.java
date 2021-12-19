@@ -41,6 +41,7 @@ public class NextPalindromeNumber {
         System.out.println(findNextPalindrome(93));     // 101
         System.out.println(findNextPalindrome(101));    // 111
         System.out.println(findNextPalindrome(191));    // 202
+        System.out.println(findNextPalindrome(199));    // 202
         System.out.println(findNextPalindrome(141));    // 151
         System.out.println(findNextPalindrome(4531));   // 4554
         System.out.println(findNextPalindrome(1459));   // 1551

@@ -93,7 +93,6 @@ public class FindPairCountWithSumDivisibleByK {
     private static final int[] a = {2, 2, 1, 7, 5, 3};
 
     private static int countKdivPairs(int k) {
-
         int[] freq = new int[k];
         for (int x : a) {
             freq[x % k]++;
