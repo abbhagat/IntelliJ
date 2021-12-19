@@ -7,7 +7,6 @@ import java.util.stream.IntStream;
 public class UnionIntersect {
 
     public static void main(String[] args) {
-
         int[] a = {12, 15, 30, 35, 46, 55, 60, 72, 89, 92, 100};
         int[] b = {12, 15, 300, 350, 46, 55, 60, 72, 89, 92, 100};
         Set<Integer> set = new HashSet<>();
