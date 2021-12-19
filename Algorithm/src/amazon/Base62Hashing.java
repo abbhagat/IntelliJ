@@ -5,12 +5,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Base62Hashing {
 
-    private static volatile Long counter = 1L;
-    private static Map<Long, String> indexToUrl = new ConcurrentHashMap<>();
-    private static Map<String, Long> urlToIndex = new ConcurrentHashMap<>();
-    private static String base62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private volatile int counter = 1;
+    private Map<Integer, String> indexToUrl = new ConcurrentHashMap<>();
+    private Map<String, Integer> urlToIndex = new ConcurrentHashMap<>();
+    private final String base62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static String encode(String longUrl) {       // Encodes a URL to a shortened URL.
+    public String encode(String longUrl) {
         if (!urlToIndex.containsKey(longUrl)) {
             indexToUrl.put(counter, longUrl);
             urlToIndex.put(longUrl, counter);
@@ -19,30 +19,31 @@ public class Base62Hashing {
         return "http://tinyurl.com/" + base62Encode(urlToIndex.get(longUrl));
     }
 
-    public static String decode(String shortUrl) {  // Decodes a shortened URL to its original URL.
+    public String decode(String shortUrl) {
         String base62Encoded = shortUrl.substring(shortUrl.lastIndexOf("/") + 1);
-        long decode = 0;
+        int decode = 0;
         for (int i = 0; i < base62Encoded.length(); i++) {
             decode = decode * 62 + base62.indexOf("" + base62Encoded.charAt(i));
         }
         return indexToUrl.get(decode);
     }
 
-    private static String base62Encode(long value) {
-        String s = "";
+    private String base62Encode(int value) {
+        StringBuilder hashVal = new StringBuilder();
         while (value != 0) {
-            s += base62.charAt((int) (value % 62));
+            hashVal.append(base62.charAt(value % 62));
             value /= 62;
         }
-        int l = s.length();
+        int l = hashVal.length();
         for (int i = 1; i < 7 - l; i++) {
-            s = 0 + s;
+            hashVal.insert(0,0);
         }
-        return s;
+        return hashVal.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
-        System.out.println(decode("http://tinyurl.com/000001"));
+        Base62Hashing base62Hashing = new Base62Hashing();
+        System.out.println(base62Hashing.encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
+        System.out.println(base62Hashing.decode("http://tinyurl.com/000001"));
     }
 }
