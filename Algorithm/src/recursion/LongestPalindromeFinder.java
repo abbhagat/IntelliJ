@@ -3,9 +3,6 @@ package recursion;
 public class LongestPalindromeFinder {
 
     public static String intermediatePalindrome(String s, int left, int right) {
-        if (left > right) {
-            return null;
-        }
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
@@ -14,9 +11,6 @@ public class LongestPalindromeFinder {
     }
 
     public static String longestPalindromeString(String s) {
-        if (s.isEmpty()) {
-            return null;
-        }
         String longest = s.substring(0, 1);
         for (int i = 0; i < s.length(); i++) {
             String palindrome = intermediatePalindrome(s, i, i);                            //odd cases like 121
