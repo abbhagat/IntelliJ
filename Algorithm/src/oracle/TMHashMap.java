@@ -69,7 +69,7 @@ public class TMHashMap<K,V> {
 
     public void traverseHashMap() {
         for (int i = 0; i < SIZE; i++) {
-            if (null != table[i]) {
+            for (Entry e = table[i]; e != null; e = e.next) {
                 System.out.println("Key : " + table[i].getKey() + "\tValue : " + table[i].getValue());
             }
         }
