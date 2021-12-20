@@ -21,7 +21,8 @@ import java.util.List;
  * 1 2
  * Explanation: These are all the subsets that can be formed using the array.
  */
-
+// O((2^n))
+// O(n)
 public class PrintAllSubSetOfArray {
 
     public static void findSubSet(int[] a, int index, List<Integer> list) {
