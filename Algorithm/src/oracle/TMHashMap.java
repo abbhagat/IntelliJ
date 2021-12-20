@@ -41,11 +41,16 @@ public class TMHashMap<K,V> {
 
     public boolean remove(K key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        for (Entry e = table[hash]; e != null; e = e.next) {
-            if (null == e.getKey() || e.getKey().equals(key)) {
-                e.setValue(null);
-                return true;
+        for (Entry e = table[hash], prev = e; e != null; e = e.next) {
+            if(e.next == null){
+                table[hash] = null;
             }
+            else {
+                if (null == e.getKey() || e.getKey().equals(key)) {
+                    prev.next = e.next;
+                }
+            }
+            return true;
         }
         return false;
     }
@@ -55,6 +60,8 @@ public class TMHashMap<K,V> {
         Entry e = table[hash];
         if (null != e) {
             if (null == e.getKey() || key.equals(e.getKey())) {
+                e.setValue(value);
+            }else{
                 while (e.next != null) {
                     e = e.next;
                 }
@@ -77,7 +84,6 @@ public class TMHashMap<K,V> {
 
     public static void main(String[] args) {
         TMHashMap<String,Integer> map = new TMHashMap<>();
-        System.out.println(map.put("Abhinaw", 65));
         map.put("Bhagat", 66);
         map.put("D", 68);
         map.put("D", 70);
@@ -87,17 +93,10 @@ public class TMHashMap<K,V> {
         map.put("Kumar", 66);
         map.put("Z", 90);
         map.put("D", 100);
-        System.out.println(map.put("Abhinaw", 100));
+        map.put("Abhinaw", 100);
         map.put("Z", 1);
         map.remove("A");
         map.remove(null);
-        // Entry e = map.get(null);
-        // if(e==null){
-        // System.out.println(table[0].getValue());
-        // }else{
-        // System.out.println(e.getValue());
-        // }
         map.traverseHashMap();
-        System.out.println(map.get(null));
     }
 }
