@@ -6,14 +6,15 @@ package searching;
 public class SearchAnElementInSortedAndRotatedArray {
 
     private static int pivotedBinarySearch(int[] a, int key) {
-        int pivot = findPivot(a, 0, a.length - 1);
+        int low = 0, high = a.length - 1;
+        int pivot = findPivot(a, low, high);
         if (pivot == -1) {
-            return binarySearch(a, 0, a.length - 1, key);
+            return binarySearch(a, low, high, key);
         }
         if (a[pivot] == key) {
             return pivot;
         }
-        return key < a[0] ? binarySearch(a, pivot + 1, a.length - 1, key) : binarySearch(a, 0, pivot - 1, key);
+        return key < a[0] ? binarySearch(a, pivot + 1, high, key) : binarySearch(a, low, pivot - 1, key);
     }
 
     private static int findPivot(int[] a, int low, int high) {
