@@ -50,14 +50,14 @@ public class LRUCache {
 
     public void accessPage(int num) {
         Node pageNode;
-        if (pageMap.containsKey(num)) {   // If page is present in the cache, move the page to the start of list
+        if (pageMap.containsKey(num)) {
             pageNode = pageMap.get(num);
             pageList.movePageToHead(pageNode);
         } else {
-            if (pageList.currSize == pageList.size) {  // If cache is full, we will remove the tail from the cache pageList Remove it from map too
+            if (pageList.currSize == pageList.size) {
                 pageMap.remove(pageList.tail.num);
             }
-            pageNode = pageList.addPageToList(num); // If the page is not present in the cache, add the page to the cache
+            pageNode = pageList.addPageToList(num);
             pageMap.put(num, pageNode);
         }
     }
