@@ -22,8 +22,8 @@ public class Base62Hashing {
     public String decode(String shortUrl) {
         String base62Encoded = shortUrl.substring(shortUrl.lastIndexOf("/") + 1);
         int decode = 0;
-        for (int i = 0; i < base62Encoded.length(); i++) {
-            decode = decode * 62 + base62.indexOf("" + base62Encoded.charAt(i));
+        for (char x : base62Encoded.toCharArray()) {
+            decode = decode * 62 + base62.indexOf(x);
         }
         return indexToUrl.get(decode);
     }
