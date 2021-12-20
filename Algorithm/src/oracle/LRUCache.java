@@ -30,10 +30,10 @@ public class LRUCache {
         pageMap = new HashMap<>();
     }
 
-    public Node getPage(int num) {
+    public Node getPage(int pageNum) {
         Node pageNode = null;
-        if (pageMap.containsKey(num)) {
-            pageNode = pageMap.get(num);
+        if (pageMap.containsKey(pageNum)) {
+            pageNode = pageMap.get(pageNum);
             pageList.movePageToHead(pageNode);
         }
         return pageNode;
@@ -104,8 +104,7 @@ class DoublyLinkedList {
 
     final int size;
     int currSize;
-    Node head;
-    Node tail;
+    Node head, tail;
 
     public DoublyLinkedList(int size) {
         this.size = size;
