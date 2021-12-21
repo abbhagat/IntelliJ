@@ -4,7 +4,7 @@ import static linkedlist.LinkList.add;
 
 public class IntersectionPointOfTwoLinkedList {
 
-    private static Node getCommonNode(Node head1, Node head2) {
+    private static Node findIntersectionPoint(Node head1, Node head2) {
         int count1 = 0, count2 = 0;
         for (Node temp = head1; temp != null; temp = temp.next) {
             count1++;
@@ -13,10 +13,10 @@ public class IntersectionPointOfTwoLinkedList {
             count2++;
         }
         int diff = Math.abs(count1 - count2);
-        return count1 > count2 ? getCommonNode(head1, head2, diff) : getCommonNode(head2, head1, diff);
+        return count1 > count2 ? findIntersectionPoint(head1, head2, diff) : findIntersectionPoint(head2, head1, diff);
     }
 
-    private static Node getCommonNode(Node head1, Node head2, int diff) {
+    private static Node findIntersectionPoint(Node head1, Node head2, int diff) {
         for (int i = 0; i < diff; i++) {
             if (head1 == null) {
                 return null;
@@ -44,7 +44,7 @@ public class IntersectionPointOfTwoLinkedList {
         for (int x : b) {
             l2 = add(l2, x);
         }
-        Node node = getCommonNode(l1, l2);
+        Node node = findIntersectionPoint(l1, l2);
         System.out.println(node.num);
     }
 }

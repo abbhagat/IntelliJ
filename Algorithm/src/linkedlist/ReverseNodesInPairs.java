@@ -1,7 +1,7 @@
 package linkedlist;
 
-// Time Complexity: O(n)
-//Space Complexity: O(1)
+// Time Complexity : O(n)
+// Space Complexity: O(1)
 public class ReverseNodesInPairs {
 
     private static Node reverseNodesInPairs(Node first) {

@@ -2,17 +2,17 @@ package matrix;
 
 public class WordSearch {
 
-    char[][] M = {
+    private char[][] M = {
             {'A', 'B', 'H', 'I'},
             {'M', 'A', 'R', 'N'},
             {'U', 'K', 'W', 'A'}
     };
-    int ROW = M.length;
-    int COL = M[0].length;
-    int[] rowIdx = {1, -1, 0, 0};
-    int[] colIdx = {0, 0, 1, -1};
+    private final int ROW = M.length;
+    private final int COL = M[0].length;
+    private final int[] rowIdx = {1, -1, 0, 0};
+    private final int[] colIdx = {0, 0, 1, -1};
 
-    boolean DFS(int row, int col, String word, int index) {
+    private boolean DFS(int row, int col, String word, int index) {
         if (index >= word.length()) {
             return true;
         }
@@ -30,7 +30,7 @@ public class WordSearch {
         return false;
     }
 
-    boolean exist(String word) {
+    private boolean exist(String word) {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 if (DFS(i, j, word, 0)) {
