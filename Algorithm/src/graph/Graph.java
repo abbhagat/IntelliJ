@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Graph {
 
     private int v;
-    private LinkedList<Integer> adj[];
+    private LinkedList<Integer>[] adj;
 
     public Graph(int v) {
         this.v = v;
