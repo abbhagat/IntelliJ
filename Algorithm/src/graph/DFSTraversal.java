@@ -6,9 +6,9 @@ import static graph.CreateGraph.createGraph;
 public class DFSTraversal {
 
     private static void DFSUtil(Graph g, int v, boolean[] visited) {
-        visited[v] = true;                                    // Mark the current node as visited and print it
+        visited[v] = true;
         System.out.print(v + " ");
-        for(int n : g.getAdj()[v]){
+        for(int n : g.getEdge()[v]){
             if (!visited[n]) {
                 DFSUtil(g, n, visited);
             }
@@ -16,7 +16,7 @@ public class DFSTraversal {
     }
 
     public static void DFS(Graph g, int v) {
-        boolean visited[] = new boolean[g.getV()];
+        boolean[] visited = new boolean[g.getV()];
         DFSUtil(g, v, visited);
     }
 
