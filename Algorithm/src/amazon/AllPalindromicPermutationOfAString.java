@@ -7,23 +7,15 @@ import java.util.LinkedList;
 
 public class AllPalindromicPermutationOfAString {
 
-    private static boolean isPalindrome(String str, int low, int high) {
-        while (low <= high) {
-            if (str.charAt(low++) != str.charAt(high--)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     private static void findAllPalindromicPermutation(int index, String str, LinkedList<String> list) {
         if (index == str.length()) {
             System.out.println(list);
             return;
         }
         for (int i = index; i < str.length(); i++) {
-            if (isPalindrome(str, index, i)) {
-                list.add(str.substring(index, i + 1));
+            String s = str.substring(index, i + 1);
+            if (s.equals(new StringBuilder(s).reverse().toString())) {
+                list.add(s);
                 findAllPalindromicPermutation(i + 1, str, list);
                 list.removeLast();
             }

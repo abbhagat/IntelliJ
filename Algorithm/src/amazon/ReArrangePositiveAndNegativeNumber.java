@@ -15,9 +15,9 @@ public class ReArrangePositiveAndNegativeNumber {
             } else if (a[j] >= 0) {
                 j++;
             } else if (a[i] > 0 && a[j] < 0) {
-                int temp = a[i];
+                int t = a[i];
                 a[i] = a[j];
-                a[j] = temp;
+                a[j] = t;
                 j = i + 1;
                 i += 2;
             }

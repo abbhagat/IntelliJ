@@ -10,17 +10,13 @@ public class UnionOfTwoArrays {
         Arrays.sort(a);
         Arrays.sort(b);
         System.out.println("Intersection ");
-        int i = 0, j = 0;
-        while (i < a.length && j < b.length) {
+        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
             if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");
             }
-            i++;
-            j++;
         }
-        i = 0;
-        j = 0;
         System.out.println();
+        int i = 0, j = 0;
         while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");
