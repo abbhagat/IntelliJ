@@ -6,17 +6,17 @@ public class ReArrangeArrayToOddEvenPlace {
 
     private static void reArrangeArrayToOddEvenPlace(int[] a) {
         int i = 0, j = 1;
-        while (i < a.length - 1 && j < a.length) {
-            if (a[i] % 2 == 1) {
+        while (i < a.length && j < a.length) {
+            if (a[i] % 2 != 0) {
                 i += 2;
-            } else {
-                if (a[j] % 2 == 1) {
-                    int t = a[i];
-                    a[i] = a[j];
-                    a[j] = t;
-                } else {
-                    j += 2;
-                }
+            } else if (a[j] % 2 == 0) {
+                j += 2;
+            } else if (a[i] % 2 == 0 && a[j] % 2 != 0) {
+                int t = a[i];
+                a[i] = a[j];
+                a[j] = t;
+                j = i + 1;
+                i += 2;
             }
         }
         IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
