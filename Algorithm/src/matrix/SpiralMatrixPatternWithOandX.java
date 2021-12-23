@@ -13,15 +13,12 @@ public class SpiralMatrixPatternWithOandX {
             for (int i = C1; i <= C2; i++) {
                 M[R1][i] = c;
             }
-
             for (int i = R1 + 1; i <= R2; i++) {
                 M[i][C2] = c;
             }
-
             for (int i = C2 - 1; i >= C1; i--) {
                 M[R2][i] = c;
             }
-
             for (int i = R2 - 1; i >= R1 + 1; i--) {
                 M[i][C1] = c;
             }
