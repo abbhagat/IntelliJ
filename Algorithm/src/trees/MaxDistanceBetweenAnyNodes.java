@@ -13,7 +13,7 @@ public class MaxDistanceBetweenAnyNodes {
         int lH   = getMaxDist(root.left);
         int rH   = getMaxDist(root.right);
         max_dist = max(max_dist, lH + rH);
-        return Math.max(lH, rH) + 1;
+        return max(lH, rH) + 1;
     }
 
     public static void main(String[] args) {
