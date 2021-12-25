@@ -1,5 +1,7 @@
 package recursion;
 
+import static java.lang.Integer.min;
+
 /*
   Given a number line from -infinity to +infinity. You start at 0 and can go either to the left or to the right.
   The condition is that in i’th move, you take i steps.
@@ -27,19 +29,17 @@ public class MinStepsToReachDestination {
           dest -> destination vertex
     */
     private static int steps(int source, int step, int dest) {
-        if (Math.abs(source) > dest) {  // base cases
+        if (Math.abs(source) > dest) {
             return Integer.MAX_VALUE;
         }
         if (source == dest) {
             return step;
         }
-        // at each point we can go either way
         int pos = steps(source + step + 1, step + 1, dest);  // if we go on positive side
         int neg = steps(source - step - 1, step + 1, dest);  // if we go on negative side
-        return Math.min(pos, neg); // minimum of both cases
+        return min(pos, neg);
     }
 
-    // Driver Code
     public static void main(String[] args) {
         int dest = 3;
         System.out.println("No. of steps required" + " to reach " + dest + " is " + steps(0, 0, dest));

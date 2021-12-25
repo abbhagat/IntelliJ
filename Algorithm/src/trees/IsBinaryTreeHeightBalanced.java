@@ -1,6 +1,8 @@
 package trees;
 
 
+import static java.lang.Integer.max;
+
 /**
  * To check if a tree is height-balanced, get the height of left and right subtrees.
  * Return true if difference between heights is not more than 1 and left and right subtrees are balanced, otherwise return false.
@@ -21,7 +23,7 @@ public class IsBinaryTreeHeightBalanced {
         if (lH == -1 || rH == -1 || Math.abs(lH - rH) > 1) {
             return -1;
         }
-        return Math.max(lH, rH) + 1;
+        return max(lH, rH) + 1;
     }
 
     public static void main(String[] args) {
