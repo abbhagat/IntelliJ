@@ -6,7 +6,6 @@ import static trees.TreeTraversal.inorder;
 public class IsSubTree {
 
     private static boolean isSubTree(Node rootSuper, Node rootSub) {
-
         if (rootSuper == null && rootSub == null) {
             return true;
         }

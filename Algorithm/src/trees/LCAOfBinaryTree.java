@@ -58,6 +58,8 @@ public class LCAOfBinaryTree {
         System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
         lca = findLCA(root, root.right.left.left, new Node(10));
         System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+        lca = findLCA(root, root.right.left.left, root.right.left);
+        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
         lca = findLCA(root, root.right.left.left, root.right.left.left);
         System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
         lca = findLCA(root, root.right.left.left, root.right.left.left);
