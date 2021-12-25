@@ -7,7 +7,7 @@ public class IsSubTree {
 
     private static boolean isSubTree(Node rootSuper, Node rootSub) {
 
-        if (rootSuper == rootSub & rootSuper == null) {
+        if (rootSuper == null && rootSub == null) {
             return true;
         }
         if (rootSuper == null || rootSub == null) {
