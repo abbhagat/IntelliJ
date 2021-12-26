@@ -2,6 +2,8 @@ package trees;
 
 import java.util.Stack;
 
+import static trees.BinaryTree.createBT;
+
 public class TreeTraversal {
 
     public static void inorder(Node root) {
@@ -67,13 +69,13 @@ public class TreeTraversal {
     public static void inOrderWithoutRecursion(Node root) {
         Stack<Node> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
-            while (root != null) {    /* Reach the left most BST of the curr BST */
-                stack.push(root);    /* place pointer to a tree BST on the stack before traversing the BST's left subtree */
+            while (root != null) {
+                stack.push(root);
                 root = root.left;
             }
-            root = stack.pop();     /* Current root must be NULL at this point */
+            root = stack.pop();
             System.out.print(root.num + " ");
-            root = root.right;     /* we have visited the BST and its left subtree.Now, it's right subtree's turn */
+            root = root.right;
         }
     }
 
@@ -82,7 +84,7 @@ public class TreeTraversal {
         Node root = null;
         int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         for (int x : a) {
-            root = BT.createBT(x, root);
+            root = createBT(x, root);
         }
         inorder(root);
         System.out.println();

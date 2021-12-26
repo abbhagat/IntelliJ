@@ -18,7 +18,7 @@ public class NextPalindromeNumber {
         }
         if (s.length() == 3) {
             s = s.substring(0, 2);
-            s = "" + (Integer.parseInt(s) + 1);
+            s = Integer.toString((Integer.parseInt(s) + 1));
             return s + s.charAt(0);
         }
         int mid = (s.length() - 1) / 2;
