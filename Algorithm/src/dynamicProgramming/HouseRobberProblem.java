@@ -62,16 +62,16 @@ public class HouseRobberProblem {
 
     public static void main(String[] args) {
         int[] a = {6, 7, 1, 3, 8, 2, 4};
-        System.out.println("Max Gold Looted :" + maxGoldLooted(a, a.length));
-        System.out.println("Max Gold Looted :" + maxGoldLootedDP(a, a.length));
-        System.out.println("Max Gold Looted :" + maxGoldLooted(a));
+        System.out.println(maxGoldLooted(a, a.length));
+        System.out.println(maxGoldLootedDP(a, a.length));
+        System.out.println(maxGoldLooted(a));
         int[] b = {5, 3, 4, 11, 2};
-        System.out.println("Max Gold Looted :" + maxGoldLooted(b, b.length));
-        System.out.println("Max Gold Looted :" + maxGoldLootedDP(b, b.length));
-        System.out.println("Max Gold Looted :" + maxGoldLooted(b));
+        System.out.println(maxGoldLooted(b, b.length));
+        System.out.println(maxGoldLootedDP(b, b.length));
+        System.out.println(maxGoldLooted(b));
         int[] c = {3, 5, 7};
-        System.out.println("Max Gold Looted :" + maxGoldLooted(c, c.length));
-        System.out.println("Max Gold Looted :" + maxGoldLootedDP(c, c.length));
-        System.out.println("Max Gold Looted :" + maxGoldLooted(c));
+        System.out.println(maxGoldLooted(c, c.length));
+        System.out.println(maxGoldLootedDP(c, c.length));
+        System.out.println(maxGoldLooted(c));
     }
 }

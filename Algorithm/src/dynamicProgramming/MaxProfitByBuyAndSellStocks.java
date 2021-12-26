@@ -2,23 +2,19 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
-/**
- * Given an array of positive integers containing the price of stocks and transaction fee,
- * the task is to find the maximum profit and the difference of days on which you are getting the maximum profit.
- * Our task is to find the maximum profit under the following restrictions:
- *
- * we can’t buy a new stock if we have not sold the previous stock. that is at a time we can have at most one stock.
- * we can do as many transactions as we want.
- * Examples:
- * <p>
- * <p>
- * Input: arr[] = {6, 1, 7, 2, 8, 4}
- * transactionFee = 2
- * Output: 8 1
- * <p>
- * Input: arr[] = {7, 1, 5, 3, 6, 4}
- * transactionFee = 1
- * Output: 5 1
+/*
+  Given an array of positive integers containing the price of stocks and transaction fee,
+  the task is to find the maximum profit and the difference of days on which you are getting the maximum profit.
+  Our task is to find the maximum profit under the following restrictions:
+  we can’t buy a new stock if we have not sold the previous stock. that is at a time we can have at most one stock.
+  we can do as many transactions as we want.
+  Examples:
+  Input: arr[] = {6, 1, 7, 2, 8, 4}
+  transactionFee = 2
+  Output: 8 1
+  Input: arr[] = {7, 1, 5, 3, 6, 4}
+  transactionFee = 1
+  Output: 5 1
  */
 
 public class MaxProfitByBuyAndSellStocks {
