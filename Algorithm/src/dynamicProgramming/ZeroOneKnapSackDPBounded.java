@@ -65,8 +65,8 @@ import static java.lang.Math.max;
  */
 public class ZeroOneKnapSackDPBounded {
 
-    private static int knapSack(int W, int wt[], int val[], int n) {
-        int DP[][] = new int[n + 1][W + 1];
+    private static int knapSack(int W, int[] wt, int[] val, int n) {
+        int[][] DP = new int[n + 1][W + 1];
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= W; j++) {
                 if (i == 0 || j == 0) {
@@ -82,8 +82,8 @@ public class ZeroOneKnapSackDPBounded {
     }
 
     public static void main(String args[]) {
-        int val[] = new int[]{10, 15, 40};
-        int wt[] = new int[]{1, 2, 3};
+        int[] val = new int[]{10, 15, 40};
+        int[] wt  = new int[]{1, 2, 3};
         int W = 6;
         int n = val.length;
         System.out.println(knapSack(W, wt, val, n));

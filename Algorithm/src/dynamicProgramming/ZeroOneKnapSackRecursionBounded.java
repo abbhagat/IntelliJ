@@ -24,21 +24,20 @@ import static java.lang.Math.max;
  */
 public class ZeroOneKnapSackRecursionBounded {
 
-    private static int knapSack(int W, int wt[], int val[], int n) {
-        if (n == 0 || W == 0) {  // Base Case
+    private static int knapSack(int W, int[] wt, int[] val, int n) {
+        if (n == 0 || W == 0) {
             return 0;
         }
-        if (wt[n] > W) {   // If weight of the nth item is more than Knapsack capacity W,then this item cannot be included in the optimal solution
+        if (wt[n] > W) {
             return knapSack(W, wt, val, n - 1);
-        } else {  // Return the maximum of two cases: (1) nth item included (2) not included
-            return max(val[n] + knapSack(W - wt[n], wt, val, n - 1), knapSack(W, wt, val, n - 1));
         }
+        return max(val[n] + knapSack(W - wt[n], wt, val, n - 1), knapSack(W, wt, val, n - 1));
     }
 
     public static void main(String args[]) {
         int W = 8;
-        int val[] = {10, 40, 50, 70};
-        int wt[] =  {1, 3, 4, 5};
+        int[] val = {10, 40, 50, 70};
+        int[] wt  = {1, 3, 4, 5};
         int n = val.length - 1;
         System.out.println(knapSack(W, wt, val, n));
     }
