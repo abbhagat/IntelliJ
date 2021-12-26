@@ -28,12 +28,12 @@ public class MaxProfitByBuyAndSellStocksAtMostKTimes {
 
     public static void main(String[] args) {
         int[] price = {100, 30, 15, 10, 8, 25, 80};
-        System.out.println("Max Profit" + maxProfit(price, price.length - 1, 2));
+        System.out.println(maxProfit(price, price.length - 1, 2));
         price = new int[]{90, 80, 70, 60, 50};
-        System.out.println("Max Profit" + maxProfit(price, price.length - 1, 2));
+        System.out.println(maxProfit(price, price.length - 1, 2));
         price = new int[]{2, 30, 15, 10, 8, 25, 80};
-        System.out.println("Max Profit" + maxProfit(price, price.length - 1, 2));
+        System.out.println(maxProfit(price, price.length - 1, 2));
         price = new int[]{10, 22, 5, 75, 65, 80};
-        System.out.println("Max Profit" + maxProfit(price, price.length - 1, 2));
+        System.out.println(maxProfit(price, price.length - 1, 2));
     }
 }

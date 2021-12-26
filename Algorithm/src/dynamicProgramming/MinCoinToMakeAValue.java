@@ -41,11 +41,11 @@ public class MinCoinToMakeAValue {
     }
 
     public static void main(String[] args) {
-        System.out.println("Minimum coins required is " + minCoins(new int[]{9, 6, 5, 1}, 11));
-        System.out.println("Minimum coins required is " + minCoins(new int[]{25, 10, 5},  30));
-        System.out.println("Minimum coins required is " + minCoins(new int[]{9, 6, 5, 1}, 21));
-        System.out.println("Minimum coins required is " + minCoinsDP(new int[]{9, 6, 5, 1}, 11));
-        System.out.println("Minimum coins required is " + minCoinsDP(new int[]{25, 10, 5},  30));
-        System.out.println("Minimum coins required is " + minCoinsDP(new int[]{9, 6, 5, 1}, 21));
+        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 11));
+        System.out.println(minCoins(new int[]{25, 10, 5},  30));
+        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 21));
+        System.out.println(minCoinsDP(new int[]{9, 6, 5, 1}, 11));
+        System.out.println(minCoinsDP(new int[]{25, 10, 5},  30));
+        System.out.println(minCoinsDP(new int[]{9, 6, 5, 1}, 21));
     }
 }
