@@ -25,7 +25,7 @@ public class BFSTraversal {
     }
 
     public static void main(String[] args) {
-        Graph g = createGraph(4);
+        Graph g = createGraph(4);  // 2 0 3 1
         BFS(g, 2);
     }
 }

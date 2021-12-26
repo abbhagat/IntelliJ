@@ -21,7 +21,7 @@ public class DFSTraversal {
     }
 
     public static void main(String[] args) {
-        Graph g = createGraph(4);
+        Graph g = createGraph(4);   // 2 0 1 3
         DFS(g, 2);
     }
 }
