@@ -55,14 +55,14 @@ public class PalindromePartitioning {
 
     public static void main(String[] args) {
         String str = "ababbbabbababa";
-        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "abcde";
-        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "abbac";
-        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "geek";
-        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "aaaa";
-        System.out.println("Min cuts needed for Palindrome Partitioning is " + minPalindromePartition(str, 0, str.length() - 1));
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
     }
 }
