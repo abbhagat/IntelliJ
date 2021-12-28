@@ -6,7 +6,7 @@ package matrix;
   15 16 17 18   ---->   24 20 16 12
   19 20 21 22           25 21 17 13
   23 24 25 26           26 22 18 14
- */
+*/
 
 public class MatrixRotationBy90Degrees {
 
