@@ -24,7 +24,7 @@ public class RomanToInteger {
         int sum = 0, n = s.length();
         for (int i = 0; i < n; i++) {
             if (i != n && map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
-                sum +=    map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
+                sum += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                 i++;
             } else {
                 sum += map.get(s.charAt(i));
