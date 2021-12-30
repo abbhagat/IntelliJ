@@ -21,7 +21,7 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
             int left = i, right = i + 1;
             int lsum = 0, rsum = 0;
             while (left >= 0 && right < n) {
-                lsum += str.charAt(left) - '0';
+                lsum += str.charAt(left ) - '0';
                 rsum += str.charAt(right) - '0';
                 if (lsum == rsum) {
                     System.out.println(str.substring(left, right + 1));

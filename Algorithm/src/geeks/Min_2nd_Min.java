@@ -4,8 +4,7 @@ public class Min_2nd_Min {
 
     public static void main(String[] args) {
         int[] a = {4, -1, 8, -2, -7};
-        int min, _2ndMin;
-        min = _2ndMin = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE, _2ndMin = Integer.MAX_VALUE;
         for (int x : a) {
             if (x < min) {
                 _2ndMin = min;

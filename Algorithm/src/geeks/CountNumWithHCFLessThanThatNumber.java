@@ -1,5 +1,8 @@
 package geeks;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 /**
  * Given an integer N, the task is to count the values of K ( where 1 ≤ K≤ N ), such that 1< GCD(K, N) < K.
  * Examples:
@@ -27,7 +30,7 @@ public class CountNumWithHCFLessThanThatNumber {
         int n = 15, count = 0;
         for (int i = 1; i <= n; i++) {
             int hcf = i;
-            hcf = findHCF(Math.min(hcf, n), Math.max(hcf, n));
+            hcf = findHCF(min(hcf, n), max(hcf, n));
             if (hcf > 1 && hcf < i) {
                 count++;
             }

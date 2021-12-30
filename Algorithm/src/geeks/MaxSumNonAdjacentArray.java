@@ -31,7 +31,7 @@ public class MaxSumNonAdjacentArray {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3};
-        int incl = a[0], excl = 0, excl_new = 0;
+        int incl = a[0], excl = 0, excl_new;
         for (int i = 1; i < a.length; i++) {
             excl_new = max(incl, excl);       // current max excluding i
             incl     = excl + a[i];           //  current max including i

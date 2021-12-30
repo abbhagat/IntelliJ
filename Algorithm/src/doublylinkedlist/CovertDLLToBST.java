@@ -6,7 +6,7 @@ public class CovertDLLToBST {
 
     private static Node head;
 
-    private static Node sortedListToBST(int n) {                // n is the total no of nodes in the Link List
+    private static Node sortedListToBST(int n) {                // n is the total no of nodes in the LinkedList
         if (n <= 0) {
             return null;
         }

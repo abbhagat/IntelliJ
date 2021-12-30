@@ -9,15 +9,12 @@ public class MaxArrayGivenSum {
     private static List<List<Integer>> list = new ArrayList<>();
 
     public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum) {
-
         if (curSum == givenSum && !list.contains(al)) {
             list.add(new ArrayList<>(al));
         }
-
         if (curSum > givenSum) {
             return;
         }
-
         for (int i = index; i < a.length; i++) {
             curSum += a[i];
             al.add(a[i]);

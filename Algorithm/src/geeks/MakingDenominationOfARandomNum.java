@@ -21,7 +21,7 @@ public class MakingDenominationOfARandomNum {
             System.out.println(y + " * " + n / y + " + 0 *" + x + " = " + n);
             return;
         }
-        int i = 1, k = 0;
+        int i = 1, k;
         while (true) {
             if ((n - (x * i)) % y == 0) {
                 k = (n - (x * i)) / y;

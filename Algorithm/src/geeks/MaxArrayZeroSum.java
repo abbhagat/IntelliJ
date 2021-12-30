@@ -3,6 +3,8 @@ package geeks;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Integer.max;
+
 public class MaxArrayZeroSum {
 
     private static int maxLen(int[] a) {
@@ -17,7 +19,7 @@ public class MaxArrayZeroSum {
                 max_len = i;
             }
             if(map.containsKey(sum)){
-                max_len = Math.max(max_len, i - map.get(sum));
+                max_len = max(max_len, i - map.get(sum));
             }else{
                 map.put(sum, i);
             }

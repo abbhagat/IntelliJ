@@ -11,15 +11,12 @@ public class ArraySum {
     private static Map<String,Integer> map = new HashMap<>();
 
     public static void combinationForSum(int index, int givenSum, int curSum) {
-
         if (curSum == givenSum) {
             map.put(al.toString(),al.size());
         }
-
         if (curSum > givenSum) {
             return;
         }
-
         for (int i = index; i < a.length; i++) {
             curSum += a[i];
             al.add(a[i]);
