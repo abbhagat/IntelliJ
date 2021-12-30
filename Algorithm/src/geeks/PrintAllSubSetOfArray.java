@@ -1,7 +1,6 @@
 package geeks;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Input: array = {1, 2, 3}
@@ -25,18 +24,18 @@ import java.util.List;
 // O(n)
 public class PrintAllSubSetOfArray {
 
-    public static void findSubSet(int[] a, int index, List<Integer> list) {
+    public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
         if (index == a.length) {
             System.out.println(list);
         } else {
             findSubSet(a, index + 1, list);
             list.add(a[index]);
             findSubSet(a, index + 1, list);
-            list.remove(list.size() - 1);
+            list.removeLast();
         }
     }
 
     public static void main(String[] args) {
-        findSubSet(new int[]{1, 2, 3}, 0, new ArrayList<>());
+        findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());
     }
 }

@@ -13,6 +13,15 @@ public class DecimalToBinary {
         return binary;
     }
 
+    public static String toBinary(int n) {
+        String s = "";
+        while (n != 0) {
+            s += n % 2;
+            n = n / 2;
+        }
+        return new StringBuffer(s).reverse().toString();
+    }
+
     private static String decimalToBinary(int n) {
         StringBuilder binary = new StringBuilder();
         int carry = 0;

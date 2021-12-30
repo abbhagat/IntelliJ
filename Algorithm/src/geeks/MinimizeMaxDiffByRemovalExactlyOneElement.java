@@ -2,6 +2,8 @@ package geeks;
 
 import java.util.Arrays;
 
+import static java.lang.Integer.min;
+
 /**
  * Given an array arr[] consisting of N integers(N > 2), the task is to minimize the maximum difference between any pair of elements
  * (arr[i], arr[j]) by removing exactly one element.
@@ -29,9 +31,9 @@ import java.util.Arrays;
  */
 public class MinimizeMaxDiffByRemovalExactlyOneElement {
 
-    private static int findMinDifference(int a[]) {
+    private static int findMinDifference(int[] a) {
         Arrays.sort(a);
-        return Math.min(a[a.length - 2] - a[0], a[a.length - 1] - a[1]);
+        return min(a[a.length - 2] - a[0], a[a.length - 1] - a[1]);
     }
 
     public static void main(String[] args) {
