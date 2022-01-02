@@ -36,7 +36,7 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         }
 
         public String toString() {
-            return x + "," + y;
+            return "(" + x + "," + y + ")";
         }
     }
 
@@ -44,12 +44,12 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         Map<Integer, Integer> map = new HashMap<>();
         Set<Pair> set = new HashSet<>();
         for (int x : a) {
-            map.put(x, map.getOrDefault(x,0) + 1);
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
         for (int x : a) {
             int y = x - target;
-            if(map.containsKey(y) && ((target == 0 && map.get(y) > 1) || target != 0)){
-                set.add(new Pair(x,y));
+            if (map.containsKey(y) && ((target == 0 && map.get(y) > 1) || target != 0)) {
+                set.add(new Pair(x, y));
             }
         }
         System.out.println(set);
