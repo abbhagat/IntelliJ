@@ -1,7 +1,7 @@
 package trees;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static trees.TreeTraversal.inorder;
@@ -38,7 +38,7 @@ public class ConvertBTreeToBST {
         root.right.right = new Node(5);
         inorder(root);
         createList(root);
-        Collections.sort(list);
+        list.sort(Comparator.comparingInt(i -> i));
         System.out.println();
         listToBST(list, root);
         inorder(root);

@@ -2,6 +2,8 @@ package trees;
 
 // Time Complexity O(n)
 
+import static trees.CreateBST.createBST;
+
 public class IsBST {
     private static boolean isBST(Node root, int min, int max) {
         if (root == null) {
@@ -16,9 +18,8 @@ public class IsBST {
     public static void main(String[] args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60};
         Node root = null;
-        CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
-            root = bst.createBST(root, a[i]);
+            root = createBST(root, a[i]);
         }
         System.out.println("Is BST :" + isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }

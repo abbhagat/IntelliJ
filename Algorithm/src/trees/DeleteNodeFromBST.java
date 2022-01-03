@@ -17,15 +17,16 @@ public class DeleteNodeFromBST {
         } else {
             if (root.left == null && root.right == null) {
                 return null;
-            } else if (root.left == null) {
-                return root.right;
-            } else if (root.right == null) {
-                return root.left;
-            } else {
-                Node temp = minValueNode(root.right);
-                root.num = temp.num;
-                root.right = deleteNodeFromBST(root.right, temp.num);
             }
+            if (root.left == null) {
+                return root.right;
+            }
+            if (root.right == null) {
+                return root.left;
+            }
+            Node temp = minValueNode(root.right);
+            root.num = temp.num;
+            root.right = deleteNodeFromBST(root.right, temp.num);
         }
         return root;
     }
