@@ -11,8 +11,7 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
     }
 
     private static void sort(int startIdx, int value) {
-        int i = startIdx;
-        int j = startIdx;
+        int i = startIdx, j = startIdx;
         while (true) {
             try {
                 if (a[i] == value) {
