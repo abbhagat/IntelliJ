@@ -23,6 +23,35 @@ public class MergeTwoSortedList {
         }
     }
 
+    private static Node merge(Node head1, Node head2) {
+        Node merged = new Node();
+        Node temp = merged;
+
+        while (head1 != null && head2 != null) {
+            if (head1.num < head2.num) {
+                temp.next = head1;
+                head1 = head1.next;
+            } else {
+                temp.next = head2;
+                head2 = head2.next;
+            }
+            temp = temp.next;
+        }
+
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return merged.next;
+    }
+
     public static void main(String[] args) {
         Node a = null, b = null;
         for (int x : new int[]{1, 3}) {
@@ -33,6 +62,7 @@ public class MergeTwoSortedList {
         }
         traverseList(a);
         traverseList(b);
-        traverseList(mergeTwoLists(a, b));
+        traverseList(merge(a, b));
+        // traverseList(mergeTwoLists(a, b));
     }
 }

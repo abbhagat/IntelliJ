@@ -18,33 +18,20 @@ public class MergeSort {
         return merge(mergeSort(head), mergeSort(head2));
     }
 
-    private static Node merge(Node head1, Node head2) {
-        Node merged = new Node();
-        Node temp = merged;
-
-        while (head1 != null && head2 != null) {
-            if (head1.num < head2.num) {
-                temp.next = head1;
-                head1 = head1.next;
-            } else {
-                temp.next = head2;
-                head2 = head2.next;
-            }
-            temp = temp.next;
+    public static Node merge(Node a, Node b) {
+        if (a == null) {
+            return b;
         }
-
-        while (head1 != null) {
-            temp.next = head1;
-            head1 = head1.next;
-            temp = temp.next;
+        if (b == null) {
+            return a;
         }
-
-        while (head2 != null) {
-            temp.next = head2;
-            head2 = head2.next;
-            temp = temp.next;
+        if (a.num < b.num) {
+            a.next = merge(a.next, b);
+            return a;
+        } else {
+            b.next = merge(a, b.next);
+            return b;
         }
-        return merged.next;
     }
     
     public static void main(String[] args) {
