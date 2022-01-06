@@ -28,10 +28,9 @@ public class MergeSort {
         if (a.num < b.num) {
             a.next = merge(a.next, b);
             return a;
-        } else {
-            b.next = merge(a, b.next);
-            return b;
         }
+        b.next = merge(a, b.next);
+        return b;
     }
     
     public static void main(String[] args) {

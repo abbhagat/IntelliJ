@@ -17,10 +17,9 @@ public class MergeTwoSortedList {
         if (a.num < b.num) {
             a.next = mergeTwoLists(a.next, b);
             return a;
-        } else {
-            b.next = mergeTwoLists(a, b.next);
-            return b;
         }
+        b.next = mergeTwoLists(a, b.next);
+        return b;
     }
 
     private static Node merge(Node head1, Node head2) {
@@ -62,7 +61,7 @@ public class MergeTwoSortedList {
         }
         traverseList(a);
         traverseList(b);
-        traverseList(merge(a, b));
-        // traverseList(mergeTwoLists(a, b));
+        // traverseList(merge(a, b));
+        traverseList(mergeTwoLists(a, b));
     }
 }
