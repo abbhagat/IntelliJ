@@ -10,15 +10,15 @@ package matrix;
 
 public class MatrixRotationBy90Degrees {
 
-    private static void rotate(int[][] a) {
-        int n = a.length;
+    private static void rotate(int[][] M) {
+        int n = M.length;
         for (int i = 0; i < n / 2; i++) {
             for (int j = i; j < n - i - 1; j++) {
-                int t = a[i][j];
-                a[i][j] = a[n - j - 1][i];
-                a[n - j - 1][i] = a[n - i - 1][n - j - 1];
-                a[n - i - 1][n - j - 1] = a[j][n - i - 1];
-                a[j][n - i - 1] = t;
+                int t = M[i][j];
+                M[i][j] = M[n - j - 1][i];
+                M[n - j - 1][i] = M[n - i - 1][n - j - 1];
+                M[n - i - 1][n - j - 1] = M[j][n - i - 1];
+                M[j][n - i - 1] = t;
             }
         }
     }
