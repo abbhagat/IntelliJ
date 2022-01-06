@@ -34,8 +34,7 @@ public class Base62Hashing {
             hashVal.append(base62.charAt(value % 62));
             value /= 62;
         }
-        int l = hashVal.length();
-        for (int i = 1; i < 7 - l; i++) {
+        for (int i = 1; i < 7 - hashVal.length(); i++) {
             hashVal.insert(0,0);
         }
         return hashVal.toString();
