@@ -2,8 +2,8 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-// Time Complexity O(n*2^n) + O(nlog(n))
 
+// Time Complexity O(n*2^n) + O(nlog(n))
 public class _4Sum {
 
     private static void combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list) {

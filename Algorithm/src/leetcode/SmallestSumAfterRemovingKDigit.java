@@ -10,11 +10,11 @@ import static java.lang.Integer.max;
  * Input: N = 2589, K = 2
  * Output: 89
  */
-public class LargestSumAfterRemovingKDigit {
+public class SmallestSumAfterRemovingKDigit {
 
-    private static int maxNumber(int n, int k) {
+    private static int minNumber(int n, int k) {
         for (int j = 1; j <= k; j++) {
-            int result = Integer.MIN_VALUE;
+            int result = Integer.MAX_VALUE;
             for (int i = 1; n / i > 0; i *= 10) {               // Remove the last digit after every iteration
                 int temp = (n / (i * 10)) * i + (n % i);       // Store the numbers formed after removing every digit once
                 result = max(result, temp);
@@ -25,7 +25,7 @@ public class LargestSumAfterRemovingKDigit {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxNumber(6358, 1));
-        System.out.println(maxNumber(2589, 2));
+        System.out.println(minNumber(6358, 1));
+        System.out.println(minNumber(2589, 2));
     }
 }
