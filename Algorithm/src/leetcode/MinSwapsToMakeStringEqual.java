@@ -4,19 +4,11 @@ public class MinSwapsToMakeStringEqual {
 
     private static int findMinSwaps(char[] x, char[] y) {
         if (x.length == y.length) {
-            int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+            int x1 = 0, y1 = 0, x2 = 0, y2 = 0, k = 0;
             for (int i = 0; i < x.length; i++) {
                 if (x[i] != y[i]) {
-                    if (x[i] == 'x') {
-                        x1++;
-                    } else {
-                        y1++;
-                    }
-                    if (y[i] == 'x') {
-                        x2++;
-                    } else {
-                        y2++;
-                    }
+                    k = x[i] == 'x' ? x1++ : y1++;
+                    k = y[i] == 'x' ? x2++ : y2++;
                 }
             }
             if ((x1 + x2) % 2 == 1 || (y1 + y2) % 2 == 1) {
