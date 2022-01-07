@@ -4,8 +4,8 @@ public class ValidateIPAddress {
 
     private static boolean isValidIPv4(String ipv4) {
         int count = 0;
-        for (int i = 0; i < ipv4.length(); i++) {
-            if (ipv4.charAt(i) == '.') {
+        for (char x : ipv4.toCharArray()) {
+            if (x == '.') {
                 count++;
             }
         }
@@ -33,8 +33,8 @@ public class ValidateIPAddress {
 
     private static boolean isValidIPv6(String ipv6) {
         int count = 0;
-        for (int i = 0; i < ipv6.length(); i++) {
-            if (ipv6.charAt(i) == ':') {
+        for (char x : ipv6.toCharArray()) {
+            if (x == ':') {
                 count++;
             }
         }
