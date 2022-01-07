@@ -33,7 +33,12 @@ public class MatrixRotationBy90Degree {
     }
 
     public static void main(String[] args) {
-        int[][] M = {{11, 12, 13, 14}, {15, 16, 17, 18}, {19, 20, 21, 22}, {23, 24, 25, 26}};
+        int[][] M = {
+                      {11, 12, 13, 14},
+                      {15, 16, 17, 18},
+                      {19, 20, 21, 22},
+                      {23, 24, 25, 26}
+                    };
         printMatrix(M);
         rotate(M);
         System.out.println("Rotated Matrix");
