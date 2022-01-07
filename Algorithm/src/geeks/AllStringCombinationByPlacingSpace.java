@@ -13,7 +13,7 @@ Output: ABC
         AB C
         A BC
         A B C
- */
+*/
 public class AllStringCombinationByPlacingSpace {
 
     private static List<String> spaceString(String str) {

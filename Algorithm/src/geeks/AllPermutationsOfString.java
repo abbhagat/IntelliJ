@@ -2,7 +2,6 @@ package geeks;
 
 public class AllPermutationsOfString {
 
-    //private static char[] a = {'A', 'E', 'I','O', 'U'};
     private static char[] a = {'A', 'B', 'C'};
     private static int count;
 

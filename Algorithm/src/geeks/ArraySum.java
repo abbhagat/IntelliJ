@@ -8,11 +8,11 @@ public class ArraySum {
 
     private static int[] a = {0, 15, -2, 2, -8, 1, 7, 10, 23};
     private static List<Integer> al = new ArrayList<>();
-    private static Map<String,Integer> map = new HashMap<>();
+    private static Map<String, Integer> map = new HashMap<>();
 
     public static void combinationForSum(int index, int givenSum, int curSum) {
         if (curSum == givenSum) {
-            map.put(al.toString(),al.size());
+            map.put(al.toString(), al.size());
         }
         if (curSum > givenSum) {
             return;
