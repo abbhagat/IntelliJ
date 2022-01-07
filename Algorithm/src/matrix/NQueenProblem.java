@@ -46,7 +46,7 @@ public class NQueenProblem {
         return false;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         if (solveNQUtil(0)) {
             for (int[] a : board) {
                 for (int x : a) {

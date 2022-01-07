@@ -13,18 +13,18 @@ public class LargestSquareHaving1InBooleanMatrix {
                 S[i][j] = M[i][j] == 1 ? min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) + 1 : 0;
             }
         }
-        int max = S[0][0], max_i = 0, max_j = 0;
+        int max = S[0][0], row = 0, col = 0;
         for (int i = 1; i < R; i++) {
             for (int j = 1; j < C; j++) {
                 if (max < S[i][j]) {
                     max = S[i][j];
-                    max_i = i;
-                    max_j = j;
+                    row = i;
+                    col = j;
                 }
             }
         }
-        for (int i = max_i; i > max_i - max; i--) {
-            for (int j = max_j; j > max_j - max; j--) {
+        for (int i = row; i > row - max; i--) {
+            for (int j = col; j > col - max; j--) {
                 System.out.print(M[i][j] + " ");
             }
             System.out.println();
