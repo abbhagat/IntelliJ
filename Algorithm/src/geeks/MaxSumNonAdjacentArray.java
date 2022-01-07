@@ -33,10 +33,10 @@ public class MaxSumNonAdjacentArray {
         int[] a = {1, 2, 3};
         int incl = a[0], excl = 0, excl_new;
         for (int i = 1; i < a.length; i++) {
-            excl_new = max(incl, excl);       // current max excluding i
-            incl     = excl + a[i];           //  current max including i
+            excl_new = max(incl, excl);
+            incl     = excl + a[i];
             excl     = excl_new;
         }
-        System.out.println(max(incl, excl));   // return max of incl and excl
+        System.out.println(max(incl, excl));
     }
 }
