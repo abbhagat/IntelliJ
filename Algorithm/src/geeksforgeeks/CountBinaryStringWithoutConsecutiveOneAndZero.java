@@ -45,8 +45,8 @@ public class CountBinaryStringWithoutConsecutiveOneAndZero {
     }
 
     private static int countStrings(int n) {
-        int a[] = new int[n];
-        int b[] = new int[n];
+        int[] a = new int[n];
+        int[] b = new int[n];
         a[0] = b[0] = 1;
         for (int i = 1; i < n; i++) {
             a[i] = a[i - 1] + b[i - 1];
@@ -56,8 +56,8 @@ public class CountBinaryStringWithoutConsecutiveOneAndZero {
     }
 
     private static int countStringsZero(int n) {
-        int a[] = new int[n];
-        int b[] = new int[n];
+        int[] a = new int[n];
+        int[] b = new int[n];
         a[0] = b[0] = 1;
         for (int i = 1; i < n; i++) {
             a[i] = b[i - 1];
