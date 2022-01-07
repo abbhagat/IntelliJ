@@ -1,7 +1,9 @@
 package doublylinkedlist;
 
-// Time Complexity: O(n)
+import static doublylinkedlist.CreateList.createList;
+import static doublylinkedlist.TraverseList.traverseList;
 
+// Time Complexity: O(n)
 public class CovertDLLToBST {
 
     private static Node head;
@@ -28,9 +30,9 @@ public class CovertDLLToBST {
 
     public static void main(String[] args) {
         for (int i = 1; i <= 3; i++) {
-            head = CreateList.createList(i, null);
+            head = createList(i, null);
         }
-        TraverseList.traverseList(head);
+        traverseList(head);
         Node root = sortedListToBST(CreateList.size);
         preOrder(root);
     }

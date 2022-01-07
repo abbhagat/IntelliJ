@@ -5,7 +5,6 @@ public class CreateList {
     static int size = 0;
 
     static Node createList(int num, Node node) {
-
         if (node == null) {
             node = new Node();
             node.num = num;
