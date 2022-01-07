@@ -21,23 +21,23 @@ import java.util.List;
 public class RestoreIPAddress {
 
     private static List<String> restoreIPAddress(String s) {
-        List<String> result = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         if (s.length() > 12) {
-            return result;
+            return list;
         }
-        restoreIP(s, 3, result, "");
-        return result;
+        restoreIP(s, 3, list, "");
+        return list;
     }
 
-    private static void restoreIP(String s, int dot, List<String> result, String ip) {
+    private static void restoreIP(String s, int dot, List<String> list, String ip) {
         if (dot == 0 && isValid(s)) {
             ip += s;
-            result.add(ip);
+            list.add(ip);
         } else {
             for (int i = 1; i <= 3 && i < s.length(); i++) {
                 String address = s.substring(0, i);
                 if (isValid(address)) {
-                    restoreIP(s.substring(i), dot - 1, result, ip + address + ".");
+                    restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
                 }
             }
         }
