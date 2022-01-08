@@ -2,16 +2,15 @@ package trees;
 
 /*
 For two trees ‘a’ and ‘b’ to be mirror images, the following three conditions must be true:
+1. Their root node’s key must be same
+2. Left subtree of root of ‘a’ and right subtree root of ‘b’ are mirror.
+3. Right subtree of ‘a’ and left subtree of ‘b’ are mirror.
+*/
 
-
-Their root node’s key must be same
-Left subtree of root of ‘a’ and right subtree root of ‘b’ are mirror.
-Right subtree of ‘a’ and left subtree of ‘b’ are mirror.
- */
-// Time Complexity : O(n)
 
 import static trees.TreeTraversal.inorder;
 
+// Time Complexity : O(n)
 public class IsMirrorImage {
 
     private static boolean isMirrorImage(Node root1, Node root2) {

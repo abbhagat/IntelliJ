@@ -1,5 +1,8 @@
 package trees;
 
+import static trees.CreateBST.createBST;
+
+// Time Complexity O(n)
 public class IsCompleteBT {
 
     private static boolean isCompleteBT(Node root) {
@@ -15,9 +18,8 @@ public class IsCompleteBT {
     public static void main(String... args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60};
         Node root = null;
-        CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
-            root = bst.createBST(root, a[i]);
+            root = createBST(root, a[i]);
         }
         System.out.println("Complete Binary Tree :" + isCompleteBT(root));
     }
