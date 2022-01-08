@@ -16,9 +16,9 @@ public class StringReverseFromEnd {
             char[] c = s[i].toCharArray();
             int j = 0, k = c.length - 1;
             for (j = 0; j < c.length / 2; j++, k--) {
-                c[j] = (char)(c[j] ^ c[k]);
-                c[k] = (char)(c[j] ^ c[k]);
-                c[j] = (char)(c[j] ^ c[k]);
+                c[j] = (char) (c[j] ^ c[k]);
+                c[k] = (char) (c[j] ^ c[k]);
+                c[j] = (char) (c[j] ^ c[k]);
             }
             System.out.print(c);
             System.out.print(" ");
@@ -28,9 +28,9 @@ public class StringReverseFromEnd {
             char[] c = s[i].toCharArray();
             int j = 0, k = c.length - 1;
             for (j = 0; j < c.length / 2; j++, k--) {
-                c[j] = (char)(c[j] ^ c[k]);
-                c[k] = (char)(c[j] ^ c[k]);
-                c[j] = (char)(c[j] ^ c[k]);
+                c[j] = (char) (c[j] ^ c[k]);
+                c[k] = (char) (c[j] ^ c[k]);
+                c[j] = (char) (c[j] ^ c[k]);
             }
             System.out.print(c);
             System.out.print(" ");

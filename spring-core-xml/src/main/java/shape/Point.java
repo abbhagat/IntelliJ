@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Point implements Shape{
+public class Point implements Shape {
 
     private int X;
     private int Y;

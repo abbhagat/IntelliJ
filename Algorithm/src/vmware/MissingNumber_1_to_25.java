@@ -9,7 +9,7 @@ public class MissingNumber_1_to_25 {
         int n = a.length;
         Arrays.sort(a);
         int y = 0, sum1 = 0;
-        for(int x : a){
+        for (int x : a) {
             sum1 += x;
         }
         for (int i = 1; i < n; i++) {

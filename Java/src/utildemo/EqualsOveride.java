@@ -36,7 +36,7 @@ final class Person {
             return false;
         }
 
-        Person guest = (Person)obj;
+        Person guest = (Person) obj;
         return this.getId() == guest.getId() && (this.getFirstName() == guest.getFirstName() || (this.firstName != null && this.firstName.equals(guest.getFirstName()))) && (this.dob == guest.dob || (this.dob != null && this.dob.equals(guest.getDob())));
     }
 
@@ -46,13 +46,13 @@ final class Person {
         int result = 1;
         result = prime * result + id;
         result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + ((dob  == null) ? 0 : dob.hashCode());
+        result = prime * result + ((dob == null) ? 0 : dob.hashCode());
         return result;
     }
 
     public static void main(String[] args) {
-        Person p1 = new Person(1, "Abhinaw", LocalDate.of(1986,10,7));
-        Person p2 = new Person(1, "Abhinaw", LocalDate.of(1986,10,7));
+        Person p1 = new Person(1, "Abhinaw", LocalDate.of(1986, 10, 7));
+        Person p2 = new Person(1, "Abhinaw", LocalDate.of(1986, 10, 7));
         System.out.println(p1.equals(p2));
         System.out.println(p1.hashCode() == p2.hashCode());
     }

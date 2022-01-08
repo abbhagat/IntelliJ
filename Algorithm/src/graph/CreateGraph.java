@@ -2,7 +2,7 @@ package graph;
 
 public class CreateGraph {
 
-    public static Graph createGraph(int v){
+    public static Graph createGraph(int v) {
         Graph g = new Graph(v);
         g.addEdge(0, 1);
         g.addEdge(0, 2);

@@ -17,13 +17,13 @@ public class InterestRateController {
     private InterestRateService service;
 
     @InitBinder
-    public void initBinder(WebDataBinder webDataBinder){
-        webDataBinder.registerCustomEditor(String.class,"interestRate", new InterestRateEditor());
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.registerCustomEditor(String.class, "interestRate", new InterestRateEditor());
     }
 
     @ModelAttribute
-    public void addingCommonAttributes(Model model){
-        model.addAttribute("manageInterestRate","Manage Interest Rate");
+    public void addingCommonAttributes(Model model) {
+        model.addAttribute("manageInterestRate", "Manage Interest Rate");
     }
 
     @GetMapping(value = "/getAllInterestRate")

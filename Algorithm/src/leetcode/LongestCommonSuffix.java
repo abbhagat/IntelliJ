@@ -11,14 +11,14 @@ public class LongestCommonSuffix {
             return str[low];
         }
         int mid = (low + high) / 2;
-        String left  = longestCommonSuffix(str, low, mid);
+        String left = longestCommonSuffix(str, low, mid);
         String right = longestCommonSuffix(str, mid + 1, high);
         return longestCommonSuffix(left, right);
     }
 
     private static String longestCommonSuffix(String left, String right) {
-        left    = new StringBuilder( left).reverse().toString();
-        right   = new StringBuilder(right).reverse().toString();
+        left = new StringBuilder(left).reverse().toString();
+        right = new StringBuilder(right).reverse().toString();
         int min = min(left.length(), right.length());
         for (int i = 0; i < min; i++) {
             if (left.charAt(i) != right.charAt(i)) {

@@ -21,7 +21,7 @@ public class VarArgs {
         varArgs.display('A', 2);
         varArgs.display(1, 2, 3);
         float f = 10L;
-        int[] a = { 1, 2, 3 };
+        int[] a = {1, 2, 3};
         System.out.println(a instanceof Object);
         System.out.println(null instanceof Object);
     }

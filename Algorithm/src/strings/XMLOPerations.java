@@ -22,7 +22,7 @@ public class XMLOPerations {
     public static void main(String argv[]) {
         String patternString = "(encodedKey>)(.*)(<.*encodedKey>)";
         Pattern pattern = Pattern.compile(patternString);
-        xml = xml.replaceAll("><",">\n<");
+        xml = xml.replaceAll("><", ">\n<");
         Matcher matcher = pattern.matcher(xml);
         System.out.println(matcher.replaceAll("XXX"));
     }

@@ -56,7 +56,7 @@ public class ValidateIPAddress {
     }
 
     public static void main(String[] args) {
-        System.out.println(isValidIPv4("204.120.0.15")                           ? "Valid IPv4" : "Invalid IPv4");
+        System.out.println(isValidIPv4("204.120.0.15") ? "Valid IPv4" : "Invalid IPv4");
         System.out.println(isValidIPv6("2001:db8:3333:4444:5555:6666:7777:8888") ? "Valid IPv6" : "Invalid IPv6");
     }
 }

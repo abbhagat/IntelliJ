@@ -7,12 +7,12 @@ public class BooleanLambda {
 
     private final static List<String> list;
 
-    static{
-        list = Arrays.asList("A","B","C","D","E");
+    static {
+        list = Arrays.asList("A", "B", "C", "D", "E");
     }
 
-    static boolean isPresent(String s){
-      return list.contains(s);
+    static boolean isPresent(String s) {
+        return list.contains(s);
     }
 
     static boolean isEven(int x) {

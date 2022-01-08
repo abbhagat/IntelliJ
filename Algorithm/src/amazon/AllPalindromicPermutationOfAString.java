@@ -23,8 +23,8 @@ public class AllPalindromicPermutationOfAString {
     }
 
     public static void main(String[] args) {
-        findAllPalindromicPermutation(0,"madam", new LinkedList<>());
-        findAllPalindromicPermutation(0,"nitin", new LinkedList<>());
-        findAllPalindromicPermutation(0,"geeks", new LinkedList<>());
+        findAllPalindromicPermutation(0, "madam", new LinkedList<>());
+        findAllPalindromicPermutation(0, "nitin", new LinkedList<>());
+        findAllPalindromicPermutation(0, "geeks", new LinkedList<>());
     }
 }

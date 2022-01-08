@@ -15,15 +15,15 @@ public class StringJoinerDemo {
         System.out.println("CSV: " + CSV);
         text = new StringJoiner(",", "{", "}").add("Car Insurance").add("Health Insurance").add("Life Insurance").toString();
         System.out.println("Insurance: " + text);
-        
-        StringJoiner joiner1 = new StringJoiner("::","[","]");
+
+        StringJoiner joiner1 = new StringJoiner("::", "[", "]");
         joiner1.add("A");
         joiner1.add("B");
-        StringJoiner joiner2 = new StringJoiner("|","{","}");
-        
+        StringJoiner joiner2 = new StringJoiner("|", "{", "}");
+
         joiner2.add("C");
         joiner2.add("D");
-        
+
         System.out.println(joiner1.merge(joiner2));
     }
 }

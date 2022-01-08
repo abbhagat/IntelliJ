@@ -1,7 +1,7 @@
 package matrix;
 
 public class MatrixInversion {
-    int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+    int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     void display() {
         for (int i = 0; i < 3; i++) {

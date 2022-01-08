@@ -8,9 +8,9 @@ public class StringReverseWordByWord {
             char[] c = s.toCharArray();
             int j = c.length - 1;
             for (int i = 0; i < c.length / 2; i++, j--) {
-                c[i] = (char)(c[i] ^ c[j]);
-                c[j] = (char)(c[i] ^ c[j]);
-                c[i] = (char)(c[i] ^ c[j]);
+                c[i] = (char) (c[i] ^ c[j]);
+                c[j] = (char) (c[i] ^ c[j]);
+                c[i] = (char) (c[i] ^ c[j]);
             }
             for (char x : c) {
                 System.out.print(x);

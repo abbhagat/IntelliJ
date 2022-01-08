@@ -7,8 +7,8 @@ import java.util.Set;
 public class StringAnagram {
     public static void main(String[] args) {
 
-        Character[] c1 = { 'j', 'a', 'v', 'a' };
-        Character[] c2 = { 'a', 'j', 'a', 'v' };
+        Character[] c1 = {'j', 'a', 'v', 'a'};
+        Character[] c2 = {'a', 'j', 'a', 'v'};
         Map<String, Integer> hm = new HashMap<>();
         if (c1.length != c2.length) {
             System.out.println("Not anagram");

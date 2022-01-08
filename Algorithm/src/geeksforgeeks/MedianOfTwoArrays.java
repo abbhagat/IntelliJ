@@ -17,8 +17,8 @@ package geeksforgeeks;
  * ar3[] = {2, 3, 5, 8, 10, 12, 14, 16, 18, 20}
  * if the number of the elements are even,  so there are two middle elements, take the average between the two :
  * (10 + 12) / 2 = 11.
- *
- *    median = (i < a.length && j < b.length) ? a[i] < b[j]  ? a[i++] : b[j++] : i < a.length ? a[i++] : b[j++];
+ * <p>
+ * median = (i < a.length && j < b.length) ? a[i] < b[j]  ? a[i++] : b[j++] : i < a.length ? a[i++] : b[j++];
  */
 public class MedianOfTwoArrays {
 
@@ -28,7 +28,7 @@ public class MedianOfTwoArrays {
         for (int i = 0, j = 0, k = 0; k <= l / 2; k++) {
             prev_median = median;
             if (i < a.length && j < b.length) {
-                median = a[i] < b[j]  ? a[i++] : b[j++];
+                median = a[i] < b[j] ? a[i++] : b[j++];
             } else {
                 median = i < a.length ? a[i++] : b[j++];
             }

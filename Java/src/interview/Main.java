@@ -14,7 +14,7 @@ public class Main {
         System.out.println(stringList);
 
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
-        List<Integer> squaresList = numbers.stream().map( i -> i*i).distinct().collect(Collectors.toList());
+        List<Integer> squaresList = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
         System.out.println(squaresList);
     }
 }

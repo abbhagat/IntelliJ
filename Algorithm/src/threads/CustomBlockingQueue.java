@@ -6,6 +6,7 @@ import java.util.List;
 interface BlockingQueueCustom<E> {
 
     void put(E item) throws InterruptedException;
+
     E take() throws InterruptedException;
 }
 

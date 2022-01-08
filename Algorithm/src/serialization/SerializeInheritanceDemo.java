@@ -3,13 +3,13 @@ package serialization;
 
 import java.io.*;
 
-class XYZ implements Serializable{
+class XYZ implements Serializable {
     int x = 10;
     transient int y = 20;
     static int z = 30;
 }
 
-class PQR extends XYZ implements Serializable{
+class PQR extends XYZ implements Serializable {
     int x = 100;
     transient int y = 200;
     static int z = 300;

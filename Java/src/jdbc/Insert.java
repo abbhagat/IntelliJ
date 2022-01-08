@@ -36,9 +36,9 @@ public class Insert {
             // System.out.println(DataRequest.executeUpdate(query));
             // System.out.println("Data Entered Successfully");
             /*
-			 * Calling a stored procedure
-			 *
-			 */
+             * Calling a stored procedure
+             *
+             */
             String procedure = "{CALL FACT_PRC(?)}";
             CallableStatement cstmt = conn.prepareCall(procedure);
             cstmt.setInt(1, 5);

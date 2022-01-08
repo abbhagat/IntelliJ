@@ -12,5 +12,5 @@ import lombok.Setter;
 public class Rectangle {
 
     private Point[] pointArray;
-    
+
 }

@@ -10,7 +10,7 @@ package gfg;
  */
 public class KthSmallestOddLengthPalindrome {
 
-    private static String findKthSmallestOddLengthPalindrome(int n){
+    private static String findKthSmallestOddLengthPalindrome(int n) {
         int m = n;
         int rev = 0;
         while (n != 0) {

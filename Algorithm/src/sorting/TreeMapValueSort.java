@@ -31,7 +31,7 @@ class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
 
 public class TreeMapValueSort {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Map<String, Integer> tm = new HashMap<>();
         tm.put("A", 1);
         tm.put("Z", 2);

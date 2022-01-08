@@ -1,14 +1,14 @@
 package threads.countdownlatch;
 
 /**
- * A synchronization aid that allows one or more threads to wait until 
+ * A synchronization aid that allows one or more threads to wait until
  * a set of operations being performed in other threads completes.
- * A CountDownLatch is initialized with a given count. The await methods 
- * block until the current count reaches zero due to invocations of 
- * the countDown() method, after which all waiting threads are released 
- * and any subsequent invocations of await return immediately. 
- * This is a one-shot phenomenon the count cannot be reset. 
- * If you need a version that resets the count, consider using a CyclicBarrier. 
+ * A CountDownLatch is initialized with a given count. The await methods
+ * block until the current count reaches zero due to invocations of
+ * the countDown() method, after which all waiting threads are released
+ * and any subsequent invocations of await return immediately.
+ * This is a one-shot phenomenon the count cannot be reset.
+ * If you need a version that resets the count, consider using a CyclicBarrier.
  */
 
 import java.util.concurrent.CountDownLatch;

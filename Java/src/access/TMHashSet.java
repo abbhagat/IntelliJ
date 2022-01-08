@@ -14,7 +14,7 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
     }
 
     public E get(E e) {
-        return (E)map.get(e);
+        return (E) map.get(e);
     }
 
     public boolean add(E e) {
@@ -47,8 +47,8 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
 
     public Object clone() {
         try {
-            TMHashSet<E> newSet = (TMHashSet<E>)super.clone();
-            newSet.map = (HashMap<E, Object>)map.clone();
+            TMHashSet<E> newSet = (TMHashSet<E>) super.clone();
+            newSet.map = (HashMap<E, Object>) map.clone();
             return newSet;
         } catch (CloneNotSupportedException e) {
             throw new InternalError(e);

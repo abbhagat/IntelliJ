@@ -5,7 +5,8 @@ public class Doubleton {
     private static Doubleton instance1, instance2;
     private static int index;
 
-    private Doubleton() {}
+    private Doubleton() {
+    }
 
     public static Doubleton getInstance() {
         if (instance1 == null) {
@@ -16,7 +17,7 @@ public class Doubleton {
             instance2 = new Doubleton();
             return instance2;
         }
-        return index++ % 2 == 0 ? instance1: instance2;
+        return index++ % 2 == 0 ? instance1 : instance2;
     }
 
     public static void main(String[] args) {

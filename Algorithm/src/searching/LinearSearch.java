@@ -3,7 +3,7 @@ package searching;
 public class LinearSearch {
 
     public static void main(String[] args) {
-        int[] a = { 20, 3, 15, 15, 15, 6, 9, 8, 2, 1 };
+        int[] a = {20, 3, 15, 15, 15, 6, 9, 8, 2, 1};
         int n = 15;
         boolean flag = false;
         for (int x : a) {

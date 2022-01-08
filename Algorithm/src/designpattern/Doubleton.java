@@ -31,12 +31,12 @@ public class Doubleton implements Cloneable, Serializable {
         return index++ % 2 == 0 ? instance1 : instance2;
     }
 
-    public Object readResolve(){
+    public Object readResolve() {
         return getInstance();
     }
 
     @Override
-    public Object clone(){
+    public Object clone() {
         return getInstance();
     }
 

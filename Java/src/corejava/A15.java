@@ -12,7 +12,7 @@ public class A15 extends AccessDemo {
     public static void main(String[] args) {
         System.out.println(new A15().display());
         System.out.println(new A8().display());
-        int[] a = { 1, 2, 3, 4, 5 };
+        int[] a = {1, 2, 3, 4, 5};
         int x = Integer.parseInt("123");
         for (int i : a) {
             System.out.println(i + "\t");

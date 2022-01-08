@@ -36,6 +36,7 @@ public class EnumDemoo {
 
 class B {
     EnumDemoo.E e = EnumDemoo.E.GREEN;
+
     {
         e.getValue();
     }

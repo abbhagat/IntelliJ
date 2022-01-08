@@ -22,11 +22,11 @@ public class SpiralOrderTreeTraversal {
             return;
         }
         if (flag) {
-            printLevelOrder(root.left,  level - 1, true);
+            printLevelOrder(root.left, level - 1, true);
             printLevelOrder(root.right, level - 1, true);
         } else {
             printLevelOrder(root.right, level - 1, false);
-            printLevelOrder(root.left,  level - 1, false);
+            printLevelOrder(root.left, level - 1, false);
         }
     }
 

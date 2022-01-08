@@ -12,9 +12,9 @@ public class DistanceBetweenTwoGivenNodesOfABST {
         if (root.num == num) {
             return level;
         }
-        int distance = findLevel(root.left, num,  level + 1);
+        int distance = findLevel(root.left, num, level + 1);
         if (distance == -1) {
-            return    findLevel(root.right, num,  level + 1);
+            return findLevel(root.right, num, level + 1);
         }
         return distance;
     }

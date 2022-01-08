@@ -5,6 +5,7 @@ import java.util.List;
 
 interface Iterator {
     boolean hasNext();
+
     Object next();
 }
 

@@ -4,10 +4,10 @@ import static java.lang.Math.abs;
 
 public class LargeNumberDivisibleBy11 {
 
-    private static boolean isDivisibleBy11(long n){
+    private static boolean isDivisibleBy11(long n) {
         String s = Long.toString(n);
         int sum = 0;
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             int k = s.charAt(i) - '0';
             sum += i % 2 == 1 ? k : -k;
         }

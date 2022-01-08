@@ -24,6 +24,7 @@ class Y {
 public class X extends Y {
 
     static char c;
+
     static {
         System.out.println("Static block of Class X invoked");
     }

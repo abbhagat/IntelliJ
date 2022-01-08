@@ -6,7 +6,9 @@ import static trees.BinaryTree.createBT;
 
 interface Iterator {
     boolean hasNext();
+
     Node curr();
+
     Node next();
 }
 

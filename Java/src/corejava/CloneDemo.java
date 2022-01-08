@@ -19,7 +19,7 @@ public class CloneDemo {
         A a = new A(10, 20);
         A b = null;
         try {
-            b = (A)a.clone();
+            b = (A) a.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

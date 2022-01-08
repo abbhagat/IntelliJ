@@ -17,15 +17,15 @@ public class ProductService {
         return productDAO.findAll();
     }
 
-    public Product getProductByID(Long productID){
+    public Product getProductByID(Long productID) {
         return productDAO.getOne(productID);
     }
 
-    public Product saveProduct(Product product){
+    public Product saveProduct(Product product) {
         return productDAO.save(product);
     }
 
-    public void deleteProductByID(Long productID){
+    public void deleteProductByID(Long productID) {
         productDAO.deleteById(productID);
     }
 }

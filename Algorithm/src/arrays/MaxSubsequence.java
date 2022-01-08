@@ -2,7 +2,7 @@ package arrays;
 
 public class MaxSubsequence {
 
-    static int[] arr = { 1, 18, 12, 3, 95 };
+    static int[] arr = {1, 18, 12, 3, 95};
 
     public static int longestIncreasingSubsequenceSum() {
 

@@ -16,7 +16,7 @@ public class PrintRightViewOfABinaryTree {
             max_level = level;
         }
         printRightView(root.right, level + 1);
-        printRightView(root.left , level + 1);
+        printRightView(root.left, level + 1);
     }
 
     public static void main(String args[]) {

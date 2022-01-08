@@ -36,9 +36,10 @@ public class BlockDemo {
         System.out.println(s);
     }
 
-    BlockDemo(){
+    BlockDemo() {
         System.out.println("BlockDemo constructor");
     }
+
     {
         System.out.println("Non static block of Main Class");
     }

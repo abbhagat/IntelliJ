@@ -19,7 +19,7 @@ public class MaxProfitByBuyAndSellStocksAtMostKTimes {
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
             for (int j = 1; j <= n; j++) {
-                prevDiff     = max(prevDiff, profit[i - 1][j - 1] - price[j - 1]);
+                prevDiff = max(prevDiff, profit[i - 1][j - 1] - price[j - 1]);
                 profit[i][j] = max(profit[i][j - 1], price[j] + prevDiff);
             }
         }

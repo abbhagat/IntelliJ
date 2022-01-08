@@ -41,7 +41,7 @@ class Emp implements Externalizable {
 
     @Override
     public String toString() {
-        return "Emp {" + "x=" + x + ", y=" + y + ", z=" + z + ", name =" + name +"}";
+        return "Emp {" + "x=" + x + ", y=" + y + ", z=" + z + ", name =" + name + "}";
     }
 }
 
@@ -64,7 +64,7 @@ public class ExternalizableDemo {
         try {
             FileInputStream fis = new FileInputStream("file");
             ObjectInputStream in = new ObjectInputStream(fis);
-            e = (Emp)in.readObject();
+            e = (Emp) in.readObject();
             fis.close();
             in.close();
             System.out.println(e);

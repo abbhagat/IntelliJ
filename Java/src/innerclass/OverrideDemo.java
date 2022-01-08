@@ -32,9 +32,11 @@ class B2 extends A2 {
 public class OverrideDemo {
     final static int x;
     final int y;
+
     {
         y = 100;
     }
+
     static {
         x = 10;
     }

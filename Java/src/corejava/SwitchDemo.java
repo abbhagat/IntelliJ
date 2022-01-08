@@ -12,13 +12,13 @@ public class SwitchDemo {
         // final int y, x = 10;
         // y= 90;
         switch (c) {
-        case 65:
-            System.out.println("Hello");
-        default:
-            System.out.println("Default");
-            break;
-        case 1:
-            System.out.println(c);
+            case 65:
+                System.out.println("Hello");
+            default:
+                System.out.println("Default");
+                break;
+            case 1:
+                System.out.println(c);
         }
     }
 }

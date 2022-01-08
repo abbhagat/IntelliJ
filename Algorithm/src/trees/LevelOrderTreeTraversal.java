@@ -20,7 +20,7 @@ public class LevelOrderTreeTraversal {
             System.out.print(root.num + " ");
             return;
         }
-        printLevelOrder(root.left,  level - 1);
+        printLevelOrder(root.left, level - 1);
         printLevelOrder(root.right, level - 1);
     }
 

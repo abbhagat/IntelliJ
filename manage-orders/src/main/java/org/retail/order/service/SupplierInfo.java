@@ -17,10 +17,10 @@ public class SupplierInfo {
     @HystrixCommand(
             fallbackMethod = "getFallbackSupplier",
             commandProperties = {
-                         @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
-                         @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
-                         @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
-                         @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
             },
             threadPoolKey = "supplierThreadPoolKey",
             threadPoolProperties = {

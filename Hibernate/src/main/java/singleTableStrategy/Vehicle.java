@@ -24,12 +24,12 @@ public class Vehicle {
 
 /**
  * Table Generated
- *
+ * <p>
  * ID   dtype         Name      steeringHandle    steeringWheel
  * 1   Vehicle       Car         null               null
  * 2   TwoWheeler    Bike        BikeSteering       null
  * 3   FourWheeler   Porsche     null               PorscheSteering
- *******************************************************************
+ * ******************************************************************
  * ID   VECHILE_TYPE  Name      steeringHandle    steeringWheel
  * 1   Vehicle       Car         null               null
  * 2   Bike          Bike        BikeSteering       null

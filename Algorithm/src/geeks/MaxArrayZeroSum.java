@@ -18,9 +18,9 @@ public class MaxArrayZeroSum {
             if (sum == 0) {
                 max_len = i;
             }
-            if(map.containsKey(sum)){
+            if (map.containsKey(sum)) {
                 max_len = max(max_len, i - map.get(sum));
-            }else{
+            } else {
                 map.put(sum, i);
             }
         }

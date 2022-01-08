@@ -29,7 +29,7 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
                 return true;
             }
             if (count == 2 && binarySearch(M, R1, 0, C2, key)) {
-                 return true;
+                return true;
             }
         }
         return false;

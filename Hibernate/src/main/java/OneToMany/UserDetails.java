@@ -27,7 +27,7 @@ public class UserDetails {
     @Column(name = "USER_NAME", nullable = false)
     private String userName;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "userDetails",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userDetails", fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
     private List<Vehicles> vehicles = new ArrayList<>();
 

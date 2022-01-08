@@ -5,8 +5,7 @@ public class BinaryStringInAPattern {
     static void printBinaryString(char[] a, int index) {
         if (index == a.length) {
             System.out.println(a);
-        }
-        else if (a[index] == '?') {
+        } else if (a[index] == '?') {
             a[index] = '0';
             printBinaryString(a, index + 1);
             a[index] = '1';

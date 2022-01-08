@@ -16,6 +16,7 @@ public class JavaAtomicWithoutAtomicInteger {
 
 class ProcessingThread implements Runnable {
     private int count;
+
     @Override
     public void run() {
         for (int i = 1; i < 5; i++) {

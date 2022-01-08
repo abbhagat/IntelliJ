@@ -11,11 +11,11 @@ public class LengthOfTheLongestBalancedBracket {
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         for (int i = 0; i < bracket.length(); i++) {
-            if(bracket.charAt(i) == '{'){
+            if (bracket.charAt(i) == '{') {
                 stack.push(i);
-            }else{
+            } else {
                 stack.pop();
-                if(stack.isEmpty()){
+                if (stack.isEmpty()) {
                     stack.push(i);
                 }
                 maxLength = max(maxLength, i - stack.peek());

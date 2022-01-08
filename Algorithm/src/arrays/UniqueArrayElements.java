@@ -13,7 +13,7 @@ package arrays;
 
 public class UniqueArrayElements {
 
-    static int[] a = { 2, 3, 5, 1, 2, 2, 5, 4, 3, 5, 3, 4, 2 };
+    static int[] a = {2, 3, 5, 1, 2, 2, 5, 4, 3, 5, 3, 4, 2};
 
     public static void main(String[] args) {
         int[] temp = new int[a.length];

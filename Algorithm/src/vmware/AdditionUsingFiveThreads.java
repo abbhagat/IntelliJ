@@ -10,7 +10,7 @@ class WorkerThread implements Callable<Integer> {
 
     public WorkerThread(int start, int end) {
         this.start = start;
-        this.end   = end;
+        this.end = end;
     }
 
     @Override

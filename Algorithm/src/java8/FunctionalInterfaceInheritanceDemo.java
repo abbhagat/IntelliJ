@@ -4,6 +4,7 @@ package java8;
 interface I1 {
 
     void display();
+
     String toString();   // We can override Object class method as an abstract method and this will not be counted as an abstract method.
 
     default void defaultMethod() {

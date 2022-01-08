@@ -19,6 +19,7 @@ public class JavaAtomic {
 
 class ProcessingThreadAtomic implements Runnable {
     private AtomicInteger count = new AtomicInteger();
+
     @Override
     public void run() {
         for (int i = 1; i < 5; i++) {

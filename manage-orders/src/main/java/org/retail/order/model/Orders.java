@@ -26,13 +26,13 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "ORDERS",uniqueConstraints = {
+@Table(name = "ORDERS", uniqueConstraints = {
         @UniqueConstraint(columnNames = "EMAIL")
 })
 @AccessType(Type.PROPERTY)
 @EntityListeners(AuditingEntityListener.class)
 // @DynamicUpdate - Mean the update sql statement is generated at runtime and contains only those columns whose values have changed.
-@DynamicUpdate(value=true)
+@DynamicUpdate(value = true)
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,7 +56,7 @@ public class Orders implements Serializable {
     private String phoneNumber;
 
     @Email
-    @Column(name = "EMAIL",unique = true)
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
     @Column(name = "FIRST_NAME")
@@ -90,7 +90,7 @@ public class Orders implements Serializable {
     @Column(name = "BILL_AMOUNT")
     private BigDecimal billAmount;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders", fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
     private List<OrderItems> orderItems = new ArrayList<>();
 

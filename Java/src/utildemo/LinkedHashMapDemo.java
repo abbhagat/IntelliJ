@@ -1,17 +1,17 @@
 package utildemo;
 
 /**
- * @author AnkitMittal, JavaMadeSoEasy.com Copyright (c), AnkitMittal . All
- *         Contents are copyrighted and must not be reproduced in any form. This
- *         class provides custom implementation of LinkedHashMap(without using
- *         java api's)- which allows us to store data in key-value pair form. It
- *         maintains insertion order, uses DoublyLinkedList for doing so. If key
- *         which already exists is added again, its value is overridden but
- *         insertion order does not change, BUT, if key-value pair is removed
- *         and value is again added than insertion order changes(which is quite
- *         natural behavior).
  * @param <K>
  * @param <V>
+ * @author AnkitMittal, JavaMadeSoEasy.com Copyright (c), AnkitMittal . All
+ * Contents are copyrighted and must not be reproduced in any form. This
+ * class provides custom implementation of LinkedHashMap(without using
+ * java api's)- which allows us to store data in key-value pair form. It
+ * maintains insertion order, uses DoublyLinkedList for doing so. If key
+ * which already exists is added again, its value is overridden but
+ * insertion order does not change, BUT, if key-value pair is removed
+ * and value is again added than insertion order changes(which is quite
+ * natural behavior).
  */
 class LinkedHashMapDemo<K, V> {
 
@@ -21,8 +21,8 @@ class LinkedHashMapDemo<K, V> {
     private Entry<K, V> last; // last of the doubly linked list.
 
     /*
-	 * before and after are used for maintaining insertion order.
-	 */
+     * before and after are used for maintaining insertion order.
+     */
 
     static class Entry<K, V> {
         private K key;
@@ -322,7 +322,10 @@ class LinkedHashMapDemo<K, V> {
 
 }
 
-/** Copyright (c), AnkitMittal JavaMadeSoEasy.com */
+/**
+ * Copyright (c), AnkitMittal JavaMadeSoEasy.com
+ */
+
 /**
  * Main class- to test HashMap functionality.
  */

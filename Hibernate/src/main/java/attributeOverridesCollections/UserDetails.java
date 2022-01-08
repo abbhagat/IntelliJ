@@ -31,7 +31,7 @@ public class UserDetails {
     @GenericGenerator(name = "native-gen", strategy = "native")
     @CollectionId(generator = "native-gen", type = @Type(type = "long"), columns = {@Column(name = "ADDRESS_ID")})
     @ElementCollection
-    @JoinTable(name = "USER_ADDRESS",joinColumns = @JoinColumn(name = "USER_ID"))
+    @JoinTable(name = "USER_ADDRESS", joinColumns = @JoinColumn(name = "USER_ID"))
     private Collection<Address> addressCollection = new ArrayList<>();
 
 }

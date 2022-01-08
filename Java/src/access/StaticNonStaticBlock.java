@@ -3,7 +3,9 @@ package access;
 class A {
     static {
         System.out.println("A static block");
-    } {
+    }
+
+    {
         System.out.println("A non static block");
     }
 
@@ -15,7 +17,9 @@ class A {
 class B {
     static {
         System.out.println("B static block");
-    } {
+    }
+
+    {
         System.out.println("B non static block");
     }
 

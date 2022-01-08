@@ -24,11 +24,21 @@ class PrinterThreadForNaturalNumber implements Runnable {
                     } else {
                         System.out.print(n++ + " ");
                         switch (threadIdToRun) {
-                            case 1 : threadIdToRun = 2; break;
-                            case 2 : threadIdToRun = 3; break;
-                            case 3 : threadIdToRun = 4; break;
-                            case 4 : threadIdToRun = 5; break;
-                            case 5 : threadIdToRun = 1; break;
+                            case 1:
+                                threadIdToRun = 2;
+                                break;
+                            case 2:
+                                threadIdToRun = 3;
+                                break;
+                            case 3:
+                                threadIdToRun = 4;
+                                break;
+                            case 4:
+                                threadIdToRun = 5;
+                                break;
+                            case 5:
+                                threadIdToRun = 1;
+                                break;
                         }
                         monitor.notifyAll();
                     }

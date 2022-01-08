@@ -32,7 +32,7 @@ public class TinyUrl {
             url.append(BASE_62.charAt(val % 62));
             val /= 62;
         }
-        int l= 7 - url.length();
+        int l = 7 - url.length();
         for (int i = 1; i <= l; i++) {
             url.insert(0, 0);
         }
@@ -42,7 +42,7 @@ public class TinyUrl {
     private String decode(String shortURL) {
         int index = 0;
         String url = shortURL.substring(shortURL.lastIndexOf("/") + 1);
-        for(char x : url.toCharArray()){
+        for (char x : url.toCharArray()) {
             index = index * 62 + BASE_62.indexOf(x);
         }
         return indexToUrl.get(index);

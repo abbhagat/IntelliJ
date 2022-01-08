@@ -34,7 +34,7 @@ public class StateCityController {
     }
 
     @GetMapping(value = "/deleteStateCity/{stateCityID}")
-    public String deleteStateCityByID(@PathVariable Long stateCityID){
+    public String deleteStateCityByID(@PathVariable Long stateCityID) {
         service.deleteStateCityByID(stateCityID);
         return "redirect:/stateCity/getAllStateCity";
     }
@@ -68,7 +68,8 @@ public class StateCityController {
             case "Create":
                 model.addAttribute("stateCityList", service.createStateCity(stateCityList));
                 return "manage-state-city";
-            case "Cancel": break;
+            case "Cancel":
+                break;
 
             case "Export":
                 System.out.println("Export Action");

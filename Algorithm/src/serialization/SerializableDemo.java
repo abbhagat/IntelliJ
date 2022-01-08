@@ -4,14 +4,14 @@ import java.io.*;
 
 /**
  * Serialization Rule
- *
+ * <p>
  * During serialization process, if any instance variable is inherited from non serializable parent class,
  * then JVM will ignore the normal value instead it will store the default value for that variable.
- *
+ * <p>
  * Deserialization Rule
- *
+ * <p>
  * During deserialization process, if we have any non serializable parent class, then JVM will perform following things for that non-serializable parent class.
- *
+ * <p>
  * Variable Initialization will be done.
  * Instance block will be executed.
  * No-argument constructor will be executed.

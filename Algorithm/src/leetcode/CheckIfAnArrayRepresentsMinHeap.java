@@ -6,7 +6,7 @@ public class CheckIfAnArrayRepresentsMinHeap {
         if (i >= (n - 2) / 2) {
             return true;
         }
-        int left  = 2 * i + 1;
+        int left = 2 * i + 1;
         int right = 2 * i + 2;
         if (a[i] <= a[left] && a[i] <= a[right] && isMinHeap(a, left, n) && isMinHeap(a, right, n)) {
             return true;

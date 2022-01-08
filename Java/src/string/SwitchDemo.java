@@ -14,7 +14,7 @@ public abstract class SwitchDemo {
             case 2:
                 System.out.println("Case 2");
                 break;
-           case 10:
+            case 10:
                 System.out.println("Case 10");
             default:
                 System.out.println("Default");

@@ -46,7 +46,7 @@ class Test {
     public static void main(String[] arg) {
         A6 a = new A7();
         a.disp();
-        String[] s = new String[] { "A", "B" };
+        String[] s = new String[]{"A", "B"};
         System.out.println(s instanceof Object);
         System.out.println(s[0] instanceof Object);
     }

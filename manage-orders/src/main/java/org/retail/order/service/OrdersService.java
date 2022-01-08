@@ -32,7 +32,7 @@ public class OrdersService {
         orders.getOrderItems().forEach(orderItems -> {
             Optional<Supplier> optionalSupplier = Optional.ofNullable(supplierInfo.getSupplier(orderItems));
             Supplier supplier = null;
-            if(optionalSupplier.isPresent()) {
+            if (optionalSupplier.isPresent()) {
                 supplier = optionalSupplier.get();
                 supplier.setQtyInStock(supplier.getQtyInStock() - orderItems.getQuantity());
             }

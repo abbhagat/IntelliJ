@@ -3,7 +3,7 @@ package core;
 
 /**
  * While using the varargs, you must follow some rules otherwise program code won't compile. The rules are as follows:
- *
+ * <p>
  * There can be only one variable argument in the method.
  * Variable argument (varargs) must be the last argument.
  */

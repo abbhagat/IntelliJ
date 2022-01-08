@@ -4,11 +4,11 @@ package matrix;
 public class NQueenProblem {
 
     private static int[][] board = {
-                                     {0, 0, 0, 0},
-                                     {0, 0, 0, 0},
-                                     {0, 0, 0, 0},
-                                     {0, 0, 0, 0}
-                                   };
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+    };
     private static final int N = board.length;
 
     private static boolean isSafe(int row, int col) {

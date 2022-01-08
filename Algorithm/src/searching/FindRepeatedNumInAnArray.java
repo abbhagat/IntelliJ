@@ -17,7 +17,7 @@ public class FindRepeatedNumInAnArray {
         int[] a = {10, 7, 3, 4, 5, 1, 2, 8, 6, 9, 9, 3, 0, 2, 1, 1};
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {
-            map.put(x,  map.getOrDefault(x,0) + 1);
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
         map.forEach((k, v) -> {
             if (v > 1) {

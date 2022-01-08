@@ -7,7 +7,7 @@ public class ReflectionDemo {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class<?> classObj = Class.forName("singleton.Singleton");
         Singleton s = Singleton.getInstance();
-        s = (Singleton)classObj.newInstance();
+        s = (Singleton) classObj.newInstance();
         Method[] m = classObj.getDeclaredMethods();
         Method m1;
         try {

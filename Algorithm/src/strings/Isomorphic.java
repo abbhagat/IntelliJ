@@ -24,6 +24,6 @@ public class Isomorphic {
         System.out.println(isIsomorphic("eeg".toCharArray(), "add".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
         System.out.println(isIsomorphic("aab".toCharArray(), "baa".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
         System.out.println(isIsomorphic("aab".toCharArray(), "xxy".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
-        System.out.println(isIsomorphic("ACAB".toCharArray(),"XCXY".toCharArray())? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("ACAB".toCharArray(), "XCXY".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
     }
 }

@@ -23,7 +23,8 @@
                     &emsp;&emsp;&emsp;&emsp;
                     <label for="middleName" class="col-form-label">Middle Name</label>
                     <input type="text" th:field="*{middleName}" class="form-control" id="middleName">
-                    <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}" class="text-danger"></span>
+                    <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+                          class="text-danger"></span>
                     &emsp;&emsp;&emsp;&emsp;
                     <label for="lastName" class="col-form-label">Last Name</label>
                     <input type="text" th:field="*{lastName}" class="form-control" id="lastName">
@@ -40,7 +41,8 @@
                     &emsp;&emsp;&emsp;&emsp;&emsp;
                     <label for="phoneNumber" class="col-form-label">Phone&emsp;&emsp;</label>
                     <input type="text" th:field="*{phoneNumber}" class="form-control" id="phoneNumber">
-                    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="text-danger"></span>
+                    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"
+                          class="text-danger"></span>
                     &emsp;&emsp;&emsp;&emsp;
                     <label for="email" class="col-form-label">Email&emsp;&emsp;</label>
                     <input type="text" th:field="*{email}" class="form-control" id="email">
@@ -52,25 +54,32 @@
                     <p></p><br/>
                     <label for="fatherName" class="col-form-label">Father Name</label>
                     <input type="text" th:field="*{fatherName}" class="form-control" id="fatherName">
-                    <span th:if="${#fields.hasErrors('fatherName')}" th:errors="*{fatherName}" class="text-danger"></span>
+                    <span th:if="${#fields.hasErrors('fatherName')}" th:errors="*{fatherName}"
+                          class="text-danger"></span>
                     &emsp;&emsp;&emsp;&emsp;
                     <label for="motherName" class="col-form-label">Mother Name</label>
                     <input type="text" th:field="*{motherName}" class="form-control" id="motherName">
-                    <span th:if="${#fields.hasErrors('motherName')}" th:errors="*{motherName}" class="text-danger"></span>
+                    <span th:if="${#fields.hasErrors('motherName')}" th:errors="*{motherName}"
+                          class="text-danger"></span>
                     &emsp;
 
                     <label for="presentAddress" class="col-form-label">Present Address</label>
-                    <textarea  rows = "5" cols = "20" th:field = "*{presentAddress}" class="form-control" id="presentAddress"></textarea>
-                    <span th:if="${#fields.hasErrors('presentAddress')}" th:errors="*{presentAddress}" class="text-danger"></span>
+                    <textarea rows="5" cols="20" th:field="*{presentAddress}" class="form-control"
+                              id="presentAddress"></textarea>
+                    <span th:if="${#fields.hasErrors('presentAddress')}" th:errors="*{presentAddress}"
+                          class="text-danger"></span>
                     &emsp;&emsp;&emsp;
                     <label for="permanentAddress" class="col-form-label">Permanent Address</label>
-                    <textarea  rows = "5" cols = "20" th:field = "*{permanentAddress}" class="form-control" id="permanentAddress"></textarea>
-                    <span th:if="${#fields.hasErrors('permanentAddress')}" th:errors="*{permanentAddress}" class="text-danger"></span>
+                    <textarea rows="5" cols="20" th:field="*{permanentAddress}" class="form-control"
+                              id="permanentAddress"></textarea>
+                    <span th:if="${#fields.hasErrors('permanentAddress')}" th:errors="*{permanentAddress}"
+                          class="text-danger"></span>
                     <p></p><br/><br/>
 
                     <label for="stateCityID" class="col-form-label">State City Id &ensp;&nbsp;&nbsp;</label>
                     <input type="text" th:field="*{stateCityID}" class="form-control" id="stateCityID">
-                    <span th:if="${#fields.hasErrors('stateCityID')}" th:errors="*{stateCityID}" class="text-danger"></span>
+                    <span th:if="${#fields.hasErrors('stateCityID')}" th:errors="*{stateCityID}"
+                          class="text-danger"></span>
                     &emsp;&emsp;&emsp;&emsp;
                     <label for="pinCode" class="col-form-label">Pin Code &ensp;&nbsp;</label>
                     <input type="text" th:field="*{pinCode}" class="form-control" id="pinCode">

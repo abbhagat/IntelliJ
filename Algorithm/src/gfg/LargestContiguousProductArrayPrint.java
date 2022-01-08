@@ -24,6 +24,6 @@ public class LargestContiguousProductArrayPrint {
         maxSubarrayProduct(new int[]{-2, -40, 0, -2, -3});
         maxSubarrayProduct(new int[]{-1, -2, 10, -10});
         maxSubarrayProduct(new int[]{2, 3, -2, 4});
-        maxSubarrayProduct(new int[]{-2,0,-1});
+        maxSubarrayProduct(new int[]{-2, 0, -1});
     }
 }

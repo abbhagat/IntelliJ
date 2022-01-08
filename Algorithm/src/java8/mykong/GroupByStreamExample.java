@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class GroupByStreamExample {
 
-    public static void main(String[] args){
-        List<String> items = Arrays.asList("apple", "apple", "banana","apple", "orange", "banana", "papaya");
+    public static void main(String[] args) {
+        List<String> items = Arrays.asList("apple", "apple", "banana", "apple", "orange", "banana", "papaya");
         Map<String, Long> map = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(map);
         Map<String, Long> finalMap = new LinkedHashMap<>();

@@ -32,7 +32,7 @@ public class MergeSort {
         b.next = merge(a, b.next);
         return b;
     }
-    
+
     public static void main(String[] args) {
         Node head = null;
         for (int x : new int[]{1, 3, 5, 2, 4}) {

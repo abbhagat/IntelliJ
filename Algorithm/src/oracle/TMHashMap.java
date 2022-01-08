@@ -1,11 +1,11 @@
 package oracle;
 
-public class TMHashMap<K,V> {
+public class TMHashMap<K, V> {
 
     private final static int SIZE = 128;
     private Entry[] table = new Entry[SIZE];
 
-    private final class Entry<K,V> {
+    private final class Entry<K, V> {
         private final K key;
         private V value;
         private Entry next;
@@ -42,10 +42,9 @@ public class TMHashMap<K,V> {
     public boolean remove(K key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
         for (Entry e = table[hash], prev = e; e != null; e = e.next) {
-            if(e.next == null){
+            if (e.next == null) {
                 table[hash] = null;
-            }
-            else {
+            } else {
                 if (null == e.getKey() || e.getKey().equals(key)) {
                     prev.next = e.next;
                 }
@@ -61,7 +60,7 @@ public class TMHashMap<K,V> {
         if (null != e) {
             if (null == e.getKey() || key.equals(e.getKey())) {
                 e.setValue(value);
-            }else{
+            } else {
                 while (e.next != null) {
                     e = e.next;
                 }
@@ -83,7 +82,7 @@ public class TMHashMap<K,V> {
     }
 
     public static void main(String[] args) {
-        TMHashMap<String,Integer> map = new TMHashMap<>();
+        TMHashMap<String, Integer> map = new TMHashMap<>();
         map.put("Bhagat", 66);
         map.put("D", 68);
         map.put("D", 70);

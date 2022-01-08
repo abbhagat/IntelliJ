@@ -10,7 +10,7 @@ public class DeleteLastNodeInBinaryTree {
             if (root.left == null && root.right == null) {
                 return null;
             }
-            root.left  = deleteLastNode(root.left);
+            root.left = deleteLastNode(root.left);
             root.right = deleteLastNode(root.right);
         }
         return root;

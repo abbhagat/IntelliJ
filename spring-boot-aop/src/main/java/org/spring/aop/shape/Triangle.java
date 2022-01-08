@@ -4,7 +4,7 @@ public class Triangle {
 
     private String name;
 
-    public Triangle(String name){
+    public Triangle(String name) {
         this.name = name;
     }
 

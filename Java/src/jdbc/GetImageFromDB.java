@@ -15,7 +15,7 @@ public class GetImageFromDB {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Blob b = rs.getBlob(2);
-                byte[] bytes = b.getBytes(1, (int)b.length());
+                byte[] bytes = b.getBytes(1, (int) b.length());
                 FileOutputStream fos = new FileOutputStream("D:\\Preity Zinta.jpg");
                 fos.write(bytes);
                 fos.flush();

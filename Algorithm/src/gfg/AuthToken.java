@@ -16,8 +16,8 @@ public class AuthToken {
                 return 0;
             }
             Integer tokenCommand = token.get(0);
-            Integer tokenId      = token.get(1);
-            Integer tokenTime    = token.get(2);
+            Integer tokenId = token.get(1);
+            Integer tokenTime = token.get(2);
             if (tokenCommand == 0) {
                 map.put(tokenId, tokenTime + expiryLimit);
             } else if (map.containsKey(tokenId)) {

@@ -45,7 +45,7 @@ public class Class2 {
         System.out.println("Inside Class2 non-static block");
     }
 
-    Class2(){
+    Class2() {
         System.out.println("Inside Class2 constructor");
     }
 

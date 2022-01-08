@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class NthHighestElement {
 
     private static int[] a = {20, 3, 16, 6, 9, 30, 2, 1, 5, 8, 7, 15};
-    private static int n = a.length -1;
+    private static int n = a.length - 1;
     private static int kth = 4;
 
     public static void buildheap() {
@@ -15,10 +15,10 @@ public class NthHighestElement {
     }
 
     public static void maxheap(int i) {
-        int left  = 2 * i;
+        int left = 2 * i;
         int right = 2 * i + 1;
-        int largest = left  <= n && a[left]  > a[i]       ? left  : i;
-            largest = right <= n && a[right] > a[largest] ? right : largest;
+        int largest = left <= n && a[left] > a[i] ? left : i;
+        largest = right <= n && a[right] > a[largest] ? right : largest;
         if (largest != i) {
             swap(i, largest);
             maxheap(largest);

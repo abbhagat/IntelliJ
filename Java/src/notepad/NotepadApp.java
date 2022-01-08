@@ -36,10 +36,10 @@ public class NotepadApp implements ActionListener {
         jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jfrm.setIconImage(jfrm.getToolkit().getImage("C:/Netbeans/Notepad/src/notepad/Images/Notepad.gif"));
         jfrm.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent we) {
-                    quit();
-                }
-            });
+            public void windowClosing(WindowEvent we) {
+                quit();
+            }
+        });
         font = new Font[3];
         font[0] = new Font("Monospaced", Font.BOLD, 15);
         font[1] = new Font("Sans", Font.BOLD, 11);
@@ -312,38 +312,38 @@ public class NotepadApp implements ActionListener {
         jbtn[9].setBackground(Color.black);
         jscp.setPreferredSize(new Dimension(650, 450));
         jtxt.addCaretListener(new CaretListener() {
-                public void caretUpdate(CaretEvent ce) {
-                    item[10].setEnabled(true);
-                    if (!jtxt.getText().equals(""))
-                        stk.push(jtxt.getText());
-                    ln = jtxt.getLineCount();
-                    jbtn[9].setText("Total Line : " + ln + " Caret Position : " + jtxt.getCaretPosition());
-                    if (jtxt.getText().length() == 0) {
-                        wc = 0;
-                    } else {
-                        String[] strsplit = jtxt.getText().split("\\W+");
-                        wc = strsplit.length;
-                        if (strsplit.length > 0 && strsplit[0].length() == 0) {
-                            wc--;
-                        }
+            public void caretUpdate(CaretEvent ce) {
+                item[10].setEnabled(true);
+                if (!jtxt.getText().equals(""))
+                    stk.push(jtxt.getText());
+                ln = jtxt.getLineCount();
+                jbtn[9].setText("Total Line : " + ln + " Caret Position : " + jtxt.getCaretPosition());
+                if (jtxt.getText().length() == 0) {
+                    wc = 0;
+                } else {
+                    String[] strsplit = jtxt.getText().split("\\W+");
+                    wc = strsplit.length;
+                    if (strsplit.length > 0 && strsplit[0].length() == 0) {
+                        wc--;
                     }
                 }
-            });
+            }
+        });
         jtxt.addMouseListener(new MouseAdapter() {
-                public void mousePressed(MouseEvent me) {
-                    checkMouseTrigger(me);
-                }
+            public void mousePressed(MouseEvent me) {
+                checkMouseTrigger(me);
+            }
 
-                public void mouseReleased(MouseEvent me) {
-                    checkMouseTrigger(me);
-                }
+            public void mouseReleased(MouseEvent me) {
+                checkMouseTrigger(me);
+            }
 
-                private void checkMouseTrigger(MouseEvent me) {
-                    if (me.isPopupTrigger()) {
-                        popMenu.show(me.getComponent(), me.getX(), me.getY());
-                    }
+            private void checkMouseTrigger(MouseEvent me) {
+                if (me.isPopupTrigger()) {
+                    popMenu.show(me.getComponent(), me.getX(), me.getY());
                 }
-            });
+            }
+        });
 
         fname = "Monospaced";
         ftype = Font.BOLD;
@@ -573,20 +573,20 @@ public class NotepadApp implements ActionListener {
                     if (s.equals(fn)) {
                         int response = JOptionPane.showConfirmDialog(jfrm, "Want To Replace ?", "Select An Option", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                         switch (response) {
-                        case JOptionPane.YES_OPTION:
-                            try {
-                                fw = new FileWriter(file);
-                                jtxt.write(fw);
-                                fw.close();
-                                JOptionPane.showMessageDialog(jfrm, "File Saved SuccessFully");
-                            } catch (Exception ex) {
-                                JOptionPane.showMessageDialog(jfrm, "File Not Found");
-                            }
-                            break;
-                        case JOptionPane.NO_OPTION:
-                            break;
-                        case JOptionPane.CANCEL_OPTION:
-                            break;
+                            case JOptionPane.YES_OPTION:
+                                try {
+                                    fw = new FileWriter(file);
+                                    jtxt.write(fw);
+                                    fw.close();
+                                    JOptionPane.showMessageDialog(jfrm, "File Saved SuccessFully");
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(jfrm, "File Not Found");
+                                }
+                                break;
+                            case JOptionPane.NO_OPTION:
+                                break;
+                            case JOptionPane.CANCEL_OPTION:
+                                break;
                         }
                     }
                 }
@@ -600,12 +600,12 @@ public class NotepadApp implements ActionListener {
             } else {
                 int flag = JOptionPane.showConfirmDialog(jfrm, "File Is Not Save, Save File", "Select An Option", JOptionPane.YES_NO_OPTION);
                 switch (flag) {
-                case JOptionPane.YES_OPTION:
-                    save();
-                    break;
-                case JOptionPane.NO_OPTION:
-                    jtxt.setText("");
-                    break;
+                    case JOptionPane.YES_OPTION:
+                        save();
+                        break;
+                    case JOptionPane.NO_OPTION:
+                        jtxt.setText("");
+                        break;
                 }
             }
         } else if (str.equals("CreatedBy")) {
@@ -672,10 +672,10 @@ public class NotepadApp implements ActionListener {
             }
         }
         /*
-		 * else if(str.equals("Redo")) { try { stk.pop();
-		 * jtxt.setText(stk.pop()); }catch(Exception e) { jtxt.setText("");
-		 * item[10].setEnabled(false); } }
-		 */
+         * else if(str.equals("Redo")) { try { stk.pop();
+         * jtxt.setText(stk.pop()); }catch(Exception e) { jtxt.setText("");
+         * item[10].setEnabled(false); } }
+         */
     }
 
     private void jtxtFont() {
@@ -714,20 +714,20 @@ public class NotepadApp implements ActionListener {
     private void quit() {
         int response = JOptionPane.showConfirmDialog(jfrm, "File Is Not Save, Save File");
         switch (response) {
-        case JOptionPane.YES_OPTION:
-            save();
-            break;
-        case JOptionPane.NO_OPTION:
-            System.exit(0);
-            return;
-        case JOptionPane.CANCEL_OPTION:
-            return;
+            case JOptionPane.YES_OPTION:
+                save();
+                break;
+            case JOptionPane.NO_OPTION:
+                System.exit(0);
+                return;
+            case JOptionPane.CANCEL_OPTION:
+                return;
         }
     }
 
     public static void main(String[] args) {
         try {
-            SwingUtilities.invokeAndWait(()-> new NotepadApp());
+            SwingUtilities.invokeAndWait(() -> new NotepadApp());
         } catch (Exception e) {
             e.printStackTrace();
         }

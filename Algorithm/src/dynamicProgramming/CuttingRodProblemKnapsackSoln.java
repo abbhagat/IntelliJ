@@ -18,7 +18,7 @@ public class CuttingRodProblemKnapsackSoln {
         int[] dp = new int[W + 1];
         for (int i = 0; i <= W; i++) {
             for (int j = 0; j <= n; j++) {
-                if ( i >= wt[j]) {
+                if (i >= wt[j]) {
                     dp[i] = max(dp[i], dp[i - wt[j]] + price[j]);
                 }
             }

@@ -10,8 +10,8 @@ public class ListOfAllPhoneNumOfCaseInsentiveStrings {
     public static void main(String[] args) {
 
         Map<String, List<Integer>> chm = new ConcurrentHashMap<>();
-        String[] str = { "ABc", "bcd", "cda", "abc" };
-        int[] a = { 123, 456, 678, 8910 };
+        String[] str = {"ABc", "bcd", "cda", "abc"};
+        int[] a = {123, 456, 678, 8910};
         List<Integer> al;
         for (int i = 0; i < str.length; i++) {
             if (chm.get(str[i].toLowerCase()) == null) {

@@ -25,7 +25,7 @@ public class Vehicle {
  * TwoWheeler
  * ID   Name  steeringHandle
  * 2    Bike   BikeSteering
- *************************
+ * ************************
  * FourWheeler
  * ID   Name      steeringWheel
  * 3    Porsche   PorscheSteering

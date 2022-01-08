@@ -21,6 +21,6 @@ public class SymmetricPairsIn2DArray {
     }
 
     public static void main(String[] args) {
-        findSymmetricPairs(new int[][]{{1, 2}, {3, 4}, {4, 3}, {2, 1}, {5,3}});
+        findSymmetricPairs(new int[][]{{1, 2}, {3, 4}, {4, 3}, {2, 1}, {5, 3}});
     }
 }

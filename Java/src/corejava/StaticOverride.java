@@ -24,7 +24,7 @@ public class StaticOverride {
     public static void main(String[] args) throws java.io.IOException {
         SuperStatic sup = new SubStatic();
         sup.display();
-        int[] a = { 1, 2, 3 };
+        int[] a = {1, 2, 3};
         int i = 0;
         while (i < a.length) {
             System.out.println(a[i++]);

@@ -47,14 +47,11 @@ public class CheckValidString {
         for (char c : exp) {
             if (c == '(') {
                 x++;
-            }
-            else if (c == '*') {
+            } else if (c == '*') {
                 y++;
-            }
-            else if (c == ')' && x > 0) {
+            } else if (c == ')' && x > 0) {
                 x--;
-            }
-            else if (c == ')' && x == 0) {
+            } else if (c == ')' && x == 0) {
                 return false;
             }
         }

@@ -22,8 +22,8 @@ public final class FinalClassDemo {
         return this.name;
     }
 
-    public Date getDoj(){
-        return (Date)this.doj.clone();
+    public Date getDoj() {
+        return (Date) this.doj.clone();
     }
 
     public boolean equals(Object obj) {
@@ -42,7 +42,7 @@ public final class FinalClassDemo {
         int hashCode = 1;
         hashCode = prime * hashCode + sal;
         hashCode = prime * hashCode + (null == name ? 0 : name.hashCode());
-        hashCode = prime * hashCode + (null == doj  ? 0 : doj.hashCode());
+        hashCode = prime * hashCode + (null == doj ? 0 : doj.hashCode());
         return hashCode;
     }
 }

@@ -7,7 +7,7 @@ public class ArrayDelete3rdElement {
     private static int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     private static int n = a.length;
 
-    private static void  deleteElement(int pos) {
+    private static void deleteElement(int pos) {
         for (int i = pos; i < n - 1; i++) {
             a[i] = a[i + 1];
         }

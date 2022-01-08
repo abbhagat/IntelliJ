@@ -9,7 +9,7 @@ public class Singleton implements Cloneable, Serializable {
     private volatile static Singleton _instance;
 
     private Singleton() {
-        if(null != _instance){
+        if (null != _instance) {
             try {
                 throw new InstantiationException();
             } catch (InstantiationException e) {
@@ -23,7 +23,7 @@ public class Singleton implements Cloneable, Serializable {
         return getInstance();
     }
 
-    protected Object readResolve(){
+    protected Object readResolve() {
         return getInstance();
     }
 

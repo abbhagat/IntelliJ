@@ -2,6 +2,7 @@ package corejava;
 
 final class Constant {
     int x = 10;
+
     {
         x = 100;
     }

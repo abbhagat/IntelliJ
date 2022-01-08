@@ -5,10 +5,10 @@ import java.io.FileReader;
 
 public class DollarToText {
 
-    private static final String[] _1_to_9 = new String[] { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
-    private static final String[] _10_to_90 = new String[] { "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
-    private static final String[] _11_to_19 = new String[] { "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-    private static final String[] _1000_to_million = new String[] { "", "Thousand", "Million" };
+    private static final String[] _1_to_9 = new String[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    private static final String[] _10_to_90 = new String[]{"Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    private static final String[] _11_to_19 = new String[]{"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    private static final String[] _1000_to_million = new String[]{"", "Thousand", "Million"};
     private static final String _0 = "Zero";
     private static final String _100 = "Hundred";
     private static final String CURRENCY_TYPE = "Dollars";
@@ -30,7 +30,7 @@ public class DollarToText {
         int i = 0;
         while (amount > 0) {
             if (amount % 1000 != 0) {
-                sb.insert(0, amountPartToText((int)(amount % 1000)) + _1000_to_million[i]);
+                sb.insert(0, amountPartToText((int) (amount % 1000)) + _1000_to_million[i]);
             }
             amount = amount / 1000;
             i++;

@@ -31,7 +31,7 @@ public class CountAllPermutationsOfVowels {
             current[4] = next[4] % MOD;
         }
         long sum = 0;
-        for(long x : current){
+        for (long x : current) {
             sum += x;
         }
         return (int) (sum % MOD);

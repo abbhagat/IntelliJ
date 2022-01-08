@@ -16,7 +16,7 @@ public class MaintenanceInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         LocalDate localDate = LocalDate.now();
         DayOfWeek dayOfWeek = localDate.getDayOfWeek();
-        if(dayOfWeek.getValue() == 6){
+        if (dayOfWeek.getValue() == 6) {
             response.sendRedirect("/interceptor_error");
             return false;
         }

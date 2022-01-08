@@ -9,13 +9,13 @@ public class StudentDebugger {
     public static void main(String[] args) throws Exception {
 
         Class<?> stud = Class.forName("corejava.Student");
-        Method meth = stud.getDeclaredMethod("setName", new Class[] { String.class });
+        Method meth = stud.getDeclaredMethod("setName", new Class[]{String.class});
         Object obj = stud.newInstance();
-        meth.invoke(obj, new Object[] { "Java is an OOP" });
-        meth = stud.getDeclaredMethod("getName", new Class[] { });
-        String s = (String)meth.invoke(obj, new Object[] { });
+        meth.invoke(obj, new Object[]{"Java is an OOP"});
+        meth = stud.getDeclaredMethod("getName", new Class[]{});
+        String s = (String) meth.invoke(obj, new Object[]{});
         System.out.println(s);
-        meth = stud.getDeclaredMethod("setName", new Class[] { String.class });
+        meth = stud.getDeclaredMethod("setName", new Class[]{String.class});
         System.out.println(stud instanceof Class);
         System.out.println(stud instanceof Object);
         System.out.println(stud.getPackage());

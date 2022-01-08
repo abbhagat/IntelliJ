@@ -4,14 +4,14 @@ public class AccessDemo {
 
     protected static int x = 3;
     protected int y = 4;
-    static int[] b = { };
+    static int[] b = {};
 
     void display() {
         System.out.println("Java");
     }
 
     public static void main(String[] args) {
-        int[] a = { };
+        int[] a = {};
         int[] b;
 //         synchronized(x){ // Error
 //
@@ -29,7 +29,7 @@ public class AccessDemo {
         // display(b); // variable b might have not been initialized
         // System.out.println(int instanceof Class);
         Integer x = 10;
-         //System.out.println(x instanceof Class);
+        //System.out.println(x instanceof Class);
         // synchronized(this.b){
         synchronized (AccessDemo.b.getClass()) {
             System.out.println("Lock on java.lang.Class");
@@ -66,7 +66,7 @@ public class AccessDemo {
         System.out.println(f3 == f4);
         System.out.println(f3.hashCode() == f4.hashCode());
         System.out.println(f3.equals(f4));
-        char[] c = { 'J', 'a', 'v', 'a' };
+        char[] c = {'J', 'a', 'v', 'a'};
         System.out.println(c);
     }
 }

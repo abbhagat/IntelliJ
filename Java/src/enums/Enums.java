@@ -36,7 +36,7 @@ public class Enums {
         System.out.println(f.Apple.equals(f.Orange));
         System.out.println(f.Apple.ordinal());
         for (Fruits fruit : Fruits.values()) {
-            System.out.println(fruit + "\t"+ fruit.getPrice());
+            System.out.println(fruit + "\t" + fruit.getPrice());
         }
     }
 }

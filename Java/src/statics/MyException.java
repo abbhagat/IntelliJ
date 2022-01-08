@@ -13,7 +13,7 @@ class Main {
         if (x < 0) {
             throw new MyException();
         }
-        return (int)(Math.pow(x, 2));
+        return (int) (Math.pow(x, 2));
     }
 
     public static void main(String[] args) {

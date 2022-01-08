@@ -22,6 +22,7 @@ Output: A Balanced BST
       b) Get the middle of right half and make it right child of the
           root created in step 1.
  */
+
 import static trees.TreeTraversal.inorder;
 
 // Time Complexity: O(n)
@@ -31,9 +32,9 @@ public class ConvertSortedArrayToBalancedTree {
         if (start > end) {
             return null;
         }
-        int mid    = (start + end) / 2;
-        Node root  = new Node(a[mid]);
-        root.left  = sortedArrayToBST(a, start, mid - 1);
+        int mid = (start + end) / 2;
+        Node root = new Node(a[mid]);
+        root.left = sortedArrayToBST(a, start, mid - 1);
         root.right = sortedArrayToBST(a, mid + 1, end);
         return root;
     }

@@ -30,7 +30,7 @@ public class Override {
         System.out.println(a instanceof B);
         System.out.println(a instanceof A);
         System.out.println(a instanceof I1);
-        B b = (B)a;
+        B b = (B) a;
         System.out.println(b instanceof I1);
         System.out.println(new A() instanceof I1);
         a.display();

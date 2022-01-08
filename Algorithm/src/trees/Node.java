@@ -4,7 +4,8 @@ public class Node {
     int num;
     Node left, right;
 
-    public Node() {}
+    public Node() {
+    }
 
     public Node(int num) {
         this.num = num;

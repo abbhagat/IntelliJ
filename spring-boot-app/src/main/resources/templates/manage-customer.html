@@ -90,7 +90,9 @@
                 </thead>
                 <tbody>
                 <tr th:each="cust,index : ${cutomerList}" th:style="${index.odd}? 'font-weight: normal;'">
-                    <td th:align="center"><a th:href="@{/customer/editCustomer/{customerID}(customerID=${cust.customerID})}" th:text="${cust.customerID}"/></td>
+                    <td th:align="center"><a
+                            th:href="@{/customer/editCustomer/{customerID}(customerID=${cust.customerID})}"
+                            th:text="${cust.customerID}"/></td>
                     <td th:align="center" th:text="${cust.firstName}"></td>
                     <td th:align="center" th:text="${cust.middleName}"></td>
                     <td th:align="center" th:text="${cust.lastName}"></td>

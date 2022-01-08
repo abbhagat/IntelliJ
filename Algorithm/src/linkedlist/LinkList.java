@@ -6,7 +6,7 @@ public class LinkList {
 
     public static Node add(Node first, int num) {
         Node node = new Node(num, null);
-        if(null == first) {
+        if (null == first) {
             temp = first = node;
         } else {
             temp.next = node;

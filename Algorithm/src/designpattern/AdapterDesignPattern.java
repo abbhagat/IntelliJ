@@ -17,6 +17,7 @@ interface MediaPlayer {
 
 interface AdvancedMediaPlayer {
     void playVLC(String fileName);
+
     void playMP4(String fileName);
 }
 
@@ -26,12 +27,14 @@ class VLC implements AdvancedMediaPlayer {
         System.out.println("Playing VLC file : " + fileName);
     }
 
-    public void playMP4(String fileName) { }
+    public void playMP4(String fileName) {
+    }
 }
 
 class MP4 implements AdvancedMediaPlayer {
 
-    public void playVLC(String fileName) { }
+    public void playVLC(String fileName) {
+    }
 
     public void playMP4(String fileName) {
         System.out.println("Playing MP4 file : " + fileName);
@@ -43,7 +46,7 @@ class MediaAdapter implements MediaPlayer {
     private AdvancedMediaPlayer advancedMediaPlayer;
 
     MediaAdapter(String fileType) {
-        advancedMediaPlayer = fileType.equalsIgnoreCase("VLC") ? new VLC() :new MP4();
+        advancedMediaPlayer = fileType.equalsIgnoreCase("VLC") ? new VLC() : new MP4();
     }
 
     public void play(String fileName, String fileType) {

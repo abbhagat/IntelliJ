@@ -6,6 +6,7 @@ interface I {
 
 public class Identifier extends Object implements I {
     private static int x;
+
     {
         x = 100;
     }

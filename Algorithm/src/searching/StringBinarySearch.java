@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class StringBinarySearch {
 
     public static void main(String[] args) {
-        String[] str = { "A", "B", "C", "F", "I", "S" };
+        String[] str = {"A", "B", "C", "F", "I", "S"};
         Arrays.sort(str);
-        binarySearch(str,0, str.length - 1, "A");
+        binarySearch(str, 0, str.length - 1, "A");
     }
 
-    private static void binarySearch(String[] str,int low, int high, String s) {
+    private static void binarySearch(String[] str, int low, int high, String s) {
         if (low <= high) {
             int mid = (low + high) / 2;
             int k = s.compareTo(str[mid]);
@@ -18,9 +18,9 @@ public class StringBinarySearch {
                 System.out.println(str[mid] + " present at position " + (mid));
                 return;
             } else if (k < 0) {
-                binarySearch(str,low, mid - 1, s);
+                binarySearch(str, low, mid - 1, s);
             } else if (k > 0) {
-                binarySearch(str,mid + 1, high, s);
+                binarySearch(str, mid + 1, high, s);
             }
         } else {
             System.out.println(s + " not present");

@@ -18,10 +18,10 @@ public class MinCostPathRecursion {
 
     public static void main(String[] args) {
         int cost[][] = {
-                        {1, 2, 3},
-                        {4, 8, 2},
-                        {1, 5, 3}
-                       };
+                {1, 2, 3},
+                {4, 8, 2},
+                {1, 5, 3}
+        };
         System.out.print(minCost(cost, 2, 2));
     }
 }

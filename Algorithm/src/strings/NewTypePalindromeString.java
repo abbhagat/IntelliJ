@@ -25,11 +25,11 @@ public class NewTypePalindromeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(isNewTypePalindrome("")                  ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("A")                 ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABXCDYYDCXBA")      ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("A") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABXCDYYDCXBA") ? "Palindrome" : "Not Palindrome");
         System.out.println(isNewTypePalindrome("ABCEDABXYXABCEDAB") ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABCDXYYXCDAB")      ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABCDXYXDDAB")       ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABCDXYYXCDAB") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABCDXYXDDAB") ? "Palindrome" : "Not Palindrome");
     }
 }

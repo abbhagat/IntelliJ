@@ -9,7 +9,8 @@ public class SubstringCheck {
         if (s2.length() > s1.length()) {
             return false;
         }
-        String s = ""; int index = -1;
+        String s = "";
+        int index = -1;
         for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
@@ -51,6 +52,6 @@ public class SubstringCheck {
 
     public static void main(String[] args) {
         System.out.println(isSubString("ABEFGCDEFG", "EFG") ? "Is A substring" : "Not A substring");
-        System.out.println(  subString("ABEFAGCDEFG","EFG") ? "Is A substring" : "Not A substring");
+        System.out.println(subString("ABEFAGCDEFG", "EFG") ? "Is A substring" : "Not A substring");
     }
 }

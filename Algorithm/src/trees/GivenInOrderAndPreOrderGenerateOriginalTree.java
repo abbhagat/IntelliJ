@@ -14,9 +14,9 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
         if (start == end) {
             return root;
         }
-        int mid    = search(inorder, root.num, start, end);
-        root.left  = buildTree(inorder, preorder, start, mid - 1);
-        root.right = buildTree(inorder, preorder, mid + 1,   end);
+        int mid = search(inorder, root.num, start, end);
+        root.left = buildTree(inorder, preorder, start, mid - 1);
+        root.right = buildTree(inorder, preorder, mid + 1, end);
         return root;
     }
 

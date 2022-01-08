@@ -11,9 +11,9 @@ import static linkedlist.TraverseList.traverseList;
 public class DeleteRepeatedElementsInList {
 
     private static Node deleteRepeatedElementUsingMap(Node first) {
-        Map<Integer,Node> map = new HashMap<>();
-        for(Node temp = first; temp != null; temp = temp.next){
-            if(map.containsKey(temp.num)){
+        Map<Integer, Node> map = new HashMap<>();
+        for (Node temp = first; temp != null; temp = temp.next) {
+            if (map.containsKey(temp.num)) {
                 Node node = map.get(temp.num);
                 node.next = node.next.next;
             }

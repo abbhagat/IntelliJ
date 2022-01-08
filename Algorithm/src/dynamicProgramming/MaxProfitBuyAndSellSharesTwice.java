@@ -35,7 +35,7 @@ public class MaxProfitBuyAndSellSharesTwice {
         int buyVal = 0, sellVal = 0, i;
         for (i = 1; i < a.length; i++) {
             if (a[i - 1] < a[i]) {
-                buyVal  = a[i - 1];
+                buyVal = a[i - 1];
                 sellVal = a[i];
                 break;
             }

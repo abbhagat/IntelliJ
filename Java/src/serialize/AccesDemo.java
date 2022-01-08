@@ -2,6 +2,7 @@ package serialize;
 
 class B extends access.AccessDemo {
     protected int y = 5;
+
     {
         x = 25;
     }

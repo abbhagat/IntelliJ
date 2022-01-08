@@ -11,7 +11,7 @@ public class Implement_strStr {
         }
         int index = -1;
         String s = "";
-        for(int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
+        for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);

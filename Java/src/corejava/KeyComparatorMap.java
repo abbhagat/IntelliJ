@@ -14,9 +14,9 @@ class KeyComparator implements Comparator<String> {
 
 public class KeyComparatorMap {
     public static void main(String[] args) {
-    	//Comparator<String> c = (s1, s2) -> s1.compareTo(s2);
-    	//TreeMap<String, String> tm = new TreeMap<>(c);
-    	//TreeMap<String, String> tm = new TreeMap<>(reverseOrder());
+        //Comparator<String> c = (s1, s2) -> s1.compareTo(s2);
+        //TreeMap<String, String> tm = new TreeMap<>(c);
+        //TreeMap<String, String> tm = new TreeMap<>(reverseOrder());
         TreeMap<String, String> tm = new TreeMap<String, String>(new KeyComparator());
         tm.put("1", "Z");
         tm.put("2", "C");

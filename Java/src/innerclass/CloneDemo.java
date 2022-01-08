@@ -28,7 +28,7 @@ public class CloneDemo {
         ABC a = new ABC();
         a.x = 10;
         System.out.println(a.x);
-        ABC b = (ABC)a.clone();
+        ABC b = (ABC) a.clone();
         b.x = 20;
         System.out.println(a.x + "\t" + b.x);
         System.out.println(a.hashCode() + "\t" + b.hashCode());

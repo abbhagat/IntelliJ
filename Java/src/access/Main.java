@@ -6,6 +6,7 @@ public class Main {
     final int x;
     final int k = 1000; // Error(16,13): cannot assign a value to final variable x
     final int y;
+
     // y = 1000;
     {
         y = 5000;
@@ -39,7 +40,7 @@ public class Main {
         BigDecimal i = null;
         //System.out.println(i.abs()); //NPE
         // System.out.println(null);  //  Error
-        System.out.println((String)null);
+        System.out.println((String) null);
         System.out.println(null == null);
     }
 }

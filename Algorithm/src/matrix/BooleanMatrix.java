@@ -41,11 +41,11 @@ public class BooleanMatrix {
 
     public static void main(String[] args) {
         int mat[][] = {{1, 0, 0, 1},
-                       {0, 0, 1, 0},
-                       {0, 0, 0, 0}
-                      };
-        printMatrix (mat);
+                {0, 0, 1, 0},
+                {0, 0, 0, 0}
+        };
+        printMatrix(mat);
         modifyMatrix(mat);
-        printMatrix (mat);
+        printMatrix(mat);
     }
 }

@@ -10,7 +10,7 @@ public class UtilController {
 
     @GetMapping(value = "/interceptor_error")
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
-    public String interceptorError(){
+    public String interceptorError() {
         return "interceptor_error";
     }
 }

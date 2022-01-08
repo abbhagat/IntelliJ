@@ -18,7 +18,7 @@ public class DashProblem {
             c[i] = str.charAt(i) - 48;
         }
         String s = "";
-        boolean prev_odd  = false;
+        boolean prev_odd = false;
         boolean prev_even = false;
         if (c[0] % 2 == 0) {
             prev_even = true;

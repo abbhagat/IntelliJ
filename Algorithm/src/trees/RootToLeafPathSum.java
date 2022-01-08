@@ -41,7 +41,7 @@ public class RootToLeafPathSum {
             list.add(sum);
             return;
         }
-        rootToLeafPathSum(root.left,  sum, list);
+        rootToLeafPathSum(root.left, sum, list);
         rootToLeafPathSum(root.right, sum, list);
     }
 

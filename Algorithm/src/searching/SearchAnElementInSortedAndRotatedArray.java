@@ -19,7 +19,7 @@ public class SearchAnElementInSortedAndRotatedArray {
     private static int findPivot(int[] a, int low, int high) {
         if (low <= high) {
             int mid = (low + high) / 2;
-            if(a[mid] > a[mid + 1]){
+            if (a[mid] > a[mid + 1]) {
                 return mid;
             }
             return a[mid] >= a[mid + 1] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);

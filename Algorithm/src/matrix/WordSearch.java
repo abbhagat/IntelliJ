@@ -16,7 +16,7 @@ public class WordSearch {
         if (index >= word.length()) {
             return true;
         }
-        if (row < 0 || row >= ROW || col < 0 || col >= COL || M[row][col] != word.charAt(index)){
+        if (row < 0 || row >= ROW || col < 0 || col >= COL || M[row][col] != word.charAt(index)) {
             return false;
         }
         char t = M[row][col];

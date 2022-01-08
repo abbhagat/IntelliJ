@@ -12,7 +12,7 @@ public class PalindromeStringCheck {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("MADAM".toCharArray())  ? "Palindrome" : "Not Palindrome");
+        System.out.println(isPalindrome("MADAM".toCharArray()) ? "Palindrome" : "Not Palindrome");
         System.out.println(isPalindrome("MADDAM".toCharArray()) ? "Palindrome" : "Not Palindrome");
     }
 }

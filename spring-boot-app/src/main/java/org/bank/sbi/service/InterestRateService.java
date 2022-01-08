@@ -17,7 +17,7 @@ public class InterestRateService {
         return interestRateDAO.findAll();
     }
 
-    public void saveInterestRate(InterestRate interestRate){
+    public void saveInterestRate(InterestRate interestRate) {
         interestRateDAO.save(interestRate);
     }
 }

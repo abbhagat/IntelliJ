@@ -28,6 +28,6 @@ public class DivTwoNumWithoutAnyOperator {
     public static void main(String[] args) {
         int x = 16, y = 3;
         divide(max(x, y), min(x, y));
-        divide(max(x, y), min(x, y),0);
+        divide(max(x, y), min(x, y), 0);
     }
 }

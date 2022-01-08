@@ -62,7 +62,8 @@
                                 <tbody>
                                 <tr th:each="stateCity, iteration : *{listOfStateCity}">
                                     <td th:text="${iteration.index} + 1"></td>
-                                    <input th:type="hidden" th:id="id" th:field="*{listOfStateCity[__${iteration.index}__].stateCityID}">
+                                    <input th:type="hidden" th:id="id"
+                                           th:field="*{listOfStateCity[__${iteration.index}__].stateCityID}">
                                     <td><input th:field="*{listOfStateCity[__${iteration.index}__].state}"/></td>
                                     <td><input th:field="*{listOfStateCity[__${iteration.index}__].city}"/></td>
                                     <td>

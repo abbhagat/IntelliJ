@@ -32,7 +32,7 @@ public class HashMapDemo {
             Map.Entry<String, Integer> m = itr.next();
             System.out.println(m.getKey() + "\t" + m.getValue());
         }
-        synchronizedMap.forEach((k,v)->{
+        synchronizedMap.forEach((k, v) -> {
             System.out.println(k + "\t" + v);
         });
     }

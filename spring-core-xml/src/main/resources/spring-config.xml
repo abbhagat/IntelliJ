@@ -6,7 +6,8 @@
 
     <context:component-scan base-package="shape"/>
 
-    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle" name="triangles">
+    <bean id="triangle" class="shape.Triangle" init-method="initTriangle" destroy-method="destroyTriangle"
+          name="triangles">
         <property name="points">
             <list>
                 <bean id="zeroPoint" class="shape.Point" name="zeroPoints">

@@ -9,10 +9,10 @@ public class TextDollarApp {
     private static final String CURRENCY_TYPE = "Dollars";
 
     private static final String ZERO_TEXT = "Zero";
-    private static final String[] DIGITS_TEXT = { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
-    private static final String[] TEENS_TEXT = { "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-    private static final String[] TENS_TEXT = { "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
-    private static final String[] BEYONDS_TEXT = { "", "Thousand", "Million" };
+    private static final String[] DIGITS_TEXT = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    private static final String[] TEENS_TEXT = {"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    private static final String[] TENS_TEXT = {"Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    private static final String[] BEYONDS_TEXT = {"", "Thousand", "Million"};
     private static final int ONE_BILLION = 1000000000;
     private static final String HUNDRED_TEXT = "Hundred";
 
@@ -45,7 +45,7 @@ public class TextDollarApp {
         int index = 0;
         while (amount > 0) {
             if (amount % 1000 != 0) {
-                amountInWords.insert(0, amountPartToText((int)(amount % 1000)) + BEYONDS_TEXT[index]);
+                amountInWords.insert(0, amountPartToText((int) (amount % 1000)) + BEYONDS_TEXT[index]);
             }
             amount = amount / 1000;
             index++;

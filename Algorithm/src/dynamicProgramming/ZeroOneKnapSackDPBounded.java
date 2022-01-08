@@ -75,7 +75,7 @@ public class ZeroOneKnapSackDPBounded {
 
     public static void main(String args[]) {
         int[] val = new int[]{10, 15, 40};
-        int[] wt  = new int[]{1, 2, 3};
+        int[] wt = new int[]{1, 2, 3};
         int W = 6;
         int n = val.length;
         System.out.println(knapSack(W, wt, val, n));
