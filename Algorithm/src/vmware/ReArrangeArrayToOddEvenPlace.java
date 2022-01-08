@@ -11,15 +11,19 @@ public class ReArrangeArrayToOddEvenPlace {
                 i += 2;
             } else if (a[j] % 2 == 0) {
                 j += 2;
-            } else if (a[i] % 2 == 0 && a[j] % 2 != 0) {
-                int t = a[i];
-                a[i] = a[j];
-                a[j] = t;
+            } else {
+                swap(a, i, j);
                 j = i + 1;
                 i += 2;
             }
         }
         IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+    }
+
+    private static void swap(int[] a,int i, int j) {
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
     }
 
     public static void main(String[] args) {

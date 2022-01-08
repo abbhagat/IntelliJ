@@ -13,7 +13,7 @@ public class ReArrangePositiveAndNegativeNumber {
             if (a[i] < 0) {
                 i += 2;
             } else if (a[j] >= 0) {
-                j++;
+                j += 2;
             } else {
                 swap(a, i, j);
                 j = i + 1;
@@ -24,7 +24,7 @@ public class ReArrangePositiveAndNegativeNumber {
         System.out.println();
     }
 
-    private static void swap(int[] a,int i, int j) {
+    private static void swap(int[] a, int i, int j) {
         int t = a[i];
         a[i] = a[j];
         a[j] = t;
