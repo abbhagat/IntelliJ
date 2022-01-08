@@ -30,7 +30,7 @@ public class LevelOrderTreeTraversal {
         for (int x : a) {
             root = createBST(root, x);
         }
-        System.out.println("Level Order Or BFS Traversal : ");
+        System.out.println("Level Order Or BFS Traversal");
         levelOrderTreeTraversal(root);
     }
 }

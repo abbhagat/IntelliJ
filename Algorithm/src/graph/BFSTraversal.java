@@ -8,7 +8,7 @@ import static graph.CreateGraph.createGraph;
 public class BFSTraversal {
 
     public static void BFS(Graph g, int v) {
-        boolean visited[] = new boolean[g.getV()];
+        boolean[] visited = new boolean[g.getV()];
         Queue<Integer> q = new LinkedList<>();
         visited[v] = true;
         q.add(v);
