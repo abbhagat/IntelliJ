@@ -3,7 +3,7 @@ package recursion;
 public class MinCostPathRecursion {
 
     private static int min(int x, int y, int z) {
-        return x < y ? x < z ? x : z : y < z ? y : z;
+        return Math.min(x, Math.min(y, z));
     }
 
     private static int minCost(int[][] cost, int m, int n) {
@@ -17,9 +17,10 @@ public class MinCostPathRecursion {
     }
 
     public static void main(String[] args) {
-        int cost[][] = { {1, 2, 3},
-                         {4, 8, 2},
-                         {1, 5, 3}
+        int cost[][] = {
+                        {1, 2, 3},
+                        {4, 8, 2},
+                        {1, 5, 3}
                        };
         System.out.print(minCost(cost, 2, 2));
     }
