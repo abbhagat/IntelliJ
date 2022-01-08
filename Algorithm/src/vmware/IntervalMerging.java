@@ -8,16 +8,16 @@ import java.util.List;
 
 import static java.lang.Integer.max;
 
-class Interval {
-    int start, end;
-
-    Interval(int start, int end) {
-        this.start = start;
-        this.end = end;
-    }
-}
-
 public class IntervalMerging {
+
+    static class Interval {
+        int start, end;
+
+        Interval(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
 
     private static LinkedList<Interval> mergeInterval(List<Interval> intervalList) {
         intervalList.sort(Comparator.comparingInt(x -> x.start));

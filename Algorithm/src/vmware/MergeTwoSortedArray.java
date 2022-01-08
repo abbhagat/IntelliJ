@@ -1,18 +1,12 @@
 package vmware;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class MergeTwoSortedArray {
 
-    public static void main(String[] args) {
-        int[] a = {2, 4, 6, 7, 1, 8, 9, 5, 10};
-        int[] b = {1, 2, 6, 8, 4, 9, 3, 10, 7, 11, 12};
+    private static void mergeTwoSortedArray(int[] a, int[] b) {
         int[] c = new int[a.length + b.length];
-        Arrays.sort(a);
-        Arrays.sort(b);
-        int i, j, k;
-        i = j = k = 0;
+        int i = 0, j = 0, k = 0;
         while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
                 c[k++] = a[i++];
@@ -28,5 +22,9 @@ public class MergeTwoSortedArray {
             c[k++] = b[j++];
         }
         IntStream.range(0, k).forEach(l -> System.out.print(c[l] + " "));
+    }
+
+    public static void main(String[] args) {
+        mergeTwoSortedArray(new int[]{1, 2, 5, 6, 10}, new int[]{1, 3, 4, 7, 8, 9, 10});
     }
 }

@@ -13,7 +13,6 @@ class WorkerThread implements Callable<Integer> {
         this.end   = end;
     }
 
-
     @Override
     public Integer call() {
         for (int i = start; i <= end; i++) {
