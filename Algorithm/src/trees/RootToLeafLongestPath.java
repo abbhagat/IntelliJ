@@ -8,13 +8,13 @@ import static trees.CreateBST.createBST;
 public class RootToLeafLongestPath {
 
     public static List<Integer> longestPath(Node root) {
-        if (root == null) {                                  // If root is null means there is no binary tree so return a empty list
+        if (root == null) {
             return new ArrayList<>();
         }
-        List<Integer> leftList = longestPath(root.left);      // Recursive call on root.left
-        List<Integer> rightList = longestPath(root.right);   // Recursive call on root.right
-        boolean b = leftList.size() > rightList.size() ? leftList.add(root.num) : rightList.add(root.num); // Compare the size of the two ArrayList and insert current node accordingly
-        return leftList.size() > rightList.size() ? leftList : rightList;  // Return the appropriate ArrayList
+        List<Integer> leftList  = longestPath(root.left);
+        List<Integer> rightList = longestPath(root.right);
+        boolean b = leftList.size() > rightList.size() ? leftList.add(root.num) : rightList.add(root.num);
+        return      leftList.size() > rightList.size() ? leftList : rightList;
     }
 
     public static void main(String[] args) {
