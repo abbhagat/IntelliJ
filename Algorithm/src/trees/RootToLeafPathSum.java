@@ -26,7 +26,7 @@ public class RootToLeafPathSum {
             System.out.println(list);
             return;
         } else if (sum - root.num < root.num) {
-            findPath(root.left, sum - root.num, list);
+            findPath(root.left,  sum - root.num, list);
         } else if (sum - root.num > root.num) {
             findPath(root.right, sum - root.num, list);
         }
@@ -41,7 +41,7 @@ public class RootToLeafPathSum {
             list.add(sum);
             return;
         }
-        rootToLeafPathSum(root.left, sum, list);
+        rootToLeafPathSum(root.left,  sum, list);
         rootToLeafPathSum(root.right, sum, list);
     }
 
