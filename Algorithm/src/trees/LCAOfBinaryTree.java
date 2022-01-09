@@ -16,7 +16,7 @@ public class LCAOfBinaryTree {
             lca.node = root;
             return true;
         }
-        boolean left = findLCA(root.left, lca, x, y);
+        boolean left  = findLCA(root.left,  lca, x, y);
         boolean right = findLCA(root.right, lca, x, y);
         if (left && right) {
             lca.node = root;
