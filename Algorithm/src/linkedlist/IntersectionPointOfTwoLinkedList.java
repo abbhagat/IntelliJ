@@ -17,7 +17,7 @@ public class IntersectionPointOfTwoLinkedList {
     }
 
     private static Node findIntersectionPoint(Node head1, Node head2, int diff) {
-        for (int i = 0; i < diff; i++) {
+        for (int i = 1; i <= diff; i++) {
             if (head1 == null) {
                 return null;
             }
