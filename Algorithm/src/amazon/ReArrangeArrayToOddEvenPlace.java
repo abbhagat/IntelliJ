@@ -1,4 +1,4 @@
-package vmware;
+package amazon;
 
 import java.util.stream.IntStream;
 
