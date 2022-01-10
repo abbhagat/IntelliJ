@@ -1,8 +1,8 @@
 package geeks;
 
 /*
-Given two strings str1 and str2 and below operations that can performed on str1.
-Find minimum number of edits (operations) required to convert ‘str1’ into ‘str2’.
+Given two strings s1 and s2 and below operations that can performed on s1.
+Find minimum number of edits (operations) required to convert ‘s1’ into ‘s2’.
 
 Insert
 Remove
@@ -11,15 +11,15 @@ All of the above operations are of equal cost.
 
 Examples:
 
-Input:   str1 = "geek", str2 = "gesek"
+Input:   s1 = "geek", s2 = "gesek"
 Output:  1
-We can convert str1 into str2 by inserting a 's'.
+We can convert s1 into s2 by inserting a 's'.
 
-Input:   str1 = "cat", str2 = "cut"
+Input:   s1 = "cat", s2 = "cut"
 Output:  1
-We can convert str1 into str2 by replacing 'a' with 'u'.
+We can convert s1 into s2 by replacing 'a' with 'u'.
 
-Input:   str1 = "sunday", str2 = "saturday"
+Input:   s1 = "sunday", s2 = "saturday"
 Output:  3
 Last three and first characters are same.  We basically need to convert "un" to "atur".
 This can be done using below three operations.
@@ -44,7 +44,7 @@ public class EditDistanceOfString {
         return Math.abs(count);
     }
 
-    private static int editDist(String str1, String str2, int m, int n) {
+    private static int editDist(String s1, String s2, int m, int n) {
         if (m == 0) {  // If first string is empty, the only option is to insert all characters of second string into first
             return n;
         }
@@ -53,14 +53,12 @@ public class EditDistanceOfString {
             return m;
         }
         // If last characters of two strings are same, nothing much to do. Ignore last characters and get count for remaining strings.
-        if (str1.charAt(m - 1) == str2.charAt(n - 1)) {
-            return editDist(str1, str2, m - 1, n - 1);
+        if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
+            return editDist(s1, s2, m - 1, n - 1);
         }
         // If last characters are not same, consider all three operations on last character of first string,
         // recursively compute minimum cost for all three operations and take minimum of three values.
-        return 1 + min(editDist(str1, str2, m, n - 1), // Insert
-                editDist(str1, str2, m - 1, n), // Remove
-                editDist(str1, str2, m - 1, n - 1) // Replace
+        return 1 + min(editDist(s1, s2, m, n - 1), editDist(s1, s2, m - 1, n), editDist(s1, s2, m - 1, n - 1) // Insert, Remove, Replace
         );
     }
 
@@ -69,6 +67,11 @@ public class EditDistanceOfString {
     }
 
     public static void main(String[] args) {
+        System.out.println(editDist(   "cat".toCharArray(),     "cut".toCharArray()));
+        System.out.println(editDist(  "geek".toCharArray(),   "gesek".toCharArray()));
         System.out.println(editDist("sunday".toCharArray(), "saturday".toCharArray()));
+        System.out.println(editDist("cat",         "cut", 3, 3));
+        System.out.println(editDist("geek",      "gesek", 4, 5));
+        System.out.println(editDist("sunday", "saturday", 6, 8));
     }
 }
