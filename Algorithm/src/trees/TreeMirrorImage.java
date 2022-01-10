@@ -16,9 +16,9 @@ public class TreeMirrorImage {
 
     public static Node mirrorImage(Node root) {
         if (root != null) {
-            Node left = mirrorImage(root.left);
+            Node left  = mirrorImage(root.left);
             Node right = mirrorImage(root.right);
-            root.left = right;
+            root.left  = right;
             root.right = left;
         }
         return root;
