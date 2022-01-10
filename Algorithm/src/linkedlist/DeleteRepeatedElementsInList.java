@@ -23,7 +23,7 @@ public class DeleteRepeatedElementsInList {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 1, 2, 4, 3, 5, 5};
+        int[] a = {1, 1, 2, 3, 3, 4, 5, 5};
         Node first = null;
         for (int x : a) {
             first = add(first, x);
