@@ -3,7 +3,7 @@ package trees;
 import static trees.TreeHeight.treeHeight;
 /*
 
-        /*   Constructed Binary tree is:
+Constructed Binary tree is:
         1
       /   \
     2      3
