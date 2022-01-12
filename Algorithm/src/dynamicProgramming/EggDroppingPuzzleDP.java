@@ -32,5 +32,6 @@ public class EggDroppingPuzzleDP {
     public static void main(String args[]) {
         System.out.println("Minimum number of trials " + eggDropDP(2, 10));
         System.out.println("Minimum number of trials " + eggDropDP(2, 36));
+        System.out.println("Minimum number of trials " + eggDropDP(2, 100));
     }
 }

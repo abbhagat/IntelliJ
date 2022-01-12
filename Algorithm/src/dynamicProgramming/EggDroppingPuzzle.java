@@ -16,5 +16,6 @@ public class EggDroppingPuzzle {
     public static void main(String args[]) {
         System.out.println(eggDrop(2, 10));
         System.out.println(eggDrop(2, 36));
+        System.out.println(eggDrop(2, 100));
     }
 }
