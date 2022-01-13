@@ -1,9 +1,12 @@
 package paypal;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 public class WaterAndJugProblem {
 
     private static int gcd(int x, int y) {
-        return (y % x == 0) ? x : gcd(y % x, x);
+        return y == 0 ? x : gcd(y, x % y);
     }
 
     /* fromCap -- Capacity of jug from which water is poured
@@ -13,7 +16,7 @@ public class WaterAndJugProblem {
     public static int pour(int fromCap, int toCap, int d) {
         int from = fromCap, to = 0, step = 1;
         while (from != d && to != d) {               // Break the loop when either of the two jugs has d litre water
-            int temp = Math.min(from, toCap - to);  // Find the maximum amount that can be poured
+            int temp = min(from, toCap - to);    // Find the maximum amount that can be poured
             to += temp;                            // Pour "temp" liters from "from" to "to"
             from -= temp;
             step++;
@@ -47,11 +50,20 @@ public class WaterAndJugProblem {
         // Return minimum two cases:
         // a) Water of n liter jug is poured into m liter jug
         // b) Vice versa of "a"
-        return Math.min(pour(n, m, d), pour(m, n, d));
+        return min(pour(n, m, d), pour(m, n, d));
+    }
+
+    private static boolean canMeasure(int x, int y, int z) {
+        if (x + y < z) {
+            return false;
+        }
+        if (x == y || y == z || x + y == z) {
+            return true;
+        }
+        return z % gcd(min(x, y), max(x, y)) == 0;
     }
 
     public static void main(String[] args) {
-        int n = 3, m = 5, d = 4;
-        System.out.println(minSteps(m, n, d));
+        System.out.println(canMeasure(3, 5, 4) ? minSteps(3, 5, 4) : "Not Possible");
     }
 }
