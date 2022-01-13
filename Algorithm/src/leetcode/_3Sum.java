@@ -9,12 +9,9 @@ import java.util.Set;
 public class _3Sum {
 
     private static Set<LinkedList<Integer>> combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list, Set<LinkedList<Integer>> set) {
-        if (curSum == givenSum && list.size() == 3) {
+        if (curSum == givenSum && list.size() == 4) {
             LinkedList<Integer> lists = new LinkedList<>(list);
             set.add(lists);
-            return set;
-        }
-        if (curSum > givenSum) {
             return set;
         }
         for (int i = index; i < a.length; i++) {
@@ -31,5 +28,6 @@ public class _3Sum {
         int[] a = {-1, 0, 1, 2, -1, -4};
         Arrays.sort(a);
         System.out.println(combinationForSum(0, 0, 0, a, new LinkedList<>(), new HashSet<>()));
+        System.out.println(combinationForSum(0, 0, -1, a, new LinkedList<>(), new HashSet<>()));
     }
 }
