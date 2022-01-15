@@ -14,7 +14,8 @@ import static java.lang.Integer.max;
 
 public class MaxProfitByBuyAndSellStocksAtMostKTimes {
 
-    private static int maxProfit(int[] price, int n, int k) {
+    private static int maxProfit(int[] price, int k) {
+        int n = price.length - 1;
         int[][] profit = new int[k + 1][n + 1];
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
@@ -27,13 +28,9 @@ public class MaxProfitByBuyAndSellStocksAtMostKTimes {
     }
 
     public static void main(String[] args) {
-        int[] price = {100, 30, 15, 10, 8, 25, 80};
-        System.out.println(maxProfit(price, price.length - 1, 2));
-        price = new int[]{90, 80, 70, 60, 50};
-        System.out.println(maxProfit(price, price.length - 1, 2));
-        price = new int[]{2, 30, 15, 10, 8, 25, 80};
-        System.out.println(maxProfit(price, price.length - 1, 2));
-        price = new int[]{10, 22, 5, 75, 65, 80};
-        System.out.println(maxProfit(price, price.length - 1, 2));
+        System.out.println(maxProfit(new int[]{100, 30, 15, 10, 8, 25, 80}, 2));
+        System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}, 2));
+        System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}, 2));
+        System.out.println(maxProfit(new int[]{10, 22, 5, 75, 65, 80}, 2));
     }
 }
