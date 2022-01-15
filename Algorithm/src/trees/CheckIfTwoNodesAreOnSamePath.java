@@ -21,7 +21,7 @@ public class CheckIfTwoNodesAreOnSamePath {
             }
             return;
         }
-        areOnSamePath(root.left, num1, num2, list, booleanWrapper);
+        areOnSamePath(root.left,  num1, num2, list, booleanWrapper);
         list.removeLast();
         areOnSamePath(root.right, num1, num2, list, booleanWrapper);
         list.removeLast();
