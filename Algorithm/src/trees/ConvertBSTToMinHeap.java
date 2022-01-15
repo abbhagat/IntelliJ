@@ -12,7 +12,7 @@ public class ConvertBSTToMinHeap {
     private static List<Integer> list = new ArrayList<>();
     private static int index;
 
-    private static void listToMinHeap(Node root) {      // Preorder
+    private static void listToMinHeap(Node root) {    // Preorder
         if (root != null) {
             root.num = list.get(index++);
             listToMinHeap(root.left);
@@ -36,10 +36,9 @@ public class ConvertBSTToMinHeap {
         root.left.right  = new Node(3);
         root.right.left  = new Node(5);
         root.right.right = new Node(7);
-        preorder(root);
         createList(root);
+        System.out.println(list);
         listToMinHeap(root);
-        System.out.println();
         preorder(root);
     }
 }

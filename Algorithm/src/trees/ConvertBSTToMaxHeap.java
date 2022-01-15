@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static trees.TreeTraversal.postorder;
-import static trees.TreeTraversal.preorder;
 
 // Time Complexity: O(n)
 // Auxiliary Space: O(n)
@@ -13,7 +12,7 @@ public class ConvertBSTToMaxHeap {
     private static List<Integer> list = new ArrayList<>();
     private static int index;
 
-    private static void listToMaxHeap(Node root) {      // Preorder
+    private static void listToMaxHeap(Node root) {    // Postorder
         if (root != null) {
             listToMaxHeap(root.left);
             listToMaxHeap(root.right);
@@ -37,10 +36,9 @@ public class ConvertBSTToMaxHeap {
         root.left.right  = new Node(3);
         root.right.left  = new Node(5);
         root.right.right = new Node(7);
-        preorder(root);
         createList(root);
+        System.out.println(list);
         listToMaxHeap(root);
-        System.out.println();
         postorder(root);
     }
 }
