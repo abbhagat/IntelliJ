@@ -1,5 +1,6 @@
 package trees;
 
+import static java.lang.Integer.max;
 import static trees.TreeHeight.treeHeight;
 /*
 Constructed Binary tree is:
@@ -24,7 +25,7 @@ public class BinaryTreeMaxWidth {
         for (int i = 0; i <= height; i++) {
             levelOrderTraversal(root, i);
             System.out.println("Width of Level " + i + " -> " + width);
-            maxWidth = Math.max(maxWidth, width);
+            maxWidth = max(maxWidth, width);
             width = 0;
         }
         return maxWidth;
