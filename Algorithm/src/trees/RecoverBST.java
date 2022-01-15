@@ -29,7 +29,7 @@ public class RecoverBST {
             correctBSTUtil(root.left);
             if (prev != null && root.num < prev.num) {
                 if (first == null) {
-                    first = prev;
+                    first  = prev;
                     middle = root;
                 }
                 else {
