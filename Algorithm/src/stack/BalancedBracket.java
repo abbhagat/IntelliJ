@@ -5,8 +5,8 @@ import java.util.Stack;
 public class BalancedBracket {
 
     public static void main(String[] args) {
-        System.out.println(areParenthesisBalanced("]".toCharArray()) ? "Balanced" : "Not Balanced");
-        System.out.println(areParenthesisBalanced("[]".toCharArray()) ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("]".toCharArray())    ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("[]".toCharArray())   ? "Balanced" : "Not Balanced");
         System.out.println(areParenthesisBalanced("(())".toCharArray()) ? "Balanced" : "Not Balanced");
     }
 
