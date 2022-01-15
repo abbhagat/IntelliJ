@@ -1,7 +1,9 @@
 package trees;
 
-//Time Complexity: O(h)  h = Height of the BST
-//Auxiliary Space: O(h)  h = Height of the BST
+import static trees.CreateBST.createBST;
+
+//Time Complexity: O(h) h = Height of the BST
+//Auxiliary Space: O(h) h = Height of the BST
 public class LCA {
 
     public static Node LCA(Node root, int num1, int num2) {
@@ -23,9 +25,8 @@ public class LCA {
     public static void main(String[] args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60, 1, 6};
         Node root = null;
-        CreateBST bst = new CreateBST();
         for (int i = 0; i < a.length; i++) {
-            root = bst.createBST(root, a[i]);
+            root = createBST(root, a[i]);
         }
         Node lca = LCA(root, 1, 20);
         System.out.println(lca.num);
