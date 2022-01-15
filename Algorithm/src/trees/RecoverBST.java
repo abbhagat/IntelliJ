@@ -42,7 +42,7 @@ public class RecoverBST {
     }
 
     private static void correctBST(Node root) {
-        correctBSTUtil(root);
+        correctBSTUtil(root);   // inorder traversal
         if (first != null && last != null) {
             int temp = first.num;
             first.num = last.num;
