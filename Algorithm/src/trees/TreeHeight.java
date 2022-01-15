@@ -2,6 +2,8 @@ package trees;
 
 import static java.lang.Math.max;
 
+// Time Complexity : O(n)
+// Space Complexity: O(2^h)
 public class TreeHeight {
 
     private static int lH, rH;
