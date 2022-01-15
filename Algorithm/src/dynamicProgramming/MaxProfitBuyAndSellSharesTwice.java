@@ -1,6 +1,9 @@
 package dynamicProgramming;
 
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 /**
  * In daily share trading, a buyer buys shares in the morning and sells them on the same day.
  * If the trader is allowed to make at most 2 transactions in a day,
@@ -30,8 +33,7 @@ package dynamicProgramming;
  */
 public class MaxProfitBuyAndSellSharesTwice {
 
-    public static void main(String[] args) {
-        int[] a = {100, 30, 15, 10, 8, 25, 80};
+    private static int maxProfit(int[] a) {
         int buyVal = 0, sellVal = 0, i;
         for (i = 1; i < a.length; i++) {
             if (a[i - 1] < a[i]) {
@@ -42,17 +44,24 @@ public class MaxProfitBuyAndSellSharesTwice {
         }
         int profit = sellVal - buyVal;
         if (i == a.length) {
-            System.out.println(profit);
-        } else if (i + 1 == a.length - 1 && a[a.length - 1] > sellVal) {
-            System.out.println(a[a.length - 1] - buyVal);
-        } else {
-            int max = a[i], min = a[i];
-            for (int j = i; j < a.length; j++) {
-                max = Math.max(max, a[j]);
-                min = Math.min(min, a[j]);
-            }
-            profit += max - min;
-            System.out.println(profit);
+            return profit;
         }
+        if (i + 1 == a.length - 1 && a[a.length - 1] > sellVal) {
+            return a[a.length - 1] - buyVal;
+        }
+        int max = a[i], min = a[i];
+        for (int j = i; j < a.length; j++) {
+            max = max(max, a[j]);
+            min = min(min, a[j]);
+        }
+        profit += max - min;
+        return profit;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{10, 22, 5, 75, 65, 80}));
+        System.out.println(maxProfit(new int[]{100, 30, 15, 10, 8, 25, 80}));
+        System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}));
+        System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}));
     }
 }

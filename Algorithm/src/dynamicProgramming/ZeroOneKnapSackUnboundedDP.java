@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import static java.lang.Integer.max;
+
 /*
   Given a knapsack weight W and a set of n items with certain value val i and weight wt i,
   we need to calculate the maximum amount that could make up this quantity exactly.
@@ -31,22 +33,33 @@ package dynamicProgramming;
 public class ZeroOneKnapSackUnboundedDP {
 
     private static int unboundedKnapsack(int W, int[] wt, int[] val, int n) {
-        int dp[] = new int[W + 1];
+        int[] dp = new int[W + 1];
         for (int i = 0; i <= W; i++) {
             for (int j = 0; j <= n; j++) {
                 if (wt[j] <= i) {
-                    dp[i] = Math.max(dp[i], dp[i - wt[j]] + val[j]);
+                    dp[i] = max(dp[i], dp[i - wt[j]] + val[j]);
                 }
             }
         }
         return dp[W];
     }
 
+    private static int unboundedKnapsack(int[] val, int n) {
+        if (n == 0) {
+            return 0;
+        }
+        int max_val = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            max_val = max(max_val, val[i] + unboundedKnapsack(val, n - i - 1));
+        }
+        return max_val;
+    }
+
     public static void main(String[] args) {
         int W = 8;
         int[] val = {10, 40, 50, 70};
-        int[] wt = {1, 3, 4, 5};
-        int n = val.length - 1;
-        System.out.println(unboundedKnapsack(W, wt, val, n));
+        int[] wt  = {1, 3, 4, 5};
+        System.out.println(unboundedKnapsack(W, wt, val, val.length - 1));
+        System.out.println(unboundedKnapsack(val, val.length));
     }
 }
