@@ -1,6 +1,6 @@
 package recursion;
 
-public class DecimalToBinaryUsingRecursion {
+public class DecimalToBinary {
 
     private static String decimalToBinary(int num, int mask, String binaryString) {
         if (mask == 0) {
