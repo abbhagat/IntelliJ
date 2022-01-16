@@ -1,4 +1,4 @@
-package oracle;
+package recursion;
 
 
 // HCF * LCM = a * b
