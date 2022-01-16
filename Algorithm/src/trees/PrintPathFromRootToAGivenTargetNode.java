@@ -21,15 +21,6 @@ public class PrintPathFromRootToAGivenTargetNode {
         return false;
     }
 
-    public static void printPath(Node root, int target) {
-        LinkedList<Integer> list = new LinkedList<>();
-        if (hasPath(root, target, list)) {
-            System.out.println(list);
-            return;
-        }
-        System.out.print("No Path");
-    }
-
     public static void main(String[] args) {
         Node root                = new Node(1);
         root.left                = new Node(2);
@@ -39,6 +30,7 @@ public class PrintPathFromRootToAGivenTargetNode {
         root.right.left          = new Node(6);
         root.right.right         = new Node(7);
         root.right.left.right    = new Node(11);
-        printPath(root, 11);
+        LinkedList<Integer> list = new LinkedList<>();
+        System.out.println(hasPath(root, 11, list) ? list : "No Path");
     }
 }
