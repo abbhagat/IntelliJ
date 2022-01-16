@@ -23,7 +23,7 @@ import static java.lang.Integer.min;
 public class CountNumWithHCFLessThanThatNumber {
 
     private static int findHCF(int x, int y) {
-        return y % x == 0 ? x : findHCF(y % x, x);
+        return y == 0 ? x : findHCF(y, x % y);
     }
 
     public static void main(String[] args) {
@@ -36,5 +36,7 @@ public class CountNumWithHCFLessThanThatNumber {
             }
         }
         System.out.println(count);
+        int x = 0, y = 5;
+        System.out.println(findHCF(min(x, y), max(x, y)));
     }
 }

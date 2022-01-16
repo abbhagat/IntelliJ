@@ -21,6 +21,6 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
 
     public static void main(String[] args) {
         System.out.println(canFormPalindrome("geeksforgeeks") ? "Can Form Palindrome" : "Cannot Form Palindrome");
-        System.out.println(canFormPalindrome("geeksogeeks") ? "Can Form Palindrome" : "Cannot Form Palindrome");
+        System.out.println(canFormPalindrome("geeksogeeks")   ? "Can Form Palindrome" : "Cannot Form Palindrome");
     }
 }
