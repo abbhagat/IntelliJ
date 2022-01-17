@@ -71,10 +71,11 @@ public class RecoverBST {
         root.left.right  = new Node(3);
         root.right.right = new Node(12);
         root.right.left  = new Node(7);
-        System.out.println("Inorder Traversal of the original tree");
+        System.out.println("Original Tree");
         inorder(root);
         correctBST(root);
-        System.out.println("Inorder Traversal of the fixed tree");
+        System.out.println();
+        System.out.println("Recovered Tree");
         inorder(root);
     }
 }
