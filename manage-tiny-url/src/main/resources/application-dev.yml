@@ -11,7 +11,7 @@ spring:
         enable_lazy_load_no_trans: true
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   jooq:
     sql-dialect: org.hibernate.dialect.Oracle10gDialect

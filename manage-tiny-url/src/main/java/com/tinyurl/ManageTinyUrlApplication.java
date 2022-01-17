@@ -9,5 +9,4 @@ public class ManageTinyUrlApplication {
     public static void main(String[] args) {
         SpringApplication.run(ManageTinyUrlApplication.class, args);
     }
-
 }

@@ -52,7 +52,7 @@ public class URLService {
 
     private int decodeURL(String longURL){
         int id = 0;
-        String shortURL = longURL.substring(longURL.lastIndexOf("/"));
+        String shortURL = longURL.substring(longURL.lastIndexOf("/") + 1);
         for(char x : shortURL.toCharArray()){
             id = id * 62 + BASE_62.indexOf(x);
         }

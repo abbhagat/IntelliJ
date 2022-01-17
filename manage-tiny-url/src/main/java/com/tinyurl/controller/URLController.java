@@ -13,15 +13,15 @@ public class URLController {
     @Autowired
     private URLService service;
 
-    @GetMapping(value = "/getShortURL/{longURL}", consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getShortURL/{longURL}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public String getShortURL(@PathVariable String longURL){
         return service.getShortURL(longURL);
     }
 
-    @GetMapping(value = "/getLongURL/{shortURL}", consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/getLongURL/",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public String getLongURL(@PathVariable String shortURL){
+    public String getLongURL(@RequestBody String shortURL){
         return service.getLongURL(shortURL);
     }
 
