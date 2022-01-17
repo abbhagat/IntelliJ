@@ -44,13 +44,13 @@ public class RecoverBST {
     private static void correctBST(Node root) {
         correctBSTUtil(root);
         if (first != null && last != null) {
-            int temp = first.num;
+            int temp  = first.num;
             first.num = last.num;
-            last.num = temp;
+            last.num  = temp;
         }
         else if (first != null && middle != null) {
-            int temp = first.num;
-            first.num = middle.num;
+            int temp   = first.num;
+            first.num  = middle.num;
             middle.num = temp;
         }
     }
