@@ -33,8 +33,9 @@ public class URLService {
     }
 
     public String getLongURL(String shortURL) {
-        int id = decodeURL(shortURL);
-        return dao.findById(id).get().getLongURL();
+        return dao.findByShortURL(shortURL).getLongURL();
+        //int id = decodeURL(shortURL);
+        //return dao.findById(id).get().getLongURL();
     }
 
     private String encodeURL(int val) {

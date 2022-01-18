@@ -24,5 +24,4 @@ public class URLController {
     public String getLongURL(@RequestBody String shortURL){
         return service.getLongURL(shortURL);
     }
-
 }
