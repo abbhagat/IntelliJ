@@ -44,7 +44,6 @@ class ShapeFactory {
 public class FactoryPattern {
 
     public static void main(String[] args) {
-
         ShapeFactory shapeFactory = new ShapeFactory();
         Shape s;
         s = shapeFactory.getShape("CIRCLE");
