@@ -33,14 +33,10 @@ class ShapeFactory {
 
     public Shape getShape(String shape) {
         switch (shape.toLowerCase()) {
-            case "circle":
-                return new Circle();
-            case "square":
-                return new Square();
-            case "rectangle":
-                return new Rectangle();
-            default:
-                return null;
+            case "circle":    return new Circle();
+            case "square":    return new Square();
+            case "rectangle": return new Rectangle();
+            default:          return null;
         }
     }
 }
@@ -50,11 +46,12 @@ public class FactoryPattern {
     public static void main(String[] args) {
 
         ShapeFactory shapeFactory = new ShapeFactory();
-        Shape c = shapeFactory.getShape("CIRCLE");
-        c.draw();
-        Shape r = shapeFactory.getShape("RECTANGLE");
-        r.draw();
-        Shape s = shapeFactory.getShape("SQUARE");
+        Shape s;
+        s = shapeFactory.getShape("CIRCLE");
+        s.draw();
+        s = shapeFactory.getShape("RECTANGLE");
+        s.draw();
+        s = shapeFactory.getShape("SQUARE");
         s.draw();
     }
 }
