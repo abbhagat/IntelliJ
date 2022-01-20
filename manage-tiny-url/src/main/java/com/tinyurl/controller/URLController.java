@@ -13,9 +13,9 @@ public class URLController {
     @Autowired
     private URLService service;
 
-    @GetMapping(value = "/getShortURL/{longURL}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/getShortURL/",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public String getShortURL(@PathVariable String longURL){
+    public String getShortURL(@RequestBody String longURL){
         return service.getShortURL(longURL);
     }
 
