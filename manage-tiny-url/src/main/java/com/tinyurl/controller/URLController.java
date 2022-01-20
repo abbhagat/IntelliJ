@@ -1,5 +1,6 @@
 package com.tinyurl.controller;
 
+import com.tinyurl.kafka.KafkaListenerService;
 import com.tinyurl.service.URLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,14 @@ public class URLController {
 
     @Autowired
     private URLService service;
+
+    @Autowired
+    private KafkaListenerService kafkaListenerService;
+
+    @PostMapping(value = "/sendMessage")
+    public void sendMessage(@RequestBody String message){
+        kafkaListenerService.sendMessage(message);
+    }
 
     @PostMapping(value = "/getShortURL/",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

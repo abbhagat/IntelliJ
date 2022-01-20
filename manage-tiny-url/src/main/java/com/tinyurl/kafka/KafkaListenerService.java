@@ -22,6 +22,5 @@ public class KafkaListenerService {
     @KafkaListener(topics = "url-shortening", groupId = "group-id")
     public void listen(String message) {
         System.out.println("Received Message in group - group-id: " + message);
-        System.out.println(service.getShortURL(message));
     }
 }
