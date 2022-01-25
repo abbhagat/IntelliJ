@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring cloud gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id : product
+#          uri : http://localhost:8082/
+#          predicates :
+#          - Path=/product/**
+server:
+  port: 8081
