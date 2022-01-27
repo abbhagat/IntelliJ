@@ -16,7 +16,7 @@ public class KafkaListenerOrConsumer {
         LOG.info(data);
     }
 
-    @KafkaListener(topics = "topic-1, topic-2", groupId = "topic-group-2")
+    @KafkaListener(topics = "topic-1, topic-2", groupId = "topic-group")
     void commonListenerForMultipleTopics(String message) {
         LOG.info("MultipleTopicListener - {}", message);
     }

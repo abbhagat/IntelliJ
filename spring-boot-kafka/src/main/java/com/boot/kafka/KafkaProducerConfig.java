@@ -79,7 +79,7 @@ public class KafkaProducerConfig {
         DefaultKafkaProducerFactory<Object, Object> stringPF =  new DefaultKafkaProducerFactory<>(configMap);
         Map<Pattern, ProducerFactory<Object, Object>> map = new LinkedHashMap<>();
         map.put(Pattern.compile(".*-bytes"), bytesPF);
-        map.put(Pattern.compile("reflectoring-.*"), stringPF);
+        map.put(Pattern.compile("topic-.*"), stringPF);
         return new RoutingKafkaTemplate(map);
     }
 }
