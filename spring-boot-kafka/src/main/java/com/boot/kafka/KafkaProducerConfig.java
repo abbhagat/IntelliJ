@@ -31,6 +31,26 @@ public class KafkaProducerConfig {
     private String bootstrapServers;
 
     @Bean
+    public ProducerFactory<String, String> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(producerConfig());
+    }
+
+    @Bean
+    public Map<String, Object> producerConfig() {
+        Map<String, Object> map = new HashMap<>();
+        map.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        map.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        map.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return map;
+    }
+
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplates() {
+        KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
+        return kafkaTemplate;
+    }
+
+    @Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
         kafkaTemplate.setProducerListener(new ProducerListener<String, String>() {
@@ -45,20 +65,6 @@ public class KafkaProducerConfig {
             }
         });
         return kafkaTemplate;
-    }
-
-    @Bean
-    public ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfig());
-    }
-
-    @Bean
-    public Map<String, Object> producerConfig() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        map.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        map.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        return map;
     }
 
     @Bean
