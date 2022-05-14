@@ -5,7 +5,7 @@ import static doublylinkedlist.TraverseList.traverseList;
 
 // Time complexity is O(n)
 // Auxiliary space is O(1)
-public class PairWithGivenSum {
+public class PairWithGivenSumInSortedDLL {
 
     private static void pairSum(Node head, int x) {
         Node first = head, second = head;
