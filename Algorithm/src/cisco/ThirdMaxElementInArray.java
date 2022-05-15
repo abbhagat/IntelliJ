@@ -1,4 +1,4 @@
-package easy;
+package cisco;
 
 // Time  Complexity O(n)
 // Space Complexity O(1)
