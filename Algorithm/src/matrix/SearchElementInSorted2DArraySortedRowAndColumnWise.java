@@ -35,11 +35,28 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
         return false;
     }
 
+    private static boolean searchMatrix(int[][] M, int key) {
+        int m = M.length, n = M[0].length, left = 0, right = m * n - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (M[mid / n][mid % n] == key) {
+                return true;
+            } else if (M[mid / n][mid % n] > key) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int[][] M;
         M = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-        System.out.println(search(M, 5) ? "Present" : "Not Present");
+        System.out.println(search(M, 5)       ? "Present" : "Not Present");
+        System.out.println(searchMatrix(M, 5) ? "Present" : "Not Present");
         M = new int[][]{{1, 1}};
-        System.out.println(search(M, 5) ? "Present" : "Not Present");
+        System.out.println(search(M, 5)       ? "Present" : "Not Present");
+        System.out.println(searchMatrix(M, 5) ? "Present" : "Not Present");
     }
 }
