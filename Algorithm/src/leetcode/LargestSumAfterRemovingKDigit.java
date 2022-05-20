@@ -14,12 +14,12 @@ public class LargestSumAfterRemovingKDigit {
 
     private static int maxNumber(int n, int k) {
         for (int j = 1; j <= k; j++) {
-            int result = Integer.MIN_VALUE;
+            int max = Integer.MIN_VALUE;
             for (int i = 1; n / i != 0; i *= 10) {               // Remove the last digit after every iteration
                 int temp = (n / (i * 10)) * i + (n % i);       // Store the numbers formed after removing every digit once
-                result = max(result, temp);
+                max = max(max, temp);
             }
-            n = result;
+            n = max;
         }
         return n;
     }
