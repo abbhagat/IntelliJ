@@ -2,37 +2,25 @@ package amazon;
 
 import java.util.stream.IntStream;
 
-// Time  Complexity  O(n)    if 0 is not present
-// Time  Complexity  O(n^2) if 0 is present
+// Time  Complexity  O(n)
 
 public class ArrayMulOtherThanOwnPosition {
 
     private static int[] productExceptSelf(int[] nums) {
-        int mul = 1;
         int[] a = new int[nums.length];
-        System.arraycopy(nums, 0, a, 0, nums.length);
-        for (int x : nums) {
-            mul *= x;
+        a[0] = 1;
+        for (int i = 1; i < nums.length; i++) {
+            a[i] = a[i - 1] * nums[i - 1];
         }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = nums[i] == 0 ? product(a, i) : mul / nums[i];
+        for (int i = nums.length - 1, k = 1; i >= 0; i--) {
+            a[i]  *= k;
+            k *= nums[i];
         }
-        return nums;
-    }
-
-    private static int product(int[] nums, int index) {
-        int mul = 1;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == index) {
-                continue;
-            }
-            mul *= nums[i];
-        }
-        return mul;
+        return a;
     }
 
     public static void main(String[] args) {
-        int[] a = productExceptSelf(new int[]{-1, 1, 0, -3, 3});
+        int[] a = productExceptSelf(new int[]{1, 2, 3, 4});
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

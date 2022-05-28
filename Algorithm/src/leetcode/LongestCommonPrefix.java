@@ -11,7 +11,7 @@ public class LongestCommonPrefix {
             return str[low];
         }
         int mid = (low + high) / 2;
-        String left  = longestCommonPrefix(str, low, mid);
+        String left = longestCommonPrefix(str, low, mid);
         String right = longestCommonPrefix(str, mid + 1, high);
         return commonPrefix(left, right);
     }

@@ -19,7 +19,7 @@ import static java.lang.Integer.min;
  */
 public class MinJumpsToReachEnd {
 
-    private static int minJumps(int a[], int l, int h) {
+    private static int minJumps(int[] a, int l, int h) {
         if (l == h) {   // Base case: when source and destination are same
             return 0;
         }
@@ -36,12 +36,12 @@ public class MinJumpsToReachEnd {
     }
 
     private static int minJumps(int[] a) {
-        int steps = 0, current = 0, last = 0;
+        int steps = 0, current = 0, j = 0;
         for (int i = 0; i < a.length; i++) {
-            if (i > last) {
-                last = current;
+            if (i > j) {
+                j = current;
                 steps++;
-                if (last >= a.length) {
+                if (j >= a.length) {
                     return steps;
                 }
             }
@@ -66,9 +66,14 @@ public class MinJumpsToReachEnd {
         System.out.println("Min jumps to reach end " + isReachable(a));
         System.out.println("Min jumps to reach end " + minJumps(a));
         System.out.println();
-        int b[] = {2, 3, 1, 1, 4};
+        int[] b = {2, 3, 1, 1, 4};
         System.out.println("Min jumps to reach end " + minJumps(b, 0, b.length - 1));
         System.out.println("Min jumps to reach end " + isReachable(b));
         System.out.println("Min jumps to reach end " + minJumps(b));
+        System.out.println();
+        int[] c = {1, 2, 3, 4, 5};
+        System.out.println("Min jumps to reach end " + minJumps(c, 0, c.length - 1));
+        System.out.println("Min jumps to reach end " + isReachable(c));
+        System.out.println("Min jumps to reach end " + minJumps(c));
     }
 }

@@ -2,7 +2,7 @@ package strings;
 
 public class BinaryStringInAPattern {
 
-    static void printBinaryString(char[] a, int index) {
+    private static void printBinaryString(char[] a, int index) {
         if (index == a.length) {
             System.out.println(a);
         } else if (a[index] == '?') {

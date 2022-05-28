@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CountOneInSortedBinaryArray {
 
-    private static int a[] = {0, 0, 0, 1, 1, 1, 1, 1, 1};
+    private static int[] a = {0, 0, 0, 1, 1, 1, 1, 1, 1};
 
     private static int countOnes(int low, int high) {
         if (a[low] == 1) {

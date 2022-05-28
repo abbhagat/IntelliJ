@@ -5,7 +5,7 @@ As another example, if the given sequence is “BBABCBCAB”, then the output sh
 is the longest palindromic subsequence in it. “BBBBB” and “BBCBB” are also palindromic subsequences
 of the given sequence, but not the longest ones.
 The naive solution for this problem is to generate all subsequences of the given sequence and find
-the longest palindromic subsequence. This solution is exponential in term of time complexity
+the longest palindromic subsequence. This solution is exponential in terms of time complexity
 */
 public class LongestPalindromicSequence {
 
@@ -23,7 +23,7 @@ public class LongestPalindromicSequence {
     }
 
     public static void main(String[] args) {
-        char[] seq = "GEEKSFORGEEKS".toCharArray();
+        char[] seq = "BBABCBCAB".toCharArray();
         System.out.println("The length of the LPS is " + lps(seq, 0, seq.length - 1));
     }
 }

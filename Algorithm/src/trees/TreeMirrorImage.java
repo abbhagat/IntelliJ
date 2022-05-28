@@ -12,6 +12,7 @@ Inorder traversal of the constructed tree is
 Inorder traversal of the mirror tree is
 7 3 6 1 5 2 4
  */
+// Time Complexity : O(n)
 public class TreeMirrorImage {
 
     public static Node mirrorImage(Node root) {
@@ -45,13 +46,13 @@ public class TreeMirrorImage {
     }
 
     public static void main(String[] args) {
-        Node root           = new Node(1);
+        Node root           = new Node(4);
         root.left           = new Node(2);
-        root.right          = new Node(3);
-        root.left.left      = new Node(4);
-        root.left.right     = new Node(5);
+        root.right          = new Node(7);
+        root.left.left      = new Node(1);
+        root.left.right     = new Node(3);
         root.right.left     = new Node(6);
-        root.right.right    = new Node(7);
+        root.right.right    = new Node(8);
         inorder(root);
         root = mirrorImage(root);
         System.out.println();

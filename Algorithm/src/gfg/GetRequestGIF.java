@@ -46,7 +46,7 @@ public class GetRequestGIF {
                 sb.append(s);
                 sb.append("\n");
             }
-            System.out.println(sb.toString());
+            System.out.println(sb);
             return sb.toString();
         } finally {
             br.close();

@@ -1,7 +1,7 @@
 package strings;
 
 // Time complexity – O(2^n)
-//Space complexity – O(n)
+// Space complexity – O(n)
 public class PrintBinaryPermutation {
 
     private static void binaryPermutation(String s, int itr) {
