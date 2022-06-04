@@ -22,39 +22,7 @@ public class PalindromeIndexing {
         return -1;
     }
 
-    private static boolean isPalindrome(String s, int low, int high) {
-        while (low <= high) {
-            if (s.charAt(low) != s.charAt(high)) {
-                return false;
-            }
-            low++;
-            high--;
-        }
-        return true;
-    }
-
-    private static int findPalindromeIndex(String s, int low, int high) {
-        while (low < high) {
-            if (s.charAt(low) == s.charAt(high)) {
-                low++;
-                high--;
-            } else {
-                if (isPalindrome(s, low + 1, high)) {
-                    return low;
-                }
-                if (isPalindrome(s, low, high - 1)) {
-                    return high;
-                }
-                return -1;
-            }
-        }
-        return -1;
-    }
-
     public static void main(String[] args) {
-        int index = findPalindromeIndex("MAXDAM", 0, "MAXDAM".length() - 1);
-        if (index >= 0) {
-            System.out.println("Palindrome Index :- " + index);
-        }
+        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXCFGDAM"));
     }
 }
