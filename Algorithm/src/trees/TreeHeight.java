@@ -9,12 +9,12 @@ public class TreeHeight {
     private static int lH, rH;
 
     public static int treeHeight(Node root) {
-        return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
+        return null == root ? 0 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 
     public static int height(Node root) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         if (root.left != null) {
             lH++;
@@ -24,7 +24,7 @@ public class TreeHeight {
             rH++;
             height(root.right);
         }
-        return max(lH, rH);
+        return max(lH, rH) + 1;
     }
 
     public static void main(String[] args) {
