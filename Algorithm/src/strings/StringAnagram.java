@@ -2,26 +2,24 @@ package strings;
 
 public class StringAnagram {
 
-    public static void main(String[] args) {
-        String s1 = "Java";
-        String s2 = "vaJa";
-        boolean isAnagram = true;
-        int[] temp = new int[128];
+    private static boolean isAnagram(String s1, String s2) {
         if (s1.length() == s2.length()) {
+            int[] temp = new int[128];
             for (int i = 0; i < s1.length(); i++) {
                 temp[s1.charAt(i)]++;
                 temp[s2.charAt(i)]--;
             }
-            for (int i = 0; i < 128; i++) {
-                if (temp[i] != 0) {
-                    isAnagram = false;
-                    break;
+            for (int x : temp) {
+                if (x != 0) {
+                    return false;
                 }
             }
-        } else {
-            isAnagram = false;
+            return true;
         }
-        System.out.println(isAnagram ? "Anagram" : "Not Anagram");
+        return false;
+    }
 
+    public static void main(String[] args) {
+        System.out.println(isAnagram("Java","vaJa") ? "Anagram" : "Not Anagram");
     }
 }

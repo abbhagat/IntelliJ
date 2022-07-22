@@ -2,7 +2,7 @@ package trees;
 
 import static trees.TreeTraversal.inorder;
 
-public class BinaryTreeToList {
+public class BinaryTreeToLinkedList {
 
     private static void treeToList(Node root){
         if(root == null){
@@ -10,10 +10,10 @@ public class BinaryTreeToList {
         }
         treeToList(root.left);
         treeToList(root.right);
-        Node node = root.right;
+        Node node  = root.right;
         root.right = root.left;
-        root.left = null;
-        Node curr = root;
+        root.left  = null;
+        Node curr  = root;
         while (curr.right != null){
             curr = curr.right;
         }
@@ -23,10 +23,7 @@ public class BinaryTreeToList {
     public static void main(String[] args) {
         Node root        = new Node(1);
         root.left        = new Node(2);
-        root.right       = new Node(5);
-        root.left.left   = new Node(3);
-        root.left.right  = new Node(4);
-        root.right.right = new Node(6);
+        root.right       = new Node(3);
         inorder(root);
         treeToList(root);
         System.out.println();

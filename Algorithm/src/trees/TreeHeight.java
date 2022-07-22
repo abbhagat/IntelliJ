@@ -3,13 +3,13 @@ package trees;
 import static java.lang.Math.max;
 
 // Time Complexity : O(n)
-// Space Complexity: O(2^h)
+// Space Complexity: O(2^h) - 1
 public class TreeHeight {
 
     private static int lH, rH;
 
     public static int treeHeight(Node root) {
-        return null == root ? 0 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
+        return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 
     public static int height(Node root) {
@@ -24,7 +24,7 @@ public class TreeHeight {
             rH++;
             height(root.right);
         }
-        return max(lH, rH) + 1;
+        return max(lH, rH);
     }
 
     public static void main(String[] args) {

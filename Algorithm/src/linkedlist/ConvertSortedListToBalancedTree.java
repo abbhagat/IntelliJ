@@ -29,8 +29,8 @@ public class ConvertSortedListToBalancedTree {
         Node mid = prevMid.next;
         prevMid.next = null;
         TreeNode root = new TreeNode(mid.num);
-        root.left = sortedListToBST(head);
-        root.right = sortedListToBST(mid.next);
+        root.left  =  sortedListToBST(head);
+        root.right =  sortedListToBST(mid.next);
         return root;
     }
 

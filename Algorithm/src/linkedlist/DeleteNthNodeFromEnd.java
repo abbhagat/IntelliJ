@@ -9,8 +9,7 @@ public class DeleteNthNodeFromEnd {
 
     private static Node deleteNthNode(Node first, int n) {
         Node head = new Node(-1, first);
-        Node slow = head;
-        Node fast = head;
+        Node slow = head, fast = head;
         for (int i = 1; i <= n + 1; i++) {
             slow = slow.next;
         }
@@ -18,6 +17,7 @@ public class DeleteNthNodeFromEnd {
             slow = slow.next;
             fast = fast.next;
         }
+        System.out.println(n + "th Node from End is " + fast.next.num);
         fast.next = fast.next.next;
         return head.next;
     }

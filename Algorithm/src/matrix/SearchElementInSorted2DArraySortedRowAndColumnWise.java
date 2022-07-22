@@ -39,9 +39,11 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
         int m = M.length, n = M[0].length, left = 0, right = m * n - 1;
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (M[mid / n][mid % n] == key) {
+            int k = M[mid / n][mid % n];
+            if (k == key) {
+                System.out.println("[" + mid / n + "]" + "[" + mid % n + "]");
                 return true;
-            } else if (M[mid / n][mid % n] > key) {
+            } else if (key < k) {
                 right = mid - 1;
             } else {
                 left = mid + 1;

@@ -11,9 +11,19 @@ public class PrintDecimalToBinary {
         }
     }
 
+    private static String decimalToBinary(int n) {
+        StringBuilder result = new StringBuilder("");
+        int carry = 0;
+        while (n != 0) {
+            carry = n / 2;
+            result = result.insert(0, n % 2);
+            n /= 2;
+        }
+        return carry == 1 ? "1" + result : result.toString();
+    }
+
     public static void main(String[] args) {
-        int n = 15;
-        int mask = 32768;
+        int n = 15, mask = 32768;
         String binaryString = "";
         while (mask != 0) {
             binaryString += (n & mask) == 0 ? "0" : "1";
@@ -22,5 +32,6 @@ public class PrintDecimalToBinary {
         System.out.println(binaryString);
         printBinary(n, 32768);
         System.out.println(binary);
+        System.out.println(decimalToBinary(15));
     }
 }

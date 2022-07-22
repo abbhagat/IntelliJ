@@ -3,10 +3,10 @@ package leetcode;
 public class CheckIfAnArrayRepresentsMaxHeap {
 
     private static boolean isMaxHeap(int[] a, int i, int n) {
-        if (i >= (n - 2) / 2) {
+        if (n <= 2 * (i + 1)) {
             return true;
         }
-        int left = 2 * i + 1;
+        int left  = 2 * i + 1;
         int right = 2 * i + 2;
         if (a[i] >= a[left] && a[i] >= a[right] && isMaxHeap(a, left, n) && isMaxHeap(a, right, n)) {
             return true;

@@ -10,7 +10,6 @@ public class LongestRepeatingSubsquence {
         char[] c = str.toCharArray();
         Map<String, Integer> map = new HashMap<>();
         String s = "" + c[0];
-        Integer k;
         for (int i = 1; i < c.length; i++) {
             int diff = c[i] - c[i - 1];
             if (diff == 1) {
@@ -19,11 +18,11 @@ public class LongestRepeatingSubsquence {
                 if (diff == 0) {
                     continue;
                 }
-                k = map.get(s) == null ? map.put(s, 1) : map.put(s, map.get(s) + 1);
+                map.put(s, map.getOrDefault(s, 0) + 1);
                 s = "" + c[i];
             }
         }
-        k = map.get(s) == null ? map.put(s, 1) : map.put(s, map.get(s) + 1);
+        map.put(s, map.getOrDefault(s, 0) + 1);
         return map;
     }
 

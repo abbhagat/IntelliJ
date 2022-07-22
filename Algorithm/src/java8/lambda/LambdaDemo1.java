@@ -15,9 +15,7 @@ public class LambdaDemo1 {
 
         i1.draw();
 
-        I i2 = () -> {
-            System.out.println("draw() of I called using Lambda expression");
-        };
+        I i2 = () -> System.out.println("draw() of I called using Lambda expression");
 
         i2.draw();
     }

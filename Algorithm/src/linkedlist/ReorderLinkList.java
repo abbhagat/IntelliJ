@@ -3,6 +3,8 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMid;
 import static linkedlist.TraverseList.traverseList;
+// Given List -> l0->l1->l2->....ln-1->ln
+// O/P :-> l0->ln->l1->ln-1->l2->ln-2
 
 public class ReorderLinkList {
 
@@ -14,7 +16,7 @@ public class ReorderLinkList {
         Node cur = mid.next;
         mid.next = null;
         while (cur != null) {
-            // swap(cur.next,mid.next);
+            // swap(cur,mid.next);
             Node temp = cur.next;
             cur.next = mid.next;
             mid.next = cur;
@@ -32,11 +34,10 @@ public class ReorderLinkList {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 2, 3, 4, 5}) {
+        for (int x : new int[]{1, 2, 3, 4}) {
             first = add(first, x);
         }
         traverseList(first);
-        System.out.println();
         reorderList(first);
         traverseList(first);
     }

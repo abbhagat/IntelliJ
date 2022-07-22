@@ -1,7 +1,7 @@
 package linkedlist;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
@@ -10,25 +10,26 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DeleteRepeatedElementsInList {
 
-    private static Node deleteRepeatedElementUsingMap(Node first) {
-        Map<Integer, Node> map = new HashMap<>();
+    private static void removeDuplicate(Node first) {
+        Set<Integer> set = new HashSet<>();
+        Node prev = null;
         for (Node temp = first; temp != null; temp = temp.next) {
-            if (map.containsKey(temp.num)) {
-                Node node = map.get(temp.num);
-                node.next = node.next.next;
+            if (set.contains(temp.num)) {
+                prev.next = temp.next;
+            } else {
+                set.add(temp.num);
+                prev = temp;
             }
-            map.put(temp.num, temp);
         }
-        return first;
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 1, 2, 3, 3, 4, 5, 5};
+        int[] a = {1, 2, 1, 1, 1, 3, 4, 3, 5, 5};
         Node first = null;
         for (int x : a) {
             first = add(first, x);
         }
-        first = deleteRepeatedElementUsingMap(first);
+        removeDuplicate(first);
         traverseList(first);
     }
 }

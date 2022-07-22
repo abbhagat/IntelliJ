@@ -4,7 +4,7 @@ import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 // Time Complexity  : O(1)
-// Auxilliary Space : O(1)
+// Auxiliary Space  : O(1)
 
 public class DeleteNodeWithoutHeadPointer {
 
@@ -22,7 +22,6 @@ public class DeleteNodeWithoutHeadPointer {
             first = add(first, x);
         }
         traverseList(first);
-        System.out.println();
         deleteNode(first.next.next);
         traverseList(first);
     }

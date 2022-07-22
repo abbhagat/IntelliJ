@@ -30,16 +30,15 @@ import static trees.TreeTraversal.inorder;
 // Time Complexity: O(n)
 public class ConvertGivenTreeToSumTree {
 
-
-    private static int convert(Node root){
-        if(root != null){
-            int oldVal = root.num;
-            int leftSum  = convert(root.left);
-            int rightSum = convert(root.right);
-            root.num = leftSum + rightSum;
-            return root.num + oldVal;
+    private static int convert(Node root) {
+        if (root == null) {
+            return 0;
         }
-        return 0;
+        int oldVal   = root.num;
+        int leftSum  = convert(root.left);
+        int rightSum = convert(root.right);
+        root.num = leftSum + rightSum;
+        return root.num + oldVal;
     }
 
     public static void main(String[] args) {

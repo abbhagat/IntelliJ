@@ -22,25 +22,23 @@ public class ConvertBTreeToBST {
         }
     }
 
-    private static void listToBST(List<Integer> list, Node root) {
+    private static void listToBST(Node root, List<Integer> list) {
         if (root != null) {
-            listToBST(list, root.left);
+            listToBST(root.left, list);
             root.num = list.get(index++);
-            listToBST(list, root.right);
+            listToBST(root.right, list);
         }
     }
 
     public static void main(String[] args) {
-        Node root        = new Node(10);
-        root.left        = new Node(30);
-        root.right       = new Node(15);
-        root.left.left   = new Node(20);
-        root.right.right = new Node(5);
+        Node root        = new Node(1);
+        root.left        = new Node(2);
+        root.right       = new Node(3);
         inorder(root);
         createList(root);
         list.sort(Comparator.comparingInt(i -> i));
         System.out.println();
-        listToBST(list, root);
+        listToBST(root, list);
         inorder(root);
     }
 }

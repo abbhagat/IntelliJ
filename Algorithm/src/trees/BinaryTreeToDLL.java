@@ -1,12 +1,14 @@
 package trees;
 
+// Time Complexity : O(n)
+// Auxiliary space: O(log N)
 public class BinaryTreeToDLL {
 
     private static Node temp, head;
 
-    private static Node convertTreeToDLL(Node root) {
+    private static void convertTreeToDLL(Node root) {
         if (root == null) {
-            return null;
+            return;
         }
         convertTreeToDLL(root.left);
         if (temp == null) {
@@ -17,18 +19,16 @@ public class BinaryTreeToDLL {
         }
         temp = root;
         convertTreeToDLL(root.right);
-        return head;
     }
 
     public static void main(String[] args) {
-        Node root       = new Node(10);
-        root.left       = new Node(12);
-        root.right      = new Node(15);
-        root.left.left  = new Node(25);
-        root.left.right = new Node(30);
-        root.right.left = new Node(36);
-        root = convertTreeToDLL(root);
-        for (Node temp = root; temp != null; temp = temp.right) {
+        Node root       = new Node(1);
+        root.left       = new Node(2);
+        root.right      = new Node(3);
+        convertTreeToDLL(root);
+        System.out.println("head" + head.num);
+        System.out.println("temp" + temp.num);
+        for (Node temp = head; temp != null; temp = temp.right) {
             System.out.print(temp.num + " ");
         }
     }

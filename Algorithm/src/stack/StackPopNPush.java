@@ -1,10 +1,8 @@
 package stack;
 
 public class StackPopNPush {
-
     Node first;
     char c;
-
     Node push(char num, Node node) {
         if (node == null) {
             node = new Node();

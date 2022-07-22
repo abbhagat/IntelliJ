@@ -8,14 +8,13 @@ package vmware;
 public class PalindromeIndexing {
 
     private static int palindromeIndexing(String s) {
-        int j = s.length() - 1;
-        for (int i = 0; i <= j / 2; i++) {
-            if (s.charAt(i) != s.charAt(j - i)) {
-                if (s.charAt(i + 1) == s.charAt(j - i) && s.charAt(i + 2) == s.charAt(j - i - 1)) {
+        for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+            if (s.charAt(i) != s.charAt(j)) {
+                if (s.charAt(i + 1) == s.charAt(j) && s.charAt(i + 2) == s.charAt(j - 1)) {
                     return i;
                 }
-                if (s.charAt(i) == s.charAt(j - i - 1)) {
-                    return j - i;
+                if (s.charAt(i) == s.charAt(j - 1)) {
+                    return j;
                 }
             }
         }
@@ -23,6 +22,8 @@ public class PalindromeIndexing {
     }
 
     public static void main(String[] args) {
-        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXCFGDAM"));
+        System.out.println("Palindrome Index :- " + palindromeIndexing("MADAM"));
+        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXDAM"));
+        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXcghDAM"));
     }
 }

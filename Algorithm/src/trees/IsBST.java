@@ -1,17 +1,20 @@
 package trees;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static trees.CreateBST.createBST;
 
 // Time Complexity O(n)
 public class IsBST {
-    private static boolean isBST(Node root, int min, int max) {
+    private static boolean isBST(Node root, long min, long max, Set<Integer> set) {
         if (root == null) {
             return true;
         }
-        if (root.num < min || root.num > max) {
+        if(!set.add(root.num) || root.num < min || root.num > max){
             return false;
         }
-        return isBST(root.left, min, root.num) && isBST(root.right, root.num, max);
+        return isBST(root.left, min, root.num, set) && isBST(root.right, root.num, max, set);
     }
 
     public static void main(String[] args) {
@@ -20,6 +23,6 @@ public class IsBST {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        System.out.println("Is BST :" + isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+        System.out.println("Is BST :" + isBST(root, Long.MIN_VALUE, Long.MAX_VALUE, new HashSet<>()));
     }
 }

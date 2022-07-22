@@ -5,12 +5,11 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DetectAndRemoveLoopInLinkedList {
 
-    private static void detectAndRemoveLoop(Node first) {
-        Node slow = first;
-        Node fast = first.next;
+    private static boolean detectAndRemoveLoop(Node first) {
+        Node slow = first, fast = first.next;
         while (true) {
             if (fast == null || fast.next == null) {
-                return;
+                return false;
             }
             if (fast == slow || fast.next == slow) {
                 break;
@@ -24,6 +23,7 @@ public class DetectAndRemoveLoopInLinkedList {
             }
         }
         fast.next = null;
+        return true;
     }
 
     private static void removeCycle(Node slow, Node fast) {
@@ -42,7 +42,11 @@ public class DetectAndRemoveLoopInLinkedList {
             first = add(first, x);
         }
         first.next.next.next.next.next = first.next.next.next;
-        detectAndRemoveLoop(first);
-        traverseList(first);
+        boolean flag = detectAndRemoveLoop(first);
+        if(flag){
+            traverseList(first);
+        }else{
+            System.out.println("Linked List has no cycle");
+        }
     }
 }

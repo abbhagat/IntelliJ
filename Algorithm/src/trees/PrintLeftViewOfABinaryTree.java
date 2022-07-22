@@ -1,7 +1,5 @@
 package trees;
 
-import static trees.CreateBST.createBST;
-
 // Time Complexity: The function does a simple traversal of the tree, so the complexity is O(n).
 public class PrintLeftViewOfABinaryTree {
 
@@ -20,11 +18,12 @@ public class PrintLeftViewOfABinaryTree {
     }
 
     public static void main(String args[]) {
-        int[] a = {50, 25, 100, 10, 30, 90, 120, 27, 35};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
-        }
+        Node root                = new Node(1);
+        root.left                = new Node(2);
+        root.left.left           = new Node(3);
+        root.left.left.left      = new Node(4);
+        root.left.left.left.left = new Node(5);
+        root.right               = new Node(6);
         printLeftView(root, 1);
     }
 }

@@ -6,6 +6,18 @@ import static linkedlist.TraverseList.traverseList;
 //Space Complexity: O(1)
 public class ReverseList {
 
+    private static Node reverse(Node first) {
+        Node head = first;
+        Node previous = null, temp;
+        while (head != null) {
+            temp = head;
+            head = head.next;
+            temp.next = previous;
+            previous = first = temp;
+        }
+        return first;
+    }
+
     public static Node reverseList(Node node) {
         if (node == null || node.next == null) {
             return node;
@@ -24,6 +36,8 @@ public class ReverseList {
         }
         traverseList(first);
         first = reverseList(first);
+        traverseList(first);
+        first = reverse(first);
         traverseList(first);
     }
 }

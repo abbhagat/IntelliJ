@@ -5,23 +5,24 @@ import static trees.CreateBST.createBST;
 public class SearchBST {
 
     public static Node searchBST(Node root, int num) {
-        if (root != null) {
-            if (root.num == num) {
-                return root;
-            }
-            return num < root.num ? searchBST(root.left, num) : searchBST(root.right, num);
+        if (root == null) {
+            return null;
         }
-        return null;
+        if (root.num == num) {
+            return root;
+        }
+        return num < root.num ? searchBST(root.left, num) : searchBST(root.right, num);
     }
 
     public static boolean searchBST(int num, Node root) {
-        if (root != null) {
-            if (root.num == num) {
-                return true;
-            }
-            return num < root.num ? searchBST(num, root.left) : searchBST(num, root.right);
+        if (root == null) {
+            return false;
         }
-        return false;
+        if (root.num == num) {
+            return true;
+        }
+        return num < root.num ? searchBST(num, root.left) : searchBST(num, root.right);
+
     }
 
     public static void main(String[] args) {

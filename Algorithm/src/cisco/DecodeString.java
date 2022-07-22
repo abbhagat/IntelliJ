@@ -1,14 +1,13 @@
 package cisco;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 
 public class DecodeString {
 
     private static String decodeString(String s) {
         String decode = "";
-        Deque<String> result = new ArrayDeque<>();
-        Deque<Integer> count = new ArrayDeque<>();
+        LinkedList<String>  result = new LinkedList<>();
+        LinkedList<Integer> count  = new LinkedList<>();
         int n = 0;
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {

@@ -18,5 +18,8 @@ public class GroupByStreamExample {
                 .sorted(Map.Entry.<String, Long>comparingByValue()
                         .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
         System.out.println(finalMap);
+        map.clear();
+        map.putAll(finalMap);
+        System.out.println(map);
     }
 }

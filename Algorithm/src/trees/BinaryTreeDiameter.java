@@ -31,9 +31,6 @@ public class BinaryTreeDiameter {
         root.right      = new Node(3);
         root.left.left  = new Node(4);
         root.left.right = new Node(5);
-        diameter(root);
-        System.out.println(diameter);
-        diameter = Integer.MIN_VALUE;
         System.out.println("Diameter : " + (diameter(root)));
     }
 }

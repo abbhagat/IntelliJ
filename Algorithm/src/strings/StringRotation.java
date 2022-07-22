@@ -1,12 +1,10 @@
 package strings;
 
-
 /*
 Input : s = "GeeksforGeeks"
         d = 2
 Output : Left Rotation  : "eksforGeeksGe"
          Right Rotation : "ksGeeksforGee"
-
 
 Input : s = "qwertyu"
         d = 2
@@ -17,7 +15,7 @@ Output : Left rotation  : "ertyuqw"
 public class StringRotation {
 
     private static boolean isRotation(String s1, String s2) {
-        return s1.length() == s2.length() ? (s1 + s1).contains(s2) : false;
+        return s1.length() == s2.length() && (s1 + s1).contains(s2);
     }
 
     private static String leftRotation(String s, int k) {

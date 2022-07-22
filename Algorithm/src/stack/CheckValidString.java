@@ -34,7 +34,7 @@ public class CheckValidString {
     public static boolean checkValidString(char[] exp) {
         int low = 0, high = 0;
         for (char c : exp) {
-            low += c == '(' ? 1 : -1;
+            low  += c == '(' ? 1 : -1;
             high += c != ')' ? 1 : -1;
             if (high < 0) break;
             low = Math.max(low, 0);

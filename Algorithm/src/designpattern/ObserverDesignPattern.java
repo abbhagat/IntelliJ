@@ -7,6 +7,7 @@ import java.util.List;
 class Subject {
 
     private int state;
+    private List<Observer> observers = new ArrayList<>();
 
     public int getState() {
         return state;
@@ -17,14 +18,12 @@ class Subject {
         notifyAllObservers();
     }
 
-    private List<Observer> observers = new ArrayList<>();
-
-    public void attach(Observer observer) {
+    public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
     public void notifyAllObservers() {
-        observers.forEach(observer -> observer.update(observer));
+        observers.forEach(observer -> observer.notify(observer));
     }
 }
 
@@ -32,7 +31,7 @@ abstract class Observer {
 
     protected Subject subject;
 
-    public abstract void update(Observer observer);
+    public abstract void notify(Observer observer);
 
 }
 
@@ -40,11 +39,11 @@ class BinaryObserver extends Observer {
 
     public BinaryObserver(Subject subject) {
         this.subject = subject;
-        this.subject.attach(this);
+        this.subject.addObserver(this);
     }
 
     @Override
-    public void update(Observer observer) {
+    public void notify(Observer observer) {
         System.out.println("Binary String" + Integer.toBinaryString(this.subject.getState()));
     }
 }
@@ -53,11 +52,11 @@ class OctalObserver extends Observer {
 
     public OctalObserver(Subject subject) {
         this.subject = subject;
-        this.subject.attach(this);
+        this.subject.addObserver(this);
     }
 
     @Override
-    public void update(Observer observer) {
+    public void notify(Observer observer) {
         System.out.println("Octal String " + Integer.toOctalString(this.subject.getState()));
     }
 }
@@ -66,11 +65,11 @@ class HexObserver extends Observer {
 
     public HexObserver(Subject subject) {
         this.subject = subject;
-        this.subject.attach(this);
+        this.subject.addObserver(this);
     }
 
     @Override
-    public void update(Observer observer) {
+    public void notify(Observer observer) {
         System.out.println("Hex String " + Integer.toHexString(this.subject.getState()));
     }
 }

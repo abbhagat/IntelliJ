@@ -10,7 +10,6 @@ public class AllPermutationsOfVowels {
     private int mod = 1000000007;
 
     Map<Character, List<Character>> map = new HashMap<>();
-
     {
         map.put('a', Arrays.asList('e'));
         map.put('e', Arrays.asList('a', 'i'));
@@ -18,7 +17,6 @@ public class AllPermutationsOfVowels {
         map.put('o', Arrays.asList('i', 'u'));
         map.put('u', Arrays.asList('a'));
     }
-
     public int countVowelPermutation(int n) {
         int[][] a = new int[5][n];
         int count = 0;

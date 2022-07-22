@@ -19,7 +19,7 @@ public class RemoveInValidBracket {
                 for (int i = 0; i < str.length(); i++) {
                     if (str.charAt(i) == '(' || str.charAt(i) == ')') {
                         String temp = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str
-                        if (!set.contains(temp)) {                                //  Pushing into stack if not visited already
+                        if (!set.contains(temp)) {  //  Pushing into stack if not visited already
                             stack.push(temp);
                             set.add(temp);
                         }

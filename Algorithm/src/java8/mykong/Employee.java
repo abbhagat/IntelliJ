@@ -1,5 +1,6 @@
 package java8.mykong;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ public class Employee {
     private String name;
     private Integer id;
     private Date dob;
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+    private DateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
 
     public Employee(String name, Integer id, Date dob) {
         this.name = name;
