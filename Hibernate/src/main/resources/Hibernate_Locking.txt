@@ -5,11 +5,11 @@ There are two types of locking in Hibernate.
 
 Example :-
 
-User A reads his account details balance as Rs 100 on Net Banking UI
-Meanwhile User B also opens the User A account details on NetBanking UI and see Rs100.
+User A read his account details balance as Rs 100 on Net Banking UI
+Meanwhile User B also opens the User A account details on NetBanking UI and see Rs 100.
 
 Now User B updates the Balance to Rs 20 and commits it to the database.
-But User A still sees the balance on UI as Rs 100 and he goes ahead and tries to transfer Rs 50 to User C.
+But User A still sees the balance on UI as Rs 100, and he goes ahead and tries to transfer Rs 50 to User C.
 Here User A is not aware that a parallel transaction has taken place due to which his account balance was Rs 20
 and therefore his transaction of Rs 50 failed.
 
