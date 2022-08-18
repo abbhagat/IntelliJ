@@ -34,7 +34,7 @@ public class RomanToInteger {
     }
 
     public static void main(String[] args) {
-        System.out.print(romanToInt("IX"));
-        System.out.print(romanToInt("MCMIV"));
+        System.out.println(romanToInt("IX"));
+        System.out.println(romanToInt("MCMIV"));
     }
 }
