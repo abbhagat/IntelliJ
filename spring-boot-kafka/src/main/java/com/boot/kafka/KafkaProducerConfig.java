@@ -1,12 +1,11 @@
 package com.boot.kafka;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,9 +22,8 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 @Configuration
+@Slf4j
 public class KafkaProducerConfig {
-
-    Logger LOG = LoggerFactory.getLogger(KafkaProducerConfig.class);
 
     @Value("${producer.bootstrap-servers}")
     private String bootstrapServers;
@@ -56,12 +54,12 @@ public class KafkaProducerConfig {
         kafkaTemplate.setProducerListener(new ProducerListener<String, String>() {
             @Override
             public void onSuccess(ProducerRecord<String, String> producerRecord, RecordMetadata recordMetadata) {
-                LOG.info("Message " + producerRecord.topic() + "\t" + producerRecord.partition() + "\t" + producerRecord.value() + "\t" + recordMetadata.offset());
+                log.info("Message " + producerRecord.topic() + "\t" + producerRecord.partition() + "\t" + producerRecord.value() + "\t" + recordMetadata.offset());
             }
 
             @Override
             public void onError(ProducerRecord<String, String> producerRecord, RecordMetadata recordMetadata, Exception exception) {
-                LOG.info(exception.getCause().toString());
+                log.info(exception.getCause().toString());
             }
         });
         return kafkaTemplate;
