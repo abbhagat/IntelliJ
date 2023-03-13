@@ -50,12 +50,12 @@ public class MaxLengthChainPairs {
 
     public static void main(String[] args) {
         Pair[] pair = new Pair[]
-                {
-                        new Pair(5, 24),
-                        new Pair(15, 25),
-                        new Pair(27, 40),
-                        new Pair(50, 60)
-                };
+                                {
+                                   new Pair(5, 24),
+                                   new Pair(15, 25),
+                                   new Pair(27, 40),
+                                   new Pair(50, 60)
+                                };
         System.out.println("Length of maximum size chain is " + maxChainLength(pair, pair.length));
     }
 }

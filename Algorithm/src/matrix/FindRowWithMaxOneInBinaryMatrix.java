@@ -1,6 +1,6 @@
 package matrix;
 
-// Time Complexity O(nlogn)
+// Time Complexity O(n log n)
 public class FindRowWithMaxOneInBinaryMatrix {
 
     private static int rowWithMax1s(int[] a, int low, int high) {

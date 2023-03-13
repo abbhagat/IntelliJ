@@ -2,7 +2,6 @@ package dynamicProgramming;
 
 
 import static java.lang.Integer.max;
-import static java.lang.Integer.min;
 
 /**
  * In daily share trading, a buyer buys shares in the morning and sells them on the same day.
@@ -34,28 +33,15 @@ import static java.lang.Integer.min;
 public class MaxProfitBuyAndSellSharesTwice {
 
     private static int maxProfit(int[] a) {
-        int buyVal = 0, sellVal = 0, i;
-        for (i = 1; i < a.length; i++) {
-            if (a[i - 1] < a[i]) {
-                buyVal = a[i - 1];
-                sellVal = a[i];
-                break;
-            }
+        int first_buy  = Integer.MIN_VALUE, first_sell  = 0;
+        int second_buy = Integer.MIN_VALUE, second_sell = 0;
+        for (int x : a) {
+            first_buy   = max(first_buy, -x);
+            first_sell  = max(first_sell, first_buy  + x);
+            second_buy  = max(second_buy, first_sell - x);
+            second_sell = max(second_sell,second_buy + x);
         }
-        int profit = sellVal - buyVal;
-        if (i == a.length) {
-            return profit;
-        }
-        if (i + 1 == a.length - 1 && a[a.length - 1] > sellVal) {
-            return a[a.length - 1] - buyVal;
-        }
-        int max = a[i], min = a[i];
-        for (int j = i; j < a.length; j++) {
-            max = max(max, a[j]);
-            min = min(min, a[j]);
-        }
-        profit += max - min;
-        return profit;
+        return second_sell;
     }
 
     public static void main(String[] args) {

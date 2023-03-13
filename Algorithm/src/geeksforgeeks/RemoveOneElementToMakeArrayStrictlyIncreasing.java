@@ -2,7 +2,7 @@ package geeksforgeeks;
 
 public class RemoveOneElementToMakeArrayStrictlyIncreasing {
 
-    public static boolean check(int a[]) {
+    public static boolean check(int[] a) {
         int count = 0;
         int index = -1, n = a.length - 1;
         for (int i = 1; i < n; i++) {

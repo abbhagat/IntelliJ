@@ -11,9 +11,6 @@ public class _4Sum {
             System.out.println(list);
             return;
         }
-        if (curSum > givenSum) {
-            return;
-        }
         for (int i = index; i < a.length; i++) {
             curSum += a[i];
             list.add(a[i]);

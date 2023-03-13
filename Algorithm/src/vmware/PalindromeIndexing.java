@@ -22,8 +22,8 @@ public class PalindromeIndexing {
     }
 
     public static void main(String[] args) {
-        System.out.println("Palindrome Index :- " + palindromeIndexing("MADAM"));
-        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXDAM"));
-        System.out.println("Palindrome Index :- " + palindromeIndexing("MAXcghDAM"));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MADAM"));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MAXDAM"));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MAXcghDAM"));
     }
 }

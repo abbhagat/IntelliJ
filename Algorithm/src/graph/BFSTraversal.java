@@ -13,7 +13,8 @@ public class BFSTraversal {
         while (!q.isEmpty()) {
             v = q.poll();
             System.out.print(v + " ");
-            for (int n : g.getEdge()[v]) {
+            LinkedList<Integer> edge = g.getEdge()[v];
+            for (int n : edge) {
                 if (!visited[n]) {
                     visited[n] = true;
                     q.add(n);

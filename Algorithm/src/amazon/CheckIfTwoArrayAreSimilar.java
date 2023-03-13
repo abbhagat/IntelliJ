@@ -3,6 +3,7 @@ package amazon;
 import java.util.ArrayList;
 import java.util.List;
 
+// Time  Complexity  O(n)
 public class CheckIfTwoArrayAreSimilar {
 
     public static void main(String[] args) {

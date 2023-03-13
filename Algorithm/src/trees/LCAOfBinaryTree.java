@@ -5,7 +5,7 @@ import static trees.SearchBT.searchBT;
 public class LCAOfBinaryTree {
 
     static class NodeWrapper {
-        public Node node;
+        Node node;
     }
 
     public static boolean findLCA(Node root, NodeWrapper lca, Node x, Node y) {
@@ -48,25 +48,27 @@ public class LCAOfBinaryTree {
         Node root              = new Node(1);
         root.left              = new Node(2);
         root.right             = new Node(3);
-        root.left.right        = new Node(4);
-        root.right.left        = new Node(5);
-        root.right.right       = new Node(6);
-        root.right.left.left   = new Node(7);
-        root.right.right.right = new Node(8);
-        Node lca;
-        lca = findLCA(root, root.right.left.left, root.right.right);
+        Node lca = findLCA(root, root.left, root.right);
         System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        lca = findLCA(root, root.right.left.left, new Node(10));
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        lca = findLCA(root, root.right.left.left, root.right.left);
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        lca = findLCA(root, root.right.left.left, root.right.left.left);
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        lca = findLCA(root, root.right.left.left, root.right.left.left);
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        findLCA(root, root.right.left.left, root.right.left);
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
-        lca = findLCA(root, root.left, root.right.left);
-        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        root.left.right        = new Node(4);
+//        root.right.left        = new Node(5);
+//        root.right.right       = new Node(6);
+//        root.right.left.left   = new Node(7);
+//        root.right.right.right = new Node(8);
+//        Node lca;
+//        lca = findLCA(root, root.left, root.right);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        lca = findLCA(root, root.right.left.left, new Node(10));
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        lca = findLCA(root, root.right.left.left, root.right.left);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        lca = findLCA(root, root.right.left.left, root.right.left.left);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        lca = findLCA(root, root.right.left.left, root.right.left.left);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        findLCA(root, root.right.left.left, root.right.left);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
+//        lca = findLCA(root, root.left, root.right.left);
+//        System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
     }
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 public class TimeStampFromString {
 
     private static Timestamp getTimeStampFromString(String strDate, String format) throws Exception {
-        java.sql.Timestamp timeStampDate = null;
+        Timestamp timeStampDate = null;
         try {
             DateFormat formatter = new SimpleDateFormat(format);
             Date date = formatter.parse(strDate);

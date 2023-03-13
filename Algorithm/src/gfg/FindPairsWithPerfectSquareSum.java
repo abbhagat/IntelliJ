@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class FindPairsWithPerfectSquareSum {
 
-    private static int a[] = {2, 3, 6, 9, 10, 20};
+    private static int[] a = {2, 3, 6, 9, 10, 20};
 
     public static List<Integer> getPerfectSquares(int sum) {
         List<Integer> perfectSquares = new ArrayList<>();

@@ -22,5 +22,4 @@ public class UnderscoreInNumericLiteral {
         System.out.println("e = " + e);
 
     }
-
 }

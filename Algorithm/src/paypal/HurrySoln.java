@@ -17,7 +17,6 @@ public class HurrySoln {
             t = t - timeConsumed;
             j = i;
             result++;
-
         }
         return result;
     }

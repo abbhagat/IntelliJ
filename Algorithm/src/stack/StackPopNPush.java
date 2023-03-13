@@ -17,7 +17,6 @@ public class StackPopNPush {
         Node temp = null;
         if (first != null) {
             temp = first.next;
-            first = null;
         }
         return temp;
     }

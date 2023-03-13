@@ -34,13 +34,13 @@ public class NQueenProblem {
         if (col >= N) {
             return true;
         }
-        for (int i = 0; i < N; i++) {
-            if (isSafe(i, col)) {
-                board[i][col] = 1;
+        for (int row = 0; row < N; row++) {
+            if (isSafe(row, col)) {
+                board[row][col] = 1;
                 if (solveNQUtil(col + 1)) {
                     return true;
                 }
-                board[i][col] = 0;
+                board[row][col] = 0;
             }
         }
         return false;

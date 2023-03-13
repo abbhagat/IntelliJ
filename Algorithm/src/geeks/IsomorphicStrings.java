@@ -14,11 +14,16 @@ public class IsomorphicStrings {
                 }
                 map.put(c1[i], c2[i]);
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static void main(String[] args) {
-        System.out.println(isIsomorphic("aab".toCharArray(), "xxy".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("egg".toCharArray(), "add".toCharArray())   ? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("eeg".toCharArray(), "add".toCharArray())   ? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("aab".toCharArray(), "baa".toCharArray())   ? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("aab".toCharArray(), "xxy".toCharArray())   ? "Isomorphic" : "Not Isomorphic");
+        System.out.println(isIsomorphic("ACAB".toCharArray(), "XCXY".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
     }
 }

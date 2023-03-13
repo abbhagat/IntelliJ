@@ -2,6 +2,8 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
+// Time Complexity: O(n^2)
+// Auxiliary Space: O(n^2)
 public class CuttingRodProblemKnapsackSoln {
 
     public static void main(String[] args) {
@@ -11,7 +13,8 @@ public class CuttingRodProblemKnapsackSoln {
             wt[i] = i + 1;
         }
         int W = wt.length;
-        System.out.println(cuttingRodSoln(W, wt, price, price.length - 1));
+        int maxVal = cuttingRodSoln(W, wt, price, price.length - 1);
+        System.out.println(maxVal);
     }
 
     private static int cuttingRodSoln(int W, int[] wt, int[] price, int n) {

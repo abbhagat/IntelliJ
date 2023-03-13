@@ -3,13 +3,15 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Time Complexity:  O(n)
+// Space Complexity: O(1)
 public class ReverseListFromPosMtoPosN {
 
     private static Node reverseList(Node head, int m, int n) {
         if (m >= n || head == null) {
             return head;
         }
-        Node first = new Node(0, head);
+        Node first = new Node(-1, head);
         Node prev = first;
         for (int i = 1; i < m; i++) {
             prev = prev.next;
@@ -26,12 +28,12 @@ public class ReverseListFromPosMtoPosN {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 2, 3, 4, 5}) {
+        for (int x : new int[]{1, 2, 3}) {
             first = add(first, x);
         }
         traverseList(first);
         System.out.println();
-        first = reverseList(first, 2, 4);
+        first = reverseList(first, 2, 3);
         traverseList(first);
     }
 }

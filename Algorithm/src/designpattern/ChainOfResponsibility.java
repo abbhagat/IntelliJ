@@ -57,7 +57,6 @@ public class ChainOfResponsibility {
     }
 
     public static void main(String[] args) {
-
         AbstractLogger loggerChain = getChainOfLoggers();
         loggerChain.logMessage("This is an information.");
     }

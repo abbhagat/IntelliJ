@@ -10,7 +10,7 @@ public class CountUniqueWords {
         String str = "Java is an OOP OOP Java is an the OOP";
         Map<String, Integer> map = new ConcurrentHashMap<>();
         for (String s : str.split(" ")) {
-            Integer k = null == map.get(s) ? map.put(s, 1) : map.put(s, map.get(s) + 1);
+            map.put(s, map.getOrDefault(s, 0) + 1);
         }
         map.forEach((k, v) -> {
             if (1 == v) {

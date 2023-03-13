@@ -8,9 +8,7 @@ public class EfficientJanitor {
 
     private static int efficientJanitor(List<Float> weight) {
         Collections.sort(weight);
-        int low = 0;
-        int high = weight.size() - 1;
-        int trips = 0;
+        int low = 0, high = weight.size() - 1, trips = 0;
         while (low <= high) {
             if (low == high) {
                 trips++;

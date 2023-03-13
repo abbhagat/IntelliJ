@@ -1,0 +1,46 @@
+Table Name :- CRON_JOB
+
+STATUS         - [SUCCESS, FAILED]
+RUNNING_STATUS - [RUNNING, STOP]
+
+  ID      NAME       TYPE      CREATION_DATE  LAST_EXECUTION_DATE     NEXT_EXECUTION_DATE        STATUS      RUNNING_STATUS
+----------------------------------------------------------------------------------------------------------------------------
+| 1  |  Expense1  |  Daily   |   SYSDATE   |       SYSDATE        |     SYSDATE + 1         |   SUCCESS   |    STOP       |
+| 2  |  Expense2  |  Daily   |   SYSDATE   |       SYSDATE        |     SYSDATE + 1         |   SUCCESS   |    STOP       |
+| 3  |  Expense3  |  Daily   |   SYSDATE   |       SYSDATE        |     SYSDATE + 1         |   SUCCESS   |    STOP       |
+| 4  |  Grocery1  |  Weekly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 7         |   SUCCESS   |    STOP       |
+| 5  |  Grocery2  |  Weekly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 7         |   SUCCESS   |    STOP       |
+| 6  |  Grocery3  |  Weekly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 7         |   SUCCESS   |    STOP       |
+| 7  |  EMIJob1   |  Monthly |   SYSDATE   |       SYSDATE        |     SYSDATE + 30        |   SUCCESS   |    STOP       |
+| 8  |  EMIJob2   |  Monthly |   SYSDATE   |       SYSDATE        |     SYSDATE + 30        |   SUCCESS   |    STOP       |
+| 9  |  EMIJob3   |  Monthly |   SYSDATE   |       SYSDATE        |     SYSDATE + 30        |   SUCCESS   |    STOP       |
+| 10 |  CTCJob1   |  Yearly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 365       |   SUCCESS   |    STOP       |
+| 11 |  CTCJob2   |  Yearly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 365       |   SUCCESS   |    STOP       |
+| 12 |  CTCJob3   |  Yearly  |   SYSDATE   |       SYSDATE        |     SYSDATE + 365       |   SUCCESS   |    STOP       |
+---------------------------------------------------------------------------------------------------------------------------
+
+1. You need to have only 1 cron job and not different jobs of each job type.
+
+The input to the cron job will be the result of the below query
+
+2. SELECT NAME FROM CRON_JOB WHERE  (TRUNC(SYSDATE) = TRUNC(NEXT_EXECUTION_DATE)  AND RUNNING_STATUS = 'STOP')
+                              OR     LAST_EXECUTION_DATE IS NULL
+                              OR     STATUS IS FAILED;
+
+3. The above query will select all the jobs which are eligible to run by the scheduler.
+
+4. Once the cron job completes it will populate the LAST_EXECUTION_DATE, NEXT_EXECUTION_DATE, STATUS AND RUNNING_STATUS to respective value as per the job type.
+
+All the job that runs Daily   will the value will be populated to SYSDATE + 1;
+All the job that runs Weekly  will the value will be populated to SYSDATE + 7;
+All the job that runs Monthly will the value will be populated to SYSDATE + 30;
+All the job that runs Yearly  will the value will be populated to SYSDATE + 365;
+
+5. Tomorrow I add a new job type BiWeekly as below
+
+  ID      NAME           TYPE      CREATION_DATE  LAST_EXECUTION_DATE     NEXT_EXECUTION_DATE        STATUS      RUNNING_STATUS
+----------------------------------------------------------------------------------------------------------------------------------
+ 13 |  BiWeeklyJob   |  BiWeekly  |   SYSDATE   |       NULL            |     NULL           |       SUCCESS   |    NULL         |
+----------------------------------------------------------------------------------------------------------------------------------
+
+The above query will pick up this job as well.

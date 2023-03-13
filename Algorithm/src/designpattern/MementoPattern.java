@@ -1,6 +1,7 @@
 package designpattern;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Memento pattern is used to restore state of an object to a previous state.
@@ -45,7 +46,7 @@ class Originator {
 
 class CareTaker {
 
-    ArrayList<Memento> al = new ArrayList<Memento>();
+    List<Memento> al = new ArrayList<>();
 
     public void add(Memento state) {
         al.add(state);

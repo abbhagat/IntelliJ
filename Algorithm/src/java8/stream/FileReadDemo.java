@@ -13,7 +13,10 @@ public class FileReadDemo {
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 //            String line = stream.collect(Collectors.joining("\n"));
 //            System.out.println(line);
-            stream.forEach(line-> System.out.println(line));
+            stream.forEach(line-> {
+                line += ";";
+                System.out.println(line);
+            });
 //            stream.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

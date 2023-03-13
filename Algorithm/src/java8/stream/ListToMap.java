@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ListToMap {
 
@@ -23,6 +24,8 @@ public class ListToMap {
         mainList.add(new Employee("G", 71));
         mainList.add(new Employee("H", 72));
 
+        Stream<Employee> stream = mainList.stream().filter(emp -> emp.getId() >= 70);
+        System.out.println(stream.count());
         Map<Integer, String> result1 = mainList.stream().collect(Collectors.toMap(Employee::getId, Employee::getName));
 
         System.out.println("Result 1 : " + result1);

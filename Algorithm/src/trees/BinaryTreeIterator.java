@@ -2,8 +2,6 @@ package trees;
 
 import java.util.Stack;
 
-import static trees.BinaryTree.createBT;
-
 interface Iterator {
     boolean hasNext();
     Node curr();
@@ -55,15 +53,14 @@ class TreeIterator implements Container {
 public class BinaryTreeIterator {
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBT(a[i], root);
-        }
+        Node root       = new Node(2);
+        root.left       = new Node(1);
+        root.right      = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
         Node curr = root;
+        Stack<Node> stack = treeIterator.getStack();
         while (curr != null) {
-            treeIterator.getStack().push(curr);
+            stack.push(curr);
             curr = curr.left;
         }
         System.out.println("Iterating the Tree");

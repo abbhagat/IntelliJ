@@ -3,17 +3,20 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
+// Time Complexity:  O(2^n) where n is the length of the price array
+// Space Complexity: O(n)   where n is the length of the price array
+
 public class CuttingRodProblem {
 
     private static int cutRod(int[] price, int n) {
         if (n == 0) {
             return 0;
         }
-        int max_val = Integer.MIN_VALUE;
+        int maxVal = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
-            max_val = max(max_val, price[i] + cutRod(price, n - i - 1));
+            maxVal = max(maxVal, price[i] + cutRod(price, n - i - 1));
         }
-        return max_val;
+        return maxVal;
     }
 
     public static void main(String[] args) {

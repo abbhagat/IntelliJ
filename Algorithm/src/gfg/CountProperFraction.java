@@ -16,7 +16,7 @@ public class CountProperFraction {
     }
 
     private static int findHCF(int x, int y) {
-        return (y % x == 0) ? x : findHCF(y % x, x);
+        return y == 0 ? x : findHCF(y, x % y);
     }
 
     public static void main(String[] args) {

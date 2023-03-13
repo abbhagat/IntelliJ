@@ -15,7 +15,7 @@ public class ClosestProductPairInAnArray {
     public static void main(String[] args) {
         int[] a = {2, 3, 5, 9};
         Arrays.sort(a);
-        int i = 0, j = a.length - 1, x = 0, y = 0, n = 20;
+        int i = 0, j = a.length - 1, x = 0, y = 0, n = 47;
         int diff = Integer.MAX_VALUE;
         while (i < j) {
             int mul = Math.abs(a[i] * a[j] - n);

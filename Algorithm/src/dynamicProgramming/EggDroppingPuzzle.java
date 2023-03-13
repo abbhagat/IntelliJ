@@ -26,7 +26,6 @@ public class EggDroppingPuzzle {
         for (int i = 1; i <= floors; i++) {
             dp[1][i] = i;
         }
-
         for (int i = 2; i <= eggs; i++) {
             for (int j = 2; j <= floors; j++) {
                 dp[i][j] = Integer.MAX_VALUE;

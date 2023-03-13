@@ -2,7 +2,7 @@ package strings;
 
 public class SubstringCheck {
 
-    private static boolean subString(String s1, String s2) {
+    private static boolean isASubString(String s1, String s2) {
         if (s2.isEmpty() || s2.equals(s1)) {
             return true;
         }
@@ -51,7 +51,10 @@ public class SubstringCheck {
     }
 
     public static void main(String[] args) {
-        System.out.println(isSubString("ABEFGCDEFG", "EFG") ? "Is A substring" : "Not A substring");
-        System.out.println(subString("ABEFAGCDEFG", "EFG") ? "Is A substring" : "Not A substring");
+        System.out.println(isSubString("ABC", "BC")              ? "Is A substring" : "Not A substring");
+        System.out.println(isSubString("ABCABEABCDEF", "ABEABC")             ? "Is A substring" : "Not A substring");
+        System.out.println(isASubString("ABCABEABCDEF", "ABEABC")            ? "Is A substring" : "Not A substring");
+        System.out.println(isSubString("ABEFGCDEFG",   "EFG")    ? "Is A substring" : "Not A substring");
+        System.out.println(isASubString("ABEFAGCDEFG", "EFG")    ? "Is A substring" : "Not A substring");
     }
 }

@@ -2,16 +2,11 @@ package geeksforgeeks;
 
 public class BeautifulNumber {
 
-    private static boolean isBeautiful(int num) {
-        if (num == 1) {
+    private static boolean isBeautiful(int n) {
+        if (n == 1) {
             return true;
         }
-        int sum = 0;
-        while (num != 0) {
-            int k = num % 10;
-            sum += Math.pow(k, 2);
-            num = num / 10;
-        }
+        int sum = sum(n);
         return sum > 1 && sum < 10 ? false : isBeautiful(sum);
     }
 
@@ -46,8 +41,8 @@ public class BeautifulNumber {
         System.out.println(isBeautiful(31) ? "Beautiful" : "Not Beautiful");
         System.out.println(isBeautiful(32) ? "Beautiful" : "Not Beautiful");
         System.out.println(isBeautiful(33) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(31) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(32) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(33) ? "Beautiful" : "Not Beautiful");
+        System.out.println(isHappy(31)       ? "Beautiful" : "Not Beautiful");
+        System.out.println(isHappy(32)       ? "Beautiful" : "Not Beautiful");
+        System.out.println(isHappy(33)       ? "Beautiful" : "Not Beautiful");
     }
 }

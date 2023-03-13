@@ -1,7 +1,7 @@
 package amazon;
 
-//Time Complexity: O(N*2^N)
-//Auxiliary Space: O(N^2), where N is the length of the String
+// Time Complexity: O(N*2^N)
+// Auxiliary Space: O(N^2), where N is the length of the String
 
 import java.util.LinkedList;
 
@@ -23,8 +23,9 @@ public class AllPalindromicPermutationOfAString {
     }
 
     public static void main(String[] args) {
-        findAllPalindromicPermutation(0, "madam", new LinkedList<>());
-        findAllPalindromicPermutation(0, "nitin", new LinkedList<>());
-        findAllPalindromicPermutation(0, "geeks", new LinkedList<>());
+        findAllPalindromicPermutation(0, "xx", new LinkedList<>());
+//        findAllPalindromicPermutation(0, "madam", new LinkedList<>());
+//        findAllPalindromicPermutation(0, "nitin", new LinkedList<>());
+//        findAllPalindromicPermutation(0, "geeks", new LinkedList<>());
     }
 }

@@ -1,17 +1,18 @@
 package amazon;
 
+// Time  Complexity  O(n)
 public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
 
-    private static boolean hasSameSetOfChars(String s) {
-        if (s.length() == 1) {
+    private static boolean hasSameSetOfChars(char[] a) {
+        if (a.length == 1) {
             return true;
         }
-        int[] a = new int[26];
-        for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-            a[s.charAt(i) - 'a']++;
-            a[s.charAt(j) - 'a']--;
+        int[] temp = new int[128];
+        for (int i = 0, j = a.length - 1; i <= j; i++, j--) {
+            temp[a[i]]++;
+            temp[a[j]]--;
         }
-        for (int x : a) {
+        for (int x : temp) {
             if (x != 0) {
                 return false;
             }
@@ -20,7 +21,8 @@ public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
     }
 
     public static void main(String[] args) {
-        System.out.println(hasSameSetOfChars("abccab".toLowerCase()));
-        System.out.println(hasSameSetOfChars("abbaab".toLowerCase()));
+        System.out.println(hasSameSetOfChars("abccab".toCharArray()));
+        System.out.println(hasSameSetOfChars("abbaab".toCharArray()));
+        System.out.println(hasSameSetOfChars("abcdabc".toCharArray()));
     }
 }

@@ -6,6 +6,8 @@ interface InterfaceA {
         staticMethod();
     }
 
+    private void display(){}
+
     static void staticMethod() {
         System.out.println("Interface A static method");
     }
@@ -31,7 +33,7 @@ public class DefaultMethodInInterfaces {
     public static void main(String[] args) {
         new Impl().defaultMethod();
         InterfaceA.staticMethod();
-        // new Impl().staticMethod();
-        // InterfaceA.defaultMethod();
+        // new Impl().staticMethod();  compilation error
+        // InterfaceA.defaultMethod(); compilation error
     }
 }

@@ -6,15 +6,11 @@ public class CreateList {
 
     static Node createList(int num, Node node) {
         if (node == null) {
-            node = new Node();
-            node.num = num;
-            node.left = null;
-            node.right = null;
+            node = new Node(num);
             size++;
         }
         if (first == null) {
-            first = last = node;
-            temp = node;
+            first = temp = last = node;
         } else {
             temp.right = node;
             node.left = temp;

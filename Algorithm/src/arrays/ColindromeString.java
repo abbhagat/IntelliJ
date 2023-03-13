@@ -14,7 +14,7 @@ Output : String is Colindrome
 public class ColindromeString {
 
     private static boolean isPalindrome(char[] c) {
-        for (int i = 0, j = c.length - 1; i <= j; i++, j--) {
+        for (int i = 0, j = c.length - 1; i < j; i++, j--) {
             if (c[i] != c[j]) {
                 return false;
             }

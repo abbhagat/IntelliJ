@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="connection.username">V705417</property>
-        <property name="connection.password">V705417</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.username">system</property>
+        <property name="connection.password">oracle</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>

@@ -14,7 +14,7 @@ package matrix;
  */
 public class NumberOfIslandIn2DMatrix {
 
-    private static int M[][] = new int[][]{
+    private static int[][] M = new int[][]{
             {1, 1, 0, 0, 0},
             {0, 1, 0, 0, 1},
             {1, 0, 0, 1, 1},
@@ -25,19 +25,19 @@ public class NumberOfIslandIn2DMatrix {
     private static final int ROW = M.length;
     private static final int COL = M[0].length;
 
-    private static boolean visited[][] = new boolean[ROW][COL];
+    private static boolean[][] visited = new boolean[ROW][COL];
 
     private static boolean isSafe(int row, int col) {
         return row >= 0 && row < ROW && col >= 0 && col < COL && (M[row][col] == 1 && !visited[row][col]);
     }
 
     private static void DFS(int row, int col) {
-        int rowNbr[] = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
-        int colNbr[] = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
+        int[] rowNbr = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] colNbr = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowNbr[k], col + colNbr[k])) {
-                DFS(row + rowNbr[k], col + colNbr[k]);
+                   DFS(row + rowNbr[k], col + colNbr[k]);
             }
         }
     }

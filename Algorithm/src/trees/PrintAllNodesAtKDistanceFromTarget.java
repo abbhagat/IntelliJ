@@ -2,11 +2,9 @@ package trees;
 
 import static trees.CreateBST.createBST;
 
-
 // Time Complexity: O(n)
 
 public class PrintAllNodesAtKDistanceFromTarget {
-
     private static void printKDistanceNodeDown(Node root, int k) {
         if (root == null || k < 0) {
             return;
@@ -55,6 +53,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        printKDistanceNode(root, root.left, 2);
+        Node target = root.left.left;
+        printKDistanceNode(root, target, 2);
     }
 }

@@ -12,14 +12,14 @@ public class PrintDecimalToBinary {
     }
 
     private static String decimalToBinary(int n) {
-        StringBuilder result = new StringBuilder("");
+        StringBuilder binary = new StringBuilder("");
         int carry = 0;
         while (n != 0) {
             carry = n / 2;
-            result = result.insert(0, n % 2);
+            binary = binary.insert(0, n % 2);
             n /= 2;
         }
-        return carry == 1 ? "1" + result : result.toString();
+        return carry == 1 ? "1" + binary : binary.toString();
     }
 
     public static void main(String[] args) {

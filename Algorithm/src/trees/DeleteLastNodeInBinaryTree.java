@@ -3,6 +3,7 @@ package trees;
 import static trees.CreateBST.createBST;
 import static trees.TreeTraversal.inorder;
 
+// Time Complexity: O(n)
 public class DeleteLastNodeInBinaryTree {
 
     private static Node deleteLastNode(Node root) {

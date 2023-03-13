@@ -11,7 +11,8 @@ public class ListToArrayConversion {
         list.toArray(str);
         int i = 0;
         do {
-            System.out.println(str[i++]);
+            System.out.println(str[i]);
+            i++;
         } while (i < str.length);
     }
 }

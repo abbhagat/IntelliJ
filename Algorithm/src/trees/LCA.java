@@ -2,8 +2,8 @@ package trees;
 
 import static trees.CreateBST.createBST;
 
-//Time Complexity: O(h) h = Height of the BST
-//Auxiliary Space: O(h) h = Height of the BST
+// Time Complexity: O(h) h = Height of the BST
+// Auxiliary Space: O(h) h = Height of the BST
 public class LCA {
 
     public static Node LCA(Node root, int num1, int num2) {

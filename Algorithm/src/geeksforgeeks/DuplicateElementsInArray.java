@@ -16,7 +16,7 @@ package geeksforgeeks;
 public class DuplicateElementsInArray {
 
     public static void main(String[] args) {
-        int a[] = {1, 1, 2, 3, 2, 3, 4};
+        int[] a = {1, 1, 2, 3, 2, 3, 4};
         int n = a.length;
         for (int x : a) {
             a[x % n] += n;

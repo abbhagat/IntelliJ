@@ -16,8 +16,8 @@ public class ThirdMaxElementInArray {
                 _2ndMax = x;
             }
         }
-        for(int x : a){
-            if(_3rdMax < x && x != max && x != _2ndMax){
+        for (int x : a) {
+            if (_3rdMax < x && x != max && x != _2ndMax) {
                 _3rdMax = x;
             }
         }

@@ -2,17 +2,17 @@ package strings;
 
 public class PrintAllKLengthStrings {
 
-    private static void printAllKLength(char[] set, String prefix, int itr) {
-        if (itr == 0) {
+    private static void printAllKLength(char[] a, String prefix, int k) {
+        if (k == 0) {
             System.out.println(prefix);
             return;
         }
-        for (int i = 0; i < set.length; i++) {
-            printAllKLength(set, prefix + set[i], itr - 1);
+        for (int i = 0; i < a.length; i++) {
+            printAllKLength(a, prefix + a[i], k - 1);
         }
     }
 
     public static void main(String[] args) {
-        printAllKLength(new char[]{'A', 'B', 'C'}, "", 3);
+        printAllKLength(new char[]{'A', 'B', 'C'}, "", 2);
     }
 }

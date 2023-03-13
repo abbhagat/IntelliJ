@@ -2,7 +2,7 @@ package leetcode;
 
 public class AreaOfLargestIslandIn2DMatrix {
 
-    private static int M[][] = new int[][]{
+    private static int[][] M = new int[][]{
             {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
             {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},

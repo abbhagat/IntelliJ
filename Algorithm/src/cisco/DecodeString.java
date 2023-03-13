@@ -1,13 +1,13 @@
 package cisco;
 
-import java.util.LinkedList;
+import java.util.Stack;
 
 public class DecodeString {
 
     private static String decodeString(String s) {
         String decode = "";
-        LinkedList<String>  result = new LinkedList<>();
-        LinkedList<Integer> count  = new LinkedList<>();
+        Stack<String>  result = new Stack<>();
+        Stack<Integer> count  = new Stack<>();
         int n = 0;
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {

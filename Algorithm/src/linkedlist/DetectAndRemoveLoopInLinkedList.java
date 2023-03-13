@@ -17,7 +17,7 @@ public class DetectAndRemoveLoopInLinkedList {
             slow = slow.next;
             fast = fast.next.next;
         }
-        if (slow == fast) {
+        if (fast == slow) {
             while (fast.next != slow) {
                 fast = fast.next;
             }
@@ -27,7 +27,7 @@ public class DetectAndRemoveLoopInLinkedList {
     }
 
     private static void removeCycle(Node slow, Node fast) {
-        if (slow == fast) {
+        if (fast == slow) {
             while (fast.next != slow) {
                 fast = fast.next;
             }
@@ -41,7 +41,7 @@ public class DetectAndRemoveLoopInLinkedList {
         for (int x : a) {
             first = add(first, x);
         }
-        first.next.next.next.next.next = first.next.next.next;
+       first.next.next.next.next = first.next.next;
         boolean flag = detectAndRemoveLoop(first);
         if(flag){
             traverseList(first);

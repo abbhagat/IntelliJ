@@ -89,6 +89,6 @@ public class AdapterDesignPattern {
         ap.play("Songs", "MP3");
         ap.play("Movie", "MP4");
         ap.play("Movie", "VLC");
-        ap.play("Vedio", "avi");
+        ap.play("Video", "avi");
     }
 }

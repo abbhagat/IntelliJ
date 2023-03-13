@@ -1,0 +1,71 @@
+System Requirement :-
+
+1. Card Reader            -> to read user atm card
+2. Keypad                 -> to enter information into ATM eg: Enter PIN
+3. Screen                 -> to display message/information to the user.
+4. Cash Dispenser         -> For Cash Dispensing
+5. Deposit Slot           -> For User to Deposit Cash/Cheque
+6. Printer                -> For Printing Receipts
+7. Communication/Network  -> it is assumed that ATM has communication infrastructure to communicate with the bank upon any transaction/activity.
+
+We assume that the user has 2 types of account 1. Savings  2. Current
+The user can perform the following transactions on ATM
+
+1. Balance Inquiry
+2. Cash Deposit
+3. Cash Withdrawal
+4. Cheque Deposit
+5. Transfer Funds
+
+Working of ATM Flow
+. The ATM will be managed by an operator, who operates the ATM and refills it with cash and receipts.
+. The ATM will serve one customer at a time and should not shut down while serving.
+. To begin a transaction in the ATM, the user should insert their ATM card, which will contain their account information.
+. Then, the user should enter their Personal Identification Number (PIN) for authentication.
+  The ATM will send the user’s information to the bank for authentication; without authentication, the user cannot perform any transaction/service.
+. The user’s ATM card will be kept in the ATM until the user ends a session.
+   For example, the user can end a session at any time by pressing the cancel button, and the ATM Card will be ejected.
+. The ATM will maintain an internal log of transactions that contains information about hardware failures;
+   this log will be used by the ATM operator to resolve any issues.
+
+Use Case Diagram :-
+
+We have 4 actors in the system
+1. Operator
+
+    1. Turning the ATM ON/OFF using the designated Key-Switch.
+    2. Refilling the ATM with cash.
+    3. Refilling the ATM’s printer with receipts.
+    4. Refilling the ATM’s printer with INK.
+    5. Take out deposited cash and checks.
+
+2. Customer
+
+    Balance inquiry -> User can view his account balance.
+    Cash withdrawal -> User can withdraw cash.
+    Deposit funds   -> User can deposit cash or cheque.
+    Transfer funds  -> User can transfer funds to other accounts.
+
+3. Bank Manager
+
+    1. Generate a report to check total deposits.
+    2. Generate a report to check total withdrawals.
+    3. Print total deposits/withdrawal reports.
+    4. Checks the remaining cash in the ATM.
+
+4. Bank
+
+Class Diagram
+
+    ATM: The main part of the system for which this software has been designed. It has attributes like ‘atmID’ to distinguish it from other available ATMs, and ‘location’ which defines the physical address of the ATM.
+    CardReader: To encapsulate the ATM’s card reader used for user authentication.
+    CashDispenser: To encapsulate the ATM component which will dispense cash.
+    Keypad: The user will use the ATM’s keypad to enter their PIN or amounts.
+    Screen: Users will be shown all messages on the screen, and they will select different transactions by touching the screen.
+    Printer: To print receipts.
+    DepositSlot: User can deposit checks or cash through the deposit slot.
+    Bank: To encapsulate the bank which owns the ATM. The bank will hold all the account information and the ATM will communicate with the bank to perform customer transactions.
+    Account: We’ll have two types of accounts in the system: 1)Current and 2)Saving.
+    Customer: This class will encapsulate the ATM’s customer. It will have the customer’s basic information like name, email, etc.
+    Card: Encapsulating the ATM card that the customer will use to authenticate themselves. Each customer can have one card.
+    Transaction: Encapsulating all transactions that the customer can perform on the ATM, like BalanceInquiry, Deposit, Withdraw, etc.

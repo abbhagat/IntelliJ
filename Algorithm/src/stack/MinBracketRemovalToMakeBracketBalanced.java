@@ -3,8 +3,7 @@ package stack;
 /*
 Input : exp = "}{"
 Output : 2
-We need to change '}' to '{' and '{' to
-'}' so that the expression becomes balanced,
+We need to change '}' to '{' and '{' to '}' so that the expression becomes balanced,
 the balanced expression is '{}'
 
 Input : exp = "}{{}}{{{"

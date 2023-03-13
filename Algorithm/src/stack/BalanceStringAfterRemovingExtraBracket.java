@@ -3,8 +3,9 @@ package stack;
 // Input: exp = “abh)ina)w(ku(mar(bhagat))” Output: abhinaw(ku(mar(bhagat)))
 // Input: exp = “1+5)+5+)6+(5+9)*9” Output: 1+5+5+6+(5+9)*9
 
+// Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBracket {
-    public static void balancedString(char[] exp) {
+    private static void balancedString(char[] exp) {
         int count = 0;
         for (char c : exp) {
             if (c == '(') {

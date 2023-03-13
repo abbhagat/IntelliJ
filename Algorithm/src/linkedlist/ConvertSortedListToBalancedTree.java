@@ -5,18 +5,17 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMidPoint;
 
-class TreeNode {
-    int num;
-    TreeNode left, right;
-
-    TreeNode(int num) {
-        this.num = num;
-        left = null;
-        right = null;
-    }
-}
-
 public class ConvertSortedListToBalancedTree {
+
+    private static class TreeNode {
+        int num;
+        TreeNode left, right;
+
+        TreeNode(int num) {
+            this.num = num;
+            left = right = null;
+        }
+    }
 
     public static TreeNode sortedListToBST(Node head) {
         if (head == null) {

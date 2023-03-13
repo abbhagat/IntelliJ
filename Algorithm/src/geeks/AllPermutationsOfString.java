@@ -1,5 +1,6 @@
 package geeks;
 
+// Time Complexity O(n) * n!
 public class AllPermutationsOfString {
 
     private static char[] a = {'A', 'B', 'C'};

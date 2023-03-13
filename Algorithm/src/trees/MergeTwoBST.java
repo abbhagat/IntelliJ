@@ -2,71 +2,35 @@ package trees;
 
 // Time Complexity = O(n + m)
 // Space Complexity = O(N)
+
+// Input: root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
+// Output: [3,4,5,5,4,null,7]
+// Input: root1 = [1], root2 = [1,2]
+// Output: [2,2]
+
 public class MergeTwoBST {
 
-    private int n, k;
-
-    public void inorder(Node root) {
-        if (null != root) {
-            inorder(root.left);
-            n++;
-            inorder(root.right);
+    public Node mergeTrees(Node root1, Node root2) {
+        if (root1 != null && root2 != null) {
+            Node root = new Node(root1.num + root2.num);
+            root.left = mergeTrees(root1.left, root2.left);
+            root.right = mergeTrees(root1.right, root2.right);
+            return root;
         }
-    }
-
-    public void inorder(Node root, int[] a) {
-        if (null != root) {
-            inorder(root.left, a);
-            a[k++] = root.num;
-            inorder(root.right, a);
-        }
-    }
-
-    private void merge(Node root1, Node root2) {
-        if (root1 == null) {
-            TreeTraversal.inorder(root2);
-            return;
-        }
-        if (root2 == null) {
-            TreeTraversal.inorder(root1);
-            return;
-        }
-        n = 0;
-        inorder(root1);
-        k = 0;
-        int[] a = new int[n];
-        inorder(root1, a);
-        n = 0;
-        k = 0;
-        inorder(root2);
-        int[] b = new int[n];
-        k = 0;
-        inorder(root2, b);
-        int i = 0, j = 0;
-        while (i < a.length && j < b.length) {
-            if (a[i] == b[j]) {
-                System.out.print(a[i] + " ");
-                i++;
-                j++;
-            } else {
-                System.out.print(a[i] < b[j] ? a[i++] + " " : b[j++] + " ");
-            }
-        }
-        while (i < a.length) {
-            System.out.print(a[i++] + " ");
-        }
-        while (j < b.length) {
-            System.out.print(b[j++] + " ");
-        }
+        return root1 != null ? root1 : root2;
     }
 
     public static void main(String[] args) {
-        Node root1 = new Node(3);
-        root1.left = new Node(1);
-        root1.right = new Node(5);
-        Node root2 = new Node(4);
-        root2.left = new Node(2);
-        root2.right = new Node(6);
-        new MergeTwoBST().merge(root1, root2);
+        Node root1        = new Node(1);
+        root1.left        = new Node(3);
+        root1.right       = new Node(2);
+        root1.left.left   = new Node(5);
+        Node root2        = new Node(2);
+        root2.left        = new Node(1);
+        root2.right       = new Node(3);
+        root2.left.right  = new Node(4);
+        root2.right.right = new Node(7);
+        Node root = new MergeTwoBST().mergeTrees(root1, root2);
+        TreeTraversal.inorder(root);
     }
 }

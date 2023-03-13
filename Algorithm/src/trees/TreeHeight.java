@@ -27,6 +27,15 @@ public class TreeHeight {
         return max(lH, rH);
     }
 
+    public static int heights(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        int lH = heights(root.left);
+        int rH = heights(root.right);
+        return Integer.max(lH, rH) + 1;
+    }
+
     public static void main(String[] args) {
         Node root           = new Node(1);
         root.left           = new Node(2);
@@ -34,7 +43,10 @@ public class TreeHeight {
         root.left.left      = new Node(4);
         root.left.right     = new Node(5);
         System.out.println("Tree Height :" + treeHeight(root));
-        System.out.println("Tree Height :" + height(root));
         System.out.println("Tree Height :" + treeHeight(null));
+        System.out.println("Tree Height :" + height(root));
+        System.out.println("Tree Height :" + height(null));
+        System.out.println("Tree Height :" + heights(root));
+        System.out.println("Tree Height :" + heights(null));
     }
 }

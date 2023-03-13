@@ -81,7 +81,7 @@ package gfg;
  * <p>
  * In such a case where the remainder's of the pair add upto make k.Then the pair is valid.
  * <p>
- * And then we just put couple of conditions to check the hash table and find the pairs that add up and are divisible by 3.
+ * And then we just put a couple of conditions to check the hash table and find the pairs that add up and are divisible by 3.
  * Like, if we get a pair whose remainders are 1 and 2 then the pair can a valid pair because they add up to become 3 which is divisible by 3.
  * So Then we get an answer of 3 valid pairs for {9,4,2,8,0}
  */
@@ -90,7 +90,7 @@ public class FindPairCountWithSumDivisibleByK {
 
     private static final int[] a = {2, 2, 1, 7, 5, 3};
 
-    private static int countKdivPairs(int k) {
+    private static int countPairs(int k) {
         int[] freq = new int[k];
         for (int x : a) {
             freq[x % k]++;
@@ -106,6 +106,6 @@ public class FindPairCountWithSumDivisibleByK {
     }
 
     public static void main(String[] args) {
-        System.out.print(countKdivPairs(4));
+        System.out.print(countPairs(4));
     }
 }

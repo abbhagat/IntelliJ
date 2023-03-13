@@ -13,7 +13,7 @@ public class RemoveInValidBracket {
         set.add(str);
         while (!stack.isEmpty()) {
             str = stack.pop();
-            if (isValidString(str)) {
+            if (!str.isEmpty() && isValidString(str)) {
                 System.out.println(str);
             } else {
                 for (int i = 0; i < str.length(); i++) {
@@ -47,6 +47,7 @@ public class RemoveInValidBracket {
 
     public static void main(String[] args) {
         removeInvalidParenthesis("()())()");
+        System.out.println();
         removeInvalidParenthesis("()v)");
     }
 }

@@ -1,7 +1,7 @@
 package matrix;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 
 // Time Complexity: O(M*N)
@@ -50,7 +50,7 @@ public class SortBoundaryElementsOfMatrix {
                 {1, 9, 3, 1, 7}
         };
         List<Integer> list = getTheBoundaryElements(M, new ArrayList<>());
-        list.sort(Comparator.comparingInt(i -> i));
+        Collections.sort(list);
         sort(M, list, 0);
         for (int i = 0; i < M.length; i++) {
             for (int j = 0; j < M[0].length; j++) {

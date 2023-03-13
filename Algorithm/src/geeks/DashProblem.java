@@ -11,14 +11,13 @@ package geeks;
 public class DashProblem {
 
     public static void main(String[] args) {
-
         String str = "1223504567";
         int[] c = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
             c[i] = str.charAt(i) - 48;
         }
         String s = "";
-        boolean prev_odd = false;
+        boolean prev_odd  = false;
         boolean prev_even = false;
         if (c[0] % 2 == 0) {
             prev_even = true;

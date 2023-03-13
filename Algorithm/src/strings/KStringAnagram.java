@@ -8,7 +8,6 @@ public class KStringAnagram {
             for (int i = 0; i < c1.length; i++) {
                 temp[c1[i]]++;
                 temp[c2[i]]--;
-
             }
             int count = 0;
             for (int x : temp) {

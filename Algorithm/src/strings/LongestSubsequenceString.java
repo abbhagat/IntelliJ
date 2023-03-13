@@ -9,9 +9,7 @@ public class LongestSubsequenceString {
             if (c[i] - c[i - 1] == 1) {
                 s += c[i];
             } else {
-                if (max.length() < s.length()) {
-                    max = s;
-                }
+                max = max.length() < s.length() ? s : max;
                 s = "" + c[i];
             }
         }

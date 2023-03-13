@@ -1,6 +1,6 @@
 package recursion;
 
-// Time Complexity  O(nlogn)
+// Time Complexity  O(n log n)
 public class LongestPalindromeFinder {
 
     public static String intermediatePalindrome(String s, int left, int right) {

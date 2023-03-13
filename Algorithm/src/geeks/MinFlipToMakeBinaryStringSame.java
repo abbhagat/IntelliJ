@@ -19,7 +19,6 @@ public class MinFlipToMakeBinaryStringSame {
         while (i < a.length) {
             if (a[i] == b[i]) {
                 i++;
-                continue;
             } else if ((i + 1 < a.length) && a[i] == b[i + 1] && a[i + 1] == b[i]) {
                 minFlips++;
                 i = i + 2;

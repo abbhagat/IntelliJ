@@ -38,8 +38,8 @@ public class JosephusProblem {
     }
 
     public static void main(String[] args) {
-        System.out.println(josephus(5, 2) + "\t" + josephusItr(5, 2));
-        System.out.println(josephus(6, 3) + "\t" + josephusItr(6, 3));
+        System.out.println(josephus(5, 2)  + "\t" + josephusItr(5, 2));
+        System.out.println(josephus(6, 3)  + "\t" + josephusItr(6, 3));
         System.out.println(josephus(14, 2) + "\t" + josephusItr(14, 2));
     }
 }

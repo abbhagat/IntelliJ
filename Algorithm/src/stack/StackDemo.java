@@ -14,7 +14,7 @@ public class StackDemo {
         System.out.println(s.firstElement());
         System.out.println(s.lastElement());
         System.out.println(s.peek());
-        s.pop();
+        System.out.println(s.pop());
         System.out.println(s);
     }
 }

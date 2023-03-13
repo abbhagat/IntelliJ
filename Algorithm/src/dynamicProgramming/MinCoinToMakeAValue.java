@@ -22,30 +22,24 @@ public class MinCoinToMakeAValue {
     // Time Complexity (mV)
     private static int minCoinsDP(int[] coins, int V) {
         int[] dp = new int[V + 1];
-        dp[0] = 0;                                        // Base case (If given value is 0)
+        dp[0] = 0;                                          // Base case (If given value is 0)
         for (int i = 1; i <= V; i++) {
-            dp[i] = Integer.MAX_VALUE;                  // Initialize all dp values as Infinite
+            dp[i] = Integer.MAX_VALUE;                    // Initialize all dp values as Infinite
         }
-        for (int i = 1; i <= V; i++) {                // Compute minimum coins required for all values from 1 to value
-            for (int j = 0; j < coins.length; j++)   // Go through all coins smaller than i
+        for (int i = 1; i <= V; i++) {                  // Compute minimum coins required for all values from 1 to value
+            for (int j = 0; j < coins.length; j++)     // Go through all coins smaller than i
                 if (coins[j] <= i) {
                     int result = dp[i - coins[j]];
                     if (result != Integer.MAX_VALUE && result + 1 < dp[i])
                         dp[i] = result + 1;
                 }
         }
-        if (dp[V] == Integer.MAX_VALUE) {
-            return -1;
-        }
-        return dp[V];
+        return dp[V] == Integer.MAX_VALUE ? -1 : dp[V];
     }
 
     public static void main(String[] args) {
-        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 11));
-        System.out.println(minCoins(new int[]{25, 10, 5},  30));
-        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 21));
-        System.out.println(minCoinsDP(new int[]{9, 6, 5, 1}, 11));
-        System.out.println(minCoinsDP(new int[]{25, 10, 5},  30));
-        System.out.println(minCoinsDP(new int[]{9, 6, 5, 1}, 21));
+        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 11) + "\t" + minCoinsDP(new int[]{9, 6, 5, 1}, 11));
+        System.out.println(minCoins(new int[]{25, 10, 5},  30) + "\t" + minCoinsDP(new int[]{25, 10, 5},  30));
+        System.out.println(minCoins(new int[]{9, 6, 5, 1}, 21) + "\t" + minCoinsDP(new int[]{9, 6, 5, 1}, 21));
     }
 }

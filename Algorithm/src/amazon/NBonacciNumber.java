@@ -13,7 +13,6 @@ public class NBonacciNumber {
         for (int i = n + 1; i < m; i++) {
             a[i] = 2 * a[i - 1] - a[i - n - 1];           // a[i] = 2*a[i-1] - a[i-n-1];
         }
-
         System.out.println(Arrays.toString(a));
     }
 

@@ -18,7 +18,7 @@ package binarySearchImpl;
   Initialize two variables l as 0, r as W to store the boundary regions of the search space for binary search.
   Loop while l≤r and perform the following steps:
   Store the middle value in a variable mid as (l+r)/2.
-  Check if mid number of mangoes can be bought using the given value of W, C, x, and y.
+  Check if mid-number of mangoes can be bought using the given value of W, C, x, and y.
   If true, then update ans to mid and search in the right part of mid by updating l to mid+1. Otherwise, update the value of r to mid-1.
   Print the value of ans as the result
  */

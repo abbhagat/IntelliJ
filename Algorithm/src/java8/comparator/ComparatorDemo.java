@@ -27,7 +27,7 @@ public class ComparatorDemo {
         mainList.add(new Employee("Bhagat", 1));
 
         Comparator<Employee> byName = (e1, e2) -> e2.getName().compareTo(e1.getName());
-        Comparator<Employee> byId = Comparator.comparingInt(Employee::getId);
+        Comparator<Employee> byId = Comparator.comparingInt(Employee::getId).reversed();
 
         Collections.sort(mainList, byId);
         mainList.forEach(System.out::println);

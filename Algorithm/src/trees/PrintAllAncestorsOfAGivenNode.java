@@ -2,6 +2,16 @@ package trees;
 
 // Time Complexity: O(n) where n is the number of nodes in the given Binary Tree.
 
+/*
+                     1
+                  /     \
+                2        3
+               / \
+              4  5
+             /
+            7
+ */
+
 public class PrintAllAncestorsOfAGivenNode {
 
     private static boolean printAllAncestor(Node root, int num) {

@@ -15,13 +15,13 @@ public class AuthToken {
             if (token.size() != 3) {
                 return 0;
             }
-            Integer tokenCommand = token.get(0);
-            Integer tokenId = token.get(1);
-            Integer tokenTime = token.get(2);
+            int tokenCommand = token.get(0);
+            int tokenId = token.get(1);
+            int tokenTime = token.get(2);
             if (tokenCommand == 0) {
                 map.put(tokenId, tokenTime + expiryLimit);
             } else if (map.containsKey(tokenId)) {
-                Integer k = tokenTime <= map.get(tokenId) ? map.put(tokenId, tokenTime + expiryLimit) : map.remove(tokenId);
+                int k = tokenTime <= map.get(tokenId) ? map.put(tokenId, tokenTime + expiryLimit) : map.remove(tokenId);
             }
         }
         Integer lastTime = commands.get(commands.size() - 1).get(2);

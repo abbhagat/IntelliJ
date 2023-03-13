@@ -8,7 +8,7 @@ import static java.lang.Math.max;
 public class LCM {
 
     private static int findLCM(int x, int y, int lcm) {
-        return (lcm % x == 0 && lcm % y == 0) ? lcm : findLCM(x, y, lcm += y);
+        return (lcm % x == 0 && lcm % y == 0) ? lcm : findLCM(x, y, lcm + y);
     }
 
     public static void main(String[] args) {

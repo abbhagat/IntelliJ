@@ -4,6 +4,7 @@ package strings;
  * ABXCDYYDCXBA is a palindrome
  */
 
+// Time Complexity log(n)
 public class NewTypePalindromeString {
 
     private static boolean isNewTypePalindrome(String s) {

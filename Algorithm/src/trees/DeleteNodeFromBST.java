@@ -7,7 +7,7 @@ import static trees.TreeTraversal.inorder;
 public class DeleteNodeFromBST {
 
     private static Node deleteNodeFromBST(Node root, int num) {
-        if (null == root) {
+        if (root == null) {
             return null;
         }
         if (num < root.num) {

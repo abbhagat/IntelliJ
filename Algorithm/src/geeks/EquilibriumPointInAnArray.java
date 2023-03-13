@@ -9,7 +9,7 @@ package geeks;
 public class EquilibriumPointInAnArray {
 
     public static void main(String[] args) {
-        int a[] = {1, 3, 4, 2, 15, 6, 3, 1};
+        int[] a = {1, 3, 4, 2, 15, 6, 3, 1};
         int sum1 = 0, sum2 = 0;
         for (int x : a) {
             sum1 += x;

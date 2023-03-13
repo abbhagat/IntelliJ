@@ -5,8 +5,7 @@ import static linkedlist.LinkList.add;
 public class IsCyclic {
 
     public static boolean hasCycle(Node first) {
-        Node slow = first;
-        Node fast = first.next;
+        Node slow = first, fast = first.next;
         while (true) {
             if (fast == null || fast.next == null) {
                 return false;

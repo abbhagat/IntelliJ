@@ -10,30 +10,20 @@ public class StringReverseFromEnd {
 
     public static void main(String[] args) {
         String str = "Today is Wednesday";
-        String s[] = str.split(" ");
-        String string = "";
-        for (int i = s.length - 1; i >= 0; i--) {
-            char[] c = s[i].toCharArray();
-            int j = 0, k = c.length - 1;
-            for (j = 0; j < c.length / 2; j++, k--) {
-                c[j] = (char) (c[j] ^ c[k]);
-                c[k] = (char) (c[j] ^ c[k]);
-                c[j] = (char) (c[j] ^ c[k]);
-            }
-            System.out.print(c);
+        System.out.println(reverse(str));
+        for(String s : str.split(" ")) {
+            System.out.print(reverse(s));
             System.out.print(" ");
         }
-        System.out.println();
-        for (int i = 0; i < s.length; i++) {
-            char[] c = s[i].toCharArray();
-            int j = 0, k = c.length - 1;
-            for (j = 0; j < c.length / 2; j++, k--) {
-                c[j] = (char) (c[j] ^ c[k]);
-                c[k] = (char) (c[j] ^ c[k]);
-                c[j] = (char) (c[j] ^ c[k]);
-            }
-            System.out.print(c);
-            System.out.print(" ");
+    }
+
+    private static char[] reverse(String str) {
+        char[] c = str.toCharArray();
+        for (int i = 0, j = c.length - 1; i < j; i++, j--) {
+            c[i] = (char) (c[i] ^ c[j]);
+            c[j] = (char) (c[i] ^ c[j]);
+            c[i] = (char) (c[i] ^ c[j]);
         }
+        return c;
     }
 }

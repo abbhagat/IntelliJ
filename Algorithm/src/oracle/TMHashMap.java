@@ -39,9 +39,10 @@ public class TMHashMap<K, V> {
         return null;
     }
 
-    public boolean remove(K key) {
+    public V remove(K key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        for (Entry e = table[hash], prev = e; e != null; e = e.next) {
+        Entry e = table[hash], prev = e;
+        while (e != null) {
             if (e.next == null) {
                 table[hash] = null;
             } else {
@@ -49,9 +50,9 @@ public class TMHashMap<K, V> {
                     prev.next = e.next;
                 }
             }
-            return true;
+            e = e.next;
         }
-        return false;
+        return (V) prev.getValue();
     }
 
     public V put(K key, V value) {
@@ -94,8 +95,10 @@ public class TMHashMap<K, V> {
         map.put("D", 100);
         map.put("Abhinaw", 100);
         map.put("Z", 1);
-        map.remove("A");
-        map.remove(null);
+        map.traverseHashMap();
+        System.out.println("*********");
+        System.out.println(map.remove("D"));
+        System.out.println(map.remove(null));
         map.traverseHashMap();
     }
 }

@@ -2,6 +2,9 @@ package amazon;
 
 import java.util.stream.IntStream;
 
+// Time  Complexity  O(n)
+// Space Complexity  O(1)
+
 public class ReArrangeArrayToOddEvenPlace {
 
     private static void reArrangeArrayToOddEvenPlace(int[] a) {

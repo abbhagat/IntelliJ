@@ -3,7 +3,7 @@ package designpattern;
 import java.io.Serializable;
 
 /**
- * For any java class if we are allowed to create at-most two objects,
+ * For any java class if we are allowed to create at most two objects,
  * such type of class is called as Doubleton Class.
  */
 
@@ -15,7 +15,7 @@ public class Doubleton implements Cloneable, Serializable {
     private static volatile int index;
 
     private Doubleton() {
-        if (instance1 != null || instance2 != null) {
+        if (instance1 != null && instance2 != null) {
             throw new RuntimeException("Can't instantiate doubleton twice");
         }
     }
@@ -47,7 +47,7 @@ public class Doubleton implements Cloneable, Serializable {
         Doubleton obj4 = Doubleton.getInstance();
         Doubleton obj5 = Doubleton.getInstance();
         Doubleton obj6 = Doubleton.getInstance();
-        System.out.println("Printing the hashcodes to check memory addresses");
+        System.out.println("Printing the hashcode to check memory addresses");
         System.out.println("obj1.hashCode() : " + obj1.hashCode());
         System.out.println("obj3.hashCode() : " + obj3.hashCode());
         System.out.println("obj5.hashCode() : " + obj5.hashCode());

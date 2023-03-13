@@ -4,7 +4,7 @@ import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMid;
 import static linkedlist.TraverseList.traverseList;
 
-// Time complexity: O(nlogn)
+// Time complexity: O(n log n)
 
 public class MergeSort {
 
@@ -15,7 +15,9 @@ public class MergeSort {
         Node mid = findMid(head);
         Node head2 = mid.next;
         mid.next = null;
-        return merge(mergeSort(head), mergeSort(head2));
+        Node a = mergeSort(head);
+        Node b = mergeSort(head2);
+        return merge(a, b);
     }
 
     public static Node merge(Node a, Node b) {

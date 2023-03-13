@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
 import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 /*
   Given an array of positive integers containing the price of stocks and transaction fee,
@@ -17,13 +18,15 @@ import static java.lang.Integer.max;
   Output: 5 1
  */
 
+// Time complexity:  O(n)
+// Space complexity: O(1)
 public class MaxProfitByBuyAndSellStocks {
 
-    private static void max_profit(int[] a, int fee) {
+    private static void maxProfitWithTrxnFee(int[] a, int fee) {
         int buying = 0, selling = -a[0], diff_days = 1;
         for (int i = 1; i < a.length; i++) {
-            buying  = max(buying, selling + a[i] - fee);
-            selling = max(selling, buying - a[i]);
+            buying = max(buying, selling + a[i] - fee);
+            selling= max(selling, buying - a[i]);
             if (selling > buying) {
                 diff_days++;
             }
@@ -31,10 +34,20 @@ public class MaxProfitByBuyAndSellStocks {
         System.out.println(buying + " " + diff_days);
     }
 
+    private static int maxProfit(int[] a) {
+        int minVal = Integer.MAX_VALUE, profit = 0;
+        for (int x : a) {
+            minVal = min(minVal, x);
+            profit = max(profit, x - minVal);
+        }
+        return profit;
+    }
+
     public static void main(String[] args) {
-        max_profit(new int[]{1, 3, 2, 8, 4, 9}, 2);
-        max_profit(new int[]{6, 1, 7, 2, 8, 4}, 2);
-        max_profit(new int[]{7, 1, 5, 3, 6, 4}, 1);
-        max_profit(new int[]{7, 1, 5, 3, 6, 4}, 0);
+        maxProfit(new int[]{1, 3, 2, 8, 4, 9});
+        maxProfit(new int[]{6, 1, 7, 2, 8, 4});
+        maxProfit(new int[]{7, 1, 5, 3, 6, 4});
+        maxProfit(new int[]{7, 1, 5, 3, 6, 4});
+        maxProfit(new int[]{7, 6, 4, 3, 1});
     }
 }

@@ -2,6 +2,7 @@ package stack;
 
 import java.util.Stack;
 
+// Time Complexity - O(n)
 public class BalancedBracket {
 
     public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class BalancedBracket {
                 return false;
             }
         }
-        return s.isEmpty() ? true : false;
+        return s.isEmpty();
     }
 
     private static boolean isMatchingPair(char c1, char c2) {

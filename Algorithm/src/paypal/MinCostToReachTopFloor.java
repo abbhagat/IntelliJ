@@ -1,5 +1,7 @@
 package paypal;
 
+import static java.lang.Integer.min;
+
 /**
  * Given N non-negative integers which signifies the cost of the moving from each stair.
  * Paying the cost at i-th step, you can either climb one or two steps.
@@ -15,9 +17,9 @@ public class MinCostToReachTopFloor {
         dp[0] = a[0];
         dp[1] = a[1];
         for (int i = 2; i < n; i++) {
-            dp[i] = a[i] + Integer.min(dp[i - 1], dp[i - 2]);
+            dp[i] = a[i] + min(dp[i - 1], dp[i - 2]);
         }
-        return Integer.min(dp[n - 1], dp[n - 2]);
+        return min(dp[n - 1], dp[n - 2]);
     }
 
     public static void main(String[] args) {

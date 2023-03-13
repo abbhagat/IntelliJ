@@ -17,7 +17,6 @@ public class StoringOneMillionPhoneNumber {
     }
 
     public static void main(String[] args) {
-
         int[] nums = {45, 23, 64, 3242, 454, 324, 324, 354, 12};
         for (int x : nums) {
             add(x);
