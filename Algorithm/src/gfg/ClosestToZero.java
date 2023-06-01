@@ -8,13 +8,11 @@ public class ClosestToZero {
 
     public static void main(String[] args) {
         int[] a = {1, 7, 9, 4, 2, -1};
-        int near = a[0];
+        int closest = a[0];
         Arrays.sort(a);
-        for (int i = 1; i < a.length; i++) {
-            if (abs(near) >= abs(a[i])) {
-                near = a[i];
-            }
+        for (int x : a) {
+            closest = abs(x) <= abs(closest) ? x : closest; // closest to 0
         }
-        System.out.println(near);
+        System.out.println(closest);
     }
 }

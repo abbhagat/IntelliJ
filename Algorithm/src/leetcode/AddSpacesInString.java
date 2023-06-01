@@ -15,8 +15,8 @@ public class AddSpacesInString {
     }
 
     public static void main(String[] args) {
-        System.out.println(addSpaces("LeetcodeHelpsMeLearn", new int[]{8, 13, 15}));
-        System.out.println(addSpaces("icodeinpython", new int[]{1, 5, 7, 9}));
-        System.out.println(addSpaces("spacing", new int[]{0, 1, 2, 3, 4, 5,}));
+        System.out.println(addSpaces("LeetCodeHelpsMeLearn", new int[]{8, 13, 15}));
+        System.out.println(addSpaces("icodeinpython"       , new int[]{1, 5, 7}));
+        System.out.println(addSpaces("spacing"             , new int[]{0, 1, 2, 3, 4, 5,}));
     }
 }

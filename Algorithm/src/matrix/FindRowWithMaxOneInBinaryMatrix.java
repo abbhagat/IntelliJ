@@ -16,11 +16,11 @@ public class FindRowWithMaxOneInBinaryMatrix {
 
     public static void main(String[] args) {
         int[][] M = {
-                {0, 0, 0, 1},
-                {0, 0, 1, 1},
-                {0, 0, 0, 0},
-                {0, 1, 1, 1}
-        };
+                      {0, 0, 0, 1},
+                      {0, 0, 1, 1},
+                      {0, 0, 0, 0},
+                      {0, 1, 1, 1}
+                    };
         int index = 0, count = 0;
         for (int i = 0; i < M.length; i++) {
             int countOne = rowWithMax1s(M[i], 0, M[i].length - 1);

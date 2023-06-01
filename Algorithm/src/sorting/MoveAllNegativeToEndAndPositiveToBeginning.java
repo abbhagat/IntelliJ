@@ -4,18 +4,16 @@ import java.util.stream.IntStream;
 
 public class MoveAllNegativeToEndAndPositiveToBeginning {
 
-    private static int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
+    private static final int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
 
     private static void move(int low, int high) {
-        while (low <= high) {
+        while (low < high) {
             if (a[low] > 0) {
                 low++;
             } else if (a[high] < 0) {
                 high--;
             } else if (a[low] < 0 && a[high] > 0) {
-                int t = a[low];
-                a[low] = a[high];
-                a[high] = t;
+                swap(low, high);
                 low++;
                 high--;
             } else {
@@ -23,6 +21,12 @@ public class MoveAllNegativeToEndAndPositiveToBeginning {
                 high--;
             }
         }
+    }
+
+    private static void swap(int x, int y) {
+        a[x] = a[x] ^ a[y];
+        a[y] = a[x] ^ a[y];
+        a[x] = a[x] ^ a[y];
     }
 
     public static void main(String[] args) {

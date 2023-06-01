@@ -1,12 +1,11 @@
 package threads;
 
-
 class PrinterThreadForNaturalNumber implements Runnable {
 
     private static final Object monitor = new Object();
     private static volatile int threadIdToRun = 1;
     private static volatile int n = 1;
-    private int threadID;
+    private final int threadID;
 
     public PrinterThreadForNaturalNumber(int threadID) {
         this.threadID = threadID;
@@ -24,21 +23,9 @@ class PrinterThreadForNaturalNumber implements Runnable {
                     } else {
                         System.out.print(n++ + " ");
                         switch (threadIdToRun) {
-                            case 1:
-                                threadIdToRun = 2;
-                                break;
-                            case 2:
-                                threadIdToRun = 3;
-                                break;
-                            case 3:
-                                threadIdToRun = 4;
-                                break;
-                            case 4:
-                                threadIdToRun = 5;
-                                break;
-                            case 5:
-                                threadIdToRun = 1;
-                                break;
+                            case 1: threadIdToRun = 2; break;
+                            case 2: threadIdToRun = 3; break;
+                            case 3: threadIdToRun = 4; break;
                         }
                         monitor.notifyAll();
                     }
@@ -56,7 +43,5 @@ public class ThreeThreadPrintingNaturalNumberSequence {
         new PrinterThreadForNaturalNumber(1);
         new PrinterThreadForNaturalNumber(2);
         new PrinterThreadForNaturalNumber(3);
-        new PrinterThreadForNaturalNumber(4);
-        new PrinterThreadForNaturalNumber(5);
     }
 }

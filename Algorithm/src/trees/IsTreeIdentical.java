@@ -5,7 +5,7 @@ import static trees.TreeTraversal.inorder;
 public class IsTreeIdentical {
 
     private static boolean isIdentical(Node root1, Node root2) {
-        if (root1 == null && root1 == null) {
+        if (root1 == null && root2 == null) {
             return true;
         }
         if (root1 != null && root2 != null && root1.num == root2.num) {

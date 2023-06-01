@@ -19,12 +19,6 @@ public class MultiplyingLargeNumInsufficientDataTypeToHold {
             mul[--k] = carry;
             k += y.length;
         }
-        int i;
-        for (i = 0; i < mul.length; i++) {
-            if (mul[i] == 0 && mul[i + 1] != 0) {
-                break;
-            }
-        }
-        IntStream.range(i, mul.length).forEach(j -> System.out.print(mul[j]));
+        IntStream.range(0, mul.length).forEach(j -> System.out.print(mul[j]));
     }
 }

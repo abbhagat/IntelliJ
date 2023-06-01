@@ -22,7 +22,7 @@ public class DeleteNodeWithoutHeadPointer {
             first = add(first, x);
         }
         traverseList(first);
-        deleteNode(first.next.next);
+        deleteNode(first.next.next);  // delete 3 from the list
         traverseList(first);
     }
 }

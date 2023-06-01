@@ -2,6 +2,7 @@ package dynamicProgramming;
 
 
 import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 /**
  * In daily share trading, a buyer buys shares in the morning and sells them on the same day.
@@ -29,19 +30,31 @@ import static java.lang.Integer.max;
  * Input:   price[] = {90, 80, 70, 60, 50};
  * Output:  0
  * Not possible to earn.
+ * <p>
+ * Input: prices[] = {3, 3, 5, 0, 0, 3, 1, 4}
+ * Output: 6
+ * Explanation:
+ * Buy on Day 4 and Sell at Day 6 => Profit = 3 – 0 = 3
+ * Buy on Day 7 and Sell at Day 8 => Profit = 4 -1 = 3
+ * Therefore, Total Profit = 3 + 3 = 6
+ * <p>
+ * Input: prices[] = {1, 2, 3, 4, 5}
+ * Output: 4
+ * Explanation:
+ * Buy on Day 1 and sell at Day 6 => Profit = 5 -1 = 4
+ * Therefore, Total Profit = 4
  */
 public class MaxProfitBuyAndSellSharesTwice {
 
-    private static int maxProfit(int[] a) {
-        int first_buy  = Integer.MIN_VALUE, first_sell  = 0;
-        int second_buy = Integer.MIN_VALUE, second_sell = 0;
-        for (int x : a) {
-            first_buy   = max(first_buy, -x);
-            first_sell  = max(first_sell, first_buy  + x);
-            second_buy  = max(second_buy, first_sell - x);
-            second_sell = max(second_sell,second_buy + x);
+    private static int maxProfit(int[] price) {
+        int buy1 = Integer.MAX_VALUE, buy2 = Integer.MAX_VALUE, profit1 = 0, profit2 = 0;
+        for (int x : price) {
+            buy1    = min(buy1, x);
+            profit1 = max(profit1, x - buy1);
+            buy2    = min(buy2,    x - profit1);
+            profit2 = max(profit2, x - buy2);
         }
-        return second_sell;
+        return profit2;
     }
 
     public static void main(String[] args) {
@@ -49,5 +62,7 @@ public class MaxProfitBuyAndSellSharesTwice {
         System.out.println(maxProfit(new int[]{100, 30, 15, 10, 8, 25, 80}));
         System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}));
         System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}));
+        System.out.println(maxProfit(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
+        System.out.println(maxProfit(new int[]{1, 2, 3, 4, 5}));
     }
 }

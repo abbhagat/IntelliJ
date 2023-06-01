@@ -7,9 +7,9 @@ public class HuffmanCoding {
     private static String result = "";
 
     public static void encode(Node root, String str) {
-        for (char x : str.toCharArray()) {
+        for (char c : str.toCharArray()) {
             LinkedList<Character> list = new LinkedList<>();
-            findPath(root, x, list, ' ');
+            findPath(root, c, list, ' ');
         }
         System.out.println(result);
     }
@@ -24,7 +24,7 @@ public class HuffmanCoding {
             list.forEach(i -> result = result + i);
             return;
         }
-        findPath(root.left, c, list, '0');
+        findPath(root.left,  c, list, '0');
         list.removeLast();
         findPath(root.right, c, list, '1');
         list.removeLast();

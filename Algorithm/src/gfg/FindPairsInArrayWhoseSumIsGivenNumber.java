@@ -1,7 +1,9 @@
 package gfg;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class FindPairsInArrayWhoseSumIsGivenNumber {
 
@@ -10,12 +12,12 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     private static int n = 5;
 
     private static void findPairs() {
-        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> set = new HashSet<>();
         for (int x : a) {
-            map.put(x, 1);
+            set.add(x);
         }
         for (int x : b) {
-            if (map.containsKey(n - x)) {
+            if (set.contains(n - x)) {
                 System.out.println(x + " " + (n - x));
             }
         }
@@ -40,8 +42,8 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     }
 
     public static void main(String[] args) {
-        findPairs();
-        System.out.println();
         findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 10);
+        System.out.println();
+        findPairs(new int[]{0, 2, 2, 2}, 4);
     }
 }

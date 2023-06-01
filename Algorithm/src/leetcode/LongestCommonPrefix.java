@@ -2,7 +2,7 @@ package leetcode;
 
 import static java.lang.Integer.min;
 
-// Time Complexity O(nlogn)
+// Time Complexity O(n log n)
 
 public class LongestCommonPrefix {
 
@@ -11,7 +11,7 @@ public class LongestCommonPrefix {
             return str[low];
         }
         int mid = (low + high) / 2;
-        String left  = longestCommonPrefix(str, low, mid);
+        String left = longestCommonPrefix(str, low, mid);
         String right = longestCommonPrefix(str, mid + 1, high);
         return commonPrefix(left, right);
     }
@@ -27,12 +27,13 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        String[] s;
-        s = new String[]{"flower", "flow", "flight"};
-        System.out.println(longestCommonPrefix(s, 0, s.length - 1));
-        s = new String[]{"flower", "flow"};
-        System.out.println(longestCommonPrefix(s, 0, s.length - 1));
-        s = new String[]{"flower"};
-        System.out.println(longestCommonPrefix(s, 0, s.length - 1));
+        String[][] str = {
+                           {"flower", "flow", "flight"},
+                           {"flower", "flow"},
+                           {"flower"}
+                         };
+        for (String[] s : str) {
+            System.out.println(longestCommonPrefix(s, 0, s.length - 1));
+        }
     }
 }

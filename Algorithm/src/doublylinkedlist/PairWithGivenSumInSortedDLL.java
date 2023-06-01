@@ -7,28 +7,24 @@ import static doublylinkedlist.TraverseList.traverseList;
 // Auxiliary space is O(1)
 public class PairWithGivenSumInSortedDLL {
 
-    private static void pairSum(Node head, int x) {
-        Node first = head, second = head;
-        while (second.right != null) {
-            second = second.right;
-        }
+    private static void pairSum(Node low, Node high, final int x) {
         boolean found = false;
-        // The loop terminates when they cross each other (second.right == first), or they become same (first == second)
-        while (first != second && second.right != first) {
-            if (first.num + second.num == x) {
+        // The loop terminates when they cross each other (high.right == low), or they become same (low == high)
+        while (low != high && high.right != low) {
+            if (low.num + high.num == x) {
                 found = true;
-                System.out.println("(" + first.num + ", " + second.num + ")");
-                first  = first.right;              // move first in forward direction
-                second = second.left;             // move second in backward direction
+                System.out.println("(" + low.num + ", " + high.num + ")");
+                low  = low.right;              // move low in forward direction
+                high = high.left;             // move high in backward direction
             } else {
-                if (first.num + second.num < x) {
-                    first  = first.right;
+                if (low.num + high.num < x) {
+                    low  = low.right;
                 } else {
-                    second = second.left;
+                    high = high.left;
                 }
             }
         }
-        if (found == false) {
+        if (!found) {
             System.out.println("No pair found");
         }
     }
@@ -40,6 +36,6 @@ public class PairWithGivenSumInSortedDLL {
             head = createList(x, null);
         }
         traverseList(head);
-        pairSum(head, 7);
+        pairSum(head, CreateList.last, 7);
     }
 }

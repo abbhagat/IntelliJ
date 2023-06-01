@@ -7,8 +7,8 @@ import java.util.stream.IntStream;
 
 public class MoveAllPositiveToEndAndNegativeToBeginningSolnWithMap {
 
-    private static int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
-    private static Map<Integer, Integer> map = new HashMap<>();
+    private static final int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
+    private static final Map<Integer, Integer> map = new HashMap<>();
 
     private static void move() {
         for (int x : a) {

@@ -23,7 +23,6 @@ class NameRepository implements Container {
     }
 
     private class NameIterator implements Iterator {
-
         int index = 0;
 
         @Override
@@ -39,7 +38,6 @@ class NameRepository implements Container {
 }
 
 public class IteratorDesignPattern {
-
     public static void main(String[] args) {
         NameRepository nameRepository = new NameRepository();
         Iterator iterator = nameRepository.iterator();

@@ -50,13 +50,9 @@ class MediaAdapter implements MediaPlayer {
     }
 
     public void play(String fileName, String fileType) {
-
-        if (fileType.equalsIgnoreCase("VLC")) {
-            advancedMediaPlayer.playVLC(fileName);
-        }
-
-        if (fileType.equalsIgnoreCase("MP4")) {
-            advancedMediaPlayer.playMP4(fileName);
+        switch (fileType) {
+            case "VLC" : advancedMediaPlayer.playVLC(fileName); break;
+            case "MP4" : advancedMediaPlayer.playMP4(fileName); break;
         }
     }
 }

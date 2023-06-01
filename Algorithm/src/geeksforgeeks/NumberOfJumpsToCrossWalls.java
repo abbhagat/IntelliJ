@@ -22,34 +22,25 @@ public class NumberOfJumpsToCrossWalls {
     private static int findJumps(int[] a, int x, int y) {
         int jumps = 0;
         for (int i = 0; i < a.length; ) {
-            if (x >= a[i]) {
-                jumps++;
-                i++;
+            if (a[i] > x) {
+                a[i] -= x + y;
             } else {
-                jumps++;
-                a[i] = a[i] - x + y;
+                i++;
             }
+            jumps++;
         }
         return jumps;
     }
-
 
     public static void main(String[] args) {
         System.out.println(findJumps(new int[]{11}, 10, 1));
         System.out.println(findJumps(new int[]{11, 11}, 10, 1));
         System.out.println(findJumps(new int[]{11, 10, 10, 9}, 10, 1));
         // Below code is the scenario for single case
-        int height = 11;
-        int jumps = 0;
-        int x = 10, y = 1;
-        while (true) {
-            if (x >= height) {
-                jumps++;
-                break;
-            } else {
-                jumps++;
-                height = height - x + y;
-            }
+        int height = 11, x = 10, y = 1, jumps = 1;
+        while (height > x) {
+            height -= x + y;
+            jumps++;
         }
         System.out.println(jumps);
     }

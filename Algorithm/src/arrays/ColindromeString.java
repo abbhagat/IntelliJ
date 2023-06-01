@@ -35,8 +35,8 @@ public class ColindromeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(isColindromeString("mollomaappaa111") ? "Colindrome" : "Not Colindrome");
-        System.out.println(isColindromeString("cappaccappac") ? "Colindrome" : "Not Colindrome");
         System.out.println(isColindromeString("mollomaappaa") ? "Colindrome" : "Not Colindrome");
+        System.out.println(isColindromeString("cappaccappac") ? "Colindrome" : "Not Colindrome");
+        System.out.println(isColindromeString("mollomaapaap") ? "Colindrome" : "Not Colindrome");
     }
 }

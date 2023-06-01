@@ -30,7 +30,7 @@ public class AllStringCombinationByPlacingSpace {
         return al;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println(spaceString("ABC"));
     }
 }

@@ -1,14 +1,15 @@
 package vmware;
 
-public class IntegerToRoman {
+// Time  Complexity  O(n log n)
 
-    private static final int[] INT = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+public class IntegerToRoman {
+    private static final int[] INTEGER = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     private static final String[] ROMANS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     private static String intToRoman(int n) {
-        for (int i = 0; i < INT.length; i++) {
-            if (n >= INT[i]) {
-                return ROMANS[i] + intToRoman(n - INT[i]);
+        for (int i = 0; i < INTEGER.length; i++) {
+            if (n >= INTEGER[i]) {
+                return ROMANS[i] + intToRoman(n - INTEGER[i]);
             }
         }
         return "";

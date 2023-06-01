@@ -4,9 +4,9 @@ import java.util.*;
 
 public class GroupStringAnagrams {
 
-    private static List<List<String>> groupAnagrams(String[] str) {
+    private static List groupAnagrams(String[] str) {
         if (str.length == 0) {
-            return null;
+            return Collections.EMPTY_LIST;
         }
         Map<String, List<String>> map = new HashMap<>();
         for (String s : str) {
@@ -14,13 +14,11 @@ public class GroupStringAnagrams {
             Arrays.sort(c);
             String key = String.valueOf(c);
             if (!map.containsKey(key)) {
-                map.put(key, new ArrayList());
+                map.put(key, new ArrayList<>());
             }
             map.get(key).add(s);
         }
-        List<List<String>> list = new ArrayList<>();
-        list.addAll(map.values());
-        return list;
+        return new ArrayList<>(map.values());
     }
 
     public static void main(String[] args) {

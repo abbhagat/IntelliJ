@@ -1,7 +1,5 @@
 package trees;
 
-import static trees.SearchBT.searchBT;
-
 public class LCAOfBinaryTree {
 
     static class NodeWrapper {
@@ -26,9 +24,7 @@ public class LCAOfBinaryTree {
 
     public static Node findLCA(Node root, Node x, Node y) {
         NodeWrapper lca = new NodeWrapper();
-        if (searchBT(root, x) && searchBT(root, y)) {
-            findLCA(root, lca, x, y);
-        }
+        findLCA(root, lca, x, y);
         return lca.node;
     }
 

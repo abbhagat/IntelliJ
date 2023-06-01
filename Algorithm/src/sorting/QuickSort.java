@@ -4,11 +4,10 @@ import java.util.stream.IntStream;
 
 public class QuickSort {
 
-    private static int[] a = {10, 3, 4, 6, 9, 2, 1, 5, 8, 7};
+    private static final int[] a = {10, 3, 4, 6, 9, 2, 1, 5, 8, 7};
 
     private static void quickSort(int low, int high) {
-        int i = low;
-        int j = high;
+        int i = low, j = high;
         int key = a[(i + j) / 2];
         while (i <= j) {
             while (a[i] < key) {

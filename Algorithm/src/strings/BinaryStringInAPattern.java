@@ -1,5 +1,7 @@
 package strings;
 
+// Time Complexity : O(n) * (2^n)
+
 public class BinaryStringInAPattern {
 
     private static void printBinaryString(char[] a, int index) {

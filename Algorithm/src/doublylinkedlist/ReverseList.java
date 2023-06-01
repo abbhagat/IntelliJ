@@ -8,18 +8,14 @@ import static doublylinkedlist.TraverseList.traverseList;
 public class ReverseList {
 
     private static Node reverseList(Node head) {
-        Node temp = null;
-        Node current = head;
-        // swap next and prev for all nodes of doubly linked list
-        while (current != null) {
+        Node temp = null, current = head;
+        while (current != null) {    // swap next and prev for all nodes of doubly linked list
             temp = current.left;
             current.left = current.right;
             current.right = temp;
             current = current.left;
         }
-        /* Before changing head, check for the cases like
-         empty list and list with only one node */
-        if (temp != null) {
+        if (temp != null) {         // Before changing head, check for the cases like empty list and list with only one node
             head = temp.left;
         }
         return head;

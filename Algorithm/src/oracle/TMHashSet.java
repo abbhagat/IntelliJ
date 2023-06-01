@@ -5,9 +5,9 @@ import java.util.Iterator;
 
 public class TMHashSet<E> implements Cloneable, java.io.Serializable {
 
+    private static final long serialVersionUID = 1L;
     private static final Object PRESENT = new Object();
     private transient HashMap<E, Object> map;
-    private static final long serialVersionUID = 1L;
 
     TMHashSet() {
         map = new HashMap<>();
@@ -43,9 +43,9 @@ public class TMHashSet<E> implements Cloneable, java.io.Serializable {
 
     public Object clone() {
         try {
-            TMHashSet<E> newSet = (TMHashSet<E>) super.clone();
-            newSet.map = (HashMap<E, Object>) map.clone();
-            return newSet;
+            TMHashSet<E> set = (TMHashSet<E>) super.clone();
+            set.map = (HashMap<E, Object>) map.clone();
+            return set;
         } catch (CloneNotSupportedException e) {
             throw new InternalError(e);
         }

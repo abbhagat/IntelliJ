@@ -39,15 +39,12 @@ public class DeleteNodeFromBST {
     }
 
     public static void main(String... args) {
-        int[] a = {30, 10, 50, 5, 20, 40, 60};
-        Node root = null;
-        CreateBST bst = new CreateBST();
-        for (int i = 0; i < a.length; i++) {
-            root = bst.createBST(root, a[i]);
-        }
+        Node root           = new Node(2);
+        root.left           = new Node(1);
+        root.right          = new Node(3);
         inorder(root);
         System.out.println();
-        root = deleteNodeFromBST(root, 40);
+        root = deleteNodeFromBST(root, 2);
         inorder(root);
         System.out.println();
     }

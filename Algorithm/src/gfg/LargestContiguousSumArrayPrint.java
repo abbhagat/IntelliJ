@@ -6,6 +6,15 @@ import static java.lang.Math.max;
 
 public class LargestContiguousSumArrayPrint {
 
+    private static int largestContiguousSum(int[] a) {
+        int cur_sum = a[0], max_sum = a[0];
+        for(int x : a) {
+            cur_sum = max(x ,  x + cur_sum);
+            max_sum = max(max_sum, cur_sum);
+        }
+        return max_sum;
+    }
+
     public static void main(String[] args) {
         int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
         int cur_sum, max_sum, start, end, s;
@@ -22,7 +31,7 @@ public class LargestContiguousSumArrayPrint {
                 s = i + 1;
             }
         }
-        System.out.println(max_sum);
+        System.out.println(max_sum + "\t" + largestContiguousSum(a));
         IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
     }
 }

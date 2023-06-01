@@ -24,8 +24,8 @@ public class PrintAllPathFromRootToLeafNodes {
     public static void main(String[] args) {
         int[] a = {50, 25, 100, 10, 30, 90, 120};
         Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+        for (int x : a) {
+            root = createBST(root, x);
         }
         findPath(root, new LinkedList<>());
     }

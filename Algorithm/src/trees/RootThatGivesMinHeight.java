@@ -10,7 +10,7 @@ public class RootThatGivesMinHeight {
         if(root == null){
             return -1;
         }
-        int lh = treeHeight(root.left, node);
+        int lh = treeHeight(root.left,  node);
         int rh = treeHeight(root.right, node);
         int height = max(lh, rh) + 1;
         if(max < height){

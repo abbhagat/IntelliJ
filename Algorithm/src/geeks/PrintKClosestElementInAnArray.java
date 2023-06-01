@@ -20,21 +20,23 @@ public class PrintKClosestElementInAnArray {
         }
         int count = 0, left = mid - 1, right = mid + 1;
         while (left >= 0 && right < a.length && count < k) {
-            System.out.println(abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++]);
+            System.out.print((abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++])+ " ");
             count++;
         }
         while (left >= 0 && right == a.length - 1 && count < k) {
-            System.out.println(a[left--]);
+            System.out.print(a[left--] + " ");
             count++;
         }
         while (left == 0 && right < a.length - 1 && count < k) {
-            System.out.println(a[right++]);
+            System.out.print(a[right++] + " ");
             count++;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
-        printKClosestElementInAnArray(a, 35, 4);
+        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 4);
+        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 2);
+        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 3);
     }
 }

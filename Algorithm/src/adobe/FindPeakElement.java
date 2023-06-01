@@ -16,6 +16,7 @@ public class FindPeakElement {
         return a[low];
     }
 
+    // Time Complexity :- O(n)
     private static int findPeak(int[] a) {
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] > a[i + 1]) {

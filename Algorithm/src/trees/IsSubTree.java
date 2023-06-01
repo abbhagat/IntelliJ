@@ -9,24 +9,21 @@ public class IsSubTree {
         if (rootSuper == null && rootSub == null) {
             return true;
         }
-        if (rootSuper == null || rootSub == null) {
-            return false;
-        }
-        if (rootSuper.num == rootSub.num) {
+        if (rootSuper != null && rootSub != null && rootSuper.num == rootSub.num) {
             return isSubTree(rootSuper.left, rootSub.left) && isSubTree(rootSuper.right, rootSub.right);
         }
         return isSubTree(rootSuper.left, rootSub) || isSubTree(rootSuper.right, rootSub);
     }
 
     public static void main(String[] args) {
-        int[] a = {30, 10, 50, 5, 20, 40, 60, 1};
+        int[] a = new int[] {30, 10, 50, 5, 20, 40, 60, 1};
         Node rootSuper = null, rootSub = null;
-        for (int i = 0; i < a.length; i++) {
-            rootSuper = createBST(rootSuper, a[i]);
+        for (int x : a) {
+            rootSuper = createBST(rootSuper, x);
         }
-        int[] b = {10, 5, 20, 1};
-        for (int i = 0; i < b.length; i++) {
-            rootSub = createBST(rootSub, b[i]);
+        a = new int[] {10, 5, 20, 1};
+        for (int x : a) {
+            rootSub = createBST(rootSub, x);
         }
         inorder(rootSuper);
         System.out.println();

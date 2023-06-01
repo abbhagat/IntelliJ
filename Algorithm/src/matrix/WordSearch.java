@@ -2,13 +2,14 @@ package matrix;
 
 public class WordSearch {
 
-    private static char[][] M = {
+    private static final char[][] M = {
             {'A', 'B', 'H', 'I'},
             {'M', 'A', 'R', 'N'},
             {'U', 'K', 'W', 'A'}
     };
     private static final int ROW = M.length , COL = M[0].length;
-    private static final int[] rowIdx = {1, -1, 0, 0} , colIdx = {0, 0, 1, -1};
+    private static final int[] rowIdx = {1, -1, 0, 0};
+    private static final int[] colIdx = {0, 0, 1, -1};
 
     private static boolean DFS(int row, int col, String word, int index) {
         if (index >= word.length()) {
@@ -41,5 +42,6 @@ public class WordSearch {
 
     public static void main(String[] args) {
         System.out.println(exist("ABHINAW") ? "Present" : "Not Present");
+        System.out.println(exist("KUMAR")   ? "Present" : "Not Present");
     }
 }

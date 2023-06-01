@@ -9,7 +9,6 @@ public class _4Sum {
     private static void combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list) {
         if (curSum == givenSum && list.size() == 4) {
             System.out.println(list);
-            return;
         }
         for (int i = index; i < a.length; i++) {
             curSum += a[i];

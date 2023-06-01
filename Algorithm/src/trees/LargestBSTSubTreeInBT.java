@@ -2,60 +2,59 @@ package trees;
 
 // Time Complexity O(n)
 public class LargestBSTSubTreeInBT {
+    private static class BST {
+        int size; // Size of subtree
+        int max; // Min value in subtree
+        int min; // Max value in subtree
+        boolean isBST; // If subtree is BST
 
-    private static class Value {
-        int min = Integer.MIN_VALUE;
-        int max = Integer.MAX_VALUE;
-        int max_size = 0;
-        boolean isBST = false;
+        BST() {
+        }
+
+        BST(int size, int max, int min, boolean isBST) {
+            this.size = size;
+            this.max = max;
+            this.min = min;
+            this.isBST = isBST;
+        }
     }
 
-    private static int largestBST(Node root, Value value) {
-        largestBSTUtil(root, value, value, value, value);
-        return value.max_size;
-    }
-
-    private static int largestBSTUtil(Node root, Value min_ref, Value max_ref, Value max_size_ref, Value isBST_ref) {
+    private static BST largestBST(Node root) {
+        // Base case : When the current subtree is empty or the node corresponds to a null.
         if (root == null) {
-            isBST_ref.isBST = true;
-            return 0;
+            return new BST(0, Integer.MIN_VALUE,Integer.MAX_VALUE, true);
         }
-        int min = Integer.MIN_VALUE;
-        boolean left = false, right = false;
-        int ls, rs;
-        max_ref.max = Integer.MIN_VALUE;
-        ls = largestBSTUtil(root.left, min_ref, max_ref, max_size_ref, isBST_ref);
-        if (isBST_ref.isBST && root.num > max_ref.max) {
-            left = true;
-        }
-        min = min_ref.min;
-        min_ref.min = Integer.MAX_VALUE;
-        rs = largestBSTUtil(root.right, min_ref, max_ref, max_size_ref, isBST_ref);
-        if (isBST_ref.isBST && root.num < min_ref.min) {
-            right = true;
-        }
-        if (min < min_ref.min) {
-            min_ref.min = min;
-        }
-        if (root.num < min_ref.min)
-        {
-            min_ref.min = root.num;
-        }
-        if (root.num > max_ref.max) {
-            max_ref.max = root.num;
-        }
-        if (left && right) {
-            if (ls + rs + 1 > max_size_ref.max_size) {
-                max_size_ref.max_size = ls + rs + 1;
-            }
-            return ls + rs + 1;
-        } else {
-            isBST_ref.isBST = false;
-            return 0;
-        }
+        // We will here do the postorder traversal since we want our left and right subtrees to be computed first
+        BST left  = largestBST(root.left);
+        BST right = largestBST(root.right);
+        // Create a new BST variable to store info about the current node.
+        BST bst = new BST();
+        bst.min = Math.min(left.min, root.num);
+        bst.max = Math.max(right.max, root.num);
+        bst.isBST = left.isBST && right.isBST && root.num > left.max && root.num < right.min;
+        /*
+        If suppose the left and right subtrees of the current node are BST and the current node value is greater than the maximum value in the left subtree
+        and also the current node value is smaller that the
+        minimum value in the right subtree (Basic conditions for the formation of BST) then our whole subtree with the root as current root can be considered as a
+        BST. Hence the size of the BST will become size of left BST subtree + size of right BST subtree + 1(adding current node).
+        Else we will consider the largest of the left BST or the  right BST.
+        */
+        // We need to find maximum height BST subtree then adding the height of left a right subtree will not give the maximum height, we need to find max.
+        // Calculate the size of subtree if this is a BST
+        bst.size =  bst.isBST ? left.size + right.size + 1 : Math.max(left.size, right.size);
+        return bst;
+    }
+
+    // Return the size of the largest subtree which is also a BST
+    private static int largestBst(Node root) {
+        return largestBST(root).size;
     }
 
     public static void main(String[] args) {
-
+        final Node root = new Node(60);
+        root.left       = new Node(65);
+        root.right      = new Node(70);
+        root.left.left  = new Node(50);
+        System.out.print("Size of the largest BST is " + largestBst(root));
     }
 }

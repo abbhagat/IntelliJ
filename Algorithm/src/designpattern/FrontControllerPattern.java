@@ -25,7 +25,7 @@ class Dispatcher {
 
     public Dispatcher() {
         studentView = new StudentView();
-        homeView = new HomeView();
+        homeView    = new HomeView();
     }
 
     public void dispatch(String request) {

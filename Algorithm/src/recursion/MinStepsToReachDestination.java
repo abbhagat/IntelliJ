@@ -35,8 +35,9 @@ public class MinStepsToReachDestination {
         if (source == dest) {
             return step;
         }
-        int pos = steps(source + step + 1, step + 1, dest);  // if we go on positive side
-        int neg = steps(source - step - 1, step + 1, dest);  // if we go on negative side
+        step++;
+        int pos = steps(source + step, step, dest);  // if we go on positive side
+        int neg = steps(source - step, step, dest);  // if we go on negative side
         return min(pos, neg);
     }
 

@@ -14,12 +14,12 @@ public class DecimalToBinary {
     }
 
     public static String toBinary(int n) {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         while (n != 0) {
-            s += n % 2;
+            s.append(n % 2);
             n = n / 2;
         }
-        return new StringBuffer(s).reverse().toString();
+        return new StringBuffer(s.toString()).reverse().toString();
     }
 
     private static String decimalToBinary(int n) {

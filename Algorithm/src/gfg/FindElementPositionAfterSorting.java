@@ -12,7 +12,7 @@ public class FindElementPositionAfterSorting {
 
     public static void main(String[] args) {
         int[] a = {3, 5, 1, 2, 7, 4, 10};
-        int pos = 0, index = 0, n = a[pos];
+        int pos = 4, index = 0, n = a[pos];
         for (int i = 0; i < a.length; i++) {
             if (i == pos) {
                 continue;

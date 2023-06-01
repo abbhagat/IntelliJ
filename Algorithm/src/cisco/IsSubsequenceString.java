@@ -1,6 +1,6 @@
 package cisco;
 
-// Time Complexity O(n)
+// Time  Complexity O(n)
 // Space Complexity O(1)
 public class IsSubsequenceString {
 
@@ -8,12 +8,12 @@ public class IsSubsequenceString {
         if (s.length() == 0) {
             return true;
         }
-        int index = 0;
+        int j = 0;
         for (int i = 0; i < t.length(); i++) {
-            if (t.charAt(i) == s.charAt(index)) {
-                index++;
+            if (t.charAt(i) == s.charAt(j)) {
+                j++;
             }
-            if (index == s.length()) {
+            if (j == s.length()) {
                 return true;
             }
         }

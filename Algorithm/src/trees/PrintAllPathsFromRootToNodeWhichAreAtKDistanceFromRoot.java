@@ -1,6 +1,7 @@
 package trees;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,12 +11,11 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
 
     private static List<List<Integer>> findPath(Node root, int k, LinkedList<Integer> list, List<List<Integer>> lists) {
         if (root == null) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
         list.add(root.num);
         if (k == 0) {
-            List<Integer> path = new ArrayList<>();
-            path.addAll(list);
+            List<Integer> path = new ArrayList<>(list);
             lists.add(path);
             return lists;
         }
@@ -44,8 +44,8 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
     public static void main(String[] args) {
         int[] a = {50, 25, 100, 10, 30, 90, 120};
         Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+        for (int x : a) {
+            root = createBST(root, x);
         }
         List<List<Integer>> lists = findPath(root, 2, new LinkedList<>(), new ArrayList<>());
         System.out.println(lists);

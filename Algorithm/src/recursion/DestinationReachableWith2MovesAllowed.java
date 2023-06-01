@@ -9,15 +9,13 @@ Note: All coordinates are positive.
 Input : (x1, y1) = (2, 10)
         (x2, y2) = (26, 12)
 Output : True
-(2, 10)->(2, 12)->(14, 12)->(26, 12) is a valid path.
-
+         (2, 10)->(2, 12)->(14, 12)->(26, 12) is a valid path.
 Input : (x1, y1) = (20, 10)
         (x2, y2) = (6, 12)
 Output : False
 No such path is possible because x1 > x2 and coordinates are positive
  */
 public class DestinationReachableWith2MovesAllowed {
-
     private static boolean isReachable(int sx, int sy, int dx, int dy) {
         if (sx > dx || sy > dy) {
             return false;
@@ -35,7 +33,7 @@ public class DestinationReachableWith2MovesAllowed {
             if (x2 > y2) {
                 x2 %= y2;    // Reduce x2 by y2 until it is less than or equal to x1
             } else {
-                y2 %= x2;   // Reduce y2 by x2 until it is less than or equal to y1
+                y2 %= x2;   //  Reduce y2 by x2 until it is less than or equal to y1
             }
         }
         if (x2 == x1) {                                      // If x2 is reduced to x1

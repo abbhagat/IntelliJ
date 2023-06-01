@@ -4,7 +4,7 @@ import static trees.CreateBST.createBST;
 
 public class KthSmallestElementInBST {
 
-    private static int k = 1;
+    private static int k = 2;
     private static void findKthSmallest(Node root) {
         if (root != null) {
             findKthSmallest(root.left);
@@ -19,8 +19,8 @@ public class KthSmallestElementInBST {
     public static void main(String[] args) {
         int[] a = {30, 10, 50, 5, 20, 40, 60};
         Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+        for (int x : a) {
+            root = createBST(root, x);
         }
         findKthSmallest(root);
     }

@@ -8,21 +8,21 @@ public class HappyNumber {
         if (n == 1) {
             return true;
         }
-        Set<Integer> set = new HashSet();
+        Set<Integer> set = new HashSet<>();
         set.add(n);
-        int result = 0;
-        while (result != 1) {
-            result = getResult(n);
-            if (set.contains(result)) {
+        int sum = 0;
+        while (sum != 1) {
+            sum = sum(n);
+            if (set.contains(sum)) {
                 return false;
             }
-            set.add(result);
-            n = result;
+            set.add(sum);
+            n = sum;
         }
         return true;
     }
 
-    private static int getResult(int n) {
+    private static int sum(int n) {
         int result = 0;
         while (n != 0) {
             int k = n % 10;

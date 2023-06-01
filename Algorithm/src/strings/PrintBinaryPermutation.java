@@ -4,13 +4,13 @@ package strings;
 // Space complexity – O(n)
 public class PrintBinaryPermutation {
 
-    private static void binaryPermutation(String s, int itr) {
-        if (itr == 0) {
+    private static void binaryPermutation(String s, int n) {
+        if (n == 0) {
             System.out.println(s);
-            return;
+        }else {
+            binaryPermutation(s + "0", n - 1);
+            binaryPermutation(s + "1", n - 1);
         }
-        binaryPermutation(s + "0", itr - 1);
-        binaryPermutation(s + "1", itr - 1);
     }
 
     public static void main(String[] args) {

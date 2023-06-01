@@ -1,23 +1,24 @@
 package strings;
 
-import java.util.stream.IntStream;
-
 public class StringPanagram {
+
+    private static boolean isPanagram(char[] c) {
+        int[] temp = new int[26];
+        for (char x : c) {
+            if (x >= 'a' && x <= 'z') {
+                temp[x - 'a']++;
+            }
+        }
+        for (int x : temp) {
+            if (x == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         String s = "The quick brown fox jumps over the lazy dog";
-        int[] temp = new int[26];
-        for (char x : s.toLowerCase().toCharArray()) {
-            if (x >= 97 && x <= 122) {
-                temp[x - 97]++;
-            }
-        }
-        IntStream.range(0, temp.length).forEach(i -> {
-            if (temp[i] == 0) {
-                System.out.println("String is not panagram");
-                System.exit(0);
-            }
-        });
-        System.out.println("String is panagram");
+        System.out.println(isPanagram(s.toLowerCase().toCharArray()) ? "Panagram" : "Not Panagram");
     }
 }

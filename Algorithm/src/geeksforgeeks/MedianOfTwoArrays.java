@@ -22,5 +22,7 @@ public class MedianOfTwoArrays {
         System.out.println(findMedian(new int[]{1, 2},   new int[]{3}));
         System.out.println(findMedian(new int[]{1, 2},   new int[]{3, 4}));
         System.out.println(findMedian(new int[]{10, 20}, new int[]{30, 40}));
+        System.out.println(findMedian(new int[]{10, 20, 25}, new int[]{30, 40}));
+        System.out.println(findMedian(new int[]{10, 20}, new int[]{30, 40, 50}));
     }
 }

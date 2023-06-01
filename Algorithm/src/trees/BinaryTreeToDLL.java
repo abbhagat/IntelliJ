@@ -11,7 +11,7 @@ public class BinaryTreeToDLL {
             return;
         }
         convertTreeToDLL(root.left);
-        if (temp == null) {
+        if (head == null) {
             head = root;
         } else {
             temp.right = root;
@@ -26,8 +26,8 @@ public class BinaryTreeToDLL {
         root.left       = new Node(2);
         root.right      = new Node(3);
         convertTreeToDLL(root);
-        System.out.println("head" + head.num);
-        System.out.println("temp" + temp.num);
+        System.out.println("head -> " + head.num);
+        System.out.println("temp -> " + temp.num);
         for (Node temp = head; temp != null; temp = temp.right) {
             System.out.print(temp.num + " ");
         }

@@ -7,7 +7,7 @@ import static linkedlist.TraverseList.traverseList;
 
 public class MergeTwoSortedList {
 
-    public static Node mergeTwoLists(Node a, Node b) {
+    public static Node merge(Node a, Node b) {
         if (a == null) {
             return b;
         }
@@ -15,15 +15,15 @@ public class MergeTwoSortedList {
             return a;
         }
         if (a.num < b.num) {
-            a.next = mergeTwoLists(a.next, b);
+            a.next = merge(a.next, b);
             return a;
         } else {
-            b.next = mergeTwoLists(a, b.next);
+            b.next = merge(a, b.next);
             return b;
         }
     }
 
-    private static Node merge(Node head1, Node head2) {
+    private static Node mergeTwoLists(Node head1, Node head2) {
         Node merged = new Node();
         Node temp = merged;
         while (head1 != null && head2 != null) {
@@ -59,7 +59,7 @@ public class MergeTwoSortedList {
         }
         traverseList(a);
         traverseList(b);
-//        traverseList(merge(a, b));
-        traverseList(mergeTwoLists(a, b));
+        traverseList(merge(a, b));
+//        traverseList(mergeTwoLists(a, b));
     }
 }

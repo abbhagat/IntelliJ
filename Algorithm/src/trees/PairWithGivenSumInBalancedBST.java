@@ -24,16 +24,14 @@ public class PairWithGivenSumInBalancedBST {
         return list;
     }
 
-    private static boolean isPairPresent(Node root, int target) {
+    private static void isPairPresent(Node root, int target) {
         List<Integer> list = inorder(root, new ArrayList<>());
         for (int x : list) {
             int y = target - x;
             if (list.contains(y)) {
                 System.out.println(x + "," + y);
-                return true;
             }
         }
-        return false;
     }
 
     public static void main(String[] args) {
@@ -42,7 +40,6 @@ public class PairWithGivenSumInBalancedBST {
         for (int x : a) {
             root = createBST(root, x);
         }
-        int target = 33;
-        System.out.println(isPairPresent(root, target));
+        isPairPresent(root, 33);
     }
 }

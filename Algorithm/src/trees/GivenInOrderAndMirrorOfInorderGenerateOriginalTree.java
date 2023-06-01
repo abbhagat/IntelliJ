@@ -17,8 +17,8 @@ public class GivenInOrderAndMirrorOfInorderGenerateOriginalTree {
             return root;
         }
         int mid    = search(inorder, root.num, start, end);
-        root.right = buildTree(inorder, postOrder, mid + 1, end,  postIndex);
-        root.left  = buildTree(inorder, postOrder, start, mid - 1, postIndex);
+        root.right = buildTree(inorder, postOrder,mid + 1, end, postIndex);
+        root.left  = buildTree(inorder, postOrder, start,mid - 1, postIndex);
         return root;
     }
 
@@ -33,7 +33,7 @@ public class GivenInOrderAndMirrorOfInorderGenerateOriginalTree {
 
     public static void main(String[] args) {
         System.out.println();
-        int[] inorder = {10, 8, 6, 4, 2, 1, 3, 5, 7, 9};
+        int[] inorder   = {10, 8, 6, 4, 2, 1, 3, 5, 7, 9};
         int[] postorder = {10, 8, 6, 4, 2, 9, 7, 5, 3, 1};
         PostIndex postIndex = new PostIndex();
         postIndex.index = postorder.length - 1;

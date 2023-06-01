@@ -17,7 +17,7 @@ public class GivenTwoMatrixCheckIfOtherIsObtainedAfterRotation {
                     c0++;
             }
         }
-        return c90 == n * n || c270 == n * n || c180 == n * n || c0 == n * n ? true : false;
+        return c90 == n * n || c270 == n * n || c180 == n * n || c0 == n * n;
     }
 
     public static void main(String[] args) {

@@ -88,9 +88,7 @@ package gfg;
 
 public class FindPairCountWithSumDivisibleByK {
 
-    private static final int[] a = {2, 2, 1, 7, 5, 3};
-
-    private static int countPairs(int k) {
+    private static int countPairs(int[] a, int k) {
         int[] freq = new int[k];
         for (int x : a) {
             freq[x % k]++;
@@ -106,6 +104,7 @@ public class FindPairCountWithSumDivisibleByK {
     }
 
     public static void main(String[] args) {
-        System.out.print(countPairs(4));
+        System.out.println(countPairs(new int[]{1, 2, 3, 4, 5}, 5));
+        System.out.println(countPairs(new int[]{2, 2, 1, 7, 5, 3}, 4));
     }
 }

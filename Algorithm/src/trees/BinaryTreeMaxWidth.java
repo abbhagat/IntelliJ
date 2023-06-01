@@ -7,10 +7,10 @@ Constructed Binary tree is:
                     1
                   /   \
                 2      3
-              /  \      \
-             4    5      8
+              /  \    /  \
+             4    5  7    8
                        /   \
-                      6     7
+                      6     9
  */
 
 // Time Complexity : O(n)
@@ -56,4 +56,3 @@ public class BinaryTreeMaxWidth {
         System.out.println("Maximum width = " + maxWidth(root));
     }
 }
-

@@ -5,17 +5,16 @@ import java.util.Stack;
 public class DecodeString {
 
     private static String decodeString(String s) {
-        String decode = "";
+        int n = 0; String decode = "";
         Stack<String>  result = new Stack<>();
         Stack<Integer> count  = new Stack<>();
-        int n = 0;
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {
                 n = 10 * n + c - '0';
             } else if (c == '[') {
                 count.push(n);
-                n = 0;
                 result.push(decode);
+                n = 0;
                 decode = "";
             } else if (c == ']') {
                 String temp = decode;

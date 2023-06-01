@@ -3,7 +3,7 @@ package matrix;
 // Time Complexity O(M*N)
 public class NQueenProblem {
 
-    private static int[][] board = {
+    private static final int[][] board = {
             {0, 0, 0, 0},
             {0, 0, 0, 0},
             {0, 0, 0, 0},

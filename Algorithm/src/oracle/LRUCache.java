@@ -11,17 +11,17 @@ page at tail being the least recently used page in the list.
 Hash Map (key: page number, value: page) is used for O(1) access to pages in cache
 
 When a page is accessed, there can be 2 cases:
-1. Page is present in the cache - If the page is already present in the cache, we move the page to the start of the list.
+1. Page is present in the cache     - If the page is already present in the cache, we move the page to the start of the list.
 2. Page is not present in the cache - If the page is not present in the cache, we add the page to the list.
 How to add a page to the list:
-a. If the cache is not full, add the new page to the start of the list.
-b. If the cache is full, remove the last node of the linked list and move the new page to the start of the list.
+1. If the cache is not full, add the new page to the start of the list.
+2. If the cache is full, remove the last node of the linked list and move the new page to the start of the list.
  */
 
 public class LRUCache {
 
-    private DoublyLinkedList pageList;
-    private Map<Integer, Node> pageMap;
+    private final DoublyLinkedList pageList;
+    private final Map<Integer, Node> pageMap;
     private final int cacheSize;
 
     public LRUCache(int cacheSize) {
@@ -39,26 +39,26 @@ public class LRUCache {
         return pageNode;
     }
 
-    public void addPage(int num) {
+    public void addPage(int pageNum) {
         Node pageNode;
         if (pageList.currSize == cacheSize) {
             pageMap.remove(pageList.tail.num);
         }
-        pageNode = pageList.addPageToList(num);
-        pageMap.put(num, pageNode);
+        pageNode = pageList.addPageToList(pageNum);
+        pageMap.put(pageNum, pageNode);
     }
 
-    public void accessPage(int num) {
+    public void accessPage(int pageNum) {
         Node pageNode;
-        if (pageMap.containsKey(num)) {
-            pageNode = pageMap.get(num);
+        if (pageMap.containsKey(pageNum)) {
+            pageNode = pageMap.get(pageNum);
             pageList.movePageToHead(pageNode);
         } else {
             if (pageList.currSize == pageList.size) {
                 pageMap.remove(pageList.tail.num);
             }
-            pageNode = pageList.addPageToList(num);
-            pageMap.put(num, pageNode);
+            pageNode = pageList.addPageToList(pageNum);
+            pageMap.put(pageNum, pageNode);
         }
     }
 

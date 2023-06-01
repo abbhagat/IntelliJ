@@ -8,8 +8,7 @@ package geeks;
 
 public class EquilibriumPointInAnArray {
 
-    public static void main(String[] args) {
-        int[] a = {1, 3, 4, 2, 15, 6, 3, 1};
+    private static int findEquilibriumPoint(int[] a) {
         int sum1 = 0, sum2 = 0;
         for (int x : a) {
             sum1 += x;
@@ -17,10 +16,16 @@ public class EquilibriumPointInAnArray {
         for (int x : a) {
             sum2 += x;
             if (sum1 == sum2) {
-                System.out.println(x);
-                break;
+                return x;
             }
             sum1 -= x;
         }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findEquilibriumPoint(new int[]{1, 2, 3, 2, 1}));
+        System.out.println(findEquilibriumPoint(new int[]{1, 3, 4, 2, 15, 6, 3, 1}));
+        System.out.println(findEquilibriumPoint(new int[]{6, 3, 2, 1}));
     }
 }

@@ -8,17 +8,16 @@ public class NthHighestAndNthLowestUsingMinHeap {
     private static int kth = 1;
 
     public static void buildHeap() {
-        n = a.length - 1;
         for (int i = n / 2; i >= 0; i--) {
             minHeap(i);
         }
     }
 
     public static void minHeap(int i) {
-        int left = 2 * i;
+        int left  = 2 * i;
         int right = 2 * i + 1;
-        int smallest = (left <= n && a[left] < a[i]) ? left : i;
-        smallest = (right <= n && a[right] < a[smallest]) ? right : smallest;
+        int smallest = (left <= n  && a[left] < a[i])         ? left : i;
+            smallest = (right <= n && a[right] < a[smallest]) ? right : smallest;
         if (smallest != i) {
             swap(i, smallest);
             minHeap(smallest);

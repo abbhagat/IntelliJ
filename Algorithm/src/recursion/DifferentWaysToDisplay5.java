@@ -1,5 +1,7 @@
 package recursion;
 
+import java.util.Objects;
+
 public class DifferentWaysToDisplay5 {
 
     private static int count = 0;
@@ -10,7 +12,7 @@ public class DifferentWaysToDisplay5 {
             System.out.println(prefix);
         }
         for (int i = 1; i <= n; i++) {
-            String newPrefix = prefix + (prefix == "" ? "" : "+") + i;
+            String newPrefix = prefix + (Objects.equals(prefix, "") ? "" : "+") + i;
             //String newPrefix = prefix + i;
             countWays(newPrefix, n - i);
         }

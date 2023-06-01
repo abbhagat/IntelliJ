@@ -5,12 +5,8 @@ import static trees.TreeTraversal.inorder;
 public class PopulateNextRightPointer {
 
     private static void connect(Node root) {
-        if (root == null) {
-            return;
-        }
-        Node pre = root, curr;
-        while (pre.left != null) {
-            curr = pre;
+        while (root != null && root.left != null) {
+            Node curr = root;
             while (curr != null) {
                 if (curr.left != null) {
                     curr.left.right = curr.right;
@@ -20,7 +16,7 @@ public class PopulateNextRightPointer {
                 }
                 curr = curr.right;
             }
-            pre = pre.left;
+            root = root.left;
         }
     }
 
@@ -30,7 +26,7 @@ public class PopulateNextRightPointer {
         root.right          = new Node(3);
         root.left.left      = new Node(4);
         root.left.right     = new Node(5);
-        root.left.left.left = new Node(7);
+        root.left.left.left = new Node(6);
         inorder(root);
         connect(root);
         System.out.println();

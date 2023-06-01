@@ -1,5 +1,8 @@
 package geeksforgeeks;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class BeautifulNumber {
 
     private static boolean isBeautiful(int n) {
@@ -21,10 +24,28 @@ public class BeautifulNumber {
             if (m == 1 || n == 1) {
                 return true;
             }
-            if (m == n && n != 1) {
+            if (m == n) {
                 return false;
             }
         }
+    }
+
+    public static boolean isHappyNumber(int n) {
+        if (n == 1) {
+            return true;
+        }
+        Set<Integer> set = new HashSet<>();
+        set.add(n);
+        int sum = 0;
+        while (sum != 1) {
+            sum = sum(n);
+            if (set.contains(sum)) {
+                return false;
+            }
+            set.add(sum);
+            n = sum;
+        }
+        return true;
     }
 
     private static int sum(int n) {
@@ -38,11 +59,8 @@ public class BeautifulNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(isBeautiful(31) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isBeautiful(32) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isBeautiful(33) ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(31)       ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(32)       ? "Beautiful" : "Not Beautiful");
-        System.out.println(isHappy(33)       ? "Beautiful" : "Not Beautiful");
+        System.out.println(isBeautiful(31) + "\t" + isHappy(31) + "\t" + isHappyNumber(31));
+        System.out.println(isBeautiful(32) + "\t" + isHappy(32) + "\t" + isHappyNumber(32));
+        System.out.println(isBeautiful(33) + "\t" + isHappy(33) + "\t" + isHappyNumber(33));
     }
 }

@@ -2,19 +2,21 @@ package linkedlist;
 
 import static linkedlist.TraverseList.traverseList;
 
-// Time Complexity:  O(n)
+// Time Complexity : O(n)
 // Space Complexity: O(1)
 public class ReverseList {
 
-    private static Node reverse(Node first) {
-        Node head = first, previous = null, temp;
-        while (head != null) {
-            temp = head;
-            head = head.next;
-            temp.next = previous;
-            previous = first = temp;
+    private static Node reverse(Node node) {
+        Node prev = null;
+        Node temp = node;
+        Node next;
+        while (temp != null) {
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
         }
-        return first;
+        return prev;
     }
 
     public static Node reverseList(Node node) {

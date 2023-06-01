@@ -7,7 +7,7 @@ import static java.lang.Integer.max;
 public class LengthOfTheLongestBalancedBracket {
 
     private static int findLength(String bracket) {
-        int maxLength = 0;
+        int maxLength = Integer.MIN_VALUE;
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         for (int i = 0; i < bracket.length(); i++) {
@@ -26,5 +26,7 @@ public class LengthOfTheLongestBalancedBracket {
 
     public static void main(String[] args) {
         System.out.println(findLength("{}}"));
+        System.out.println(findLength("{{}}"));
+        System.out.println(findLength("{}}{{}}"));
     }
 }

@@ -13,17 +13,16 @@ public class ReorderLinkList {
             return;
         }
         Node mid = findMid(head);
-        Node cur = mid.next;
+        Node curr = mid.next;
         mid.next = null;
-        while (cur != null) {
-            // swap(cur,mid.next);
-            Node temp = cur.next;
-            cur.next = mid.next;
-            mid.next = cur;
-            cur = temp;
+        while (curr != null) {         // swap(cur,mid.next);
+            Node temp = curr.next;
+            curr.next = mid.next;
+            mid.next = curr;
+            curr = temp;
         }
         Node left = head, right = mid.next;
-        while (left != null && mid != null && right != null) {
+        while (left != null && right != null) {
             mid.next   = right.next;
             right.next = left.next;
             left.next  = right;

@@ -28,12 +28,11 @@ public class ReverseListFromPosMtoPosN {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 2, 3}) {
+        for (int x : new int[]{1, 2, 3, 4, 5}) {
             first = add(first, x);
         }
         traverseList(first);
-        System.out.println();
-        first = reverseList(first, 2, 3);
+        first = reverseList(first, 2, 4);
         traverseList(first);
     }
 }

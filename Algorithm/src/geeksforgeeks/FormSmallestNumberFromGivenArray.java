@@ -27,5 +27,8 @@ public class FormSmallestNumberFromGivenArray {
 
     public static void main(String[] args) {
         System.out.println(smallestNumber(new int[]{3, 30, 34, 5, 9}));
+        System.out.println(smallestNumber(new int[]{0, 1, 2, 3, 4}));
+        System.out.println(smallestNumber(new int[]{4, 5, 0, 8}));
+        System.out.println(smallestNumber(new int[]{542, 60}));
     }
 }

@@ -14,30 +14,29 @@ package matrix;
  */
 public class NumberOfIslandIn2DMatrix {
 
-    private static int[][] M = new int[][]{
-            {1, 1, 0, 0, 0},
-            {0, 1, 0, 0, 1},
-            {1, 0, 0, 1, 1},
-            {0, 0, 0, 0, 0},
-            {1, 0, 1, 0, 1}
-    };
+    private static final int[][] M = new int[][]{
+                                             {1, 1, 0, 0, 0},
+                                             {0, 1, 0, 0, 1},
+                                             {1, 0, 0, 1, 1},
+                                             {0, 0, 0, 0, 0},
+                                             {1, 0, 1, 0, 1}
+                                          };
 
     private static final int ROW = M.length;
     private static final int COL = M[0].length;
 
-    private static boolean[][] visited = new boolean[ROW][COL];
-
+    private static final boolean[][] visited = new boolean[ROW][COL];
+    private static final int[] rowIdx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+    private static final int[] colIdx = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
     private static boolean isSafe(int row, int col) {
         return row >= 0 && row < ROW && col >= 0 && col < COL && (M[row][col] == 1 && !visited[row][col]);
     }
 
     private static void DFS(int row, int col) {
-        int[] rowNbr = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] colNbr = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
-            if (isSafe(row + rowNbr[k], col + colNbr[k])) {
-                   DFS(row + rowNbr[k], col + colNbr[k]);
+            if (isSafe(row + rowIdx[k], col + colIdx[k])) {
+                   DFS(row + rowIdx[k], col + colIdx[k]);
             }
         }
     }

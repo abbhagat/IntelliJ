@@ -11,7 +11,7 @@ public class BinaryTreeToCircularDLL {
             return;
         }
         convertTreeToDLL(root.left);
-        if (temp == null) {
+        if (head == null) {
             head = root;
         } else {
             temp.right = root;

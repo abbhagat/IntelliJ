@@ -2,12 +2,13 @@ package gfg;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class SentenceProblem {
 
     public static String arrange(String sentence) {
-        TreeMap<Integer, List<String>> map = new TreeMap<>();
+        Map<Integer, List<String>> map = new TreeMap<>();
         String[] str = sentence.split(" ");
         for (String s : str) {
             if (!s.isEmpty()) {
@@ -32,8 +33,7 @@ public class SentenceProblem {
         if (c >= 97 && c <= 122) {
             c -= 32;
         }
-        result = "" + c + result.substring(1);
-        return result;
+        return c + result.substring(1);
     }
 
     public static void main(String[] args) {

@@ -4,29 +4,33 @@ import static trees.TreeTraversal.inorder;
 
 public class BinaryTreeToLinkedList {
 
-    private static void treeToList(Node root) {
+    private static Node head, temp;
+
+    private static void treeToLinkedList(Node root) {
         if (root == null) {
             return;
         }
-        treeToList(root.left);
-        treeToList(root.right);
-        Node node = root.right;
-        root.right = root.left;
-        root.left = null;
-        Node curr = root;
-        while (curr.right != null) {
-            curr = curr.right;
+        treeToLinkedList(root.left);
+        if (head == null) {
+            head = root;
+        } else {
+            temp.right = root;
         }
-        curr.right = node;
+        temp = root;
+        temp.left = null;
+        treeToLinkedList(root.right);
     }
 
     public static void main(String[] args) {
-        Node root = new Node(1);
-        root.left = new Node(2);
+        Node root  = new Node(2);
+        root.left  = new Node(1);
         root.right = new Node(3);
         inorder(root);
-        treeToList(root);
+        treeToLinkedList(root);
         System.out.println();
-        inorder(root);
+        for(Node temp = head; temp != null; temp = temp.right) {
+            System.out.println(temp.num);
+        }
+        System.out.println();
     }
 }

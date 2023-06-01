@@ -3,34 +3,32 @@ package trees;
 import java.util.ArrayList;
 import java.util.List;
 
-import static trees.CreateBST.createBST;
+
+/*
+               4
+              / \
+             2   7
+            / \  /\
+           1  3  6 8
+ */
 
 public class RootToLeafPathSum {
 
-    public static boolean pathExist(Node root, int sum) {
-        if (root == null) {
-            return false;
-        }
-        if (sum == root.num) {
-            return true;
-        }
-        return (sum - root.num < root.num) ? pathExist(root.left, sum - root.num) : pathExist(root.right, sum - root.num);
+    private static class BooleanWrapper {
+        boolean isPresent;
     }
 
-    public static void findPath(Node root, int sum, List<Integer> list) {
+    public static void pathExist(Node root, int sum, int target, BooleanWrapper booleanWrapper) {
         if (root == null) {
             return;
         }
-        list.add(root.num);
-        if (sum == root.num) {
-            System.out.println(list);
+        sum += root.num;
+        if (sum == target) {
+            booleanWrapper.isPresent = true;
+            return;
         }
-        else if (sum - root.num < root.num) {
-            findPath(root.left,  sum - root.num, list);
-        }
-        else if (sum - root.num > root.num) {
-            findPath(root.right, sum - root.num, list);
-        }
+        pathExist(root.left,  sum, target, booleanWrapper);
+        pathExist(root.right, sum, target, booleanWrapper);
     }
 
     public static void rootToLeafPathSum(Node root, int sum, List<Integer> list) {
@@ -46,15 +44,29 @@ public class RootToLeafPathSum {
     }
 
     public static void main(String[] args) {
-        int[] a = {20, 10, 30, 5, 2, 9, 25, 50};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
-        }
-        System.out.println(pathExist(root, 35));
+        /*
+                       4
+                      / \
+                     2   7
+                    / \  /\
+                   1  3  6 8
+         */
+
+        Node root           = new Node(4);
+        root.left           = new Node(2);
+        root.right          = new Node(7);
+        root.left.left      = new Node(1);
+        root.left.right     = new Node(3);
+        root.right.left     = new Node(6);
+        root.right.right    = new Node(8);
+        BooleanWrapper booleanWrapper = new BooleanWrapper();
+        pathExist(root, 0, 9, booleanWrapper);
+        System.out.println(booleanWrapper.isPresent);
+        booleanWrapper = new BooleanWrapper();
+        pathExist(root, 0, 6, booleanWrapper);
+        System.out.println(booleanWrapper.isPresent);
         List<Integer> list = new ArrayList<>();
         rootToLeafPathSum(root, 0, list);
         System.out.println(list);
-        findPath(root, 35, new ArrayList<>());
     }
 }

@@ -1,14 +1,16 @@
 package oracle;
 
+import java.util.Objects;
+
 public class TMHashMap<K, V> {
 
     private final static int SIZE = 128;
-    private Entry[] table = new Entry[SIZE];
+    private final Entry<K,V>[] table = new Entry[SIZE];
 
-    private final class Entry<K, V> {
+    private static final class Entry<K, V> {
         private final K key;
         private V value;
-        private Entry next;
+        private Entry<K,V> next;
 
         public Entry(K key, V value) {
             this.key = key;
@@ -31,53 +33,54 @@ public class TMHashMap<K, V> {
 
     public V get(K key) {
         int hash = key == null ? 0 : key.hashCode() % SIZE;
-        for (Entry e = table[hash]; e != null; e = e.next) {
+        for (Entry<K,V> e = table[hash]; e != null; e = e.next) {
             if (null == e.getKey() || e.getKey().equals(key)) {
-                return (V) e.getValue();
+                return e.getValue();
             }
         }
         return null;
     }
 
-    public V remove(K key) {
-        int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry e = table[hash], prev = e;
-        while (e != null) {
-            if (e.next == null) {
-                table[hash] = null;
-            } else {
-                if (null == e.getKey() || e.getKey().equals(key)) {
-                    prev.next = e.next;
-                }
-            }
-            e = e.next;
-        }
-        return (V) prev.getValue();
-    }
-
     public V put(K key, V value) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry e = table[hash];
+        Entry<K,V> e = table[hash];
         if (null != e) {
-            if (null == e.getKey() || key.equals(e.getKey())) {
+            if (null == e.getKey() || Objects.equals(key, e.getKey())) {
                 e.setValue(value);
             } else {
                 while (e.next != null) {
                     e = e.next;
                 }
-                table[hash] = new Entry(key, value);
+                table[hash] = new Entry<>(key, value);
                 e.next = table[hash];
-                return (V) e.getValue();
+                return e.getValue();
             }
         }
-        table[hash] = new Entry(key, value);
+        table[hash] = new Entry<>(key, value);
         return null;
+    }
+
+    public V remove(K key) {
+        int hash = (null == key) ? 0 : key.hashCode() % SIZE;
+        Entry<K,V> e = table[hash], prev = e;
+        if (e == null) {
+            return null;
+        }
+        while (e != null) {
+            if (e.next == null) {
+                table[hash] = null;
+            } else if (null == e.getKey() || e.getKey().equals(key)) {
+                    prev.next = e.next;
+              }
+            e = e.next;
+        }
+        return prev.getValue();
     }
 
     public void traverseHashMap() {
         for (int i = 0; i < SIZE; i++) {
-            for (Entry e = table[i]; e != null; e = e.next) {
-                System.out.println("Key : " + table[i].getKey() + "\tValue : " + table[i].getValue());
+            for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+                System.out.println("Key : " + e.getKey() + "\tValue : " + e.getValue());
             }
         }
     }
@@ -98,6 +101,7 @@ public class TMHashMap<K, V> {
         map.traverseHashMap();
         System.out.println("*********");
         System.out.println(map.remove("D"));
+        System.out.println(map.remove("D1"));
         System.out.println(map.remove(null));
         map.traverseHashMap();
     }

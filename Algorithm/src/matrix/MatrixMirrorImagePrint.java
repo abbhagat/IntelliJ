@@ -1,25 +1,16 @@
 package matrix;
 
+import static matrix.MatrixPrint.printMatrix;
+
 public class MatrixMirrorImagePrint {
 
     private static void mirrorImage(int[][] a) {
-        int R = a.length, C = a[0].length;
-        for (int i = 0; i < R; i++) {
-            for (int j = 0, k = C - 1; j < C && k >= 0 && j < k; j++, k--) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0, k = a[0].length - 1; j < k; j++, k--) {
                 int t = a[i][j];
                 a[i][j] = a[i][k];
                 a[i][k] = t;
             }
-        }
-    }
-
-    public static void printMatrix(int[][] a) {
-        int R = a.length, C = a[0].length;
-        for (int i = 0; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                System.out.print(a[i][j] + " ");
-            }
-            System.out.println();
         }
     }
 

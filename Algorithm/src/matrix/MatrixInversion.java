@@ -1,18 +1,11 @@
 package matrix;
 
+import static matrix.MatrixPrint.printMatrix;
+
 public class MatrixInversion {
-    int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    private static int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
-    void display() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(a[i][j] + "\t");
-            }
-            System.out.println();
-        }
-    }
-
-    void matrixInversion() {
+    private static void matrixInversion() {
         int j = 2;
         for (int i = 0; i < 3; i++) {
             if (i == 0 || i == 2) {
@@ -24,10 +17,9 @@ public class MatrixInversion {
     }
 
     public static void main(String[] args) {
-        MatrixInversion m = new MatrixInversion();
-        m.display();
-        m.matrixInversion();
+        printMatrix(a);
+        matrixInversion();
         System.out.println();
-        m.display();
+        printMatrix(a);
     }
 }

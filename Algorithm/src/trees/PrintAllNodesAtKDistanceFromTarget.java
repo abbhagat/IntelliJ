@@ -1,21 +1,8 @@
 package trees;
 
-import static trees.CreateBST.createBST;
-
 // Time Complexity: O(n)
 
 public class PrintAllNodesAtKDistanceFromTarget {
-    private static void printKDistanceNodeDown(Node root, int k) {
-        if (root == null || k < 0) {
-            return;
-        }
-        if (k == 0) {
-            System.out.println(root.num);
-            return;
-        }
-        printKDistanceNodeDown(root.left,  k - 1);
-        printKDistanceNodeDown(root.right, k - 1);
-    }
 
     private static int printKDistanceNode(Node root, Node target, int k) {
         if (root == null) {
@@ -47,13 +34,28 @@ public class PrintAllNodesAtKDistanceFromTarget {
         return -1;   // If target was neither present in left nor in right subtree
     }
 
-    public static void main(String[] args) {
-        int[] a = {50, 25, 100, 10, 30, 90, 120, 27, 35};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+    private static void printKDistanceNodeDown(Node root, int k) {
+        if (root == null || k < 0) {
+            return;
         }
-        Node target = root.left.left;
-        printKDistanceNode(root, target, 2);
+        if (k == 0) {
+            System.out.println(root.num);
+            return;
+        }
+        printKDistanceNodeDown(root.left,  k - 1);
+        printKDistanceNodeDown(root.right, k - 1);
+    }
+
+    public static void main(String[] args) {
+        Node root             = new Node(1);
+        root.left             = new Node(2);
+        root.right            = new Node(3);
+        root.left.left        = new Node(4);
+        root.left.right       = new Node(5);
+//        root.left.left.left   = new Node(6);
+//        root.left.left.right  = new Node(7);
+//        root.left.right.left  = new Node(8);
+//        root.left.right.right = new Node(9);
+        printKDistanceNode(root, root.left, 1);
     }
 }

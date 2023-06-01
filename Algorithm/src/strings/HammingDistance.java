@@ -1,12 +1,7 @@
 package strings;
 
 public class HammingDistance {
-
-    public static void main(String[] args) {
-//        String s1 = "1011101";
-//        String s2 = "1001001";
-        String s1 = "geeksforgeeks";
-        String s2 = "geeksandgeeks";
+    private static int findHammingDistance(String s1, String s2) {
         int dis = 0;
         if (s1.length() == s2.length()) {
             for (int i = 0; i < s1.length(); i++) {
@@ -14,9 +9,13 @@ public class HammingDistance {
                     dis++;
                 }
             }
-            System.out.println("Hamming Distance :" + dis);
-        } else {
-            System.out.println("String are of unequal length");
+            return dis;
         }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findHammingDistance("geeksforgeeks", "geeksandgeeks"));
+        System.out.println(findHammingDistance("1011101", "1001001"));
     }
 }

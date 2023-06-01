@@ -16,7 +16,7 @@ The former is called max heap and the latter is called min-heap. The heap can be
  */
 public class HeapSort {
 
-    private static int[] a = {3, 8, 1, 9, 4, 2, 6, 7, 10, 5};
+    private static final int[] a = {3, 8, 1, 9, 4, 2, 6, 7, 10, 5};
     private static int n = a.length - 1;
 
     private static void buildHeap() {
@@ -26,10 +26,11 @@ public class HeapSort {
     }
 
     private static void maxHeap(int i) {
-        int left = 2 * i;
+        int left  = 2 * i;
         int right = 2 * i + 1;
-        int largest = (left <= n && a[left] > a[i]) ? left : i;
-        largest = (right <= n && a[right] > a[largest]) ? right : largest;
+        int largest;
+        largest = left  <= n && a[left]  > a[i]       ? left  : i;
+        largest = right <= n && a[right] > a[largest] ? right : largest;
         if (i != largest) {
             swap(i, largest);
             maxHeap(largest);

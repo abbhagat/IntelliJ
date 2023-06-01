@@ -22,7 +22,8 @@ public class SortinginBigO_n {
     }
 
     private static void sort(int[] pos, char[] chars) {
-        for (int i = 0; i < chars.length; ) {
+        int i = 0;
+        while (i < chars.length) {
             if (i != pos[i]) {
                 swap(i, pos[i], chars);
                 swap(i, pos[i], pos);

@@ -28,7 +28,7 @@ public class MaxArrayZeroSum {
     }
 
     public static void main(String[] args) {
-        int a[] = {15, -2, 2, -8, 1, 7, 10, 23};
+        int[] a = {15, -2, 2, -8, 1, 7, 10, 23};
         System.out.println("Length of the longest Zero Sum subarray is " + maxLen(a));
     }
 }

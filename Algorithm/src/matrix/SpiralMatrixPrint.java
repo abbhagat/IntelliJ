@@ -5,11 +5,11 @@ public class SpiralMatrixPrint {
 
     public static void main(String[] args) {
         int[][] M = new int[][]{
-                {1, 2, 3},
-                {0, 1, 1},
-                {9, 8, 7},
-                {4, 5, 9}
-        };
+                                 {1, 2, 3},
+                                 {0, 1, 1},
+                                 {9, 8, 7},
+                                 {4, 5, 9}
+                               };
         int R1 = 0, R2 = M.length - 1;
         int C1 = 0, C2 = M[0].length - 1;
         while (R1 <= R2 && C1 <= C2) {

@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.LinkedList;
+
 import static graph.CreateGraph.createGraph;
 
 // Time complexity : O(V + E), where V is the number of vertices and E is the number of edges in the graph.
@@ -9,7 +11,8 @@ public class DFSTraversal {
     private static void DFS(Graph g, int v, boolean[] visited) {
         visited[v] = true;
         System.out.print(v + " ");
-        for (int n : g.getEdge()[v]) {
+        LinkedList<Integer> edge = g.getEdge()[v];
+        for (int n : edge) {
             if (!visited[n]) {
                 DFS(g, n, visited);
             }

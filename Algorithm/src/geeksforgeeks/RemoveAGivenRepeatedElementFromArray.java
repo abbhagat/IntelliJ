@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class RemoveAGivenRepeatedElementFromArray {
 
     public static void main(String[] args) {
-        int[] a = {0, 1, 2, 2, 3, 0, 4, 2};
+        int[] a = {0, 1, 2, 2, 3, 2, 4, 2};
         int val = 2;
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
@@ -23,7 +23,8 @@ public class RemoveAGivenRepeatedElementFromArray {
             }
         }
         while (j < a.length) {
-            a[j++] = 0;
+            a[j] = 0;
+            j++;
         }
         IntStream.range(0, j).forEach(i -> System.out.print(a[i] + " "));
     }

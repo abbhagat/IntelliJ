@@ -32,7 +32,7 @@ public class LargestSquareHaving1InBooleanMatrix {
     }
 
     public static void main(String[] args) {
-        int M[][] = {
+        int[][] M = {
                 {0, 1, 1, 0, 1},
                 {1, 1, 0, 1, 0},
                 {0, 1, 1, 1, 0},
@@ -41,7 +41,7 @@ public class LargestSquareHaving1InBooleanMatrix {
                 {0, 0, 0, 0, 0}
         };
         findMatrix(M);
-        int N[][] = {
+        int[][] N = {
                 {0, 1, 0},
                 {1, 1, 1},
                 {0, 1, 1}

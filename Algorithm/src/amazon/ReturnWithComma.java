@@ -5,11 +5,9 @@ package amazon;
 public class ReturnWithComma {
 
     public static String returnWithCommas(String num) {
-        int digits = 0;
-        for (int i = num.length() - 1; i > 0; i--) {
-            digits++;
-            if (digits % 3 == 0) {
-                num = num.substring(0, i) + "," + num.charAt(i) + num.substring(i + 1);
+        for (int i = num.length() - 1 , j = 1; i > 0; i--, j++) {
+            if (j % 3 == 0) {
+                num = num.substring(0, i) + "," + num.substring(i);
             }
         }
         return num;
@@ -17,5 +15,6 @@ public class ReturnWithComma {
 
     public static void main(String[] args) {
         System.out.println(returnWithCommas("1010503"));
+        System.out.println(returnWithCommas("1010503123"));
     }
 }

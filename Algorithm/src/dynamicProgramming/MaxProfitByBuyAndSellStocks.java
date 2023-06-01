@@ -16,38 +16,46 @@ import static java.lang.Integer.min;
   Input: arr[] = {7, 1, 5, 3, 6, 4}
   transactionFee = 1
   Output: 5 1
- */
+*/
 
 // Time complexity:  O(n)
 // Space complexity: O(1)
 public class MaxProfitByBuyAndSellStocks {
 
-    private static void maxProfitWithTrxnFee(int[] a, int fee) {
-        int buying = 0, selling = -a[0], diff_days = 1;
+    private static int maximumProfit(int[] a, int fee) {
+        int buy = -a[0], sell = 0;
         for (int i = 1; i < a.length; i++) {
-            buying = max(buying, selling + a[i] - fee);
-            selling= max(selling, buying - a[i]);
-            if (selling > buying) {
-                diff_days++;
-            }
+            int temp = buy;
+            buy = max(buy, sell - a[i]);
+            sell= max(sell, temp + a[i] - fee);
         }
-        System.out.println(buying + " " + diff_days);
+        return max(buy, sell);
     }
-
+/*
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+*/
     private static int maxProfit(int[] a) {
-        int minVal = Integer.MAX_VALUE, profit = 0;
+        int buy = Integer.MAX_VALUE, profit = 0;
         for (int x : a) {
-            minVal = min(minVal, x);
-            profit = max(profit, x - minVal);
+            buy = min(buy, x);
+            profit = max(profit, x - buy);
         }
         return profit;
     }
 
     public static void main(String[] args) {
-        maxProfit(new int[]{1, 3, 2, 8, 4, 9});
-        maxProfit(new int[]{6, 1, 7, 2, 8, 4});
-        maxProfit(new int[]{7, 1, 5, 3, 6, 4});
-        maxProfit(new int[]{7, 1, 5, 3, 6, 4});
-        maxProfit(new int[]{7, 6, 4, 3, 1});
+        System.out.println(maximumProfit(new int[]{1, 3, 2, 8, 4, 9}, 0));
+        System.out.println(maximumProfit(new int[]{6, 1, 7, 2, 8, 4}, 0));
+        System.out.println(maximumProfit(new int[]{7, 1, 5, 3, 6, 4}, 0));
+        System.out.println(maximumProfit(new int[]{2, 7, 5, 9, 6, 4}, 0));
+        System.out.println(maximumProfit(new int[]{7, 6, 4, 3, 1}, 0));
+        System.out.println();
+        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}));
+        System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4}));
+        System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit(new int[]{2, 7, 5, 9, 6, 4}));
+        System.out.println(maxProfit(new int[]{7, 6, 4, 3, 1}));
     }
 }

@@ -3,7 +3,7 @@ package geeks;
 // Time Complexity O(n) * n!
 public class AllPermutationsOfString {
 
-    private static char[] a = {'A', 'B', 'C'};
+    private static final char[] a = {'A', 'B', 'C'};
     private static int count;
 
     private static void permute(int start, int end) {

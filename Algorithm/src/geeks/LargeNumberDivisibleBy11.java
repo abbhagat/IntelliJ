@@ -9,7 +9,7 @@ public class LargeNumberDivisibleBy11 {
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             int k = s.charAt(i) - '0';
-            sum += i % 2 == 1 ? k : -k;
+            sum += i % 2 == 0 ? k : -k;
         }
         return abs(sum) % 11 == 0;
     }

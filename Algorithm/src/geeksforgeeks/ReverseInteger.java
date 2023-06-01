@@ -2,9 +2,8 @@ package geeksforgeeks;
 
 public class ReverseInteger {
 
-    public static void main(String[] args) {
-        int n = 1534236469;
-        boolean isPositive = n > 0 ? true : false;
+    private static long reverse(int n) {
+        boolean isPositive = n > 0;
         n = isPositive ? n : n * -1;
         long rev = 0;
         while (n != 0) {
@@ -12,6 +11,10 @@ public class ReverseInteger {
             rev = rev * 10 + k;
             n /= 10;
         }
-        System.out.println(isPositive ? rev : rev * -1);
+        return isPositive ? rev : rev * -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(reverse(1534236469));
     }
 }

@@ -10,13 +10,12 @@ public class FindPairsWithPerfectSquareSum {
     private static int[] a = {2, 3, 6, 9, 10, 20};
 
     public static List<Integer> getPerfectSquares(int sum) {
-        List<Integer> perfectSquares = new ArrayList<>();
-        int n = 1, i = 1;
-        while (n < sum) {
-            perfectSquares.add(n);
-            n = (int) Math.pow(++i, 2);
+        List<Integer> list = new ArrayList<>();
+        for(int i = 1, n = 1 ; n < sum ; i++) {
+            n = (int) Math.pow(i, 2);
+            list.add(n);
         }
-        return perfectSquares;
+        return list;
     }
 
     public static int maxPairSum() {
@@ -32,11 +31,11 @@ public class FindPairsWithPerfectSquareSum {
         return max + secondMax;
     }
 
-    public static int countPairsWith(int x, List<Integer> perfectSquares, Set<Integer> set) {
+    public static int countPairsWith(int x, List<Integer> list, Set<Integer> set) {
         int count = 0;
-        for (int target : perfectSquares) {
+        for (int target : list) {
             int y = target - x;
-            if (y > x && set.contains(y)) {  // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
+            if (y > x && set.contains(y)) {                      // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
                 System.out.println(x + "," + y);
                 count++;
             }
@@ -44,21 +43,17 @@ public class FindPairsWithPerfectSquareSum {
         return count;
     }
 
-    public static int countPairs() {
+    public static void main(String[] args) {
         int sum = maxPairSum();
-        List<Integer> perfectSquares = getPerfectSquares(sum);
+        List<Integer> list = getPerfectSquares(sum);
         Set<Integer> set = new HashSet<>();
         for (int x : a) {
             set.add(x);
         }
         int count = 0;
         for (int x : a) {
-            count += countPairsWith(x, perfectSquares, set);
+            count += countPairsWith(x, list, set);
         }
-        return count;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(countPairs());
+        System.out.println(count);
     }
 }

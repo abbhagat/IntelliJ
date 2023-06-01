@@ -2,8 +2,8 @@ package geeks;
 
 public class BulbSwitchProblem {
 
-    private static int[] a = {1, 1, 0, 0, 1, 0, 0};
-    private static int[] q = {2, 2, 6};
+    private static final int[] a = {1, 1, 0, 0, 1, 0, 0};
+    private static final int[] q = {2, 2, 6};
 
     private static int solve() {
         int countOne = 0;
@@ -12,13 +12,13 @@ public class BulbSwitchProblem {
                 countOne++;
             }
         }
+        boolean glows = countOne >= (double) (a.length / 2);
         int count = 0;
-        boolean glows = countOne >= Math.ceil(a.length / 2) ? true : false;
         for (int x : q) {
             boolean prev = glows;
             countOne += (a[x - 1] == 0) ? 1 : -1;
             a[x - 1] ^= 1;
-            glows = countOne >= Math.ceil(a.length / 2) ? true : false;
+            glows = countOne >= (double) (a.length / 2);
             if (prev != glows) {
                 count++;
             }

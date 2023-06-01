@@ -10,13 +10,13 @@ public class MinCoinToMakeAValue {
             return 0;
         }
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i < coins.length; i++) {
-            if (coins[i] <= value) {
-                int result = minCoins(coins, value - coins[i]);
+        for (int coin : coins) {
+            if (coin <= value) {
+                int result = 1 + minCoins(coins, value - coin);
                 min = min(min, result);
             }
         }
-        return min + 1;
+        return min;
     }
 
     // Time Complexity (mV)
@@ -27,11 +27,13 @@ public class MinCoinToMakeAValue {
             dp[i] = Integer.MAX_VALUE;                    // Initialize all dp values as Infinite
         }
         for (int i = 1; i <= V; i++) {                  // Compute minimum coins required for all values from 1 to value
-            for (int j = 0; j < coins.length; j++)     // Go through all coins smaller than i
-                if (coins[j] <= i) {
-                    int result = dp[i - coins[j]];
-                    if (result != Integer.MAX_VALUE && result + 1 < dp[i])
+            // Go through all coins smaller than i
+            for (int coin : coins)
+                if (coin <= i) {
+                    int result = dp[i - coin];
+                    if (result != Integer.MAX_VALUE && result + 1 < dp[i]) {
                         dp[i] = result + 1;
+                    }
                 }
         }
         return dp[V] == Integer.MAX_VALUE ? -1 : dp[V];

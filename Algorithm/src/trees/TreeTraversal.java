@@ -2,8 +2,6 @@ package trees;
 
 import java.util.Stack;
 
-import static trees.BinaryTree.createBT;
-
 public class TreeTraversal {
 
     public static void inorder(Node root) {
@@ -30,7 +28,7 @@ public class TreeTraversal {
         }
     }
 
-    public static void preOrderWithoutRecursion(Node root) {
+    public static void preOrder(Node root) {
         Stack<Node> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
@@ -45,7 +43,7 @@ public class TreeTraversal {
         }
     }
 
-    public static void postOrderWithoutRecursion(Node root) {
+    public static void postOrder(Node root) {
         Stack<Node> stack = new Stack<>();
         while (true) {
             while (root != null) {
@@ -66,7 +64,7 @@ public class TreeTraversal {
         }
     }
 
-    public static void inOrderWithoutRecursion(Node root) {
+    public static void inOrder(Node root) {
         Stack<Node> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
@@ -80,22 +78,20 @@ public class TreeTraversal {
     }
 
     public static void main(String[] args) {
-        Node root = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        for (int x : a) {
-            root = createBT(x, root);
-        }
+        Node root  = new Node(2);
+        root.left  = new Node(1);
+        root.right = new Node(3);
         inorder(root);
         System.out.println();
-        inOrderWithoutRecursion(root);
+        inOrder(root);
         System.out.println();
         preorder(root);
         System.out.println();
-        preOrderWithoutRecursion(root);
+        preOrder(root);
         System.out.println();
         postorder(root);
         System.out.println();
-        postOrderWithoutRecursion(root);
+        postOrder(root);
         System.out.println();
     }
 }

@@ -3,6 +3,7 @@ package amazon;
 import java.util.stream.IntStream;
 
 // Time  Complexity  O(n)
+// Space Complexity  O(n)
 
 public class ArrayMulOtherThanOwnPosition {
 
@@ -20,7 +21,7 @@ public class ArrayMulOtherThanOwnPosition {
     }
 
     public static void main(String[] args) {
-        int[] a = productExceptSelf(new int[]{0, 1, 2});
+        int[] a = productExceptSelf(new int[] {1, 2, 0});
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

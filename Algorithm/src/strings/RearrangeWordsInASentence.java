@@ -10,16 +10,11 @@ public class RearrangeWordsInASentence {
     public static String arrangeWords(String text) {
         String[] str = text.split(" ");
         Map<Integer, List<String>> map = new TreeMap<>();
+        List<String> arrayList;
         for (String s : str) {
-            if (null == map.get(s.length())) {
-                List<String> arrayList = new ArrayList<>();
-                arrayList.add(s);
-                map.put(s.length(), arrayList);
-            } else {
-                List<String> arrayList = map.get(s.length());
-                arrayList.add(s);
-                map.put(s.length(), arrayList);
-            }
+            arrayList = map.containsKey(s.length()) ? map.get(s.length()) : new ArrayList<>();
+            arrayList.add(s);
+            map.put(s.length(), arrayList);
         }
         String k = "";
         for (Map.Entry<Integer, List<String>> set : map.entrySet()) {

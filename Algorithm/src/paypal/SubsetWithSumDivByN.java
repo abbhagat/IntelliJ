@@ -10,14 +10,9 @@ public class SubsetWithSumDivByN {
 
     private static void findSubset(int[] a, int index, LinkedList<Integer> list, int k, BooleanWrapper booleanWrapper) {
         if (index == a.length) {
-            if (!list.isEmpty()) {
-                int sum = 0;
-                for (int x : list) {
-                    sum += x;
-                }
-                if (sum % k == 0) {
-                    booleanWrapper.flag = true;
-                }
+            int sum = list.stream().reduce(0, Integer::sum);
+            if (sum % k == 0) {
+                booleanWrapper.flag = true;
             }
             return;
         }

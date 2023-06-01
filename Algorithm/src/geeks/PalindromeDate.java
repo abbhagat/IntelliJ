@@ -14,7 +14,7 @@ public class PalindromeDate {
         while (true) {
             dateStr = sdf.format(date);
             reverse = new StringBuffer(dateStr).reverse();
-            if (dateStr.equals(reverse.toString())) {
+            if (dateStr.contentEquals(reverse)) {
                 System.out.print("Next Palindrome Date " + sdf.format(date) + "\n");
                 break;
             }

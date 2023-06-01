@@ -2,11 +2,13 @@ package matrix;
 
 
 /*
-  11 12 13 14           23 19 15 11
+  11 12 13 14           23 19 15 11     [0][0]   ------ [j][n-i-1]
   15 16 17 18   ---->   24 20 16 12
   19 20 21 22           25 21 17 13
-  23 24 25 26           26 22 18 14
+  23 24 25 26           26 22 18 14     [n-j-1][i] --- [n-i-1][n-j-1]
 */
+
+import static matrix.MatrixPrint.printMatrix;
 
 public class MatrixRotationBy90Degree {
 
@@ -20,15 +22,6 @@ public class MatrixRotationBy90Degree {
                 M[n - i - 1][n - j - 1] = M[j][n - i - 1];
                 M[j][n - i - 1] = t;
             }
-        }
-    }
-
-    public static void printMatrix(int[][] M) {
-        for (int[] x : M) {
-            for (int y : x) {
-                System.out.print(y + " ");
-            }
-            System.out.println();
         }
     }
 

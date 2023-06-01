@@ -11,7 +11,6 @@ public class _3Sum {
     private static Set<LinkedList<Integer>> combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list, Set<LinkedList<Integer>> set) {
         if (curSum == givenSum && list.size() == 3) {
             set.add(new LinkedList<>(list));
-            return set;
         }
         for (int i = index; i < a.length; i++) {
             curSum += a[i];

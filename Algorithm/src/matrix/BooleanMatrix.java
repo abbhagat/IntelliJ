@@ -6,7 +6,10 @@ package matrix;
   then make all the cells of ith row and jth column as 1.
  */
 
-// Time Complexity O(M*N)
+import static matrix.MatrixPrint.printMatrix;
+
+// Time  Complexity O(M*N)
+// Space Complexity O(M*N)
 public class BooleanMatrix {
 
     private static void modifyMatrix(int[][] M) {
@@ -29,25 +32,15 @@ public class BooleanMatrix {
         }
     }
 
-    public static void printMatrix(int[][] M) {
-        int R = M.length, C = M[0].length;
-        for (int i = 0; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                System.out.print(M[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
     public static void main(String[] args) {
-        int mat[][] = {
-                {1, 0, 0, 1},
-                {0, 0, 1, 0},
-                {0, 0, 0, 0}
-        };
-        printMatrix(mat);
-        modifyMatrix(mat);
+        int[][] M = {
+                        {1, 0, 0, 1},
+                        {0, 0, 1, 0},
+                        {0, 0, 0, 0}
+                      };
+        printMatrix(M);
+        modifyMatrix(M);
         System.out.println("Result :-");
-        printMatrix(mat);
+        printMatrix(M);
     }
 }

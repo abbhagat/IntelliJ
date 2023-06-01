@@ -1,41 +1,41 @@
 package vmware;
 
-
 import java.util.concurrent.*;
-
-class WorkerThread implements Callable<Integer> {
-
-    private int start, end;
-    private volatile int sum = 0;
-
-    public WorkerThread(int start, int end) {
-        this.start = start;
-        this.end = end;
-    }
-
-    @Override
-    public Integer call() {
-        for (int i = start; i <= end; i++) {
-            sum += i;
-        }
-        return sum;
-    }
-}
 
 public class AdditionUsingFiveThreads {
 
+    private static class WorkerThread implements Callable<Integer> {
+
+        private final int start, end;
+        private int sum;
+
+        public WorkerThread(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this.sum = 0;
+        }
+
+        @Override
+        public Integer call() {
+            for (int i = start; i <= end; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+    }
+
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        ExecutorService service = Executors.newFixedThreadPool(5);
+        ExecutorService service = Executors.newFixedThreadPool(10);
         WorkerThread[] workerThreads = new WorkerThread[5];
-        workerThreads[0] = new WorkerThread(1, 10);
-        workerThreads[1] = new WorkerThread(1, 50);
-        workerThreads[2] = new WorkerThread(5, 15);
-        workerThreads[3] = new WorkerThread(10, 20);
-        workerThreads[4] = new WorkerThread(15, 20);
-        for (int i = 0; i < workerThreads.length; i++) {
-            Future<Integer> future = service.submit(workerThreads[i]);
+        workerThreads[0] = new WorkerThread(10, 20);
+        workerThreads[1] = new WorkerThread(21, 30);
+        workerThreads[2] = new WorkerThread(31, 45);
+        workerThreads[3] = new WorkerThread(41, 50);
+        workerThreads[4] = new WorkerThread(51, 60);
+        for (WorkerThread workerThread : workerThreads) {
+            Future<Integer> future = service.submit(workerThread);
             System.out.println(future.get());
-            Thread.sleep(1000);
+            Thread.sleep(500);
         }
         service.shutdown();
     }

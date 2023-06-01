@@ -23,7 +23,7 @@ public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
     public static void main(String[] args) {
         System.out.println(sameFrequencyCharactersInString("aaabb"));
-        System.out.println(sameFrequencyCharactersInString("aaabbbb"));
+        System.out.println(sameFrequencyCharactersInString("aababbb"));
         System.out.println(sameFrequencyCharactersInString("aaabbb"));
     }
 }

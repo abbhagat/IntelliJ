@@ -24,11 +24,11 @@ public class RecoverBST {
 
     private static Node first, middle, last, prev;
 
-    private static void correctBSTUtil(Node root) {
+    private static void recoverBSTUtil(Node root) {
         if (root == null) {
             return;
         }
-        correctBSTUtil(root.left);
+        recoverBSTUtil(root.left);
         if (prev != null && root.num < prev.num) {
             if (first == null) {
                 first  = prev;
@@ -39,11 +39,11 @@ public class RecoverBST {
             }
         }
         prev = root;
-        correctBSTUtil(root.right);
+        recoverBSTUtil(root.right);
     }
 
-    private static void correctBST(Node root) {
-        correctBSTUtil(root);
+    private static void recoverBST(Node root) {
+        recoverBSTUtil(root);
         if (first != null && last != null) {
             int temp  = first.num;
             first.num = last.num;
@@ -65,16 +65,12 @@ public class RecoverBST {
 
                     10 and 2 are swapped
 */
-        Node root        = new Node(6);
-        root.left        = new Node(10);
-        root.right       = new Node(2);
-//        root.left.left   = new Node(1);
-//        root.left.right  = new Node(3);
-//        root.right.right = new Node(12);
-//        root.right.left  = new Node(7);
+        Node root        = new Node(1);
+        root.left        = new Node(2);
+        root.right       = new Node(3);
         System.out.println("Original Tree");
         inorder(root);
-        correctBST(root);
+        recoverBST(root);
         System.out.println();
         System.out.println("Recovered Tree");
         inorder(root);

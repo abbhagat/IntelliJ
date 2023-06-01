@@ -11,6 +11,5 @@ public class StackOperations {
         s.display(first);
         first = s.pop(first);
         s.display(first);
-        System.out.println(s.c);
     }
 }

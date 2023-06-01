@@ -11,8 +11,10 @@ import static linkedlist.TraverseList.traverseList;
 public class LinkedListRotation {
 
     public static Node rotateList(Node first, int k) {
-        Node temp = first, last;
-        for (last = first; last.next != null; last = last.next) ;
+        Node temp = first, last = first;
+        while (last.next != null) {
+            last = last.next;
+        }
         for (int i = 1; i < k; i++) {
             temp = temp.next;
         }

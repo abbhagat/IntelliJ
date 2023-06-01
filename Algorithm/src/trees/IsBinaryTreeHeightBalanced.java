@@ -12,15 +12,15 @@ import static java.lang.Math.abs;
 public class IsBinaryTreeHeightBalanced {
 
     private static boolean isBinaryTreeHeightBalanced(Node root) {
-        return maxHeight(root) != -1;
+        return treeHeight(root) != -1;
     }
 
-    private static int maxHeight(Node root) {
+    private static int treeHeight(Node root) {
         if (root == null) {
             return 0;
         }
-        int lH = maxHeight(root.left);
-        int rH = maxHeight(root.right);
+        int lH = treeHeight(root.left);
+        int rH = treeHeight(root.right);
         if (lH == -1 || rH == -1 || abs(lH - rH) > 1) {
             return -1;
         }

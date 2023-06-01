@@ -5,7 +5,7 @@ import java.util.*;
 public class DNASequence {
 
     private static List<String> findRepeatedDNASeq(String str) {
-        if (str == null || str.isEmpty() || str.length() < 10) {
+        if (str == null || str.length() < 10) {
             return Collections.emptyList();
         }
         List<String> list = new ArrayList<>();

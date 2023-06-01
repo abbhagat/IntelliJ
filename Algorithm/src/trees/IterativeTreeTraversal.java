@@ -3,8 +3,6 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static trees.CreateBST.createBST;
-
 // Time Complexity  : O(n)
 // Space Complexity : O(2^h)
 public class IterativeTreeTraversal {
@@ -25,12 +23,9 @@ public class IterativeTreeTraversal {
     }
 
     public static void main(String[] args) {
-        int[] a = {2, 1, 3};
-        Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
-        }
+        Node root  = new Node(2);
+        root.left  = new Node(1);
+        root.right = new Node(3);
         iterativeTreeTraversal(root);
-        System.out.println();
     }
 }

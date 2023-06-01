@@ -4,7 +4,7 @@ package cisco;
    where k >= 2, and maximize the product of those integers.
    Input: n = 2
    Output: 1
-   Explanation: 2 = 1 + 1, 1 × 1 = 1.
+   Explanation: 2 = 1 + 1, 1 × 1 = 1
 
    Example 2:
 

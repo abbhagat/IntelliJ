@@ -26,27 +26,31 @@ Output :  a
           abc
  */
 
+// Time Complexity   O(n)
+// Space Complexity  O(n)
+
 public class PrintAllSubstringOfAGivenString {
-
-    private static Set<String> set = new TreeSet<>(String::compareTo);
-
-    private static void permute(String s, int index) {
-        if (index != 0) {
-            for (int i = 0; i < s.length(); i++) {
-                set.add("" + s.charAt(i));
-                set.add(s.substring(i));
-                set.add(s.substring(0, i));
-                if (i < index) {
-                    set.add(s.substring(i, index));
-                }
+    private static Set<String> printAllSubstring(String s) {
+        Set<String> set = new TreeSet<>(String::compareTo);
+        for (int i = 0; i < s.length(); i++) {
+            set.add(String.valueOf(s.charAt(i)));
+            set.add(s.substring(i));
+            set.add(s.substring(0, i));
+            if (i < s.length() - 1) {
+                set.add(s.substring(i, s.length() - 1));
             }
-            permute(s, index - 1);
         }
+        return set;
     }
 
     public static void main(String[] args) {
-        String str = "abc";
-        permute(str, str.length() - 1);
+        Set<String> set = printAllSubstring("abc");
+        set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
+        System.out.println();
+        set = printAllSubstring("abcd");
+        set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
+        System.out.println();
+        set = printAllSubstring("LEETCODE");
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
     }
 }

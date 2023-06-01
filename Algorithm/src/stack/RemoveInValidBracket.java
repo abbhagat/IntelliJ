@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.Stack;
 
 public class RemoveInValidBracket {
-
     private static void removeInvalidParenthesis(String str) {
         Set<String> set = new HashSet<>();  // set to ignore already visited string
         Stack<String> stack = new Stack<>();

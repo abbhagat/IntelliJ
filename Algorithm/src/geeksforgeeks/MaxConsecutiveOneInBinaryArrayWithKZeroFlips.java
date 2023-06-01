@@ -16,9 +16,9 @@ Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
  */
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
-    private static int findZeroes(int[] a, int k) {
-        int wL, wR, bestL, bestWindow, zeroCount;
-        wL = wR = bestL = bestWindow = zeroCount = 0;
+    private static int slidingWindow(int[] a, int k) {
+        int wL, wR, startIndex, bestWindow, zeroCount;
+        wL = wR = startIndex = bestWindow = zeroCount = 0;
         while (wR < a.length) {
             if (zeroCount <= k) {
                 zeroCount += a[wR] == 0 ? 1 : 0;
@@ -30,10 +30,10 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
             }
             if (wR - wL > bestWindow && zeroCount <= k) {
                 bestWindow = wR - wL;
-                bestL = wL;
+                startIndex = wL;
             }
         }
-        for (int i = bestL; i < bestWindow + bestL; i++) {
+        for (int i = startIndex; i < startIndex + bestWindow; i++) {
             if (a[i] == 0) {
                 a[i] = 1;
                 System.out.print(i + " ");
@@ -45,8 +45,8 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
     }
 
     public static void main(String[] args) {
-        System.out.println("\n" + findZeroes(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2));
-        System.out.println("\n" + findZeroes(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2));
-        System.out.println("\n" + findZeroes(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3));
+        System.out.println("\n" + slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2));
+        System.out.println("\n" + slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2));
+        System.out.println("\n" + slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3));
     }
 }

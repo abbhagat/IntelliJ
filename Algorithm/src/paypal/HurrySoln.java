@@ -1,27 +1,29 @@
 package paypal;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.LinkedList;
+
 public class HurrySoln {
 
-    private static int solve(int n, int t, int[][] task) {
-        int result = 0, timeConsumed = 0;
-        timeConsumed = task[0][0] + task[0][1];
-        t = t - timeConsumed;
-        if (t > 0) {
-            result++;
-        }
-        for (int i = 1, j = 1; i < n; i++) {
-            timeConsumed = task[i][0] - task[j - 1][0] + task[i][1];
-            if (timeConsumed > t) {
-                continue;
+    public static int maxTasksInTheGivenBudget(int[][] task, int t) {
+        Arrays.sort(task, Comparator.comparingInt(x -> x[0]));
+        LinkedList<Integer> list = new LinkedList<>();
+        int sum = 0, ans = 0;
+        for (int i = 0; i < task.length; i++) {
+            sum += task[i][1];
+            list.add(-task[i][1]);
+            int time = 2 * task[i][0];
+            while (!list.isEmpty() && sum + time > t) {
+                sum += list.getFirst();
+                list.removeFirst();
             }
-            t = t - timeConsumed;
-            j = i;
-            result++;
+            ans = Integer.max(ans, list.size());
         }
-        return result;
+        return ans;
     }
 
     public static void main(String[] args) {
-
+        // maxTasksInTheGivenBudget();
     }
 }

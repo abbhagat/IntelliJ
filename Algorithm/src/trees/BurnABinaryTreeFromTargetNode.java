@@ -1,11 +1,9 @@
 package trees;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.Queue;
 
-/*
+/**
 
 Input :
                        12
@@ -29,48 +27,63 @@ the whole tree burns.
 First search the target node in a binary tree recursively.
 After finding the target node print it and save its left child(if exist) and right child(if exist) in a queue. and return.
 Now, get the size of the queue and run while loop. Print elements in the queue.
- */
+*/
+
+// Time complexity:  O(N) where N is the number of nodes.
+// Space complexity: O(N) for queue
+
 public class BurnABinaryTreeFromTargetNode {
 
-    public static int search(Node root, int num, Map<Integer, Set<Integer>> map) {
+    private static final Queue<Node> queue = new LinkedList<>();
+    private static int time;
+
+    public static int burnTree(Node root, int target) {
         if (root == null) {
             return -1;
         }
-        if (root.num == num) {
-            levelOrderStoredInMap(root.left,  1, map);
-            levelOrderStoredInMap(root.right, 1, map);
+        if (root.num == target) {
+            System.out.println(root.num);
+            if (root.left != null) {
+                queue.add(root.left);
+            }
+            if (root.right != null) {
+                queue.add(root.right);
+            }
             return 1;
         }
-        int k = search(root.left, num, map);
-        if (k > 0) {
-            storeRootAtK(root, k, map);                        // store root in map with k
-            levelOrderStoredInMap(root.right, k + 1, map); // store level order for other branch
-            return k + 1;
+        int leftCall = burnTree(root.left, target);
+        if (leftCall == 1) {
+            printQueue();
+            if (root.right != null) {
+                queue.add(root.right);
+            }
+            System.out.println(root.num);
+            time++;
+            return 1;
         }
-        k = search(root.right, num, map);
-        if (k > 0) {
-            storeRootAtK(root, k, map);                        // store root in map with k
-            levelOrderStoredInMap(root.left, k + 1, map);  // store level order for other branch
-            return k + 1;
+        int rightCall = burnTree(root.right, target);
+        if (rightCall == 1) {
+            printQueue();
+            if (root.left != null) {
+                queue.add(root.left);
+            }
+            System.out.println(root.num);
+            time++;
+            return 1;
         }
         return -1;
     }
 
-    public static void levelOrderStoredInMap(Node root, int k, Map<Integer, Set<Integer>> map) {
-        if (root != null) {
-            storeRootAtK(root, k, map);
-            levelOrderStoredInMap(root.left,  k + 1, map);
-            levelOrderStoredInMap(root.right, k + 1, map);
-        }
-    }
-
-    private static void storeRootAtK(Node root, int k, Map<Integer, Set<Integer>> map) {
-        if (map.containsKey(k)) {
-            map.get(k).add(root.num);
-        } else {
-            Set<Integer> set = new HashSet<>();
-            set.add(root.num);
-            map.put(k, set);
+    private static void printQueue() {
+        for (int k = queue.size(); k > 0; k--) {
+            Node root = queue.poll();
+            System.out.print(root.num + " ");
+            if (root.left != null) {
+                queue.add(root.left);
+            }
+            if (root.right != null) {
+                queue.add(root.right);
+            }
         }
     }
 
@@ -84,14 +97,42 @@ public class BurnABinaryTreeFromTargetNode {
         root.right.left.right  = new Node(24);
         root.right.right.left  = new Node(22);
         root.right.right.right = new Node(23);
-        Map<Integer, Set<Integer>> map = new HashMap<>(); // Utility Map to store the sequence of burning nodes
-        search(root, 14, map);                      //  search node and store the level order from that node in map
-        System.out.println(14);
-        for (Integer level : map.keySet()) {
-            for (Integer val : map.get(level)) {
-                System.out.print(val + " ");
-            }
+        burnTree(root, 14);
+        while (!queue.isEmpty()) {
+            time++;
+            printQueue();
             System.out.println();
         }
+        System.out.println("Time taken to burn the tree is : " + time);
+        time = 0;
+        System.out.println();
+        /*
+                                1
+                            /      \
+                           2        3
+                         /   \       \
+                        4     5       6
+                             / \      \
+                            7  8       9
+                                        \
+                                        10
+         */
+        root                          = new Node(1);
+        root.left                     = new Node(2);
+        root.right                    = new Node(3);
+        root.left.left                = new Node(4);
+        root.left.right               = new Node(5);
+        root.right.right              = new Node(6);
+        root.left.right.left          = new Node(7);
+        root.left.right.right         = new Node(8);
+        root.right.right.right        = new Node(9);
+        root.right.right.right.right  = new Node(10);
+        burnTree(root, 8);
+        while (!queue.isEmpty()) {
+            time++;
+            printQueue();
+            System.out.println();
+        }
+        System.out.println("Time taken to burn the tree is : " + time);
     }
 }

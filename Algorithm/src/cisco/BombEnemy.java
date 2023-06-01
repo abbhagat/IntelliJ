@@ -6,7 +6,7 @@ public class BombEnemy {
 
     private static char[][] M = new char[][]{
             {'O', 'E', 'O', 'O'},
-            {'E', 'O', 'W', 'E'},
+            {'E', 'O', 'E', 'E'},
             {'O', 'E', 'O', 'O'}
     };
 
@@ -20,7 +20,7 @@ public class BombEnemy {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 'E' && !visited[row][col];
     }
 
-    private static int DFS(int row, int col) {
+    private static void DFS(int row, int col) {
         int[] rowIdx = {-1, -1, -1, 0, 0, 1, 1, 1};
         int[] colIdx = {-1, 0, 1, -1, 1, -1, 0, 1};
         visited[row][col] = true;
@@ -30,7 +30,6 @@ public class BombEnemy {
                 DFS(row + rowIdx[k], col + colIdx[k]);
             }
         }
-        return area;
     }
 
     private static int findMaxEnemyKilled() {

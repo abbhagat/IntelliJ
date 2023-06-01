@@ -6,10 +6,10 @@ import java.util.Map;
 public class TinyUrl {
 
     private int counter;
-    private Map<String, Integer> urlToIndex;
-    private Map<Integer, String> indexToUrl;
+    private final Map<String, Integer> urlToIndex;
+    private final Map<Integer, String> indexToUrl;
     private static final String BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static String URL = "http://www.tinyurl.com/";
+    private static final String URL = "http://www.tinyurl.com/";
 
     public TinyUrl() {
         counter = 1;

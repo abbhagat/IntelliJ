@@ -5,7 +5,7 @@ import java.util.Stack;
 public class SimplifyPath {
 
     private static String simplifyPath(String path) {
-        if (path.isEmpty() || path.length() == 0) {
+        if (path.length() == 0) {
             return "";
         }
         Stack<String> stack = new Stack<>();

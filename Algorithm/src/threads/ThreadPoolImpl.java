@@ -5,8 +5,9 @@ import java.util.Vector;
 
 class WorkersThread implements Runnable {
 
+    private Thread thread;
     public WorkersThread() {
-        Thread thread = new Thread(this, "");
+        thread = new Thread(this, "");
         thread.start();
     }
 

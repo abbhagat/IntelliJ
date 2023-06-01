@@ -10,8 +10,7 @@ public class SubstringCheck {
             return false;
         }
         String s = "";
-        int index = -1;
-        for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
+        for (int i = 0, j = 0, index = -1; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);
@@ -25,7 +24,7 @@ public class SubstringCheck {
                 s = "";
             }
         }
-        return s.equals(s2) ? true : false;
+        return s.equals(s2);
     }
 
     private static boolean isSubString(String s1, String s2) {
@@ -44,17 +43,17 @@ public class SubstringCheck {
             }
         }
         if (count != 0) {
-            System.out.println("No of Substrings " + count);
+            System.out.print("No of Substrings " + count + " ");
             return true;
         }
         return false;
     }
 
     public static void main(String[] args) {
-        System.out.println(isSubString("ABC", "BC")              ? "Is A substring" : "Not A substring");
-        System.out.println(isSubString("ABCABEABCDEF", "ABEABC")             ? "Is A substring" : "Not A substring");
-        System.out.println(isASubString("ABCABEABCDEF", "ABEABC")            ? "Is A substring" : "Not A substring");
-        System.out.println(isSubString("ABEFGCDEFG",   "EFG")    ? "Is A substring" : "Not A substring");
-        System.out.println(isASubString("ABEFAGCDEFG", "EFG")    ? "Is A substring" : "Not A substring");
+        System.out.println(isSubString("ABC", "BC")              ? "Substring" : "Not Substring");
+        System.out.println(isSubString("ABCABEABCDEF", "ABEABC") ? "Substring" : "Not Substring");
+        System.out.println(isASubString("ABCABEABCDEF", "ABEABC")? "Substring" : "Not Substring");
+        System.out.println(isSubString("ABEFGCDEFG",   "EFG")    ? "Substring" : "Not Substring");
+        System.out.println(isASubString("ABEFAGCDEFG", "EFG")    ? "Substring" : "Not Substring");
     }
 }

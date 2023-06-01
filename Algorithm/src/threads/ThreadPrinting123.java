@@ -22,15 +22,9 @@ class PrinterThread implements Runnable {
                     } else {
                         System.out.print(threadId + " ");
                         switch (threadId) {
-                            case 1:
-                                threadIdToRun = 2;
-                                break;
-                            case 2:
-                                threadIdToRun = 3;
-                                break;
-                            case 3:
-                                threadIdToRun = 1;
-                                break;
+                            case 1: threadIdToRun = 2; break;
+                            case 2: threadIdToRun = 3; break;
+                            case 3: threadIdToRun = 1; break;
                         }
                         monitor.notifyAll();
                     }

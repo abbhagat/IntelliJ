@@ -12,11 +12,7 @@ public class RemoveExtraSpaceFromString {
         String output = "";
         for (String s : str) {
             if (!s.isEmpty()) {
-                if (s.equals(".")) {
-                    output = output.trim() + ".";
-                } else {
-                    output += " " + s.trim();
-                }
+                output += s.equals(".") ? "." : " " + s;
             }
         }
         System.out.println(output.trim());

@@ -1,9 +1,5 @@
 package strings;
 
-/**
- * ABXCDYYDCXBA is a palindrome
- */
-
 // Time Complexity log(n)
 public class NewTypePalindromeString {
 
@@ -17,20 +13,20 @@ public class NewTypePalindromeString {
             String s1 = s.substring(lastIndex);
             char lastCharInS1 = s1.charAt(s1.length() - 1);
             int firstIndex = s.indexOf(lastCharInS1);
-            if (firstIndex <= mid && firstIndex != -1) {
+            if (firstIndex != -1 && firstIndex <= mid) {
                 String s2 = s.substring(0, firstIndex + 1);
-                return s1.equals(s2) ? isNewTypePalindrome(s.substring(firstIndex + 1, lastIndex)) : false;
+                return s1.equals(s2) && isNewTypePalindrome(s.substring(firstIndex + 1, lastIndex));
             }
         }
         return false;
     }
 
     public static void main(String[] args) {
-        System.out.println(isNewTypePalindrome("") ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("A") ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABXCDYYDCXBA") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("")                  ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("A")                 ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABXCDYYDCXBA")      ? "Palindrome" : "Not Palindrome");
         System.out.println(isNewTypePalindrome("ABCEDABXYXABCEDAB") ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABCDXYYXCDAB") ? "Palindrome" : "Not Palindrome");
-        System.out.println(isNewTypePalindrome("ABCDXYXDDAB") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABCDXYYXCDAB")      ? "Palindrome" : "Not Palindrome");
+        System.out.println(isNewTypePalindrome("ABCDXYXDDAB")       ? "Palindrome" : "Not Palindrome");
     }
 }

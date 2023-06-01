@@ -28,10 +28,10 @@ public class PrintAllSubSetOfArray {
         if (index == a.length) {
             System.out.println(list);
         } else {
-            findSubSet(a, index + 1, list);
             list.add(a[index]);
             findSubSet(a, index + 1, list);
             list.removeLast();
+            findSubSet(a, index + 1, list);
         }
     }
 

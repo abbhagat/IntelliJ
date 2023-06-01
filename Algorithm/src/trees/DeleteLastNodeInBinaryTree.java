@@ -1,6 +1,5 @@
 package trees;
 
-import static trees.CreateBST.createBST;
 import static trees.TreeTraversal.inorder;
 
 // Time Complexity: O(n)
@@ -18,11 +17,9 @@ public class DeleteLastNodeInBinaryTree {
     }
 
     public static void main(String[] args) {
-        int[] a = {6, 15, 4, 1, 2, 12, 30};
-        Node root = null;
-        for (int x : a) {
-            root = createBST(root, x);
-        }
+        Node root  = new Node(2);
+        root.left  = new Node(1);
+        root.right = new Node(3);
         inorder(root);
         System.out.println();
         root = deleteLastNode(root);

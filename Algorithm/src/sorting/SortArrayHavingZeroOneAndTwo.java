@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
  */
 public class SortArrayHavingZeroOneAndTwo {
 
-    private static int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+    private static final int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
 
     private static void sort(int low, int mid, int high) {
         while (mid <= high) {

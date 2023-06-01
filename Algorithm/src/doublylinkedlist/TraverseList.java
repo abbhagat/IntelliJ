@@ -8,6 +8,6 @@ public class TraverseList {
             System.out.print(temp.num + " ");
             temp = temp.right;
         }
-        System.out.println("\nSize :" + CreateList.size);
+        System.out.println("\nSize -> " + CreateList.size);
     }
 }

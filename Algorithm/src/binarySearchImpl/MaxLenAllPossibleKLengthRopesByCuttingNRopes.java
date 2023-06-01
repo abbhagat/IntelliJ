@@ -53,8 +53,7 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {5, 2, 7, 4, 9};
-        int k = 5;
-        System.out.println(maximumSize(a, k));
+        System.out.println(maximumSize(new Integer[] {1, 2, 3, 4, 9}, 6));
+        System.out.println(maximumSize(new Integer[] {5, 2, 7, 4, 9}, 5));
     }
 }

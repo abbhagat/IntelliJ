@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class QuickSortString {
 
-    private static String[] a = {"Ani", "Sam", "Joe"};
+    private static final String[] a = {"Ani", "Sam", "Joe"};
 
     private static void quickSort(int low, int high) {
         int i = low;

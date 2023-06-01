@@ -1,18 +1,16 @@
 package arrays;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class RunLengthEncodedString {
 
     public static void main(String[] args) {
         String s = "wwwwaaadexxxxxxq";
-        int[] temp = new int[26];
-        for (char c : s.toCharArray()) {
-            temp[c - 97]++;
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        for(char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        for (char c : s.toCharArray()) {
-            if (temp[c - 97] > 0) {
-                System.out.print(c + "" + temp[c - 97]);
-                temp[c - 97] = 0;
-            }
-        }
+        map.forEach((k,v) -> System.out.print(String.valueOf(k) + v));
     }
 }

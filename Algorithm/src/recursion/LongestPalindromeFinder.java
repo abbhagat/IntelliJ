@@ -12,12 +12,12 @@ public class LongestPalindromeFinder {
     }
 
     public static String longestPalindromeString(String s) {
-        String longest = s.substring(0, 1);
+        String longest = s.substring(0, 1), palindrome;
         for (int i = 0; i < s.length(); i++) {
-            String palindrome = intermediatePalindrome(s, i, i);                            //odd cases like 121
-            longest = palindrome.length() > longest.length() ? palindrome : longest;
-            palindrome = intermediatePalindrome(s, i, i + 1);                        //even cases like 1221
-            longest = palindrome.length() > longest.length() ? palindrome : longest;
+            palindrome = intermediatePalindrome(s, i, i);                                    // odd cases like 121
+            longest    = palindrome.length() > longest.length() ? palindrome : longest;
+            palindrome = intermediatePalindrome(s, i, i + 1);                        // even cases like 1221
+            longest    = palindrome.length() > longest.length() ? palindrome : longest;
         }
         return longest;
     }

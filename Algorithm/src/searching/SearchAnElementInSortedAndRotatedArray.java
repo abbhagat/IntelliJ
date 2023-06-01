@@ -19,10 +19,13 @@ public class SearchAnElementInSortedAndRotatedArray {
     private static int findPivot(int[] a, int low, int high) {
         if (low <= high) {
             int mid = (low + high) / 2;
+            if (a[mid] == a[high]) {
+                return findPivot(a, low, high - 1);
+            }
             if (a[mid] > a[mid + 1]) {
                 return mid;
             }
-            return a[mid] >= a[mid + 1] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);
+            return a[low] > a[mid] ? findPivot(a, low, mid - 1) : findPivot(a, mid + 1, high);
         }
         return -1;
     }
@@ -39,9 +42,13 @@ public class SearchAnElementInSortedAndRotatedArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {4, 5, 6, 7, 1, 2, 3};
+        int[] a = {4, 5, 6, 7, 7, 1, 2, 3, 3};
         System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 3));
         System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 5));
         System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 9));
+        int[] b = {5, 4, 1, 2, 3};
+        System.out.println(pivotedBinarySearch(b, 0, b.length - 1, 3));
+        System.out.println(pivotedBinarySearch(b, 0, b.length - 1, 5));
+        System.out.println(pivotedBinarySearch(b, 0, b.length - 1, 9));
     }
 }

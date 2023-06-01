@@ -11,7 +11,7 @@ public class IsBST {
         if (root == null) {
             return true;
         }
-        if(!set.add(root.num) || root.num < min || root.num > max){
+        if (!set.add(root.num) || root.num < min || root.num > max) {
             return false;
         }
         return isBST(root.left, min, root.num, set) && isBST(root.right, root.num, max, set);
@@ -23,6 +23,6 @@ public class IsBST {
         for (int i = 0; i < a.length; i++) {
             root = createBST(root, a[i]);
         }
-        System.out.println("Is BST :" + isBST(root, Long.MIN_VALUE, Long.MAX_VALUE, new HashSet<>()));
+        System.out.println(isBST(root, Long.MIN_VALUE, Long.MAX_VALUE, new HashSet<>()));
     }
 }

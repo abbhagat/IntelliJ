@@ -10,7 +10,7 @@ import java.util.Stack;
 
 public class MergeTwoBSTGFG {
 
-    public static void mergeTrees(Node root1, Node root2) {
+    public static void mergeBST(Node root1, Node root2) {
         List<Integer> list = new ArrayList<>();
         Stack<Node> s1 = new Stack<>();
         Stack<Node> s2 = new Stack<>();
@@ -24,20 +24,16 @@ public class MergeTwoBSTGFG {
                 root2 = root2.left;
             }
             if (s2.isEmpty() || (!s1.isEmpty() && s1.peek().num <= s2.peek().num)) {
-                root1 = s1.peek();
-                s1.pop();
+                root1 = s1.pop();
                 list.add(root1.num);
                 root1 = root1.right;
             } else {
-                root2 = s2.peek();
-                s2.pop();
+                root2 = s2.pop();
                 list.add(root2.num);
                 root2 = root2.right;
             }
         }
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i) + " ");
-        }
+        list.forEach(System.out::println);
     }
 
     public static void main(String[] args) {
@@ -47,6 +43,6 @@ public class MergeTwoBSTGFG {
         Node root2  = new Node(4);
         root2.left  = new Node(2);
         root2.right = new Node(6);
-        mergeTrees(root1, root2);
+        mergeBST(root1, root2);
     }
 }

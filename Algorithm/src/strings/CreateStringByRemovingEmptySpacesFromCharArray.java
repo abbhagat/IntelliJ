@@ -3,9 +3,8 @@ package strings;
 public class CreateStringByRemovingEmptySpacesFromCharArray {
 
     public static void main(String[] args) {
-
         String str = " abc d e    f ghi  j  k ";
-        char[] c = str.toCharArray();
+        char[] c = str.trim().toCharArray();
         for (int i = 0; i < c.length; i++) {
             if (c[i] != ' ') {
                 System.out.print(c[i]);

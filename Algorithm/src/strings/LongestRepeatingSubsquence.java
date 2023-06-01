@@ -9,7 +9,7 @@ public class LongestRepeatingSubsquence {
     public static Map<String, Integer> longestRepeatingSubsequence(String str) {
         char[] c = str.toCharArray();
         Map<String, Integer> map = new HashMap<>();
-        String s = "" + c[0];
+        String s = String.valueOf(c[0]);
         for (int i = 1; i < c.length; i++) {
             int diff = c[i] - c[i - 1];
             if (diff == 1) {
@@ -19,7 +19,7 @@ public class LongestRepeatingSubsquence {
                     continue;
                 }
                 map.put(s, map.getOrDefault(s, 0) + 1);
-                s = "" + c[i];
+                s = String.valueOf(c[i]);
             }
         }
         map.put(s, map.getOrDefault(s, 0) + 1);
@@ -32,7 +32,7 @@ public class LongestRepeatingSubsquence {
         String s = null, str = null;
         int max = 0;
         for (Map.Entry<String, Integer> map : set) {
-            s += map.getKey() + "->" + map.getValue() + " ";
+            System.out.println(map.getKey() + "->" + map.getValue());
             if (max < map.getValue()) {
                 str = map.getKey();
                 max = map.getValue();

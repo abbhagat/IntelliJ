@@ -7,18 +7,18 @@ import java.util.LinkedList;
 
 public class PrintAllSubsetOfString {
 
-    private static void findSubset(char[] a, int index, LinkedList<String> list) {
+    private static void findSubSet(char[] a, int index, LinkedList<String> list) {
         if (index == a.length) {
             System.out.println(list);
-            return;
+        } else {
+            list.add(String.valueOf(a[index]));
+            findSubSet(a, index + 1, list);
+            list.removeLast();
+            findSubSet(a, index + 1, list);
         }
-        findSubset(a, index + 1, list);
-        list.add("" + a[index]);
-        findSubset(a, index + 1, list);
-        list.removeLast();
     }
 
     public static void main(String[] args) {
-        findSubset("abc".toCharArray(), 0, new LinkedList<>());
+        findSubSet("abc".toCharArray(), 0, new LinkedList<>());
     }
 }

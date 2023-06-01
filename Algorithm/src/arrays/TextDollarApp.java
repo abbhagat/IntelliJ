@@ -28,7 +28,7 @@ public class TextDollarApp {
 
     private static void prettyTextualPrinter(String filepath) throws IOException, RuntimeException {
         BufferedReader R = new BufferedReader(new FileReader(filepath));
-        String s = null;
+        String s;
         while ((s = R.readLine()) != null) {
             String amountString = s.trim().replaceAll("\\s+", "");
             long amount = Long.parseLong(amountString);

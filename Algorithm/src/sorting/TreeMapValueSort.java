@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-class MapUtility<K, V> {
-
+class MapUtility {
     public static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> sortOnValues(Map<K, V> map) {
         Map<K, V> sortedMap = new TreeMap<>(new ValueComparator<>(map));
         sortedMap.putAll(map);
@@ -32,11 +31,11 @@ class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
 public class TreeMapValueSort {
 
     public static void main(String[] args) {
-        Map<String, Integer> tm = new HashMap<>();
-        tm.put("A", 1);
-        tm.put("Z", 2);
-        tm.put("C", 3);
-        System.out.println(tm);
-        System.out.println(MapUtility.sortOnValues(tm));
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 1);
+        map.put("Z", 2);
+        map.put("C", 3);
+        System.out.println(map);
+        System.out.println(MapUtility.sortOnValues(map));
     }
 }

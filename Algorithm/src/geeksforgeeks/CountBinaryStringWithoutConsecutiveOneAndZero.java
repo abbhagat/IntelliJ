@@ -33,14 +33,12 @@ Similarly, b[i] represents binary strings for input length i+1.
  */
 public class CountBinaryStringWithoutConsecutiveOneAndZero {
 
-    private static List<String> list = new ArrayList<>();
-
-    private static void permutation(String s, int itr) {
+    private static void permutation(String s, int itr, List<String> list) {
         if (itr == 0) {
             list.add(s);
         } else {
-            permutation(s + "0", itr - 1);
-            permutation(s + "1", itr - 1);
+            permutation(s + "0", itr - 1, list);
+            permutation(s + "1", itr - 1, list);
         }
     }
 
@@ -69,7 +67,8 @@ public class CountBinaryStringWithoutConsecutiveOneAndZero {
     public static void main(String args[]) {
         System.out.println(countStrings(3));
         System.out.println(countStringsZero(3));
-        permutation("", 3);
+        List<String> list = new ArrayList<>();
+        permutation("", 3, list);
         int count = 0;
         for (String s : list) {
             if (!s.contains("11")) {

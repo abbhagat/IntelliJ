@@ -28,7 +28,7 @@ public class MinBracketRemovalToMakeBracketBalanced {
         return (int) (Math.ceil((0.0 + open) / 2) + Math.ceil((0.0 + close) / 2));
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println(countMinReversals("}{".toCharArray()));
         System.out.println(countMinReversals("}{{}}{{{".toCharArray()));
     }

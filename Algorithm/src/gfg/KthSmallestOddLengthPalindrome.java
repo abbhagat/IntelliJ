@@ -18,7 +18,7 @@ public class KthSmallestOddLengthPalindrome {
             rev = rev * 10 + k;
             n /= 10;
         }
-        return m + "" + (rev % 10);
+        return m + String.valueOf(rev % 10);
     }
 
     public static void main(String[] args) {

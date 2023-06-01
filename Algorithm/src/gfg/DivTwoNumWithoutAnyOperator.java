@@ -5,15 +5,14 @@ import static java.lang.Integer.min;
 
 public class DivTwoNumWithoutAnyOperator {
 
-    private static int divide(int x, int y) {
-        int c = 0;
+    private static void divide(int x, int y) {
+        int q = 0;
         while (x >= y) {
             x -= y;
-            c++;
+            q++;
         }
-        System.out.println("Quotient  :" + c);
+        System.out.println("Quotient  :" + q);
         System.out.println("Remainder :" + x);
-        return c;
     }
 
     private static void divide(int x, int y, int c) {

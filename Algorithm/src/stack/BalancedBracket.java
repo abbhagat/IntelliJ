@@ -6,8 +6,8 @@ import java.util.Stack;
 public class BalancedBracket {
 
     public static void main(String[] args) {
-        System.out.println(areParenthesisBalanced("]".toCharArray())    ? "Balanced" : "Not Balanced");
-        System.out.println(areParenthesisBalanced("[]".toCharArray())   ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("]"   .toCharArray()) ? "Balanced" : "Not Balanced");
+        System.out.println(areParenthesisBalanced("[]"  .toCharArray()) ? "Balanced" : "Not Balanced");
         System.out.println(areParenthesisBalanced("(())".toCharArray()) ? "Balanced" : "Not Balanced");
     }
 
@@ -25,7 +25,7 @@ public class BalancedBracket {
     }
 
     private static boolean isMatchingPair(char c1, char c2) {
-        if ((c1 == '(' && c2 == ')') || (c1 == '{' && c2 == '}') || (c1 == '[' && c2 == ']')) {
+        if (c1 == '(' && c2 == ')' || c1 == '{' && c2 == '}' || c1 == '[' && c2 == ']') {
             return true;
         }
         return false;

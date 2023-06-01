@@ -7,10 +7,7 @@ public class CheckIfAnArrayRepresentsMinHeap {
         }
         int left  = 2 * i + 1;
         int right = 2 * i + 2;
-        if (a[i] <= a[left] && a[i] <= a[right] && isMinHeap(a, left, n) && isMinHeap(a, right, n)) {
-            return true;
-        }
-        return false;
+        return a[i] <= a[left] && a[i] <= a[right] && isMinHeap(a, left, n) && isMinHeap(a, right, n);
     }
 
     public static void main(String[] args) {

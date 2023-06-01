@@ -15,7 +15,9 @@ public class ImplementPowFunction {
     }
 
     public static void main(String[] args) {
-        System.out.println(pow(3, 2));
-        System.out.println(pow(9, -2));
+        System.out.println(pow(2.00000, 10));
+        System.out.println(pow(2.10000, 3));
+        System.out.println(pow(2.00000, -2));
+        System.out.println(pow(2.00000, 0));
     }
 }

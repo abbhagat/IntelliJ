@@ -4,14 +4,17 @@ import static linkedlist.LinkList.add;
 
 public class IntersectionPointOfTwoLinkedList {
 
+    private static int countNodes(Node node) {
+        int count = 0;
+        for (Node temp = node; temp != null; temp = temp.next) {
+            count++;
+        }
+        return count;
+    }
+
     private static Node findIntersectionPoint(Node head1, Node head2) {
-        int count1 = 0, count2 = 0;
-        for (Node temp = head1; temp != null; temp = temp.next) {
-            count1++;
-        }
-        for (Node temp = head2; temp != null; temp = temp.next) {
-            count2++;
-        }
+        int count1 = countNodes(head1);
+        int count2 = countNodes(head2);
         int diff = Math.abs(count1 - count2);
         return count1 > count2 ? findIntersectionPoint(head1, head2, diff) : findIntersectionPoint(head2, head1, diff);
     }

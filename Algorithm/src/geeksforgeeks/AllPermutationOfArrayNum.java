@@ -1,34 +1,25 @@
 package geeksforgeeks;
 
-import java.util.ArrayList;
-import java.util.List;
-
+// Time Complexity :- O(n * n!)
 public class AllPermutationOfArrayNum {
 
-    public List<List<Integer>> permute(int[] nums) {
-        String s = "";
-        for (int x : nums) {
-            s += x;
+    private static void permute(int[] a) {
+        char[] c = new char[a.length];
+        for (int i = 0; i < a.length; i++) {
+            c[i] = (char) (a[i] + '0');
         }
-        List<List<String>> list = new ArrayList<>();
-        permutation(s.toCharArray(), 0, s.length() - 1, list);
-        System.out.println(list);
-        return null;
+        permutation(c, 0, c.length - 1);
     }
 
-    public void permutation(char[] a, int start, int end, List<List<String>> list) {
+    private static void permutation(char[] c, int start, int end) {
         if (start == end) {
-            List<String> al = new ArrayList<>();
-            for (char x : a) {
-                al.add("" + x);
-            }
-            list.add(al);
-        } else {
-            for (int i = start; i <= end; i++) {
-                swap(a, i, start);
-                permutation(a, start + 1, end, list);
-                swap(a, i, start);
-            }
+            System.out.println(c);
+            return;
+        }
+        for (int i = start; i <= end; i++) {
+            swap(c, i, start);
+            permutation(c, start + 1, end);
+            swap(c, i, start);
         }
     }
 
@@ -39,6 +30,10 @@ public class AllPermutationOfArrayNum {
     }
 
     public static void main(String[] args) {
-
+        permute(new int[]{1, 2, 3});
+        Double d = 1000d;
+        System.out.println("Normal value :" + d);
+        System.out.println("Without decimal points :" + d.longValue());
+        System.out.println(String.valueOf(Double.parseDouble("1.0")).split("\\.")[0]);
     }
 }

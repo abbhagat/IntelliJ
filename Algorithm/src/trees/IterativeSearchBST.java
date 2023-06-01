@@ -9,7 +9,7 @@ public class IterativeSearchBST {
             if (root.num == num) {
                 return root;
             }
-            root = num < root.left.num ? root.left : root.right;
+            root = num < root.num ? root.left : root.right;
         }
         return null;
     }

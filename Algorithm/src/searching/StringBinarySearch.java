@@ -15,11 +15,10 @@ public class StringBinarySearch {
             int mid = (low + high) / 2;
             int k = s.compareTo(str[mid]);
             if (k == 0) {
-                System.out.println(str[mid] + " present at position " + (mid));
-                return;
+                System.out.println(str[mid] + " present at position " + mid);
             } else if (k < 0) {
                 binarySearch(str, low, mid - 1, s);
-            } else if (k > 0) {
+            } else {
                 binarySearch(str, mid + 1, high, s);
             }
         } else {

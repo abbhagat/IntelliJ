@@ -8,4 +8,12 @@ public class TraverseList {
         }
         System.out.println();
     }
+
+    public static void traverseCyclicList(Node node) {
+        Node temp = node;
+        do {
+            System.out.print(temp.num + " ");
+            temp = temp.next;
+        } while (temp != node);
+    }
 }

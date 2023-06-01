@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// Time Complexity: O(M*N)
+// Time Complexity: O(n log n)
 // Auxiliary Space: O(M+N)
 public class SortBoundaryElementsOfMatrix {
 
@@ -25,7 +25,7 @@ public class SortBoundaryElementsOfMatrix {
         return list;
     }
 
-    private static List<Integer> sort(int[][] M, List<Integer> list, int k) {
+    private static void sort(int[][] M, List<Integer> list, int k) {
         int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1;
         for (int i = C1; i <= C2; i++) {
             M[R1][i] = list.get(k++);
@@ -39,22 +39,21 @@ public class SortBoundaryElementsOfMatrix {
         for (int i = R2 - 1; i > R1; i--) {
             M[i][C1] = list.get(k++);
         }
-        return list;
     }
 
     public static void main(String[] args) {
         int[][] M = new int[][]{
-                {1, 2, 3, 4, 0},
-                {1, 1, 1, 1, 2},
-                {1, 2, 2, 2, 4},
-                {1, 9, 3, 1, 7}
-        };
+                                 {1, 2, 3, 4, 0},
+                                 {1, 1, 1, 1, 2},
+                                 {1, 2, 2, 2, 4},
+                                 {1, 9, 3, 1, 7}
+                               };
         List<Integer> list = getTheBoundaryElements(M, new ArrayList<>());
-        Collections.sort(list);
+        Collections.sort(list);  // list.sort(Comparator.comparingInt(x -> x));
         sort(M, list, 0);
-        for (int i = 0; i < M.length; i++) {
-            for (int j = 0; j < M[0].length; j++) {
-                System.out.print(M[i][j] + "\t");
+        for (int[] x : M) {
+            for (int y : x) {
+                System.out.print(y + "\t");
             }
             System.out.println();
         }

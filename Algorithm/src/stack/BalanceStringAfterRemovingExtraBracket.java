@@ -6,19 +6,19 @@ package stack;
 // Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBracket {
     private static void balancedString(char[] exp) {
-        int count = 0;
+        int n = 0;
         for (char c : exp) {
             if (c == '(') {
                 System.out.print(c);
-                count++;
-            } else if (c == ')' && count > 0) {
+                n++;
+            } else if (c == ')' && n > 0) {
                 System.out.print(c);
-                count--;
+                n--;
             } else if (c != ')') {
                 System.out.print(c);
             }
         }
-        for (int i = 1; i <= count; i++) {
+        for (int i = 1; i <= n; i++) {
             System.out.print(")");
         }
     }

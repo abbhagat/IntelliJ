@@ -7,11 +7,9 @@ import java.util.Set;
 
 public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
-    static class Pair {
-        int x;
-        int y;
-
-        public Pair(int x, int y) {
+    private static class Pair {
+        int x, y;
+        Pair(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -45,10 +43,11 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         Set<Pair> set = new HashSet<>();
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
+
         }
         for (int x : a) {
             int y = x - target;
-            if (map.containsKey(y) && ((target == 0 && map.get(y) > 1) || target != 0)) {
+            if (map.containsKey(y) && (target != 0 || map.get(y) > 1)) {
                 set.add(new Pair(x, y));
             }
         }

@@ -1,6 +1,7 @@
 package oracle;
 
 import java.util.Date;
+import java.util.Objects;
 
 final class FinalClass {
 
@@ -34,11 +35,11 @@ final class FinalClass {
         if (this == obj) {
             return true;
         }
-        if (null == obj && this.getClass() != obj.getClass()) {
+        if (null == obj || this.getClass() != obj.getClass()) {
             return false;
         }
         final FinalClass fcObj = (FinalClass) obj;
-        return this.getKey() == fcObj.getKey() && this.getValue() == fcObj.getValue() && this.getDate().compareTo(fcObj.getDate()) == 0;
+        return Objects.equals(this.getKey(), fcObj.getKey()) && this.getValue() == fcObj.getValue() && this.getDate().compareTo(fcObj.getDate()) == 0;
     }
 
     public int hashCode() {

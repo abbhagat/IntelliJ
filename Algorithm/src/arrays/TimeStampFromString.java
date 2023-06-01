@@ -9,7 +9,7 @@ import java.util.Date;
 public class TimeStampFromString {
 
     private static Timestamp getTimeStampFromString(String strDate, String format) throws Exception {
-        Timestamp timeStampDate = null;
+        Timestamp timeStampDate;
         try {
             DateFormat formatter = new SimpleDateFormat(format);
             Date date = formatter.parse(strDate);
@@ -22,7 +22,7 @@ public class TimeStampFromString {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println(getTimeStampFromString("09/30/2016", "MM/dd/yyyy"));
+        System.out.println(getTimeStampFromString("09/30/2016 11:30:20", "MM/dd/yyyy"));
         //System.out.println(getTimeStampFromString("09/30/2016","yyyy-MM-dd"));
     }
 }

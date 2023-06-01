@@ -2,17 +2,17 @@ package arrays;
 
 public class StoringOneMillionPhoneNumber {
 
-    static boolean[] flag = new boolean[1000000000];
+    private static boolean[] flag = new boolean[1000000000];
 
-    static void add(int idx) {
+    private static void add(int idx) {
         flag[idx] = true;
     }
 
-    static void remove(int idx) {
+    private static void remove(int idx) {
         flag[idx] = false;
     }
 
-    static boolean isPresent(int idx) {
+    private static boolean isPresent(int idx) {
         return flag[idx];
     }
 

@@ -5,7 +5,7 @@ package cisco;
 public class ThirdMaxElementInArray {
 
     public static void main(String[] args) {
-        int[] a = new int[]{1, 3, 4, 5, 6, 7, 2, 10};
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int max, _2ndMax, _3rdMax;
         max = _2ndMax = _3rdMax = Integer.MIN_VALUE;
         for (int x : a) {

@@ -1,21 +1,24 @@
 package cisco;
 
-// Given a non-empty array of integers, every element appears 3 times except for one which appears exactly once.
-// Find that number
+// Given a non-empty array of integers, every element appears 3 times except for one which appears exactly once find that number.
+
+// Time Complexity O(n)
+
 public class SingleNumberII {
 
     private static int singleNumberII(int[] a) {
-        int res = 0;
+        int result = 0;
         for (int i = 0; i < 32; i++) {
             int sum = 0;
-            for (int n : a)
+            for (int n : a) {
                 if ((n >> i & 1) == 1) {
                     sum++;
                 }
+            }
             sum %= 3;
-            res |= sum << i;
+            result |= sum << i;
         }
-        return res;
+        return result;
     }
 
     public static void main(String[] args) {

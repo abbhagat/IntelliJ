@@ -10,7 +10,7 @@ public class FindPairsInArrayWithSmallestSum {
         PriorityQueue<int[]> pq = new PriorityQueue<>((x, y) -> x[0] + x[1] - (b[0] + b[1]));
         List<int[]> list = new ArrayList<>();
         for (int i = 0; i < a.length && i < k; i++) {
-            pq.offer(new int[]{a[i], b[0], 0});
+            pq.add(new int[]{a[i], b[0], 0});
         }
         while (k-- > 0 && !pq.isEmpty()) {
             int[] cur = pq.poll();
@@ -18,7 +18,7 @@ public class FindPairsInArrayWithSmallestSum {
             if (cur[2] == b.length - 1) {
                 continue;
             }
-            pq.offer(new int[]{cur[0], b[cur[2] + 1], cur[2] + 1});
+            pq.add(new int[]{cur[0], b[cur[2] + 1], cur[2] + 1});
         }
         return list;
     }

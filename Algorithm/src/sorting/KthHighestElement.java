@@ -4,16 +4,19 @@ import java.util.PriorityQueue;
 
 public class KthHighestElement {
 
-    public static void main(String[] args) {
-        int[] a = {3, 8, 1, 9, 4, 2, 6, 7, 10, 5};
+    private static int findKthHighest(int[] a, int k) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
-        int kth = 4;
         for (int x : a) {
             pq.add(x);
-            if (pq.size() > kth) {
+            if (pq.size() > k) {
                 pq.poll();
             }
         }
-        System.out.println(pq.peek());
+        return !pq.isEmpty() ? pq.peek() : -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findKthHighest(new int[] {5, 4, 1, 3, 2}, 2));
+        System.out.println(findKthHighest(new int[] {5, 4, 1, 3, 2}, 3));
     }
 }

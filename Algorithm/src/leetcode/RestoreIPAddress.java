@@ -22,7 +22,7 @@ public class RestoreIPAddress {
 
     private static List<String> restoreIPAddress(String s) {
         List<String> list = new ArrayList<>();
-        if (s.length() > 12) {
+        if (s.length() > 12) {    //In IPV4 address is of 12 digit max excluding '.'
             return list;
         }
         restoreIP(s, 3, list, "");
@@ -44,7 +44,7 @@ public class RestoreIPAddress {
     }
 
     private static boolean isValid(String s) {
-        if (s.charAt(0) == '0' && s.length() != 1 || Integer.valueOf(s) > 255) {
+        if (s.charAt(0) == '0' && s.length() != 1 || Integer.parseInt(s) > 255) {
             return false;
         }
         return true;

@@ -12,8 +12,13 @@ public class EggDroppingPuzzle {
         if (eggs == 1) {
             return floor;
         }
-        int mid = (floor + 1) / 2;
-        return 1 + (floor - mid > mid - 1 ? eggDrop(eggs, floor - mid) : eggDrop(eggs - 1, mid - 1));
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i <= floor; i++) {
+            int res = max(eggDrop(eggs - 1, floor - 1), eggDrop(eggs, floor - i));
+            if (res < min)
+                min = res;
+        }
+        return min + 1;
     }
 
     // Time Complexity: O(n*k^2)
@@ -38,9 +43,9 @@ public class EggDroppingPuzzle {
         return dp[eggs][floors];
     }
 
-    public static void main(String args[]) {
-        System.out.println(eggDrop(2, 10)  + "\t" + eggDropDP(2, 10));
-        System.out.println(eggDrop(2, 36)  + "\t" + eggDropDP(2, 36));
+    public static void main(String[] args) {
+        System.out.println(eggDrop(2, 10) + "\t" + eggDropDP(2, 10));
+        System.out.println(eggDrop(2, 36) + "\t" + eggDropDP(2, 36));
         System.out.println(eggDrop(2, 100) + "\t" + eggDropDP(2, 100));
     }
 }

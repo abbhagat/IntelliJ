@@ -62,8 +62,8 @@ public class ParkingSpot {
 
     private Map<String, Map<String, List<Parking>>> parkingMap;
     private Map<String, Boolean> availableParkingLevel;
-    private List<String> basement = Arrays.asList("B1", "B2", "B3");
-    private List<String> parkingSpot = Arrays.asList("P1", "P2", "P3");
+    private final List<String> basement = Arrays.asList("B1", "B2", "B3");
+    private final List<String> parkingSpot = Arrays.asList("P1", "P2", "P3");
 
     public void initializeMap() {
         availableParkingLevel = new ConcurrentHashMap<>();
@@ -99,7 +99,7 @@ public class ParkingSpot {
     public static void main(String[] args) {
         ParkingSpot parkingSpot = new ParkingSpot();
         parkingSpot.initializeMap();
-        parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v));
+        parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v + "\n"));
         String parkingDetails = parkingSpot.assignParking("KA01MS1210", "Car");
         System.out.println("KA01MS1210" + " -> " + parkingDetails);
         parkingSpot.parkingMap.forEach((k, v) -> System.out.println(k + "\t" + v));

@@ -2,6 +2,21 @@ package dynamicProgramming;
 
 import static java.lang.Integer.min;
 
+/**
+ * Given a string str, a partitioning of the string is a palindrome partitioning if every sub-string of the partition is a palindrome.
+ * Determine the fewest cuts needed for palindrome partitioning of the given string.
+ * Input: str = "ababbbabbababa"
+ * Output: 3
+ * Explanation: After 3 partitioning substrings
+ * are "a", "babbbab", "b", "ababa".
+ *
+ * Input: str = "aaabba"
+ * Output: 1
+ * Explanation: The substrings after 1
+ * partitioning are "aa" and "abba".
+ *
+ */
+
 public class PalindromePartitioning {
 
     private static boolean isPalindrome(String str, int i, int j) {
@@ -35,6 +50,8 @@ public class PalindromePartitioning {
         str = "geek";
         System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "aaaa";
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
+        str = "aaabba";
         System.out.println(minPalindromePartition(str, 0, str.length() - 1));
     }
 }

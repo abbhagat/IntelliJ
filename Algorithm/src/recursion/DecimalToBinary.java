@@ -21,11 +21,23 @@ public class DecimalToBinary {
         return binary;
     }
 
+    private static String decimalToBinary(int n) {
+        StringBuilder binary = new StringBuilder();
+        int carry = 0;
+        while (n != 0) {
+            carry = n / 2;
+            binary.insert(0, n % 2);
+            n /= 2;
+        }
+        return carry == 0 ? binary.toString() : "1" + binary;
+    }
+
     public static void main(String[] args) {
         String binaryString = decimalToBinary(35, 32768, "");
         System.out.println(binaryString.substring(binaryString.indexOf("1")));
         carry = 0;
         StringBuilder binary = decimalToBinary(35, new StringBuilder());
         System.out.println(carry == 0 ? binary.toString() : "1" + binary);
+        System.out.println(decimalToBinary(35));
     }
 }

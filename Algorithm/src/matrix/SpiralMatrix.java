@@ -2,14 +2,16 @@ package matrix;
 
 // Time Complexity O(M*N)
 
+import static matrix.MatrixPrint.printMatrix;
+
 public class SpiralMatrix {
 
     public static void main(String[] args) {
         final int n = 4;
         int[][] M = new int[n][n];
-        int k = n * n;
-        int R1 = 0, R2 = M[0].length - 1;
-        int C1 = 0, C2 = M[0].length - 1;
+        int R1, R2, C1, C2, k = n * n;
+        R1 = C1 = 0;
+        R2 = C2 = M[0].length - 1;
         while (R1 <= R2 && C1 <= C2) {
             for (int i = C1; i <= C2; i++) {
                 M[R1][i] = k--;
@@ -28,12 +30,7 @@ public class SpiralMatrix {
             C1++;
             C2--;
         }
-        System.out.println("The Spiral Matrix is:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(M[i][j] + "\t");
-            }
-            System.out.println();
-        }
+        System.out.println("The Spiral Matrix is : ");
+        printMatrix(M);
     }
 }

@@ -11,15 +11,14 @@ import static java.lang.Integer.max;
  * Output: 89
  */
 public class LargestSumAfterRemovingKDigit {
-
     private static int maxNumber(int n, int k) {
         for (int j = 1; j <= k; j++) {
-            int result = Integer.MIN_VALUE;
-            for (int i = 1; n / i != 0; i *= 10) {               // Remove the last digit after every iteration
-                int temp = (n / (i * 10)) * i + (n % i);        // Store the numbers formed after removing every digit once
-                result = max(result, temp);
+            int max = Integer.MIN_VALUE, result;
+            for (int i = 1; n / i != 0; i *= 10) {        // Remove the last digit after every iteration
+                result = (n / (i * 10)) * i + (n % i);   // Store the numbers formed after removing every digit once
+                max    = max(max, result);
             }
-            n = result;
+            n = max;
         }
         return n;
     }
@@ -27,5 +26,8 @@ public class LargestSumAfterRemovingKDigit {
     public static void main(String[] args) {
         System.out.println(maxNumber(6358, 1));
         System.out.println(maxNumber(2589, 2));
+        System.out.println(maxNumber(10200, 1));
+        System.out.println(maxNumber(1432219, 3));
+        System.out.println(maxNumber(10, 2));
     }
 }

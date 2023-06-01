@@ -5,87 +5,87 @@ import java.util.RandomAccess;
 
 public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    private transient T[] list;
-    private int size;
-    private static final int DEFAULT_CAPACITY = 10;
+  private transient T[] list;
+  private int size;
+  private static final int DEFAULT_CAPACITY = 10;
 
-    public T[] getList() {
-        return list;
+  public T[] getList() {
+    return list;
+  }
+
+  public int size() {
+    return size;
+  }
+
+  public ArrayListImpl() {
+    this(DEFAULT_CAPACITY);
+  }
+
+  public ArrayListImpl(int initialCapacity) {
+    if (initialCapacity <= 0) {
+      throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
     }
+    this.list = (T[]) new Object[initialCapacity];
+  }
 
-    public int size() {
-        return size;
-    }
+  public boolean add(T obj) {
+    validateCapacity(size + 1);
+    list[size++] = obj;
+    return true;
+  }
 
-    public ArrayListImpl() {
-        this(DEFAULT_CAPACITY);
+  public T get(int index) {
+    if (index < 0 || index >= size) {
+      throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
     }
+    return list[index];
+  }
 
-    public ArrayListImpl(int initialCapacity) {
-        if (initialCapacity <= 0) {
-            throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
-        }
-        this.list = (T[]) new Object[initialCapacity];
+  public T remove(int index) {
+    if (index < 0 || index >= size) {
+      throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
     }
+    T oldValue = list[index];
+    int numMoved = size - index - 1;
+    if (numMoved > 0) {
+      System.arraycopy(list, index + 1, list, index, numMoved);
+    }
+    list[--size] = null;
+    return oldValue;
+  }
 
-    public boolean add(T obj) {
-        validateCapacity(size + 1);
-        list[size++] = obj;
-        return true;
+  private void validateCapacity(int minCapacity) {
+    int oldCapacity = list.length;
+    if (minCapacity > oldCapacity) {
+      T[] oldData = list;
+      int newCapacity = oldCapacity * 3 / 2 + 1;
+      list = (T[]) new Object[newCapacity];
+      System.arraycopy(oldData, 0, list, 0, size);
     }
+  }
 
-    public T get(int index) {
-        if (index < 0 || index >= size) {
-            throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
-        }
-        return list[index];
-    }
+  public T clone() {
+    return (T) list.clone();
+  }
 
-    public T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
-        }
-        T oldValue = list[index];
-        int numMoved = size - index - 1;
-        if (numMoved > 0) {
-            System.arraycopy(list, index + 1, list, index, numMoved);
-        }
-        list[--size] = null;
-        return oldValue;
+  public static void main(String[] args) {
+    ArrayListImpl<Integer> al = new ArrayListImpl<>();
+    al.add(1);
+    al.add(2);
+    al.add(3);
+    for (int i = 0; i < al.size(); i++) {
+      System.out.println(al.get(i));
     }
-
-    private void validateCapacity(int minCapacity) {
-        int oldCapacity = list.length;
-        if (minCapacity > oldCapacity) {
-            T[] oldData = list;
-            int newCapacity = oldCapacity * 3 / 2 + 1;
-            list = (T[]) new Object[newCapacity];
-            System.arraycopy(oldData, 0, list, 0, size);
-        }
+    al.remove(2);
+    System.out.println("Changed List");
+    Integer[] a = new Integer[al.size()];
+    for (int i = 0; i < al.size(); i++) {
+      a[i] = al.get(i);
     }
-
-    public T clone() {
-        return (T) list.clone();
+    for (int x : a) {
+      System.out.println(x);
     }
-
-    public static void main(String[] args) {
-        ArrayListImpl<Integer> al = new ArrayListImpl();
-        al.add(1);
-        al.add(2);
-        al.add(3);
-        for (int i = 0; i < al.size(); i++) {
-            System.out.println(al.get(i));
-        }
-        al.remove(2);
-        System.out.println("Changed List");
-        Integer[] a = new Integer[al.size()];
-        for (int i = 0; i < al.size(); i++) {
-            a[i] = al.get(i);
-        }
-        for (int x : a) {
-            System.out.println(x);
-        }
-    }
+  }
 }

@@ -35,18 +35,18 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
         return false;
     }
 
-    private static boolean searchMatrix(int[][] M, int key) {
-        int m = M.length, n = M[0].length, left = 0, right = m * n - 1;
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            int k = M[mid / n][mid % n];
-            if (k == key) {
-                System.out.println("[" + mid / n + "]" + "[" + mid % n + "]");
+    private static boolean searchMatrix(int[][] M, int num) {
+        int m = M.length, n = M[0].length, low = 0, high = m * n - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int key = M[mid / n][mid % n];
+            if (key == num) {
+                System.out.print("[" + mid / n + "]" + "[" + mid % n + "]");
                 return true;
-            } else if (key < k) {
-                right = mid - 1;
+            } else if (num < key) {
+                high = mid - 1;
             } else {
-                left = mid + 1;
+                low = mid + 1;
             }
         }
         return false;
@@ -58,7 +58,7 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
         System.out.println(search(M, 5)       ? "Present" : "Not Present");
         System.out.println(searchMatrix(M, 5) ? "Present" : "Not Present");
         M = new int[][]{{1, 1}};
-        System.out.println(search(M, 5)       ? "Present" : "Not Present");
-        System.out.println(searchMatrix(M, 5) ? "Present" : "Not Present");
+        System.out.println(search(M, 2)       ? "Present" : "Not Present");
+        System.out.println(searchMatrix(M, 2) ? "Present" : "Not Present");
     }
 }

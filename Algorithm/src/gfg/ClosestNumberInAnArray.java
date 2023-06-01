@@ -1,20 +1,14 @@
 package gfg;
 
-import java.util.Arrays;
-
 import static java.lang.Math.abs;
 
 public class ClosestNumberInAnArray {
 
     public static void main(String[] args) {
-        int[] a = {-1, 1, 2, 4, 7, 9};
-        int k = 0;
-        Arrays.sort(a);
-        int closest = a[0];
-        for (int i = 1; i < a.length; i++) {
-            if (abs(closest - k) >= abs(a[i] - k)) {
-                closest = a[i];
-            }
+        int[] a = {3, 2, 9, 4, 10, 1, 7};
+        int closest = a[0], k = 8;
+        for (int x : a) {
+            closest = abs(k - x) <= abs(k - closest) ? x : closest;
         }
         System.out.println(closest);
     }

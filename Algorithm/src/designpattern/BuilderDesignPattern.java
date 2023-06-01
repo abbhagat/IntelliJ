@@ -1,154 +1,76 @@
 package designpattern;
 
-/**
- * In builder design pattern we build a complex object using simple object and uses step by step approach.
+import java.util.Optional;
+
+/**   In builder design pattern we build a complex object using simple object and uses step-by-step approach.
+ *
+ * First of all you need to create a static nested class and then copy all the arguments from the outer class to the Builder class.
+ * We should follow the naming convention and if the class name is Computer then builder class should be named as ComputerBuilder.
+ * Java Builder class should have a public constructor with all the required attributes as parameters.
+ * Java Builder class should have methods to set the optional parameters, and it should return the same Builder object after setting the optional attribute.
+ * The final step is to provide a build() method in the builder class that will return the Object needed by client program.
+ * For this we need to have a private constructor in the Class with Builder class as argument.
  */
 
-import java.util.ArrayList;
-import java.util.List;
+class Computer {
+    private String HDD, RAM;
+    private Optional<Boolean> isGraphicsCardEnabled;
+    private Optional<Boolean> isBluetoothEnabled;
 
-interface Item {
-    String name();
-
-    float price();
-
-    Packing packing();
-}
-
-interface Packing {
-    String pack();
-}
-
-class Wrapper implements Packing {
-    public String pack() {
-        return "Wrapper";
-    }
-}
-
-class Bottle implements Packing {
-    public String pack() {
-        return "Bottle";
-    }
-}
-
-abstract class Burger implements Item {
-    public Packing packing() {
-        return new Wrapper();
-    }
-}
-
-abstract class ColdDrink implements Item {
-
-    public Packing packing() {
-        return new Bottle();
-    }
-}
-
-class VegBurger extends Burger {
-
-    public float price() {
-        return 25.0f;
+    public String getHDD() {
+        return HDD;
     }
 
-    public String name() {
-        return "Veg Burger";
-    }
-}
-
-class ChickenBurger extends Burger {
-
-    public float price() {
-        return 50.0f;
+    public String getRAM() {
+        return RAM;
     }
 
-    public String name() {
-        return "Chicken Burger";
-    }
-}
-
-class Coke extends ColdDrink {
-
-    public float price() {
-        return 30.0f;
+    public Optional<Boolean> isGraphicsCardEnabled() {
+        return isGraphicsCardEnabled;
     }
 
-    public String name() {
-        return "Coke";
-    }
-}
-
-class Pepsi extends ColdDrink {
-
-    public float price() {
-        return 35.0f;
+    public Optional<Boolean> isBluetoothEnabled() {
+        return isBluetoothEnabled;
     }
 
-    public String name() {
-        return "Pepsi";
-    }
-}
-
-class Meal {
-
-    private List<Item> items;
-
-    public Meal(List<Item> items) {
-        this.items = items;
+    private Computer(ComputerBuilder builder) {
+        this.HDD = builder.HDD;
+        this.RAM = builder.RAM;
+        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
+        this.isBluetoothEnabled = builder.isBluetoothEnabled;
     }
 
-    public void addItem(Item item) {
-        items.add(item);
-    }
+    public static class ComputerBuilder {
+        private String HDD, RAM;
+        private Optional<Boolean> isGraphicsCardEnabled;
+        private Optional<Boolean> isBluetoothEnabled;
 
-    public void removeItem(Item item) {
-        items.remove(item);
-    }
-
-    public float getCost() {
-        float cost = 0.0f;
-        for (Item item : items) {
-            cost += item.price();
+        public ComputerBuilder(String hdd, String ram) {
+            this.HDD = hdd;
+            this.RAM = ram;
         }
-        return cost;
-    }
 
-    public void showItems() {
-        items.forEach(item -> System.out.print("Item : " + item.name() + ", Packing : " + item.packing().pack() + ", Price : " + item.price()));
-    }
-}
+        public ComputerBuilder setGraphicsCardEnabled(Optional<Boolean> isGraphicsCardEnabled) {
+            this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+            return this;
+        }
 
-class MealBuilder {
+        public ComputerBuilder setBluetoothEnabled(Optional<Boolean> isBluetoothEnabled) {
+            this.isBluetoothEnabled = isBluetoothEnabled;
+            return this;
+        }
 
-    public Meal prepareVegMeal() {
-        Meal meal = new Meal(new ArrayList<>());
-        meal.addItem(new VegBurger());
-        meal.addItem(new Coke());
-        return meal;
-    }
-
-    public Meal prepareNonVegMeal() {
-        Meal meal = new Meal(new ArrayList<>());
-        meal.addItem(new ChickenBurger());
-        meal.addItem(new Pepsi());
-        return meal;
+        public Computer build() {
+            return new Computer(this);
+        }
     }
 }
 
 public class BuilderDesignPattern {
     public static void main(String[] args) {
-
-        MealBuilder mealBuilder = new MealBuilder();
-
-        // Prepare Veg Meal
-        Meal vegMeal = mealBuilder.prepareVegMeal();
-        System.out.println("Veg Meal");
-        vegMeal.showItems();
-        System.out.println("Total Cost: " + vegMeal.getCost());
-
-        // Prepare Non Veg Meal
-        Meal nonVegMeal = mealBuilder.prepareNonVegMeal();
-        System.out.println("\n\nNon-Veg Meal");
-        nonVegMeal.showItems();
-        System.out.println("Total Cost: " + nonVegMeal.getCost());
+        Computer computer = new Computer.ComputerBuilder("500 GB", "2 GB")
+                                        .setBluetoothEnabled(Optional.of(true))
+                                        .setGraphicsCardEnabled(Optional.of(true)).build();
+        System.out.println(computer);
     }
 }

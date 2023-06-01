@@ -1,6 +1,7 @@
 package trees;
 
-// Time Complexity: The function does a simple traversal of the tree, so the complexity is O(n).
+// Time Complexity: The function does a simple traversal of the tree, so the complexity is O(n)
+
 public class PrintLeftViewOfABinaryTree {
 
     private static int max_level = 0;
@@ -17,7 +18,7 @@ public class PrintLeftViewOfABinaryTree {
         printLeftView(root.right, level + 1);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Node root                = new Node(1);
         root.left                = new Node(2);
         root.left.left           = new Node(3);
