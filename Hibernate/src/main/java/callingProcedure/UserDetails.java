@@ -14,10 +14,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "USER_DETAILS")
 @NamedNativeQueries(
-        @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
+        {
+                @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
+        }
 )
 @NamedQueries(
-        @NamedQuery(name = "userDetails", query = "from UserDetails where userID = :userID and userName =:userName")
+        {
+                @NamedQuery(name = "userDetails", query = "from UserDetails where userID = :userID and userName =:userName"),
+                @NamedQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)")
+        }
 )
 public class UserDetails {
 

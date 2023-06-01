@@ -5,9 +5,8 @@ Now, let's say you need to iterate through all the Orders, and for each one, pri
 The naive O/R implementation would do the following:
 
 SELECT * FROM Order;
-And then for each order:
 
-SELECT * FROM OrderItems WHERE orderId = ?
+And then for each order: SELECT * FROM OrderItems WHERE orderId = ?
 
 In other words, you have one select for the Order, and then N additional selects, where N is the total number of Orders.
 
@@ -17,6 +16,5 @@ SELECT * FROM OrderItems;
 
 This reduces the number of round-trips to the database from N+1 to 2.
 Most ORM tools give you several ways to prevent N+1 selects.
-This is solved using
 
-@Fetch(FetchMode.SUBSELECT)
+This is solved using @Fetch(FetchMode.SUBSELECT)

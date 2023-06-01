@@ -1,3 +1,6 @@
+Locking is a way by which we prevent the shared data from getting modified simultaneously from different user to
+maintain the data consistency.
+
 There are two types of locking in Hibernate.
 
 1. Optimistic  Locking  -> Based on Version Column of Database
@@ -22,12 +25,13 @@ Now since both User has acquired read lock individually none can do an update on
 by either User. This is called pessimistic locking where User is aware of the parallel transaction taking place.
 
 In case of Optimistic Locking there is a version column in the database table which is used to prevent the conflict.
-When User A reads his balance from account he see the account balance as Rs 100 with Version 1.
-When User B reads User A balance from account he see the account balance as Rs 100 with Version 1.
-Now User B updates the Balance to Rs 20 and commits it to the database. As soon as the transaction is commited the balance changes to Rs20 and Version 2.
+When User A reads his    balance from account he sees the account balance as Rs 100 with Version 1.
+When User B reads User A balance from account he sees the account balance as Rs 100 with Version 1.
+Now User B updates the Balance to Rs 20 and commits it to the database. As soon as the transaction is committed the balance changes to Rs 20 and Version 2.
 Now when User A tries to make a transaction no record will be updated since the version is changed to 2 and Hibernate will throw OptimisticLockException.
 
 Pessimistic Locking in Hibernate can be acquired by LockMode class.
+
 The LockMode class provides the following set of locks, which can be obtained in a Hibernate application:
 
 LockMode.WRITE: This lock is obtained when Hibernate updates or inserts a new row.

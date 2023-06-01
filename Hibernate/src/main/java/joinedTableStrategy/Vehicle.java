@@ -16,23 +16,19 @@ public class Vehicle {
     private String name;
 }
 
-/**
- * Table Generated
- * <p>
- * Vehicle
- * <p>
- * ID   Name
- * 1    Car
- * 2    Bike
- * 3    Porsche
- * <p>
- * TwoWheeler
- * <p>
- * ID   steeringHandle
- * 2     BikeSteering
- * <p>
- * FourWheeler
- * <p>
- * ID   steeringWheel
- * 3    PorscheSteering
+/*   Table Generated
+
+      Vehicle
+        ID   Name
+        1    Car
+        2    Bike
+        3    Porsche
+
+     TwoWheeler
+        ID    steeringHandle
+        2     BikeSteering
+
+     FourWheeler
+       ID   steeringWheel
+       3    PorscheSteering
  */
