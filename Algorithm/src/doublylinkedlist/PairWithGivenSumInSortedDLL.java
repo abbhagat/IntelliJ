@@ -37,5 +37,7 @@ public class PairWithGivenSumInSortedDLL {
         }
         traverseList(head);
         pairSum(head, CreateList.last, 7);
+        System.out.println();
+        pairSum(head, CreateList.last, 5);
     }
 }

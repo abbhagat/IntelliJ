@@ -3,6 +3,8 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Given a LinkedList Partition all the nodes in such a way that all node less than x comes before x and remaining after it.
+
 public class LinkedListPartition {
 
     private static Node partition(Node head, int n) {
@@ -11,16 +13,15 @@ public class LinkedListPartition {
         }
         Node temp1 = new Node(-1, head);
         Node temp2 = new Node(-1, head);
-        Node curr = head, p = temp1, q = temp2;
-        while (curr != null) {
-            if (curr.num < n) {
-                p.next = curr;
+        Node p = temp1, q = temp2;
+        for (Node temp = head; temp != null; temp = temp.next) {
+            if (temp.num < n) {
+                p.next = temp;
                 p = p.next;
             } else {
-                q.next = curr;
+                q.next = temp;
                 q = q.next;
             }
-            curr = curr.next;
         }
         q.next = null;
         p.next = temp2.next;

@@ -3,6 +3,7 @@ package stack;
 import java.util.Stack;
 
 import static java.lang.Integer.max;
+import static java.lang.Math.abs;
 
 public class LengthOfTheLongestBalancedBracket {
 
@@ -18,7 +19,7 @@ public class LengthOfTheLongestBalancedBracket {
                 if (stack.isEmpty()) {
                     stack.push(i);
                 }
-                maxLength = max(maxLength, i - stack.peek());
+                maxLength = max(maxLength, abs(i - stack.peek()));
             }
         }
         return maxLength;

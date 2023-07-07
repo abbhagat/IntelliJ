@@ -47,7 +47,7 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
     }
-    T oldValue = list[index];
+    T oldValue   = list[index];
     int numMoved = size - index - 1;
     if (numMoved > 0) {
       System.arraycopy(list, index + 1, list, index, numMoved);

@@ -8,18 +8,18 @@ public class SubsetWithSumDivByN {
         boolean flag;
     }
 
-    private static void findSubset(int[] a, int index, LinkedList<Integer> list, int k, BooleanWrapper booleanWrapper) {
+    private static void findSubset(int[] a, int index, LinkedList<Integer> list, int n, BooleanWrapper booleanWrapper) {
         if (index == a.length) {
             int sum = list.stream().reduce(0, Integer::sum);
-            if (sum % k == 0) {
+            if (sum % n == 0) {
                 booleanWrapper.flag = true;
             }
             return;
         }
-        findSubset(a, index + 1, list, k, booleanWrapper);
         list.add(a[index]);
-        findSubset(a, index + 1, list, k, booleanWrapper);
+        findSubset(a, index + 1, list, n, booleanWrapper);
         list.removeLast();
+        findSubset(a, index + 1, list, n, booleanWrapper);
     }
 
     public static void main(String[] args) {

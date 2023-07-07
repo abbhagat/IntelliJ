@@ -4,9 +4,9 @@ public class StringHasAllUniqueCharacters {
 
     private static boolean hasAllUniqueChar(String s) {
         int[] temp = new int[26];
-        char[] c = s.toUpperCase().toCharArray();
+        char[] c = s.toLowerCase().toCharArray();
         for (char x : c) {
-            temp[x - 'A']++;
+            temp[x - 'a']++;
         }
         for (int x : temp) {
             if (x > 1) {

@@ -1,15 +1,17 @@
 package linkedlist;
 
+import static linkedlist.TraverseList.traverseList;
+
 // Time Complexity : O(n)
 // Space Complexity: O(1)
 public class ReverseNodesInPairs {
 
     private static Node reverseNodesInPairs(Node first) {
         Node head = new Node(-1, first);
-        Node curr = head;
-        while (curr != null && curr.next != null && curr.next.next != null) {
-            curr.next = swap(curr.next, curr.next.next);
-            curr = curr.next.next;
+        Node temp = head;
+        while (temp != null && temp.next != null && temp.next.next != null) {
+            temp.next = swap(temp.next, temp.next.next);
+            temp = temp.next.next;
         }
         return head.next;
     }
@@ -26,8 +28,8 @@ public class ReverseNodesInPairs {
         for (int x : a) {
             first = LinkList.add(first, x);
         }
-        TraverseList.traverseList(first);
+        traverseList(first);
         first = reverseNodesInPairs(first);
-        TraverseList.traverseList(first);
+        traverseList(first);
     }
 }

@@ -13,14 +13,13 @@ class OddEvenThreadPrinter {
     }
 
     Runnable runnable = () -> {
-        while (true) {
+        while (n <= 10) {
             try {
-                Thread.sleep(500);
                 synchronized (monitor) {
                     if (!threadID.equals(threadIDToRun)) {
                         monitor.wait();
                     } else {
-                        System.out.print(n + " ");
+                        System.out.println(n + " " + Thread.currentThread().getName());
                         threadIDToRun = n++ % 2 == 0 ? "ODD" : "EVEN";
                         monitor.notifyAll();
                     }

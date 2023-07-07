@@ -62,5 +62,10 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         findPairs(new int[]{10, 5, 15}, 5);
         System.out.println();
         findPairs(new int[]{10, 5, 15, 5, 0}, 0);
+        System.out.println();
+        findPairs(new int[]{1, 3}, 2);
+        System.out.println();
+        findPairs(new int[]{5, 0}, 5);
+        System.out.println();
     }
 }

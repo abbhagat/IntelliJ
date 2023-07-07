@@ -2,7 +2,6 @@ package linkedlist;
 
 import static java.lang.Integer.parseInt;
 import static linkedlist.LinkList.add;
-import static linkedlist.ReverseList.reverseList;
 
 /*
 You are given two non-empty linked lists representing two non-negative integers.
@@ -21,8 +20,8 @@ Output: [0]
 public class AddTwoNumInLinkedList {
 
     public static void main(String[] args) {
-        int[] a = {2, 4, 3};
-        int[] b = {5, 6, 4};
+        int[] a = {9, 9, 9, 9, 9, 9, 9};
+        int[] b = {9, 9, 9, 9};
         Node l1 = null, l2 = null;
         for (int x : a) {
             l1 = add(l1, x);
@@ -31,8 +30,6 @@ public class AddTwoNumInLinkedList {
         for (int x : b) {
             l2 = add(l2, x);
         }
-        l1 = reverseList(l1);
-        l2 = reverseList(l2);
         StringBuilder num1 = new StringBuilder();
         StringBuilder num2 = new StringBuilder();
         for (Node temp = l1; temp != null; temp = temp.next) {
@@ -41,6 +38,7 @@ public class AddTwoNumInLinkedList {
         for (Node temp = l2; temp != null; temp = temp.next) {
             num2.append(temp.num);
         }
-        System.out.println(parseInt(num1.toString()) + parseInt(num2.toString()));
+        int result = parseInt(num1.toString()) + parseInt(num2.toString());
+        System.out.println(new StringBuilder(Integer.toString(result)).reverse());
     }
 }

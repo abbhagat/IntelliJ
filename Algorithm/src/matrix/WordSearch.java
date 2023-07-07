@@ -8,8 +8,8 @@ public class WordSearch {
             {'U', 'K', 'W', 'A'}
     };
     private static final int ROW = M.length , COL = M[0].length;
-    private static final int[] rowIdx = {1, -1, 0, 0};
-    private static final int[] colIdx = {0, 0, 1, -1};
+    private static final int[] rowIdx = {1, 0, -1, 0};
+    private static final int[] colIdx = {0, 1, 0, -1};
 
     private static boolean DFS(int row, int col, String word, int index) {
         if (index >= word.length()) {

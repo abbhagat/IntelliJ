@@ -7,7 +7,7 @@ package trees;
     Output: [3,4,5,5,4,null,7]
     Input:  root1 = [1], root2 = [1,2]
     Output: [2,2]
- */
+*/
 
 import static trees.TreeTraversal.inorder;
 

@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 /**
  * I/P :- int[] a = { 4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6 }
  * <p>
@@ -12,19 +14,12 @@ import java.util.stream.IntStream;
 
 public class SortingBigO_n_0_10 {
 
-    private static int[] a = {4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6};
-
-    private static void swap(int i, int j) {
-        a[i] ^= a[j];
-        a[j] ^= a[i];
-        a[i] ^= a[j];
-    }
-
     public static void main(String[] args) {
+        int[] a = {4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6};
         int i = 0;
         while (i < a.length) {
             if (a[i] != i) {
-                swap(i, a[i]);
+                swap(a, i, a[i]);
             } else {
                 i++;
             }

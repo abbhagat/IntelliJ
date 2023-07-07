@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 
 /*
 Heap sort is a comparison-based sorting technique based on Binary Heap data structure.
@@ -29,24 +31,18 @@ public class HeapSort {
         int left  = 2 * i;
         int right = 2 * i + 1;
         int largest;
-        largest = left  <= n && a[left]  > a[i]       ? left  : i;
-        largest = right <= n && a[right] > a[largest] ? right : largest;
+        largest = left  <= n && a[left]  >= a[i]       ? left  : i;
+        largest = right <= n && a[right] >= a[largest] ? right : largest;
         if (i != largest) {
-            swap(i, largest);
+            swap(a, i, largest);
             maxHeap(largest);
         }
-    }
-
-    private static void swap(int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
     }
 
     private static void heapSort() {
         buildHeap();
         for (int i = n; i >= 0; i--) {
-            swap(0, i);
+            swap(a, 0, i);
             n--;
             maxHeap(0);
         }

@@ -8,7 +8,7 @@ public class LCA {
 
     public static Node lca(Node root, int num1, int num2) {
         if (root == null) {
-            return root;
+            return null;
         }
         if (num1 < root.num && num2 > root.num) {
             return root;

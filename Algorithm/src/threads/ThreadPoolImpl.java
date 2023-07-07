@@ -3,58 +3,37 @@ package threads;
 
 import java.util.Vector;
 
-class WorkersThread implements Runnable {
-
-    private Thread thread;
-    public WorkersThread() {
-        thread = new Thread(this, "");
-        thread.start();
-    }
-
-    @Override
-    public void run() {
-
-    }
-}
-
 public class ThreadPoolImpl {
 
-    private final int POOL_SIZE = 10;
-    private Vector<WorkersThread> threadPool = new Vector<>();
+    private final Vector<WorkerThread> threadPool = new Vector<>();
 
     public ThreadPoolImpl() {
-        initializeThreadPool();
+        this(10);
     }
 
-    private void initializeThreadPool() {
-        while (!isThreadPoolFull()) {
-            threadPool.add(createNewThread());
+    public ThreadPoolImpl(int size) {
+        while (threadPool.size() <= size) {
+            threadPool.add(new WorkerThread());
         }
         System.out.println("Thread Pool is Full");
     }
 
-    private boolean isThreadPoolFull() {
-        return threadPool.size() <= POOL_SIZE ? true : false;
-    }
-
-    private WorkersThread createNewThread() {
-        return new WorkersThread();
-    }
-
-    public WorkersThread getConnectionFromPool() {
-        WorkersThread thread = null;
+    public WorkerThread getConnectionFromPool() {
+        WorkerThread workerThread = null;
         if (threadPool.size() > 0) {
-            thread = threadPool.firstElement();
+            workerThread = threadPool.firstElement();
             threadPool.removeElementAt(0);
         }
-        return thread;
+        return workerThread;
     }
 
-    public void returnConnectionToPool(WorkersThread thread) {
-        threadPool.add(thread);
+    public void returnConnectionToPool(WorkerThread workerThread) {
+        threadPool.add(workerThread);
     }
 
     public static void main(String[] args) {
-
+        ThreadPoolImpl threadPoolImpl = new ThreadPoolImpl();
+        WorkerThread workerThread = threadPoolImpl.getConnectionFromPool();
+        threadPoolImpl.returnConnectionToPool(workerThread);
     }
 }

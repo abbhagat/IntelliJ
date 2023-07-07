@@ -7,12 +7,12 @@ public class PrintAllKLengthStrings {
             System.out.println(prefix);
             return;
         }
-        for (int i = 0; i < a.length; i++) {
-            printAllKLength(a, prefix + a[i], k - 1);
+        for (char c : a) {
+            printAllKLength(a, prefix + c, k - 1);
         }
     }
 
     public static void main(String[] args) {
-        printAllKLength(new char[]{'A', 'B', 'C'}, "", 2);
+        printAllKLength(new char[]{'A', 'B', 'C'}, "", 3);
     }
 }

@@ -11,7 +11,7 @@ public class Doubleton implements Cloneable, Serializable {
 
     private Doubleton() throws Exception {
         if (null != _instance1 || null != _instance2) {
-            throw new Exception();
+            throw new Exception("Doubleton Already Initialized");
         }
     }
 
@@ -19,13 +19,12 @@ public class Doubleton implements Cloneable, Serializable {
         return getInstance();
     }
 
-    public Object clone() {
+    public Object clone() throws CloneNotSupportedException {
         try {
             return getInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static synchronized Doubleton getInstance() throws Exception {

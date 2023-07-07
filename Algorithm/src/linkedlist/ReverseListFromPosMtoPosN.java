@@ -7,23 +7,23 @@ import static linkedlist.TraverseList.traverseList;
 // Space Complexity: O(1)
 public class ReverseListFromPosMtoPosN {
 
-    private static Node reverseList(Node head, int m, int n) {
-        if (m >= n || head == null) {
-            return head;
+    private static Node reverseList(Node first, int m, int n) {
+        if (m >= n || first == null) {
+            return first;
         }
-        Node first = new Node(-1, head);
-        Node prev = first;
+        Node head = new Node(-1, first);
+        Node prev = head;
         for (int i = 1; i < m; i++) {
             prev = prev.next;
         }
-        Node t = prev.next;
+        Node temp = prev.next;
         for (int i = m; i < n; i++) {
-            Node temp = t.next.next;
-            t.next.next = prev.next;
-            prev.next = t.next;
-            t.next = temp;
+            Node next = temp.next.next;
+            temp.next.next = prev.next;
+            prev.next = temp.next;
+            temp.next = next;
         }
-        return first.next;
+        return head.next;
     }
 
     public static void main(String[] args) {

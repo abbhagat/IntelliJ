@@ -1,8 +1,7 @@
 package strings;
 
-/*
-Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a permutation.
- */
+// Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a permutation.
+
 public class AllPossibleCombinationOfString {
     private static void permute(char[] c, int start, int end) {
         if (start == end) {
@@ -18,8 +17,8 @@ public class AllPossibleCombinationOfString {
 
     private static void swap(char[] c, int x, int y) {
         char t = c[x];
-        c[x] = c[y];
-        c[y] = t;
+          c[x] = c[y];
+          c[y] = t;
     }
 
     public static void main(String[] args) {

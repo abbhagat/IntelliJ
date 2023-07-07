@@ -13,8 +13,8 @@ public class MaxConsecutiveNoInArray {
         Set<Integer> set = new LinkedHashSet<>();
         for (int i = 1; i < a.length; i++) {
             if (a[i] - a[i - 1] == 1) {
-                set.add(a[i - 1]);
                 set.add(a[i]);
+                set.add(a[i - 1]);
             }
         }
         System.out.println("Consecutive are :" + set);

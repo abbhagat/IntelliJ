@@ -3,14 +3,14 @@ package graph;
 import java.util.LinkedList;
 
 public class Graph {
-    private int v;
-    private LinkedList<Integer>[] edge;
+    private final int v;
+    private final LinkedList<Integer>[] edge;
 
     public Graph(int v) {
         this.v = v;
         this.edge = new LinkedList[v];
         for (int i = 0; i < v; i++) {
-            edge[i] = new LinkedList();
+            edge[i] = new LinkedList<>();
         }
     }
 

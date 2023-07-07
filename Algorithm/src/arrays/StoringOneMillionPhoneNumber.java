@@ -2,7 +2,7 @@ package arrays;
 
 public class StoringOneMillionPhoneNumber {
 
-    private static boolean[] flag = new boolean[1000000000];
+    private static final boolean[] flag = new boolean[1000000000];
 
     private static void add(int idx) {
         flag[idx] = true;
@@ -22,5 +22,7 @@ public class StoringOneMillionPhoneNumber {
             add(x);
         }
         System.out.println(isPresent(23));
+        remove(23);
+        System.out.println(isPresent(11));
     }
 }

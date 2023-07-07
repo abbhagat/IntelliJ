@@ -2,6 +2,8 @@ package amazon;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 // Time  Complexity  O(n)
 // Space Complexity  O(1)
 
@@ -21,12 +23,6 @@ public class ReArrangePositiveAndNegativeNumber {
             }
         }
         IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
-    }
-
-    private static void swap(int[] a, int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
     }
 
     public static void main(String[] args) {

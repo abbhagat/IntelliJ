@@ -2,6 +2,8 @@ package amazon;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 // Time  Complexity  O(n)
 // Space Complexity  O(1)
 
@@ -10,7 +12,7 @@ public class ReArrangeArrayToOddEvenPlace {
     private static void reArrangeArrayToOddEvenPlace(int[] a) {
         int i = 0, j = 1;
         while (i < a.length && j < a.length) {
-            if (a[i] % 2 != 0) {
+            if (a[i] % 2 == 1) {
                 i += 2;
             } else if (a[j] % 2 == 0) {
                 j += 2;
@@ -21,12 +23,6 @@ public class ReArrangeArrayToOddEvenPlace {
             }
         }
         IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
-    }
-
-    private static void swap(int[] a, int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
     }
 
     public static void main(String[] args) {

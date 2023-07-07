@@ -4,7 +4,7 @@ public class MaxProfitWithTrxnFee {
 
     private static void maxProfit(int[] a, int[] b, int fee) {
         int diff_day = 1;
-        b[0] = 0;          //b[0] will contain the maximum profit
+        b[0] = 0;          // b[0] will contain the maximum profit
         b[1] = diff_day;  //b[1] will contain the day on which we are getting the maximum profit
         for (int i = 1; i < a.length; i++) {
             int l = 0, r = diff_day, sum = 0;

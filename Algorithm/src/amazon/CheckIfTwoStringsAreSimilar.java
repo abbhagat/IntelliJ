@@ -22,5 +22,6 @@ public class CheckIfTwoStringsAreSimilar {
 
     public static void main(String... args) {
         System.out.println(isSimilar("xyz", "yxz") ? "Similar" : "Not Similar");
+        System.out.println(isSimilar("abc", "cab") ? "Similar" : "Not Similar");
     }
 }

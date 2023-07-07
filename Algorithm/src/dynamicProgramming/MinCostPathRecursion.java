@@ -43,6 +43,6 @@ public class MinCostPathRecursion {
                          {4, 8, 2},
                          {1, 5, 3}
                        };
-        System.out.println(minCost(cost, 2, 2) + "\t" + minCostDP(cost, 2, 2));
+        System.out.println(minCost(cost, cost.length - 1, cost[0].length - 1) + "\t" + minCostDP(cost, cost.length - 1, cost[0].length - 1));
     }
 }

@@ -28,14 +28,15 @@ package binarySearchImpl;
 public class MaxMango {
 
     private static boolean check(int W, int C, int x, int y, int mid) {
-        if (mid > W) {                        // If watermelons needed are greater than given watermelons
+        if (mid > W) {      // If watermelons needed are greater than given watermelons
             return false;
         }
         int remainingWaterMelon = W - mid;
         int coinsEarned = remainingWaterMelon * y;
         C += coinsEarned;
         int mangoes = C / x;
-        return mangoes >= mid ? true : false;
+        return mangoes >= mid;
+        // return ((W-mid)*y + C)/x >= mid
     }
 
     private static int maximizeMangoes(int W, int C, int x, int y) {

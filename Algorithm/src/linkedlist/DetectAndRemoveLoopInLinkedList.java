@@ -5,17 +5,15 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DetectAndRemoveLoopInLinkedList {
     private static void detectAndRemoveLoop(Node first) {
+        if (first == null || first.next == null) {
+            return;
+        }
         Node slow = first, fast = first.next;
         while (fast != slow && fast.next != slow) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        if (fast == slow) {
-            while (fast.next != slow) {
-                fast = fast.next;
-            }
-        }
-        fast.next = null;
+        removeCycle(slow, fast);
     }
 
     private static void removeCycle(Node slow, Node fast) {

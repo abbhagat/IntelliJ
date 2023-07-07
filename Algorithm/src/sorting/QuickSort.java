@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 public class QuickSort {
 
     private static final int[] a = {10, 3, 4, 6, 9, 2, 1, 5, 8, 7};
@@ -17,9 +19,7 @@ public class QuickSort {
                 j--;
             }
             if (i <= j) {
-                int t = a[i];
-                a[i] = a[j];
-                a[j] = t;
+                swap(a, i, j);
                 i++;
                 j--;
             }

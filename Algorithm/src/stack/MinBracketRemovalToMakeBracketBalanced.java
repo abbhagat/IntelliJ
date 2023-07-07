@@ -22,7 +22,7 @@ public class MinBracketRemovalToMakeBracketBalanced {
             if (c == '{') {
                 open++;
             } else {
-                int j = open == 0 ? close++ : open--;
+                int k = open == 0 ? close++ : open--;
             }
         }
         return (int) (Math.ceil((0.0 + open) / 2) + Math.ceil((0.0 + close) / 2));

@@ -39,8 +39,8 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
         while (low <= high) {
             int mid = (low + high) / 2;
             int count = 0;
-            for (int i = 0; i < a.length; i++) {
-                count += a[i] / mid;
+            for (int x : a) {
+                count += x / mid;
             }
             if (count >= k) {
                 result = mid;

@@ -2,7 +2,7 @@ package strings;
 
 public class RemoveStringDuplicatesUsingRec {
 
-    private static int[] temp = new int[128];
+    private static final int[] temp = new int[128];
 
     private static void removeDuplicates(char[] c, int i) {
         if (i < c.length) {

@@ -2,7 +2,7 @@ package matrix;
 
 public class Sudoku {
 
-    private int[][] a = {
+    private static final char[][] board = {
             {3, 0, 6, 5, 0, 8, 4, 0, 0},
             {5, 2, 0, 0, 0, 0, 0, 0, 0},
             {0, 8, 7, 0, 0, 0, 0, 3, 1},
@@ -14,89 +14,51 @@ public class Sudoku {
             {0, 0, 5, 2, 0, 6, 3, 0, 0}
     };
 
-    private int row, col;
-
-    private boolean solveSudoku() {
-        if (!findUnassignedLocation()) {
-            return true; // success!
-        }
-        for (int num = 1; num <= 9; num++) {
-            if (isSafe(row, col, num)) {
-                a[row][col] = num; // make tentative assignment
-                if (solveSudoku()) {
-                    return true; // return, if success
+    private static boolean solveSudoku(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.') {
+                    continue;
                 }
-                a[row][col] = 0; // failure, unmake & try again
-            }
-        }
-        return false;
-    }
 
-    private boolean findUnassignedLocation() {
-        for (row = 0; row < a.length; row++) {
-            for (col = 0; col < a[0].length; col++) {
-                if (a[row][col] == 0) {
-                    return true;
+                for (char k = '1'; k <= '9'; k++) {
+                    if (isValid(board, i, j, k)) {
+                        board[i][j] = k;
+                        if (solveSudoku(board)) {
+                            return true;
+                        }
+                        board[i][j] = '.';
+                    }
                 }
+                return false;
             }
         }
-        return false;
+
+        return true; //return true if all cells are checked
     }
 
-    boolean isSafe(int row, int col, int num) {
-        /*
-         * Check if 'num' is not already placed in current row,current column and current 3x3 box
-         */
-        return !usedInRow(row, num) && !usedInCol(col, num) && !usedInBox(row - row % 3, col - col % 3, num);
-    }
+    private static boolean isValid(char[][] board, int row, int col, char c) {
+        for (int i = 0; i < 9; i++) {
+            if (board[i][col] != '.' && board[i][col] == c) {
+                return false;
+            }
 
-    /*
-     * Returns a boolean which indicates whether any assigned entry in the specified row matches the given number.
-     */
+            if (board[row][i] != '.' && board[row][i] == c) {
+                return false;
+            }
 
-    boolean usedInRow(int row, int num) {
-        for (int i = 0; i < a[0].length; i++) {
-            if (a[row][i] == num) {
-                return true;
+            if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] != '.'
+                    &&
+                    board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) {
+                return false;
             }
         }
-        return false;
-    }
-
-    /*
-     * Returns a boolean which indicates whether any assigned entry in the
-     * specified column matches the given number.
-     */
-
-    boolean usedInCol(int col, int num) {
-        for (int i = 0; i < a[0].length; i++) {
-            if (a[i][col] == num) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /*
-     * Returns a boolean which indicates whether any assigned entry within the
-     * specified 3x3 box matches the given number.
-     */
-
-    boolean usedInBox(int boxStartRow, int boxStartCol, int num) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (a[i + boxStartRow][j + boxStartCol] == num) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
-        Sudoku s = new Sudoku();
-        if (s.solveSudoku()) {
-            for (int[] x : s.a) {
+        if (solveSudoku(board)) {
+            for (char[] x : board) {
                 for (int y : x) {
                     System.out.print(y + " ");
                 }

@@ -15,7 +15,7 @@ interface Container {
 
 class NameRepository implements Container {
 
-    private List<String> names = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
+    private final List<String> names = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
 
     @Override
     public Iterator iterator() {
@@ -27,7 +27,7 @@ class NameRepository implements Container {
 
         @Override
         public boolean hasNext() {
-            return index < names.size() ? true : false;
+            return index < names.size();
         }
 
         @Override

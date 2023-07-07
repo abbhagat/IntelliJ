@@ -10,14 +10,20 @@ public class UnionOfTwoArrays {
         int[] b = {1, 2, 6, 8, 4, 9, 3, 10, 7, 19, 20};
         Arrays.sort(a);
         Arrays.sort(b);
-        System.out.println("Intersection ");
-        for (int i = 0, j = 0; i < a.length && j < b.length; i++, j++) {
+        System.out.print("Intersection ");
+        int i = 0, j = 0;
+        while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");
+                i++;
+                j++;
+            } else {
+                int k = a[i] < b[j] ? i++ : j++;
             }
         }
-        System.out.println();
-        int i = 0, j = 0;
+        System.out.print("\nUnion        ");
+        i = 0;
+        j = 0;
         while (i < a.length && j < b.length) {
             if (a[i] == b[j]) {
                 System.out.print(a[i] + " ");

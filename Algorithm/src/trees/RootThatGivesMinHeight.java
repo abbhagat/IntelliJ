@@ -16,7 +16,6 @@ public class RootThatGivesMinHeight {
         if(max < height){
             max = height;
             System.out.println(root.num);
-            node = root;
         }
         return height;
     }

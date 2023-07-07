@@ -4,7 +4,7 @@ import java.util.BitSet;
 
 public class BitSetDemo {
 
-    private BitSet bitSet = new BitSet(100000);
+    private final BitSet bitSet = new BitSet(100000);
 
     public void addTelephoneNumber(int number) {
         bitSet.set(number);

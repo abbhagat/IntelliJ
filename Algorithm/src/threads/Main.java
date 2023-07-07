@@ -3,7 +3,8 @@ package threads;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Singleton.getInstance();
-        Doubleton.getInstance();
+        Singleton s = Singleton.getInstance();
+        Doubleton d = Doubleton.getInstance();
+        System.out.println(s + "\n" + d);
     }
 }

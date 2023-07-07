@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 /**
  * Dutch National Flag Algorithm OR 3-way Partitioning:
  * At first,the full array is unknown.
@@ -13,32 +15,26 @@ import java.util.stream.IntStream;
  * Time Complexity: O(n)
  */
 public class SortArrayHavingZeroOneAndTwo {
-
-    private static final int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
-
-    private static void sort(int low, int mid, int high) {
+    private static void sort(int[] a) {
+        int low = 0, mid = 0, high = a.length - 1;
         while (mid <= high) {
-            if (a[mid] == 0) {
-                swap(low, mid);
-                low++;
-                mid++;
-            } else if (a[mid] == 1) {
-                mid++;
-            } else if (a[mid] == 2) {
-                swap(mid, high);
-                high--;
+            switch (a[mid]) {
+                case 0: swap(a, low, mid);
+                        low++;
+                        mid++;
+                        break;
+                case 1: mid++;
+                        break;
+                case 2: swap(a, mid, high);
+                        high--;
+                        break;
             }
         }
     }
 
-    private static void swap(int x, int y) {
-        int temp = a[x];
-        a[x] = a[y];
-        a[y] = temp;
-    }
-
     public static void main(String[] args) {
-        sort(0, 0, a.length - 1);
-        IntStream.range(0, a.length - 1).forEach(i -> System.out.print(a[i] + " "));
+        int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        sort(a);
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

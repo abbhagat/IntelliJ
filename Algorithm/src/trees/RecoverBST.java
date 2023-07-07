@@ -45,15 +45,17 @@ public class RecoverBST {
     private static void recoverBST(Node root) {
         recoverBSTUtil(root);
         if (first != null && last != null) {
-            int temp  = first.num;
-            first.num = last.num;
-            last.num  = temp;
+            swap(first, last);
         }
         else if (first != null && middle != null) {
-            int temp   = first.num;
-            first.num  = middle.num;
-            middle.num = temp;
+            swap(first, middle);
         }
+    }
+
+    private static void swap(Node x, Node y) {
+        int t  = x.num;
+        x.num  = y.num;
+        y.num  = t;
     }
 
     public static void main(String[] args) {
@@ -63,7 +65,7 @@ public class RecoverBST {
                       / \ / \
                      1  3 7 12
 
-                    10 and 2 are swapped
+                10 and 2 are swapped
 */
         Node root        = new Node(1);
         root.left        = new Node(2);

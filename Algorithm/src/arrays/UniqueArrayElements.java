@@ -3,31 +3,25 @@ package arrays;
 /*
  * Find the unique number that is present only once in array
  * while all the others are present three times.
- */
+*/
 
-/*
- * Soln 1 :  using a hashmap
- * Soln 2 : O(n^2)
- * Soln 3 : Using Sorting
- */
+import java.util.HashMap;
+import java.util.Map;
 
 public class UniqueArrayElements {
-
-    private static int[] a = {2, 3, 5, 1, 2, 2, 5, 4, 3, 5, 3, 4, 2};
+    private static void printUniqueArrayElements(int[] a) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int x : a) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+        map.forEach((k, v) -> {
+            if (v == 1 || v == 3) {
+                System.out.println(k);
+            }
+        });
+    }
 
     public static void main(String[] args) {
-        int[] temp = new int[a.length];
-        int i;
-        for (i = 0; i < a.length; i++) {
-            temp[a[i]]++;
-        }
-        for (i = 0; i < a.length; i++) {
-            if (temp[i] == 1) {
-                System.out.println(i + " is present once");
-            }
-            if (temp[i] == 3) {
-                System.out.println(i + " is present three times");
-            }
-        }
+        printUniqueArrayElements(new int[]{2, 3, 5, 1, 2, 2, 5, 4, 3, 5, 3, 4, 2});
     }
 }

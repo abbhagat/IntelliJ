@@ -34,10 +34,10 @@ public class PalindromePartitioning {
         }
         int min = Integer.MAX_VALUE;
         for (int i = low; i < high; i++) {
-            int result = minPalindromePartition(str, low, i) + minPalindromePartition(str, i + 1, high);
+            int result = 1 + minPalindromePartition(str, low, i) + minPalindromePartition(str, i + 1, high);
             min = min(min, result);
         }
-        return min + 1;
+        return min;
     }
 
     public static void main(String[] args) {

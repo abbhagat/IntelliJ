@@ -2,10 +2,9 @@ package arrays;
 
 public class RemoveDuplicatesInCharArray {
 
-    private final char[] a = {'A', 'B', 'B', 'C', 'D', 'E', 'R', 'R', 'D'};
-    private final int[] temp = new int[128];
-
-    void removeDuplicate() {
+    private static void removeDuplicate() {
+        final char[] a = {'A', 'B', 'B', 'C', 'D', 'E', 'R', 'R', 'D'};
+        int[] temp = new int[128];
         for (char c : a) {
             temp[c]++;
         }
@@ -17,7 +16,6 @@ public class RemoveDuplicatesInCharArray {
     }
 
     public static void main(String[] args) {
-        RemoveDuplicatesInCharArray array = new RemoveDuplicatesInCharArray();
-        array.removeDuplicate();
+        removeDuplicate();
     }
 }

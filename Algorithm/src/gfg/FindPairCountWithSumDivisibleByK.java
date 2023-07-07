@@ -104,7 +104,7 @@ public class FindPairCountWithSumDivisibleByK {
     }
 
     public static void main(String[] args) {
-        System.out.println(countPairs(new int[]{1, 2, 3, 4, 5}, 5));
+        System.out.println(countPairs(new int[]{1, 2, 3, 4, 5, 8}, 5));
         System.out.println(countPairs(new int[]{2, 2, 1, 7, 5, 3}, 4));
     }
 }

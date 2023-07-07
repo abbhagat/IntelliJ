@@ -9,7 +9,7 @@ import static trees.TreeTraversal.preorder;
 // Auxiliary Space: O(n)
 public class ConvertBSTToMinHeap {
 
-    private static List<Integer> list = new ArrayList<>();
+    private static final List<Integer> list = new ArrayList<>();
     private static int index;
 
     private static void listToMinHeap(Node root) {    // Preorder

@@ -20,6 +20,7 @@ public class StringAnagram {
     }
 
     public static void main(String[] args) {
-        System.out.println(isAnagram("Java","vaJa") ? "Anagram" : "Not Anagram");
+        System.out.println(isAnagram("Java", "vaJa") ? "Anagram" : "Not Anagram");
+        System.out.println(isAnagram("Cat", "Cut")   ? "Anagram" : "Not Anagram");
     }
 }

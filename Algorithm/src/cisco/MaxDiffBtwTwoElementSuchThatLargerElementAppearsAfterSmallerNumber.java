@@ -22,7 +22,7 @@ public class MaxDiffBtwTwoElementSuchThatLargerElementAppearsAfterSmallerNumber 
         for (int i = 1; i < a.length - 1; i++) {
             diff = a[i + 1] - a[i];
             curr_sum = curr_sum > 0 ? curr_sum + diff : diff;
-            max_sum  = curr_sum > max_sum ? curr_sum : max_sum;
+            max_sum  = Math.max(curr_sum, max_sum);
         }
         return max_sum;
     }

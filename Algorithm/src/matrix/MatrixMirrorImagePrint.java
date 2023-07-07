@@ -6,7 +6,7 @@ public class MatrixMirrorImagePrint {
 
     private static void mirrorImage(int[][] a) {
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0, k = a[0].length - 1; j < k; j++, k--) {
+            for (int j = 0, k = a[i].length - 1; j < k; j++, k--) {
                 int t = a[i][j];
                 a[i][j] = a[i][k];
                 a[i][k] = t;

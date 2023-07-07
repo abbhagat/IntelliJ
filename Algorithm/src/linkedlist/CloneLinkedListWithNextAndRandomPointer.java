@@ -55,6 +55,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
     }
 
     public static void main(String[] args) {
-
+        Node node = clone(new Node(10));
+        System.out.println(node);
     }
 }

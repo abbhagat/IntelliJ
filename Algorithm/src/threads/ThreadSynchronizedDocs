@@ -9,8 +9,15 @@ method4: public synchronized int method4()
 method5: public String method5()
 
 t1.method1() starts execution as it attains class level lock of Manager class.
-t2.method2() wait for its time to start execution, as it is a static synchronized method, it requires a class level lock, as t1 has already acquired class level lock t2 must wait until t1 execution.
+
+t2.method2() wait for its time to start execution, as it is a static synchronized method,
+it requires a class level lock, as t1 has already acquired class level lock t2 must wait until t1 execution.
+
 t3.method2() waits as it requires class level lock, so it must wait until t1 releases the lock.
+
 t4.method3() starts execution as it is static methods requires no lock
-t5.method4() starts execution as it is instance or(normal) level synchronized method and requires object level lock, so it attains object level lock.
+
+t5.method4() starts execution as it is instance or(normal) level synchronized method and requires object level
+lock, so it attains object level lock.
+
 t6.method5() starts execution as it is an instance method or a normal method

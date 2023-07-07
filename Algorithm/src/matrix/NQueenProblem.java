@@ -1,14 +1,16 @@
 package matrix;
 
+import static matrix.MatrixPrint.printMatrix;
+
 // Time Complexity O(M*N)
 public class NQueenProblem {
 
     private static final int[][] board = {
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0}
-    };
+                                            {0, 0, 0, 0},
+                                            {0, 0, 0, 0},
+                                            {0, 0, 0, 0},
+                                            {0, 0, 0, 0}
+                                         };
     private static final int N = board.length;
 
     private static boolean isSafe(int row, int col) {
@@ -48,12 +50,7 @@ public class NQueenProblem {
 
     public static void main(String[] args) {
         if (solveNQUtil(0)) {
-            for (int[] a : board) {
-                for (int x : a) {
-                    System.out.print(" " + x + " ");
-                }
-                System.out.println();
-            }
+            printMatrix(board);
         }
     }
 }

@@ -6,27 +6,17 @@ package amazon;
   Both the array has to be sorted in O(n).
  */
 
+import static util.Swap.swap;
+
 // Time  Complexity  O(n)
 public class SortinginBigO_n {
 
-    private static void swap(int i, int j, int[] a) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-
-    private static void swap(int i, int j, char[] c) {
-        char x = c[i];
-        c[i] = c[j];
-        c[j] = x;
-    }
-
-    private static void sort(int[] pos, char[] chars) {
+    private static void sort(int[] a, char[] c) {
         int i = 0;
-        while (i < chars.length) {
-            if (i != pos[i]) {
-                swap(i, pos[i], chars);
-                swap(i, pos[i], pos);
+        while (i < a.length) {
+            if (i != a[i]) {
+                swap(c, i, a[i]);
+                swap(a, i, a[i]);
             } else {
                 i++;
             }

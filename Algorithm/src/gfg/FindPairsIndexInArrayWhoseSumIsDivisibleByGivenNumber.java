@@ -1,8 +1,6 @@
 package gfg;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /*
@@ -19,40 +17,6 @@ Output: [0,1]
  */
 
 public class FindPairsIndexInArrayWhoseSumIsDivisibleByGivenNumber {
-
-    public static <K, V> K getKey(Map<K, V> map, V value) {
-        for (Map.Entry<K, V> entry : map.entrySet()) {
-            if (value.equals(entry.getValue())) {
-                return entry.getKey();
-            }
-        }
-        return null;
-    }
-
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            List<Integer> list = map.containsKey(nums[i]) ? map.get(nums[i]) : new ArrayList();
-            list.add(i);
-            map.put(nums[i], list);
-        }
-        int[] K = new int[2];
-        for (int i = 0; i < nums.length; i++) {
-            int x = nums[i];
-            int y = target - x;
-            if ((x == y && map.get(y).size() >= 2)) {
-                K[0] = map.get(x).get(0);
-                K[1] = map.get(y).get(1);
-                break;
-            }
-            if (map.containsKey(y)) {
-                K[0] = map.get(x).get(0);
-                K[1] = map.get(y).get(0);
-                break;
-            }
-        }
-        return K;
-    }
 
     public static int[] twoSumIndex(int[] nums, int target) {
         if (nums == null || nums.length < 2) {

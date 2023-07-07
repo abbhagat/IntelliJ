@@ -15,9 +15,9 @@ public class BinaryTreeToLinkedList {
             head = root;
         } else {
             temp.right = root;
+            root.left = null;
         }
         temp = root;
-        temp.left = null;
         treeToLinkedList(root.right);
     }
 

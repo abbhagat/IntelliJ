@@ -1,9 +1,8 @@
 package arrays;
 
 /*
- * Input  :- String str = "Today is Wednesday";
+ * Input  :- String str = "Today is Wednesday"
  * Output :- String str = "Wednesday is Today"
- *
  */
 
 public class ReadStringFromEnd {

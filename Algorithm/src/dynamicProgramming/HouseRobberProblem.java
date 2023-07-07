@@ -30,7 +30,7 @@ public class HouseRobberProblem {
         if (n <= 0) {
             return 0;
         }
-        int selected = a[n - 1] + maxGoldLooted(a, n - 2);
+        int selected   = maxGoldLooted(a, n - 2) + a[n - 1];
         int unselected = maxGoldLooted(a, n - 1);
         return max(selected, unselected);
     }
@@ -47,13 +47,8 @@ public class HouseRobberProblem {
 
     private static int maxGoldLootedDP(int[] a, int n) {
         int[] dp = new int[n];            // dp[i] represent the maximum value stolen so far after reaching house i.
-        if (n == 1) {
-            dp[0] = a[0];
-        }
-        if (n >= 2) {
-            dp[0] = a[0];
-            dp[1] = max(a[0], a[1]);
-        }
+        dp[0]    = a[0];
+        dp[1]    = max(a[0], a[1]);
         for (int i = 2; i < n; i++) {
             dp[i] = max(a[i] + dp[i - 2], dp[i - 1]);
         }
@@ -61,17 +56,11 @@ public class HouseRobberProblem {
     }
 
     public static void main(String[] args) {
-        int[] a = {6, 7, 1, 3, 8, 2, 4};
-        System.out.println(maxGoldLooted(a, a.length));
-        System.out.println(maxGoldLootedDP(a, a.length));
-        System.out.println(maxGoldLooted(a));
-        int[] b = {5, 3, 4, 11, 2};
-        System.out.println(maxGoldLooted(b, b.length));
-        System.out.println(maxGoldLootedDP(b, b.length));
-        System.out.println(maxGoldLooted(b));
-        int[] c = {3, 5, 7};
-        System.out.println(maxGoldLooted(c, c.length));
-        System.out.println(maxGoldLootedDP(c, c.length));
-        System.out.println(maxGoldLooted(c));
+        int[] a = new int[]{6, 7, 1, 3, 8, 2, 4};
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
+        a = new int[]{5, 3, 4, 11, 2};
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
+        a = new int[]{3, 5, 7};
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
     }
 }

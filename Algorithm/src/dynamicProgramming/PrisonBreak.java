@@ -29,7 +29,6 @@ package dynamicProgramming;
  * Explanation 0 Bar counts are h = [2] and v = [2]. This means that Sam removes horizontal bar 2 and vertical bar 2 from the gate, so it looks like this:
  */
 
-
 import java.util.Arrays;
 import java.util.List;
 

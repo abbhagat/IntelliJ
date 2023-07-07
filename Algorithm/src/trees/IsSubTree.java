@@ -12,6 +12,7 @@ public class IsSubTree {
         if (rootSuper != null && rootSub != null && rootSuper.num == rootSub.num) {
             return isSubTree(rootSuper.left, rootSub.left) && isSubTree(rootSuper.right, rootSub.right);
         }
+        assert rootSuper != null;
         return isSubTree(rootSuper.left, rootSub) || isSubTree(rootSuper.right, rootSub);
     }
 

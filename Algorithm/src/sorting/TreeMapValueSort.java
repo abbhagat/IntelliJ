@@ -15,7 +15,7 @@ class MapUtility {
 
 class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
 
-    private Map<K, V> map;
+    private final Map<K, V> map;
 
     public ValueComparator(Map<K, V> map) {
         this.map = map;

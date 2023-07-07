@@ -7,7 +7,6 @@ class Q {
 
     public synchronized void printODD() {
         try {
-            Thread.sleep(500);
             while (flag) {
                 wait();
             }
@@ -21,7 +20,6 @@ class Q {
 
     public synchronized void printEven() {
         try {
-            Thread.sleep(500);
             while (!flag) {
                 wait();
             }
@@ -35,7 +33,6 @@ class Q {
 }
 
 class Even {
-
     private Q q;
 
     Even(Q q) {
@@ -44,7 +41,7 @@ class Even {
     }
 
     Runnable runnable = () -> {
-        while (true) {
+        for (int i = 2; i <= 10; i += 2) {
             q.printEven();
         }
     };
@@ -60,7 +57,7 @@ class Odd {
     }
 
     Runnable runnable = () -> {
-        while (true) {
+        for (int i = 1; i <= 10; i += 2) {
             q.printODD();
         }
     };

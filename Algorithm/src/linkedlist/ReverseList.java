@@ -7,9 +7,7 @@ import static linkedlist.TraverseList.traverseList;
 public class ReverseList {
 
     private static Node reverse(Node node) {
-        Node prev = null;
-        Node temp = node;
-        Node next;
+        Node prev = null, temp = node, next;
         while (temp != null) {
             next = temp.next;
             temp.next = prev;

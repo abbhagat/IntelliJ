@@ -16,7 +16,10 @@ public class MidPointOfLinkedList {
         return slow;
     }
 
-    public static Node findMidPoint(Node first) {
+    public static Node findPrevMidPoint(Node first) {
+        if (first == null || first.next == null) {
+            return first;
+        }
         Node slow = first, prev_slow = first, fast = first.next;
         while (fast != null && fast.next != null) {
             prev_slow = slow;

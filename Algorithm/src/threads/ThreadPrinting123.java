@@ -3,8 +3,8 @@ package threads;
 class PrinterThread implements Runnable {
 
     private static final Object monitor = new Object();
-    private static volatile int threadIdToRun = 1;
-    private int threadId;
+    private static volatile int threadIdToRun = 1, n = 1;
+    private final int threadId;
 
     PrinterThread(int threadId) {
         this.threadId = threadId;
@@ -13,14 +13,14 @@ class PrinterThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        while (n <= 15) {
             try {
-                Thread.sleep(500);
                 synchronized (monitor) {
                     if (threadId != threadIdToRun) {
                         monitor.wait();
                     } else {
-                        System.out.print(threadId + " ");
+                        System.out.println(threadId + " " + Thread.currentThread().getName());
+                        n++;
                         switch (threadId) {
                             case 1: threadIdToRun = 2; break;
                             case 2: threadIdToRun = 3; break;

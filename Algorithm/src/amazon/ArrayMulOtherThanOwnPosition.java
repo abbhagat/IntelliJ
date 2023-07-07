@@ -13,7 +13,7 @@ public class ArrayMulOtherThanOwnPosition {
         for (int i = 1; i < nums.length; i++) {
             a[i] = a[i - 1] * nums[i - 1];
         }
-        for (int i = nums.length - 1, k = 1; i >= 0; i--) {
+        for (int k = 1, i = nums.length - 1; i >= 0; i--) {
             a[i]  *= k;
             k *= nums[i];
         }

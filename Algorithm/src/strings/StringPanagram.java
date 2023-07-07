@@ -2,9 +2,9 @@ package strings;
 
 public class StringPanagram {
 
-    private static boolean isPanagram(char[] c) {
+    private static boolean isPanagram(String s) {
         int[] temp = new int[26];
-        for (char x : c) {
+        for (char x : s.toLowerCase().toCharArray()) {
             if (x >= 'a' && x <= 'z') {
                 temp[x - 'a']++;
             }
@@ -18,7 +18,6 @@ public class StringPanagram {
     }
 
     public static void main(String[] args) {
-        String s = "The quick brown fox jumps over the lazy dog";
-        System.out.println(isPanagram(s.toLowerCase().toCharArray()) ? "Panagram" : "Not Panagram");
+        System.out.println(isPanagram("The quick brown fox jumps over the lazy dog") ? "Panagram" : "Not Panagram");
     }
 }

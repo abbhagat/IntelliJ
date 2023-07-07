@@ -9,12 +9,12 @@ public class RemoveExtraSpaceFromString {
     public static void main(String[] args) {
         String x = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
         String[] str = x.trim().split(" ");
-        String output = "";
+        StringBuilder result = new StringBuilder();
         for (String s : str) {
             if (!s.isEmpty()) {
-                output += s.equals(".") ? "." : " " + s;
+                result.append(s.equals(".") ? "." : " " + s);
             }
         }
-        System.out.println(output.trim());
+        System.out.println(result.toString().trim());
     }
 }

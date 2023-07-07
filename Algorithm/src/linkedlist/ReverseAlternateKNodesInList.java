@@ -6,27 +6,27 @@ import static linkedlist.TraverseList.traverseList;
 public class ReverseAlternateKNodesInList {
 
     private static Node reverse(Node head, int k) {
-        Node current = head, next, prev = null;
-        int count = 0;
-        while (current != null && count < k) {   // reverse first k nodes of the linked list
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        Node temp = head, next, prev = null;
+        int count = 1;
+        while (temp != null && count <= k) {   // reverse first k nodes of the linked list
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
             count++;
         }
         if (head != null) {        // Now head points to the kth head. So change next of head to (k+1)th head
-            head.next = current;
+            head.next = temp;
         }
         // We do not want to reverse next k nodes. So move the current pointer to skip next k nodes
-        count = 0;
-        while (count < k - 1 && current != null) {
-            current = current.next;
+        count = 1;
+        while (temp != null && count < k) {
+            temp = temp.next;
             count++;
         }
         // Recursively call for the list starting from current->next And make rest of the list as next of first head
-        if (current != null) {
-            current.next = reverse(current.next, k);
+        if (temp != null) {
+            temp.next = reverse(temp.next, k);
         }
         return prev;
     }

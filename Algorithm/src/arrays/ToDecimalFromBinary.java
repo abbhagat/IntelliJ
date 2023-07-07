@@ -1,8 +1,7 @@
 package arrays;
 
 public class ToDecimalFromBinary {
-
-    static int toDecimal(int n) {
+    private static int toDecimal(int n) {
         int sum = 0;
         int k, i = 0;
         while (n != 0) {

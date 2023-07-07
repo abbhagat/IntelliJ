@@ -2,22 +2,16 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
 public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
 
-    private static int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
-
-    private static void swap(int x, int y) {
-        int temp = a[x];
-        a[x] = a[y];
-        a[y] = temp;
-    }
-
-    private static void sort(int startIdx, int value) {
+    private static void sort(int[] a, int startIdx, int value) {
         int i = startIdx, j = startIdx;
         while (true) {
             try {
                 if (a[i] == value) {
-                    swap(i, j);
+                    swap(a, i, j);
                     j++;
                 }
                 i++;
@@ -27,28 +21,34 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
         }
     }
 
-    private static void sort() {
+    private static void sort(int[] a) {
         int c0, c1, c2, i;
         c0 = c1 = c2 = i = 0;
         while (true) {
             try {
                 switch (a[i]) {
-                    case 0 : c0++; break;
-                    case 1 : c1++; break;
-                    case 2 : c2++; break;
+                    case 0:
+                        c0++;
+                        break;
+                    case 1:
+                        c1++;
+                        break;
+                    case 2:
+                        c2++;
+                        break;
                 }
                 i++;
-            }catch (ArrayIndexOutOfBoundsException e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 break;
             }
         }
         int n = c0 + c1 + c2;
-        for(i = 0; i < n; i++) {
-            if(i < c0) {
+        for (i = 0; i < n; i++) {
+            if (i < c0) {
                 a[i] = 0;
-            }else if(i < c0 + c1) {
+            } else if (i < c0 + c1) {
                 a[i] = 1;
-            }else {
+            } else {
                 a[i] = 2;
             }
         }
@@ -57,7 +57,7 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
     }
 
     public static void main(String[] args) {
-        sort();
+        sort(new int[]{0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1});
         /*sort(0, 0);
         int k = 0;
         for (int x : a) {

@@ -5,7 +5,7 @@ public class FindTransitionIndexInSortedBinaryArray {
     private static int binarySearch(int[] a, int low, int high) {
         if (low <= high) {
             int mid = (low + high) / 2;
-            if (a[mid] == 0 && mid < a.length - 1 && a[mid + 1] == 1) {
+            if (a[mid] == 0 && mid + 1 < a.length && a[mid + 1] == 1) {
                 return mid;
             }
             return a[mid] == 0 ? binarySearch(a, mid + 1, high) : binarySearch(a, low, mid - 1);

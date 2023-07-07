@@ -9,7 +9,7 @@ public class CompareTwoNumWithoutAnyOperator {
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
-        return true;
+        return flag[0];
     }
 
     public static void main(String[] args) {

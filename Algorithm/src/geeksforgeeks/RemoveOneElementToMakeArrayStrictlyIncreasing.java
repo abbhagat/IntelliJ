@@ -3,9 +3,8 @@ package geeksforgeeks;
 public class RemoveOneElementToMakeArrayStrictlyIncreasing {
 
     public static boolean check(int[] a) {
-        int count = 0;
-        int index = -1, n = a.length - 1;
-        for (int i = 1; i < n; i++) {
+        int count = 0, index = -1;
+        for (int i = 1; i < a.length - 1; i++) {
             if (a[i - 1] >= a[i]) {
                 count++;
                 index = i;

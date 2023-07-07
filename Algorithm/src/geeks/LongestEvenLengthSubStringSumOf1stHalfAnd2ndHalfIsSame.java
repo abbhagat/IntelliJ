@@ -24,8 +24,9 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
                 lsum += s.charAt(left)  - '0';
                 rsum += s.charAt(right) - '0';
                 if (lsum == rsum) {
+                    int length = right + 1 - left;
                     System.out.print(s.substring(left, right + 1));
-                    maxLength = max(maxLength, right - left + 1);
+                    maxLength = max(maxLength, length);
                 }
                 left--;
                 right++;

@@ -2,7 +2,7 @@ package matrix;
 
 
 /*
-  11 12 13 14           23 19 15 11     [0][0]   ------ [j][n-i-1]
+  11 12 13 14           23 19 15 11     [i][j]   ------ [j][n-i-1]
   15 16 17 18   ---->   24 20 16 12
   19 20 21 22           25 21 17 13
   23 24 25 26           26 22 18 14     [n-j-1][i] --- [n-i-1][n-j-1]
@@ -26,12 +26,12 @@ public class MatrixRotationBy90Degree {
     }
 
     public static void main(String[] args) {
-        int[][] M = {
-                {11, 12, 13, 14},
-                {15, 16, 17, 18},
-                {19, 20, 21, 22},
-                {23, 24, 25, 26}
-        };
+        final int[][] M = {
+                            {11, 12, 13, 14},
+                            {15, 16, 17, 18},
+                            {19, 20, 21, 22},
+                            {23, 24, 25, 26}
+                          };
         printMatrix(M);
         rotate(M);
         System.out.println("Rotated Matrix");

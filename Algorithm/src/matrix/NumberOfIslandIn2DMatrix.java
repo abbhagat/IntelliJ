@@ -29,7 +29,7 @@ public class NumberOfIslandIn2DMatrix {
     private static final int[] rowIdx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
     private static final int[] colIdx = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
     private static boolean isSafe(int row, int col) {
-        return row >= 0 && row < ROW && col >= 0 && col < COL && (M[row][col] == 1 && !visited[row][col]);
+        return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];
     }
 
     private static void DFS(int row, int col) {

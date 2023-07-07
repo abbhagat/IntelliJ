@@ -20,8 +20,8 @@ class StudentView {
 }
 
 class Dispatcher {
-    private StudentView studentView;
-    private HomeView homeView;
+    private final StudentView studentView;
+    private final HomeView homeView;
 
     public Dispatcher() {
         studentView = new StudentView();
@@ -39,7 +39,7 @@ class Dispatcher {
 
 class FrontController {
 
-    private Dispatcher dispatcher;
+    private final Dispatcher dispatcher;
 
     public FrontController() {
         dispatcher = new Dispatcher();

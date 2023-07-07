@@ -12,12 +12,15 @@ public class StringPermutation {
             c1Data[c1[i]]++;
             c2Data[c2[i]]++;
         }
+        if (matches(c1Data, c2Data)) {
+            return true;
+        }
         for (int i = 0, j = c1.length; j < c2.length; i++, j++) {
+            c2Data[c2[j]]++;
+            c2Data[c2[i]]--;
             if (matches(c1Data, c2Data)) {
                 return true;
             }
-            c2Data[c2[j]]++;
-            c2Data[c2[i]]--;
         }
         return matches(c1Data, c2Data);
     }
@@ -33,5 +36,6 @@ public class StringPermutation {
 
     public static void main(String[] args) {
         System.out.println(checkInclusion("cat".toCharArray(), "retract".toCharArray()));
+        System.out.println(checkInclusion("cat".toCharArray(), "tacretw".toCharArray()));
     }
 }

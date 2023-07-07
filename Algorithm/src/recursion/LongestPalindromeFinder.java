@@ -23,10 +23,10 @@ public class LongestPalindromeFinder {
     }
 
     public static void main(String[] args) {
-        System.out.println(longestPalindromeString("forgeeksskeegfor"));
-        System.out.println(longestPalindromeString("geeks"));
-        System.out.println(longestPalindromeString("geeksfskeeg"));
-        System.out.println(longestPalindromeString("hackerrekcahba"));
-        System.out.println(longestPalindromeString("BBABCBCAB"));
+      System.out.println(longestPalindromeString("forgeeksskeegfor"));
+      System.out.println(longestPalindromeString("geeks"));
+      System.out.println(longestPalindromeString("geeksfskeeg"));
+      System.out.println(longestPalindromeString("hackerrekcahba"));
+      System.out.println(longestPalindromeString("BBABCBCAB"));
     }
 }

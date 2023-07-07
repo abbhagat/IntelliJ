@@ -7,7 +7,7 @@ public class RestoreIPAddress {
 
     private static List<String> restoreIPAddress(String s) {
         List<String> list = new ArrayList<>();
-        if (s.length() > 12) {
+        if (s == null || s.length() != 12) {
             return list;
         }
         restoreIPAddress(s, 3, list, "");
@@ -29,7 +29,7 @@ public class RestoreIPAddress {
     }
 
     private static boolean isValid(String s) {
-        if (s.charAt(0) == '0' && s.length() != 1 || Integer.valueOf(s) > 255) {
+        if (s.charAt(0) == '0' && s.length() != 1 || Integer.parseInt(s) > 255) {
             return false;
         }
         return true;
@@ -37,5 +37,6 @@ public class RestoreIPAddress {
 
     public static void main(String[] args) {
         System.out.println(restoreIPAddress("25525511135"));
+        System.out.println(restoreIPAddress("25525511131"));
     }
 }

@@ -37,5 +37,8 @@ public class MergeSort {
         for (int l = low; l <= high; l++) {
             a[l] = temp[l];
         }
+//        if (high - low + 1 >= 0) {
+//            System.arraycopy(temp, low, a, low, high - low + 1);
+//        }
     }
 }

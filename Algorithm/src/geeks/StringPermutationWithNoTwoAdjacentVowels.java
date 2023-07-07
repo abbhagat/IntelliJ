@@ -34,7 +34,7 @@ public class StringPermutationWithNoTwoAdjacentVowels {
     }
 
     private static int countWays(char[] c) {  // Function to count permutations of string such that no two vowels are adjacent
-        int temp[] = new int[26];
+        int[] temp = new int[26];
         for (char x : c) {
             temp[x - 'a']++;  // Finding the frequencies of the characters
         }

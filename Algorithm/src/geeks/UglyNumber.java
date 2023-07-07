@@ -6,7 +6,7 @@ public class UglyNumber {
         n = maxDivide(n, 2);
         n = maxDivide(n, 3);
         n = maxDivide(n, 5);
-        return n == 1 ? true : false;
+        return n == 1;
     }
 
     private static int maxDivide(int n, int x) {

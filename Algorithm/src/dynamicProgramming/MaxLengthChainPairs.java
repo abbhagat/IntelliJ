@@ -22,8 +22,7 @@ import static java.lang.Integer.max;
 public class MaxLengthChainPairs {
 
     private static final class Pair {
-        int x;
-        int y;
+        int x, y;
 
         public Pair(int x, int y) {
             this.x = x;

@@ -11,9 +11,8 @@ public class Count {
                 countZero++;
             }
         }
-        for (int i = 0; i < a.length; i++) {
-            a[i] = (i < countZero) ? 0 : 1;
-        }
+        final int k = countZero;
+        IntStream.range(0, a.length).forEach(i -> a[i] = i < k ? 0 : 1);
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

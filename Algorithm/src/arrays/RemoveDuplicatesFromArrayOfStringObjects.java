@@ -2,11 +2,10 @@ package arrays;
 
 public class RemoveDuplicatesFromArrayOfStringObjects {
 
-    private static String[] s = {"Java", "is", "an", "OOP"}; // "Jav","is","an","OOP"};
-    private static int[] temp;
+    private static final String[] s = {"Java", "is", "an", "OOP"}; // "Jav","is","an","OOP"};
 
     private static void removeDuplicates(int i, char[] a) {
-        temp = new int[128];
+        int[] temp = new int[128];
         for (char c : a) {
             temp[c]++;
         }
@@ -20,7 +19,6 @@ public class RemoveDuplicatesFromArrayOfStringObjects {
     }
 
     public static void main(String[] args) {
-
         for (int i = 0; i < s.length; i++) {
             removeDuplicates(i, s[i].toCharArray());
         }

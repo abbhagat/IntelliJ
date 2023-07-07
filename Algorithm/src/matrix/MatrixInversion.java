@@ -3,7 +3,7 @@ package matrix;
 import static matrix.MatrixPrint.printMatrix;
 
 public class MatrixInversion {
-    private static int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    private static final int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     private static void matrixInversion() {
         int j = 2;

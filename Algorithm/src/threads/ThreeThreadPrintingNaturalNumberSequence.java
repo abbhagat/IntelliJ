@@ -14,18 +14,17 @@ class PrinterThreadForNaturalNumber implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        while (n <= 20) {
             try {
-                Thread.sleep(500);
                 synchronized (monitor) {
                     if (threadID != threadIdToRun) {
                         monitor.wait();
                     } else {
-                        System.out.print(n++ + " ");
+                        System.out.println(Thread.currentThread().getName() + "\t" + n++ + " ");
                         switch (threadIdToRun) {
                             case 1: threadIdToRun = 2; break;
                             case 2: threadIdToRun = 3; break;
-                            case 3: threadIdToRun = 4; break;
+                            case 3: threadIdToRun = 1; break;
                         }
                         monitor.notifyAll();
                     }

@@ -6,9 +6,9 @@ import java.util.Set;
 
 public class PhoneDirectory {
 
-    private int max;
-    private Set<Integer> used;
-    private LinkedList<Integer> released;
+    private final int max;
+    private final Set<Integer> used;
+    private final LinkedList<Integer> released;
 
     public PhoneDirectory(int max){
         this.max = max;

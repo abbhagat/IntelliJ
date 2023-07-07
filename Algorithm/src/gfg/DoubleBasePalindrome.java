@@ -12,7 +12,7 @@ public class DoubleBasePalindrome {
     }
 
     private static String decimalToBinary(int n) {
-        StringBuilder binary = new StringBuilder("");
+        StringBuilder binary = new StringBuilder();
         int carry = 0;
         while (n != 0) {
             carry = n / 2;
@@ -37,5 +37,6 @@ public class DoubleBasePalindrome {
 
     public static void main(String[] args) {
         System.out.println("Count := " + doubleBasePalindrome(100));
+        System.out.println("Count := " + doubleBasePalindrome(101));
     }
 }

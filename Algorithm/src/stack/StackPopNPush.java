@@ -3,16 +3,13 @@ package stack;
 public class StackPopNPush {
     Node first;
     char c;
-    Node push(char num, Node node) {
-        if (node == null) {
-            node = new Node();
-            node.num = num;
-        }
+    Node push(char num) {
+        Node node = new Node();
+        node.num = num;
         node.next = first;
         first = node;
         return node;
     }
-
     Node pop(Node first) {
         Node temp = null;
         if (first != null) {

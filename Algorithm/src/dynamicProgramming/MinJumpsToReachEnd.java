@@ -36,7 +36,7 @@ public class MinJumpsToReachEnd {
     }
 
     private static int minJumps(int[] a) {
-        int steps = 0, current = 0, j = 0;
+        int steps = 0, j = 0 , current = 0;
         for (int i = 0; i < a.length; i++) {
             if (i > j) {
                 j = current;
@@ -51,7 +51,7 @@ public class MinJumpsToReachEnd {
     }
 
     private static boolean isReachable(int[] a) {
-        int last   = a.length - 1;
+        int last = a.length - 1;
         for (int i = a.length - 1; i >= 0; i--) {
             if (i + a[i] >= last) {
                 last = i;
@@ -62,18 +62,10 @@ public class MinJumpsToReachEnd {
 
     public static void main(String[] args) {
         int[] a = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
-        System.out.println("Min jumps to reach end " + minJumps(a, 0, a.length - 1));
-        System.out.println("Min jumps to reach end " + isReachable(a));
-        System.out.println("Min jumps to reach end " + minJumps(a));
-        System.out.println();
-        int[] b = {2, 3, 1, 1, 4};
-        System.out.println("Min jumps to reach end " + minJumps(b, 0, b.length - 1));
-        System.out.println("Min jumps to reach end " + isReachable(b));
-        System.out.println("Min jumps to reach end " + minJumps(b));
-        System.out.println();
-        int[] c = {1, 2, 3, 4, 5};
-        System.out.println("Min jumps to reach end " + minJumps(c, 0, c.length - 1));
-        System.out.println("Min jumps to reach end " + isReachable(c));
-        System.out.println("Min jumps to reach end " + minJumps(c));
+        System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a));
+        a = new int[]{2, 3, 1, 1, 4};
+        System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a));
+        a = new int[]{1, 2, 3, 4, 5};
+        System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a));
     }
 }

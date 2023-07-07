@@ -28,7 +28,7 @@ public class PairWithGivenSumInBalancedBST {
         List<Integer> list = inorder(root, new ArrayList<>());
         for (int x : list) {
             int y = target - x;
-            if (list.contains(y)) {
+            if (list.contains(y) && y > x) {
                 System.out.println(x + "," + y);
             }
         }
@@ -41,5 +41,6 @@ public class PairWithGivenSumInBalancedBST {
             root = createBST(root, x);
         }
         isPairPresent(root, 33);
+        isPairPresent(root, 25);
     }
 }
