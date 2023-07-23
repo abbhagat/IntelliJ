@@ -21,7 +21,7 @@ public class CountAllPermutationsOfVowels {
             next[3] += current[2];
             next[4] += current[2];
 
-            next[2] += current[3];        // Each vowel 'o' may only be followed by an 'i' or'u'.
+            next[2] += current[3];        // Each vowel 'o' may only be followed by an 'i' or 'u'.
             next[4] += current[3];
 
             next[0] += current[4];       // Each vowel 'u' may only be followed by an 'a'.

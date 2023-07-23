@@ -3,9 +3,8 @@ package searching;
 // Time Complexity O(log N)
 public class FindMinInARotatedSortedArray {
     private static int findMin(int[] a, int low, int high) {
-        int mid = 0;
         while (low < high) {
-            mid = (low + high) / 2;
+            int mid = (low + high) / 2;
             if (a[mid] == a[high]) {
                 high--;
             } else if (a[mid] > a[high]) {

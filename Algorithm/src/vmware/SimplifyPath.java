@@ -3,14 +3,13 @@ package vmware;
 import java.util.Stack;
 
 public class SimplifyPath {
-
     private static String simplifyPath(String path) {
-        if (path.length() == 0) {
+        if (path.isEmpty()) {
             return "";
         }
         Stack<String> stack = new Stack<>();
         for (String s : path.split("/")) {
-            if (s.length() == 0 || s.equals(".")) {
+            if (s.isEmpty() || s.equals(".")) {
                 continue;
             }
             if (s.equals("..")) {

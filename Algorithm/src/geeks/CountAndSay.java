@@ -5,25 +5,25 @@ public class CountAndSay {
     static String countAndSay(int n) {
         if (n == 1) return "1";
         if (n == 2) return "11";
-        String str = "11";
+        String s = "11";
         for (int i = 3; i <= n; i++) {
-            str += '$';
-            int len = str.length();
-            int cnt = 1;
-            String tmp = "";
-            char[] arr = str.toCharArray();
+            s += '$';
+            int len = s.length();
+            int count = 1;
+            String temp = "";
+            char[] arr = s.toCharArray();
             for (int j = 1; j < len; j++) {
                 if (arr[j] != arr[j - 1]) {
-                    tmp += cnt + 0;
-                    tmp += arr[j - 1];
-                    cnt = 1;
+                    temp += count;
+                    temp += arr[j - 1];
+                    count = 1;
                 } else {
-                    cnt++;
+                    count++;
                 }
             }
-            str = tmp;
+            s = temp;
         }
-        return str;
+        return s;
     }
 
     public static void main(String[] args) {

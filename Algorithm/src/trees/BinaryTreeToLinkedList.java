@@ -2,6 +2,8 @@ package trees;
 
 import static trees.TreeTraversal.inorder;
 
+// Time Complexity : O(n)
+// Auxiliary space: O(log N)
 public class BinaryTreeToLinkedList {
 
     private static Node head, temp;

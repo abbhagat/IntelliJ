@@ -26,7 +26,7 @@ public class HappyNumber {
         int result = 0;
         while (n != 0) {
             int k = n % 10;
-            result += Math.pow(k, 2);
+            result += k * k;
             n /= 10;
         }
         return result;

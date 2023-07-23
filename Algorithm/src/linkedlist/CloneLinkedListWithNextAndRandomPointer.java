@@ -17,10 +17,6 @@ public class CloneLinkedListWithNextAndRandomPointer {
     private static class Node {
         public int num;
         public Node next, random;
-
-        public Node() {
-        }
-
         public Node(int num) {
             this.num = num;
         }

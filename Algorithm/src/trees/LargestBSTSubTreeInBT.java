@@ -29,7 +29,7 @@ public class LargestBSTSubTreeInBT {
         BST right = largestBST(root.right);
         // Create a new BST variable to store info about the current node.
         BST bst = new BST();
-        bst.min = Math.min(left.min, root.num);
+        bst.min = Math.min(left.min,  root.num);
         bst.max = Math.max(right.max, root.num);
         bst.isBST = left.isBST && right.isBST && root.num > left.max && root.num < right.min;
         /*

@@ -32,7 +32,6 @@ public class GivenInOrderAndMirrorOfInorderGenerateOriginalTree {
     }
 
     public static void main(String[] args) {
-        System.out.println();
         int[] inorder   = {10, 8, 6, 4, 2, 1, 3, 5, 7, 9};
         int[] postorder = {10, 8, 6, 4, 2, 9, 7, 5, 3, 1};
         PostIndex postIndex = new PostIndex();

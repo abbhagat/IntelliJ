@@ -23,9 +23,9 @@ public class MaxSumNonAdjacentArray {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3};
-        int incl = a[0], excl = 0, excl_new;
+        int incl = a[0], excl = 0;
         for (int i = 1; i < a.length; i++) {
-            excl_new = max(incl, excl);
+            int excl_new = max(incl, excl);
             incl = excl + a[i];
             excl = excl_new;
         }

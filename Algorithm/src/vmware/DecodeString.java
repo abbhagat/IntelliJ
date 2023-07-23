@@ -13,8 +13,8 @@ public class DecodeString {
             if (Character.isDigit(c)) {
                 n = n * 10 + c - '0';
             } else if (c == '[') {
-                count.push(n);
                 stack.push(decode);
+                count.push(n);
                 n = 0;
                 decode = "";
             } else if (c == ']') {

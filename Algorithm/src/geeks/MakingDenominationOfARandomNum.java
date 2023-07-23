@@ -2,7 +2,7 @@ package geeks;
 
 /*
  * You have infinite number of 3Rs coins and 5Rs coins.
- * And your are provided one random number and u need to find
+ * And you are provided one random number and u need to find
  * whether you can make the amount with both denominations.
 	for example:
 	U r given a number: 23 then 5*4 +3*1 = 23 so true
@@ -37,5 +37,6 @@ public class MakingDenominationOfARandomNum {
         isSumOfCoins(3, 5, 23);
         isSumOfCoins(3, 5, 16);
         isSumOfCoins(3, 5, 17);
+        isSumOfCoins(3, 5, 103);
     }
 }

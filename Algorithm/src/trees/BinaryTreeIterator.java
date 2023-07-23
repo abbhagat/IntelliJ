@@ -57,11 +57,11 @@ public class BinaryTreeIterator {
         root.left       = new Node(1);
         root.right      = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
-        Node curr = root;
+        Node node = root;
         Stack<Node> stack = treeIterator.getStack();
-        while (curr != null) {
-            stack.push(curr);
-            curr = curr.left;
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
         }
         System.out.println("Iterating the Tree");
         Iterator iterator = treeIterator.iterator();

@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import static util.Swap.swap;
+
 // Time Complexity :- O(n * n!)
 public class AllPermutationOfArrayNum {
 
@@ -21,12 +23,6 @@ public class AllPermutationOfArrayNum {
             permutation(c, start + 1, end);
             swap(c, i, start);
         }
-    }
-
-    private static void swap(char[] a, int x, int y) {
-        char c = a[x];
-        a[x] = a[y];
-        a[y] = c;
     }
 
     public static void main(String[] args) {

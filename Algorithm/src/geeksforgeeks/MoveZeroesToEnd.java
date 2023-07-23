@@ -28,13 +28,11 @@ public class MoveZeroesToEnd {
         int j = 0;
         for (int i = 0; i < a.length; i++) {
             if (!zeroPositions.contains(i)) {
-                a[j] = a[i];
-                j++;
+                a[j++] = a[i];
             }
         }
         while (j < a.length) {
-            a[j] = 0;
-            j++;
+            a[j++] = 0;
         }
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }

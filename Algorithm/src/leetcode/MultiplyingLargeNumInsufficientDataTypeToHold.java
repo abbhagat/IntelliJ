@@ -5,8 +5,8 @@ import java.util.stream.IntStream;
 public class MultiplyingLargeNumInsufficientDataTypeToHold {
 
     public static void main(String[] args) {
-        int[] x = {1, 2, 3, 4, 5};
-        int[] y = {1, 4, 5, 0, 0};
+        int[] x = {1, 2};
+        int[] y = {1, 0};
         int k = x.length + y.length;
         int[] mul = new int[k];
         for (int i = x.length - 1; i >= 0; i--) {

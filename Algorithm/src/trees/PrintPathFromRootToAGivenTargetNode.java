@@ -32,7 +32,7 @@ public class PrintPathFromRootToAGivenTargetNode {
             System.out.println(list);
             return;
         }
-        printPath(root.left, target,  list);
+        printPath(root.left,  target, list);
         printPath(root.right, target, list);
         list.removeLast();
     }

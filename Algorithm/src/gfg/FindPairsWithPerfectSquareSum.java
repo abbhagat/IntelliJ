@@ -7,8 +7,6 @@ import java.util.Set;
 
 public class FindPairsWithPerfectSquareSum {
 
-    private static final int[] a = {2, 3, 6, 9, 10, 20};
-
     public static List<Integer> getPerfectSquares(int sum) {
         List<Integer> list = new ArrayList<>();
         for(int i = 1, n = 1 ; n < sum ; i++) {
@@ -18,7 +16,7 @@ public class FindPairsWithPerfectSquareSum {
         return list;
     }
 
-    public static int maxPairSum() {
+    public static int maxPairSum(int[] a) {
         int max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
         for (int x : a) {
             if (max < x) {
@@ -44,7 +42,8 @@ public class FindPairsWithPerfectSquareSum {
     }
 
     public static void main(String[] args) {
-        int sum = maxPairSum();
+        final int[] a = {2, 3, 6, 9, 10, 20};
+        int sum = maxPairSum(a);
         List<Integer> list = getPerfectSquares(sum);
         Set<Integer> set = new HashSet<>();
         for (int x : a) {

@@ -11,12 +11,12 @@ public class ReverseListFromPosMtoPosN {
         if (m >= n || first == null) {
             return first;
         }
-        Node head = new Node(-1, first);
-        Node prev = head;
+        Node head  = new Node(-1, first);
+        Node prev  = head;
         for (int i = 1; i < m; i++) {
-            prev = prev.next;
+             prev  = prev.next;
         }
-        Node temp = prev.next;
+        Node temp  = prev.next;
         for (int i = m; i < n; i++) {
             Node next = temp.next.next;
             temp.next.next = prev.next;

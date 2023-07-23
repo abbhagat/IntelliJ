@@ -10,11 +10,11 @@ public class Implement_strStr {
             return -1;
         }
         int index = -1;
-        StringBuilder s = new StringBuilder();
+        String s = "";
         for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
-                s.append(s1.charAt(i));
+                s += s1.charAt(i);
                 j++;
             } else if (s2.contentEquals(s)) {
                 return index;
@@ -22,10 +22,10 @@ public class Implement_strStr {
                 i = index != -1 ? index : i;
                 index = -1;
                 j = 0;
-                s = new StringBuilder();
+                s = "";
             }
         }
-        return s.toString().equals(s2) ? index : -1;
+        return s.contentEquals(s2) ? index : -1;
     }
 
     public static void main(String[] args) {

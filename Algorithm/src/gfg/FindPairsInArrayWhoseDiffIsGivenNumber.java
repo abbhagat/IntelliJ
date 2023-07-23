@@ -9,6 +9,7 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
     private static class Pair {
         int x, y;
+
         Pair(int x, int y) {
             this.x = x;
             this.y = y;
@@ -67,5 +68,6 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         System.out.println();
         findPairs(new int[]{5, 0}, 5);
         System.out.println();
+        findPairs(new int[]{5, 5, 5}, 0);
     }
 }

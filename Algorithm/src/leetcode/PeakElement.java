@@ -6,10 +6,10 @@ public class PeakElement {
 
     private static int findPeakElement(int[] a) {
         int low = 0, high = a.length - 1;
-        while (low < high) {
+        while (low <= high) {
             int mid = (low + high) / 2;
             if (a[mid] > a[mid + 1]) {
-                high = mid;
+                high = mid - 1;
             } else {
                 low = mid + 1;
             }
@@ -30,6 +30,10 @@ public class PeakElement {
         int[] a = new int[]{4, 5, 3};
         System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
         a = new int[]{1, 2, 1, 3, 5, 6, 4};
+        System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
+        a = new int[]{1, 2, 3, 1};
+        System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
+        a = new int[]{1, 3, 20, 4, 1, 0};
         System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
     }
 }

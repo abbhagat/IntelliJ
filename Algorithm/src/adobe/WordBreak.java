@@ -26,13 +26,14 @@ import java.util.List;
  */
 public class WordBreak {
 
-    public static boolean wordBreak(String s, List<String> list) {
-        int n = s.length();
+    public static boolean wordBreak(String str, List<String> list) {
+        int n = str.length();
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j < i; j++) {
-                if (dp[j] && list.contains(s.substring(j, i))) {
+                String s = str.substring(j, i);
+                if (dp[j] && list.contains(s)) {
                     dp[i] = true;
                     break;
                 }
@@ -42,7 +43,9 @@ public class WordBreak {
     }
 
     public static void main(String[] args) {
-        System.out.println( wordBreak("catsanddog", List.of("cat","cats","and","sand","dog")));
-        System.out.println( wordBreak("catsandog", List.of("cats","dog","sand","and","cat")));
+        System.out.println( wordBreak("catsanddog",     List.of("cat","cats","and","sand","dog")));
+        System.out.println( wordBreak("catsandog",      List.of("cats","dog","sand","and","cat")));
+        System.out.println( wordBreak("applepenapple",  List.of("apple","pen")));
+        System.out.println( wordBreak("leetcode",       List.of("leet","code")));
     }
 }

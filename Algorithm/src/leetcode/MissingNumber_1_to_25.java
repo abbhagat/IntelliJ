@@ -6,8 +6,7 @@ import java.util.Set;
 
 public class MissingNumber_1_to_25 {
 
-    public static void main(String[] args) {
-        int[] a = {1, 2, 3, 3, 5};
+    private static int findMissingNumberWhenNumbersIsRepeated(int[] a) {
         int n = a.length, sum1 = 0;
         Map<Integer,Integer> map = new HashMap<>();
         for (int x : a) {
@@ -22,7 +21,20 @@ public class MissingNumber_1_to_25 {
             }
         }
         int sum2 = ((a[0] + a[n - 1]) * n) / 2;
-        // int sum2 = ((a[0] + a[n - 1]) * (n + 1)) / 2; when num is not repeated
-        System.out.println(sum2 - sum1);
+        return sum2 - sum1;
+    }
+
+    private static int findMissingNumberWhenNumbersIsNotRepeated(int[] a) {
+        int n = a.length, sum1 = 0;
+        for (int x : a) {
+            sum1 += x;
+        }
+        int sum2 = ((a[0] + a[n - 1]) * (n + 1)) / 2;
+        return sum2 - sum1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findMissingNumberWhenNumbersIsRepeated(new int[] {1, 2, 3, 3, 5}));
+        System.out.println(findMissingNumberWhenNumbersIsNotRepeated(new int[] {1, 2, 3, 5}));
     }
 }

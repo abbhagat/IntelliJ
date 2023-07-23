@@ -48,9 +48,9 @@ public class FindAllAnagramsInAString {
         return list;
     }
 
-    private static boolean matches(int[] pData, int[] sData) {
+    private static boolean matches(int[] sData, int[] pData) {
         for (int i = 0; i < 128; i++) {
-            if (pData[i] != sData[i]) {
+            if (sData[i] != pData[i]) {
                 return false;
             }
         }

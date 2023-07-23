@@ -13,11 +13,11 @@ public class VersionComparison {
         if (v1.isEmpty() && v2.isEmpty()) {
             return 0;
         }
-        String[] list1 = v1.split("\\.");
-        String[] list2 = v2.split("\\.");
-        for (int i = 0; i < list1.length || i < list2.length; i++) {
-            int x = i < list1.length ? Integer.parseInt(list1[i]) : 0;
-            int y = i < list2.length ? Integer.parseInt(list2[i]) : 0;
+        String[] s1 = v1.split("\\.");
+        String[] s2 = v2.split("\\.");
+        for (int i = 0; i < s1.length || i < s2.length; i++) {
+            int x = i < s1.length ? Integer.parseInt(s1[i]) : 0;
+            int y = i < s2.length ? Integer.parseInt(s2[i]) : 0;
             if (x == y) {
                 continue;
             }

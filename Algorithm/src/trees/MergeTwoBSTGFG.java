@@ -4,14 +4,11 @@ package trees;
 // Space Complexity = O(H1 + H2), H1 is the height of the first tree and H2 is the height of the second tree
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 public class MergeTwoBSTGFG {
 
     public static void mergeBST(Node root1, Node root2) {
-        List<Integer> list = new ArrayList<>();
         Stack<Node> s1 = new Stack<>();
         Stack<Node> s2 = new Stack<>();
         while (root1 != null || root2 != null || !s1.isEmpty() || !s2.isEmpty()) {
@@ -25,15 +22,14 @@ public class MergeTwoBSTGFG {
             }
             if (s2.isEmpty() || (!s1.isEmpty() && s1.peek().num <= s2.peek().num)) {
                 root1 = s1.pop();
-                list.add(root1.num);
+                System.out.println(root1.num);
                 root1 = root1.right;
             } else {
                 root2 = s2.pop();
-                list.add(root2.num);
+                System.out.println(root2.num);
                 root2 = root2.right;
             }
         }
-        list.forEach(System.out::println);
     }
 
     public static void main(String[] args) {

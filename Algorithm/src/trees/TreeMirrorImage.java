@@ -25,7 +25,7 @@ public class TreeMirrorImage {
         return root;
     }
 
-    public static Node mirrorImageUsingIteration(Node root) {
+    public static void mirrorImageUsingIteration(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
@@ -40,7 +40,6 @@ public class TreeMirrorImage {
                 q.add(node.right);
             }
         }
-        return root;
     }
 
     public static void main(String[] args) {
@@ -55,7 +54,7 @@ public class TreeMirrorImage {
         root = mirrorImage(root);
         System.out.println();
         inorder(root);
-        root = mirrorImageUsingIteration(root);
+        mirrorImageUsingIteration(root);
         System.out.println();
         inorder(root);
     }

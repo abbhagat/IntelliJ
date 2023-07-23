@@ -14,13 +14,13 @@ public class InsertNodeInLevelOrderTraversal {
             root = q.poll();
             if (root.left == null) {
                 root.left = new Node(n);
-                return;
+                break;
             } else {
                 q.add(root.left);
             }
             if (root.right == null) {
                 root.right = new Node(n);
-                return;
+                break;
             } else {
                 q.add(root.right);
             }
@@ -28,14 +28,15 @@ public class InsertNodeInLevelOrderTraversal {
     }
 
     public static void main(String[] args) {
-        Node root        = new Node(10);
-        root.left        = new Node(11);
-        root.left.left   = new Node(7);
-        root.right       = new Node(9);
-        root.right.left  = new Node(15);
-        root.right.right = new Node(8);
+        Node root        = new Node(5);
+        root.left        = new Node(3);
+        root.left.left   = new Node(2);
+        root.right       = new Node(7);
+        root.right.left  = new Node(6);
+        root.right.right = new Node(9);
         inorder(root);
-        insertNode(root, 12);
+        insertNode(root, 4);
+        insertNode(root, 8);
         System.out.println();
         inorder(root);
     }

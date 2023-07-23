@@ -16,18 +16,18 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
  */
 
-public class FindPairsIndexInArrayWhoseSumIsDivisibleByGivenNumber {
+public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
 
-    public static int[] twoSumIndex(int[] nums, int target) {
-        if (nums == null || nums.length < 2) {
+    public static int[] twoSumIndex(int[] a, int target) {
+        if (a == null || a.length < 2) {
             return new int[]{0, 0};
         }
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
-                return new int[]{ map.get(nums[i]), i };
+        for (int i = 0; i < a.length; i++) {
+            if (map.containsKey(a[i])) {
+                return new int[]{map.get(a[i]), i};
             } else {
-                map.put(target - nums[i], i);
+                map.put(target - a[i], i);
             }
         }
         return new int[]{0, 0};

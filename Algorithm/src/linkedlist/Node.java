@@ -1,6 +1,7 @@
 package linkedlist;
 
 public class Node {
+
     public int num;
     public Node next;
 

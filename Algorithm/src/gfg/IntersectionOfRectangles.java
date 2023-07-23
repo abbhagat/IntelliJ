@@ -28,9 +28,12 @@ public class IntersectionOfRectangles {
 
     public static void main(String[] args) {
         Point l1 = new Point(0, 10);
-        Point r1 = new Point(10, 0);
         Point l2 = new Point(5, 5);
+        Point l3 = new Point(15, 15);
+        Point r1 = new Point(10, 0);
         Point r2 = new Point(15, 0);
+        Point r3 = new Point(15, 10);
         System.out.println(doOverlap(l1, r1, l2, r2) ? "Overlap" : "Don't Overlap");
+        System.out.println(doOverlap(l1, r1, l3, r3) ? "Overlap" : "Don't Overlap");
     }
 }

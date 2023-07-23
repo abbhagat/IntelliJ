@@ -10,7 +10,7 @@ import static java.lang.Integer.max;
 
 public class IntervalMerging {
 
-    static class Interval {
+    private static class Interval {
         int start, end;
 
         Interval(int start, int end) {

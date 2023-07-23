@@ -8,7 +8,7 @@ public class MaxPathSumInBT {
         int sum = Integer.MIN_VALUE;
     }
 
-    public static int findMaxPathSum(Node node, Result result) {
+    private static int findMaxPathSum(Node node, Result result) {
         if (node == null) {
             return 0;
         }
@@ -25,6 +25,15 @@ public class MaxPathSumInBT {
     }
 
     public static void main(String[] args) {
+        /*
+                       10
+                      /  \
+                    2     10
+                   / \      \
+                  20  1     -25
+                            /  \
+                            3   4
+         */
         Node root              = new Node(10);
         root.left              = new Node(2);
         root.right             = new Node(10);

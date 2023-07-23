@@ -3,10 +3,10 @@ package geeks;
 public class SpecialPalindrome {
 
     private static boolean palindrome(int num) {
-        return num == reverse(num) ? true : false;
+        return num == reverse(num);
     }
 
-    static int reverse(int num) {
+    private static int reverse(int num) {
         int rev = 0;
         while (num != 0) {
             int k = num % 10;

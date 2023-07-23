@@ -13,7 +13,7 @@ public class InorderSuccessorOfBST {
             return null;
         }
         if (target.num < root.num) {
-            Node node = inorderSuccessor(root.left, target);
+            Node   node = inorderSuccessor(root.left, target);
             return node == null ? root : node;
         }
         return inorderSuccessor(root.right, target);

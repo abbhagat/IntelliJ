@@ -35,8 +35,8 @@ class Son1 extends Father1 {
 public class SerializationDemo {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Son1 son = new Son1();
-        son.child = 11;
-        son.parent = 21;
+//        son.child = 11;
+//        son.parent = 21;
         System.out.println("Serialization Starts");
         FileOutputStream fileOutputStream = new FileOutputStream("inheritance.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);

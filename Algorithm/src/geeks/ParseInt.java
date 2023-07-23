@@ -4,9 +4,9 @@ public class ParseInt {
 
     public static void main(String[] args) {
         String s = "1203450.12345";
-        int idx = s.indexOf('.');
-        String s1 = s.substring(0, idx);
-        String s2 = s.substring(idx + 1);
+        int index = s.indexOf('.');
+        String s1 = s.substring(0, index);
+        String s2 = s.substring(index + 1);
         System.out.println(s1 + "\t" + s2);
         char[] c = s1.toCharArray();
         int sum1 = 0;

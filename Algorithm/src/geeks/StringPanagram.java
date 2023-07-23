@@ -11,8 +11,8 @@ public class StringPanagram {
                 temp[c - 65]++;
             }
         }
-        for (int i = 0; i < temp.length; i++) {
-            if (temp[i] == 0) {
+        for (int x : temp) {
+            if (x == 0) {
                 isPanagram = false;
                 break;
             }

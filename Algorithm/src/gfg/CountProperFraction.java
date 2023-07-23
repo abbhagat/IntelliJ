@@ -6,7 +6,7 @@ public class CountProperFraction {
         int count = 0;
         for (int i = 1; i < d; i++) {
             for (int j = i; j <= d; j++) {
-                int hcf = findHCF(Math.min(i, j), Math.max(i, j));
+                int hcf = findHCF(i, j);
                 if (hcf == 1) {
                     count++;
                 }

@@ -12,8 +12,7 @@ public class DeleteRepeatedElementsInList {
 
     private static void removeDuplicate(Node first) {
         Set<Integer> set = new HashSet<>();
-        Node prev = null;
-        for (Node temp = first; temp != null; temp = temp.next) {
+        for (Node prev = null, temp = first; temp != null; temp = temp.next) {
             if (set.contains(temp.num)) {
                 prev.next = temp.next;
             } else {

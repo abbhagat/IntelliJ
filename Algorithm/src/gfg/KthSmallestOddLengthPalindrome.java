@@ -10,15 +10,18 @@ package gfg;
  */
 public class KthSmallestOddLengthPalindrome {
 
-    private static String findKthSmallestOddLengthPalindrome(int n) {
-        int m = n;
+    private static int reverse(int n) {
         int rev = 0;
         while (n != 0) {
             int k = n % 10;
             rev = rev * 10 + k;
             n /= 10;
         }
-        return m + String.valueOf(rev % 10);
+        return rev;
+    }
+
+    private static String findKthSmallestOddLengthPalindrome(int n) {
+        return n + String.valueOf(reverse(n) % 10);
     }
 
     public static void main(String[] args) {

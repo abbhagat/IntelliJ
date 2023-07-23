@@ -2,13 +2,9 @@ package vmware;
 
 import java.util.stream.IntStream;
 
-public class WiggleSort {
+import static util.Swap.swap;
 
-    private static void swap(int[] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
+public class WiggleSort {
 
     private static void wiggleSort(int[] a) {
         for (int i = 1; i < a.length - 1; i++) {

@@ -2,6 +2,7 @@ package linkedlist;
 
 import static java.lang.Integer.parseInt;
 import static linkedlist.LinkList.add;
+import static linkedlist.TraverseList.traverseList;
 
 /*
 You are given two non-empty linked lists representing two non-negative integers.
@@ -19,6 +20,25 @@ Output: [0]
  */
 public class AddTwoNumInLinkedList {
 
+    private static Node addTwoList(Node l1, Node l2) {
+        StringBuilder num1 = new StringBuilder();
+        StringBuilder num2 = new StringBuilder();
+        for (Node temp = l1; temp != null; temp = temp.next) {
+            num1.append(temp.num);
+        }
+        for (Node temp = l2; temp != null; temp = temp.next) {
+            num2.append(temp.num);
+        }
+        int result = parseInt(num1.toString()) + parseInt(num2.toString());
+        StringBuilder sb = new StringBuilder(Integer.toString(result)).reverse();
+        Node l3 = null;
+        LinkList.temp = LinkList.last = null;
+        for (char c : sb.toString().toCharArray()) {
+            l3 = add(l3, c - '0');
+        }
+        return l3;
+    }
+
     public static void main(String[] args) {
         int[] a = {9, 9, 9, 9, 9, 9, 9};
         int[] b = {9, 9, 9, 9};
@@ -30,15 +50,7 @@ public class AddTwoNumInLinkedList {
         for (int x : b) {
             l2 = add(l2, x);
         }
-        StringBuilder num1 = new StringBuilder();
-        StringBuilder num2 = new StringBuilder();
-        for (Node temp = l1; temp != null; temp = temp.next) {
-            num1.append(temp.num);
-        }
-        for (Node temp = l2; temp != null; temp = temp.next) {
-            num2.append(temp.num);
-        }
-        int result = parseInt(num1.toString()) + parseInt(num2.toString());
-        System.out.println(new StringBuilder(Integer.toString(result)).reverse());
+        Node l3 = addTwoList(l1, l2);
+        traverseList(l3);
     }
 }

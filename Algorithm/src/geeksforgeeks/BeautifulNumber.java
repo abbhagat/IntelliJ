@@ -52,7 +52,7 @@ public class BeautifulNumber {
         int sum = 0;
         while (n != 0) {
             int k = n % 10;
-            sum += Math.pow(k, 2);
+            sum += k * k;
             n /= 10;
         }
         return sum;

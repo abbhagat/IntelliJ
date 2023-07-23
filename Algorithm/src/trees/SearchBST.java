@@ -22,7 +22,6 @@ public class SearchBST {
             return true;
         }
         return num < root.num ? searchBST(num, root.left) : searchBST(num, root.right);
-
     }
 
     public static void main(String[] args) {

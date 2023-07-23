@@ -18,13 +18,11 @@ public class RemoveAGivenRepeatedElementFromArray {
         int j = 0;
         for (int i = 0; i < a.length; i++) {
             if (!list.contains(i)) {
-                a[j] = a[i];
-                j++;
+                a[j++] = a[i];
             }
         }
         while (j < a.length) {
-            a[j] = 0;
-            j++;
+            a[j++] = 0;
         }
         IntStream.range(0, j).forEach(i -> System.out.print(a[i] + " "));
     }

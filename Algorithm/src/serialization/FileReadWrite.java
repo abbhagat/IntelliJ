@@ -12,11 +12,11 @@ public class FileReadWrite {
         FileWriter fw = new FileWriter("C:\\Users\\Admin\\Downloads\\License.txt");
         BufferedReader R = new BufferedReader(fr);
         StringBuilder sb = new StringBuilder();
-        String s = "";
+        String s;
         while ((s = R.readLine()) != null) {
             sb.append(s);
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
         fw.write(sb.toString());
         fr.close();
         fw.close();

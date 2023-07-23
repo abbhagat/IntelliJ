@@ -21,11 +21,11 @@ public class LargestContiguousSumArrayPrint {
         cur_sum = max_sum = a[0];
         start = end = s = 0;
         for (int i = 1; i < a.length; i++) {
-            cur_sum = max(a[i], cur_sum + a[i]);
-            max_sum = max(cur_sum, max_sum);
+            cur_sum = max(a[i]   , cur_sum + a[i]);
+            max_sum = max(max_sum, cur_sum);
             if (cur_sum < max_sum) {
                 start = s;
-                end = i;
+                end   = i;
             }
             if (max_sum < 0) {
                 s = i + 1;

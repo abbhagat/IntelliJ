@@ -17,19 +17,19 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
     private static int findLength(String s) {
         int maxLength = 0;
-        for (int i = 0; i < s.length(); i++) {
-            int left = i, right = i + 1;
+        for (int k = 0; k < s.length(); k++) {
+            int i = k, j = k + 1;
             int lsum = 0, rsum = 0;
-            while (left >= 0 && right < s.length()) {
-                lsum += s.charAt(left)  - '0';
-                rsum += s.charAt(right) - '0';
+            while (i >= 0 && j < s.length()) {
+                lsum += s.charAt(i) - '0';
+                rsum += s.charAt(j) - '0';
                 if (lsum == rsum) {
-                    int length = right + 1 - left;
-                    System.out.print(s.substring(left, right + 1));
+                    int length = j - i + 1;
+                    System.out.print(s.substring(i, j + 1));
                     maxLength = max(maxLength, length);
                 }
-                left--;
-                right++;
+                i--;
+                j++;
             }
         }
         return maxLength;

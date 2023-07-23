@@ -49,5 +49,7 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
         }
         List<List<Integer>> lists = findPath(root, 2, new LinkedList<>(), new ArrayList<>());
         System.out.println(lists);
+
+        findPath(root, 2, new LinkedList<>());
     }
 }

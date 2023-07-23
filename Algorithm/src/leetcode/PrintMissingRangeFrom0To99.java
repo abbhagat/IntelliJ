@@ -5,17 +5,16 @@ package leetcode;
 
 public class PrintMissingRangeFrom0To99 {
 
-    public static void main(String[] args) {
-        int[] a = {88, -1, 105, 3, 2, 200, 0, 10};
-        boolean[] isPresent = new boolean[101];
-        isPresent[100] = true;
+    private static void printMissingRange(int[] a, int start, int end) {
+        boolean[] isPresent = new boolean[end + 2];
+        isPresent[end + 1] = true;
         for (int x : a) {
             if (x >= 0 && x <= isPresent.length) {
                 isPresent[x] = true;
             }
         }
         int index = -1, i;
-        for (i = 0; i < isPresent.length; i++) {
+        for (i = start; i < isPresent.length; i++) {
             if (!isPresent[i]) {
                 index = index == -1 ? i : index;
             } else {
@@ -25,5 +24,13 @@ public class PrintMissingRangeFrom0To99 {
                 }
             }
         }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        printMissingRange(new int[]{2, 3, 4, 6, 9, 10}, 0, 10);
+        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 0, 99);
+        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 10, 90);
+        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 11, 90);
     }
 }
