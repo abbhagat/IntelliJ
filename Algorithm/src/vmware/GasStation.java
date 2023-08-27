@@ -1,7 +1,6 @@
 package vmware;
 
 /**
- *
  * There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i].
  * <p>
  * You have a car with an unlimited gas tank, it cost costs[i] of gas to travel from the ith station to its next (i + 1)th station.

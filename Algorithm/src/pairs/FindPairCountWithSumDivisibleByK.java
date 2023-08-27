@@ -1,4 +1,4 @@
-package gfg;
+package pairs;
 
 /**
  * Input : A[] = {2, 2, 1, 7, 5, 3}, k = 4
@@ -97,9 +97,7 @@ public class FindPairCountWithSumDivisibleByK {
         for (int i = 1; i <= k / 2 && i != (k - i); i++) {
             count += freq[i] * freq[k - i];
         }
-        if (k % 2 == 0) {
-            count += freq[k / 2] * (freq[k / 2] - 1) / 2;
-        }
+        count += k % 2 == 0 ? freq[k / 2] * (freq[k / 2] - 1) / 2 : 0;
         return count;
     }
 

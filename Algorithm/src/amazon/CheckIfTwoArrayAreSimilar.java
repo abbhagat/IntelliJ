@@ -8,14 +8,14 @@ public class CheckIfTwoArrayAreSimilar {
 
     private static boolean isSimilar(int[] a, int[] b) {
         if (a.length == b.length) {
-            List<Integer> al = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();
             for (int x : a) {
-                al.add(x);
+                list.add(x);
             }
             for (int x : b) {
-                al.remove(Integer.valueOf(x));
+                list.remove(Integer.valueOf(x));
             }
-            return al.isEmpty();
+            return list.isEmpty();
         }
         return false;
     }

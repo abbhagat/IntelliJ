@@ -24,17 +24,17 @@ Output :
 Explanation : First node 14 burns then it gives fire to its neighbours (21, 24, 10) and so on. This process continues until
 the whole tree burns.
 
-First search the target node in a binary tree recursively.
-After finding the target node print it and save its left child(if exist) and right child(if exist) in a queue. and return.
-Now, get the size of the queue and run while loop. Print elements in the queue.
-*/
+ First search the target node in a binary tree recursively.
+ After finding the target node print it and save its left child(if exist) and right child(if exist) in a queue. and return.
+ Now, get the size of the queue and run while loop. Print elements in the queue.
+ */
 
 // Time complexity:  O(N) where N is the number of nodes.
 // Space complexity: O(N) for queue
 
 public class BurnABinaryTreeFromTargetNode {
     private static int time;
-    private static final Queue<Node> queue = new LinkedList<>();
+    private static final Queue<Node> q = new LinkedList<>();
     public static int burnTree(Node root, int target) {
         if (root == null) {
             return -1;
@@ -42,10 +42,10 @@ public class BurnABinaryTreeFromTargetNode {
         if (root.num == target) {
             System.out.println(root.num);
             if (root.left != null) {
-                queue.add(root.left);
+                q.add(root.left);
             }
             if (root.right != null) {
-                queue.add(root.right);
+                q.add(root.right);
             }
             return 1;
         }
@@ -53,7 +53,7 @@ public class BurnABinaryTreeFromTargetNode {
         if (leftCall == 1) {
             printQueue();
             if (root.right != null) {
-                queue.add(root.right);
+                q.add(root.right);
             }
             System.out.println(root.num);
             time++;
@@ -63,7 +63,7 @@ public class BurnABinaryTreeFromTargetNode {
         if (rightCall == 1) {
             printQueue();
             if (root.left != null) {
-                queue.add(root.left);
+                q.add(root.left);
             }
             System.out.println(root.num);
             time++;
@@ -73,14 +73,14 @@ public class BurnABinaryTreeFromTargetNode {
     }
 
     private static void printQueue() {
-        for (int k = queue.size(); k > 0; k--) {
-            Node root = queue.poll();
+        for (int k = q.size(); k > 0; k--) {
+            Node root = q.poll();
             System.out.print(root.num + " ");
             if (root.left != null) {
-                queue.add(root.left);
+                q.add(root.left);
             }
             if (root.right != null) {
-                queue.add(root.right);
+                q.add(root.right);
             }
         }
     }
@@ -96,7 +96,7 @@ public class BurnABinaryTreeFromTargetNode {
         root.right.right.left  = new Node(22);
         root.right.right.right = new Node(23);
         burnTree(root, 14);
-        while (!queue.isEmpty()) {
+        while (!q.isEmpty()) {
             time++;
             printQueue();
             System.out.println();
@@ -126,7 +126,7 @@ public class BurnABinaryTreeFromTargetNode {
         root.right.right.right        = new Node(9);
         root.right.right.right.right  = new Node(10);
         burnTree(root, 8);
-        while (!queue.isEmpty()) {
+        while (!q.isEmpty()) {
             time++;
             printQueue();
             System.out.println();

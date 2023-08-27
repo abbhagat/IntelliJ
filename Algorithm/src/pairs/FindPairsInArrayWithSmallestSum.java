@@ -1,4 +1,4 @@
-package cisco;
+package pairs;
 
 // Time Complexity : O(k*n) where n = a.length
 // Auxiliary Space : O(n)

@@ -10,7 +10,7 @@ public class InsertNodeInLevelOrderTraversal {
     private static void insertNode(Node root, int n) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
-        while (true) {
+        while (!q.isEmpty()) {
             root = q.poll();
             if (root.left == null) {
                 root.left = new Node(n);

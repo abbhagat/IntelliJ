@@ -1,5 +1,7 @@
 package paypal;
 
+import static util.Swap.swap;
+
 /*
 Given a string x, return the “reversed” string where all characters that are not a letter stay in the same place, and all letters reverse their positions.
 Sample 1:
@@ -11,19 +13,17 @@ Output: “j-Ih-gfE-dCba”
  */
 public class ReverseStringWithCondition {
 
-    private static char[] reverse(char[] a) {
-        for (int i = 0, j = a.length - 1; i <= j; i++, j--) {
-            if (a[i] == '-') {
+    private static char[] reverse(char[] c) {
+        for (int i = 0, j = c.length - 1; i <= j; i++, j--) {
+            if (c[i] == '-') {
                 i++;
             }
-            if (a[j] == '-') {
+            if (c[j] == '-') {
                 j--;
             }
-            a[i] = (char) (a[i] ^ a[j]);
-            a[j] = (char) (a[i] ^ a[j]);
-            a[i] = (char) (a[i] ^ a[j]);
+            swap(c, i, j);
         }
-        return a;
+        return c;
     }
 
     public static void main(String[] args) {

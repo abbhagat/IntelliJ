@@ -34,8 +34,9 @@ public class GoldMineProblem {
     }
 
     // Returns maximum amount of gold that can be collected when journey started from first column and moves allowed are right, right-up and right-down
-    private static int getMaxGold(int[][] gold, int m, int n) {
+    private static int getMaxGold(int[][] gold) {
         // The first row of goldMineTable gives the maximum gold that the miner can collect when starts that row
+        int m = gold.length, n = gold[0].length;
         int[][] goldTable = new int[m][n];
         for (int col = n - 1; col >= 0; col--) {
             for (int row = 0; row < m; row++) {
@@ -59,6 +60,6 @@ public class GoldMineProblem {
                          {5, 0, 2, 3},
                          {0, 6, 1, 2}
                        };
-        System.out.print(getMaxGold(gold, 4, 4));
+        System.out.print(getMaxGold(gold));
     }
 }

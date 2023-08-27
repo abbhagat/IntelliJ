@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class Doubleton implements Cloneable, Serializable {
 
-    private static final Long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private static Doubleton instance1, instance2;
     private static volatile int index;

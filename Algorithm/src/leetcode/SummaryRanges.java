@@ -1,10 +1,13 @@
 package leetcode;
 
+import java.util.Arrays;
+
 public class SummaryRanges {
 
     private static void printSummaryRanges(int[] a) {
-        int i = 0, start = a[i], end = 0;
-        for (i = 1; i < a.length; i++) {
+        Arrays.sort(a);
+        int start = a[0], end = 0;
+        for (int i = 1; i < a.length; i++) {
             if (a[i] - a[i - 1] == 1) {
                 end = a[i];
             } else {

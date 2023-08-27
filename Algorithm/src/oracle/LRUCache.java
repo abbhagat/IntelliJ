@@ -16,7 +16,7 @@ When a page is accessed, there can be 2 cases:
 How to add a page to the list:
 1. If the cache is not full, add the new page to the start of the list.
 2. If the cache is full, remove the last node of the linked list and move the new page to the start of the list.
- */
+*/
 
 public class LRUCache {
 
@@ -30,7 +30,7 @@ public class LRUCache {
         pageMap = new HashMap<>();
     }
 
-    public Node getPage(int pageNum) {
+    public Node getPageFromCache(int pageNum) {
         Node pageNode = null;
         if (pageMap.containsKey(pageNum)) {
             pageNode = pageMap.get(pageNum);
@@ -39,12 +39,11 @@ public class LRUCache {
         return pageNode;
     }
 
-    public void addPage(int pageNum) {
-        Node pageNode;
+    public void addPageToCache(int pageNum) {
         if (pageList.currSize == cacheSize) {
             pageMap.remove(pageList.tail.num);
         }
-        pageNode = pageList.addPageToList(pageNum);
+        Node pageNode = pageList.addPageToList(pageNum);
         pageMap.put(pageNum, pageNode);
     }
 

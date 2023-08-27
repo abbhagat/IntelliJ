@@ -4,7 +4,7 @@ import static trees.TreeTraversal.preorder;
 
 public class GivenInOrderAndPreOrderGenerateOriginalTree {
 
-    private static int preIndex = 0;
+    private static int preIndex;
 
     public static Node buildTree(int[] inorder, int[] preorder, int start, int end) {
         if (start > end) {

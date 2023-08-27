@@ -9,7 +9,7 @@ public class PrintMissingRangeFrom0To99 {
         boolean[] isPresent = new boolean[end + 2];
         isPresent[end + 1] = true;
         for (int x : a) {
-            if (x >= 0 && x <= isPresent.length) {
+            if (x >= start && x <= end) {
                 isPresent[x] = true;
             }
         }

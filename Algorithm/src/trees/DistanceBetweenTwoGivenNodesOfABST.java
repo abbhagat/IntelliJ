@@ -11,7 +11,7 @@ public class DistanceBetweenTwoGivenNodesOfABST {
         if (root.num == num) {
             return level;
         }
-        int    distance  =      findLevel(root.left,  num, level + 1);
+        int distance = findLevel(root.left,  num, level + 1);
         return distance == -1 ? findLevel(root.right, num, level + 1) : distance;
     }
 

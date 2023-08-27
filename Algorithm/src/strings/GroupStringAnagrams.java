@@ -4,10 +4,7 @@ import java.util.*;
 
 public class GroupStringAnagrams {
 
-    private static List groupAnagrams(String[] str) {
-        if (str.length == 0) {
-            return Collections.EMPTY_LIST;
-        }
+    private static List<List<String>> groupAnagrams(String[] str) {
         Map<String, List<String>> map = new HashMap<>();
         for (String s : str) {
             char[] c = s.toCharArray();

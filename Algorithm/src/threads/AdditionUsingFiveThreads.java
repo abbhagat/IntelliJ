@@ -1,4 +1,4 @@
-package leetcode;
+package threads;
 
 import java.util.concurrent.*;
 

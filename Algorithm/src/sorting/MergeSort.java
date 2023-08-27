@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+// Time Complexity O(n log n)
+
 public class MergeSort {
 
     private static final int[] a = {4, 5, 1, 3, 2, 7, 6, 8};
@@ -26,7 +28,7 @@ public class MergeSort {
     private static void merge(int low, int mid, int high) {
         int i = low, j = mid + 1, k = low;
         while (i <= mid && j <= high) {
-            temp[k++] = a[i] <= a[j] ? a[i++] : a[j++];
+            temp[k++] = a[i] <= a[j] ? a[i++] : a[j++];  // a[i] >= a[j] Descending order
         }
         while(i <= mid) {
             temp[k++] = a[i++];
@@ -37,8 +39,5 @@ public class MergeSort {
         for (int l = low; l <= high; l++) {
             a[l] = temp[l];
         }
-//        if (high - low + 1 >= 0) {
-//            System.arraycopy(temp, low, a, low, high - low + 1);
-//        }
     }
 }

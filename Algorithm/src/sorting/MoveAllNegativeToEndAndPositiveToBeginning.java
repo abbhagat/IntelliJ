@@ -7,18 +7,16 @@ import static util.Swap.swap;
 public class MoveAllNegativeToEndAndPositiveToBeginning {
 
     private static void move(int[] a) {
-        int low = 0, high = a.length - 1;
-        while (low <= high) {
-            if (a[low] > 0) {
-                low++;
-            } else if (a[high] < 0) {
-                high--;
+        int i = 0, j = a.length - 1;
+        while (i <= j) {
+            if (a[i] > 0) {
+                i++;
+            } else if (a[j] < 0) {
+                j--;
             } else {
-                if (a[low] < 0 && a[high] > 0) {
-                    swap(a, low, high);
-                }
-                low++;
-                high--;
+                swap(a, i, j);
+                i++;
+                j--;
             }
         }
     }

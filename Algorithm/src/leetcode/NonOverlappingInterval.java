@@ -12,7 +12,7 @@ public class NonOverlappingInterval {
         Arrays.sort(intervals, Comparator.comparingInt(i -> i[1]));
         int min = 0, end = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i][0] >= end) {
+            if (end < intervals[i][0]) {
                 end = intervals[i][1];
             } else {
                 min++;

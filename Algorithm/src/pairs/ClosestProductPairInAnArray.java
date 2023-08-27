@@ -1,4 +1,4 @@
-package gfg;
+package pairs;
 
 import java.util.Arrays;
 

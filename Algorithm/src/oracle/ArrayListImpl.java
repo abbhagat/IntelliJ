@@ -1,9 +1,10 @@
 package oracle;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.RandomAccess;
 
-public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
+public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable, Iterable<T> {
 
   private static final long serialVersionUID = 1L;
 
@@ -11,16 +12,16 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
   private int size;
   private static final int DEFAULT_CAPACITY = 10;
 
+  public ArrayListImpl() {
+    this(DEFAULT_CAPACITY);
+  }
+
   public T[] getList() {
     return list;
   }
 
   public int size() {
     return size;
-  }
-
-  public ArrayListImpl() {
-    this(DEFAULT_CAPACITY);
   }
 
   public ArrayListImpl(int initialCapacity) {
@@ -87,5 +88,10 @@ public class ArrayListImpl<T> implements RandomAccess, Cloneable, Serializable {
     for (int x : a) {
       System.out.println(x);
     }
+  }
+
+  @Override
+  public Iterator<T> iterator() {
+    return null;
   }
 }

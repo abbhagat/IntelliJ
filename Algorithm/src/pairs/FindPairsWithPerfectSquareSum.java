@@ -1,4 +1,4 @@
-package gfg;
+package pairs;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -7,22 +7,18 @@ public class StringBinarySearch {
     public static void main(String[] args) {
         String[] str = {"A", "B", "C", "F", "I", "S"};
         Arrays.sort(str);
-        binarySearch(str, 0, str.length - 1, "A");
+        System.out.println(binarySearch(str, 0, str.length - 1, "F"));
     }
 
-    private static void binarySearch(String[] str, int low, int high, String s) {
+    private static int binarySearch(String[] str, int low, int high, String s) {
         if (low <= high) {
             int mid = (low + high) / 2;
             int k = s.compareTo(str[mid]);
             if (k == 0) {
-                System.out.println(str[mid] + " present at position " + mid);
-            } else if (k < 0) {
-                binarySearch(str, low, mid - 1, s);
-            } else {
-                binarySearch(str, mid + 1, high, s);
+                return mid;
             }
-        } else {
-            System.out.println(s + " not present");
+            return k < 0 ? binarySearch(str, low, mid - 1, s) : binarySearch(str, mid + 1, high, s);
         }
+        return -1;
     }
 }

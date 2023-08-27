@@ -2,8 +2,8 @@ package searching;
 
 // Time Complexity O(log N)
 public class FindMaxInARotatedSortedArray {
-    private static int findMax(int[] a, int low, int high) {
-        int mid = 0;
+    private static int findMax(int[] a) {
+        int low = 0, mid = 0, high = a.length - 1;
         while (low <= high) {
             mid = (low + high) / 2;
             if (a[mid] == a[high]) {
@@ -36,39 +36,39 @@ public class FindMaxInARotatedSortedArray {
     public static void main(String[] args) {
         int[] a;
         a = new int[]{5, 6, 1, 1, 1, 2, 3, 4, 4, 5};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{1, 2, 3, 4};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{1};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{1, 2};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{2, 1};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{5, 6, 7, 1, 2, 3, 4};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{1, 2, 3, 4, 5, 6, 7};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{2, 3, 4, 5, 6, 7, 8, 1};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
         System.out.println("****************");
         a = new int[]{3, 4, 5, 1, 2};
-        System.out.println("Max :" + findMax(a, 0, a.length - 1));
+        System.out.println("Max :" + findMax(a));
         System.out.println("Max :" + findMaximum(a, 0, 0, a.length - 1));
     }
 }

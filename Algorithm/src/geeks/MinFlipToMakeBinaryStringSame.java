@@ -13,7 +13,7 @@ package geeks;
  */
 public class MinFlipToMakeBinaryStringSame {
 
-    private static int minimumOperation(char[] a, char[] b) {
+    private static int minFlips(char[] a, char[] b) {
         int i = 0, minFlips = 0;
         while (i < a.length) {
             if (a[i] == b[i]) {
@@ -32,7 +32,11 @@ public class MinFlipToMakeBinaryStringSame {
     }
 
     public static void main(String[] args) {
-        System.out.println(minimumOperation("10010010".toCharArray(), "00001000".toCharArray()));
-        System.out.println(minimumOperation("11".toCharArray(), "00".toCharArray()));
+        System.out.println(minFlips("10010010".toCharArray(), "00001000".toCharArray()));
+        System.out.println(minFlips("11".toCharArray(), "00".toCharArray()));
+        System.out.println(minFlips("xx".toCharArray(), "yy".toCharArray()));
+        System.out.println(minFlips("xy".toCharArray(), "yx".toCharArray()));
+        System.out.println(minFlips("xx".toCharArray(), "xy".toCharArray()));
+        System.out.println(minFlips("xxyyxyxyxx".toCharArray(), "xyyxyxxxyx".toCharArray()));
     }
 }

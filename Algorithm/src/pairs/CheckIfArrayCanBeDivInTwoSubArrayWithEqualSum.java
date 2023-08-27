@@ -1,4 +1,4 @@
-package leetcode;
+package pairs;
 
 import java.util.stream.IntStream;
 

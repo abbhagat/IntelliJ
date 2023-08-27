@@ -2,10 +2,10 @@ package stack;
 
 import java.util.Stack;
 
-public class QueueWithTwoStacks<K> {
+public class QueueWithTwoStacks<E> {
 
-    Stack<K> s1 = new Stack<>();
-    Stack<K> s2 = new Stack<>();
+    Stack<E> s1 = new Stack<>();
+    Stack<E> s2 = new Stack<>();
 
     void deQueue() {
         while (!s1.isEmpty()) {
@@ -17,8 +17,8 @@ public class QueueWithTwoStacks<K> {
         }
     }
 
-    void enQueue(K k) {
-        s1.push(k);
+    void enQueue(E e) {
+        s1.push(e);
     }
 
     public static void main(String[] args) {

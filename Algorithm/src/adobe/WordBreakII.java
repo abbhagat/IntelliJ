@@ -24,7 +24,7 @@ import java.util.Set;
 public class WordBreakII {
 
     public static List<String> wordBreak(String s, List<String> wordDict) {
-        Set<String> set  = new HashSet<>(wordDict);
+        Set<String> set = new HashSet<>(wordDict);
         List<String> res = new ArrayList<>();
         dfs(s, set, res, new StringBuilder(), 0);
         return res;

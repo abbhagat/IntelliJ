@@ -1,9 +1,6 @@
-package gfg;
+package pairs;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
@@ -55,19 +52,56 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         System.out.println(set);
     }
 
+    private static void findPair(int[] a, int diff) {
+        Arrays.sort(a);
+        int i = 0, j = 0, n = a.length - 1;
+        while (i <= n && j <= n) {
+            while (i < n && a[i] == a[i + 1]) {  // to avoid printing duplicates
+                i++;
+            }
+            while (j < n && a[j] == a[j + 1]) {
+                j++;
+            }
+            if (a[j] - a[i] > diff) {
+                i++;
+            } else if (a[j] - a[i] < diff) {
+                j++;
+            } else {
+                System.out.println("(" + a[j] + ", " + a[i] + ")");
+                i++;
+                j++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 4);
         System.out.println();
+        findPair(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 4);
+        System.out.println("**********************");
         findPairs(new int[]{10, 5, 15, 5, 0}, 5);
         System.out.println();
+        findPair(new int[]{10, 5, 15, 5, 0}, 5);
+        System.out.println("**********************");
         findPairs(new int[]{10, 5, 15}, 5);
         System.out.println();
+        findPair(new int[]{10, 5, 15}, 5);
+        System.out.println("**********************");
         findPairs(new int[]{10, 5, 15, 5, 0}, 0);
         System.out.println();
+        findPair(new int[]{10, 5, 15, 5, 0}, 0);
+        System.out.println("**********************");
         findPairs(new int[]{1, 3}, 2);
         System.out.println();
+        findPair(new int[]{1, 3}, 2);
+        System.out.println("**********************");
         findPairs(new int[]{5, 0}, 5);
         System.out.println();
+        findPair(new int[]{5, 0}, 5);
+        System.out.println("**********************");
         findPairs(new int[]{5, 5, 5}, 0);
+        System.out.println();
+        findPair(new int[]{5, 5, 5}, 0);
+        System.out.println("**********************");
     }
 }

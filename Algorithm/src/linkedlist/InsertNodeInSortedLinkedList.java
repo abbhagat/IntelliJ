@@ -22,12 +22,14 @@ public class InsertNodeInSortedLinkedList {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 3, 5, 9}) {
+        for (int x : new int[]{1, 3, 5, 8}) {
             first = add(first, x);
         }
         first = insertNodeInSortedLinkedList(first, 0);
-        first = insertNodeInSortedLinkedList(first, 8);
-        first = insertNodeInSortedLinkedList(first, 10);
+        first = insertNodeInSortedLinkedList(first, 2);
+        first = insertNodeInSortedLinkedList(first, 4);
+        first = insertNodeInSortedLinkedList(first, 7);
+        first = insertNodeInSortedLinkedList(first, 9);
         traverseList(first);
     }
 }

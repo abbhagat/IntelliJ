@@ -36,9 +36,7 @@ public class PrintAllSubstringOfAGivenString {
             set.add(String.valueOf(s.charAt(i)));
             set.add(s.substring(i));
             set.add(s.substring(0, i));
-            if (i < s.length() - 1) {
-                set.add(s.substring(i, s.length() - 1));
-            }
+            set.add(s.substring(i, s.length() - 1));
         }
         return set;
     }

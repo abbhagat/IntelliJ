@@ -13,7 +13,7 @@ public class BasicCalculator {
         stack.push(sign);
         for (char c : exp.toCharArray()) {
             if (Character.isDigit(c)) {
-                n = n * 10 + (c - '0');
+                n = n * 10 + c - '0';
             } else if (c == '+' || c == '-') {
                 result += sign * n;
                 sign = stack.peek() * (c == '+' ? 1 : -1);

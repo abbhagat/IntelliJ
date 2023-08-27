@@ -3,10 +3,10 @@ package matrix;
 public class WordSearch {
 
     private static final char[][] M = {
-            {'A', 'B', 'H', 'I'},
-            {'M', 'A', 'R', 'N'},
-            {'U', 'K', 'W', 'A'}
-    };
+                                         {'A', 'B', 'H', 'I'},
+                                         {'M', 'A', 'R', 'N'},
+                                         {'U', 'K', 'W', 'A'}
+                                      };
     private static final int ROW = M.length , COL = M[0].length;
     private static final int[] rowIdx = {1, 0, -1, 0};
     private static final int[] colIdx = {0, 1, 0, -1};

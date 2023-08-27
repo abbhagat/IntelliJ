@@ -42,7 +42,7 @@ public class MinStepsToReachDestination {
     }
 
     public static void main(String[] args) {
-        int dest = 3;
-        System.out.println("No. of steps required" + " to reach " + dest + " is " + steps(0, 0, dest));
+        System.out.println("No of steps required" + " to reach " + 3 + " is " + steps(0, 0, 3));
+        System.out.println("No of steps required" + " to reach " + 5 + " is " + steps(0, 0, 5));
     }
 }

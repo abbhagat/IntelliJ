@@ -8,8 +8,7 @@ public class HuffmanCoding {
 
     public static void encode(Node root, String str) {
         for (char c : str.toCharArray()) {
-            LinkedList<Character> list = new LinkedList<>();
-            findPath(root, c, list, ' ');
+            findPath(root, c, new LinkedList<>(), ' ');
         }
         System.out.println(result);
     }

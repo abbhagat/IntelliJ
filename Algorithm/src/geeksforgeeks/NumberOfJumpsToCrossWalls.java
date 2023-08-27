@@ -20,8 +20,8 @@ package geeksforgeeks;
 public class NumberOfJumpsToCrossWalls {
 
     private static int findJumps(int[] a, int x, int y) {
-        int jumps = 0;
-        for (int i = 0; i < a.length; ) {
+        int i =0, jumps = 0;
+        while (i < a.length) {
             if (a[i] > x) {
                 a[i] -= x + y;
             } else {

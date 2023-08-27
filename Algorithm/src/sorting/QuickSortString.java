@@ -4,6 +4,8 @@ import java.util.stream.IntStream;
 
 import static util.Swap.swap;
 
+// Time Complexity O(n log n)
+
 public class QuickSortString {
 
     private static final String[] a = {"Ani", "Sam", "Joe"};
@@ -12,18 +14,16 @@ public class QuickSortString {
         int i = low;
         int j = high;
         String key = a[(i + j) / 2];
-        while (i <= j) {
-            while (a[i].compareTo(key) > 0) {
-                i++;
-            }
-            while (a[j].compareTo(key) < 0) {
-                j--;
-            }
-            if (i <= j) {
-                swap(a, i, j);
-                i++;
-                j--;
-            }
+        while (a[i].compareTo(key) > 0) {
+            i++;
+        }
+        while (a[j].compareTo(key) < 0) {
+            j--;
+        }
+        if (i <= j) {
+            swap(a, i, j);
+            i++;
+            j--;
         }
         if (i < high) {
             quickSort(i, high);

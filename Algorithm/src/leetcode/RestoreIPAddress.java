@@ -33,12 +33,12 @@ public class RestoreIPAddress {
         if (dot == 0 && isValid(s)) {
             ip += s;
             list.add(ip);
-        } else {
-            for (int i = 1; i <= 3 && i < s.length(); i++) {
-                String address = s.substring(0, i);
-                if (isValid(address)) {
-                    restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
-                }
+            return;
+        }
+        for (int i = 1; i <= 3 && i < s.length(); i++) {
+            String address = s.substring(0, i);
+            if (isValid(address)) {
+                restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
             }
         }
     }

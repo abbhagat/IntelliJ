@@ -47,6 +47,7 @@ public class TMHashMap<K, V> {
         if (null != e) {
             if (null == e.getKey() || Objects.equals(key, e.getKey())) {
                 e.setValue(value);
+                return null;
             } else {
                 while (e.next != null) {
                     e = e.next;

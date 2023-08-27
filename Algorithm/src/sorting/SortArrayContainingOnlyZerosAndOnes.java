@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class SortArrayContainingOnlyZerosAndOnes {
 
     public static void main(String[] args) {
-        int[] a = {1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0};
+        final int[] a = {1, 0, 0, 1, 0, 1, 0, 1, 0, 1};
         int countZero = 0;
         for (int x : a) {
             if (x == 0) {

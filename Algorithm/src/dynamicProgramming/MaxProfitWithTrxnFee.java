@@ -1,33 +1,59 @@
 package dynamicProgramming;
 
-public class MaxProfitWithTrxnFee {
 
-    private static void maxProfit(int[] a, int[] b, int fee) {
-        int diff_day = 1;
-        b[0] = 0;          // b[0] will contain the maximum profit
-        b[1] = diff_day;  //b[1] will contain the day on which we are getting the maximum profit
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
+/*
+
+You are given an array prices where prices[i] is the price of a given stock on the ith day, and an integer fee representing a transaction fee.
+
+Find the maximum profit you can achieve. You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction.
+
+Note:
+
+You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
+The transaction fee is only charged once for each stock purchase and sale.
+
+
+Example 1:
+
+Input: prices = [1,3,2,8,4,9], fee = 2
+Output: 8
+Explanation: The maximum profit can be achieved by:
+- Buying at prices[0] = 1
+- Selling at prices[3] = 8
+- Buying at prices[4] = 4
+- Selling at prices[5] = 9
+The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
+Example 2:
+
+Input: prices = [1,3,7,5,10,3], fee = 3
+Output: 6
+
+    private static int maximumProfit(int[] a, int fee) {
+        int buy = -a[0], sell = 0;
         for (int i = 1; i < a.length; i++) {
-            int l = 0, r = diff_day, sum = 0;
-            for (int j = a.length - 1; j >= i; j--) {
-                int profit = (a[r] - a[l]) - fee;  //here finding the max profit if we get less then or equal to zero it means we are not getting the profit
-                if (profit > 0) {
-                    sum = sum + profit;
-                }
-                l++;
-                r++;
-            }
-            if (b[0] < sum) {  //check if sum is greater than maximum then store the new maximum
-                b[0] = sum;
-                b[1] = diff_day;
-            }
-            diff_day++;
+            int temp = buy;
+            buy = max(buy, sell - a[i]);
+            sell = max(sell, temp + a[i] - fee);
         }
+        return max(buy, sell);
+    }
+ */
+public class MaxProfitWithTrxnFee {
+    public static int maxProfit(int[] a, int fee) {
+        int buy = Integer.MAX_VALUE, profit = 0;
+        for (int x : a) {
+            buy    = min(buy,    x - profit);
+            profit = max(profit, x - buy - fee);
+        }
+        return profit;
     }
 
-    public static void main(String args[]) {
-        int[] a = {6, 1, 7, 2, 8, 4};
-        int[] b = new int[2];
-        maxProfit(a, b, 2);
-        System.out.println(b[0] + ", " + b[1]);
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4}, 2));
+        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
+        System.out.println(maxProfit(new int[]{1, 3, 7, 5, 10, 3}, 3));
     }
 }

@@ -15,7 +15,10 @@ public class MinCostPathRecursion {
         if (m == 0 && n == 0) {
             return cost[m][n];
         }
-        return cost[m][n] + minimum(minCost(cost, m, n - 1), minCost(cost, m - 1, n - 1), minCost(cost, m - 1, n));
+        int x = minCost(cost,    m,     n - 1);
+        int y = minCost(cost, m - 1, n - 1);
+        int z = minCost(cost, m - 1,    n);
+        return cost[m][n] + minimum(x, y, z);
     }
 
     // Time Complexity: O(m * n), which is much better than Naive Recursive implementation.

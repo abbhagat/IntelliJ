@@ -14,6 +14,8 @@ package trees;
               10
  */
 
+import java.util.LinkedList;
+
 public class PrintAllAncestorsOfAGivenNode {
 
     private static boolean printAllAncestor(Node root, int num) {
@@ -32,6 +34,21 @@ public class PrintAllAncestorsOfAGivenNode {
         return false;
     }
 
+    private static void printPath(Node root, int target, LinkedList<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.num);
+        if (root.num == target) {
+            list.removeLast();
+            System.out.println(list);
+            return;
+        }
+        printPath(root.left,  target, list);
+        printPath(root.right, target, list);
+        list.removeLast();
+    }
+
     public static void main(String[] args) {
         Node root                 = new Node(1);
         root.left                 = new Node(2);
@@ -41,8 +58,8 @@ public class PrintAllAncestorsOfAGivenNode {
         root.left.left.left       = new Node(7);
         root.left.left.right      = new Node(8);
         root.left.left.right.left = new Node(10);
-        printAllAncestor(root, 2);
-        System.out.println();
         printAllAncestor(root, 10);
+        System.out.println();
+        printPath(root, 10, new LinkedList<>());
     }
 }

@@ -6,9 +6,9 @@ public class MatrixMirrorImage {
         int R1 = a.length, C1 = a[0].length;
         int R2 = b.length, C2 = b[0].length;
         if (R1 == R2 && C1 == C2) {
-            for (int i = 0; i < R1; i++) {
-                for (int j = 0, k = C1 - 1; j < k; j++, k--) {
-                    if (a[i][j] != b[i][k]) {
+            for (int k = 0; k < R1; k++) {
+                for (int i = 0, j = C1 - 1; i < j; i++, j--) {
+                    if (a[k][i] != b[k][j]) {
                         return false;
                     }
                 }

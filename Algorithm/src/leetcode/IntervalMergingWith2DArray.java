@@ -3,17 +3,13 @@ package leetcode;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.Objects;
 
 import static java.lang.Integer.max;
 
 public class IntervalMergingWith2DArray {
 
-    private static LinkedList<int[]> mergeInterval(int[][] a) {
-        if (a.length == 0) {
-            return null;
-        }
-        Arrays.sort(a, Comparator.comparingInt(i -> i[0]));
+    private static int[][] mergeInterval(int[][] a) {
+        Arrays.sort(a, Comparator.comparingInt(x -> x[0])); // Arrays.sort(a, (x, y) -> x[0] - y[0]);
         LinkedList<int[]> interval = new LinkedList<>();
         interval.add(a[0]);
         for (int i = 1; i < a.length; i++) {
@@ -23,7 +19,11 @@ public class IntervalMergingWith2DArray {
                 interval.getLast()[1] = max(interval.getLast()[1], a[i][1]);
             }
         }
-        return interval;
+        int[][] result = new int[interval.size()][2];
+        for(int i = 0 ; i < interval.size(); i++) {
+            result[i] = interval.get(i);
+        }
+        return result;
     }
 
     public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class IntervalMergingWith2DArray {
                                  {8, 10},
                                  {15, 18}
                                };
-        for (int[] x : Objects.requireNonNull(mergeInterval(a))) {
+        for (int[] x : mergeInterval(a)) {
             for (int y : x) {
                 System.out.print(y + " ");
             }

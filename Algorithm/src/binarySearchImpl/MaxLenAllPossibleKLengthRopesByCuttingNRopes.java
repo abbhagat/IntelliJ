@@ -34,8 +34,7 @@ import java.util.Collections;
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
     private static int maximumSize(Integer[] a, int k) {
-        int low = 0, high = Collections.max(Arrays.asList(a));
-        int result = 0;
+        int low = 0, high = Collections.max(Arrays.asList(a)), result = 0;
         while (low <= high) {
             int mid = (low + high) / 2;
             int count = 0;

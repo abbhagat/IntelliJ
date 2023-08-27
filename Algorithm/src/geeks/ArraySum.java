@@ -11,6 +11,9 @@ public class ArraySum {
         if (curSum == givenSum && !list.isEmpty()) {
             System.out.println(list);
         }
+        if(curSum > givenSum) {
+            return;
+        }
         for (int i = index; i < a.length; i++) {
             curSum += a[i];
             list.add(a[i]);

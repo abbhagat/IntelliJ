@@ -38,10 +38,10 @@ public class DestinationReachableWith2MovesAllowed {
             }
         }
         long x = x2 - x1, y = y2 - y1;
-        if (x2 == x1) {                                      // If x2 is reduced to x1
+        if (x1 == x2) {                      // If x2 is reduced to x1
             return y >= 0 && y % x1 == 0;   // Check if y2 can be reduced to y1 or not
         }
-        if (y2 == y1) {                                    // If y2 is reduced to y1
+        if (y1 == y2) {                    // If y2 is reduced to y1
             return x >= 0 && x % y1 == 0;
         }
         return false;

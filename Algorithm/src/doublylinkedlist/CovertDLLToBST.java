@@ -16,7 +16,8 @@ public class CovertDLLToBST {
         Node root = head;                                   // head_ref now refers to middle node, make middle node as root of BST
         root.left = left;                                  // Set pointer to left subtree
         head = head.right;                                // Change head pointer of Linked List for parent recursive calls
-        root.right = sortedListToBST(n - n / 2 - 1);  // Recursively construct the right subtree and link it with root.
+        Node right = sortedListToBST(n - n / 2 - 1);  // Recursively construct the right subtree and link it with root.
+        root.right = right;
         return root;                                    // The number of nodes in right subtree  is total nodes - nodes in left subtree - 1 (for root)
     }
 

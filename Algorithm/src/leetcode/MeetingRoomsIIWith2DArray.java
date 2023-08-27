@@ -7,11 +7,11 @@ import java.util.LinkedList;
 public class MeetingRoomsIIWith2DArray {
 
     private static int findMinRooms(int[][] a) {
-        int n = 1;
         Arrays.sort(a, Comparator.comparingInt(i -> i[0]));
         Arrays.sort(a, Comparator.comparingInt(i -> i[1]));
         LinkedList<int[]> intervals = new LinkedList<>();
         intervals.add(a[0]);
+        int n = 1;
         for (int i = 1; i < a.length; i++) {
             if (intervals.getLast()[0] < a[i][0] || intervals.getLast()[1] <= a[i][0]) {
                 intervals.add(a[i]);

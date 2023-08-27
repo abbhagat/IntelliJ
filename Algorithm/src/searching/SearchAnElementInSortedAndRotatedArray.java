@@ -5,7 +5,8 @@ package searching;
 
 public class SearchAnElementInSortedAndRotatedArray {
 
-    private static int pivotedBinarySearch(int[] a, int low, int high, int key) {
+    private static int pivotedBinarySearch(int[] a, int key) {
+        int low = 0, high = a.length - 1;
         int pivot = findPivot(a, low, high);
         if (pivot == high) {
             return binarySearch(a, low, high, key);
@@ -45,10 +46,10 @@ public class SearchAnElementInSortedAndRotatedArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {5, 1, 3};
-        System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 3));
-        System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 5));
-        System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 1));
-        System.out.println(pivotedBinarySearch(a, 0, a.length - 1, 9));
+        int[] a = {4, 5, 1, 2, 3};
+        System.out.println(pivotedBinarySearch(a, 3));
+        System.out.println(pivotedBinarySearch(a, 5));
+        System.out.println(pivotedBinarySearch(a, 1));
+        System.out.println(pivotedBinarySearch(a, 9));
     }
 }

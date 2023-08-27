@@ -10,11 +10,11 @@ public class BinaryTreeIterator {
         Node next();
     }
 
-    interface Container {
+    interface Iterable {
         Iterator iterator();
     }
 
-    static class TreeIterator implements Container {
+    static class TreeIterator implements Iterable {
 
         private final Stack<Node> stack = new Stack<>();
 
@@ -57,11 +57,11 @@ public class BinaryTreeIterator {
         root.left       = new Node(1);
         root.right      = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
-        Node node = root;
+        Node curr = root;
         Stack<Node> stack = treeIterator.getStack();
-        while (node != null) {
-            stack.push(node);
-            node = node.left;
+        while (curr != null) {
+            stack.push(curr);
+            curr = curr.left;
         }
         System.out.println("Iterating the Tree");
         Iterator iterator = treeIterator.iterator();

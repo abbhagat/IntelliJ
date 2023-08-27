@@ -6,10 +6,10 @@ import static linkedlist.TraverseList.traverseList;
 // Space Complexity: O(1)
 public class ReverseList {
 
-    private static Node reverse(Node node) {
-        Node prev = null, temp = node, next;
+    private static Node reverse(Node head) {
+        Node temp = head, prev = null;
         while (temp != null) {
-            next = temp.next;
+            Node next = temp.next;
             temp.next = prev;
             prev = temp;
             temp = next;

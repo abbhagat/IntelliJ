@@ -16,7 +16,7 @@ public class ConvertSortedListToBalancedTree {
         }
     }
 
-    public static TreeNode sortedListToBST(Node head) {
+    private static TreeNode sortedListToBST(Node head) {
         if (head == null) {
             return null;
         }

@@ -46,7 +46,7 @@ final class FinalClass {
         final int prime = 31;
         int result = 1;
         result = prime * result + value;
-        result = prime * result + (this.getKey() == null  ? 0 : this.getKey().hashCode());
+        result = prime * result + (this.getKey()  == null ? 0 : this.getKey().hashCode());
         result = prime * result + (this.getDate() == null ? 0 : this.getDate().hashCode());
         return result;
     }

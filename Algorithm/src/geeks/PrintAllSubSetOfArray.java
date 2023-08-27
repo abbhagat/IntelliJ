@@ -22,17 +22,17 @@ import java.util.LinkedList;
  */
 // O((2^n))
 // O(n)
-public class PrintAllSubSetOfArray {
+    public class PrintAllSubSetOfArray {
 
     public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
         if (index == a.length) {
             System.out.println(list);
-        } else {
-            list.add(a[index]);
-            findSubSet(a, index + 1, list);
-            list.removeLast();
-            findSubSet(a, index + 1, list);
+            return;
         }
+        list.add(a[index]);
+        findSubSet(a, index + 1, list);
+        list.removeLast();
+        findSubSet(a, index + 1, list);
     }
 
     public static void main(String[] args) {

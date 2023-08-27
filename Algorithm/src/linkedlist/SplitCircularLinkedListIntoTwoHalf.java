@@ -21,8 +21,8 @@ public class SplitCircularLinkedListIntoTwoHalf {
         }
         head1 = head;
         head2 = prev.next;
-        prev.next = head1;
-        fast.next = head2;
+        prev.next = head1;   // Making the first  list circular
+        fast.next = head2;   // Making the second list circular
     }
 
     public static void main(String[] args) {

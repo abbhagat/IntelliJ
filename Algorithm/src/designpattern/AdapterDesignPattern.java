@@ -43,7 +43,7 @@ class MP4 implements AdvancedMediaPlayer {
 
 class MediaAdapter implements MediaPlayer {
 
-    private AdvancedMediaPlayer advancedMediaPlayer;
+    private final AdvancedMediaPlayer advancedMediaPlayer;
 
     MediaAdapter(String fileType) {
         advancedMediaPlayer = fileType.equalsIgnoreCase("VLC") ? new VLC() : new MP4();
@@ -58,18 +58,14 @@ class MediaAdapter implements MediaPlayer {
 }
 
 class AudioPlayer implements MediaPlayer {
-
-    private MediaAdapter mediaAdapter;
-
     public void play(String fileName, String fileType) {
-
         switch (fileType) {
             case "mp3":
                 System.out.println("Playing MP3 file : " + fileName);
                 break;
             case "MP4":
             case "VLC":
-                mediaAdapter = new MediaAdapter(fileType);
+                MediaAdapter mediaAdapter = new MediaAdapter(fileType);
                 mediaAdapter.play(fileName, fileType);
                 break;
             default:

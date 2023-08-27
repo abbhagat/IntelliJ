@@ -2,6 +2,10 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.Swap.swap;
+
+// Time Complexity O(n^2)
+
 public class SelectionSort {
 
     public static void main(String[] args) {
@@ -12,9 +16,7 @@ public class SelectionSort {
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
                 if (a[i] > a[j]) {
-                    int t = a[i];
-                    a[i] = a[j];
-                    a[j] = t;
+                    swap(a, i, j);
                 }
             }
         }

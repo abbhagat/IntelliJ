@@ -36,7 +36,6 @@ public class MaxMango {
         C += coinsEarned;
         int mangoes = C / x;
         return mangoes >= mid;
-        // return ((W-mid)*y + C)/x >= mid
     }
 
     private static int maximizeMangoes(int W, int C, int x, int y) {

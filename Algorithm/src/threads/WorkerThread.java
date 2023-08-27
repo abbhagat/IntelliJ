@@ -1,6 +1,6 @@
 package threads;
 
-class WorkerThread implements Runnable {
+public class WorkerThread implements Runnable {
 
     public WorkerThread() {
         new Thread(this, "Worker Thread").start();

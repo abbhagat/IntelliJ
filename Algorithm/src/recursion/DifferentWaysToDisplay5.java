@@ -10,6 +10,7 @@ public class DifferentWaysToDisplay5 {
         if (n == 0) {
             count++;
             System.out.println(prefix);
+            return;
         }
         for (int i = 1; i <= n; i++) {
             String newPrefix = prefix + (Objects.equals(prefix, "") ? "" : "+") + i;
@@ -22,6 +23,7 @@ public class DifferentWaysToDisplay5 {
         if (n == 0) {
             count++;
             System.out.println(prefix);
+            return;
         }
         for (int i = 1; i <= n && i <= iterations; i++) {
             String newPrefix = prefix + (prefix == "" ? "" : "+") + i;

@@ -15,9 +15,9 @@ abstract class Game {
     abstract void endPlay();
 
     public final void play() {
-        initialize(); //initialize the game
-        startPlay(); //start game
-        endPlay(); //end game
+        initialize();
+        startPlay();
+        endPlay();
     }
 }
 

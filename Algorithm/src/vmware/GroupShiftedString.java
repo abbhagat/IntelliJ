@@ -11,9 +11,7 @@ public class GroupShiftedString {
             String key = "";
             for (char x : s.toCharArray()) {
                 char c = (char) (x - offset);
-                if (c < 'a') {
-                    c += 26;
-                }
+                c += (char) (c < 'a' ? 26 : 0);
                 key += c;
             }
             List<String> list = map.containsKey(key) ? map.get(key) : new ArrayList<>();

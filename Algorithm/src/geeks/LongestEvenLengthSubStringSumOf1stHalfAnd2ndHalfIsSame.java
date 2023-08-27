@@ -18,8 +18,7 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
     private static int findLength(String s) {
         int maxLength = 0;
         for (int k = 0; k < s.length(); k++) {
-            int i = k, j = k + 1;
-            int lsum = 0, rsum = 0;
+            int i = k, j = k + 1, lsum = 0, rsum = 0;
             while (i >= 0 && j < s.length()) {
                 lsum += s.charAt(i) - '0';
                 rsum += s.charAt(j) - '0';

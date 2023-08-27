@@ -2,21 +2,21 @@ package util;
 
 public class Swap {
 
-    public static void swap(int[] a, int x, int y) {
-        int t = a[x];
-        a[x]  = a[y];
-        a[y]  =   t;
+    public static void swap(int[] a, int i, int j) {
+        int t = a[i];
+        a[i]  = a[j];
+        a[j]  = t;
     }
 
-    public static void swap(char[] a, int x, int y) {
-        char t = a[x];
-        a[x]   = a[y];
-        a[y]   =   t;
+    public static void swap(char[] a, int i, int j) {
+        char t = a[i];
+        a[i]   = a[j];
+        a[j]   = t;
     }
 
-    public static void swap(String[] a, int x, int y) {
-        String t = a[x];
-        a[x]     = a[y];
-        a[y]     = t;
+    public static void swap(String[] a, int i, int j) {
+        String t = a[i];
+        a[i]     = a[j];
+        a[j]     = t;
     }
 }

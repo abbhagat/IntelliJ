@@ -51,7 +51,7 @@ public class CheckValidString {
                 y++;
             } else if (c == ')' && x > 0) {
                 x--;
-            } else if (c == ')' && x == 0) {
+            } else if (c == ')') {
                 return false;
             }
         }

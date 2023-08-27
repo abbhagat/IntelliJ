@@ -10,10 +10,10 @@ import java.util.List;
 
 class Employee {
 
-    private String name;
-    private String dept;
-    private int salary;
-    private List<Employee> subordinates;
+    private final String name;
+    private final String dept;
+    private final int salary;
+    private final List<Employee> subordinates;
 
     public Employee(String name, String dept, int sal) {
         this.name = name;

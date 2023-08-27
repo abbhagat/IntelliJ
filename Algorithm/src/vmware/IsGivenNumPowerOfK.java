@@ -4,14 +4,14 @@ import static java.lang.Math.log10;
 
 public class IsGivenNumPowerOfK {
 
-    private static boolean isPowerOfK(int n, int k) {
-        if (n < 1) {
+    private static boolean isPowerOfK(int x, int n) {
+        if (x < 1) {
             return false;
         }
-        while (n % k == 0) {
-            n /= k;
+        while (x % n == 0) {
+            x /= n;
         }
-        return n == 1;
+        return x == 1;
     }
 
     private static boolean isPowerOfTwo(int n) {

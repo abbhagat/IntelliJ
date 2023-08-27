@@ -9,7 +9,8 @@ import static java.lang.Integer.min;
  */
 public class MinCostToReachTopFloor {
 
-    private static int minCost(int[] a, int n) {
+    private static int minCost(int[] a) {
+        int n = a.length;
         int[] dp = new int[n];
         if (n == 1) {
             return a[0];
@@ -22,8 +23,18 @@ public class MinCostToReachTopFloor {
         return min(dp[n - 1], dp[n - 2]);
     }
 
+    private static int minCost(int[] a, int n) {
+        switch (n) {
+            case 1:  return a[0];
+            case 2:  return a[1];
+            default: return a[n - 1] + min(minCost(a, n - 1), minCost(a, n - 2));
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(minCost(new int[]{16, 19, 10, 12, 18},  5));
-        System.out.println(minCost(new int[]{2, 5, 3, 1, 7, 3, 4}, 7));
+        int[] a = new int[]{16, 19, 10, 12, 18};
+        System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
+        a = new int[]{2, 5, 3, 1, 7, 3, 4};
+        System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
     }
 }

@@ -22,23 +22,23 @@ import static trees.TreeTraversal.inorder;
 // Time Complexity: O(n)
 public class RecoverBST {
 
-    private static Node first, middle, last, prev;
+    private static Node first, middle, last, temp;
 
     private static void recoverBSTUtil(Node root) {
         if (root == null) {
             return;
         }
         recoverBSTUtil(root.left);
-        if (prev != null && root.num < prev.num) {
+        if (temp != null && root.num < temp.num) {
             if (first == null) {
-                first  = prev;
+                first  = temp;
                 middle = root;
             }
             else {
                 last = root;
             }
         }
-        prev = root;
+        temp = root;
         recoverBSTUtil(root.right);
     }
 

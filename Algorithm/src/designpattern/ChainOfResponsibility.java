@@ -23,34 +23,28 @@ abstract class AbstractLogger {
 }
 
 class ConsoleLogger extends AbstractLogger {
-
     public void write(String message) {
         System.out.println("Console Logger");
     }
 }
 
 class ErrorLogger extends AbstractLogger {
-
     public void write(String message) {
         System.out.println("Error Logger");
     }
 }
 
 class DebugLogger extends AbstractLogger {
-
     public void write(String message) {
         System.out.println("Debug Logger");
     }
 }
 
 public class ChainOfResponsibility {
-
     private static AbstractLogger getChainOfLoggers() {
-
         AbstractLogger consoleLogger = new ConsoleLogger();
-        AbstractLogger debugLogger = new DebugLogger();
-        AbstractLogger errorLogger = new ErrorLogger();
-
+        AbstractLogger debugLogger   = new DebugLogger();
+        AbstractLogger errorLogger   = new ErrorLogger();
         errorLogger.setNextLogger(debugLogger);
         debugLogger.setNextLogger(consoleLogger);
         return errorLogger;

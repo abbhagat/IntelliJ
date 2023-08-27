@@ -5,7 +5,7 @@ package vmware;
 public class IsSubsequenceString {
 
     private static boolean isSubsequence(String s, String t) {
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             return true;
         }
         int j = 0;

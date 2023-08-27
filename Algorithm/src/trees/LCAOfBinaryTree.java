@@ -2,11 +2,11 @@ package trees;
 
 public class LCAOfBinaryTree {
 
-    static class NodeWrapper {
+    private static class NodeWrapper {
         Node node;
     }
 
-    public static boolean findLCA(Node root, NodeWrapper lca, Node x, Node y) {
+    private static boolean findLCA(Node root, NodeWrapper lca, Node x, Node y) {
         if (root == null) {
             return false;
         }

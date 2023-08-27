@@ -24,7 +24,7 @@ public class NQueenProblem {
                 return false;
             }
         }
-        for (int i = row, j = col; j >= 0 && i < N; i++, j--) {
+        for (int i = row, j = col; i < N && j >= 0; i++, j--) {
             if (board[i][j] == 1) {
                 return false;
             }

@@ -19,7 +19,7 @@ public class XMLOPerations {
             + " </Request>"
             + "</config>";
 
-    public static void main(String argv[]) {
+    public static void main(String[] args) {
         String patternString = "(encodedKey>)(.*)(<.*encodedKey>)";
         Pattern pattern = Pattern.compile(patternString);
         xml = xml.replaceAll("><", ">\n<");

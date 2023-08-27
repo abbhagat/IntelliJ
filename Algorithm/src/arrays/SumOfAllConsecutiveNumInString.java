@@ -2,16 +2,17 @@ package arrays;
 
 public class SumOfAllConsecutiveNumInString {
     public static void main(String[] args) {
-        char[] c = "123aa21bb33dd44".toCharArray();
-        int j = 0, sum = 0;
-        for (int i = c.length - 1; i >= 0; i--) {
-            if (c[i] >= 48 && c[i] <= 57) {
-                sum += (c[i] - '0') * Math.pow(10, j);
-                j++;
+        char[] a = "123aa21bb33dd44".toCharArray();
+        int sum = 0, n = 0;
+        for (char c : a) {
+            if (Character.isDigit(c)) {
+                n = n * 10 + c - '0';
             } else {
-                j = 0;
+                sum += n;
+                n = 0;
             }
         }
+        sum += n;
         System.out.println(sum);
     }
 }

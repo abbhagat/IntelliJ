@@ -39,9 +39,7 @@ public class PrisonBreak {
     public static long prison(int m, int n, List<Integer> h, List<Integer> v) {
         boolean[] x = new boolean[m + 1];
         boolean[] y = new boolean[n + 1];
-        int cx, cy,  max_X , max_Y;
-        cx = cy = 0;
-        max_X = max_Y = Integer.MIN_VALUE;
+        int cx = 0, cy = 0,  max_X = Integer.MIN_VALUE, max_Y = Integer.MIN_VALUE;
         for (int k : h) {
             x[k] = true;
         }

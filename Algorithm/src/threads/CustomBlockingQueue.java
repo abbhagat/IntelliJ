@@ -29,7 +29,7 @@ class LinkedBlockingQueue<E> implements BlockingQueue<E> {
     }
 
     public synchronized E get() throws InterruptedException {
-        if (queue.size() == 0) {
+        if (queue.isEmpty()) {
             this.wait();
         }
         this.notifyAll();

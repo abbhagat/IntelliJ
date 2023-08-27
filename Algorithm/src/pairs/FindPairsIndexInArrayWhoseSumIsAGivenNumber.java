@@ -1,4 +1,4 @@
-package gfg;
+package pairs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,17 +24,19 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
         }
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
-            if (map.containsKey(a[i])) {
-                return new int[]{map.get(a[i]), i};
+            int x = a[i];
+            int y = target - x;
+            if (map.containsKey(y)) {
+                return new int[]{map.get(y), i};
             } else {
-                map.put(target - a[i], i);
+                map.put(x, i);
             }
         }
         return new int[]{0, 0};
     }
 
     public static void main(String[] args) {
-        int[] index = twoSumIndex(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5}, 10);
+        int[] index = twoSumIndex(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5}, 8);
         System.out.println(index[0] + "," + index[1]);
     }
 }

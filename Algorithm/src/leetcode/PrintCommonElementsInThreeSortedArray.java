@@ -10,9 +10,7 @@ public class PrintCommonElementsInThreeSortedArray {
         while (i < a.length && j < b.length && k < c.length) {
             if (a[i] == b[j] && b[j] == c[k]) {
                 System.out.print(a[i] + " ");
-                i++;
-                j++;
-                k++;
+                i++; j++; k++;
             } else if (a[i] < b[j]) {
                 i++;
             } else if (b[j] < c[k]) {

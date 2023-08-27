@@ -11,7 +11,7 @@ class Q {
                 wait();
             }
             System.out.println(n++ + " " + Thread.currentThread().getName());
-            flag = true;
+            flag = !flag;
             notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -24,7 +24,7 @@ class Q {
                 wait();
             }
             System.out.println(n++ + " " + Thread.currentThread().getName());
-            flag = false;
+            flag = !flag;
             notify();
         } catch (InterruptedException e) {
             e.printStackTrace();

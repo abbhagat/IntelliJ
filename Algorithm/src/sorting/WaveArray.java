@@ -11,7 +11,7 @@ import static util.Swap.swap;
 public class WaveArray {
     private static void sortInWave(int[] a) {
         for (int i = 0; i < a.length - 1; i += 2) {
-            if (i > 0 && a[i - 1] > a[i]) {                        // swap odd and even positions
+            if (i > 0 && a[i - 1] > a[i]) {          // swap odd and even positions
                 swap(a, i - 1, i);
             }
             if (i < a.length - 1 && a[i + 1] > a[i]) {

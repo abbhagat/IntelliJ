@@ -33,7 +33,7 @@ public class SortArrayHavingZeroOneAndTwo {
     }
 
     public static void main(String[] args) {
-        int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        final int[] a = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
         sort(a);
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }

@@ -45,7 +45,8 @@ public class HouseRobberProblem {
         return max(incl, excl);
     }
 
-    private static int maxGoldLootedDP(int[] a, int n) {
+    private static int maxGoldLootedDP(int[] a) {
+        int n = a.length;
         int[] dp = new int[n];            // dp[i] represent the maximum value stolen so far after reaching house i.
         dp[0]    = a[0];
         dp[1]    = max(a[0], a[1]);
@@ -57,10 +58,10 @@ public class HouseRobberProblem {
 
     public static void main(String[] args) {
         int[] a = new int[]{6, 7, 1, 3, 8, 2, 4};
-        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
         a = new int[]{5, 3, 4, 11, 2};
-        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
         a = new int[]{3, 5, 7};
-        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a, a.length) + "\t" + maxGoldLooted(a));
+        System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
     }
 }

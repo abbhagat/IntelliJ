@@ -1,36 +1,29 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class AllNumsDisappearedInArray {
 
-    public static List<Integer> findDisappearedNumbers(int[] nums) {
+    public static void findDisappearedNumbers(int[] a) {
         Map<Integer, Integer> map = new TreeMap<>();
-        for (int x : nums) {
+        for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        List<Integer> list = new ArrayList<>();
         int sum = 0;
         for (int x : map.values()) {
             sum += x;
         }
-        int i;
-        for (i = 1; i < nums.length; i++) {
+        for (int i = 1; i < a.length || i <= sum; i++) {
             if (!map.containsKey(i)) {
-                list.add(i);
+                System.out.print(i + " ");
             }
         }
-        if (i <= sum && !map.containsKey(i)) {
-            list.add(i);
-        }
-        return list;
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        System.out.println(findDisappearedNumbers(new int[]{4, 3, 2, 7, 8, 2, 3, 1}));
-        System.out.println(findDisappearedNumbers(new int[]{1, 1}));
+        findDisappearedNumbers(new int[]{4, 3, 2, 7, 8, 2, 3, 1});
+        findDisappearedNumbers(new int[]{1, 1});
     }
 }

@@ -1,25 +1,23 @@
-package gfg;
+package pairs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class FindPairsInArrayWhoseSumIsDivisibleByGivenNumber {
 
     private static void findPairs(int[] a, int k) {
         Map<Integer, List<Integer>> map = new HashMap<>();
-        AtomicInteger pairCount = new AtomicInteger();
+        int count = 0;
         for (int i = 0; i < a.length; i++) {
             int x = a[i] % k;
             int y = k - x;
             if (map.containsKey(y)) {
-                final int I = i;
-                map.get(y).forEach(j -> {
-                    System.out.println(a[j] + "," + a[I]);
-                    pairCount.getAndIncrement();
-                });
+                for(int j : map.get(y)) {
+                    System.out.println(a[i] + "," + a[j]);
+                    count++;
+                }
             }
             List<Integer> list = map.containsKey(x) ? map.get(x) : new ArrayList<>();
             if (list.isEmpty() || a[list.get(0)] != a[i]) {
@@ -27,10 +25,12 @@ public class FindPairsInArrayWhoseSumIsDivisibleByGivenNumber {
             }
             map.put(x, list);
         }
-        System.out.println("Pair Count : " + pairCount);
+        System.out.println("Pair Count : " + count);
     }
 
     public static void main(String[] args) {
-        findPairs(new int[]{2, 2, 1, 7, 5, 3}, 4);
+        final int[] a = {2, 2, 1, 7, 5, 3};
+        findPairs(a, 4);
+        findPairs(a, 8);
     }
 }

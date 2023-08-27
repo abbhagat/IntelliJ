@@ -32,9 +32,10 @@ public class MatrixRotationBy90Degree {
                             {19, 20, 21, 22},
                             {23, 24, 25, 26}
                           };
+        System.out.println("\nOriginal Matrix\n");
         printMatrix(M);
         rotate(M);
-        System.out.println("Rotated Matrix");
+        System.out.println("\nRotated Matrix\n");
         printMatrix(M);
     }
 }

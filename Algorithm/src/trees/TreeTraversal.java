@@ -32,27 +32,24 @@ public class TreeTraversal {
         Stack<Node> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            Node current = stack.pop();
-            System.out.print(current.num + " ");
-            if (current.right != null) {
-                stack.push(current.right);
+            root = stack.pop();
+            System.out.print(root.num + " ");
+            if (root.right != null) {
+                stack.push(root.right);
             }
-            if (current.left != null) {
-                stack.push(current.left);
+            if (root.left != null) {
+                stack.push(root.left);
             }
         }
     }
 
     public static void postOrder(Node root) {
         Stack<Node> stack = new Stack<>();
-        while (true) {
+        while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 stack.push(root);
                 stack.push(root);
                 root = root.left;
-            }
-            if (stack.empty()) {
-                return;
             }
             root = stack.pop();
             if (!stack.empty() && stack.peek() == root) {

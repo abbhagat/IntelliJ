@@ -15,5 +15,6 @@ public class ReverseWordsInString {
 
     public static void main(String[] args) {
         System.out.println(reverseWords("a good   example"));
+        System.out.println(reverseWords("a bad   example"));
     }
 }

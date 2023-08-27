@@ -1,6 +1,6 @@
 package matrix;
 
-public class Sudoku {
+public class    Sudoku {
 
     private static final char[][] board = {
             {3, 0, 6, 5, 0, 8, 4, 0, 0},
@@ -20,7 +20,6 @@ public class Sudoku {
                 if (board[i][j] != '.') {
                     continue;
                 }
-
                 for (char k = '1'; k <= '9'; k++) {
                     if (isValid(board, i, j, k)) {
                         board[i][j] = k;
@@ -33,7 +32,6 @@ public class Sudoku {
                 return false;
             }
         }
-
         return true; //return true if all cells are checked
     }
 
@@ -47,9 +45,8 @@ public class Sudoku {
                 return false;
             }
 
-            if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] != '.'
-                    &&
-                    board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) {
+            if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] != '.'  &&
+                board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) {
                 return false;
             }
         }

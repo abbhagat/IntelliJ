@@ -16,11 +16,7 @@ public class CheckIfTwoNodesAreOnSamePath {
             return true;
         }
         list.removeLast();
-        if (isOnSamePath(root.right, num1, num2, list)) {
-            return true;
-        }
-        list.removeLast();
-        return false;
+        return isOnSamePath(root.right, num1, num2, list);
     }
 
     private static boolean samePath(Node root, int num1, int num2, LinkedList<Integer> list) {

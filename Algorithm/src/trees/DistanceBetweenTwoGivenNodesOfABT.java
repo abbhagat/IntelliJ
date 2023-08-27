@@ -15,7 +15,7 @@ public class DistanceBetweenTwoGivenNodesOfABT {
         }
         int distance = findLevel(root.left, node, level + 1);
         if (distance == -1) {
-            return    findLevel(root.right, node, level + 1);
+            return findLevel(root.right, node, level + 1);
         }
         return distance;
     }

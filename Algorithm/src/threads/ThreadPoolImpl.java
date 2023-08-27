@@ -20,7 +20,7 @@ public class ThreadPoolImpl {
 
     public WorkerThread getConnectionFromPool() {
         WorkerThread workerThread = null;
-        if (threadPool.size() > 0) {
+        if (!threadPool.isEmpty()) {
             workerThread = threadPool.firstElement();
             threadPool.removeElementAt(0);
         }
