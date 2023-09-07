@@ -34,18 +34,18 @@ public class PrintAllAncestorsOfAGivenNode {
         return false;
     }
 
-    private static void printPath(Node root, int target, LinkedList<Integer> list) {
+    private static void printAllAncestor(Node root, int num, LinkedList<Integer> list) {
         if (root == null) {
             return;
         }
         list.add(root.num);
-        if (root.num == target) {
+        if (root.num == num) {
             list.removeLast();
             System.out.println(list);
             return;
         }
-        printPath(root.left,  target, list);
-        printPath(root.right, target, list);
+        printAllAncestor(root.left,  num, list);
+        printAllAncestor(root.right, num, list);
         list.removeLast();
     }
 
@@ -60,6 +60,6 @@ public class PrintAllAncestorsOfAGivenNode {
         root.left.left.right.left = new Node(10);
         printAllAncestor(root, 10);
         System.out.println();
-        printPath(root, 10, new LinkedList<>());
+        printAllAncestor(root, 10, new LinkedList<>());
     }
 }

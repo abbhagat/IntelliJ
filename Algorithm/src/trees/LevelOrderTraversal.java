@@ -5,19 +5,20 @@ import java.util.Queue;
 
 // Time Complexity: O(n)
 // Auxiliary Space: O(n)
-public class TreeHeightWithoutRecursion {
 
-    private static int treeHeight(Node root) {
-        int height = 0;
+public class LevelOrderTraversal {
+
+    private static void printLevelOrder(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
-                height++;
+                System.out.println();
             }
             if (node != null) {
+                System.out.print(node.num + "\t");
                 if (node.left != null) {
                     q.add(node.left);
                 }
@@ -28,11 +29,10 @@ public class TreeHeightWithoutRecursion {
                 q.add(null);
             }
         }
-        return height;
     }
 
     public static void main(String[] args) {
-         /*
+        /*
                                 1
                             /      \
                            2        3
@@ -52,6 +52,7 @@ public class TreeHeightWithoutRecursion {
         root.left.right.left   = new Node(7);
         root.left.right.right  = new Node(8);
         root.right.right.right = new Node(9);
-        System.out.println("Tree Height : " + treeHeight(root));
+        root.right.right.right.right = new Node(10);
+        printLevelOrder(root);
     }
 }

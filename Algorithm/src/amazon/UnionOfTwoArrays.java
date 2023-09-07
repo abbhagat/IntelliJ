@@ -2,7 +2,7 @@ package amazon;
 
 import java.util.Arrays;
 
-// Time  Complexity  O(m+n)
+// Time Complexity  O(m+n)
 public class UnionOfTwoArrays {
 
     public static void main(String[] args) {

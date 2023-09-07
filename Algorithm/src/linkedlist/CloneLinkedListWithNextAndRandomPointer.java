@@ -38,13 +38,14 @@ public class CloneLinkedListWithNextAndRandomPointer {
             }
             temp = temp.next.next; // move to the next newly added node by skipping an original node
         }
-        Node original = head, copy = head.next;
+        temp = head;
+        Node copy = head.next;
         node = copy;  // save the head of copied linked list
         // now separate the original list and copied list
-        while (original != null) {
-            original.next = original.next.next;
+        while (temp != null) {
+            temp.next = temp.next.next;
             copy.next = (copy.next != null) ? copy.next.next : copy.next;
-            original = original.next;
+            temp = temp.next;
             copy = copy.next;
         }
         return node;

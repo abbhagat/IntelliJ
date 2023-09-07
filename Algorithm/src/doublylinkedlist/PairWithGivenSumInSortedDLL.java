@@ -8,24 +8,17 @@ import static doublylinkedlist.TraverseList.traverseList;
 public class PairWithGivenSumInSortedDLL {
 
     private static void pairSum(Node low, Node high, final int x) {
-        boolean found = false;
-        // The loop terminates when they cross each other (high.right == low), or they become same (low == high)
         while (low != high && high.right != low) {
-            if (low.num + high.num == x) {
-                found = true;
+            int n = low.num + high.num;
+            if (n == x) {
                 System.out.println("(" + low.num + ", " + high.num + ")");
-                low  = low.right;              // move low in forward direction
-                high = high.left;             // move high in backward direction
+                low  = low.right;
+                high = high.left;
+            } else if (n < x) {
+                low  = low.right;
             } else {
-                if (low.num + high.num < x) {
-                    low  = low.right;
-                } else {
-                    high = high.left;
-                }
+                high = high.left;
             }
-        }
-        if (!found) {
-            System.out.println("No pair found");
         }
     }
 

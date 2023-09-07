@@ -10,14 +10,22 @@ public class IterativeTreeTraversal {
     public static void iterativeTreeTraversal(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
+        q.add(null);
         while (!q.isEmpty()) {
             root = q.poll();
-            System.out.print(root.num + " ");
-            if (root.left != null) {
-                q.add(root.left);
+            if (root == null) {
+                System.out.println();
             }
-            if (root.right != null) {
-                q.add(root.right);
+            if (root != null) {
+                System.out.print(root.num + " ");
+                if (root.left != null) {
+                    q.add(root.left);
+                }
+                if (root.right != null) {
+                    q.add(root.right);
+                }
+            } else if (!q.isEmpty()) {
+                q.add(null);
             }
         }
     }

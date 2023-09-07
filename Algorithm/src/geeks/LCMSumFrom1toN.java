@@ -11,7 +11,7 @@ Input: 3  Output: LCM(1, 3) + LCM(2, 3) + LCM(3, 3) = 3 + 6 + 3 = 12
 Input: 5  Output: LCM(1, 5) + LCM(2, 5) + LCM(3, 5) + LCM(4, 5) + LCM(5, 5) = 55
 */
 
-import static java.lang.Math.max;
+import static java.lang.Integer.max;
 
 public class LCMSumFrom1toN {
 

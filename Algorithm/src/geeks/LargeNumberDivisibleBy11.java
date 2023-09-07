@@ -5,7 +5,7 @@ import static java.lang.Math.abs;
 public class LargeNumberDivisibleBy11 {
 
     private static boolean isDivisibleBy11(long n) {
-        String s = Long.toString(n);
+        String s = String.valueOf(n);
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             int k = s.charAt(i) - '0';

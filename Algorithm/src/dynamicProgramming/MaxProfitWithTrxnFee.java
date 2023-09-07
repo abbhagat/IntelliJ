@@ -52,8 +52,8 @@ public class MaxProfitWithTrxnFee {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4}, 2));
-        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
+        System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4},  2));
+        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9},  2));
         System.out.println(maxProfit(new int[]{1, 3, 7, 5, 10, 3}, 3));
     }
 }

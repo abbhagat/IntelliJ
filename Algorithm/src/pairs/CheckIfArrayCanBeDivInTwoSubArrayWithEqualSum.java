@@ -1,14 +1,12 @@
 package pairs;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
 
     private static boolean check(int[] a) {
-        int sum1 = 0, sum2 = 0;
-        for (int x : a) {
-            sum1 += x;
-        }
+        int sum1 = Arrays.stream(a).reduce(0, Integer::sum), sum2 = 0;
         for (int i = 0; i < a.length; i++) {
             sum2 += a[i];
             if (sum1 == sum2) {

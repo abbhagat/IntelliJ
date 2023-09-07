@@ -32,13 +32,13 @@ public class ReverseAlternateKNodesInList {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5, 6};
+        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         Node first = null;
         for (int x : a) {
             first = add(first, x);
         }
         traverseList(first);
-        first = reverse(first, 2);
+        first = reverse(first, 3);
         traverseList(first);
     }
 }

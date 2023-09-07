@@ -32,7 +32,7 @@ public class ReverseListFromPosMtoPosN {
             first = add(first, x);
         }
         traverseList(first);
-        first = reverseList(first, 3, 4);
+        first = reverseList(first, 2, 4);
         traverseList(first);
     }
 }

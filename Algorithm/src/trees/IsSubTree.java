@@ -9,7 +9,10 @@ public class IsSubTree {
         if (rootSuper == null && rootSub == null) {
             return true;
         }
-        if (rootSuper != null && rootSub != null && rootSuper.num == rootSub.num) {
+        if (rootSuper == null || rootSub == null) {
+            return false;
+        }
+        if (rootSuper.num == rootSub.num) {
             return isSubTree(rootSuper.left, rootSub.left) && isSubTree(rootSuper.right, rootSub.right);
         }
         return isSubTree(rootSuper.left, rootSub) || isSubTree(rootSuper.right, rootSub);
@@ -21,7 +24,7 @@ public class IsSubTree {
         for (int x : a) {
             rootSuper = createBST(rootSuper, x);
         }
-        a = new int[] {10, 5, 20, 1};
+        a = new int[] {10, 5, 20, 11};
         for (int x : a) {
             rootSub = createBST(rootSub, x);
         }

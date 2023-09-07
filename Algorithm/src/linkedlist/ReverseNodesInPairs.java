@@ -8,10 +8,10 @@ public class ReverseNodesInPairs {
 
     private static Node reverseNodesInPairs(Node first) {
         Node head = new Node(-1, first);
-        Node curr = head;
-        while (curr != null && curr.next != null && curr.next.next != null) {
-            curr.next = swap(curr.next, curr.next.next);
-            curr = curr.next.next;
+        Node temp = head;
+        while (temp != null && temp.next != null && temp.next.next != null) {
+            temp.next = swap(temp.next, temp.next.next);
+            temp = temp.next.next;
         }
         return head.next;
     }

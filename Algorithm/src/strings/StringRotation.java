@@ -29,7 +29,7 @@ public class StringRotation {
 
     public static void main(String[] args) {
         System.out.println(isRotation("Password", "wordPass") ? "Rotation" : "Not Rotation");
-        System.out.println(isRotation("Password", "swordPas") ? "Rotation" : "Not Rotation");
+        System.out.println(isRotation("Rotation", "tionRota") ? "Rotation" : "Not Rotation");
         System.out.println(leftRotation( "ABCDE", 2));   // CDEAB
         System.out.println(rightRotation("ABCDE", 2));  //  DEABC
     }

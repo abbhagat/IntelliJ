@@ -1,5 +1,7 @@
 package geeks;
 
+import static util.Swap.swap;
+
 // Time Complexity O(n) * n!
 public class AllPermutationsOfString {
 
@@ -10,18 +12,13 @@ public class AllPermutationsOfString {
         if (start == end) {
             count++;
             System.out.println(a);
+            return;
         }
         for (int i = start; i <= end; i++) {
-            swap(i, start);
+            swap(a, i, start);
             permute(start + 1, end);
-            swap(i, start);
+            swap(a, i, start);
         }
-    }
-
-    private static void swap(int x, int y) {
-        char c = a[x];
-        a[x] = a[y];
-        a[y] = c;
     }
 
     public static void main(String[] args) {

@@ -1,9 +1,10 @@
 package oracle;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class TMHashSet<E> implements Cloneable, java.io.Serializable {
+public class TMHashSet<E> implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
     private static final Object PRESENT = new Object();

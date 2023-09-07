@@ -13,7 +13,7 @@ Print the total amount of water stored.
 
 Instead of maintaining two arrays of size n for storing the left and a right max of each element,
 maintain two variables to store the maximum till that point.
-Since water trapped at any element = min(max_left, max_right) – arr[i].
+Since water trapped at any element = min(maxLeft, maxRight) – arr[i].
 Calculate water trapped on smaller elements out of A[low] and A[high] first and move the pointers till low doesn’t cross high.
  */
 
@@ -23,22 +23,22 @@ Calculate water trapped on smaller elements out of A[low] and A[high] first and 
 public class TrappingRainWater {
 
     private static int findWater(int[] a) {
-        int waterTrapped, max_left, max_right, low, high;
-        low = max_left = max_right = waterTrapped = 0;
+        int waterTrapped, maxLeft, maxRight, low, high;
+        low = maxLeft = maxRight = waterTrapped = 0;
         high = a.length - 1;
         while (low <= high) {
             if (a[low] < a[high]) {
-                if (max_left < a[low]) {
-                    max_left = a[low];
+                if (maxLeft < a[low]) {
+                    maxLeft = a[low];
                 } else {
-                    waterTrapped += max_left - a[low];
+                    waterTrapped += maxLeft - a[low];
                 }
                 low++;
             } else {
-                if (max_right < a[high]) {
-                    max_right = a[high];
+                if (maxRight < a[high]) {
+                    maxRight = a[high];
                 } else {
-                    waterTrapped += max_right - a[high];
+                    waterTrapped += maxRight - a[high];
                 }
                 high--;
             }

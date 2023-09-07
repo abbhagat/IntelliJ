@@ -3,21 +3,43 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// Time Complexity: O(n)
-// Auxiliary Space: O(n)
-public class TreeHeightWithoutRecursion {
+public class PrintOuterNodesOfTheTree {
 
-    private static int treeHeight(Node root) {
-        int height = 0;
+    private static void printOuterNodes(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
+        Node first = null, last = null;
+        boolean flag = true;
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
-                height++;
+                if (flag) {
+                    if (first != null && last == null) {
+                        System.out.print(first.num + "\t");
+                    }
+                    if (last != null) {
+                        System.out.print(first.num + "\t" + last.num + "\t");
+                    }
+                } else {
+                    if (first != null && last == null) {
+                        System.out.print(first.num + "\t");
+                    }
+                    if (last != null) {
+                        System.out.print(last.num + "\t" + first.num + "\t");
+                    }
+                }
+                flag  = !flag;
+                first = null;
+                last  = null;
+                System.out.println();
             }
             if (node != null) {
+                if (first == null) {
+                    first = node;
+                } else {
+                    last = node;
+                }
                 if (node.left != null) {
                     q.add(node.left);
                 }
@@ -28,11 +50,10 @@ public class TreeHeightWithoutRecursion {
                 q.add(null);
             }
         }
-        return height;
     }
 
     public static void main(String[] args) {
-         /*
+/*
                                 1
                             /      \
                            2        3
@@ -52,6 +73,7 @@ public class TreeHeightWithoutRecursion {
         root.left.right.left   = new Node(7);
         root.left.right.right  = new Node(8);
         root.right.right.right = new Node(9);
-        System.out.println("Tree Height : " + treeHeight(root));
+        root.right.right.right.right = new Node(10);
+        printOuterNodes(root);
     }
 }

@@ -6,10 +6,10 @@ public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
     private static String addBinary(String num1, String num2) {
         StringBuilder result = new StringBuilder();
-        int carry = 0;
-        for (int i = 0; i < num1.length() || i < num2.length(); i++) {
-            int x = i < num1.length() ? num1.charAt(num1.length() - 1 - i) - '0' : 0;
-            int y = i < num2.length() ? num2.charAt(num2.length() - 1 - i) - '0' : 0;
+        int carry = 0, l1 = num1.length(), l2 = num2.length();
+        for (int i = 0; i < l1 || i < l2; i++) {
+            int x = i < l1 ? num1.charAt(l1 - 1 - i) - '0' : 0;
+            int y = i < l2 ? num2.charAt(l2 - 1 - i) - '0' : 0;
             int sum = x + y + carry;
             carry = sum / 2;
             result.insert(0, sum % 2);

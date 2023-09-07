@@ -1,13 +1,13 @@
 package pairs;
 
-import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Map;
 
 public class CheckIfArrayCanBeDivInPairsWithSumDivByK {
 
     private static boolean check(int[] a, int k) {
         if (a.length % 2 == 0) {
-            Map<Integer, Integer> map = new HashMap<>();
+            Map<Integer, Integer> map = new IdentityHashMap<>();
             for (int x : a) {
                 int y = x % k;
                 map.put(y, map.getOrDefault(y, 0) + 1);

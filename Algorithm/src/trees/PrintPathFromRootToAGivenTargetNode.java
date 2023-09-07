@@ -12,6 +12,7 @@ public class PrintPathFromRootToAGivenTargetNode {
         }
         list.add(root.num);
         if (root.num == target) {
+            System.out.println(list);
             return true;
         }
         boolean left  = hasPath(root.left,  target, list);

@@ -34,16 +34,16 @@ public class PrintAllNodesAtKDistanceFromTarget {
         return -1;   // If target was neither present in left nor in right subtree
     }
 
-    private static void printKDistanceNodeDown(Node root, int k) {
-        if (root == null || k < 0) {
+    private static void printKDistanceNodeDown(Node root, int level) {
+        if (root == null || level < 0) {
             return;
         }
-        if (k == 0) {
+        if (level == 0) {
             System.out.println(root.num);
             return;
         }
-        printKDistanceNodeDown(root.left,  k - 1);
-        printKDistanceNodeDown(root.right, k - 1);
+        printKDistanceNodeDown(root.left,  level - 1);
+        printKDistanceNodeDown(root.right, level - 1);
     }
 
     public static void main(String[] args) {

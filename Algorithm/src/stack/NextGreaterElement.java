@@ -4,8 +4,7 @@ import java.util.Stack;
 
 public class NextGreaterElement {
 
-    public static void main(String[] args) {
-        int[] a = {4, 5, 7, 3, 10, 0};
+    private static void nextGreaterElement(int[] a) {
         Stack<Integer> stack = new Stack<>();
         stack.push(a[0]);
         for (int i = 1; i < a.length; i++) {
@@ -25,5 +24,9 @@ public class NextGreaterElement {
         while (!stack.isEmpty()) {
             System.out.println(stack.pop() + " -> " + "-1");
         }
+    }
+
+    public static void main(String[] args) {
+        nextGreaterElement(new int[]{4, 5, 7, 3, 10, 0});
     }
 }

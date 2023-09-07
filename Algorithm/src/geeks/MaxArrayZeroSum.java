@@ -9,22 +9,22 @@ public class MaxArrayZeroSum {
 
     private static int maxLen(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        int sum = 0, max_len = 0;
+        int sum = 0, maxLength = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] == 0 && max_len == 0) {
-                max_len = 1;
+            if (a[i] == 0 && maxLength == 0) {
+                maxLength = 1;
             }
             sum += a[i];
             if (sum == 0) {
-                max_len = i;
+                maxLength = i;
             }
             if (map.containsKey(sum)) {
-                max_len = max(max_len, i - map.get(sum));
+                maxLength = max(maxLength, i - map.get(sum));
             } else {
                 map.put(sum, i);
             }
         }
-        return max_len;
+        return maxLength;
     }
 
     public static void main(String[] args) {

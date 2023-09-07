@@ -66,7 +66,7 @@ public class WaterAndJugProblem {
         if (x + y < z) {
             return false;
         }
-        if (x == y || y == z || x + y == z) {
+        if (x == z || y == z || x + y == z) {
             return true;
         }
         return z % gcd(x, y) == 0;
@@ -74,5 +74,6 @@ public class WaterAndJugProblem {
 
     public static void main(String[] args) {
         System.out.println(canMeasure(3, 5, 4) ? minSteps(3, 5, 4) : "Not Possible");
+        System.out.println(canMeasure(3, 5, 3) ? minSteps(3, 5, 3) : "Not Possible");
     }
 }

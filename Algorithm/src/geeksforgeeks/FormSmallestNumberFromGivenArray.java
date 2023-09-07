@@ -18,11 +18,11 @@ public class FormSmallestNumberFromGivenArray {
             return "0";
         }
         list.sort((x, y) -> (x + y).compareTo(y + x));
-        StringBuilder result = new StringBuilder();
+        String result = "";
         for (String s : list) {
-            result.append(s);
+            result += s;
         }
-        return result.toString();
+        return result;
     }
 
     public static void main(String[] args) {

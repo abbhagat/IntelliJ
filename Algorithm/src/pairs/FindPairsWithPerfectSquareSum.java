@@ -9,9 +9,8 @@ public class FindPairsWithPerfectSquareSum {
 
     public static List<Integer> getPerfectSquares(int sum) {
         List<Integer> list = new ArrayList<>();
-        for(int i = 1, n = 1 ; n < sum ; i++) {
-            n = (int) Math.pow(i, 2);
-            list.add(n);
+        for(int i = 1; i * i < sum ; i++) {
+            list.add(i * i);
         }
         return list;
     }
@@ -33,7 +32,7 @@ public class FindPairsWithPerfectSquareSum {
         int count = 0;
         for (int target : list) {
             int y = target - x;
-            if (y > x && set.contains(y)) {                      // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
+            if (y > x && set.contains(y)) {       // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
                 System.out.println(x + "," + y);
                 count++;
             }

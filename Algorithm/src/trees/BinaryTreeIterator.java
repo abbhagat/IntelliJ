@@ -57,8 +57,8 @@ public class BinaryTreeIterator {
         root.left       = new Node(1);
         root.right      = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
-        Node curr = root;
         Stack<Node> stack = treeIterator.getStack();
+        Node curr = root;
         while (curr != null) {
             stack.push(curr);
             curr = curr.left;

@@ -1,19 +1,16 @@
 package leetcode;
 
-
-/*
-      Time complexity : O(N)
-      Space Complexity: O(1)
- */
+// Time complexity : O(N)
+// Space Complexity: O(1)
 public class PalindromeIndexing {
 
-    private static int palindromeIndexing(String s) {
-        for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-            if (s.charAt(i) != s.charAt(j)) {
-                if (s.charAt(i + 1) == s.charAt(j) && s.charAt(i + 2) == s.charAt(j - 1)) {
+    private static int palindromeIndexing(char[] c) {
+        for (int i = 0, j = c.length - 1; i < j; i++, j--) {
+            if (c[i] != c[j]) {
+                if (c[i + 1] == c[j] && c[i + 2] == c[j - 1]) {
                     return i;
                 }
-                if (s.charAt(i) == s.charAt(j - 1)) {
+                if (c[i] == c[j - 1]) {
                     return j;
                 }
             }
@@ -22,8 +19,8 @@ public class PalindromeIndexing {
     }
 
     public static void main(String[] args) {
-        System.out.println("Palindrome Index : " + palindromeIndexing("MADAM"));
-        System.out.println("Palindrome Index : " + palindromeIndexing("MAXDAM"));
-        System.out.println("Palindrome Index : " + palindromeIndexing("MAXcghDAM"));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MADAM".toCharArray()));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MAXDAM".toCharArray()));
+        System.out.println("Palindrome Index : " + palindromeIndexing("MAXcghDAM".toCharArray()));
     }
 }

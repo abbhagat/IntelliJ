@@ -8,11 +8,13 @@ public class ArrayDelete3rdElement {
         int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int n = a.length, pos = 3;
         pos -= 1;
-        for (int i = pos; i < n - 1; i += pos) {
+        int i = pos;
+        while (i < n) {
             System.arraycopy(a, i + 1, a, i, n - i - 1);
             n--;
+            i += pos;
         }
-        IntStream.range(0, n).forEach(i -> System.out.print(a[i] + " "));
-        System.out.println();
+        IntStream.range(i - 1, a.length).forEach(j -> a[j] = 0);
+        IntStream.range(0, a.length).forEach(j -> System.out.print(a[j] + " "));
     }
 }

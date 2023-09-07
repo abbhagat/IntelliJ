@@ -23,15 +23,15 @@ public class ImmutableObject {
             return result;
         }
 
-        public boolean equals(Object o) {
-            if (this == o) {
+        public boolean equals(Object obj) {
+            if (this == obj) {
                 return true;
             }
-            if (null == o || this.getClass() != o.getClass()) {
+            if (null == obj || this.getClass() != obj.getClass()) {
                 return false;
             }
-            final Emp obj = (Emp) o;
-            return obj.getDate().compareTo(this.getDate()) == 0;
+            final Emp e = (Emp) obj;
+            return e.getDate().compareTo(this.getDate()) == 0;
         }
     }
 

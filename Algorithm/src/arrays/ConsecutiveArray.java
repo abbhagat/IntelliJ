@@ -14,6 +14,6 @@ public class ConsecutiveArray {
                 set.add(a[i]);
             }
         }
-        set.forEach(k -> System.out.print(k + " "));
+        set.forEach(e -> System.out.print(e + " "));
     }
 }

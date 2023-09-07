@@ -13,7 +13,7 @@ Constructed Binary tree is:
                       6     9
  */
 
-// Time Complexity : O(n)
+// Time Complexity : O(n * 2^h)
 // Space Complexity: O(2^h)
 public class BinaryTreeMaxWidth {
 

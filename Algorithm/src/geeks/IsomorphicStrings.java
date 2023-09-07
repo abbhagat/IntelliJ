@@ -3,7 +3,7 @@ package geeks;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IsomorphicStrings {//  Mobility#1234 //mhyhospital -> Network#1234
+public class IsomorphicStrings {
 
     private static boolean isIsomorphic(char[] c1, char[] c2) {
         if (c1.length == c2.length) {

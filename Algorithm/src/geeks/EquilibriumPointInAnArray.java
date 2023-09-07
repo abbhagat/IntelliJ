@@ -6,13 +6,13 @@ package geeks;
  * int a[] ={1,3,4,10,18,3,1,6,3,1,4}; // 18 is the point..
  */
 
+import java.util.Arrays;
+
 public class EquilibriumPointInAnArray {
 
     private static int findEquilibriumPoint(int[] a) {
-        int sum1 = 0, sum2 = 0;
-        for (int x : a) {
-            sum1 += x;
-        }
+        int sum1 = Arrays.stream(a).reduce(0, Integer::sum);
+        int sum2 = 0;
         for (int x : a) {
             sum2 += x;
             if (sum1 == sum2) {

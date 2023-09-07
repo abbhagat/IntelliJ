@@ -10,10 +10,9 @@ public class GroupStringAnagrams {
             char[] c = s.toCharArray();
             Arrays.sort(c);
             String key = String.valueOf(c);
-            if (!map.containsKey(key)) {
-                map.put(key, new ArrayList<>());
-            }
-            map.get(key).add(s);
+            List<String> list = map.containsKey(key) ? map.get(key) : new ArrayList<>();
+            list.add(s);
+            map.put(key, list);
         }
         return new ArrayList<>(map.values());
     }

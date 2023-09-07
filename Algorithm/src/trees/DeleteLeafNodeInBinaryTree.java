@@ -3,7 +3,7 @@ package trees;
 import static trees.TreeTraversal.inorder;
 
 // Time Complexity: O(n)
-public class DeleteLastNodeInBinaryTree {
+public class DeleteLeafNodeInBinaryTree {
 
     private static Node deleteLastNode(Node root) {
         if (root != null) {

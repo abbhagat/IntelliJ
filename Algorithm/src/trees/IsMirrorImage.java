@@ -16,7 +16,10 @@ public class IsMirrorImage {
         if (root1 == null && root2 == null) {
             return true;
         }
-        if (root1 != null && root2 != null && root1.num == root2.num) {
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        if (root1.num == root2.num) {
             return isMirrorImage(root1.left, root2.right) && isMirrorImage(root1.right, root2.left);
         }
         return false;

@@ -8,7 +8,7 @@ public class ValidateIPAddress {
             return false;
         }
         for (String s : ipv4) {
-            if (s.length() == 0 || s.length() > 3) {
+            if (s.isEmpty() || s.length() > 3) {
                 return false;
             }
             if (s.charAt(0) == '0' && s.length() != 1) {
@@ -33,7 +33,7 @@ public class ValidateIPAddress {
         }
         String hexDigits = "0123456789abcdefABCDEF";
         for (String s : ipv6) {
-            if (s.length() == 0 || s.length() > 4) {
+            if (s.isEmpty() || s.length() > 4) {
                 return false;
             }
             for (char c : s.toCharArray()) {

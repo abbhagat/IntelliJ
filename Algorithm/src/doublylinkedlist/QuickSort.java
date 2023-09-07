@@ -9,14 +9,6 @@ public class QuickSort {
     private static Node partition(Node head, Node last) {
         int x  = head.num;
         Node i = last.left;                             // similar to i = last-1 for array implementation
-        for (Node j = last; j != last; j = j.right) {  // Similar to "for (int j = last; j <= head- 1; j++)"
-            if (j.num <= x) {
-                i = (i == null) ? last : i.right;    // Similar to i++ for array
-                int temp = i.num;
-                i.num = j.num;
-                j.num = temp;
-            }
-        }
         i = (i == null) ? last : i.right;         // Similar to i++
         int temp = i.num;
         i.num = head.num;

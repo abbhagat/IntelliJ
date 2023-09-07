@@ -8,20 +8,19 @@ public class MaxPathSumInBT {
         int sum = Integer.MIN_VALUE;
     }
 
-    private static int findMaxPathSum(Node node, Result result) {
-        if (node == null) {
+    private static int findMaxPathSum(Node root, Result result) {
+        if (root == null) {
             return 0;
         }
-        int left  = findMaxPathSum(node.left,  result);   // find maximum path sum "starting" from the left child
-        int right = findMaxPathSum(node.right, result);  //  find maximum path sum "starting" from the right child
+        int left  = findMaxPathSum(root.left,  result);   // find maximum path sum "starting" from the left child
+        int right = findMaxPathSum(root.right, result);  //  find maximum path sum "starting" from the right child
         int max = result.sum;                           // Try all possible combinations to get the optimal result
-        max = max(max, node.num);
-        max = max(max, node.num + left);
-        max = max(max, node.num + right);
-        max = max(max, node.num + left + right);
+        max = max(max, root.num);
+        max = max(max, root.num + left);
+        max = max(max, root.num + right);
+        max = max(max, root.num + left + right);
         result.sum = max;
-        // return the maximum path sum "starting" from the given node
-        return max(node.num, node.num + max(left, right));
+        return max(root.num, root.num + max(left, right));
     }
 
     public static void main(String[] args) {

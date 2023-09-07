@@ -12,8 +12,8 @@ public class BinaryTreeSerialization {
             s += "null,";
         } else {
             s += root.num + ",";
-            s = serialize(root.left, s);
-            s = serialize(root.right, s);
+            s  = serialize(root.left,  s);
+            s  = serialize(root.right, s);
         }
         return s;
     }

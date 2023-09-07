@@ -16,5 +16,6 @@ public class DisplayAllOccurrenceOfEnteredStringCaseInsensitive {
 
     public static void main(String[] args) {
         System.out.println(findAllOccurrence(new String[]{"Good", "word", "good", "woRd"}, "good"));
+        System.out.println(findAllOccurrence(new String[]{"Good", "word", "good", "woRd"}, "goon"));
     }
 }

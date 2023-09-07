@@ -1,0 +1,49 @@
+package linkedlist;
+
+/*
+     Example: if the linked list is 5->10->25->45->31->16->23->51 and k=3
+     Then linked should be converted to 5->10->16->45->31->25->23->51
+     Boundary cases had to be handled properly.
+*/
+
+import static linkedlist.LinkList.add;
+import static linkedlist.TraverseList.traverseList;
+
+public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
+
+    private static Node nthNodeFromEnd(Node first, int n) {
+        Node head = new Node(-1, first);
+        Node slow = head, fast = head;
+        for (int i = 1; i <= n + 1; i++) {
+            slow = slow.next;
+        }
+        while (slow != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
+
+    public static void main(String[] args) {
+        Node first = null;
+        for (int x : new int[]{1, 2, 3, 4, 5, 6, 7}) {
+            first = add(first, x);
+        }
+        traverseList(first);
+        System.out.println();
+        Node temp, prev = null;
+        int n = 1;
+        for (temp = first; temp != null && n < 2; temp = temp.next) {
+            prev = temp;
+            n++;
+        }
+        Node prev_nthNode = nthNodeFromEnd(first, 2);
+        Node nthNode = prev_nthNode.next;
+        Node temp2 = nthNode.next;
+        prev.next = nthNode;
+        nthNode.next = temp.next;
+        prev_nthNode.next = temp;
+        temp.next = temp2;
+        traverseList(first);
+    }
+}

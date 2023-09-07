@@ -2,7 +2,7 @@ package strings;
 
 public class KStringAnagram {
 
-    private static boolean isKStringAnagram(char[] c1, char[] c2, int kth) {
+    private static boolean isKStringAnagram(char[] c1, char[] c2, int k) {
         if (c1.length == c2.length) {
             int[] temp = new int[128];
             for (int i = 0; i < c1.length; i++) {
@@ -16,7 +16,7 @@ public class KStringAnagram {
                 }
             }
             System.out.println(count);
-            return count <= kth;
+            return count <= k;
         }
         return false;
     }
