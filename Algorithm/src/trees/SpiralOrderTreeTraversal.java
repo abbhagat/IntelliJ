@@ -1,6 +1,7 @@
 package trees;
 
-import static trees.BinaryTree.createBT;
+import java.util.*;
+
 import static trees.TreeHeight.treeHeight;
 
 public class SpiralOrderTreeTraversal {
@@ -31,13 +32,64 @@ public class SpiralOrderTreeTraversal {
         }
     }
 
-    public static void main(String[] args) {
-        Node root = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        for (int x : a) {
-            root = createBT(x, root);
+
+    private static void spiralOrderTreeTraversal(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
+        boolean flag = true;
+        q.add(root);
+        q.add(null);
+        while (!q.isEmpty()) {
+            root = q.poll();
+            if (root == null) {
+                if(flag) {
+                    list.forEach(x -> System.out.print(x + " "));
+                }else {
+                    ListIterator<Integer> iterator = list.listIterator(list.size());
+                    while(iterator.hasPrevious()) {
+                        System.out.print(iterator.previous() + " ");
+                    }
+                }
+                flag = !flag;
+                list.clear();
+                System.out.println();
+            }
+            if (root != null) {
+                list.add(root.num);
+                if (root.left != null) {
+                    q.add(root.left);
+                }
+                if (root.right != null) {
+                    q.add(root.right);
+                }
+            } else if (!q.isEmpty()) {
+                q.add(null);
+            }
         }
-        System.out.println("Level Order Or BFS Traversal : ");
-        levelOrderTreeTraversal(root);
+    }
+
+    public static void main(String[] args) {
+                 /*
+                                1
+                            /      \
+                           2        3
+                         /   \       \
+                        4     5       6
+                             / \      \
+                            7  8       9
+                                        \
+                                        10
+         */
+        Node root              = new Node(1);
+        root.left              = new Node(2);
+        root.right             = new Node(3);
+        root.left.left         = new Node(4);
+        root.left.right        = new Node(5);
+        root.right.right       = new Node(6);
+        root.left.right.left   = new Node(7);
+        root.left.right.right  = new Node(8);
+        root.right.right.right = new Node(9);
+        root.right.right.right.right = new Node(10);
+        spiralOrderTreeTraversal(root);
     }
 }

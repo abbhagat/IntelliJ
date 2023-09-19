@@ -40,17 +40,17 @@ public class GoldMineProblem {
         int[][] goldTable = new int[m][n];
         for (int col = n - 1; col >= 0; col--) {
             for (int row = 0; row < m; row++) {
-                int right           = (                col == n - 1) ? 0 : goldTable[row][col + 1];        // Gold collected on going to the cell on the right
+                int right           = (                col == n - 1) ? 0 : goldTable[row + 0][col + 1];    // Gold collected on going to the cell on the right
                 int right_up        = (row == 0     || col == n - 1) ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
                 int right_down      = (row == m - 1 || col == n - 1) ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
                 goldTable[row][col] = gold[row][col] + maximum(right, right_up, right_down);            // Max gold collected from taking either of the above 3 paths
             }
         }
-        int res = goldTable[0][0];
+        int max = goldTable[0][0];
         for(int[] a : goldTable) {
-            res = Math.max(res, a[0]);   // The max amount of gold collected will be the max value in first column of all rows
+            max = Math.max(max, a[0]);   // The max amount of gold collected will be the max value in first column of all rows
         }
-        return res;
+        return max;
     }
 
     public static void main(String[] arg) {

@@ -1,16 +1,8 @@
 package geeks;
 
-public class ShortestPalindromeStringByAddingZeroOrMoreChars {
+import static util.IsPalindrome.isPalindrome;
 
-    static boolean isPalindrome(String s) {
-        int j = s.length() - 1;
-        for (int i = 0; i <= j; i++, j--) {
-            if (s.charAt(i) != s.charAt(j)) {
-                return false;
-            }
-        }
-        return true;
-    }
+public class ShortestPalindromeStringByAddingZeroOrMoreChars {
 
     public static void main(String[] args) {
         String s = "Java";

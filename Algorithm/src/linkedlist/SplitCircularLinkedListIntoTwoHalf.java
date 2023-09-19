@@ -8,11 +8,10 @@ public class SplitCircularLinkedListIntoTwoHalf {
     private static Node head1, head2;
 
     private static void splitList(Node head) {
-        Node slow = head, fast = head.next, prev = null;
+        Node slow = head, fast = head.next;
         while (fast != slow && fast.next != slow) {
             slow = slow.next;
             fast = fast.next.next;
-            prev = slow;
         }
         if (fast == slow) {
             while (fast.next != slow) {
@@ -20,8 +19,8 @@ public class SplitCircularLinkedListIntoTwoHalf {
             }
         }
         head1 = head;
-        head2 = prev.next;
-        prev.next = head1;   // Making the first  list circular
+        head2 = slow.next;
+        slow.next = head1;   // Making the first  list circular
         fast.next = head2;   // Making the second list circular
     }
 

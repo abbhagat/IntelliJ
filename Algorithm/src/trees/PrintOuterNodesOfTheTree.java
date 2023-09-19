@@ -14,25 +14,14 @@ public class PrintOuterNodesOfTheTree {
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
-                if (flag) {
-                    if (first != null && last == null) {
-                        System.out.print(first.num + "\t");
-                    }
-                    if (last != null) {
-                        System.out.print(first.num + "\t" + last.num + "\t");
-                    }
-                } else {
-                    if (first != null && last == null) {
-                        System.out.print(first.num + "\t");
-                    }
-                    if (last != null) {
-                        System.out.print(last.num + "\t" + first.num + "\t");
-                    }
+                if (first != null && last == null) {
+                    System.out.println(first.num);
+                }
+                if (first != null && last != null) {
+                    System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
                 }
                 flag  = !flag;
-                first = null;
-                last  = null;
-                System.out.println();
+                first = last = null;
             }
             if (node != null) {
                 if (first == null) {
@@ -53,17 +42,17 @@ public class PrintOuterNodesOfTheTree {
     }
 
     public static void main(String[] args) {
-/*
-                  1
-              /      \
-             2        3
-           /   \       \
-          4     5       6
-               / \      \
-              7  8       9
-                          \
-                          10
-*/
+         /*
+                                1
+                            /      \
+                           2        3
+                         /   \       \
+                        4     5       6
+                             / \      \
+                            7  8       9
+                                        \
+                                        10
+         */
         Node root              = new Node(1);
         root.left              = new Node(2);
         root.right             = new Node(3);

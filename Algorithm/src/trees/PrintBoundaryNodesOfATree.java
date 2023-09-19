@@ -1,16 +1,5 @@
 package trees;
 
-
-/*
-        20
-      /   \
-    8      22
-  /  \      \
- 4    12      25
-     /   \
-    10    14
-
- */
 // Time Complexity: O(n) where n is the number of nodes in binary tree.
 // Auxiliary Space: O(n)
 public class PrintBoundaryNodesOfATree {
@@ -46,26 +35,27 @@ public class PrintBoundaryNodesOfATree {
     }
 
     public static void main(String[] args) {
-        Node root                  = new Node(20);
-        root.left                  = new Node(8);
-        root.right                 = new Node(22);
-        root.left.left             = new Node(4);
-        root.left.right            = new Node(12);
-        root.left.right.left       = new Node(10);
-        root.left.right.right      = new Node(14);
-        root.right.left            = new Node(15);
-        root.right.right           = new Node(25);
-        root.right.left.left       = new Node(30);
-        root.right.left.right      = new Node(17);
-
-//        Node root = new Node(20);
-//        root.left = new Node(8);
-//        root.left.left = new Node(4);
-//        root.left.right = new Node(12);
-//        root.left.right.left = new Node(10);
-//        root.left.right.right = new Node(14);
-//        root.right = new Node(22);
-//        root.right.right = new Node(25);
+       /*
+                     1
+                 /      \
+                2        3
+              /   \       \
+             4     5       6
+                  / \      \
+                 7  8       9
+                             \
+                             10
+         */
+        Node root              = new Node(1);
+        root.left              = new Node(2);
+        root.right             = new Node(3);
+        root.left.left         = new Node(4);
+        root.left.right        = new Node(5);
+        root.right.right       = new Node(6);
+        root.left.right.left   = new Node(7);
+        root.left.right.right  = new Node(8);
+        root.right.right.right = new Node(9);
+        root.right.right.right.right = new Node(10);
         printBoundary(root);
     }
 }

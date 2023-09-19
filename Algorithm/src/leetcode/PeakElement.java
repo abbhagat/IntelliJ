@@ -35,5 +35,7 @@ public class PeakElement {
         System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
         a = new int[]{1, 3, 20, 4, 1, 0};
         System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
+        a = new int[]{4, 5, 1, 2, 3};
+        System.out.println(findPeakElement(a) + "\t" + findPeakElements(a));
     }
 }

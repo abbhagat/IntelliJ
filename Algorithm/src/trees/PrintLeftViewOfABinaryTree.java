@@ -11,7 +11,7 @@ public class PrintLeftViewOfABinaryTree {
             return;
         }
         if (max_level < level) {
-            System.out.print(" " + root.num);
+            System.out.print(root.num + " ");
             max_level = level;
         }
         printLeftView(root.left,  level + 1);
@@ -19,12 +19,28 @@ public class PrintLeftViewOfABinaryTree {
     }
 
     public static void main(String[] args) {
-        Node root                = new Node(1);
-        root.left                = new Node(2);
-        root.left.left           = new Node(3);
-        root.left.left.left      = new Node(4);
-        root.left.left.left.left = new Node(5);
-        root.right               = new Node(6);
+          /*
+                       1
+                   /      \
+                  2        3
+                /   \       \
+               4     5       6
+                    / \      \
+                   7  8       9
+                               \
+                               10
+         */
+
+        Node root                     = new Node(1);
+        root.left                     = new Node(2);
+        root.right                    = new Node(3);
+        root.left.left                = new Node(4);
+        root.left.right               = new Node(5);
+        root.right.right              = new Node(6);
+        root.left.right.left          = new Node(7);
+        root.left.right.right         = new Node(8);
+        root.right.right.right        = new Node(9);
+        root.right.right.right.right  = new Node(10);
         printLeftView(root, 1);
     }
 }

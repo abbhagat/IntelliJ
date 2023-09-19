@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 
 import static java.lang.Integer.max;
+import static matrix.MatrixPrint.printMatrix;
 
 public class IntervalMergingWith2DArray {
 
@@ -20,23 +21,15 @@ public class IntervalMergingWith2DArray {
             }
         }
         int[][] result = new int[interval.size()][2];
-        for(int i = 0 ; i < interval.size(); i++) {
-            result[i] = interval.get(i);
-        }
+        interval.toArray(result);
         return result;
     }
 
     public static void main(String[] args) {
-        int[][] a = new int[][]{ {1, 3},
-                                 {2, 6},
-                                 {8, 10},
-                                 {15, 18}
-                               };
-        for (int[] x : mergeInterval(a)) {
-            for (int y : x) {
-                System.out.print(y + " ");
-            }
-            System.out.println();
-        }
+        printMatrix(mergeInterval(new int[][]{ {1, 3},
+                                               {2, 6},
+                                               {8, 10},
+                                               {15, 18}
+                                             }));
     }
 }

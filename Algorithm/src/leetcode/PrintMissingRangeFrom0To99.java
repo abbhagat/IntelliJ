@@ -13,8 +13,8 @@ public class PrintMissingRangeFrom0To99 {
                 isPresent[x] = true;
             }
         }
-        int index = -1, i;
-        for (i = start; i < isPresent.length; i++) {
+        int index = -1;
+        for (int i = start; i < isPresent.length; i++) {
             if (!isPresent[i]) {
                 index = index == -1 ? i : index;
             } else {
@@ -28,8 +28,8 @@ public class PrintMissingRangeFrom0To99 {
     }
 
     public static void main(String[] args) {
-        printMissingRange(new int[]{2, 3, 4, 6, 9, 10}, 0, 10);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 0, 99);
+        printMissingRange(new int[]{2, 3, 4, 6, 9, 10},              0, 10);
+        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10},  0, 99);
         printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 10, 90);
         printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 11, 90);
     }

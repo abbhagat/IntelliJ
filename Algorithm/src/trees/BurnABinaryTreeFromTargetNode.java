@@ -105,15 +105,15 @@ public class BurnABinaryTreeFromTargetNode {
         time = 0;
         System.out.println();
         /*
-                                1
-                            /      \
-                           2        3
-                         /   \       \
-                        4     5       6
-                             / \      \
-                            7  8       9
-                                        \
-                                        10
+                       1
+                   /      \
+                  2        3
+                /   \       \
+               4     5       6
+                    / \      \
+                   7  8       9
+                               \
+                               10
          */
         root                          = new Node(1);
         root.left                     = new Node(2);

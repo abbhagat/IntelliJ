@@ -2,14 +2,6 @@ package pairs;
 
 import java.util.Arrays;
 
-/**
- * Input   : arr[] = [2, 3, 5, 9] and  x = 47
- * Output : {5, 9}
- * <p>
- * Input   : arr[] = [2, 3, 5, 9] and  x = 8
- * Output : {2, 5}
- */
-
 public class ClosestProductPairInAnArray {
 
     public static void main(String[] args) {

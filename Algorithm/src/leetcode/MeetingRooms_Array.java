@@ -19,7 +19,7 @@ public class MeetingRooms_Array {
     }
 
     public static void main(String[] args) {
-        System.out.println(eraseOverlappingInterval(new int[][]{{0, 30}, {5, 10}, {15, 20}}));
+        System.out.println(eraseOverlappingInterval(new int[][]{{0, 30}, {15, 20}, {5, 10}}));
         System.out.println(eraseOverlappingInterval(new int[][]{{7, 10}, {2, 4}}));
     }
 }

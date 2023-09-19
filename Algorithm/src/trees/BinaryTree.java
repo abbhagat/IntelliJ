@@ -6,7 +6,7 @@ public class BinaryTree {
         if (root == null) {
             root = new Node(num);
         } else if (num % 2 == 0) {
-            root.left = createBT(num, root.left);
+            root.left  = createBT(num, root.left);
         } else {
             root.right = createBT(num, root.right);
         }

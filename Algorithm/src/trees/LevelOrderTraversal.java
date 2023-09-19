@@ -33,15 +33,15 @@ public class LevelOrderTraversal {
 
     public static void main(String[] args) {
         /*
-                                1
-                            /      \
-                           2        3
-                         /   \       \
-                        4     5       6
-                             / \      \
-                            7  8       9
-                                        \
-                                        10
+                      1
+                  /      \
+                 2        3
+               /   \       \
+              4     5       6
+                   / \      \
+                  7  8       9
+                              \
+                              10
          */
         Node root              = new Node(1);
         root.left              = new Node(2);

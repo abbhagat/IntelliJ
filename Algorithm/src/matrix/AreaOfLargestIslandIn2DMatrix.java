@@ -30,8 +30,8 @@ public class AreaOfLargestIslandIn2DMatrix {
     visited[row][col] = true;
     for (int k = 0; k < 8; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-             area++;
-             DFS(row + rowIdx[k], col + colIdx[k]);
+          area++;
+          DFS(row + rowIdx[k], col + colIdx[k]);
       }
     }
   }

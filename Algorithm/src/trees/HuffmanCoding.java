@@ -13,6 +13,10 @@ public class HuffmanCoding {
         System.out.println(result);
     }
 
+    public static void decode() {
+
+    }
+
     public static void findPath(Node root, char c, LinkedList<Character> list, char x) {
         if (root == null) {
             return;
@@ -20,11 +24,10 @@ public class HuffmanCoding {
         list.add(x);
         if (root.num == c) {
             list.removeFirst();
-            list.forEach(i -> result = result + i);
+            list.forEach(i -> result += i);
             return;
         }
         findPath(root.left,  c, list, '0');
-        list.removeLast();
         findPath(root.right, c, list, '1');
         list.removeLast();
     }

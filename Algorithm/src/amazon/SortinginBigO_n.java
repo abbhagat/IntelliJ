@@ -9,7 +9,7 @@ package amazon;
 import static util.Swap.swap;
 
 // Time  Complexity  O(n)
-public class SortinginBigO_n {
+public class SortingInBigO_n {
 
     private static void sort(int[] a, char[] c) {
         int i = 0;

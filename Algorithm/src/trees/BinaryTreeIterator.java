@@ -3,7 +3,6 @@ package trees;
 import java.util.Stack;
 
 public class BinaryTreeIterator {
-
     interface Iterator {
         boolean hasNext();
         Node curr();

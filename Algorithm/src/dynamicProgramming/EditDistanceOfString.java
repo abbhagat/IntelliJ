@@ -1,4 +1,4 @@
-package geeks;
+package dynamicProgramming;
 
 import static java.lang.Integer.min;
 
@@ -64,7 +64,7 @@ public class EditDistanceOfString {
     }
 
     private static int minimum(int x, int y, int z) {
-        return x < y ? min(x, z) : min(y, z);
+        return min(x, min(y, z));
     }
 
     public static void main(String[] args) {
@@ -72,5 +72,7 @@ public class EditDistanceOfString {
         System.out.println(editDist("geek", "gesek")      + "\t" + editDist("geek", "gesek", 4, 5));
         System.out.println(editDist("sunday", "saturday") + "\t" + editDist("sunday", "saturday", 6, 8));
         System.out.println(editDist("ros", "horse")       + "\t" + editDist("ros", "horse", 3, 5));
+        System.out.println(editDist("sea", "eat")         + "\t" + editDist("sea", "eat", 3, 3));
+        System.out.println(editDist("leetcode", "etco")  + "\t" + editDist("leetcode", "etco", 8, 4));
     }
 }

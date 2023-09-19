@@ -18,7 +18,7 @@ public class FindPairsWhoseDivIsAGivenNumber {
         if (target == 0) {
             for (int x : a) {
                 if (x != 0) {
-                    set.add(new Pair(x, 0));
+                    set.add(new Pair(0, x));
                 }
             }
             return set;

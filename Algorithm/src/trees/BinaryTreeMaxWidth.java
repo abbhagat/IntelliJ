@@ -1,5 +1,8 @@
 package trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import static java.lang.Integer.max;
 import static trees.TreeHeight.treeHeight;
 /*
@@ -43,6 +46,33 @@ public class BinaryTreeMaxWidth {
         levelOrderTraversal(root.right, level - 1);
     }
 
+    private static int findMaxWidth(Node root) {
+        int maxWidth = Integer.MIN_VALUE;
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+        int n = 0;
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            if (node == null) {
+                maxWidth = max(maxWidth, n);
+                n = 0;
+            }
+            if (node != null) {
+                n++;
+                if (node.left != null) {
+                    q.add(node.left);
+                }
+                if (node.right != null) {
+                    q.add(node.right);
+                }
+            } else if (!q.isEmpty()) {
+                q.add(null);
+            }
+        }
+        return maxWidth;
+    }
+
     public static void main(String[] args) {
         Node root              = new Node(1);
         root.left              = new Node(2);
@@ -54,5 +84,6 @@ public class BinaryTreeMaxWidth {
         root.right.right.left  = new Node(6);
         root.right.right.right = new Node(9);
         System.out.println("Maximum width = " + maxWidth(root));
+        System.out.println("Maximum width = " + findMaxWidth(root));
     }
 }

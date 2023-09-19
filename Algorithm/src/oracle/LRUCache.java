@@ -1,8 +1,5 @@
 package oracle;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /*
 LRU cache is implemented using a doubly linked list and a hash map.
 Doubly Linked List is used to store list of pages with most recently used page at the start of the list.
@@ -18,74 +15,53 @@ How to add a page to the list:
 2. If the cache is full, remove the last node of the linked list and move the new page to the start of the list.
 */
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 public class LRUCache {
 
-    private final DoublyLinkedList pageList;
-    private final Map<Integer, Node> pageMap;
+    private final LinkedList<Integer> list;
+    private final Map<Integer, Integer> map;
+
     private final int cacheSize;
 
     public LRUCache(int cacheSize) {
+        list = new LinkedList<>();
+        map  = new HashMap<>();
         this.cacheSize = cacheSize;
-        pageList = new DoublyLinkedList(cacheSize);
-        pageMap = new HashMap<>();
     }
 
-    public Node getPageFromCache(int pageNum) {
-        Node pageNode = null;
-        if (pageMap.containsKey(pageNum)) {
-            pageNode = pageMap.get(pageNum);
-            pageList.movePageToHead(pageNode);
+    public int get(int key) {
+        if (!map.containsKey(key)) {
+            return -1;
         }
-        return pageNode;
+        int value = map.get(key);
+        list.remove(key);
+        list.addFirst(key);
+        return value;
     }
 
-    public void addPageToCache(int pageNum) {
-        if (pageList.currSize == cacheSize) {
-            pageMap.remove(pageList.tail.num);
+    public void put(int key, int value) {
+        if (map.containsKey(key)) {
+            list.remove(key);
+        } else if (map.size() >= cacheSize) {
+            int lruKey = list.removeLast();
+            map.remove(lruKey);
         }
-        Node pageNode = pageList.addPageToList(pageNum);
-        pageMap.put(pageNum, pageNode);
-    }
-
-    public void accessPage(int pageNum) {
-        Node pageNode;
-        if (pageMap.containsKey(pageNum)) {
-            pageNode = pageMap.get(pageNum);
-            pageList.movePageToHead(pageNode);
-        } else {
-            if (pageList.currSize == pageList.size) {
-                pageMap.remove(pageList.tail.num);
-            }
-            pageNode = pageList.addPageToList(pageNum);
-            pageMap.put(pageNum, pageNode);
-        }
-    }
-
-    public void printCacheState() {
-        pageList.printList();
-        System.out.println();
+        map.put(key, value);
+        list.addFirst(key);
     }
 
     public static void main(String[] args) {
-        int cacheSize = 4;
-        LRUCache cache = new LRUCache(cacheSize);
-        cache.accessPage(4);
-        cache.printCacheState();
-        cache.accessPage(2);
-        cache.printCacheState();
-        cache.accessPage(1);
-        cache.printCacheState();
-        cache.accessPage(1);
-        cache.printCacheState();
-        cache.accessPage(4);
-        cache.printCacheState();
-        cache.accessPage(3);
-        cache.printCacheState();
-        cache.accessPage(7);
-        cache.printCacheState();
-        cache.accessPage(8);
-        cache.printCacheState();
-        cache.accessPage(3);
-        cache.printCacheState();
+        LRUCache cache = new LRUCache(4);
+        cache.put(1, 100);
+        cache.put(2, 200);
+        cache.put(3, 300);
+        cache.put(4, 400);
+        System.out.println(cache.get(1));
+        cache.put(1, 1000);
+        cache.put(5, 500);
+        System.out.println(cache.get(1));
     }
 }

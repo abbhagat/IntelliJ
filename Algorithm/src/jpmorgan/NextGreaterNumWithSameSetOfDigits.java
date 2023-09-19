@@ -18,7 +18,7 @@ public class NextGreaterNumWithSameSetOfDigits {
         if (i != 0) {
             for (int j = a.length - 1; j >= i; j--) {
                 if (a[j] > a[i - 1]) {
-                    swap(a, i - 1, j);
+                    swap(a, j, i - 1);
                     break;
                 }
             }

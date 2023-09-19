@@ -1,39 +1,35 @@
 package geeksforgeeks;
 
 /*
-Given an integer array nums, move all 0's to the end of it
+Given an integer array a, move all 0's to the end of it
 while maintaining the relative order of the non-zero elements.
 
-Input: nums = [0,1,0,3,12]
+Input: a = [0,1,0,3,12]
 Output: [1,3,12,0,0]
-Input: nums = [0]
+Input: a = [0]
 Output: [0]
  */
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class MoveZeroesToEnd {
 
-    public static void main(String[] args) {
-        int[] a = {0, 1, 0, 3, 12};
-        List<Integer> zeroPositions = new ArrayList<>();
-        for (int i = 0; i < a.length; i++) {
+    private static void moveZeroesToEnd(int[] a) {
+        int i = 0, j = 0;
+        while (i < a.length) {
             if (a[i] == 0) {
-                zeroPositions.add(i);
-            }
-        }
-        int j = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (!zeroPositions.contains(i)) {
-                a[j++] = a[i];
+                i++;
+            } else {
+                a[j++] = a[i++];
             }
         }
         while (j < a.length) {
             a[j++] = 0;
         }
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+    }
+
+    public static void main(String[] args) {
+        moveZeroesToEnd(new int[]{0, 1, 0, 3, 12});
     }
 }

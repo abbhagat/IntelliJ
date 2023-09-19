@@ -18,10 +18,10 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
                  set.add(new Pair(x, y));
             }
         }
-         System.out.println(set);
+        System.out.println(set);
     }
 
-    private static void findPair(int[] a, int diff) {
+    private static void findPair(int[] a, int target) {
         Arrays.sort(a);
         int i = 0, j = 0, n = a.length - 1;
         while (i <= n && j <= n) {
@@ -31,9 +31,9 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
             while (j < n && a[j] == a[j + 1]) {
                 j++;
             }
-            if (a[j] - a[i] > diff) {
+            if (a[j] - a[i] > target) {
                 i++;
-            } else if (a[j] - a[i] < diff) {
+            } else if (a[j] - a[i] < target) {
                 j++;
             } else {
                 System.out.println("(" + a[j] + ", " + a[i] + ")");

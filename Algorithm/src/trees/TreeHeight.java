@@ -9,27 +9,12 @@ public class TreeHeight {
     private static int lH, rH;
 
     public static int treeHeight(Node root) {
-        return null == root ? -1 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
-    }
-
-    public static int height(Node root) {
-        if (root == null) {
-            return 0;
-        }
-        if (root.left != null) {
-            lH++;
-            height(root.left);
-        }
-        if (root.right != null) {
-            rH++;
-            height(root.right);
-        }
-        return max(lH, rH);
+        return null == root ? 0 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
     }
 
     public static int heights(Node root) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         int lH = heights(root.left);
         int rH = heights(root.right);
@@ -37,13 +22,27 @@ public class TreeHeight {
     }
 
     public static void main(String[] args) {
-        Node root           = new Node(1);
-        root.left           = new Node(2);
-        root.right          = new Node(3);
-        root.left.left      = new Node(4);
-        root.left.right     = new Node(5);
+         /*
+                                1
+                            /      \
+                           2        3
+                         /   \       \
+                        4     5       6
+                             / \      \
+                            7  8       9
+                                        \
+                                        10
+         */
+        Node root              = new Node(1);
+        root.left              = new Node(2);
+        root.right             = new Node(3);
+        root.left.left         = new Node(4);
+        root.left.right        = new Node(5);
+        root.right.right       = new Node(6);
+        root.left.right.left   = new Node(7);
+        root.left.right.right  = new Node(8);
+        root.right.right.right = new Node(9);
         System.out.println("Tree Height :" + treeHeight(root) + "\t" + treeHeight(null));
-        System.out.println("Tree Height :" + height(root)     + "\t" + height(null));
         System.out.println("Tree Height :" + heights(root)    + "\t" + heights(null));
     }
 }

@@ -29,6 +29,5 @@ public class MeetingRoomsIIWith2DArray {
         System.out.println(findMinRooms(new int[][]{{0, 5}, {1, 2}, {1, 10}}));
         System.out.println(findMinRooms(new int[][]{{0, 1}, {0, 2}, {2, 3}, {1, 3}, {2, 4}, {3, 5}}));
         System.out.println(findMinRooms(new int[][]{{1, 18}, {18, 23}, {15, 29}, {4, 15}, {2, 11}, {5, 13}}));
-
     }
 }

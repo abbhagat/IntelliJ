@@ -10,11 +10,9 @@ public class PalindromeDate {
         Date date = c.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String dateStr;
-        StringBuffer reverse;
         while (true) {
             dateStr = sdf.format(date);
-            reverse = new StringBuffer(dateStr).reverse();
-            if (dateStr.contentEquals(reverse)) {
+            if (dateStr.contentEquals(new StringBuilder(dateStr).reverse())) {
                 System.out.print("Next Palindrome Date " + sdf.format(date) + "\n");
                 break;
             }

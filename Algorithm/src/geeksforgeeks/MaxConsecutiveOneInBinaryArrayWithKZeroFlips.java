@@ -45,8 +45,8 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
     }
 
     public static void main(String[] args) {
-        System.out.println("\n" + slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2));
-        System.out.println("\n" + slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2));
-        System.out.println("\n" + slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3));
+        System.out.println(slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2));
+        System.out.println(slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2));
+        System.out.println(slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3));
     }
 }

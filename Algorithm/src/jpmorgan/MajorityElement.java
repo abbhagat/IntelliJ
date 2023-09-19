@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Given an array A of N elements. Find the majority element in the array.
  * A majority element in an array A of size N is an element that appears more than N/2 times in the array.
- * <p>
+
  * Input:
  * N = 3
  * A[] = {1,2,3}
@@ -16,7 +16,7 @@ import java.util.Map;
  * Since, each element in
  * {1,2,3} appears only once so there
  * is no majority element.
- * <p>
+
  * Input:
  * N = 5
  * A[] = {3,1,3,3,2}

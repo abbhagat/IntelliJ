@@ -21,8 +21,8 @@ public class MinValueInBST {
     public static void main(String[] args) {
         int[] a = {10, 13, 5, 8, 9, 16, 20, 25, 4, 6, 7};
         Node root = null;
-        for (int i = 0; i < a.length; i++) {
-            root = createBST(root, a[i]);
+        for (int x : a) {
+            root = createBST(root, x);
         }
         System.out.println(minValueBST(root).num);
         System.out.println(minValueInBST(root).num);

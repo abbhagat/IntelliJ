@@ -11,6 +11,9 @@ import static linkedlist.TraverseList.traverseList;
 public class LinkedListRotation {
 
     public static Node rotateList(Node first, int k) {
+        if(first == null || first.next == null || k <= 0) {
+            return first;
+        }
         Node temp = first, last = first;
         while (last.next != null) {
             last = last.next;

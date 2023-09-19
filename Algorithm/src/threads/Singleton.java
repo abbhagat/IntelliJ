@@ -35,7 +35,7 @@ public class Singleton implements Cloneable, Serializable {
         try {
             _instance = getInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return _instance;
     }

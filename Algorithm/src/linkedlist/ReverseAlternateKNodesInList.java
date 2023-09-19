@@ -6,10 +6,10 @@ import static linkedlist.TraverseList.traverseList;
 public class ReverseAlternateKNodesInList {
 
     private static Node reverse(Node head, int k) {
-        Node temp = head, next, prev = null;
+        Node temp = head, prev = null;
         int count = 1;
         while (temp != null && count <= k) {   // reverse first k nodes of the linked list
-            next = temp.next;
+            Node next = temp.next;
             temp.next = prev;
             prev = temp;
             temp = next;
