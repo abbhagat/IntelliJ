@@ -9,7 +9,7 @@ TRAVERSE TWO NODES
 This works because original->next is nothing but a copy of the original and Original->random->next is nothing but a copy of the random.
 Now restore the original and copy linked lists in this fashion in a single loop.
 original->next = original->next->next;
-     copy->next = copy->next->next;
+copy->next = copy->next->next;
 Ensure that original->next is NULL and return the cloned list
  */
 public class CloneLinkedListWithNextAndRandomPointer {
@@ -23,25 +23,24 @@ public class CloneLinkedListWithNextAndRandomPointer {
     }
 
     private static Node clone(Node head) {
-        Node temp = head, node;
+        Node temp = head;
         while (temp != null) {
-            node = temp.next;
+            Node next = temp.next;
             temp.next = new Node(temp.num); // insert additional node after every node of original list
-            temp.next.next = node;
-            temp = node;
+            temp.next.next = next;
+            temp = next;
         }
         temp = head;
         // adjust the random pointers of the newly added nodes
         while (temp != null) {
             if (temp.next != null) {
-                temp.next.random = (temp.random != null) ? temp.random.next : temp.random;
+                temp.next.random = temp.random != null ? temp.random.next : temp.random;
             }
             temp = temp.next.next; // move to the next newly added node by skipping an original node
         }
         temp = head;
         Node copy = head.next;
-        node = copy;  // save the head of copied linked list
-        // now separate the original list and copied list
+        Node node = copy;  // save the head of copied linked list and separate the original list and copied list
         while (temp != null) {
             temp.next = temp.next.next;
             copy.next = (copy.next != null) ? copy.next.next : copy.next;

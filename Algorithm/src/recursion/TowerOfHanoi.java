@@ -2,17 +2,17 @@ package recursion;
 
 public class TowerOfHanoi {
 
-    private static void towerOfHanoi(int n, String source, String destination, String aux) {
+    private static void towerOfHanoi(int n, String src, String aux, String dest) {
         if (n == 1) {
-            System.out.println(source + " --> " + destination);
-            return;
+            System.out.println(src + " -> " + dest);
+        } else {
+            towerOfHanoi(n - 1, src, dest, aux);
+            System.out.println(src + " -> " + dest);
+            towerOfHanoi(n - 1, aux, src, dest);
         }
-        towerOfHanoi(n - 1, source, aux, destination);
-        System.out.println(source + " --> " + destination);
-        towerOfHanoi(n - 1, aux, destination, source);
     }
 
     public static void main(String[] args) {
-        towerOfHanoi(2, "A", "C", "B");
+        towerOfHanoi(3, "A", "B", "C");
     }
 }

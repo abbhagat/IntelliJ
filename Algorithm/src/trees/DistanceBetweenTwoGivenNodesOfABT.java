@@ -6,16 +6,16 @@ import static trees.LCAOfBinaryTree.findLCA;
 
 public class DistanceBetweenTwoGivenNodesOfABT {
 
-    private static int findLevel(Node root, Node node, int level) {
+    private static int findLevel(Node root, Node target, int level) {
         if (root == null) {
             return -1;
         }
-        if (root == node) {
+        if (root == target) {
             return level;
         }
-        int distance = findLevel(root.left,  node, level + 1);
+        int distance = findLevel(root.left,  target, level + 1);
         if (distance == -1) {
-            return     findLevel(root.right, node, level + 1);
+            return     findLevel(root.right, target, level + 1);
         }
         return distance;
     }

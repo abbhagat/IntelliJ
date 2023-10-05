@@ -6,21 +6,20 @@ import java.util.LinkedList;
 
 public class PrintPathFromRootToAGivenTargetNode {
 
-    private static boolean hasPath(Node root, int target, LinkedList<Integer> list) {
+    private static boolean printPath(Node root, int target) {
         if (root == null) {
             return false;
         }
-        list.add(root.num);
         if (root.num == target) {
-            System.out.println(list);
+            System.out.print(root.num + " ");
             return true;
         }
-        boolean left  = hasPath(root.left,  target, list);
-        boolean right = hasPath(root.right, target, list);
+        boolean left  = printPath(root.left,  target);
+        boolean right = printPath(root.right, target);
         if (left || right) {
+            System.out.print(root.num + " ");
             return true;
         }
-        list.removeLast();
         return false;
     }
 
@@ -47,8 +46,10 @@ public class PrintPathFromRootToAGivenTargetNode {
         root.right.left          = new Node(6);
         root.right.right         = new Node(7);
         root.right.left.right    = new Node(11);
-        LinkedList<Integer> list = new LinkedList<>();
-        System.out.println(hasPath(root, 11, list) ? list : "No Path");
+        if (!printPath(root, 11)) {
+            System.out.println("No Path");
+        }
+        System.out.println();
         printPath(root, 11, new LinkedList<>());
     }
 }

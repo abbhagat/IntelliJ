@@ -1,4 +1,4 @@
-package matrix;
+package dynamicProgramming;
 
 /*
 Given a gold mine of m*n dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.

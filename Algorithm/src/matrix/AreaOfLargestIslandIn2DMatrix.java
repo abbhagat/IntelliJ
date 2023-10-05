@@ -36,7 +36,7 @@ public class AreaOfLargestIslandIn2DMatrix {
     }
   }
 
-  private static int findMaxArea() {
+  public static void main(String[] args) {
     int maxArea = 0, numOfIsland = 0;
     for (int row = 0; row < ROW; row++) {
       for (int col = 0; col < COL; col++) {
@@ -50,10 +50,6 @@ public class AreaOfLargestIslandIn2DMatrix {
       }
     }
     System.out.println("Number of islands is: " + numOfIsland);
-    return maxArea;
-  }
-
-  public static void main(String[] args) {
-    System.out.println("Max Area " + findMaxArea());
+    System.out.println("Max Area " + maxArea);
   }
 }

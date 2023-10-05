@@ -6,15 +6,15 @@ public class PopulateNextRightPointer {
 
     private static void connect(Node root) {
         while (root != null && root.left != null) {
-            Node curr = root;
-            while (curr != null) {
-                if (curr.left != null) {
-                    curr.left.right = curr.right;
+            Node node = root;
+            while (node != null) {
+                if (node.left != null) {
+                    node.left.right = node.right;
                 }
-                if (curr.right != null) {
-                    curr.right.right = curr.right.left;
+                if (node.right != null) {
+                    node.right.right = node.right.left;
                 }
-                curr = curr.right;
+                node = node.right;
             }
             root = root.left;
         }

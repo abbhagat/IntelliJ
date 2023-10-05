@@ -5,10 +5,10 @@ public class SevenSegmentDisplayOfANumber {
     public static void main(String[] args) {
         int num = 5;
         String i = "", j = "", k = "";
-        if (num == 1) {
-            i = "";
-            j = "|";
-            k = "|";
+               if (num == 1) {
+                   i = "";
+                   j = "|";
+                   k = "|";
         } else if (num == 2) {
             i = " __";
             j = " __|";

@@ -20,12 +20,12 @@ public class FunctionalInterfaceStaticMethodDemo implements StaticAndDefaultMeth
         obj.print("");
         obj.isNull("abc");
         StaticAndDefaultMethodInterface.isNull("abc");
-        //StaticAndDefaultMethodInterface.super.print("abc");
+//        StaticAndDefaultMethodInterface.super.print("abc");
     }
 
     boolean isNull(String str) {
         System.out.println("Impl Null Check");
         StaticAndDefaultMethodInterface.super.print("abc");
-        return str == null ? true : false;
+        return str == null;
     }
 }

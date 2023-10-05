@@ -16,10 +16,10 @@ public class ReorderLinkList {
         Node head2 = mid.next;
         mid.next = null;
         while (head2 != null) {
-            Node temp = head2.next;
+            Node next = head2.next;
             head2.next = mid.next;
             mid.next = head2;
-            head2 = temp;
+            head2 = next;
         }
         Node left = head, right = mid.next;
         while (left != null && right != null) {

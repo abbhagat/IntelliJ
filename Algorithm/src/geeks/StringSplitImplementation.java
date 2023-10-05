@@ -4,14 +4,14 @@ public class StringSplitImplementation {
 
     public static void main(String[] args) {
         String s = "Java is an OOP";
-        String str = "";
+        StringBuilder str = new StringBuilder();
         char splitter = ' ';
         for (char c : (s + " ").toCharArray()) {
             if (c != splitter) {
-                str += c;
+                str.append(c);
             } else {
                 System.out.println(str);
-                str = "";
+                str = new StringBuilder();
             }
         }
     }

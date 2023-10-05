@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class HuffmanCoding {
 
-    private static String result = "";
+    private static StringBuilder result = new StringBuilder();
 
     public static void encode(Node root, String str) {
         for (char c : str.toCharArray()) {
@@ -24,7 +24,7 @@ public class HuffmanCoding {
         list.add(x);
         if (root.num == c) {
             list.removeFirst();
-            list.forEach(i -> result += i);
+            list.forEach(i -> result.append(i));
             return;
         }
         findPath(root.left,  c, list, '0');

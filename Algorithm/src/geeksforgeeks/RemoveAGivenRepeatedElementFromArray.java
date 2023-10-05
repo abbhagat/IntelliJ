@@ -22,5 +22,6 @@ public class RemoveAGivenRepeatedElementFromArray {
     public static void main(String[] args) {
         removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 4, 2}, 2);
         removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 3, 2}, 3);
+        removeAGivenRepeatedElementFromArray(new int[]{3, 2, 2, 3}, 3);
     }
 }

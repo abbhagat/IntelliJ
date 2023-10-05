@@ -34,10 +34,10 @@ public class FrequencyOfMostFrequentElementInArray {
         for (int i = 0, j = 0; j < a.length; j++) {
             sum += a[j];                                     //  Add the current element to the sum
             while ((long) a[j] * (j - i + 1) > sum + k) {   //  Adjust the left pointer to maintain the frequency constraint
-                sum -= a[i];                                //  Subtract the leftmost element from the sum
+                sum -= a[i];                               //  Subtract the leftmost element from the sum
                 i++;
             }
-            result = max(result, j - i + 1);          // Update the maximum frequency
+            result = max(result, j - i + 1);         // Update the maximum frequency
         }
         return result;
     }

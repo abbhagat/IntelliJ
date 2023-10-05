@@ -30,7 +30,9 @@ public class PrintBoundaryNodesOfATree {
 
     private static void printBoundary(Node root) {
         printLeafNodes(root);
+        System.out.println();
         printLeftEdgeNodes(root);
+        System.out.println();
         printRightEdgeNodes(root.right);
     }
 

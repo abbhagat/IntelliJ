@@ -9,11 +9,11 @@ interface Iterator {
     Object next();
 }
 
-interface Container {
+interface Iterable {
     Iterator iterator();
 }
 
-class NameRepository implements Container {
+class NameRepository implements Iterable {
 
     private final List<String> names = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
 

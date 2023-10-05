@@ -27,7 +27,7 @@ public class PrintOuterNodesOfTheTree {
                 if (first == null) {
                     first = node;
                 } else {
-                    last = node;
+                    last  = node;
                 }
                 if (node.left != null) {
                     q.add(node.left);

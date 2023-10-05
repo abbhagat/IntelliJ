@@ -32,7 +32,7 @@ public class BombEnemy {
         }
     }
 
-    private static int findMaxEnemyKilled() {
+    public static void main(String[] args) {
         int maxEnemyKilled = 0;
         for (int row = 0; row < ROW; row++) {
             for (int col = 0; col < COL; col++) {
@@ -43,10 +43,6 @@ public class BombEnemy {
                 }
             }
         }
-        return maxEnemyKilled;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Max Enemy Killed " + findMaxEnemyKilled());
+        System.out.println("Max Enemy Killed " + maxEnemyKilled);
     }
 }

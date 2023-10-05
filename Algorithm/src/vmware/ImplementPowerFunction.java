@@ -15,7 +15,11 @@ public class ImplementPowerFunction {
     }
 
     private static double powers(double x, int n) {
-        return n < 0 ? 1 / (power(x, -n)) : power(x, n);
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        }
+        return power(x, n);
     }
 
     private static double power(double x, int n) {

@@ -32,13 +32,11 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
         traverseList(first);
         System.out.println();
         Node temp = first, prev = null;
-        int n = 1;
-        while (temp != null && n < 2) {
+        final int n = 2;
+        for (int i = 1; temp != null && i < n; i++, temp = temp.next) {
             prev = temp;
-            temp = temp.next;
-            n++;
         }
-        Node prev_nthNode = nthNodeFromEnd(first, 2);
+        Node prev_nthNode = nthNodeFromEnd(first, n);
         Node nthNode = prev_nthNode.next;
         Node temp2 = nthNode.next;
         prev.next = nthNode;

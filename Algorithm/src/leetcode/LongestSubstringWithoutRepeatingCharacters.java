@@ -5,14 +5,14 @@ import static java.lang.Integer.max;
 public class LongestSubstringWithoutRepeatingCharacters {
 
     private static int lengthOfLongestSubstring(char[] c) {
-        int result = 0, max = Integer.MIN_VALUE;
+        int max = 0, j = Integer.MIN_VALUE;
         int[] temp = new int[128];
         for (int i = 0; i < c.length; i++) {
-            max = max(max, temp[c[i]]);
-            result = max(result, i - max + 1);
+            j = max(j, temp[c[i]]);
+            max = max(max, i - j + 1);
             temp[c[i]] = i + 1;
         }
-        return result;
+        return max;
     }
 
     public static void main(String[] args) {

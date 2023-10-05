@@ -25,9 +25,9 @@ public class ArrayListImpl<E> {
     this.list = (E[]) new Object[initialCapacity];
   }
 
-  public boolean add(E obj) {
+  public boolean add(E e) {
     validateCapacity(size + 1);
-    list[size++] = obj;
+    list[size++] = e;
     return true;
   }
 

@@ -26,16 +26,15 @@ public class LongestPalindromicSequence {
 
     private static int lps(char[] seq) {
         int n = seq.length;
-        int i, j, cl;
         int[][] DP = new int[n][n];   // Create a table to store results of sub problems
-        for (i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             DP[i][i] = 1;            // Strings of length 1 are palindrome of length 1
         }
-        for (cl = 2; cl <= n; cl++) {
-            for (i = 0; i < n - cl + 1; i++) {
-                j = i + cl - 1;
+        for (int k = 2; k <= n; k++) {
+            for (int i = 0; i < n - k + 1; i++) {
+                int j = i + k - 1;
                 if (seq[i] == seq[j]) {
-                    if (cl == 2) {
+                    if (k == 2) {
                         DP[i][j] = 2;
                     } else {
                         DP[i][j] = DP[i + 1][j - 1] + 2;

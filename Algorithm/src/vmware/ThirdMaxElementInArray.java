@@ -1,26 +1,20 @@
 package vmware;
 
+import java.util.PriorityQueue;
+
 // Time  Complexity O(n)
 // Space Complexity O(1)
 public class ThirdMaxElementInArray {
 
     public static void main(String[] args) {
         int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int max, _2ndMax, _3rdMax;
-        max = _2ndMax = _3rdMax = Integer.MIN_VALUE;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int x : a) {
-            if (max < x) {
-                _2ndMax = max;
-                max = x;
-            } else if (_2ndMax < x) {
-                _2ndMax = x;
+            pq.add(x);
+            if (pq.size() > 3) {
+                pq.poll();
             }
         }
-        for (int x : a) {
-            if (_3rdMax < x && x != max && x != _2ndMax) {
-                _3rdMax = x;
-            }
-        }
-        System.out.println(_3rdMax);
+        System.out.println(pq.peek());
     }
 }

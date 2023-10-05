@@ -16,16 +16,21 @@ public class IsMirrorImage {
         if (root1 == null && root2 == null) {
             return true;
         }
-        if (root1 == null || root2 == null) {
+        if (root1 == null || root2 == null || root1.num != root2.num) {
             return false;
         }
-        if (root1.num == root2.num) {
-            return isMirrorImage(root1.left, root2.right) && isMirrorImage(root1.right, root2.left);
-        }
-        return false;
+        return isMirrorImage(root1.left, root2.right) && isMirrorImage(root1.right, root2.left);
     }
 
     public static void main(String[] args) {
+        /*
+
+                 1              1
+                / \            / \
+               2   3          3   2
+              / \                / \
+             4   5              5   4
+         */
         Node root1       = new Node(1);
         root1.left       = new Node(2);
         root1.right      = new Node(3);

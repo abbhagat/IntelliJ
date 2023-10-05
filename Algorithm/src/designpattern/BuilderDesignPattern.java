@@ -2,8 +2,9 @@ package designpattern;
 
 import java.util.Optional;
 
-/**   In builder design pattern we build a complex object using simple object and uses step-by-step approach.
- *
+/**
+ * In builder design pattern we build a complex object using simple object and uses step-by-step approach.
+ * <p>
  * First of all you need to create a static nested class and then copy all the arguments from the outer class to the Builder class.
  * We should follow the naming convention and if the class name is Computer then builder class should be named as ComputerBuilder.
  * Java Builder class should have a public constructor with all the required attributes as parameters.
@@ -13,9 +14,10 @@ import java.util.Optional;
  */
 
 class Computer {
-    private String HDD, RAM;
-    private Optional<Boolean> isGraphicsCardEnabled;
-    private Optional<Boolean> isBluetoothEnabled;
+    private final String HDD;
+    private final String RAM;
+    private final Optional<Boolean> isGraphicsCardEnabled;
+    private final Optional<Boolean> isBluetoothEnabled;
 
     public String getHDD() {
         return HDD;
@@ -37,17 +39,18 @@ class Computer {
         this.HDD = builder.HDD;
         this.RAM = builder.RAM;
         this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
-        this.isBluetoothEnabled = builder.isBluetoothEnabled;
+        this.isBluetoothEnabled    = builder.isBluetoothEnabled;
     }
 
     public static class ComputerBuilder {
-        private String HDD, RAM;
+        private final String HDD;
+        private final String RAM;
         private Optional<Boolean> isGraphicsCardEnabled;
         private Optional<Boolean> isBluetoothEnabled;
 
-        public ComputerBuilder(String hdd, String ram) {
-            this.HDD = hdd;
-            this.RAM = ram;
+        public ComputerBuilder(String HDD, String RAM) {
+            this.HDD = HDD;
+            this.RAM = RAM;
         }
 
         public ComputerBuilder setGraphicsCardEnabled(Optional<Boolean> isGraphicsCardEnabled) {
@@ -68,9 +71,9 @@ class Computer {
 
 public class BuilderDesignPattern {
     public static void main(String[] args) {
-        Computer computer = new Computer.ComputerBuilder("500 GB", "2 GB")
-                                        .setBluetoothEnabled(Optional.of(true))
-                                        .setGraphicsCardEnabled(Optional.of(true)).build();
-        System.out.println(computer);
+        Computer computer = new Computer.ComputerBuilder("500GB", "2GB")
+                .setBluetoothEnabled(Optional.of(true))
+                .setGraphicsCardEnabled(Optional.of(true)).build();
+        System.out.println(computer.getHDD() + " " + computer.getRAM() + " " + computer.isGraphicsCardEnabled().get() + " " + computer.isBluetoothEnabled().get());
     }
 }

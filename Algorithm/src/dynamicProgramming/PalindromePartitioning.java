@@ -20,7 +20,7 @@ import static java.lang.Integer.min;
 public class PalindromePartitioning {
 
     private static boolean isPalindrome(String str, int i, int j) {
-        while (i <= j) {
+        while (i < j) {
             if (str.charAt(i++) != str.charAt(j--)) {
                 return false;
             }

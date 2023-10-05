@@ -27,6 +27,9 @@ public class FindPairsWhoseDivIsAGivenNumber {
             if (x % target == 0) {
                 int y = x / target;
                 if (map.containsKey(y)) {
+                    if(map.get(y) == 1) {
+                        continue;
+                    }
                     set.add(new Pair(x, y));
                 }
             }
@@ -35,8 +38,9 @@ public class FindPairsWhoseDivIsAGivenNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 2));
+        System.out.println(findPairs(new int[]{5, 10, 5}, 1));
         System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 0}, 0));
+        System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 12));
         System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 12));
     }
 }

@@ -1,17 +1,16 @@
 package designpattern;
 
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 class Subject {
 
+    @Getter
     private int state;
     private final List<Observer> observers = new ArrayList<>();
-
-    public int getState() {
-        return state;
-    }
 
     public void setState(int state) {
         this.state = state;

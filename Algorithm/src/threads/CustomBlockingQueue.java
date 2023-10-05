@@ -33,7 +33,7 @@ class LinkedBlockingQueue<E> implements BlockingQueue<E> {
             this.wait();
         }
         this.notifyAll();
-        return queue.remove();
+        return queue.poll();
     }
 }
 

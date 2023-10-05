@@ -33,7 +33,8 @@ public class NextGreaterNumWithSameSetOfDigits {
     }
 
     public static void main(String[] args) {
-        int[] a = nextPermutation(new int[]{5, 3, 4, 9, 7, 6});
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        int[] b = nextPermutation(new int[]{1, 2, 3});
+        IntStream.range(0, b.length).forEach(i -> System.out.print(b[i] + " "));
+        System.out.println();
     }
 }

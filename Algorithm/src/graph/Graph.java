@@ -10,19 +10,19 @@ public class Graph {
         this.v = v;
         this.edge = new LinkedList[v];
         for (int i = 0; i < v; i++) {
-            edge[i] = new LinkedList<>();
+            this.edge[i] = new LinkedList<>();
         }
     }
 
-    public void addEdge(int v, int e) {
-        edge[v].add(e);
+    public void addEdge(int v, int e)    {
+        this.edge[v].add(e);
     }
 
     public LinkedList<Integer>[] getEdge() {
-        return edge;
+        return this.edge;
     }
 
     public int getV() {
-        return v;
+        return this.v;
     }
 }

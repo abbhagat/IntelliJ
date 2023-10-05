@@ -20,7 +20,8 @@ public class CuttingRodProblem {
     }
 
     public static void main(String[] args) {
-        int[] price = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
+        int[] price;
+        price = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
         System.out.println(cutRod(price, price.length));
         price = new int[]{1, 2, 3, 4, 5};
         System.out.println(cutRod(price, price.length));

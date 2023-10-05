@@ -1,7 +1,5 @@
 package trees;
 
-import static trees.CreateBST.createBST;
-
 // Time Complexity  : O(n) where n is number of nodes in the given binary tree.
 // Space Complexity : O(height of the binary tree).
 
@@ -20,11 +18,21 @@ public class PrintAllNodesAtKDistanceFromRoot {
     }
 
     public static void main(String[] args) {
-        int[] a = {3, 5, 1, 6, 2, 0, 8, 7, 4};
-        Node root = null;
-        for (int x : a) {
-            root = createBST(root, x);
-        }
+        /*
+                     1
+                    / \
+                   2   3
+                  / \
+                 4   5
+                /
+               6
+        */
+        Node root           = new Node(1);
+        root.left           = new Node(2);
+        root.right          = new Node(3);
+        root.left.left      = new Node(4);
+        root.left.right     = new Node(5);
+        root.left.left.left = new Node(6);
         printNodes(root, 2);
     }
 }

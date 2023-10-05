@@ -6,24 +6,20 @@ import static trees.TreeTraversal.inorder;
  * Given a Binary Tree where each node has positive and negative values.
  * Convert this to a tree where each node contains the sum of the left and right subtree in the original tree.
  * The values of leaf nodes are changed to 0.
- *
  * For example, the following tree
- *
  *                   10
  *                /      \
  *              -2        6
  *            /   \      /  \
  *          8     -4    7    5
- *
  *         should be changed to
- *
  *                  20[(-4+8-2) + (7+5+6)]
  *                /      \
  *          4(8-4)      12(7+5)
  *            /   \      /  \
  *          0      0    0    0
- *
  * Inorder :- 0 4 0 20 0 12 0
+ *
  * Do a traversal of the given tree. In the traversal, store the old value of the current node,
  * recursively call for left and right subtrees and change the value of current node as sum of
  * the values returned by the recursive calls. Finally return the sum of new value and value
@@ -48,14 +44,6 @@ public class ConvertGivenTreeToSumTree {
         Node root        = new Node(2);
         root.left        = new Node(1);
         root.right       = new Node(3);
-
-//        Node root        = new Node(10);
-//        root.left        = new Node(-2);
-//        root.right       = new Node(6);
-//        root.left.left   = new Node(8);
-//        root.left.right  = new Node(-4);
-//        root.right.left  = new Node(7);
-//        root.right.right = new Node(5);
         convert(root);
         inorder(root);
     }

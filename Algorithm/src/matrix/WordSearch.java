@@ -30,9 +30,9 @@ public class WordSearch {
     }
 
     private static boolean exist(String word) {
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
-                if (DFS(i, j, word, 0)) {
+        for (int row = 0; row < ROW; row++) {
+            for (int col = 0; col < COL; col++) {
+                if (DFS(row, col, word, 0)) {
                     return true;
                 }
             }

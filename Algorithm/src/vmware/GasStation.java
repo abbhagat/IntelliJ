@@ -2,13 +2,10 @@ package vmware;
 
 /**
  * There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i].
- * <p>
  * You have a car with an unlimited gas tank, it cost costs[i] of gas to travel from the ith station to its next (i + 1)th station.
  * You begin the journey with an empty tank at one of the gas stations.
- * <p>
  * Given two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1.
  * If there exists a solution, it is guaranteed to be unique.
- * <p>
  * Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
  * Output: 3
  * Explanation:
@@ -19,7 +16,6 @@ package vmware;
  * Travel to station 2. Your tank = 6 - 4 + 3 = 5
  * Travel to station 3. The cost is 5. Your gas is just enough to travel back to station 3.
  * Therefore, return 3 as the starting index.
- * <p>
  * Input: gas = [2,3,4], cost = [3,4,3]
  * Output: -1
  * Explanation:

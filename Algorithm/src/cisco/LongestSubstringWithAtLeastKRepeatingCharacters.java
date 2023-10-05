@@ -34,5 +34,12 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
     public static void main(String[] args) {
         System.out.println(longestSubstring("aaabb", 3));
         System.out.println(longestSubstring("ababbc",2));
+        synchronized (Integer.class) {
+            synchronized (Float.class) {
+                synchronized(Float.class) {
+                    System.out.println("hello");
+                }
+            }
+        }
     }
 }

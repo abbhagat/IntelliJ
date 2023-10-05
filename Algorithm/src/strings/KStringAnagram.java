@@ -22,6 +22,6 @@ public class KStringAnagram {
     }
 
     public static void main(String[] args) {
-        System.out.println(isKStringAnagram("anagram".toCharArray(), "grammar".toCharArray(), 4) ? "K anagram" : "Not K anagram");
+        System.out.println(isKStringAnagram("anagram".toCharArray(), "grammar".toCharArray(), 4));
     }
 }

@@ -8,13 +8,10 @@ public class IsTreeIdentical {
         if (root1 == null && root2 == null) {
             return true;
         }
-        if (root1 == null || root2 == null) {
+        if (root1 == null || root2 == null || root1.num != root2.num) {
             return false;
         }
-        if (root1.num == root2.num) {
-            return isIdentical(root1.left, root2.left) && isIdentical(root1.right, root2.right);
-        }
-        return false;
+        return isIdentical(root1.left, root2.left) && isIdentical(root1.right, root2.right);
     }
 
     public static void main(String[] args) {

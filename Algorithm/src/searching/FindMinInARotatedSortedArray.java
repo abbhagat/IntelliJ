@@ -8,8 +8,6 @@ public class FindMinInARotatedSortedArray {
             int mid = (low + high) / 2;
             if (a[mid] == a[high]) {
                 high--;
-            } else if (a[mid] > a[mid + 1]) {
-                return a[mid + 1];
             } else if (a[mid] > a[high]) {
                 low = mid + 1;
             } else {
