@@ -1,32 +1,27 @@
 package geeksforgeeks;
 
+import java.util.stream.IntStream;
+
 import static util.Swap.swap;
 
 // Time Complexity :- O(n * n!)
 public class AllPermutationOfArrayNum {
 
-    private static void permute(int[] a) {
-        char[] c = new char[a.length];
-        for (int i = 0; i < a.length; i++) {
-            c[i] = (char) (a[i] + '0');
-        }
-        permutation(c, 0, c.length - 1);
-    }
-
-    private static void permutation(char[] c, int start, int end) {
+    private static void permutation(int[] a, int start, int end) {
         if (start == end) {
-            System.out.println(c);
+            IntStream.range(0, a.length).forEach(i -> System.out.print(a[i]));
+            System.out.println();
             return;
         }
         for (int i = start; i <= end; i++) {
-            swap(c, i, start);
-            permutation(c, start + 1, end);
-            swap(c, i, start);
+            swap(a, i, start);
+            permutation(a, start + 1, end);
+            swap(a, i, start);
         }
     }
 
     public static void main(String[] args) {
-        permute(new int[]{1, 2, 3});
+        permutation(new int[]{1, 2, 3}, 0 , 2);
         Double d = 1000d;
         System.out.println("Normal value :" + d);
         System.out.println("Without decimal points :" + d.longValue());

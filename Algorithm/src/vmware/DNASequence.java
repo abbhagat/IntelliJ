@@ -10,7 +10,7 @@ public class DNASequence {
         }
         Set <String> set  = new HashSet<>();
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < str.length() - 10; i++) {
+        for (int i = 0; i + 10 < str.length(); i++) {
             String s = str.substring(i, i + 10);
             if (set.contains(s)) {
                 list.add(s);

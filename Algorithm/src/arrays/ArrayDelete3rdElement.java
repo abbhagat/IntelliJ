@@ -5,15 +5,14 @@ import java.util.stream.IntStream;
 public class ArrayDelete3rdElement {
 
     private static void modifyArray(int[] a, int pos) {
-        pos -= 1;
-        int n = a.length, i = pos;
-        while (i < n) {
+        pos--;
+        int n = a.length;
+        for (int i = pos; i < n; i += pos) {
             System.arraycopy(a, i + 1, a, i, n - i - 1);
             n--;
-            i += pos;
         }
-        IntStream.range(i - 1, a.length).forEach(j -> a[j] = 0);
-        IntStream.range(0, a.length).forEach(j -> System.out.print(a[j] + " "));
+        IntStream.range(n, a.length).forEach(i -> a[i] = 0);
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 
     public static void main(String[] args) {

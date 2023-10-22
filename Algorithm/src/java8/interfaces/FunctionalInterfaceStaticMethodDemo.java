@@ -1,6 +1,6 @@
 package java8.interfaces;
 
-interface StaticAndDefaultMethodInterface {
+interface I {
 
     default void print(String str) {
         if (!isNull(str))
@@ -9,23 +9,22 @@ interface StaticAndDefaultMethodInterface {
 
     static boolean isNull(String str) {
         System.out.println("Interface Null Check");
-        return str == null ? true : "".equals(str) ? true : false;
+        return str == null || str.isEmpty();
     }
 }
 
-public class FunctionalInterfaceStaticMethodDemo implements StaticAndDefaultMethodInterface {
+public class FunctionalInterfaceStaticMethodDemo implements I {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         FunctionalInterfaceStaticMethodDemo obj = new FunctionalInterfaceStaticMethodDemo();
         obj.print("");
         obj.isNull("abc");
-        StaticAndDefaultMethodInterface.isNull("abc");
+        I.isNull("abc");
 //        StaticAndDefaultMethodInterface.super.print("abc");
     }
 
-    boolean isNull(String str) {
+    void isNull(String str) {
         System.out.println("Impl Null Check");
-        StaticAndDefaultMethodInterface.super.print("abc");
-        return str == null;
+        I.super.print(str);
     }
 }

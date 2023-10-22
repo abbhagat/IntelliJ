@@ -23,6 +23,7 @@ public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
 
     public static void main(String[] args) {
         System.out.println(check(new int[]{6, 2, 3, 2, 1}));
+        System.out.println(check(new int[]{6, 6}));
         System.out.println(check(new int[]{6, 3, 2, 1}));
     }
 }

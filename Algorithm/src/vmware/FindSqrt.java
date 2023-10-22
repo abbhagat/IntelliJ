@@ -9,7 +9,7 @@ public class FindSqrt {
             int square  = mid * mid;
             if (square == n) {
                 return mid;
-            } else if (square > n) {
+            } else if (n < square) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
@@ -19,9 +19,10 @@ public class FindSqrt {
     }
 
     public static void main(String[] args) {
-        System.out.println(findSqrt(2));
         System.out.println(findSqrt(4));
-        System.out.println(findSqrt(8));
+        System.out.println(findSqrt(9));
         System.out.println(findSqrt(16));
+        System.out.println(findSqrt(25));
+        System.out.println(findSqrt(100));
     }
 }

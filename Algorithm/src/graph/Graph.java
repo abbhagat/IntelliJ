@@ -14,7 +14,7 @@ public class Graph {
         }
     }
 
-    public void addEdge(int v, int e)    {
+    public void addEdge(int v, int e) {
         this.edge[v].add(e);
     }
 

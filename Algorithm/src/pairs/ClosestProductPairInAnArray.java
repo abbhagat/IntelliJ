@@ -2,6 +2,8 @@ package pairs;
 
 import java.util.Arrays;
 
+import static java.lang.Math.abs;
+
 public class ClosestProductPairInAnArray {
 
     public static void main(String[] args) {
@@ -10,7 +12,7 @@ public class ClosestProductPairInAnArray {
         int i = 0, j = a.length - 1, x = 0, y = 0, n = 47;
         int diff = Integer.MAX_VALUE;
         while (i < j) {
-            int mul = Math.abs(a[i] * a[j] - n);
+            int mul = abs(a[i] * a[j] - n);
             if (mul < diff) {
                 x = a[i];
                 y = a[j];

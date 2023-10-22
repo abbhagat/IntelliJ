@@ -4,6 +4,8 @@ import java.io.*;
 
 class Father1 implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     int parent = 1;
 
     public Father1() {

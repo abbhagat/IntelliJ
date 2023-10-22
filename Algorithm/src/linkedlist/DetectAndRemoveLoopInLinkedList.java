@@ -6,11 +6,22 @@ import static linkedlist.TraverseList.traverseList;
 public class DetectAndRemoveLoopInLinkedList {
     private static void detectAndRemoveLoop(Node first) {
         Node slow = first, fast = first.next;
-        while (fast != slow && fast.next != slow) {
+        boolean hasCycle;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                hasCycle = false;
+                break;
+            }
+            if (fast == slow || fast.next == slow) {
+                hasCycle = true;
+                break;
+            }
             slow = slow.next;
             fast = fast.next.next;
         }
-        removeCycle(slow, fast);
+        if (hasCycle) {
+            removeCycle(slow, fast);
+        }
     }
 
     private static void removeCycle(Node slow, Node fast) {
@@ -28,7 +39,7 @@ public class DetectAndRemoveLoopInLinkedList {
         for (int x : a) {
             first = add(first, x);
         }
-        first.next.next.next = first.next;
+        first.next.next.next.next = first.next.next;
         detectAndRemoveLoop(first);
         traverseList(first);
     }

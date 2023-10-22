@@ -8,7 +8,7 @@ public class MultiplyingLargeNumInsufficientDataTypeToHold {
         int k = x.length + y.length;
         int[] mul = new int[k];
         for (int i = x.length - 1; i >= 0; i--) {
-            int carry = 0, sum = 0;
+            int carry = 0, sum;
             for (int j = y.length - 1; j >= 0; j--) {
                 sum = x[i] * y[j] + carry + mul[k - 1];
                 carry = sum / 10;

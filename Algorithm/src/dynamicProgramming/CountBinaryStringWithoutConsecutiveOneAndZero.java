@@ -64,7 +64,7 @@ public class CountBinaryStringWithoutConsecutiveOneAndZero {
         return a[n - 1] + b[n - 1];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println(countStrings(3));
         System.out.println(countStringsZero(3));
         List<String> list = new ArrayList<>();

@@ -21,7 +21,7 @@ class LinkedBlockingQueue<E> implements BlockingQueue<E> {
     }
 
     public synchronized void put(E e) throws InterruptedException {
-        if (queue.size() == maxSize) {
+        while (queue.size() == maxSize) {
             this.wait();
         }
         queue.add(e);
@@ -29,7 +29,7 @@ class LinkedBlockingQueue<E> implements BlockingQueue<E> {
     }
 
     public synchronized E get() throws InterruptedException {
-        if (queue.isEmpty()) {
+        while (queue.isEmpty()) {
             this.wait();
         }
         this.notifyAll();

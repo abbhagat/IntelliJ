@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import static java.lang.Integer.max;
+
 /*
 Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.
 Example 1:
@@ -26,7 +28,7 @@ public class DeleteOperationOnTwoStrings {
         int[][] dp = new int[m + 1][n + 1];
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
-                dp[i][j] = str1.charAt(i - 1) == str2.charAt(j - 1) ? 1 + dp[i - 1][j - 1] : Math.max(dp[i - 1][j], dp[i][j - 1]);
+                dp[i][j] = str1.charAt(i - 1) == str2.charAt(j - 1) ? 1 + dp[i - 1][j - 1] : max(dp[i - 1][j], dp[i][j - 1]);
             }
         }
         return dp[m][n];

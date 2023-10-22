@@ -31,7 +31,7 @@ public class WordBreak {
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
         for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 String s = str.substring(j, i);
                 if (dp[j] && list.contains(s)) {
                     dp[i] = true;

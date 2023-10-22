@@ -46,7 +46,7 @@ public class CommonNodesInTwoBST {
         root1.right = new Node(3);
         Node root2  = new Node(2);
         root2.left  = new Node(1);
-        root2.right = new Node(4);
+        root2.right = new Node(3);
         commonNodes(root1, root2);
     }
 }

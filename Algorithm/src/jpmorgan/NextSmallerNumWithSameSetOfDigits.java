@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 import static util.Swap.swap;
 
-public class NextGreaterNumWithSameSetOfDigits {
+public class NextSmallerNumWithSameSetOfDigits {
 
     private static int[] nextPermutation(int[] a) {
         if (a.length == 1) {
@@ -12,12 +12,12 @@ public class NextGreaterNumWithSameSetOfDigits {
         }
         int i;
         for (i = a.length - 1; i > 0; i--) {
-            if (a[i] > a[i - 1])
+            if (a[i] < a[i - 1])
                 break;
         }
         if (i != 0) {
             for (int j = a.length - 1; j >= i; j--) {
-                if (a[j] > a[i - 1]) {
+                if (a[j] < a[i - 1]) {
                     swap(a, j, i - 1);
                     break;
                 }

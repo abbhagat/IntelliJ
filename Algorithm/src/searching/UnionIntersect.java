@@ -1,10 +1,30 @@
 package searching;
 
 import java.util.HashSet;
+import java.util.IdentityHashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 
 public class UnionIntersect {
+
+    private static void findUnionIntersection(int[] a, int [] b) {
+        Map<Integer, Integer> map = new IdentityHashMap<>();
+        for (int x : a) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+        for (int x : b) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+        System.out.println("Intersection");
+        map.forEach((k,v) -> {
+            if(v > 1) {
+                System.out.print(k + " ");
+            }
+        });
+        System.out.println("\nUnion");
+        System.out.println(map.keySet());
+    }
 
     public static void main(String[] args) {
         int[] a = {12, 15, 30, 35, 46, 55, 60, 72, 89, 92, 100};
@@ -19,5 +39,7 @@ public class UnionIntersect {
         });
         System.out.println("\nUnion");
         System.out.print(set);
+        System.out.println();
+        findUnionIntersection(a, b);
     }
 }

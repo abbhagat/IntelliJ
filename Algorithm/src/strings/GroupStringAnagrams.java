@@ -25,7 +25,7 @@ public class GroupStringAnagrams {
     private static List<List<String>> groupAnagrams(List<String> list) {
         Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
         for (String str : list) {
-            HashMap<Character, Integer> tempMap = new HashMap<>();
+            Map<Character, Integer> tempMap = new HashMap<>();
             for(char c : str.toCharArray()) {
                 tempMap.put(c, tempMap.getOrDefault(c, 0) + 1);
             }

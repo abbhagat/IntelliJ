@@ -12,11 +12,11 @@ public class CuttingRodProblem {
         if (n == 0) {
             return 0;
         }
-        int maxVal = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
-            maxVal = max(maxVal, price[i] + cutRod(price, n - i - 1));
+            max = max(max, price[i] + cutRod(price, n - i - 1));
         }
-        return maxVal;
+        return max;
     }
 
     public static void main(String[] args) {

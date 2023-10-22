@@ -4,19 +4,26 @@ interface InterfaceA {
     default void defaultMethod() {
         System.out.println("Interface A default method");
         staticMethod();
+        display();
     }
 
-    private void display(){}
+    private void display() {
+
+    }
 
     static void staticMethod() {
         System.out.println("Interface A static method");
     }
+
+    void add();
 }
 
 interface InterfaceB {
     default void defaultMethod() {
         System.out.println("Interface B default method");
     }
+
+    void add();
 }
 
 class Impl implements InterfaceA, InterfaceB {
@@ -25,6 +32,11 @@ class Impl implements InterfaceA, InterfaceB {
     public void defaultMethod() {
         InterfaceA.super.defaultMethod();
         InterfaceB.super.defaultMethod();
+    }
+
+    @Override
+    public void add() {
+        System.out.println("Hello");
     }
 }
 

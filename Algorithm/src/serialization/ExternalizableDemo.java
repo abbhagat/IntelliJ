@@ -8,7 +8,7 @@ Transient variables − The values of the transient variables are never consider
 i.e. When we declare a variable transient, after de-serialization its value will always be null, false, or, zero (default value).
 
 Static variables − The values of static variables will not be preserved during the de-serialization process.
-In-fact static variables are also not serialized but since these belongs to the class. After de-serialization they get their current values from the class.
+In-fact static variables are also not serialized but since this belongs to the class. After de-serialization they get their current values from the class.
  */
 class Emp implements Externalizable {
 

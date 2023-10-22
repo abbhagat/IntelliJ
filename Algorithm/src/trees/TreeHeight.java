@@ -42,7 +42,7 @@ public class TreeHeight {
         root.left.right.left   = new Node(7);
         root.left.right.right  = new Node(8);
         root.right.right.right = new Node(9);
-        System.out.println("Tree Height :" + treeHeight(root) + "\t" + treeHeight(null));
-        System.out.println("Tree Height :" + heights(root)    + "\t" + heights(null));
+        System.out.println("Tree Height :" + treeHeight(root));
+        System.out.println("Tree Height :" + heights(root));
     }
 }

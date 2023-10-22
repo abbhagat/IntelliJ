@@ -4,10 +4,17 @@ public class ArrayListImpl<E> {
 
   private transient E[] list;
   private int size;
-  private static final int DEFAULT_CAPACITY = 10;
+  private static final int DEFAULT_CAPACITY = 5;
 
   public ArrayListImpl() {
     this(DEFAULT_CAPACITY);
+  }
+
+  public ArrayListImpl(int initialCapacity) {
+    if (initialCapacity <= 0) {
+      throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
+    }
+    this.list = (E[]) new Object[initialCapacity];
   }
 
   public E[] getList() {
@@ -16,13 +23,6 @@ public class ArrayListImpl<E> {
 
   public int size() {
     return size;
-  }
-
-  public ArrayListImpl(int initialCapacity) {
-    if (initialCapacity <= 0) {
-      throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
-    }
-    this.list = (E[]) new Object[initialCapacity];
   }
 
   public boolean add(E e) {
@@ -66,17 +66,17 @@ public class ArrayListImpl<E> {
     al.add(1);
     al.add(2);
     al.add(3);
+    al.add(4);
+    al.add(5);
+    al.add(6);
+    al.add(7);
     for (int i = 0; i < al.size(); i++) {
       System.out.println(al.get(i));
     }
     al.remove(2);
     System.out.println("Changed List");
-    Integer[] a = new Integer[al.size()];
     for (int i = 0; i < al.size(); i++) {
-      a[i] = al.get(i);
-    }
-    for (int x : a) {
-      System.out.println(x);
+      System.out.println(al.get(i));
     }
   }
 }

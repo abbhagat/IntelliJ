@@ -47,27 +47,27 @@ public class BurnABinaryTreeFromTargetNode {
             if (root.right != null) {
                 q.add(root.right);
             }
-            return 1;
+             return 0;
         }
         int leftCall = burnTree(root.left, target);
-        if (leftCall == 1) {
+        if (leftCall == 0) {
             printQueue();
             if (root.right != null) {
                 q.add(root.right);
             }
             System.out.println(root.num);
             time++;
-            return 1;
+             return 0;
         }
         int rightCall = burnTree(root.right, target);
-        if (rightCall == 1) {
+        if (rightCall == 0) {
             printQueue();
             if (root.left != null) {
                 q.add(root.left);
             }
             System.out.println(root.num);
             time++;
-            return 1;
+             return 0;
         }
         return -1;
     }

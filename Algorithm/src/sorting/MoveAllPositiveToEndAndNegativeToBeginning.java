@@ -8,7 +8,7 @@ public class MoveAllPositiveToEndAndNegativeToBeginning {
 
     private static void move(int[] a) {
         int i = 0, j = a.length - 1;
-        while (i <= j) {
+        while (i < j) {
             if (a[i] < 0) {
                 i++;
             } else if (a[j] > 0) {

@@ -1,45 +1,46 @@
 package trees;
 
+import java.util.Deque;
 import java.util.LinkedList;
 
 public class SpiralOrderTreeTraversal {
 
     private static void spiralOrderTreeTraversal(Node root) {
-        LinkedList<Node> deque = new LinkedList<>();
-        deque.addFirst(root);
+        Deque<Node> q = new LinkedList<>();
+        q.addFirst(root);
         boolean flag = true;
-        while (!deque.isEmpty()) {
-            int qSize = deque.size();
-            if (flag) {
-                while (qSize != 0) {
-                    Node node = deque.pollFirst();
+        while(!q.isEmpty()) {
+            int size = q.size();
+            if(flag) {
+                while(size != 0) {
+                    Node node = q.pollFirst();
                     System.out.print(node.num + " ");
                     if (node.left != null) {
-                        deque.addLast(node.left);
+                        q.addLast(node.left);
                     }
-                    if (node.right != null) {
-                        deque.addLast(node.right);
+                    if (root.right != null) {
+                        q.addLast(node.right);
                     }
-                    qSize--;
+                    size--;
                 }
             }
             else {
-                while (qSize != 0) {
-                    Node node = deque.pollLast();
+                while (size != 0) {
+                    Node node = q.pollLast();
                     System.out.print(node.num + " ");
                     if (node.right != null) {
-                        deque.addFirst(node.right);
+                        q.addFirst(node.right);
                     }
                     if (node.left != null) {
-                        deque.addFirst(node.left);
+                        q.addFirst(node.left);
                     }
-                    qSize--;
+                    size--;
                 }
             }
             flag = !flag;
-            System.out.println();
         }
     }
+
 
     public static void main(String[] args) {
          /*

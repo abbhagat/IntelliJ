@@ -16,9 +16,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        System.out.println("abcabcbb"        + " " + lengthOfLongestSubstring("abcabcbb".toCharArray()));
-        System.out.println("bbbbb"           + " " + lengthOfLongestSubstring("bbbbb".toCharArray()));
-        System.out.println("pwwkew"          + " " + lengthOfLongestSubstring("pwwkew".toCharArray()));
-        System.out.println("geeksforgeeks"   + " " + lengthOfLongestSubstring("pwwkew".toCharArray()));
+        System.out.println("abcabcbb" + " " + lengthOfLongestSubstring("abcabcbb".toCharArray()));
+        System.out.println("bbbbb" + " " + lengthOfLongestSubstring("bbbbb".toCharArray()));
+        System.out.println("pwwkew" + " " + lengthOfLongestSubstring("pwwkew".toCharArray()));
+        System.out.println("geeksforgeeks" + " " + lengthOfLongestSubstring("geeksforgeeks".toCharArray()));
     }
 }

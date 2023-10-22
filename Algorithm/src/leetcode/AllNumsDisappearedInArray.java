@@ -15,7 +15,7 @@ public class AllNumsDisappearedInArray {
             sum += x;
         }
         for (int i = 1; i < a.length || i <= sum; i++) {
-            if (!map.containsKey(i)) {
+            if (map.get(i) == null) {
                 System.out.print(i + " ");
             }
         }

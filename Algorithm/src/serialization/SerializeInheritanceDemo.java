@@ -4,6 +4,8 @@ package serialization;
 import java.io.*;
 
 class XYZ implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     int x = 10;
     transient int y = 20;
     static int z = 30;

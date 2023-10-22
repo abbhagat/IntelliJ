@@ -21,7 +21,7 @@ public class KthSmallestOddLengthPalindrome {
     }
 
     private static String findKthSmallestOddLengthPalindrome(int n) {
-        return n + String.valueOf(reverse(n) % 10);
+        return n + "" + reverse(n) % 10;
     }
 
     public static void main(String[] args) {

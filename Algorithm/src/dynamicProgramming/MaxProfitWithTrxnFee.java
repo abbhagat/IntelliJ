@@ -30,17 +30,8 @@ Example 2:
 
 Input: prices = [1,3,7,5,10,3], fee = 3
 Output: 6
-
-    private static int maximumProfit(int[] a, int fee) {
-        int buy = -a[0], sell = 0;
-        for (int i = 1; i < a.length; i++) {
-            int temp = buy;
-            buy = max(buy, sell - a[i]);
-            sell = max(sell, temp + a[i] - fee);
-        }
-        return max(buy, sell);
-    }
  */
+
 public class MaxProfitWithTrxnFee {
     public static int maxProfit(int[] a, int fee) {
         int buy = Integer.MAX_VALUE, profit = 0;

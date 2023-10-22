@@ -23,9 +23,7 @@ public class MoveZeroesToEnd {
                 a[j++] = a[i++];
             }
         }
-        while (j < a.length) {
-            a[j++] = 0;
-        }
+        IntStream.range(j, a.length).forEach(k -> a[k] = 0);
         IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
     }
 

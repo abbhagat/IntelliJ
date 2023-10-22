@@ -4,7 +4,6 @@ import java.util.Optional;
 
 /**
  * In builder design pattern we build a complex object using simple object and uses step-by-step approach.
- * <p>
  * First of all you need to create a static nested class and then copy all the arguments from the outer class to the Builder class.
  * We should follow the naming convention and if the class name is Computer then builder class should be named as ComputerBuilder.
  * Java Builder class should have a public constructor with all the required attributes as parameters.

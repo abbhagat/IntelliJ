@@ -23,6 +23,7 @@ public class ListToMap {
         mainList.add(new Employee("F", 70));
         mainList.add(new Employee("G", 71));
         mainList.add(new Employee("H", 72));
+        mainList.add(new Employee("A", 10));
 
         Stream<Employee> stream = mainList.stream().filter(emp -> emp.getId() >= 70);
         System.out.println(stream.count());

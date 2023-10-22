@@ -50,15 +50,15 @@ public class BinaryTreeMaxWidth {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
-        int n = 0, maxWidth = Integer.MIN_VALUE;;
+        int width = 0, maxWidth = Integer.MIN_VALUE;
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
-                maxWidth = max(maxWidth, n);
-                n = 0;
+                maxWidth = max(maxWidth, width);
+                width = 0;
             }
             if (node != null) {
-                n++;
+                width++;
                 if (node.left != null) {
                     q.add(node.left);
                 }

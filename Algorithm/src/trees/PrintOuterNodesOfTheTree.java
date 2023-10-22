@@ -16,15 +16,14 @@ public class PrintOuterNodesOfTheTree {
             if (node == null) {
                 if (first != null && last == null) {
                     System.out.println(first.num);
-                }
-                if (first != null && last != null) {
+                } else {
                     System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
                 }
                 flag  = !flag;
                 first = last = null;
             }
             if (node != null) {
-                if (first == null) {
+                 if (first == null) {
                     first = node;
                 } else {
                     last  = node;

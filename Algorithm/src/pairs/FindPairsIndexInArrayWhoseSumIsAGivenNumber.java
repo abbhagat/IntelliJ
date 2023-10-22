@@ -24,13 +24,11 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
         }
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
-            int x = a[i];
-            int y = target - x;
+            int y = target - a[i];
             if (map.containsKey(y)) {
                 return new int[]{map.get(y), i};
-            } else {
-                map.put(x, i);
             }
+            map.put(a[i], i);
         }
         return new int[]{0, 0};
     }

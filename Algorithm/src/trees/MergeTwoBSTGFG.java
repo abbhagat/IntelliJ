@@ -6,6 +6,8 @@ package trees;
 
 import java.util.Stack;
 
+import static trees.TreeTraversal.inorder;
+
 public class MergeTwoBSTGFG {
 
     public static void mergeBST(Node root1, Node root2) {
@@ -40,5 +42,9 @@ public class MergeTwoBSTGFG {
         root2.left  = new Node(2);
         root2.right = new Node(6);
         mergeBST(root1, root2);
+        System.out.println();
+        inorder(root1);
+        System.out.println();
+        inorder(root2);
     }
 }

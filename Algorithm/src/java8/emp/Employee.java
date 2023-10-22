@@ -42,4 +42,8 @@ public final class Employee {
         hashCode = prime * hashCode + (null == this.getName() ? 0 : this.getName().hashCode());
         return hashCode;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
 import static java.lang.Integer.min;
+import static util.IsPalindrome.isPalindrome;
 
 /**
  * Given a string str, a partitioning of the string is a palindrome partitioning if every sub-string of the partition is a palindrome.
@@ -18,15 +19,6 @@ import static java.lang.Integer.min;
  */
 
 public class PalindromePartitioning {
-
-    private static boolean isPalindrome(String str, int i, int j) {
-        while (i < j) {
-            if (str.charAt(i++) != str.charAt(j--)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     private static int minPalindromePartition(String str, int low, int high) {
         if (low >= high || isPalindrome(str, low, high)) {

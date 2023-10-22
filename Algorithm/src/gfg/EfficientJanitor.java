@@ -1,5 +1,6 @@
 package gfg;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class EfficientJanitor {
     }
 
     public static void main(String[] args) {
-        System.out.println(efficientJanitor(List.of(1.01f, 1.99f, 2.5f, 1.5f, 1.01f)));
-        System.out.println(efficientJanitor(List.of(1.01f)));
+        System.out.println(efficientJanitor(new ArrayList<>(List.of(1.01f, 1.99f, 2.5f, 1.5f, 1.01f))));
+        System.out.println(efficientJanitor(new ArrayList<>(List.of(1.01f))));
     }
 }

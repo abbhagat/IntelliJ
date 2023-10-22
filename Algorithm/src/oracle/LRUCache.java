@@ -28,12 +28,12 @@ public class LRUCache {
     private final int cacheSize;
 
     public LRUCache(int cacheSize) {
-        q = new ArrayDeque<>();
-        map  = new HashMap<>();
+        this.q = new ArrayDeque<>();
+        this.map  = new HashMap<>();
         this.cacheSize = cacheSize;
     }
 
-    public int get(int key) {
+    public synchronized int get(int key) {
         int value = -1;
         if (map.containsKey(key)) {
             value = map.get(key);
@@ -43,7 +43,7 @@ public class LRUCache {
         return value;
     }
 
-    public void put(int key, int value) {
+    public synchronized void put(int key, int value) {
         if (map.containsKey(key)) {
             q.remove(key);
         } else if (map.size() >= cacheSize) {

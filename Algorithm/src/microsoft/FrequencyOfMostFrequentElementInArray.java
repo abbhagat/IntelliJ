@@ -29,17 +29,16 @@ import static java.lang.Integer.max;
 public class FrequencyOfMostFrequentElementInArray {
     public static int maxFrequency(int[] a, int k) {
         Arrays.sort(a);
-        int result = 1;
-        long sum = 0;
+        int sum = 0, max = Integer.MIN_VALUE;
         for (int i = 0, j = 0; j < a.length; j++) {
-            sum += a[j];                                     //  Add the current element to the sum
-            while ((long) a[j] * (j - i + 1) > sum + k) {   //  Adjust the left pointer to maintain the frequency constraint
-                sum -= a[i];                               //  Subtract the leftmost element from the sum
+            sum += a[j];                               //  Add the current element to the sum
+            while (a[j] * (j - i + 1) > sum + k) {    //  Adjust the left pointer to maintain the frequency constraint
+                sum -= a[i];                         //  Subtract the leftmost element from the sum
                 i++;
             }
-            result = max(result, j - i + 1);         // Update the maximum frequency
+            max = max(max, j - i + 1);    // Update the maximum frequency
         }
-        return result;
+        return max;
     }
 
     public static void main(String[] args) {

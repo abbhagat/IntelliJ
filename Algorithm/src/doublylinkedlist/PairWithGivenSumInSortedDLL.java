@@ -7,14 +7,14 @@ import static doublylinkedlist.TraverseList.traverseList;
 // Auxiliary space is O(1)
 public class PairWithGivenSumInSortedDLL {
 
-    private static void pairSum(Node low, Node high, final int x) {
+    private static void pairSum(Node low, Node high, final int key) {
         while (low != high && high.right != low) {
             int n = low.num + high.num;
-            if (n == x) {
+            if (n == key) {
                 System.out.println("(" + low.num + ", " + high.num + ")");
                 low  = low.right;
                 high = high.left;
-            } else if (n < x) {
+            } else if (n < key) {
                 low  = low.right;
             } else {
                 high = high.left;

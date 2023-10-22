@@ -37,6 +37,7 @@ class Father {
 
 class Son extends Father implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     transient int k = 4;
     int child = 4;
 

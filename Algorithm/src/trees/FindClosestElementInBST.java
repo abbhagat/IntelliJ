@@ -23,17 +23,17 @@ public class FindClosestElementInBST {
         Node node;
     }
 
-    private static int findClosest(Node root, int k, int closest, NodeWrapper closetNode) {
-        if (root != null) {
-            int diff = abs(root.num - k);
-            if (diff < closest) {
-                closest = diff;
-                closetNode.node = root;
-            }
-            findClosest(root.left,  k, closest, closetNode);
-            findClosest(root.right, k, closest, closetNode);
+    private static void findClosest(Node root, int k, int closest, NodeWrapper closetNode) {
+        if (root == null) {
+            return;
         }
-        return abs(closetNode.node.num - k);
+        int diff = abs(root.num - k);
+        if (diff < closest) {
+            closest = diff;
+            closetNode.node = root;
+        }
+        findClosest(root.left,  k, closest, closetNode);
+        findClosest(root.right, k, closest, closetNode);
     }
 
     public static void main(String[] args) {
@@ -45,6 +45,9 @@ public class FindClosestElementInBST {
         root.left.right.left       = new Node(3);
         root.left.right.right      = new Node(6);
         root.left.right.left.right = new Node(4);
-        System.out.println(findClosest(root, 13, Integer.MAX_VALUE, new NodeWrapper()));
+        NodeWrapper closetNode = new NodeWrapper();
+        int k = 13;
+        findClosest(root, k, Integer.MAX_VALUE, closetNode);
+        System.out.println(abs(closetNode.node.num - k));
     }
 }

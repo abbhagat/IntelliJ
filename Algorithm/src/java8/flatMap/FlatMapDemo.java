@@ -33,5 +33,7 @@ public class FlatMapDemo {
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
         System.out.println(listOfAllChars);
+
+
     }
 }
