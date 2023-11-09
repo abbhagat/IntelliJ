@@ -30,13 +30,13 @@ public class FrequencyOfMostFrequentElementInArray {
     public static int maxFrequency(int[] a, int k) {
         Arrays.sort(a);
         int sum = 0, max = Integer.MIN_VALUE;
-        for (int i = 0, j = 0; j < a.length; j++) {
-            sum += a[j];                               //  Add the current element to the sum
-            while (a[j] * (j - i + 1) > sum + k) {    //  Adjust the left pointer to maintain the frequency constraint
-                sum -= a[i];                         //  Subtract the leftmost element from the sum
-                i++;
+        for (int i = 0, j = 0; i < a.length; i++) {
+            sum += a[i];                               //  Add the current element to the sum
+            while (a[i] * (i - j + 1) > sum + k) {    //  Adjust the left pointer to maintain the frequency constraint
+                sum -= a[j];                         //  Subtract the leftmost element from the sum
+                j++;
             }
-            max = max(max, j - i + 1);    // Update the maximum frequency
+            max = max(max, i - j + 1);          // Update the maximum frequency
         }
         return max;
     }

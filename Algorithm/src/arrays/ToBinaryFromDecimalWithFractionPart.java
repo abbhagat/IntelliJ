@@ -2,7 +2,7 @@ package arrays;
 
 public class ToBinaryFromDecimalWithFractionPart {
 
-    private static StringBuilder toBinary(String s) {
+    private static StringBuilder toBinary(final String s) {
         int idx = s.indexOf('.');
         int x = Integer.parseInt(s.substring(0, idx));
         int y = Integer.parseInt(s.substring(idx + 1));

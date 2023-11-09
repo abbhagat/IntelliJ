@@ -4,6 +4,8 @@ package trees;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.max;
+
 /*
  *       1
  *      / \
@@ -29,7 +31,7 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
         }
         int left    = inorder(list, root.left);
         int right   = inorder(list, root.right);
-        int height  = Math.max(left, right) + 1;
+        int height  = max(left, right) + 1;
         // the first time this code is reached is when height = 0, since the tree is bottom-up processed.
         if (list.size() <= height) {
             list.add(new ArrayList<>());

@@ -1,6 +1,6 @@
 package designpattern;
 
-import java.util.Optional;
+import lombok.Getter;
 
 /**
  * In builder design pattern we build a complex object using simple object and uses step-by-step approach.
@@ -12,52 +12,43 @@ import java.util.Optional;
  * For this we need to have a private constructor in the Class with Builder class as argument.
  */
 
+@Getter
 class Computer {
+
     private final String HDD;
     private final String RAM;
-    private final Optional<Boolean> isGraphicsCardEnabled;
-    private final Optional<Boolean> isBluetoothEnabled;
+    private final boolean isGraphicsCardEnabled;
+    private final boolean isBluetoothEnabled;
 
-    public String getHDD() {
-        return HDD;
-    }
-
-    public String getRAM() {
-        return RAM;
-    }
-
-    public Optional<Boolean> isGraphicsCardEnabled() {
-        return isGraphicsCardEnabled;
-    }
-
-    public Optional<Boolean> isBluetoothEnabled() {
-        return isBluetoothEnabled;
-    }
-
-    private Computer(ComputerBuilder builder) {
+    private Computer(Builder builder) {
         this.HDD = builder.HDD;
         this.RAM = builder.RAM;
         this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
         this.isBluetoothEnabled    = builder.isBluetoothEnabled;
     }
 
-    public static class ComputerBuilder {
-        private final String HDD;
-        private final String RAM;
-        private Optional<Boolean> isGraphicsCardEnabled;
-        private Optional<Boolean> isBluetoothEnabled;
+    public static class Builder {
+        private String HDD;
+        private String RAM;
+        private boolean isGraphicsCardEnabled;
+        private boolean isBluetoothEnabled;
 
-        public ComputerBuilder(String HDD, String RAM) {
+        public Builder setHDD(String HDD) {
             this.HDD = HDD;
-            this.RAM = RAM;
+            return this;
         }
 
-        public ComputerBuilder setGraphicsCardEnabled(Optional<Boolean> isGraphicsCardEnabled) {
+        public Builder setRAM(String RAM) {
+            this.RAM = RAM;
+            return this;
+        }
+
+        public Builder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
             this.isGraphicsCardEnabled = isGraphicsCardEnabled;
             return this;
         }
 
-        public ComputerBuilder setBluetoothEnabled(Optional<Boolean> isBluetoothEnabled) {
+        public Builder setBluetoothEnabled(boolean isBluetoothEnabled) {
             this.isBluetoothEnabled = isBluetoothEnabled;
             return this;
         }
@@ -70,9 +61,12 @@ class Computer {
 
 public class BuilderDesignPattern {
     public static void main(String[] args) {
-        Computer computer = new Computer.ComputerBuilder("500GB", "2GB")
-                .setBluetoothEnabled(Optional.of(true))
-                .setGraphicsCardEnabled(Optional.of(true)).build();
-        System.out.println(computer.getHDD() + " " + computer.getRAM() + " " + computer.isGraphicsCardEnabled().get() + " " + computer.isBluetoothEnabled().get());
+        Computer computer = new Computer.Builder()
+                                        .setHDD("500 GB")
+                                        .setRAM("2 GB")
+                                        .setBluetoothEnabled(true)
+                                        .setGraphicsCardEnabled(true)
+                                        .build();
+        System.out.println(computer.getHDD() + " " + computer.getRAM() + " " + computer.isGraphicsCardEnabled() + " " + computer.isBluetoothEnabled());
     }
 }

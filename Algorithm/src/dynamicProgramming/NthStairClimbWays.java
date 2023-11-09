@@ -27,6 +27,9 @@ public class NthStairClimbWays {
 
     private static int stairCountDP(int n) {
         int[] dp = new int[n + 1];
+        if (n == 0) {
+            return 0;
+        }
         dp[1] = 1;
         dp[2] = 2;
         for (int i = 3; i <= n; i++) {
@@ -37,6 +40,7 @@ public class NthStairClimbWays {
 
     private static int stairCount(int n) {
         switch (n) {
+            case 0:  return 0;
             case 1:  return 1;
             case 2:  return 2;
             default: return stairCount(n - 1) + stairCount(n - 2);

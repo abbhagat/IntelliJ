@@ -1,0 +1,312 @@
+**************************************************** PL/SQL **************************************************************
+-- CREATE A CURSOR TO FETCH ALL THE ROWS FROM THE EMPLOYEE TABLE
+SET SERVEROUTPUT ON;
+BEGIN
+    DECLARE NAME EMPLOYEE.EMP_NAME%TYPE; ADDRESS EMPLOYEE.ADDRESS%TYPE; EMP EMPLOYEE%ROWTYPE; CURSOR CUR IS SELECT        EMP_NAME      , ADDRESS FROM        EMPLOYEE ;  CURSOR EMP_CUR           (               emp_id Employee.emp_id%type           ) IS SELECT * FROM        EMPLOYEE where        emp_id = emp_id ;-- emp is passed as the parameter to the cursor
+BEGIN OPEN CUR; LOOP FETCH CUR INTO       NAME     , ADDRESS ;  EXIT WHEN CUR%NOTFOUND; DBMS_OUTPUT.PUT_LINE('Name    :' ||NAME); DBMS_OUTPUT.PUT_LINE('Address :' ||ADDRESS); END LOOP; DBMS_OUTPUT.PUT_LINE(CUR%ROWCOUNT); CLOSE CUR; OPEN EMP_CUR(100); -- 100 is passed as the parameter to the cursor EMP_CUR --> EMP_CUR(emp_id Employee.emp_id%type :=100) LOOP FETCH EMP_CUR INTO       EMP ;  EXIT WHEN EMP_CUR%NOTFOUND; DBMS_OUTPUT.PUT_LINE('Name :' ||EMP.EMP_NAME); DBMS_OUTPUT.PUT_LINE('Address :' ||EMP.SALARY); END LOOP; DBMS_OUTPUT.PUT_LINE(EMP_CUR%ROWCOUNT); CLOSE EMP_CUR;
+END;
+END;
+-- ALTERNATE WAY TO FETCH ROWS FROM CURSOR USING FOR LOOP
+SET SERVEROUTPUT ON;
+DECLARE
+I INTEGER :=0;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(LPAD('Name',15,' ')
+    ||'    Salary');
+    DBMS_OUTPUT.PUT_LINE('-------------------------------');
+FOR CUR IN
+    (    SELECT *    FROM       EMPLOYEE
+    )
+    LOOP EXIT WHEN I=5; DBMS_OUTPUT.PUT_LINE(LPAD(CUR.EMP_NAME,15,' ') ||'    ' ||CUR.SALARY); I := I+1;
+END LOOP;
+END;
+--------------------------------------------------------
+SET SERVEROUTPUT ON;
+DECLARE
+I INTEGER :=0;
+    J INTEGER :=0;
+BEGIN
+SELECT COUNT(*) INTO I FROM EMPLOYEE;
+DBMS_OUTPUT.PUT_LINE('Total No of Rows '||I);
+    J :=I;
+    I :=0;
+FOR CUR IN (SELECT * FROM EMPLOYEE)
+    LOOP EXIT WHEN I=J; DBMS_OUTPUT.PUT_LINE(LPAD(CUR.EMP_NAME,14,'*')); I := I+1;
+END LOOP;
+END;
+--------------------------------------------------------
+**********IMPLICIT CURSOR*********
+BEGIN UPDATE    EMP_INFORMATION SET    EMP_DEPT='Web Developer' WHERE    EMP_NAME='Saulin' ;
+
+IF SQL%FOUND THEN DBMS_OUTPUT.PUT_LINE('Updated - If Found');
+END IF;
+    IF SQL%NOTFOUND THEN DBMS_OUTPUT.PUT_LINE('NOT Updated - If NOT Found');
+END IF;
+    IF SQL%ROWCOUNT>0 THEN DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT ||' Rows Updated');
+ELSE DBMS_OUTPUT.PUT_LINE('NO Rows Updated Found');
+END;
+    --CREATE PROCEDURE
+    CREATE OR REPLACE PROCEDURE PRC_NAME                             (                                 X IN VARCHAR2                             )
+    IS I    INTEGER :=1; NAME VARCHAR2(15); SAL  NUMBER;
+BEGIN FOR CUR IN (    SELECT *    FROM           EMPLOYEE ) LOOP EXIT WHEN I=5; DBMS_OUTPUT.PUT_LINE(LPAD(CUR.EMP_NAME,15,'*') ||'     ' ||CUR.SALARY); I := I+1; END LOOP;
+END;
+BEGIN PRC_NAME('X');
+END;
+
+DECLARE
+i INTEGER := 1;
+BEGIN
+   WHILE i <= 10 LOOP
+     DBMS_OUTPUT.PUT_LINE(i);
+     i := i+1;
+END LOOP;
+END;
+
+    --PROCEDURE TO FIND THE FACTORIAL OF A NUMBER
+
+    CREATE OR REPLACE PROCEDURE FACT_PRC (N IN INTEGER)
+    IS
+    FACT INTEGER :=1;
+    I    INTEGER :=1;
+BEGIN
+    IF N >=0 THEN WHILE I <= N
+       LOOP
+       FACT := FACT * I;
+       EXIT WHEN I=N;
+       I := I+1;
+END LOOP;
+       DBMS_OUTPUT.PUT_LINE('Factorial is : ' || FACT);
+ELSE
+       DBMS_OUTPUT.PUT_LINE('Factorial is : NA');
+END IF;
+END;
+
+    SET SERVEROUTPUT ON;
+BEGIN FACT_PRC(0);
+END;
+BEGIN FACT_PRC(-5);
+END;
+SELECT * FROM EMPLOYEE;
+
+SELECT * FROM  EMPLOYEE ORDER BY  ADDRESS ASC;
+
+DESC EMPLOYEE;
+UPDATE EMPLOYEE SET SALARY=1000000 WHERE EMP_NAME='Abhinaw_Bhagat';
+
+UPDATE EMPLOYEE SET ADDRESS=NULL WHERE EMP_ID=101;
+
+UPDATE EMPLOYEE SET ADDRESS='Bhagalpur' WHERE EMP_ID=101;
+
+--- Query to generate sequence from 50 to 100
+SELECT ROWNUM FROM DUAL CONNECT BY ROWNUM <=100
+    MINUS
+SELECT ROWNUM FROM    DUAL CONNECT BY ROWNUM <=50;
+
+-- Query to display in single string "ABCD,EFGH,IJKL,PQRS"
+SELECT REPLACE ('ABCD#EFGH#IJKL#PQRS','#') FROM DUAL;
+
+SELECT REPLACE ('ABCD#EFGH#IJKL#PQRS','#',',') FROM DUAL;
+
+-- Query to Count each Alphabet in the String
+SELECT LENGTH(regexp_replace('s,a,d,abc',',')) "Count Alphabet" FROM DUAL;
+
+SELECT REPLACE ('s,a,d,abc',',') FROM DUAL;
+
+SELECT LENGTH(REPLACE ('s,a,d,abc',','))"Count Alphabet" FROM DUAL;
+
+A database table can have a maximum of 12 triggers CREATE SEQUENCE CUST_SEQ START WITH 1 INCREMENT BY 1 CACHE 20;
+
+CREATE TRIGGER CUSTOMER_ID_TRIG BEFORE
+    INSERT ON CUSTOMERS
+    FOR EACH ROW DECLARE BEGIN IF :NEW.CUSTOMER_ID IS NULL THEN
+SELECT  CONCAT('C',CONCAT(CUST_SEQ.NEXTVAL,TO_CHAR(SYSDATE,'ddmmyyyyhhmiss')))
+INTO    :NEW.CUSTOMER_ID
+FROM    DUAL
+;
+
+END IF;
+END;
+SELECT * FROM ALL_TRIGGERS WHERE TABLE_NAME = 'CUSTOMER';
+
+SELECT * FROM DBA_TRIGGERS;
+
+SELECT * FROM ALL_VIEWS;
+
+SELECT * FROM ALL_SEQUENCES;
+
+SELECT * FROM DBA_OBJECTS;
+
+CREATE SEQUENCE EMPID_S START WITH 1000 INCREMENT BY 1;
+SELECT * FROM EMPLOYEE;
+
+-- Implementation of Pagination via SQL query
+
+SELECT  TOP 10 FIRST_NAME, LAST_NAME, SCORE, COUNT(*) OVER()
+FROM  EMPLOYEE
+WHERE  (       SCORE < @PREVIOUSSCORE  )  OR  (       SCORE         = @PREVIOUSSCORE       AND PLAYER_ID < @PREVIOUSPLAYERID  )
+ORDER BY  SCORE DESC, PLAYER_ID DESC
+;
+
+-----------------------------------UTPL--------------------------------------
+UTASSERT.EQQUERYVALUE ('String Text','SELECT COUNT(*) FROM EMPLOYEE WHERE emp_id ='
+|| EMP_ID, 1);
+UTASSERT.EQ( 'String Text',L_RS,'S' );
+UTASSERT.EQ ('String Text',L_FINAL_FREIGHT_COST,(L_INITIAL_FREIGHT_COST-UNIT_AMOUNT_2+UNIT_AMOUNT));
+INSERT INTO EMPLOYEE VALUES(1 ,'Abhinaw' ,'07-OCT-1986');
+
+L_INSERT_COUNTER := SQL%ROWCOUNT;
+UTASSERT.EQ ('Rows inserted',L_INSERT_COUNTER,1); -- Make sure rows are inserted
+
+Clustered Index: The clustered index is used to reorder the physical order of the table and search based on the key values.
+                 Each table can have only one clustered index.
+
+NonClustered Index: NonClustered Index does not alter the physical order of the table and maintains logical order of data.
+                    Each table can have 999 non-clustered indexes.
+
+-------------------------------- Working with BLOB/CLOB and XML------------------------------
+    UPDATE    EMPLOYEE SET XML = UTL_RAW.CAST_TO_RAW('<?xml version = "1.0" encoding="UTF-8" standalone="yes"?>
+<EMP>
+	<EMP_ID>1</EMP_ID>
+	<EMP_NAME>Abhinaw</EMP_NAME>
+	<SALARY>95000</SALARY>
+	<DOJ>20170522</DOJ>
+	<DOB>19880503</DOB>
+	<DESIGNATION>Associate</DESIGNATION>
+	<GENDER>M</GENDER>
+	<PHONE>9701735542</PHONE>
+	<EMAIL>abhinaw.kumar7@gmail.com</EMAIL>
+	<FATHER>Rambrikchh</FATHER>
+	<MOTHER>Amita</MOTHER>
+	<RELATIONSHIP>Married</RELATIONSHIP>
+	<ASSET>Y</ASSET>
+	<HAS BROTHER>Y</HAS BROTHER>
+	<HAS SISTER>N</HAS SISTER>
+	<BIRTH PLACE>Bhagalpur</BIRTH PLACE>
+	<WORK PLACE>Bangalore</WORK PLACE>
+	<IPAD>
+		<NAME>iPAD Air 2</NAME>
+		<TYPE>Tablet</TYPE>
+		<COMPANY>Apple</COMPANY>
+	</IPAD>
+	<LAPTOP>
+		<NAME>Ideapad</NAME>
+		<TYPE>Laptop</TYPE>
+		<COMPANY>Lenovo</COMPANY>
+	</LAPTOP>
+	<BIKE>
+		<NAME>Pulsar</NAME>
+		<TYPE>150 cc</TYPE>
+		<COMPANY>Bajaj</COMPANY>
+	</BIKE>
+	<INTERNET>
+		<NAME>Docomo</NAME>
+		<TYPE>Broadband</TYPE>
+		<COMPANY>Tata Docomo</COMPANY>
+	</INTERNET>
+	<MANAGER>
+		<MGR_NAME>Malu</MGR_NAME>
+		<MGR_ID>10</MGR_ID>
+		<TOTAL>12</TOTAL>
+		<MGR_DESIGNATION>VP</MGR_DESIGNATION>
+		<MGR_GENDER>F</MGR_GENDER>
+		<MGR_PHONE>9871231986</MGR_PHONE>
+		<MGR_EMAIL>malu.mathen@gmail.com</MGR_EMAIL>
+	</MANAGER>
+	<DEPARTMENT>
+		<DEPT_ID>1</DEPT_ID>
+		<DEPT_NAME>Trade</DEPT_NAME>
+		<DEPT_LOC>
+			<LINE 1>Prestige Tech Park</LINE 1>
+			<LINE 2>Electra Wing B - 7th Floor</LINE 2>
+			<CITY>Bangalore</CITY>
+			<STATE>Karnataka</STATE>
+			<PIN_CODE>560067</PIN_CODE>
+		</DEPT_LOC>
+		<DEPT_COST>123456789</DEPT_COST>
+		<DEPT_HEAD>Vinay Purohit</DEPT_HEAD>
+	</DEPARTMENT>
+	<PROJECT>
+		<PROJ_ID>2</PROJ_ID>')
+    WHERE    EMP_ID = 1;
+
+    -- Steps to insert a BLOB type in database column
+    CREATE
+OR
+    REPLACE DIRECTORY TEST_DIR AS 'C:\Users\Nikita\Desktop\';
+    GRANT READ,WRITE,EXECUTE ON DIRECTORY TEST_DIR to system;
+    DECLARE l_bfile BFILE; l_blob BLOB;
+BEGIN l_bfile := BFILENAME('TEST_DIR', 'Emp.xml'); DBMS_LOB.CREATETEMPORARY(l_blob,true); DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly); DBMS_LOB.loadfromfile(l_blob, l_bfile, DBMS_LOB.getlength(l_bfile)); DBMS_LOB.fileclose(l_bfile); UPDATE    EMPLOYEE SET    XML = l_blob WHERE    EMP_ID = 1 return xml into    l_blob ;
+
+END;
+    --------------------------------------------------------------------------------------------
+SELECT    TABLE_NAME  , COLUMN_NAME  , DATA_TYPE  , DATA_LENGTH
+FROM    USER_TAB_COLUMNS
+WHERE    TABLE_NAME IN( 'EMPLOYEE'            ,'DEPARTMENT')
+;
+
+-- Convert BLOB to CLOB
+CREATE OR REPLACE FUNCTION BLOB2CLOB                             (                                 L_BLOB BLOB                             ) RETURN CLOB
+    IS L_CLOB CLOB; L_SRC_OFFSET   NUMBER; L_DEST_OFFSET  NUMBER; L_BLOB_CSID    NUMBER := DBMS_LOB.DEFAULT_CSID; V_LANG_CONTEXT NUMBER := DBMS_LOB.DEFAULT_LANG_CTX; L_WARNING      NUMBER; L_AMOUNT       NUMBER;
+BEGIN DBMS_LOB.CREATETEMPORARY(L_CLOB, TRUE); L_SRC_OFFSET  := 1; L_DEST_OFFSET := 1; L_AMOUNT      := DBMS_LOB.GETLENGTH(L_BLOB); DBMS_LOB.CONVERTTOCLOB(L_CLOB,L_BLOB,L_AMOUNT,L_SRC_OFFSET,L_DEST_OFFSET,1,V_LANG_CONTEXT,L_WARNING); RETURN L_CLOB;
+END;
+    -- Convert CLOB_TO_BLOB
+    CREATE OR REPLACE FUNCTION CLOB2BLOB                             (                                 L_CLOB CLOB                             ) RETURN BLOB
+    IS L_BLOB BLOB; L_SRC_OFFSET   NUMBER; L_DEST_OFFSET  NUMBER; L_BLOB_CSID    NUMBER := DBMS_LOB.DEFAULT_CSID; V_LANG_CONTEXT NUMBER := DBMS_LOB.DEFAULT_LANG_CTX; L_WARNING      NUMBER; L_AMOUNT       NUMBER;
+BEGIN DBMS_LOB.CREATETEMPORARY(L_BLOB, TRUE); L_SRC_OFFSET  := 1; L_DEST_OFFSET := 1; L_AMOUNT      := DBMS_LOB.GETLENGTH(L_CLOB); DBMS_LOB.CONVERTTOBLOB(L_BLOB,L_CLOB,L_AMOUNT,L_SRC_OFFSET,L_DEST_OFFSET,1,V_LANG_CONTEXT,L_WARNING); RETURN L_BLOB;
+END;
+    -- PL/SQL to change BLOB TO CLOB
+    DECLARE L_CLOB CLOB; L_BLOB BLOB; V_LANG_CONTEXT NUMBER := DBMS_LOB.DEFAULT_LANG_CTX; L_SRC_OFFSET   NUMBER := 1; L_DEST_OFFSET  NUMBER := 1; L_WARNING      NUMBER;
+BEGIN SELECT    XML INTO    L_BLOB FROM    EMPLOYEE WHERE    EMP_ID = 1 ;  DBMS_LOB.CREATETEMPORARY(L_CLOB, TRUE); DBMS_LOB.CONVERTTOCLOB(L_CLOB,L_BLOB,DBMS_LOB.GETLENGTH(L_BLOB),L_SRC_OFFSET,L_DEST_OFFSET,1,V_LANG_CONTEXT,L_WARNING); DBMS_OUTPUT.PUT_LINE(L_CLOB);
+END;
+    -- Using the below query we can fetch the value of any node provided we know thw XPath of the XML Node
+SELECT    XMLTYPE(BLOB2CLOB(XML)).EXTRACT('/*/EMP_NAME/text()') "RESULT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    XMLTYPE(BLOB2CLOB(XML)).EXTRACT('/*/*/*/PIN_CODE/text()') "RESULT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    XMLQUERY('<EMPLOYEE>' RETURNING CONTENT)
+FROM    EMPLOYEE
+WHERE    EMP_ID=1
+;
+
+SELECT    XMLTYPE.CREATEXML(BLOB2CLOB(XML)).GETROOTELEMENT() AS "ROOTELEMENT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+-- To get all the child elements of a particular node.
+SELECT    XMLTYPE.CREATEXML(BLOB2CLOB(XML)).EXTRACT('/EMPLOYEE/IPAD//text()') AS "ROOTELEMENT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    XMLTYPE.CREATEXML(BLOB2CLOB(XML)).EXTRACT('//DEPT_LOC//text()') AS "ROOTELEMENT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    XMLTYPE.CREATEXML(BLOB2CLOB(XML)).EXTRACT('/EMPLOYEE/ADDRESS/HOME_ADDRESS/CITY//text()') AS "ROOTELEMENT"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    XMLTYPE.CREATEXML(BLOB2CLOB(XML)).EXTRACT('EMPLOYEE/EMP_NAME/text()').GETSTRINGVAL()"Value"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+SELECT    EXISTSNODE(XMLTYPE.CREATEXML(BLOB2CLOB(XML)), '/EMPLOYEE/EMP_NAME') "Emp Name"
+FROM    EMPLOYEE
+WHERE    EMP_ID =1
+;
+
+-- Important link
+https://docs.oracle.com/cd/B10501_01/appdev.920/a96620/xdb04cre.htm
+SELECT (SYSDATE-TO_DATE('03-OCT-2011'))/365.25
+FROM DUAL
+;

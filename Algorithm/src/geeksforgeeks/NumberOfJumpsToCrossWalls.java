@@ -23,7 +23,7 @@ public class NumberOfJumpsToCrossWalls {
         int i = 0, jumps = 0;
         while (i < a.length) {
             if (a[i] > x) {
-                a[i] -= x + y;
+                a[i] -= x + y; // a[i] = a[i] - x + y;
             } else {
                 i++;
             }

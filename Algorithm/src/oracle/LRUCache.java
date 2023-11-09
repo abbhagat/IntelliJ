@@ -20,21 +20,21 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LRUCache {
+public class LRUCache<K, V> {
 
-    private final Deque<Integer> q;
-    private final Map<Integer, Integer> map;
+    private final Deque<K> q;
+    private final Map<K, V> map;
 
     private final int cacheSize;
 
     public LRUCache(int cacheSize) {
         this.q = new ArrayDeque<>();
-        this.map  = new HashMap<>();
+        this.map = new HashMap<>();
         this.cacheSize = cacheSize;
     }
 
-    public synchronized int get(int key) {
-        int value = -1;
+    public synchronized V get(K key) {
+        V value = null;
         if (map.containsKey(key)) {
             value = map.get(key);
             q.remove(key);
@@ -43,11 +43,11 @@ public class LRUCache {
         return value;
     }
 
-    public synchronized void put(int key, int value) {
+    public synchronized void put(K key, V value) {
         if (map.containsKey(key)) {
             q.remove(key);
         } else if (map.size() >= cacheSize) {
-            int lruKey = q.removeLast();
+            K lruKey = q.removeLast();
             map.remove(lruKey);
         }
         map.put(key, value);
@@ -55,7 +55,7 @@ public class LRUCache {
     }
 
     public static void main(String[] args) {
-        LRUCache cache = new LRUCache(4);
+        LRUCache<Integer, Integer> cache = new LRUCache<>(4);
         cache.put(1, 100);
         cache.put(2, 200);
         cache.put(3, 300);

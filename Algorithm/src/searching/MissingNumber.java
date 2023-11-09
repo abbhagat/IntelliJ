@@ -17,7 +17,6 @@ public class MissingNumber {
         for (int i = min; i <= max; i++) {
             sum2 += i;
         }
-//        sum2 = ((min + max) * a.length + 1) / 2;
         System.out.println("Missing Num : " + (sum2 - sum1));
     }
 }

@@ -8,9 +8,7 @@ public class Singleton implements Cloneable, Serializable {
     private static final long serialVersionUID = 1L;
 
     private Singleton() {
-        if (_instance != null) {
-            throw new RuntimeException("Can't instantiate singleton twice");
-        }
+        throw new RuntimeException("Can't instantiate singleton twice");
     }
 
     protected Object readResolve() {

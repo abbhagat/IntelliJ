@@ -10,12 +10,11 @@ import static util.IsPalindrome.isPalindrome;
  * Output: 3
  * Explanation: After 3 partitioning substrings
  * are "a", "babbbab", "b", "ababa".
- *
+ * <p>
  * Input: str = "aaabba"
  * Output: 1
  * Explanation: The substrings after 1
  * partitioning are "aa" and "abba".
- *
  */
 
 public class PalindromePartitioning {
@@ -44,6 +43,8 @@ public class PalindromePartitioning {
         str = "aaaa";
         System.out.println(minPalindromePartition(str, 0, str.length() - 1));
         str = "aaabba";
+        System.out.println(minPalindromePartition(str, 0, str.length() - 1));
+        str = "aab";
         System.out.println(minPalindromePartition(str, 0, str.length() - 1));
     }
 }

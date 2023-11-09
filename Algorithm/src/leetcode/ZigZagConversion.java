@@ -12,11 +12,11 @@ public class ZigZagConversion {
         }
         int i = 0;
         while (i < s.length()) {
-            for (int j = 0; j < rows && i < s.length(); j++, i++) {
-                sb[j].append(s.charAt(i));
+            for (int j = 0; j < rows && i < s.length(); j++) {
+                sb[j].append(s.charAt(i++));
             }
-            for (int j = rows - 2; j > 0 && i < s.length(); j--, i++) {
-                sb[j].append(s.charAt(i));
+            for (int j = rows - 2; j > 0 && i < s.length(); j--) {
+                sb[j].append(s.charAt(i++));
             }
         }
         for (i = 1; i < rows; i++) {

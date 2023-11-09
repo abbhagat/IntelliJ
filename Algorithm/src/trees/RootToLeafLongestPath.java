@@ -16,10 +16,11 @@ public class RootToLeafLongestPath {
     }
 
     public static void main(String[] args) {
-        Node root        = new Node(5);
-        root.left        = new Node(3);
-        root.right       = new Node(8);
-        root.left.left   = new Node(1);
+        Node root             = new Node(5);
+        root.left             = new Node(3);
+        root.right            = new Node(8);
+        root.left.left        = new Node(2);
+        root.left.left.left   = new Node(1);
         System.out.println(longestPath(root));
     }
 }

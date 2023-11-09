@@ -15,7 +15,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
                 if (x == y && map.get(y) == 1) {
                     continue;
                 }
-                System.out.println(x + "," + y);
+                System.out.println("(" + x + "," + y + ")");
                 map.remove(x);
                 map.remove(y);
             }
@@ -24,7 +24,8 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     }
 
     public static void main(String[] args) {
-        findPairs(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 4, 5}, 10);
-        findPairs(new int[]{0, 2, 2, 2}, 4);
+        findPairs(new int[]{1, 2, 3, 4, 5}, 5);
+        findPairs(new int[]{2, -3, 3, 3, -2}, 0);
+        findPairs(new int[]{2, -6, 2, 5, 2}, 4);
     }
 }

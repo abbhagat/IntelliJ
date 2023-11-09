@@ -3,12 +3,12 @@ package recursion;
 // Time Complexity  O(n log n)
 public class LongestPalindromeFinder {
 
-    public static String intermediatePalindrome(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+    public static String intermediatePalindrome(String s, int i, int j) {
+        while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+            i--;
+            j++;
         }
-        return s.substring(left + 1, right);
+        return s.substring(i + 1, j);
     }
 
     public static String longestPalindromeString(String s) {

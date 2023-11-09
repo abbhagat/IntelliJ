@@ -1,6 +1,6 @@
 package geeks;
 
-/*
+/**
 Approach: The idea is to traverse every array element and find the highest bars on the left and right sides.
 Take the smaller of two heights. The difference between the smaller height and height of the current element
 is the amount of water that can be stored in this array element.
@@ -15,13 +15,12 @@ Instead of maintaining two arrays of size n for storing the left and a right max
 maintain two variables to store the maximum till that point.
 Since water trapped at any element = min(maxLeft, maxRight) – arr[i].
 Calculate water trapped on smaller elements out of A[low] and A[high] first and move the pointers till low doesn’t cross high.
- */
+*/
 
 // Time Complexity: O(n)
 // Auxiliary Space: O(1)
 
 public class TrappingRainWater {
-
     private static int findWater(int[] a) {
         int waterTrapped, maxLeft, maxRight, low, high;
         low = maxLeft = maxRight = waterTrapped = 0;
@@ -47,7 +46,7 @@ public class TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{3, 0, 2, 0, 4};
-        System.out.print(findWater(a));
+        System.out.println(findWater(new int[]{2, 5, 8, 9, 4}));
+        System.out.println(findWater(new int[]{3, 0, 2, 0, 4}));
     }
 }

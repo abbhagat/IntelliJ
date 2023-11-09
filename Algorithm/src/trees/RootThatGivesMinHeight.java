@@ -5,17 +5,18 @@ import static java.lang.Integer.max;
 public class RootThatGivesMinHeight {
 
     private static int max = Integer.MIN_VALUE;
+    private static Node minHeightNode;
 
     private static int treeHeight(Node root) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         int lh = treeHeight(root.left);
         int rh = treeHeight(root.right);
         int height = max(lh, rh) + 1;
         if (max < height) {
             max = height;
-            System.out.println(root.num);
+            minHeightNode = root;
         }
         return height;
     }
@@ -26,8 +27,7 @@ public class RootThatGivesMinHeight {
         root.right      = new Node(3);
         root.left.left  = new Node(4);
         root.left.right = new Node(5);
-        Node node = new Node();
         treeHeight(root);
-        System.out.println(node.num);
+        System.out.println(minHeightNode.num);
     }
 }

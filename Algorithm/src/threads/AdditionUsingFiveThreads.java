@@ -7,16 +7,15 @@ public class AdditionUsingFiveThreads {
     private static class WorkerThread implements Callable<Integer> {
 
         private final int start, end;
-        private int sum;
 
         public WorkerThread(int start, int end) {
             this.start = start;
             this.end = end;
-            this.sum = 0;
         }
 
         @Override
         public Integer call() {
+            int sum = 0;
             for (int i = start; i <= end; i++) {
                 sum += i;
             }

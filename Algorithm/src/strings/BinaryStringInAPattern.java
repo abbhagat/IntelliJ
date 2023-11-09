@@ -1,6 +1,6 @@
 package strings;
 
-// Time Complexity : O(n) * (2^n)
+// Time Complexity : O(2^n)
 
 public class BinaryStringInAPattern {
 

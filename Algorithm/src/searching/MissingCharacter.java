@@ -12,9 +12,8 @@ public class MissingCharacter {
             sum2 += x;
         }
         for (int i = min; i <= max; i++) {
-            sum1 += (char) i;
+            sum1 += i;
         }
-        sum1 = ((min + max) * (s.length() + 1)) / 2;
         System.out.println("Missing character :" + (char) (sum1 - sum2));
     }
 }

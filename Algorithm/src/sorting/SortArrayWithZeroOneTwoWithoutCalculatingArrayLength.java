@@ -52,7 +52,6 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
                 a[i] = 2;
             }
         }
-
         IntStream.range(0, n).forEach(j -> System.out.print(a[j] + " "));
     }
 

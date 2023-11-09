@@ -27,5 +27,6 @@ public class StringCompression {
     public static void main(String[] args) {
         System.out.println(stringCompression("ffilllttteeeeerredd"));
         System.out.println(stringCompression("abbcccdddde"));
+        System.out.println(stringCompression("wwwwaaadexxxxxxq"));
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 interface Iterator {
     boolean hasNext();
 
+    Object curr();
     Object next();
 }
 
@@ -34,6 +35,11 @@ class NameRepository implements Iterable {
         public Object next() {
             return names.get(index++);
         }
+
+        @Override
+        public Object curr() {
+            return names.get(index);
+        }
     }
 }
 
@@ -42,6 +48,7 @@ public class IteratorDesignPattern {
         NameRepository nameRepository = new NameRepository();
         Iterator iterator = nameRepository.iterator();
         while (iterator.hasNext()) {
+            System.out.println(iterator.curr());
             System.out.println(iterator.next());
         }
     }

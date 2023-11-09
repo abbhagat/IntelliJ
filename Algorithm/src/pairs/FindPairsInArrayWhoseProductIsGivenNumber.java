@@ -17,8 +17,6 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
                     continue;
                 }
                 System.out.println("(" + x + "," + y + ")");
-                map.remove(x);
-                map.remove(y);
             }
         }
         System.out.println();

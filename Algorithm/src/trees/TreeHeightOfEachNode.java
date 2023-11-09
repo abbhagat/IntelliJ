@@ -6,13 +6,13 @@ public class TreeHeightOfEachNode {
 
     private static int heightOfEachNode(Node root) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         int lH = heightOfEachNode(root.left);
         int rH = heightOfEachNode(root.right);
-        int heightOfEachNode = max(lH, rH) + 1;
-        System.out.println("Height of Node " + root.num + " --> " + heightOfEachNode);
-        return heightOfEachNode;
+        int height = max(lH, rH) + 1;
+        System.out.println("Height of Root at Node " + root.num + " --> " + height);
+        return height;
     }
 
     public static void main(String[] args) {

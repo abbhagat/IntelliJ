@@ -21,13 +21,10 @@ import static java.lang.Integer.min;
   (current source + last step +1) and
   (current source – last step -1)
  */
-public class MinStepsToReachDestination {
 
-    /*    Function to count number of steps required to reach a destination
-          source -> source vertex
-          step   -> value of last step taken
-          dest   -> destination vertex
-    */
+// Time Complexity : O(2^n)
+// Auxiliary Space : O(2^n)
+public class MinStepsToReachDestination {
     private static int steps(int source, int step, int dest) {
         if (Math.abs(source) > dest) {
             return Integer.MAX_VALUE;
@@ -36,8 +33,8 @@ public class MinStepsToReachDestination {
             return step;
         }
         step++;
-        int pos = steps(source + step, step, dest);  // if we go on positive side
-        int neg = steps(source - step, step, dest);  // if we go on negative side
+        int pos = steps(source + step, step, dest);
+        int neg = steps(source - step, step, dest);
         return min(pos, neg);
     }
 

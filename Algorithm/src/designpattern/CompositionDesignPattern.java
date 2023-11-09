@@ -19,15 +19,15 @@ class Employee {
         this.name = name;
         this.dept = dept;
         this.salary = sal;
-        subordinates = new ArrayList<>();
+        this.subordinates = new ArrayList<>();
     }
 
     public void add(Employee e) {
-        subordinates.add(e);
+        this.subordinates.add(e);
     }
 
     public void remove(Employee e) {
-        subordinates.remove(e);
+        this.subordinates.remove(e);
     }
 
     public List<Employee> getSubordinates() {

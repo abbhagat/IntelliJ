@@ -5,31 +5,29 @@ package vmware;
 // Time Complexity : O(n)
 public class HitCounter {
 
-    private final int[] times, hits;
-
-    public HitCounter(int timeInSec) {
-        times = new int[timeInSec];
-        hits  = new int[timeInSec];
+    private final int[] hits , times;
+    public  HitCounter(int timeInSecs) {
+        this.hits  = new int[timeInSecs];
+        this.times = new int[timeInSecs];
     }
 
-    private void hit(int timestamp) {
+    public void hit(int timestamp) {
         int index = timestamp % 10;
-        if (times[index] != timestamp) {
-            times[index]  = timestamp;
-            hits [index]  = 1;
-        } else {
-            hits[index]++;
+        if(times[index] != timestamp) {
+            times[index] = timestamp;
+            hits[index] = 1;
         }
+        hits[index]++;
     }
 
-    private int getHits(int timestamp) {
-        int total = 0;
-        for (int i = 0; i < 10; i++) {
-            if (timestamp - times[i] < 10) {
-                total += hits[i];
+    public int getHits(int timestamp) {
+        int result = 0;
+        for(int i = 0; i < 10; i++) {
+            if(timestamp - times[i] < 10) {
+                result += hits[i];
             }
         }
-        return total;
+        return result;
     }
 
     public static void main(String[] args) {

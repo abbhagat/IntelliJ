@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import java.util.Arrays;
+
 import static java.lang.Integer.min;
 
 public class MinCoinToMakeAValue {
@@ -22,15 +24,13 @@ public class MinCoinToMakeAValue {
     // Time Complexity (mV)
     private static int minCoinsDP(int[] coins, int V) {
         int[] dp = new int[V + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
-        for (int i = 1; i <= V; i++) {
-            dp[i] = Integer.MAX_VALUE;
-        }
         for (int i = 1; i <= V; i++) {
             for (int coin : coins)
                 if (coin <= i) {
                     int result = dp[i - coin];
-                    if (result != Integer.MAX_VALUE && result + 1 < dp[i]) {
+                    if (result != Integer.MAX_VALUE && dp[i] > result + 1) {
                         dp[i] = result + 1;
                     }
                 }

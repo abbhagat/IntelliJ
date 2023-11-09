@@ -18,7 +18,7 @@ public class TreeHeight {
         }
         int lH = heights(root.left);
         int rH = heights(root.right);
-        return Integer.max(lH, rH) + 1;
+        return max(lH, rH) + 1;
     }
 
     public static void main(String[] args) {

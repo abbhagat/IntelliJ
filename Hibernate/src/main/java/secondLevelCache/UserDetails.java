@@ -28,7 +28,7 @@ import java.io.Serializable;
 @Table(name = "USER_DETAILS")
 public class UserDetails implements Serializable {
 
-    private static final Long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

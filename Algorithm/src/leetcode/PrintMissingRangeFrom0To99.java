@@ -3,9 +3,12 @@ package leetcode;
 // Time  Complexity: O(n)
 // Space Complexity: O(n)
 
+import java.util.Arrays;
+
 public class PrintMissingRangeFrom0To99 {
 
     private static void printMissingRange(int[] a, int start, int end) {
+        Arrays.sort(a);
         boolean[] isPresent = new boolean[end + 2];
         isPresent[end + 1] = true;
         for (int x : a) {
@@ -28,8 +31,8 @@ public class PrintMissingRangeFrom0To99 {
     }
 
     public static void main(String[] args) {
-        printMissingRange(new int[]{2, 3, 4, 6, 9, 10},              0, 10);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10},  0, 99);
+        printMissingRange(new int[]{2, 3, 4, 6, 9, 10}, 0, 10);
+        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 0, 99);
         printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 10, 90);
         printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 11, 90);
     }

@@ -4,7 +4,7 @@ import static trees.TreeTraversal.postorder;
 
 public class GivenInOrderAndMirrorOfInorderGenerateOriginalTree {
 
-    static class PostIndex {
+    private static class PostIndex {
         int index;
     }
 

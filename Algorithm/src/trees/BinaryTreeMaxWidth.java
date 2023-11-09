@@ -46,6 +46,7 @@ public class BinaryTreeMaxWidth {
         levelOrderTraversal(root.right, level - 1);
     }
 
+    // Time Complexity : O(n)
     private static int findMaxWidth(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);

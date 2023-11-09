@@ -39,11 +39,21 @@ class LinkedBlockingQueue<E> implements BlockingQueue<E> {
 
 public class CustomBlockingQueue {
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>(10);
+        BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>(5);
         System.out.println("Put -> 11");
         blockingQueue.put(11);
         System.out.println("Put -> 12");
         blockingQueue.put(12);
+        blockingQueue.put(13);
+        blockingQueue.put(14);
+        blockingQueue.put(15);
+        System.out.println("Get -> " + blockingQueue.get());
+        blockingQueue.put(16);
+        System.out.println("Get -> " + blockingQueue.get());
+        blockingQueue.put(17);
+        System.out.println("Get -> " + blockingQueue.get());
+        System.out.println("Get -> " + blockingQueue.get());
+        System.out.println("Get -> " + blockingQueue.get());
         System.out.println("Get -> " + blockingQueue.get());
         System.out.println("Get -> " + blockingQueue.get());
     }

@@ -12,7 +12,6 @@ import static java.lang.Integer.max;
  * Find the longest chain which can be formed from a given set of pairs.
  * For example, if the given pairs are {{5, 24}, {39, 60}, {15, 28}, {27, 40}, {50, 90} },
  * then the longest chain that can be formed is of length 3, and the chain is {{5, 24}, {27, 40}, {50, 90}}
- * <p>
  * This problem is a variation of standard Longest Increasing Subsequence problem. Following is a simple two-step process.
  * 1) Sort given pairs in increasing order of first (or smaller) element. Why do not need sorting?
  * Consider the example {{6, 8}, {3, 4}} to understand the need of sorting.

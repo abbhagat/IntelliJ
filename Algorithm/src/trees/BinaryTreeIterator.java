@@ -2,59 +2,62 @@ package trees;
 
 import java.util.Stack;
 
-public class BinaryTreeIterator {
-    interface Iterator {
-        boolean hasNext();
-        Node curr();
-        Node next();
+interface Iterator {
+    boolean hasNext();
+
+    Node curr();
+
+    Node next();
+}
+
+interface Iterable {
+    Iterator iterator();
+}
+
+class TreeIterator implements Iterable {
+
+    private final Stack<Node> stack = new Stack<>();
+
+    public Stack<Node> getStack() {
+        return stack;
     }
 
-    interface Iterable {
-        Iterator iterator();
+    @Override
+    public Iterator iterator() {
+        return new BSTreeIterator();
     }
 
-    static class TreeIterator implements Iterable {
+    class BSTreeIterator implements Iterator {
 
-        private final Stack<Node> stack = new Stack<>();
-
-        public Stack<Node> getStack() {
-            return stack;
+        @Override
+        public boolean hasNext() {
+            return !stack.isEmpty();
         }
 
         @Override
-        public Iterator iterator() {
-            return new BSTreeIterator();
+        public Node curr() {
+            return stack.peek();
         }
 
-        class BSTreeIterator implements Iterator {
-
-            @Override
-            public boolean hasNext() {
-                return !stack.isEmpty();
+        @Override
+        public Node next() {
+            Node curr = stack.peek().right;
+            Node node = stack.pop();
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
             }
-
-            @Override
-            public Node curr() {
-                return stack.peek();
-            }
-
-            @Override
-            public Node next() {
-                Node curr = stack.peek().right;
-                Node node = stack.pop();
-                while (curr != null) {
-                    stack.push(curr);
-                    curr = curr.left;
-                }
-                return node;
-            }
+            return node;
         }
     }
+}
+
+public class BinaryTreeIterator {
 
     public static void main(String[] args) {
-        Node root       = new Node(2);
-        root.left       = new Node(1);
-        root.right      = new Node(3);
+        Node root = new Node(2);
+        root.left = new Node(1);
+        root.right = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
         Stack<Node> stack = treeIterator.getStack();
         Node curr = root;

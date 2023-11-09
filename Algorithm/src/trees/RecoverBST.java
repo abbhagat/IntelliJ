@@ -31,10 +31,9 @@ public class RecoverBST {
         recoverBSTUtil(root.left);
         if (temp != null && root.num < temp.num) {
             if (first == null) {
-                first  = temp;
+                first = temp;
                 middle = root;
-            }
-            else {
+            } else {
                 last = root;
             }
         }

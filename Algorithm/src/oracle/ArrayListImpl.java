@@ -78,5 +78,9 @@ public class ArrayListImpl<E> {
     for (int i = 0; i < al.size(); i++) {
       System.out.println(al.get(i));
     }
+    Object[] obj = al.getList();
+    for(Object o : obj) {
+      System.out.println(o);
+    }
   }
 }

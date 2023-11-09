@@ -8,19 +8,12 @@ import java.util.Map;
 // Time Complexity O(n)
 public class SingleNumber {
 
-    private static void singleNumber(int[] a) {
-        int result = 0;
-        for (int i = 0; i < 32; i++) {
-            int sum = 0;
-            for (int n : a) {
-                if ((n >> i & 1) == 1) {          // >> has higher priority than & and |
-                    sum++;
-                }
-            }
-            sum %= 2;
-            result |= sum << i;
+    private static void singleNumber(int[] A) {
+        int x = 0;
+        for (int a : A) {
+            x = x ^ a;
         }
-        System.out.println(result);
+        System.out.println(x);
     }
 
     private static void singleNumberSolnWithMap(int[] a) {
