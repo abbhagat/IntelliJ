@@ -2,8 +2,8 @@ package threads;
 
 class Q {
 
-    private volatile boolean flag;
-    private volatile int n = 1;
+    private boolean flag;
+    private int n = 1;
 
     public synchronized void printODD() {
         try {

@@ -24,7 +24,7 @@ public class FindElementPositionAfterSorting {
     }
 
     public static void main(String[] args) {
-        int[] a = {0, 3, 5, 1, 2, 4};
+        int[] a = {3, 5, 1, 2, 4};
         System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 3));
         System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 4));
     }

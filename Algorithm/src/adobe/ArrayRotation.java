@@ -7,7 +7,7 @@ import static util.Swap.swap;
 public class ArrayRotation {
 
     private static void arrayRotate(int[] a, int k) {
-        k = k % a.length;
+        k %= a.length;
         int n = a.length - k;
         rotate(a, 0, n - 1);
         rotate(a, n, a.length - 1);

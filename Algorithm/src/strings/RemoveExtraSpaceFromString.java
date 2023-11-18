@@ -7,10 +7,9 @@ package strings;
 public class RemoveExtraSpaceFromString {
 
     public static void main(String[] args) {
-        String x = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
-        String[] str = x.trim().split(" ");
+        String str = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
         StringBuilder result = new StringBuilder();
-        for (String s : str) {
+        for (String s : str.trim().split(" ")) {
             if (!s.isEmpty()) {
                 result.append(s.equals(".") ? "." : " " + s);
             }

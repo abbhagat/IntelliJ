@@ -21,10 +21,10 @@ public class MergeSort {
             return head;
         }
         Node mid = findMid(head);
-        Node second = mid.right;
+        Node head2 = mid.right;
         mid.right = null;
         Node a = mergeSort(head);
-        Node b = mergeSort(second);
+        Node b = mergeSort(head2);
         return merge(a, b);
     }
 

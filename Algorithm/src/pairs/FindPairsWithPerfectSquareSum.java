@@ -1,9 +1,10 @@
 package pairs;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FindPairsWithPerfectSquareSum {
 
@@ -44,10 +45,7 @@ public class FindPairsWithPerfectSquareSum {
         final int[] a = {2, 3, 6, 9, 10, 20};
         int sum = maxPairSum(a);
         List<Integer> list = getPerfectSquares(sum);
-        Set<Integer> set = new HashSet<>();
-        for (int x : a) {
-            set.add(x);
-        }
+        Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         int count = 0;
         for (int x : a) {
             count += countPairsWith(x, list, set);

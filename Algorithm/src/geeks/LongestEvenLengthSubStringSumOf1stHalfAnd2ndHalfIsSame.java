@@ -16,7 +16,7 @@ import static java.lang.Math.max;
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
     private static int findLength(String s) {
-        int maxLength = 0;
+        int max = 0;
         for (int k = 0; k < s.length(); k++) {
             int i = k, j = k + 1, lsum = 0, rsum = 0;
             while (i >= 0 && j < s.length()) {
@@ -25,13 +25,13 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
                 if (lsum == rsum) {
                     int length = j - i + 1;
                     System.out.print(s.substring(i, j + 1));
-                    maxLength = max(maxLength, length);
+                    max = max(max, length);
                 }
                 i--;
                 j++;
             }
         }
-        return maxLength;
+        return max;
     }
 
     public static void main(String[] args) {

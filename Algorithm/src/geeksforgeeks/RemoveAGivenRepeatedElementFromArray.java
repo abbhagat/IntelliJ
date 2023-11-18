@@ -4,16 +4,15 @@ import java.util.stream.IntStream;
 
 public class RemoveAGivenRepeatedElementFromArray {
     private static void removeAGivenRepeatedElementFromArray(int[] a, int n) {
-        int i = 0, j = 0;
-        while (i < a.length) {
-            if (a[i] == n) {
-                i++;
-            } else {
-                a[j++] = a[i++];
+        int j = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != n) {
+                a[j] = a[i];
+                j++;
             }
         }
-        IntStream.range(j, a.length).forEach(k -> a[k] = 0);
-        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+        IntStream.range(j, a.length).forEach(i -> a[i] = 0);
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
         System.out.println();
     }
 

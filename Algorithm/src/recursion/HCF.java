@@ -1,5 +1,7 @@
 package recursion;
 
+import static java.lang.Integer.max;
+
 public class HCF {
 
     private static int findHCF(int x, int y) {
@@ -8,7 +10,7 @@ public class HCF {
 
     private static int findGCD(int x, int y) {
         int hcf = 0;
-        for (int i = 1; i <= x || i <= y; i++) {
+        for (int i = 1; i <= max(x,y); i++) {
             if (x % i == 0 && y % i == 0)
                 hcf = i;
         }
@@ -19,7 +21,7 @@ public class HCF {
         int[] a = {10, 150, 30, 50, 40, 60};
         int hcf = a[0];
         for (int i = 1; i < a.length; i++) {
-            hcf = findGCD(hcf, a[i]);
+            hcf = findHCF(hcf, a[i]);
         }
         System.out.println("HCF := " + hcf);
         System.out.println(findHCF(0,5) + "\t" + findGCD(0,5));

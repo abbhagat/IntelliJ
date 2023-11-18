@@ -2,7 +2,7 @@ package vmware;
 
 public class ImplementPowerFunction {
 
-    private static double pow(double x, int n) {
+    private static double powers(double x, int n) {
         if (n < 0) {
             x = 1 / x;
             n = -n;
@@ -14,7 +14,7 @@ public class ImplementPowerFunction {
         return result;
     }
 
-    private static double powers(double x, int n) {
+    private static double pow(double x, int n) {
         if (n < 0) {
             x = 1 / x;
             n = -n;

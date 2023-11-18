@@ -5,6 +5,8 @@ package designpattern;
  *  Existence of one object depends on the existence of the another object.
  */
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ class Employee {
     private final String name;
     private final String dept;
     private final int salary;
+    @Getter
     private final List<Employee> subordinates;
 
     public Employee(String name, String dept, int sal) {
@@ -28,10 +31,6 @@ class Employee {
 
     public void remove(Employee e) {
         this.subordinates.remove(e);
-    }
-
-    public List<Employee> getSubordinates() {
-        return subordinates;
     }
 
     public String toString() {

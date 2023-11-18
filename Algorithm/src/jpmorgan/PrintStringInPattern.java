@@ -27,7 +27,7 @@ public class PrintStringInPattern {
             System.out.println();
             low++;
         }
-        while (high >= mid) {
+        while (mid < high) {
             for (int i = mid + 1; i < high; i++) {
                 System.out.print("*");
             }

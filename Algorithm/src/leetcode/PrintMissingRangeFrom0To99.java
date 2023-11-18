@@ -30,10 +30,25 @@ public class PrintMissingRangeFrom0To99 {
         System.out.println();
     }
 
+    private static void printMissingRanges(int[] a) {
+        Arrays.sort(a);
+        for (int i = 1; i < a.length; i++) {
+            if(a[i] - a[i - 1] == 1) {
+                continue;
+            }
+            if (a[i] - a[i - 1] > 2) {
+                System.out.print(a[i - 1] + 1 + "-" + (a[i] - 1) + " ");
+            } else if (a[i] - a[i - 1] != 1) {
+                System.out.print(a[i] - 1 + " ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        printMissingRange(new int[]{2, 3, 4, 6, 9, 10}, 0, 10);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 0, 99);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 10, 90);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 11, 90);
+        printMissingRanges(new int[]{2, 3, 4, 6, 9, 10});
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 10});
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 0, 10});
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 0, 10});
     }
 }

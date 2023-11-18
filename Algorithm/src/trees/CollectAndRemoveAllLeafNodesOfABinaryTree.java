@@ -20,17 +20,17 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
 
     public static List<List<Integer>> findLeaves(Node root) {
         List<List<Integer>> list = new ArrayList<>();
-        inorder(list, root);
+        treeHeight(list, root);
         return list;
     }
 
     // traverse the tree bottom-up recursively
-    private static int inorder(List<List<Integer>> list, Node root) {
+    private static int treeHeight(List<List<Integer>> list, Node root) {
         if (root == null) {
             return -1;
         }
-        int left    = inorder(list, root.left);
-        int right   = inorder(list, root.right);
+        int left    = treeHeight(list, root.left);
+        int right   = treeHeight(list, root.right);
         int height  = max(left, right) + 1;
         // the first time this code is reached is when height = 0, since the tree is bottom-up processed.
         if (list.size() <= height) {

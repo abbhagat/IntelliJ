@@ -1,6 +1,5 @@
 package strings;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +10,11 @@ public class AllPermutationsOfVowels {
 
     Map<Character, List<Character>> map = new HashMap<>();
     {
-        map.put('a', Arrays.asList('e'));
-        map.put('e', Arrays.asList('a', 'i'));
-        map.put('i', Arrays.asList('a', 'e', 'o', 'u'));
-        map.put('o', Arrays.asList('i', 'u'));
-        map.put('u', Arrays.asList('a'));
+        map.put('a', List.of('e'));
+        map.put('e', List.of('a', 'i'));
+        map.put('i', List.of('a', 'e', 'o', 'u'));
+        map.put('o', List.of('i', 'u'));
+        map.put('u', List.of('a'));
     }
     public int countVowelPermutation(int n) {
         int[][] a = new int[5][n];

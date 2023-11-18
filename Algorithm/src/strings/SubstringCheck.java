@@ -3,7 +3,7 @@ package strings;
 public class SubstringCheck {
 
     private static boolean isASubString(String s1, String s2) {
-        if (s2.isEmpty() || s2.equals(s1)) {
+        if (s2.equals(s1)) {
             return true;
         }
         if (s2.length() > s1.length()) {

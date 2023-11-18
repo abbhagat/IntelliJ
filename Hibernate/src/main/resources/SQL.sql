@@ -82,6 +82,20 @@ WHERE E.DEPT_ID = D.DEPT_ID
 GROUP BY(D.DEPT_NAME, D.DEPT_ID)
 HAVING D.DEPT_ID IS NOT NULL;
 
+
+SELECT E1.EMP_NAME"Manager", LISTAGG(E2.EMP_NAME, ' | ') WITHIN GROUP (ORDER BY E2.EMP_NAME)"Subordinates"
+FROM EMPLOYEE E1, EMPLOYEE E2
+WHERE E1.EMP_ID = E2.MGR_ID
+GROUP BY E1.EMP_NAME;
+
+SELECT E1.EMP_NAME, COUNT(E2.MGR_ID) FROM EMPLOYEE E1, EMPLOYEE E2 WHERE E1.EMP_ID = E2.MGR_ID GROUP BY  E1.EMP_NAME;
+---------------------------------------
+EMP_NAME    COUNT(E2.MGR_ID)
+Sekhar          6
+Naseer          1
+Govind          4
+
+---------------------------------------
 --Find all Employee records containing the word "Joe", regardless of whether it was stored as JOE, Joe, or joe.
 SELECT * FROM EMPLOYEE WHERE UPPER(EMP_NAME) LIKE '%JOE%';
 

@@ -1,12 +1,13 @@
-package jpmorgan;
+package adobe;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
-public class CacheMerging {
+public class InsertInterval {
 
     private static class Interval {
         int start, end;
@@ -14,10 +15,6 @@ public class CacheMerging {
         Interval(int start, int end) {
             this.start = start;
             this.end = end;
-        }
-
-        public String toString() {
-            return start + "," + end;
         }
     }
 
@@ -29,22 +26,16 @@ public class CacheMerging {
         while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
             Interval interval = intervalList.remove(i);
             newInterval.start = min(interval.start, newInterval.start);
-            newInterval.end = max(interval.end, newInterval.end);
+            newInterval.end   = max(interval.end, newInterval.end);
         }
         intervalList.add(i, newInterval);
     }
 
     public static void main(String[] args) {
-        List<Interval> intervalList = new ArrayList<>();
-        insertInterval(intervalList, new Interval(50, 2));
-        System.out.println(intervalList);
-        insertInterval(intervalList, new Interval(60, 5));
-        System.out.println(intervalList);
-        insertInterval(intervalList, new Interval(51, 7));
-        System.out.println(intervalList);
-        insertInterval(intervalList, new Interval(61, 10));
-        System.out.println(intervalList);
-        insertInterval(intervalList, new Interval(1, 60));
-        System.out.println(intervalList);
+        List<Interval> intervalList = new ArrayList<>(Arrays.asList(new Interval(1, 3), new Interval(6, 9)));
+        insertInterval(intervalList, new Interval(2, 5));
+        intervalList.forEach(interval -> System.out.println(interval.start + " " + interval.end));
+        insertInterval(intervalList, new Interval(-2, 10));
+        intervalList.forEach(interval -> System.out.println(interval.start + " " + interval.end));
     }
 }

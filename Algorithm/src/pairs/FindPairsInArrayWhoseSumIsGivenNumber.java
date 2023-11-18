@@ -16,6 +16,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
                     continue;
                 }
                 System.out.println("(" + x + "," + y + ")");
+                System.out.println("(" + y + "," + x + ")");
                 map.remove(x);
                 map.remove(y);
             }

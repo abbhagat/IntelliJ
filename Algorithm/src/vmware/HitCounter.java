@@ -12,12 +12,12 @@ public class HitCounter {
     }
 
     public void hit(int timestamp) {
-        int index = timestamp % 10;
-        if(times[index] != timestamp) {
-            times[index] = timestamp;
-            hits[index] = 1;
+        int i = timestamp % 10;
+        if(times[i] != timestamp) {
+           times[i]  = timestamp;
+           hits [i]  = 1;
         }
-        hits[index]++;
+        hits[i]++;
     }
 
     public int getHits(int timestamp) {

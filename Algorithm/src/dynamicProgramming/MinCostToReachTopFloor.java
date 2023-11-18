@@ -17,7 +17,7 @@ public class MinCostToReachTopFloor {
 
     private static int minCost(int[] a) {
         int n = a.length;
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n];
         if (n == 1) {
             return a[0];
         }

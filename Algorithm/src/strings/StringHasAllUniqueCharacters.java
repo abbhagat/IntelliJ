@@ -3,10 +3,9 @@ package strings;
 public class StringHasAllUniqueCharacters {
 
     private static boolean hasAllUniqueChar(String s) {
-        int[] temp = new int[26];
-        char[] c = s.toLowerCase().toCharArray();
-        for (char x : c) {
-            temp[x - 'a']++;
+        int[] temp = new int[128];
+        for (char c : s.toCharArray()) {
+            temp[c]++;
         }
         for (int x : temp) {
             if (x > 1) {

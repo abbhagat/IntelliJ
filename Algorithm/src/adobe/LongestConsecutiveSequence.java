@@ -1,18 +1,16 @@
 package adobe;
 
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.lang.Integer.max;
 
 public class LongestConsecutiveSequence {
 
     private static int longestConsecutiveSequence(int[] a) {
-        Set<Integer> set = new HashSet<>();
-        for (int x : a) {
-            set.add(x);
-        }
-        int max = 1, count, i, j;
+        Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
+        int max = Integer.MIN_VALUE, count, i, j;
         for (int x : a) {
             i = x - 1;
             j = x + 1;

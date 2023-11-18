@@ -1,10 +1,14 @@
 package oracle;
 
+import lombok.Getter;
+
 public class ArrayListImpl<E> {
 
+  @Getter
   private transient E[] list;
+  @Getter
   private int size;
-  private static final int DEFAULT_CAPACITY = 5;
+  private static final int DEFAULT_CAPACITY = 10;
 
   public ArrayListImpl() {
     this(DEFAULT_CAPACITY);
@@ -15,14 +19,6 @@ public class ArrayListImpl<E> {
       throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
     }
     this.list = (E[]) new Object[initialCapacity];
-  }
-
-  public E[] getList() {
-    return list;
-  }
-
-  public int size() {
-    return size;
   }
 
   public boolean add(E e) {
@@ -70,14 +66,15 @@ public class ArrayListImpl<E> {
     al.add(5);
     al.add(6);
     al.add(7);
-    for (int i = 0; i < al.size(); i++) {
+    for (int i = 0; i < al.getSize(); i++) {
       System.out.println(al.get(i));
     }
     al.remove(2);
     System.out.println("Changed List");
-    for (int i = 0; i < al.size(); i++) {
+    for (int i = 0; i < al.getSize(); i++) {
       System.out.println(al.get(i));
     }
+    System.out.println();
     Object[] obj = al.getList();
     for(Object o : obj) {
       System.out.println(o);

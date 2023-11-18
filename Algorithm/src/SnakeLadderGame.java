@@ -49,7 +49,6 @@ class Ladder {
     int start, end;
 }
 
-
 class Game {
     private final List<Ladder> ladderList;
     private final List<Snake> snakeList;
@@ -66,15 +65,15 @@ class Game {
     }
 
     public final void play() {
-        // Dice Rolling
         label: while (true) {
             for (Player player : playerList) {
                 int n = rollDice();
                 if (n >= 1 && n <= 6) {
                     player.index += n;
-                    if (player.index > 100) {
+                    while (player.index > 100) {
                         player.index -= n;
-                        rollDice();
+                        n = rollDice();
+                        player.index += n;
                     }
                     if (ladderMap.containsKey(player.index)) {
                         player.index = ladderMap.get(player.index);
@@ -105,7 +104,7 @@ class Game {
         private final Map<Integer,Integer> ladderMap = new HashMap<>();
         private final Map<Integer,Integer> snakeMap = new HashMap<>();
 
-        Game build() {
+        public Game build() {
             return new Game(this);
         }
 
@@ -134,7 +133,10 @@ class Game {
 public class SnakeLadderGame {
 
     public static void main(String[] args) {
-        Game g = new Game.Builder().addSnake(34,12).addLadder(23,56).addPlayer("X").addSnake(43,5).addLadder(11,100).addPlayer("Y").build();
+        Game g = new Game.Builder()
+                .addSnake(34,12).addLadder(23,56).addPlayer("X")
+                .addSnake(43,5).addLadder(11,100).addPlayer("Y")
+                .build();
         g.play();
     }
 }

@@ -15,10 +15,10 @@ public class FindPairsWhoseDivIsAGivenNumber {
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        if (target == 0) {
+        if (target == 0 && map.containsKey(0)) {
             for (int x : a) {
                 if (x != 0) {
-                    set.add(new Pair(0, x));
+                    set.add(new Pair(x, 0));
                 }
             }
             return set;
@@ -40,7 +40,6 @@ public class FindPairsWhoseDivIsAGivenNumber {
     public static void main(String[] args) {
         System.out.println(findPairs(new int[]{5, 10, 5}, 1));
         System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 0}, 0));
-        System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 12));
         System.out.println(findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 12));
     }
 }

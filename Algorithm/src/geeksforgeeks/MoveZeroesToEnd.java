@@ -15,16 +15,15 @@ import java.util.stream.IntStream;
 public class MoveZeroesToEnd {
 
     private static void moveZeroesToEnd(int[] a) {
-        int i = 0, j = 0;
-        while (i < a.length) {
-            if (a[i] == 0) {
-                i++;
-            } else {
-                a[j++] = a[i++];
+        int j = 0;
+        for(int i = 0; i < a.length; i++) {
+            if(a[i] != 0) {
+               a[j] = a[i];
+               j++;
             }
         }
-        IntStream.range(j, a.length).forEach(k -> a[k] = 0);
-        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+        IntStream.range(j, a.length).forEach(i -> a[i] = 0);
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 
     public static void main(String[] args) {

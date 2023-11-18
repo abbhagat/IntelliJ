@@ -41,22 +41,22 @@ public class MaxGoldCollected {
         return a[R - 1][C - 1];
     }
 
-    private static int maxGoldCollectedDP(int[][] a) {
-        final int R = a.length, C = a[0].length;
-        int[][] tc = new int[R][C];
-        tc[0][0] = a[0][0];
-        for (int i = 1; i < R; i++) {
-            tc[i][0] = a[i][0] + tc[i - 1][0];
+    private static int maxGoldCollectedDP(int[][] cost) {
+        final int m = cost.length - 1, n = cost[0].length - 1;
+        int[][] tc = new int[m + 1][n + 1];
+        tc[0][0] = cost[0][0];
+        for (int i = 1; i <= m; i++) {
+            tc[i][0] = cost[i][0] + tc[i - 1][0];
         }
-        for (int j = 1; j < C; j++) {
-            tc[0][j] = a[0][j] + tc[0][j - 1];
+        for (int j = 1; j <= n; j++) {
+            tc[0][j] = cost[0][j] + tc[0][j - 1];
         }
-        for (int i = 1; i < R; i++) {
-            for (int j = 1; j < C; j++) {
-                tc[i][j] = a[i][j] + max(tc[i - 1][j], tc[i][j - 1]);
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                tc[i][j] = cost[i][j] + max(tc[i - 1][j], tc[i][j - 1]);
             }
         }
-        return tc[R - 1][C - 1];
+        return tc[m][n];
     }
 
     public static void main(String[] args) {
@@ -64,11 +64,13 @@ public class MaxGoldCollected {
         int R = list.size();
         int C = list.get(0).size();
         int[][] a = new int[R][C];
+        int[][] b = new int[R][C];
         for (int i = 0; i < R; i++) {
             for (int j = 0; j < C; j++) {
                 a[i][j] = list.get(i).get(j);
+                b[i][j] = list.get(i).get(j);
             }
         }
-        System.out.println(maxGoldCollectedDP(a));
+        System.out.println(maxGoldCollected(a) + "\t" + maxGoldCollectedDP(b));
     }
 }

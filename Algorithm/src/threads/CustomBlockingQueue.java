@@ -3,58 +3,79 @@ package threads;
 import java.util.LinkedList;
 import java.util.Queue;
 
-interface BlockingQueue<E> {
+class BlockingQueue {
 
-    void put(E e) throws InterruptedException;
-
-    E get() throws InterruptedException;
-}
-
-class LinkedBlockingQueue<E> implements BlockingQueue<E> {
-
-    private final Queue<E> queue;
+    private final Queue<Integer> queue;
     private final int maxSize;
 
-    public LinkedBlockingQueue(int maxSize) {
+    public BlockingQueue(int maxSize) {
         this.maxSize = maxSize;
         queue = new LinkedList<>();
     }
 
-    public synchronized void put(E e) throws InterruptedException {
-        while (queue.size() == maxSize) {
+    public synchronized void put(int n) throws InterruptedException {
+        if (queue.size() == maxSize) {
             this.wait();
         }
-        queue.add(e);
+        queue.add(n);
         this.notifyAll();
     }
 
-    public synchronized E get() throws InterruptedException {
-        while (queue.isEmpty()) {
+    public synchronized int get() throws InterruptedException {
+        if (queue.isEmpty()) {
             this.wait();
         }
         this.notifyAll();
-        return queue.poll();
+        return queue.remove();
+    }
+}
+
+class Producer implements Runnable {
+
+    private final BlockingQueue q;
+
+    public Producer(BlockingQueue q) {
+        this.q = q;
+        new Thread(this, "Producer").start();
+    }
+
+    public void run() {
+        int n = 1;
+        while (true) {
+            try {
+                System.out.println("Put : " + n++) ;
+                q.put(n);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+}
+
+class Consumer implements Runnable {
+    private final BlockingQueue q;
+
+    public Consumer(BlockingQueue q) {
+        this.q = q;
+        new Thread(this, "Consumer").start();
+    }
+
+    public void run() {
+        while (true) {
+            try {
+                System.out.println("Get : " + q.get());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
 
 public class CustomBlockingQueue {
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>(5);
-        System.out.println("Put -> 11");
-        blockingQueue.put(11);
-        System.out.println("Put -> 12");
-        blockingQueue.put(12);
-        blockingQueue.put(13);
-        blockingQueue.put(14);
-        blockingQueue.put(15);
-        System.out.println("Get -> " + blockingQueue.get());
-        blockingQueue.put(16);
-        System.out.println("Get -> " + blockingQueue.get());
-        blockingQueue.put(17);
-        System.out.println("Get -> " + blockingQueue.get());
-        System.out.println("Get -> " + blockingQueue.get());
-        System.out.println("Get -> " + blockingQueue.get());
-        System.out.println("Get -> " + blockingQueue.get());
-        System.out.println("Get -> " + blockingQueue.get());
+        BlockingQueue q = new BlockingQueue(5);
+        new Producer(q);
+        new Consumer(q);
     }
 }

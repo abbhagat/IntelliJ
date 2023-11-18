@@ -35,8 +35,8 @@ public class IntervalMerging {
     public static void main(String[] args) {
         List<Interval> intervalList = new ArrayList<>();
         intervalList.add(new Interval(1, 3));
-        intervalList.add(new Interval(2, 6));
-        intervalList.add(new Interval(8, 10));
+        intervalList.add(new Interval(6, 9));
+        intervalList.add(new Interval(2, 5));
         intervalList.add(new Interval(15, 18));
         mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
     }
