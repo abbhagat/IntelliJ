@@ -16,12 +16,11 @@ public class MinFlipToMakeBinaryStringSame {
     private static int minFlips(char[] a, char[] b) {
         int minFlips = 0;
         for (int i = 0; i < a.length; i++) {
-            if (a[i] == b[i]) {
-                continue;
-            }
-            minFlips++;
-            if (i + 1 < a.length && i + 1 < b.length && a[i] == b[i + 1] && a[i + 1] == b[i]) {
-                i++;
+            if (a[i] != b[i]) {
+                minFlips++;
+                if (i + 1 < a.length && i + 1 < b.length && a[i] == b[i + 1] && a[i + 1] == b[i]) {
+                    i++;
+                }
             }
         }
         return minFlips;

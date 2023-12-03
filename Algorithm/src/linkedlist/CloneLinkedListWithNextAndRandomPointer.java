@@ -25,10 +25,10 @@ public class CloneLinkedListWithNextAndRandomPointer {
     private static Node clone(Node head) {
         Node temp = head;
         while (temp != null) {
-            Node next = temp.next;
-            temp.next = new Node(temp.num); // insert additional node after every node of original list
-            temp.next.next = next;
-            temp = next;
+            Node node = new Node(temp.num);  // insert additional node after every node of original list
+            node.next = temp.next;
+            temp.next = node;
+            temp = temp.next.next;
         }
         temp = head;
         // adjust the random pointers of the newly added nodes
@@ -40,7 +40,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
         }
         temp = head;
         Node copy = head.next;
-        Node node = copy;  // save the head of copied linked list and separate the original list and copied list
+        Node node = head.next;  // save the head of copied linked list and separate the original list and copied list
         while (temp != null) {
             temp.next = temp.next.next;
             copy.next = (copy.next != null) ? copy.next.next : copy.next;
@@ -52,6 +52,6 @@ public class CloneLinkedListWithNextAndRandomPointer {
 
     public static void main(String[] args) {
         Node node = clone(new Node(10));
-        System.out.println(node);
+        System.out.println(node.num);
     }
 }

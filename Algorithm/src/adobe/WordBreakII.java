@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
+ * Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word.
+ * Return all such possible sentences in any order.
  * Note that the same word in the dictionary may be reused multiple times in the segmentation
  * Example 1:
  * Input: s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
@@ -22,31 +23,31 @@ import java.util.Set;
  */
 
 public class WordBreakII {
-
     public static List<String> wordBreak(String s, List<String> wordDict) {
-        Set<String> set = new HashSet<>(wordDict);
-        List<String> res = new ArrayList<>();
-        dfs(s, set, res, new StringBuilder(), 0);
-        return res;
+        StringBuilder sb  = new StringBuilder();
+        Set<String>   set = new HashSet<>(wordDict);
+        List<String> list = new ArrayList<>();
+        wordBreak(0, s, sb, set, list);
+        return list;
     }
 
-    public static void dfs(String s, Set<String> set, List<String> res, StringBuilder sb, int index) {
+    public static void wordBreak(int index, String s, StringBuilder sb, Set<String> set, List<String> list) {
         if (index == s.length()) {
-            res.add(sb.toString().trim());
+            list.add(sb.toString().trim());
             return;
         }
-
         for (int i = index; i < s.length(); i++) {
-            String sub = s.substring(index, i + 1);
-            if (set.contains(sub)) {
-                sb.append(sub).append(" ");
-                dfs(s, set, res, sb, i + 1);
-                sb.delete(sb.length() - sub.length() - 1, sb.length());
+            String str = s.substring(index, i + 1);
+            if (set.contains(str)) {
+                sb.append(str).append(" ");
+                wordBreak(i + 1, s, sb, set, list);
+                sb.delete(sb.length() - str.length() - 1, sb.length());
             }
         }
     }
 
     public static void main(String[] args) {
-        wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog")).forEach(System.out::println);
+        List<String> list = wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"));
+        list.forEach(System.out::println);
     }
 }

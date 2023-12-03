@@ -23,10 +23,10 @@ public class AllStringCombinationByPlacingSpace {
             return al;
         }
         List<String> list = spaceString(str.substring(1));
-        for (String s : list) {
+        list.forEach(s -> {
             al.add(str.charAt(0) + s);
             al.add(str.charAt(0) + " " + s);
-        }
+        });
         return al;
     }
 

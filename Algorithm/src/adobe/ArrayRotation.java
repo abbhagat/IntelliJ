@@ -2,12 +2,12 @@ package adobe;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 public class ArrayRotation {
 
     private static void arrayRotate(int[] a, int k) {
-        k %= a.length;
+        k = k % a.length;
         int n = a.length - k;
         rotate(a, 0, n - 1);
         rotate(a, n, a.length - 1);

@@ -1,7 +1,7 @@
 package dynamicProgramming;
 
 import static java.lang.Integer.min;
-import static util.IsPalindrome.isPalindrome;
+import static util.CommonUtils.isPalindrome;
 
 /**
  * Given a string str, a partitioning of the string is a palindrome partitioning if every sub-string of the partition is a palindrome.

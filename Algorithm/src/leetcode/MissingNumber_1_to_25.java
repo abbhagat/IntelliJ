@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -25,10 +26,8 @@ public class MissingNumber_1_to_25 {
     }
 
     private static int findMissingNumberWhenNumbersIsNotRepeated(int[] a) {
-        int n = a.length, sum1 = 0;
-        for (int x : a) {
-            sum1 += x;
-        }
+        int n = a.length;
+        int sum1 = Arrays.stream(a).reduce(0, Integer::sum);
         int sum2 = ((a[0] + a[n - 1]) * (n + 1)) / 2;
         return sum2 - sum1;
     }

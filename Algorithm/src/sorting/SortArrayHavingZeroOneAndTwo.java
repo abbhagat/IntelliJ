@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 /**
  * Dutch National Flag Algorithm OR 3-way Partitioning:
@@ -11,7 +11,6 @@ import static util.Swap.swap;
  * If the ith element is 0 then swap the element to the low range, thus shrinking the unknown range.
  * Similarly, if the element is 1 then keep it as it is but shrink the unknown range.
  * If the element is 2 then swap it with an element in high range.
- * <p>
  * Time Complexity: O(n)
  */
 public class SortArrayHavingZeroOneAndTwo {

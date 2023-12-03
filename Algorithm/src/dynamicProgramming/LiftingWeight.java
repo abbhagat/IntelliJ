@@ -18,7 +18,7 @@ public class LiftingWeight {
         if (wt[n] > W) {
             return knapSack(W, wt, n - 1);
         }
-        return Math.max(wt[n] + knapSack(W - wt[n], wt, n - 1), knapSack(W, wt, n - 1));
+        return max(wt[n] + knapSack(W - wt[n], wt, n - 1), knapSack(W, wt, n - 1));
     }
 
     private static int cutRod(int W, int[] wt, int n) {

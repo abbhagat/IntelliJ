@@ -10,7 +10,7 @@ public class HashSet<E> implements Cloneable, Serializable {
     private static final Object PRESENT = new Object();
     private transient HashMap<E, Object> map;
 
-    HashSet() {
+    public HashSet() {
         map = new HashMap<>();
     }
 

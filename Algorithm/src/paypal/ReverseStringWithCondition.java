@@ -1,6 +1,6 @@
 package paypal;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 /*
 Given a string x, return the “reversed” string where all characters that are not a letter stay in the same place, and all letters reverse their positions.

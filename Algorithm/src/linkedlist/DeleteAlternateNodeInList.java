@@ -7,9 +7,6 @@ import static linkedlist.TraverseList.traverseList;
 public class DeleteAlternateNodeInList {
 
     private static void deleteAlternateNode(Node head) {
-        if (head == null) {
-            return;
-        }
         for (Node temp = head; temp != null && temp.next != null; temp = temp.next) {
             temp.next = temp.next.next;
         }

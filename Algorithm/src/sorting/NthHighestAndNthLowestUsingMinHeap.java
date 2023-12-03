@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 public class NthHighestAndNthLowestUsingMinHeap {
     private static final int[] a = {10, 4, 6, 9, 2, 1, 5, 8, 7, 3};

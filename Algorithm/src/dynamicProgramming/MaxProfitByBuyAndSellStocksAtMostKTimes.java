@@ -3,7 +3,6 @@ package dynamicProgramming;
 import static java.lang.Integer.max;
 
 public class MaxProfitByBuyAndSellStocksAtMostKTimes {
-
     private static int maxProfit(int[] price, final int k) {
         int n = price.length - 1;
         int[][] profit = new int[k + 1][n + 1];

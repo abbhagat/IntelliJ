@@ -2,15 +2,15 @@ package trees;
 
 /*
 Input:
-                                                10
-                                              /   \
-                                             2    11
-                                           /  \
-                                          1    5
-                                              /  \
-                                             3    6
-                                              \
-                                               4
+            10
+          /   \
+         2    11
+       /  \
+      1    5
+          /  \
+         3    6
+          \
+           4
 K = 13 Output: 2
 Explanation: K=13. The node that has value nearest to K is 11. so the answer is 2
 */

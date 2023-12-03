@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 /**
  * I/P :- int[] a = { 4, 3, 2, 0, 1, 8, 9, 7, 10, 5, 6 }

@@ -1,7 +1,6 @@
 package adobe;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Integer.max;
@@ -15,6 +14,10 @@ public class InsertInterval {
         Interval(int start, int end) {
             this.start = start;
             this.end = end;
+        }
+
+        public String toString() {
+            return this.start + "," + this.end;
         }
     }
 
@@ -32,10 +35,12 @@ public class InsertInterval {
     }
 
     public static void main(String[] args) {
-        List<Interval> intervalList = new ArrayList<>(Arrays.asList(new Interval(1, 3), new Interval(6, 9)));
-        insertInterval(intervalList, new Interval(2, 5));
-        intervalList.forEach(interval -> System.out.println(interval.start + " " + interval.end));
-        insertInterval(intervalList, new Interval(-2, 10));
-        intervalList.forEach(interval -> System.out.println(interval.start + " " + interval.end));
+        List<Interval> intervalList = new ArrayList<>();
+        insertInterval(intervalList, new Interval(8, 10));
+        insertInterval(intervalList, new Interval(16, 18));
+        insertInterval(intervalList, new Interval(7, 9));
+        insertInterval(intervalList, new Interval(0, 3));
+        insertInterval(intervalList, new Interval(15, 19));
+        intervalList.forEach(System.out::println);
     }
 }

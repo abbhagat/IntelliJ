@@ -4,8 +4,6 @@ import util.Pair;
 
 import java.util.Arrays;
 
-import static java.lang.Integer.max;
-
 /**
  * You are given n pairs of numbers. In every pair, the first number is always smaller than the second number.
  * A pair (c, d) can follow another pair (a, b) if b < c. Chain of pairs can be formed in this fashion.
@@ -22,9 +20,10 @@ import static java.lang.Integer.max;
 
 public class MaxLengthChainPairs {
 
-    private static int maxChainLength(Pair[] pair, int n) {
+    private static int maxChainLength(Pair[] pair) {
+        int n = pair.length;
         int[] mcl = new int[n];
-        Arrays.fill(mcl, 1);         // Initialize MCL (max chain length) values for all indexes
+        Arrays.fill(mcl, 1);
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (pair[i].x > pair[j].y && mcl[i] < mcl[j] + 1) {
@@ -32,12 +31,8 @@ public class MaxLengthChainPairs {
                 }
             }
         }
-        // mcl[i] now stores the maximum chain length ending with pair i
-        int max = 0;
-        for (int x : mcl) {                    // Pick maximum of all MCL values
-            max = max(max, x);
-        }
-        return max;
+        // mcl[i] now stores the maximum chain length ending with pair i Pick maximum of all MCL values
+        return Arrays.stream(mcl).reduce(Integer.MIN_VALUE, Integer::max);
     }
 
     public static void main(String[] args) {
@@ -48,6 +43,6 @@ public class MaxLengthChainPairs {
                                    new Pair(27, 40),
                                    new Pair(50, 60)
                                 };
-        System.out.println("Length of maximum size chain is " + maxChainLength(pair, pair.length));
+        System.out.println("Length of maximum size chain is " + maxChainLength(pair));
     }
 }

@@ -2,7 +2,7 @@ package geeksforgeeks;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 // Time Complexity :- O(n * n!)
 public class AllPermutationOfArrayNum {
@@ -22,9 +22,5 @@ public class AllPermutationOfArrayNum {
 
     public static void main(String[] args) {
         permutation(new int[]{1, 2, 3}, 0 , 2);
-        Double d = 1000d;
-        System.out.println("Normal value :" + d);
-        System.out.println("Without decimal points :" + d.longValue());
-        System.out.println(String.valueOf(Double.parseDouble("1.0")).split("\\.")[0]);
     }
 }

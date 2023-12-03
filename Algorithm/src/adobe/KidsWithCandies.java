@@ -6,16 +6,17 @@ import java.util.List;
 
 public class KidsWithCandies {
 
-    private static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        int maxCandies = Arrays.stream(candies).reduce(0, Integer::max);
+    private static List<Boolean> kidsWithCandies(int[] candies, int extraCandy) {
+        int maxCandy = Arrays.stream(candies).reduce(Integer.MIN_VALUE, Integer::max);
         List<Boolean> result = new ArrayList<>();
         for (int candy : candies) {
-            result.add(candy + extraCandies >= maxCandies);
+            result.add(candy + extraCandy >= maxCandy);
         }
         return result;
     }
 
     public static void main(String[] args) {
         System.out.println(kidsWithCandies(new int[]{4, 2, 1, 1, 2}, 1));
+        System.out.println(kidsWithCandies(new int[]{4, 2, 1, 1, 2}, 2));
     }
 }

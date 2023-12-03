@@ -16,8 +16,12 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
                 if (x == y && map.get(y) == 1) {
                     continue;
                 }
-                System.out.println("(" + x + "," + y + ")");
-                System.out.println("(" + y + "," + x + ")");
+                if (x == y) {
+                    System.out.println("(" + x + "," + y + ")");
+                } else {
+                    System.out.println("(" + x + "," + y + ")");
+                    System.out.println("(" + y + "," + x + ")");
+                }
                 map.remove(x);
                 map.remove(y);
             }

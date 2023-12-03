@@ -10,7 +10,6 @@ package geeksforgeeks;
  * Y = 1;
  * Output : 4
  * He needs to make 2 jumps for first wall and 2 jumps for second wall.
- * <p>
  * Input : heights[] = {11, 10, 10, 9}
  * X = 10;
  * Y = 1;
@@ -36,7 +35,6 @@ public class NumberOfJumpsToCrossWalls {
         System.out.println(findJumps(new int[]{11}, 10, 1));
         System.out.println(findJumps(new int[]{11, 11}, 10, 1));
         System.out.println(findJumps(new int[]{11, 10, 10, 9}, 10, 1));
-
         // Below code is the scenario for single case
         int height = 11, x = 10, y = 1, jumps = 1;
         while (height > x) {

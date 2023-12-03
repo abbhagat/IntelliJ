@@ -23,14 +23,14 @@ press switch 3 : [1 1 1 1]
 
 public class MinSwitchNeedToTurnOnAllBulb {
     private static int solve(int[] a) {
-        int state = 0, min = 0;
+        int state = 0, count = 0;
         for (int x : a) {
             if (x == state) {
-                min++;
                 state ^= 1;
+                count++;
             }
         }
-        return min;
+        return count;
     }
 
     public static void main(String[] args) {

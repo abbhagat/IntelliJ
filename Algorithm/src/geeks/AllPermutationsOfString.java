@@ -1,6 +1,6 @@
 package geeks;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 // Time Complexity O(n) * n!
 public class AllPermutationsOfString {

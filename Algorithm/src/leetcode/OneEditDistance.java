@@ -11,7 +11,8 @@ public class OneEditDistance {
             if (s.charAt(i) != t.charAt(i)) {
                 if (m == n) {
                     return s.substring(i + 1).equals(t.substring(i + 1));
-                } else if (m < n) {
+                }
+                if (m < n) {
                     return s.substring(i).equals(t.substring(i + 1));
                 }
             }

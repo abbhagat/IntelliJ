@@ -29,10 +29,9 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
         if (root == null) {
             return -1;
         }
-        int left    = treeHeight(list, root.left);
-        int right   = treeHeight(list, root.right);
-        int height  = max(left, right) + 1;
-        // the first time this code is reached is when height = 0, since the tree is bottom-up processed.
+        int lH = treeHeight(list, root.left);
+        int rH = treeHeight(list, root.right);
+        int height = max(lH, rH) + 1;
         if (list.size() <= height) {
             list.add(new ArrayList<>());
         }

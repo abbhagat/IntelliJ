@@ -15,17 +15,17 @@ class BlockingQueue {
 
     public synchronized void put(int n) throws InterruptedException {
         if (queue.size() == maxSize) {
-            this.wait();
+            wait();
         }
         queue.add(n);
-        this.notifyAll();
+        notifyAll();
     }
 
     public synchronized int get() throws InterruptedException {
         if (queue.isEmpty()) {
-            this.wait();
+            wait();
         }
-        this.notifyAll();
+        notifyAll();
         return queue.remove();
     }
 }

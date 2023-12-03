@@ -1,6 +1,6 @@
 package geeks;
 
-import static util.IsPalindrome.isPalindrome;
+import static util.CommonUtils.isPalindrome;
 
 public class ShortestPalindromeStringByAddingZeroOrMoreChars {
 

@@ -2,7 +2,7 @@ package vmware;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 public class WiggleSort {
 

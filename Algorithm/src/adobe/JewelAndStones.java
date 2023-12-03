@@ -10,7 +10,7 @@ public class JewelAndStones {
         for (char c : jewels.toCharArray()) {
             set.add(c);
         }
-        int count  = 0;
+        int count = 0;
         for (char c : stones.toCharArray()) {
             if (set.contains(c)) {
                 count++;

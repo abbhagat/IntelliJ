@@ -14,9 +14,9 @@ public class LongestPalindromeFinder {
     public static String longestPalindromeString(String s) {
         String longest = s.substring(0, 1), palindrome;
         for (int i = 0; i < s.length(); i++) {
-            palindrome = intermediatePalindrome(s, i, i);                                    // odd cases like 121
+            palindrome = intermediatePalindrome(s, i, i);
             longest    = palindrome.length() > longest.length() ? palindrome : longest;
-            palindrome = intermediatePalindrome(s, i, i + 1);                        // even cases like 1221
+            palindrome = intermediatePalindrome(s, i, i + 1);
             longest    = palindrome.length() > longest.length() ? palindrome : longest;
         }
         return longest;

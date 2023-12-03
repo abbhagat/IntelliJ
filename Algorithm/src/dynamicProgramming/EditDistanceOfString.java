@@ -1,6 +1,6 @@
 package dynamicProgramming;
 
-import static java.lang.Integer.min;
+import static util.CommonUtils.minimum;
 
 /*
 Given two strings s1 and s2 and below operations that can performed on s1.
@@ -50,7 +50,6 @@ public class EditDistanceOfString {
         if (m == 0) {  // If first string is empty, the only option is to insert all characters of second string into first
             return n;
         }
-
         if (n == 0) {  // If second string is empty, the only option is to remove all characters of first string
             return m;
         }
@@ -63,10 +62,6 @@ public class EditDistanceOfString {
         return 1 + minimum(editDist(s1, s2, m, n - 1), editDist(s1, s2, m - 1, n), editDist(s1, s2, m - 1, n - 1)); // Insert, Remove, Replace
     }
 
-    private static int minimum(int x, int y, int z) {
-        return min(x, min(y, z));
-    }
-
     public static void main(String[] args) {
         System.out.println(editDist("cat", "cut")         + "\t" + editDist("cat", "cut",        3, 3));
         System.out.println(editDist("geek", "gesek")      + "\t" + editDist("geek", "gesek",     4, 5));
@@ -74,5 +69,7 @@ public class EditDistanceOfString {
         System.out.println(editDist("ros", "horse")       + "\t" + editDist("ros", "horse",       3, 5));
         System.out.println(editDist("sea", "eat")         + "\t" + editDist("sea", "eat",         3, 3));
         System.out.println(editDist("leetcode", "etco")   + "\t" + editDist("leetcode", "etco",    8, 4));
+        System.out.println(editDist("bbcd", "bcd")        + "\t" + editDist("bbcd", "bcd",    4, 3));
+        System.out.println(editDist("abc", "abcd")        + "\t" + editDist("abc", "abcd",    3, 4));
     }
 }

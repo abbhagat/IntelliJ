@@ -21,7 +21,7 @@ public class LongestPalindromicSequence {
         if (seq[i] == seq[j]) {              // if 1st and last char are same
             return lps(seq, i + 1, j - 1) + 2;
         }
-        return Math.max(lps(seq, i + 1, j), lps(seq, i, j - 1)); // If the first and last characters do not match
+        return max(lps(seq, i + 1, j), lps(seq, i, j - 1)); // If the first and last characters do not match
     }
 
     private static int lps(char[] seq) {

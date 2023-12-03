@@ -9,7 +9,7 @@ public class LargestSquareHaving0InBooleanMatrix {
         int[][] S = new int[R][C];
         for (int i = 1; i < R; i++) {
             for (int j = 1; j < C; j++) {
-                S[i][j] = M[i][j] == 0 ? min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) + 1 : 0;
+                S[i][j] = M[i][j] == 0 ? 1 + min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) : 0;
             }
         }
         int max = S[0][0], row = 0, col = 0;

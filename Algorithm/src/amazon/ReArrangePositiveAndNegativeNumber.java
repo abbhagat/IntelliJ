@@ -2,7 +2,7 @@ package amazon;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 // Time  Complexity  O(n)
 // Space Complexity  O(1)

@@ -32,12 +32,25 @@ public class IntervalMerging {
         return mergedInterval;
     }
 
+    private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
+        intervalList.add(newInterval);
+        intervalList.sort(Comparator.comparingInt(interval -> interval.start));
+        LinkedList<Interval> mergedInterval = new LinkedList<>();
+        for (Interval interval : intervalList) {
+            if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {
+                mergedInterval.add(interval);
+            } else {
+                mergedInterval.getLast().end = Integer.max(mergedInterval.getLast().end, interval.end);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         List<Interval> intervalList = new ArrayList<>();
         intervalList.add(new Interval(1, 3));
         intervalList.add(new Interval(6, 9));
         intervalList.add(new Interval(2, 5));
-        intervalList.add(new Interval(15, 18));
+        intervalList.add(new Interval(-2, 10));
         mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
     }
 }

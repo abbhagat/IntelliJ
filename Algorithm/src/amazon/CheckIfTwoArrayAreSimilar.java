@@ -21,8 +21,8 @@ public class CheckIfTwoArrayAreSimilar {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 4, 3, 5};
-        int[] b = {5, 4, 3, 2, 1};
+        int[] a = {1, 1, 4, 3, 5};
+        int[] b = {5, 4, 3, 1, 1};
         int[] c = {5, 7, 3, 2, 9};
         int[] d = {5, 7, 3, 2};
         System.out.println(isSimilar(a, b) ? "Same Array" : "Different Array");

@@ -5,16 +5,16 @@ import java.util.List;
 
 public class FormSmallestNumberFromGivenArray {
 
-    public static String smallestNumber(int[] nums) {
+    public static String smallestNumber(int[] a) {
         List<String> list = new ArrayList<>();
         int countZero = 0;
-        for (int x : nums) {
+        for (int x : a) {
             list.add(Integer.toString(x));
             if (x == 0) {
                 countZero++;
             }
         }
-        if (countZero == nums.length) {
+        if (countZero == a.length) {
             return "0";
         }
         list.sort((x, y) -> (x + y).compareTo(y + x));

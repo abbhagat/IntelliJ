@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 /*
  * This can be done in linear time, with no extra space.

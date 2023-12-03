@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import static java.lang.Integer.min;
+
 public class PalindromePartitioningDP {
 
     private static boolean[][] getIsPalindrome(String s) {
@@ -30,7 +32,7 @@ public class PalindromePartitioningDP {
             dp[i] = Integer.MAX_VALUE;
             for (int j = 0; j < i; j++) {
                 if (isPalindrome[j][i - 1]) {
-                    dp[i] = Math.min(dp[i], dp[j] + 1);
+                    dp[i] = min(dp[i], dp[j] + 1);
                 }
             }
         }

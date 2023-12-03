@@ -1,10 +1,10 @@
-package cisco;
+package adobe;
 
 import static java.lang.Integer.max;
 
 public class LongestSubstringWithAtLeastKRepeatingCharacters {
     public static int longestSubstring(String s, int k) {
-        if (s == null || s.length() == 0) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
         int[] temp = new int[128];
@@ -12,8 +12,8 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
             temp[c]++;
         }
         boolean flag = true;
-        for (int j : temp) {
-            if (j > 0 && j < k) {
+        for (int x : temp) {
+            if (x > 0 && x < k) {
                 flag = false;
                 break;
             }
@@ -21,25 +21,19 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
         if (flag) {
             return s.length();
         }
-        int result = 0, start = 0;
+        int max = 0, start = 0;
         for (int i = 0; i < s.length(); i++) {
             if (temp[s.charAt(i)] < k) {
-                result = Math.max(result, longestSubstring(s.substring(start, i), k));
-                start = i + 1;
+                max = max(max, longestSubstring(s.substring(start, i), k));
+                start  = i + 1;
             }
         }
-        return max(result, longestSubstring(s.substring(start), k));
+        return max(max, longestSubstring(s.substring(start), k));
     }
 
     public static void main(String[] args) {
         System.out.println(longestSubstring("aaabb", 3));
+        System.out.println(longestSubstring("aaabbb", 3));
         System.out.println(longestSubstring("ababbc",2));
-        synchronized (Integer.class) {
-            synchronized (Float.class) {
-                synchronized(Float.class) {
-                    System.out.println("hello");
-                }
-            }
-        }
     }
 }

@@ -38,7 +38,8 @@ public class MinCostToReachTopFloor {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{16, 19, 10, 12, 18};
+        int[] a;
+        a = new int[]{16, 19, 10, 12, 18};
         System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
         a = new int[]{2, 5, 3, 1, 7, 3, 4};
         System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));

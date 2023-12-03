@@ -8,6 +8,27 @@ ways(n) = ways(n-1) + ways(n-2)
  */
 public class NthStairClimbWays {
 
+    private static int stairCountDP(int n) {
+        int[] dp = new int[n + 1];
+        if (n == 0) {
+            return 0;
+        }
+        dp[1] = 1;
+        dp[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
+    private static int stairCount(int n) {
+        switch (n) {
+            case 1:  return 1;
+            case 2:  return 2;
+            default: return stairCount(n - 1) + stairCount(n - 2);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(stairCount(4) + "\t" + stairCountDP(4) + "\t" + climbStairs(4));
         System.out.println(stairCount(5) + "\t" + stairCountDP(5) + "\t" + climbStairs(5));
@@ -25,25 +46,4 @@ public class NthStairClimbWays {
         return n >= 2 ? s2 : s1;
     }
 
-    private static int stairCountDP(int n) {
-        int[] dp = new int[n + 1];
-        if (n == 0) {
-            return 0;
-        }
-        dp[1] = 1;
-        dp[2] = 2;
-        for (int i = 3; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-
-    private static int stairCount(int n) {
-        switch (n) {
-            case 0:  return 0;
-            case 1:  return 1;
-            case 2:  return 2;
-            default: return stairCount(n - 1) + stairCount(n - 2);
-        }
-    }
 }

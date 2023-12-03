@@ -23,13 +23,13 @@ public class CacheMerging {
 
     private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
         int i = 0;
-        while (i < intervalList.size() && intervalList.get(i).end < newInterval.start) {
+        while (i < intervalList.size() && intervalList.get(i).start + intervalList.get(i).end < newInterval.start) {
             i++;
         }
-        while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
+        while (i < intervalList.size() && intervalList.get(i).start <= newInterval.start + newInterval.end) {
             Interval interval = intervalList.remove(i);
             newInterval.start = min(interval.start, newInterval.start);
-            newInterval.end = max(interval.end, newInterval.end);
+            newInterval.end = max(interval.end,  newInterval.end);
         }
         intervalList.add(i, newInterval);
     }

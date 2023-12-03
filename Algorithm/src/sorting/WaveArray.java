@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 // This function sorts a[0..n-1] a[0] >= a[1] <= a[2] >= a[3] <= a[4]....
 // Time Complexity: O(N)

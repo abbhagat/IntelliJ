@@ -6,7 +6,7 @@ package amazon;
   Both the array has to be sorted in O(n).
  */
 
-import static util.Swap.swap;
+import static util.CommonUtils.swap;
 
 // Time  Complexity  O(n)
 public class SortingInBigO_n {

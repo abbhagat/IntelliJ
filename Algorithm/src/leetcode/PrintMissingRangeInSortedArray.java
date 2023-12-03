@@ -7,15 +7,12 @@ public class PrintMissingRangeInSortedArray {
     private static void printMissingRange(int[] a) {
         Arrays.sort(a);
         for (int i = 1; i < a.length; i++) {
-            if (a[i] - a[i - 1] == 1) {
-                continue;
-            }
-            if (a[i] - a[i - 1] == 3) {
-                System.out.print(a[i - 1] + 1 + " " + (a[i - 1] + 2) + " ");
-            } else if (a[i] - a[i - 1] > 2) {
-                System.out.print(a[i - 1] + 1 + "-" + (a[i] - 1) + " ");
-            } else if (a[i] - a[i - 1] != 1) {
-                System.out.print(a[i] - 1 + " ");
+            int diff = a[i] - a[i - 1];
+            switch (diff) {
+                case 1 : continue;
+                case 2 : System.out.print(a[i] - 1 + " "); break;
+                case 3 : System.out.print(a[i - 1] + 1 + " " + (a[i - 1] + 2) + " "); break;
+                default: System.out.print(a[i - 1] + 1 + "-" + (a[i] - 1) + " ");
             }
         }
         System.out.println();

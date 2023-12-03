@@ -54,6 +54,6 @@ public class TinyUrl {
     public static void main(String[] args) {
         TinyUrl tinyUrl = new TinyUrl();
         System.out.println(tinyUrl.encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
-        System.out.println(tinyUrl.decode("http://tinyurl.com/000001"));
+        System.out.println(tinyUrl.decode("http://tinyurl.com/0000001"));
     }
 }

@@ -1,10 +1,8 @@
 package jpmorgan;
 
 public class PrintTriangleInAPattern {
-
-    public static void main(String[] args) {
-        int n = 7;
-        int low = 0, high = n - 1;
+    private static void printPattern(int n) {
+        int low = 0, high = n;
         int mid = (low + high) / 2;
         while (low <= mid) {
             for (int i = 0; i <= low; i++) {
@@ -28,5 +26,9 @@ public class PrintTriangleInAPattern {
             System.out.println();
             high--;
         }
+    }
+
+    public static void main(String[] args) {
+        printPattern(7);
     }
 }

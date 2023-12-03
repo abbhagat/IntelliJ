@@ -32,6 +32,5 @@ public class MeetingRooms {
     public static void main(String[] args) {
         System.out.println(canAttendAllMeeting(Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20))));
         System.out.println(canAttendAllMeeting(Arrays.asList(new Interval(7, 10), new Interval(2, 4))));
-
     }
 }
