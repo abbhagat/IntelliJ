@@ -1,0 +1,164 @@
+Functional Requirements
+
+1. Users can add expenses.
+2. Users can edit expenses.
+3. Also, users can settle expenses.
+4. Allow users to make groups and add, edit and settle expenses in the group.
+5. Split can be either equal or percentage split.
+6. All amount are in INR currency
+
+NFR :-
+Low Latency
+High Consistency
+System must be reliable
+
+We need to create the following table called GROUP, USER, EXPENSE and AMOUNT_OWNED
+
+GROUP                                                   USER
+-----------------------------------------------------------------------------------------------------------------------------------------
+GROUP_ID     GROUP_NAME     GROUP_COUNT     |           USER_ID      GROUP_ID    USER_NAME   EMAIL  FIRST_NAME    LAST_NAME    IS_ADMIN
+-----------------------------------------------------------------------------------------------------------------------------------------
+   1           G1               2           |               A            1
+                                            |               B            1
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Let's say A purchase Rs 100 milk and added it to the Expense table as shown below.
+
+EXPENSE
+
+EXP_ID   IS_SETTLED   USER_ID    AMOUNT  GROUP_ID       SPLIT_TYPE       TIMESTAMP
+-----------------------------------------------------------------------------------
+   1         N          A         100       1         Equal/Percentage    SYSDATE
+-----------------------------------------------------------------------------------
+
+As soon as the entry is made to the EXPENSE table we call a service layer code [PaymentSplitService] to split the expense.
+From expense table it will get the GroupID and from group id it will fetch total GROUP_COUNT.
+
+So Rs 100 will be split as Rs 100/2 = Rs 50 if the SPLIT_TYPE is EQUAL or Rs 100/Percentage if the SPLIT_TYPE is PERCENTAGE.
+
+Before making entry to the table AMOUNT_OWNED, Scan the table AMOUNT_OWNED to see if any amount is due for User A to User B.
+If there is any amount due than adjust the Rs 50 with the net amount due.
+
+At first time since there is no entry in the table we can make an entry in the below table.
+
+At any point of time this table will keep the latest snapshot of the balance.
+----------------------------------------------------------------------------------------------------------------
+AMOUNT_OWNED
+----------------------------------------------------------------------------------------------------------------
+ID FROM_USER       TO_USER    AMOUNT  GROUP_ID
+1    B                 A          50       1          // Since User A has made the payment so B owns Rs 50 to A
+2    A                 B         -50       1         //  Since User A has made the payment so B owns Rs 50 to A
+
+----------------------------------------------------------------------------------------------------------------
+Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
+
+Rs200/2 = Rs 100 + Scan Table to check for due amount for Each User in the group except the payee
+
+SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER A' AND GROUP_ID = 1;
+
+Since User B owns Rs 50 to User A so we update the table as below
+
+Calculate the NetAmount = Rs 100 + amount
+
+AMOUNT_OWNED
+------------------------------------------------------------------------------------------------------------------
+ID FROM_USER       TO_USER     AMOUNT  GROUP_ID
+1     B              A          150      1          // Since User A has made the payment so B owns Rs 150 to A
+2     A              B         -150      1
+------------------------------------------------------------------------------------------------------------------
+
+Now User B paid Rs 500 for Dinner with equal split
+
+Rs 500/2 = Rs 250 + Scan Table to check for due amount for Each User in the group except the payee
+
+SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER B' AND GROUP_ID = 1;
+
+The below result will be fetched :-
+FROM_USER       TO_USER     AMOUNT  GROUP_ID
+A                 B         -150      1
+
+Amount owned by A = Rs 250 + (-150) = Rs 100
+
+AMOUNT_OWNED
+------------------------------------------------------------------------------------------------------------------
+ID FROM_USER       TO_USER     AMOUNT  GROUP_ID
+1     B              A         -100      1          // Since User B has made the payment so A owns Rs 100 to B
+2     A              B          100      1
+------------------------------------------------------------------------------------------------------------------
+
+if(NetAmount == 0) -> settle the expense between the user A and User B
+if(NetAmount > 0)  -> make the reverse entry with the updated value
+if(NetAmount < 0)  -> update the row with the net amount
+
+if(amount < 0) { // User B has to pay the amount to User A
+   n = Rs 250 - 150 = Rs 100 Update amount for A
+}else if(amount > 0) {
+   n = Rs 250 + 150 = Rs 400 Update amount for B
+}if(n == 0) {
+   mark the rows with 0 amount
+}
+
+AMOUNT_OWNED
+FROM_USER       TO_USER     AMOUNT  GROUP_ID
+B                 A         -100      1
+A                 B          100      1
+
+Let's say now we added User C in the group
+
+USER
+
+USER_ID      GROUP_ID    USER_NAME
+   A            1          A
+   B            1          B
+   C            1          C
+
+User C made a payment of Rs 900 for grocery with EQUAL_SPLIT
+
+Split Amount = Rs 900/GROUP_COUNT = Rs 900/3 = Rs 300
+
+Current Snapshot of AMOUNT_OWNED table
+
+FROM_USER       TO_USER     AMOUNT  GROUP_ID
+---------------------------------------------
+A                 B          100      1
+B                 A         -100      1
+---------------------------------------------
+
+Query :- SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER C' AND GROUP_ID = 1;
+
+Results in 0 rows so no adjustment is required in split amount
+
+AMOUNT_OWNED
+---------------------------------------
+A                 B          100      1
+B                 A         -100      1
+
+B                 C          300      1     // Below are the new entry created
+C                 B         -300      1
+A                 C          300      1
+C                 A         -300      1
+---------------------------------------
+
+API Design
+
+Expenses[] getGroupExpenses(GroupID gid)
+PaymentGraph getGroupPaymentGraph(GroupID gid)
+User getUser(UserID uid)
+User[] getUsersInGroup(GroupID gid)
+ExpenseID addExpense(GroupID gid, UserID uid, int amount, string currency)
+void editExpense(ExpenseID eid, UserID uid, int amount, string currency)
+void settleExpense(ExpenseID eid)
+GroupID make group(User[] users, string name, string image URI, string description)
+Group getGroup(GroupID gid)
+Expense getExpense(ExpenseID eid)
+
+CREATE TABLE AMOUNT_OWNED (
+    ID         INTEGER PRIMARY KEY,
+    FROM_USER  VARCHAR2(30),
+    TO_USER    VARCHAR2(30),
+    GROUP_ID   INTEGER,
+    AMOUNT     NUMBER(10,2)
+);
+
+INSERT INTO AMOUNT_OWNED VALUES(1,'B','A',1,-50);
+INSERT INTO AMOUNT_OWNED VALUES(2,'A','B',1,50);
