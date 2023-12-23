@@ -13,29 +13,29 @@ public class CombinationOfSum {
         }
         for (int i = index; i < a.length; i++) {
             int newTarget = givenSum - a[i];
-            if(newTarget >= 0){
+            if (newTarget >= 0) {
                 list.add(a[i]);
                 combinationForSum(i, newTarget, a, list);
                 list.removeLast();
-            }else{
+            } else {
                 break;
             }
         }
     }
 
-    private static void combinationForSums(int index, int currSum, int givenSum, int[] a, LinkedList<Integer> list) {
-        if(currSum == givenSum) {
+    private static void combinationForSum(int index, int currSum, int givenSum, int[] a, LinkedList<Integer> list) {
+        if (currSum == givenSum) {
             System.out.println(list);
             return;
         }
-        if(currSum > givenSum) {
+        if (currSum > givenSum) {
             return;
         }
-        for(int i = index; i < a.length; i++) {
+        for (int i = index; i < a.length; i++) {
             currSum += a[i];
             list.add(a[i]);
-            combinationForSums(i, currSum, givenSum, a, list);
-            currSum -=a[i];
+            combinationForSum(i, currSum, givenSum, a, list);
+            currSum -= a[i];
             list.removeLast();
         }
     }
@@ -43,7 +43,7 @@ public class CombinationOfSum {
     public static void main(String[] args) {
         int[] a = {2, 3, 6, 7, 11};
         Arrays.sort(a);
-        combinationForSum( 0, 11, a, new LinkedList<>());
-        combinationForSums(0, 0, 11, a, new LinkedList<>());
+        combinationForSum(0, 11, a, new LinkedList<>());
+        combinationForSum(0, 0, 11, a, new LinkedList<>());
     }
 }

@@ -20,7 +20,7 @@ public class ConvertBSTToMaxHeap {
         }
     }
 
-    public static void createList(Node root) {      // Inorder``
+    public static void createList(Node root) {      // Inorder
         if (null != root) {
             createList(root.left);
             list.add(root.num);

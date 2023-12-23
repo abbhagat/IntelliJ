@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 /*
 Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
-	Input :  abcd
+Input  :  abcd
 Output :  a
           b
           c
@@ -17,7 +17,7 @@ Output :  a
           bcd
           abcd
 
-          Input :  abc
+Input :  abc
           a
           b
           c

@@ -53,9 +53,9 @@ public class PrintMissingRangeFrom0To99 {
     }
 
     public static void main(String[] args) {
-        printMissingRange(new int[]{2, 3, 4, 6, 9, 10}, 0, 99);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 10}, 10, 50);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 40, 100);
-        printMissingRange(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 60, 1000);
+        printMissingRanges(new int[]{2, 3, 4, 6, 9, 10}, 0, 99);
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 10}, 10, 50);
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 40, 100);
+        printMissingRanges(new int[]{88, -1, 105, 3, 2, 200, 0, 10}, 60, 1000);
     }
 }

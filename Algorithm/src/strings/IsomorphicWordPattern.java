@@ -38,6 +38,7 @@ public class IsomorphicWordPattern {
     }
 
     public static void main(String[] args) {
+        System.out.println(isIsomorphicPattern("abaa", "dog cat dog dog"));
         System.out.println(isIsomorphicPattern("abaa", "dog cat cat dog"));
     }
 }

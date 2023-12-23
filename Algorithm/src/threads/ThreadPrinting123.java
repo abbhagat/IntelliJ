@@ -3,7 +3,7 @@ package threads;
 class PrinterThread implements Runnable {
 
     private static final Object monitor = new Object();
-    private static volatile int threadIdToRun = 1, n = 1;
+    private static int threadIdToRun = 1, n = 1;
     private final int threadId;
 
     PrinterThread(int threadId) {

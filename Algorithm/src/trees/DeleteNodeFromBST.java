@@ -11,7 +11,7 @@ public class DeleteNodeFromBST {
             return null;
         }
         if (num < root.num) {
-            root.left = deleteNodeFromBST(root.left, num);
+            root.left  = deleteNodeFromBST(root.left, num);
         } else if (num > root.num) {
             root.right = deleteNodeFromBST(root.right, num);
         } else {

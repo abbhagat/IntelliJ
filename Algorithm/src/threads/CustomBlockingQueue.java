@@ -5,28 +5,28 @@ import java.util.Queue;
 
 class BlockingQueue {
 
-    private final Queue<Integer> queue;
+    private final Queue<Integer> q;
     private final int maxSize;
 
     public BlockingQueue(int maxSize) {
         this.maxSize = maxSize;
-        queue = new LinkedList<>();
+        q = new LinkedList<>();
     }
 
     public synchronized void put(int n) throws InterruptedException {
-        if (queue.size() == maxSize) {
+        if (q.size() == maxSize) {
             wait();
         }
-        queue.add(n);
+        q.add(n);
         notifyAll();
     }
 
     public synchronized int get() throws InterruptedException {
-        if (queue.isEmpty()) {
+        if (q.isEmpty()) {
             wait();
         }
         notifyAll();
-        return queue.remove();
+        return q.remove();
     }
 }
 
@@ -50,7 +50,6 @@ class Producer implements Runnable {
             }
         }
     }
-
 }
 
 class Consumer implements Runnable {

@@ -3,9 +3,9 @@ package threads;
 class OddEvenThreadPrinter {
 
     private static final Object monitor = new Object();
-    private static volatile String threadIDToRun = "ODD";
+    private static String threadIDToRun = "ODD";
     private String threadID;
-    private static volatile int n = 1;
+    private static int n = 1;
 
     OddEvenThreadPrinter(String threadID) {
         this.threadID = threadID;

@@ -5,7 +5,7 @@ import static java.lang.Integer.max;
 public class LongestSubstringWithoutRepeatingCharacters {
 
     private static void lengthOfLongestSubstring(char[] c) {
-        int max = Integer.MIN_VALUE, j = Integer.MIN_VALUE;
+        int j = Integer.MIN_VALUE, max = Integer.MIN_VALUE;
         int[] temp = new int[128];
         for (int i = 0; i < c.length; i++) {
             j = max(j, temp[c[i]]);

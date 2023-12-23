@@ -26,10 +26,11 @@ public class SearchAnElementInASortedArrayOfInfiniteNumbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(search(new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170}, 3));
-        System.out.println(search(new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170}, 5));
-        System.out.println(search(new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170}, 1));
-        System.out.println(search(new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170}, 10));
-        System.out.println(search(new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170}, 11));
+        int[] a = {3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};
+        System.out.println(search(a, 3));
+        System.out.println(search(a, 5));
+        System.out.println(search(a, 1));
+        System.out.println(search(a, 10));
+        System.out.println(search(a, 11));
     }
 }

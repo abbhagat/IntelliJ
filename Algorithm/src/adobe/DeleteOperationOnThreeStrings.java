@@ -21,7 +21,7 @@ public class DeleteOperationOnThreeStrings {
         while (i < s1.length() && i < s2.length() && i < s3.length() && s1.charAt(i) == s2.charAt(i) && s2.charAt(i) == s3.charAt(i)) {
             i++;
         }
-        return i == 0 || s1.length() < i || s2.length() < i || s3.length() < i ? -1 : s1.length() - i + s2.length() - i + s3.length() - i;
+        return i == 0 || i > s1.length() || i > s2.length() || i > s3.length() ? -1 : s1.length() - i + s2.length() - i + s3.length() - i;
     }
 
     public static void main(String[] args) {

@@ -42,4 +42,8 @@ public class CommonUtils {
     public static int minimum(int x, int y, int z) {
         return Integer.min(x, Integer.min(y, z));
     }
+
+    public static int maximum(int x, int y, int z) {
+        return Integer.max(x, Integer.max(y, z));
+    }
 }

@@ -5,19 +5,28 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class PalindromeDate {
-    public static void main(String[] args) {
-        Calendar c = Calendar.getInstance();
-        Date date = c.getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+    private static String nextPalindromeDate(String inputDate, String format) {
+        Calendar cal = Calendar.getInstance();
+        int year = Integer.parseInt(inputDate.substring(0, 4));
+        int month = Integer.parseInt(inputDate.substring(4, 7));
+        int day = Integer.parseInt(inputDate.substring(7));
+        cal.set(year, month, day);
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date date = cal.getTime();
         String dateStr;
         while (true) {
             dateStr = sdf.format(date);
             if (dateStr.contentEquals(new StringBuilder(dateStr).reverse())) {
-                System.out.print("Next Palindrome Date " + sdf.format(date) + "\n");
                 break;
             }
-            c.add(Calendar.DATE, 1); // number of days to add
-            date = c.getTime();
+            cal.add(Calendar.DATE, 1);
+            date = cal.getTime();
         }
+        return dateStr;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Next Palindrome Date :" + nextPalindromeDate("20231215", "yyyyMMdd"));
     }
 }

@@ -1,5 +1,7 @@
 package geeks;
 
+import java.util.stream.IntStream;
+
 import static java.lang.Math.abs;
 
 /*
@@ -12,31 +14,23 @@ Note that if the element is present in array, then it should not be in output, o
 public class PrintKClosestElementInAnArray {
 
     private static void printKClosestElementInAnArray(int[] a, int n, int k) {
-        int mid = -1;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == n) {
-                mid = i;
+        int low = 0, high = a.length - 1;
+        while (high - low >= k) {
+            if (abs(a[low] - n) > abs(a[high] - n)) {
+                low++;
+            } else {
+                high--;
             }
         }
-        int count = 0, left = mid - 1, right = mid + 1;
-        while (left >= 0 && right < a.length && count < k) {
-            System.out.print((abs(n - a[left]) < abs(n - a[right]) ? a[left--] : a[right++])+ " ");
-            count++;
-        }
-        while (left >= 0 && right == a.length - 1 && count < k) {
-            System.out.print(a[left--] + " ");
-            count++;
-        }
-        while (left == 0 && right < a.length - 1 && count < k) {
-            System.out.print(a[right++] + " ");
-            count++;
-        }
-        System.out.println();
+        IntStream.range(low, high + 1).forEach(i -> System.out.print(a[i] + " "));
     }
 
     public static void main(String[] args) {
-        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 4);
-        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 2);
-        printKClosestElementInAnArray(new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}, 35, 3);
+        int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
+        printKClosestElementInAnArray(a, 35, 4);
+        System.out.println();
+        printKClosestElementInAnArray(a, 35, 2);
+        System.out.println();
+        printKClosestElementInAnArray(a, 35, 3);
     }
 }

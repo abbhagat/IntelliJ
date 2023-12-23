@@ -1,6 +1,5 @@
 package matrix;
 
-
 /*
   11 12 13 14           23 19 15 11     [i][j]   ------ [j][n-i-1]
   15 16 17 18   ---->   24 20 16 12
@@ -31,7 +30,7 @@ public class MatrixRotationBy90Degree {
             for (int j = i; j < n - i - 1; j++) {
                 int t = M[i][j];
                 M[i][j] = M[j][n - i - 1];
-                M[j][n - 1 - i] = M[n - i - 1][n - j - 1];
+                M[j][n - i - 1] = M[n - i - 1][n - j - 1];
                 M[n - i - 1][n - j - 1] = M[n - j - 1][i];
                 M[n - j - 1][i] = t;
             }

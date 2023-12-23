@@ -6,13 +6,14 @@ import static trees.TreeTraversal.inorder;
 public class DeleteLeafNodeInBinaryTree {
 
     private static Node deleteLastNode(Node root) {
-        if (root != null) {
-            if (root.left == null && root.right == null) {
-                return null;
-            }
-            root.left  = deleteLastNode(root.left);
-            root.right = deleteLastNode(root.right);
+        if (root == null) {
+            return null;
         }
+        if (root.left == null && root.right == null) {
+            return null;
+        }
+        root.left  = deleteLastNode(root.left);
+        root.right = deleteLastNode(root.right);
         return root;
     }
 

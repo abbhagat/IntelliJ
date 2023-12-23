@@ -57,7 +57,7 @@ public class BurnABinaryTreeFromTargetNode {
             }
             System.out.println(root.num);
             time++;
-             return 0;
+            return 0;
         }
         int rightCall = burnTree(root.right, target);
         if (rightCall == 0) {
@@ -67,7 +67,7 @@ public class BurnABinaryTreeFromTargetNode {
             }
             System.out.println(root.num);
             time++;
-             return 0;
+            return 0;
         }
         return -1;
     }

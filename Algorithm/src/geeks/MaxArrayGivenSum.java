@@ -9,6 +9,7 @@ public class MaxArrayGivenSum {
     public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum, List<List<Integer>> list) {
         if (curSum == givenSum && !list.contains(al) && !al.isEmpty()) {
             list.add(new ArrayList<>(al));
+            return;
         }
         if (curSum > givenSum) {
             return;

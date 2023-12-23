@@ -41,9 +41,9 @@ public class ConvertGivenTreeToSumTree {
     }
 
     public static void main(String[] args) {
-        Node root        = new Node(2);
-        root.left        = new Node(1);
-        root.right       = new Node(3);
+        Node root  = new Node(2);
+        root.left  = new Node(1);
+        root.right = new Node(3);
         convert(root);
         inorder(root);
     }

@@ -24,8 +24,8 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
         int max = 0, start = 0;
         for (int i = 0; i < s.length(); i++) {
             if (temp[s.charAt(i)] < k) {
-                max = max(max, longestSubstring(s.substring(start, i), k));
-                start  = i + 1;
+                max   = max(max, longestSubstring(s.substring(start, i), k));
+                start = i + 1;
             }
         }
         return max(max, longestSubstring(s.substring(start), k));

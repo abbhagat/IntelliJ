@@ -2,8 +2,7 @@ package searching;
 
 public class MissingCharacter {
     public static void main(String[] args) {
-        String s = "ecAfD";
-        char[] c = s.toLowerCase().toCharArray();
+        char[] c = "ecAfD".toLowerCase().toCharArray();
         char min = c[0], max = c[0];
         int sum1 = 0, sum2 = 0;
         for (char x : c) {

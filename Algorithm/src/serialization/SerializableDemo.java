@@ -26,7 +26,6 @@ class Father {
     public Father() {
         System.out.println("Father Constructor");
         parent = 3;
-        s = "Java is an OOP";
     }
 
     {

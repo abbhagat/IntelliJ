@@ -20,8 +20,10 @@ import java.util.LinkedList;
  * 1 2
  * Explanation: These are all the subsets that can be formed using the array.
  */
-// O((2^n))
-// O(n)
+
+// Time  Complexity :- O((2^n))
+// Space Complexity :- O(n)
+
     public class PrintAllSubSetOfArray {
 
     public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {

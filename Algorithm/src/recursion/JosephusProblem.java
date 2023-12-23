@@ -30,11 +30,11 @@ public class JosephusProblem {
     }
 
     private static int josephusItr(int n, int k) {
-        int start = 0;
+        int res = 0;
         for (int i = 1; i <= n; i++) {
-            start = (start + k) % i;
+            res = (res + k) % i;
         }
-        return start + 1;
+        return res + 1;
     }
 
     public static void main(String[] args) {

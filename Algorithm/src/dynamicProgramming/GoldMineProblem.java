@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
 import static java.lang.Integer.max;
+import static util.CommonUtils.maximum;
 
 /*
 Given a gold mine of ROW*COL dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
@@ -41,7 +42,7 @@ public class GoldMineProblem {
                 int right           =                   col == COL - 1 ? 0 : goldTable[row]    [col + 1];    // Gold collected on going to the cell on the right
                 int right_up        = row == 0       || col == COL - 1 ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
                 int right_down      = row == ROW - 1 || col == COL - 1 ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
-                goldTable[row][col] = gold[row][col] + max(right, max(right_up, right_down));             // Max gold collected from taking either of the above 3 paths
+                goldTable[row][col] = gold[row][col] + maximum(right, right_up, right_down);             // Max gold collected from taking either of the above 3 paths
             }
         }
         int max = goldTable[0][0];
@@ -53,11 +54,11 @@ public class GoldMineProblem {
 
     public static void main(String[] arg) {
         int[][] gold = {
-                {1, 3, 1, 5},
-                {2, 2, 4, 1},
-                {5, 0, 2, 3},
-                {0, 6, 1, 2}
-        };
+                         {1, 3, 1, 5},
+                         {2, 2, 4, 1},
+                         {5, 0, 2, 3},
+                         {0, 6, 1, 2}
+                       };
         System.out.print(getMaxGold(gold));
     }
 }

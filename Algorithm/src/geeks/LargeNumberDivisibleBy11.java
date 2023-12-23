@@ -1,7 +1,5 @@
 package geeks;
 
-import static java.lang.Math.abs;
-
 public class LargeNumberDivisibleBy11 {
 
     private static boolean isDivisibleBy11(long n) {
@@ -11,7 +9,7 @@ public class LargeNumberDivisibleBy11 {
             int k = s.charAt(i) - '0';
             sum += i % 2 == 0 ? k : -k;
         }
-        return abs(sum) % 11 == 0;
+        return Math.abs(sum) % 11 == 0;
     }
 
     public static void main(String[] args) {

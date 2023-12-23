@@ -1,5 +1,7 @@
 package leetcode;
 
+import static java.lang.Integer.max;
+
 // Time Complexity :- O(n)
 public class VersionComparison {
 
@@ -15,7 +17,7 @@ public class VersionComparison {
         }
         String[] s1 = v1.split("\\.");
         String[] s2 = v2.split("\\.");
-        for (int i = 0; i < s1.length || i < s2.length; i++) {
+        for (int i = 0; i < max(s1.length,s2.length); i++) {
             int x = i < s1.length ? Integer.parseInt(s1[i]) : 0;
             int y = i < s2.length ? Integer.parseInt(s2[i]) : 0;
             if (x == y) {

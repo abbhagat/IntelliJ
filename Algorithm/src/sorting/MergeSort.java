@@ -10,8 +10,6 @@ public class MergeSort {
     private static final int[] temp = new int[a.length];
 
     public static void main(String[] args) {
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
-        System.out.println();
         mergeSort(0, a.length - 1);
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }

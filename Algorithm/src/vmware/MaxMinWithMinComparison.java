@@ -6,15 +6,15 @@ import static java.lang.Integer.min;
 public class MaxMinWithMinComparison {
 
     private static void findMinMax(int[] a) {
-        int n = a.length, min = a[0], max = a[0], i;
-        if (n % 2 == 0) {
+        int i, min = a[0], max = a[0];
+        if (a.length % 2 == 0) {
             max = max(a[0], a[1]);
             min = min(a[0], a[1]);
             i = 2;
         } else {
             i = 1;
         }
-        while (i < n - 1) {
+        while (i < a.length - 1) {
             if (a[i] > a[i + 1]) {
                 max = max(max, a[i]);
                 min = min(min, a[i + 1]);

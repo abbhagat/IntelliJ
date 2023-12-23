@@ -5,21 +5,21 @@ import static java.lang.Integer.max;
 public class MaxProfitByBuyAndSellStocksAtMostKTimes {
     private static int maxProfit(int[] price, final int k) {
         int n = price.length - 1;
-        int[][] profit = new int[k + 1][n + 1];
+        int[][] dp = new int[k + 1][n + 1];
         for (int i = 0; i <= k; i++) {    // For day 0, you can't earn money irrespective of how many times you trade
-            profit[i][0] = 0;
+            dp[i][0] = 0;
         }
         for (int i = 0; i <= n; i++) {  // profit is 0 if we don't do any transaction (i.e. k = 0)
-            profit[0][i] = 0;
+            dp[0][i] = 0;
         }
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
             for (int j = 1; j <= n; j++) {
-                prevDiff     = max(prevDiff, profit[i - 1][j - 1] - price[j - 1]);
-                profit[i][j] = max(profit[i][j - 1], price[j] + prevDiff);
+                prevDiff = max(prevDiff, dp[i - 1][j - 1] - price[j - 1]);
+                dp[i][j] = max(dp[i][j - 1], price[j] + prevDiff);
             }
         }
-        return profit[k][n];
+        return dp[k][n];
     }
 
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Time Complexity: O(n*(2^n))
-// Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2n-1.
+// Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2^n-1.
 /*
 Given a string you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
 
@@ -23,10 +23,10 @@ public class AllStringCombinationByPlacingSpace {
             return al;
         }
         List<String> list = spaceString(str.substring(1));
-        list.forEach(s -> {
+        for (String s : list) {
             al.add(str.charAt(0) + s);
             al.add(str.charAt(0) + " " + s);
-        });
+        }
         return al;
     }
 

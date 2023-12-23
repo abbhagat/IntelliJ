@@ -10,8 +10,9 @@ public class ArraySum {
     public static void combinationForSum(int[] a, int index, int givenSum, int curSum, LinkedList<Integer> list) {
         if (curSum == givenSum && !list.isEmpty()) {
             System.out.println(list);
+            return;
         }
-        if(curSum > givenSum) {
+        if (curSum > givenSum) {
             return;
         }
         for (int i = index; i < a.length; i++) {

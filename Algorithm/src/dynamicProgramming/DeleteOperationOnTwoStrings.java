@@ -64,6 +64,6 @@ public class DeleteOperationOnTwoStrings {
         System.out.println(minDistance("ros", "horse")       + "\t" + minDistanceDP("ros", "horse"));
         System.out.println(minDistance("sea", "eat")         + "\t" + minDistanceDP("sea", "eat"));
         System.out.println(minDistance("etco", "leetcode")   + "\t" + minDistanceDP("etco", "leetcode"));
-//        System.out.println(minDistance("abcde", "ace")       + "\t" + minDistanceDP("abcde", "ace"));
+        System.out.println(minDistance("ace", "abcde")       + "\t" + minDistanceDP("abcde", "ace"));
     }
 }

@@ -12,7 +12,7 @@ public class BinarySearch {
         System.out.println(binarySearch(a, 0, a.length - 1, 35) ? "Present" : "Not Present");
     }
 
-    private static boolean binarySearch(int[] a, int low, int high, int n) {
+    static boolean binarySearch(int[] a, int low, int high, int n) {
         if (low <= high) {
             int mid = (low + high) / 2;
             if (n == a[mid]) {
