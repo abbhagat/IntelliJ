@@ -1,0 +1,111 @@
+Functional Requirement:-
+
+1. Given a long URL generate a short URL
+2. Given a short URL redirect to a long URL
+3. We will be supporting over a period of 10 years
+4. Length of the short URL to start with 7 character
+5. Character Set included a-zA-Z0-9
+
+NFR :-
+1. Low Latency
+2. High Availability
+
+Capacity Estimation:-
+
+Character Set to be used for generating short url A-Za-z0-9 = 62 characters.
+If length of url is y = 1 we can handle 62^1 unique short urls
+If length of url is y = 2 we can handle 62^2 unique short urls
+
+62^7 = 3.5 Trillion
+
+1. URL Length
+
+Let's say we are getting 1000 Request per second.
+Total Request in 10 yrs = 1000 * 60 * 60 * 24 * 365 * 10 = 10^3 * 31536 * 10^4 = 31536 * 10^7 ~= 4 * 10^11 unique url.
+
+y = 4 * 10 ^ 11
+
+y >= 62^n
+log y = n log 62
+n = log (4 * 10 ^ 11) / log 62 = let say this number comes out to be 7
+
+Data Estimation:-
+
+Let's say the size of long url is 2KB and short url is 1KB
+Total storage over 10 yrs = 4 * 10 ^ 11 * (2kb + 1kb) = 1 * 10^12 KB = 10^3 TB = 1000 TB
+
+POST /{longUrl}  Returns String with shortUrl
+GET  /{shortUrl} Returns String with longUrl
+
+DB Schema
+
+ID                             LONG_URL                                       SHORT_URL
+------------------------------------------------------------------------------------------------------
+base62Id    https://leetcode.com/problems/encode-and-decode-tinyurl/       http://tinyurl.com/base62Id
+------------------------------------------------------------------------------------------------------
+
+
+ID                   SHORT_URL                                   LONG_URL
+----------------------------------------------------------------------------------------------------
+base62Id      http://tinyurl.com/000001    https://leetcode.com/problems/encode-and-decode-tinyurl/
+----------------------------------------------------------------------------------------------------
+
+package leetcode;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class TinyUrl {
+
+    private int counter;
+    private final Map<String, Integer> urlToIndex;
+    private final Map<Integer, String> indexToUrl;
+    private final String BASE_62;
+    private final String URL;
+
+    public TinyUrl() {
+        counter = 1;
+        urlToIndex = new HashMap<>();
+        indexToUrl = new HashMap<>();
+        BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        URL = "http://www.tinyurl.com/";
+    }
+
+    private String encode(String longURL) {
+        if (!urlToIndex.containsKey(longURL)) {
+            urlToIndex.put(longURL, counter);
+            indexToUrl.put(counter, longURL);
+            counter++;
+        }
+        return URL + base62Encode(urlToIndex.get(longURL));
+    }
+
+    private String base62Encode(int val) {
+        StringBuilder url = new StringBuilder();
+        while (val != 0) {
+            int k = val % 62;
+            url.append(BASE_62.charAt(k));
+            val /= 62;
+        }
+        int l = 7 - url.length();
+        for (int i = 1; i <= l; i++) {
+            url.insert(0, 0);
+        }
+        return url.toString();
+    }
+
+    private String decode(String shortURL) {
+        int index = 0;
+        String url = shortURL.substring(shortURL.lastIndexOf("/") + 1);
+        for (char x : url.toCharArray()) {
+            index = index * 62 + BASE_62.indexOf(x);
+        }
+        return indexToUrl.get(index);
+    }
+
+    public static void main(String[] args) {
+        TinyUrl tinyUrl = new TinyUrl();
+        System.out.println(tinyUrl.encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
+        System.out.println(tinyUrl.decode("http://tinyurl.com/000001"));
+    }
+}

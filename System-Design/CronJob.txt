@@ -1,0 +1,123 @@
+Functional requirement
+
+1. User can schedule or view the job.
+2. User can list all the submitted jobs with current status.
+3. Jobs can be run once or recurring. Jobs should be executed within X threshold time after the defined scheduled time. (let x = 15 minutes)
+4. Individual job execution time is no more than X minutes. (let x = 5 minutes)
+5. Jobs can also have priority. Job the with higher priority should be executed first than lower priority.
+6. Job output should be stored inside file system.
+
+Non-Functional requirement
+
+1. Highly Available — System should always be available for users to add/view the job
+2. Highly Scalable  — System should scale for millions of jobs
+3. Reliability      — System must execute a job at-least once, and the same Job can not run by different processes at the same time.
+4. Durable          — System should not lose jobs information in case of any failure
+5. Latency          — System should acknowledge the user as soon as the job is accepted. User does’t have to wait till job completion.
+
+
+Enumerations:-
+
+STATUS   - [SUCCESS, FAILED, RUNNING, STOP]
+JOB_TYPE - [DAILY, WEEKLY, MONTHLY, YEARLY, BIWEEKLY]
+
+DATABASE DESIGN:-
+
+TABLE :- JOB
+                            ------------------------------------------------------------------------------------
+                            |  USER_ID  |  JOB_ID  |   JOB_NAME   | MAX_RETRY |CREATION_DATE |  TYPE(INTERVAL) |
+                            |----------------------------------------------------------------|-----------------|
+                            |  User-1   |     1    |    Expense1  |   3       |   SYSDATE    |       DAILY     |
+                            |  User-2   |     2    |    Grocery1  |   3       |   SYSDATE    |       WEEKLY    |
+                            |  User-3   |     3    |    EMIJob1   |   3       |   SYSDATE    |       MONTHLY   |
+                            |  User-4   |     4    |    Yearly1   |   3       |   SYSDATE    |       YEARLY    |
+                            |  User-5   |     5    |    BiWeekly  |   3       |   SYSDATE    |       BIWEEKLY  |
+                            |----------------------------------------------------------------|-----------------|
+
+Default timeout interval for a job is 5 minutes to force stop the job.
+
+Table :- JOB_EXEC_HISTORY
+
+                           ---------------------------------------------------------------- --------------------                                                                               |
+                           |   ID      JOB_ID   EXECUTION_ID       STATUS   EXECUTION_DATE_TIME    RETRY_COUNT |
+                           |-----------------------------------------------------------------------------------|
+                           |  H-1       1        Exec-1            SUCCESS      SYSDATE                  0     |
+                           |  H-2       4        Exec-4            FAILED       SYSDATE                  3     |
+                           -------------------------------------------------------------------------------------
+
+
+Table :- SCHEDULER
+
+                              JOB_ID  LAST_EXECUTION_DATE   NEXT_EXECUTION_DATE   STATUS    RETRY_COUNT
+                            |-------------------------------------------------------------------------|
+                            |   1        SYSDATE                SYSDATE + 1        RUNNING       0    |
+                            |   4        SYSDATE                SYSDATE + 1         STOP         0    |
+                            |   2        NULL                   NULL                STOP         0    |
+                            |-------------------------------------------------------------------------|
+
+
+Either create a MAP or KEEP a lookup table to keep a mapping of JobId to the TYPE
+
+Map<Integer,String> jobTypeMap = new HashMap<>();
+map.put(1, "DAILY");
+
+1. You need to have only 1 cron job and not different jobs of each job type.
+
+The input to the cron job will be the result of the below query
+
+2. SELECT JOB_ID FROM SCHEDULER WHERE  TRUNC(SYSDATE)   = TRUNC(NEXT_EXECUTION_DATE)
+                                       AND STATUS      != 'RUNNING'
+                                       AND RETRY_COUNT  < 3
+                                       OR
+                                       LAST_EXECUTION_DATE IS NULL;
+
+
+3. The above query will select all the jobs which are eligible to run by the scheduler.
+
+4. Once the cron job completes it will populate the LAST_EXECUTION_DATE, NEXT_EXECUTION_DATE, STATUS AND RETRY COUNT
+   as per below :-
+
+All the job that runs Daily   will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 1;
+All the job that runs Weekly  will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 7;
+All the job that runs Monthly will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 30;
+All the job that runs Yearly  will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 365;
+
+5. Tomorrow I add a new job type BiWeekly as below
+
+                            |  USER_ID     JOB_ID      JOB_NAME    MAX_RETRY  CREATION_DATE    TYPE(INTERVAL)
+                            |----------------------------------------------------------------|----------------
+                            |  User-5   |     5    |    BiWeekly  |   3    |   SYSDATE       |       BIWEEKLY |
+                            -----------------------------------------------------------------------------------
+
+
+                              JOB_ID  LAST_EXECUTION_DATE   NEXT_EXECUTION_DATE   STATUS    RETRY_COUNT
+                            |-------------------------------------------------------------------------|
+                            |   5          NULL                   SYSDATE          STOP         0     |
+                            |-------------------------------------------------------------------------|
+
+
+The above query will pick up this job as well.
+
+API Design
+
+We will create the below endpoints
+
+@PostMapping("/submitJob")
+public HttpResponse submitJob(@RequestBody Job job) {
+
+}
+
+@GetMapping("/getAllJobsInfo")
+public List<Job> submitJob() {
+
+}
+
+@DeleteMapping("/deleteJob/{jobId}"
+public HttpResponse deleteJob(@PathVariable String id) {
+
+}
+
+@GetMapping("/getJobExceutionHistory")
+public List<JobExecHistory> submitJob() {
+
+}
