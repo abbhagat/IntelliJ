@@ -9,6 +9,7 @@ Functional Requirement:-
 NFR :-
 1. Low Latency
 2. High Availability
+3. Eventual Consistency
 
 Capacity Estimation:-
 
@@ -32,8 +33,9 @@ n = log (4 * 10 ^ 11) / log 62 = let say this number comes out to be 7
 Data Estimation:-
 
 Let's say the size of long url is 2KB and short url is 1KB
-Total storage over 10 yrs = 4 * 10 ^ 11 * (2kb + 1kb) = 1 * 10^12 KB = 10^3 TB = 1000 TB
+Total storage over 10 yrs = 4 * 10 ^ 11 * (2kb + 1kb) = 1 * 10^12 KB = 10^3 TB = 1000 TB zzzzzso we will go with NO SQL Cassandra DB
 
+API Design
 POST /{longUrl}  Returns String with shortUrl
 GET  /{shortUrl} Returns String with longUrl
 
