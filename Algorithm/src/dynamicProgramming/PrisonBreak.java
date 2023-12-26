@@ -31,7 +31,6 @@ package dynamicProgramming;
 
 import java.util.Arrays;
 import java.util.List;
-
 import static java.lang.Integer.max;
 
 public class PrisonBreak {

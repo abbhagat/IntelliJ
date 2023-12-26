@@ -50,15 +50,11 @@ class Ladder {
 }
 
 class Game {
-    private final List<Ladder> ladderList;
-    private final List<Snake> snakeList;
     private final List<Player> playerList;
     private final Map<Integer,Integer> ladderMap;
     private final Map<Integer,Integer> snakeMap;
 
     private Game(Builder builder) {
-        this.ladderList = builder.ladderList;
-        this.snakeList  = builder.snakeList;
         this.playerList = builder.playerList;
         this.ladderMap  = builder.ladderMap;
         this.snakeMap   = builder.snakeMap;
@@ -78,10 +74,10 @@ class Game {
                     if (ladderMap.containsKey(player.index)) {
                         player.index = ladderMap.get(player.index);
                     }
-                    if (snakeMap.containsKey(player.index)) {
+                    else if (snakeMap.containsKey(player.index)) {
                         player.index = snakeMap.get(player.index);
                     }
-                    if (player.index == 100) {
+                    else if (player.index == 100) {
                         System.out.println(player.name + " is winner");
                         break label;
                     }
@@ -97,9 +93,6 @@ class Game {
     }
 
     public static class Builder {
-
-        private final List<Ladder> ladderList = new ArrayList<>();
-        private final List<Snake> snakeList = new ArrayList<>();
         private final List<Player> playerList = new ArrayList<>();
         private final Map<Integer,Integer> ladderMap = new HashMap<>();
         private final Map<Integer,Integer> snakeMap = new HashMap<>();
@@ -109,16 +102,12 @@ class Game {
         }
 
         public Builder addSnake(int start, int end) {
-            Snake snake = new Snake(start, end);
             snakeMap.put(start, end);
-            snakeList.add(snake);
             return this;
         }
 
         public Builder addLadder(int start, int end) {
-            Ladder ladder = new Ladder(start, end);
             ladderMap.put(start, end);
-            ladderList.add(ladder);
             return this;
         }
 

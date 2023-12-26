@@ -43,7 +43,7 @@ class BinaryObserver extends Observer {
 
     @Override
     public void notify(Observer observer) {
-        System.out.println("Binary String" + Integer.toBinaryString(this.subject.getState()));
+        System.out.println("Binary String " + Integer.toBinaryString(this.subject.getState()));
     }
 }
 

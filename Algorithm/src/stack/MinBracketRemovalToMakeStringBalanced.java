@@ -2,10 +2,10 @@ package stack;
 
 public class MinBracketRemovalToMakeStringBalanced {
 
-    public static String minRemoveToMakeValid(String s) {
-        StringBuilder temp = new StringBuilder();
+    public static String minRemoveToMakeValid(String str) {
+        StringBuilder s = new StringBuilder();
         int open = 0;
-        for (char c : s.toCharArray()) {
+        for (char c : str.toCharArray()) {
             if (c == '(') {
                 open++;
             } else if (c == ')') {
@@ -14,22 +14,23 @@ public class MinBracketRemovalToMakeStringBalanced {
                 }
                 open--;
             }
-            temp.append(c);
+            s.append(c);
         }
-        StringBuilder str = new StringBuilder();
-        for (int i = temp.length() - 1; i >= 0; i--) {
-            if (temp.charAt(i) == '(' && open > 0) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '(' && open > 0) {
                 open--;
             } else {
-                str.append(temp.charAt(i));
+                sb.append(s.charAt(i));
             }
         }
-        return str.reverse().toString();
+        return sb.reverse().toString();
     }
 
     public static void main(String[] args) {
         System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
         System.out.println(minRemoveToMakeValid("a)b(c)d"));
         System.out.println(minRemoveToMakeValid("))(("));
+        System.out.println(minRemoveToMakeValid("abh)ina)w(ku(mar(bhagat))"));
     }
 }

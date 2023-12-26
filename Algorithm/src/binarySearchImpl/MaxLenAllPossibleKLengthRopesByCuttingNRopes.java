@@ -1,7 +1,6 @@
 package binarySearchImpl;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Given an array arr[] consisting of N positive integers representing the lengths of N ropes and a positive integer K,
@@ -11,15 +10,13 @@ import java.util.Collections;
  * Output: 4
  * Explanation:
  * Below are the possible cutting of the ropes:
- * arr[0](= 5) is cutted into {4, 1}.
- * arr[2](= 7) is cutted into {4, 3}.
- * arr[4](= 9) is cutted into {4, 4, 1}.
+ * arr[0](= 5) is cut into {4, 1}.
+ * arr[2](= 7) is cut into {4, 3}.
+ * arr[4](= 9) is cut into {4, 4, 1}.
  * After the above combinations of cuts, the maximum length is 4, which is of frequency at least(K = 5).
  * Input: arr[] = {1, 2, 3, 4, 9}, K = 6
  * Output: 2
- * <p>
  * Approach: The given problem can be solved by using the Binary Search. Follow the steps below to solve the problem:
- * <p>
  * Initialize 3 variables, say low as 1, high as the maximum value of array arr[], and result as -1,
  * to store the left boundary right boundary for the binary search and to store the maximum possible length of K ropes.
  * Iterate until low is less than high and perform the following steps:
@@ -33,8 +30,8 @@ import java.util.Collections;
  */
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
-    private static int maximumSize(Integer[] a, int k) {
-        int low = 0, high = Collections.max(Arrays.asList(a)), result = 0;
+    private static int maximumSize(int[] a, int k) {
+        int low = 0, high = Arrays.stream(a).max().getAsInt(), result = 0;
         while (low <= high) {
             int mid = (low + high) / 2;
             int count = 0;
@@ -52,7 +49,7 @@ public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
     }
 
     public static void main(String[] args) {
-        System.out.println(maximumSize(new Integer[] {1, 2, 3, 4, 9}, 6));
-        System.out.println(maximumSize(new Integer[] {5, 2, 7, 4, 9}, 5));
+        System.out.println(maximumSize(new int[] {1, 2, 3, 4, 9}, 6));
+        System.out.println(maximumSize(new int[] {5, 2, 7, 4, 9}, 5));
     }
 }

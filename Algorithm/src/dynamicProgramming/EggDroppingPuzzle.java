@@ -1,7 +1,6 @@
 package dynamicProgramming;
 
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
+import static java.lang.Integer.*;
 
 public class EggDroppingPuzzle {
 

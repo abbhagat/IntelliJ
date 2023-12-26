@@ -1,7 +1,6 @@
 package geeks;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 // Time Complexity: O(n*(2^n))
 

@@ -1,5 +1,7 @@
 package geeks;
 
+import java.util.Arrays;
+
 public class CountOneInSortedBinaryArray {
 
     private static int countOnes(int[] a, int low, int high) {
