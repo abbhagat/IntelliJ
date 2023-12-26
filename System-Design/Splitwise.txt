@@ -15,23 +15,23 @@ System must be scalable.
 
 We need to create the following table called GROUP, USER, EXPENSE and AMOUNT_OWNED
 |-----------------------------------------------------------------------------------------------|----------------------------------------|
-                 1. GROUP                            2. USER                                             3. USER_TO_GROUP
+|                1. GROUP                |           2. USER                                    |         3. USER_TO_GROUP               |
 |-----------------------------------------------------------------------------------------------|----------------------------------------|
-|GROUP_ID     GROUP_NAME     GROUP_COUNT |-USER_ID  USER_NAME   EMAIL  FIRST_NAME    LAST_NAME  | USER_ID      GROUP_ID   IS_ADMIN|
+|GROUP_ID     GROUP_NAME     GROUP_COUNT |-USER_ID  USER_NAME   EMAIL  FIRST_NAME    LAST_NAME  | USER_ID      GROUP_ID   IS_ADMIN       |
 |-----------------------------------------------------------------------------------------------|----------------------------------------|
-|   1           G1               2       |  A                                                   |  A             1            Y          |
-|   2           G2               3       |  B                                                   |  B             1            N          |
+|   1           G1               2       |  A       A           ABC       A           X         |  A             1            Y          |
+|   2           G2               3       |  B       B           BCA       B           Y         |  B             1            N          |
 |-----------------------------------------------------------------------------------------------|----------------------------------------|
 
 Let's say A purchase Rs 100 milk and added it to the Expense table as shown below.
 
 EXPENSE
-
-EXP_ID   USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP
---------------------------------------------------------------------
-   1       A         100       1           Equal           SYSDATE
-   2       A         200       1          Percentage       SYSDATE
---------------------------------------------------------------------
+|--------------------------------------------------------------------|
+|EXP_ID   USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
+|--------------------------------------------------------------------|
+|   1       A         100       1           Equal           SYSDATE  |
+|   2       A         200       1          Percentage       SYSDATE  |
+|--------------------------------------------------------------------|
 
 As soon as the entry is made to the EXPENSE table we call a service layer code [PaymentSplitService] to split the expense.
 From expense table it will get the GroupID and from group id it will fetch total GROUP_COUNT.
