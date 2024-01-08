@@ -1,24 +1,21 @@
 package adobe;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LongestSubstringWithKDistinctCharacters {
 
     private static void kUniques(String s, int k) {
-        int[] temp = new int[128];
-        int count = 0;
+        Map<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
-            if (temp[c] == 0) {
-                count++;
-            }
-            temp[c]++;
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        if (count < k) {
+        if (map.keySet().size() < k) {
             System.out.print("Not enough unique characters");
             return;
         }
         int start = 0, end = 0, max_window_start = 0, max_window_size = 1;
-        Arrays.fill(temp, 0);
+        int[] temp = new int[128];
         temp[s.charAt(0)]++;
         for (int i = 1; i < s.length(); i++) {
             temp[s.charAt(i)]++;
@@ -47,5 +44,8 @@ public class LongestSubstringWithKDistinctCharacters {
 
     public static void main(String[] args) {
         kUniques("aabacbebebe", 3);
+        kUniques("aabbcc", 1);
+        kUniques("aabbcc", 2);
+        kUniques("aabbcc", 3);
     }
 }
