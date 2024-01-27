@@ -5,12 +5,7 @@ import static matrix.MatrixPrint.printMatrix;
 // Time Complexity O(M*N)
 public class NQueenProblem {
 
-    private static final int[][] board = {
-                                            {0, 0, 0, 0},
-                                            {0, 0, 0, 0},
-                                            {0, 0, 0, 0},
-                                            {0, 0, 0, 0}
-                                         };
+    private static final int[][] board = new int[4][4];
     private static final int N = board.length;
 
     private static boolean isSafe(int row, int col) {

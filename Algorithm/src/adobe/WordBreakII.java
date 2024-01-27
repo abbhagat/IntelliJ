@@ -24,10 +24,8 @@ import java.util.Set;
 
 public class WordBreakII {
     public static List<String> wordBreak(String s, List<String> wordDict) {
-        StringBuilder sb  = new StringBuilder();
-        Set<String>   set = new HashSet<>(wordDict);
         List<String> list = new ArrayList<>();
-        wordBreak(0, s, sb, set, list);
+        wordBreak(0, s, new StringBuilder(), new HashSet<>(wordDict), list);
         return list;
     }
 

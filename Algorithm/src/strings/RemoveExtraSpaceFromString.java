@@ -1,5 +1,4 @@
 package strings;
-
 /*
  * Input: str = "   Hello Geeks . Welcome   to  GeeksforGeeks   .    ";
    Output: s =  "Hello Geeks. Welcome to GeeksforGeeks."
@@ -17,3 +16,4 @@ public class RemoveExtraSpaceFromString {
         System.out.println(result.toString().trim());
     }
 }
+

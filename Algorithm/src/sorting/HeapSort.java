@@ -18,7 +18,7 @@ The former is called max heap and the latter is called min-heap. The heap can be
  */
 public class HeapSort {
 
-    private static final int[] a = {3, 8, 1, 9, 4, 2, 6, 7, 10, 5};
+    private static final int[] a = {1,3,4,2,5};
     private static int n = a.length - 1;
 
     private static void buildHeap() {

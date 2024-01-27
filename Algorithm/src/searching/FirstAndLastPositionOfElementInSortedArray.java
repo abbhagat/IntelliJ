@@ -46,7 +46,6 @@ public class FirstAndLastPositionOfElementInSortedArray {
         return a.length - 1;
     }
 
-
     public static void main(String[] args) {
         for (int x : searchRange(new int[]{1, 1, 2, 2, 2}, 2)) {
             System.out.print(x + " ");

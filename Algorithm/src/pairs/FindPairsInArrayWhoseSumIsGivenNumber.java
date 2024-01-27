@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FindPairsInArrayWhoseSumIsGivenNumber {
+
     public static void findPairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {

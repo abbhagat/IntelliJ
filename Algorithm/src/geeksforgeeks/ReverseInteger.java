@@ -3,7 +3,7 @@ package geeksforgeeks;
 public class ReverseInteger {
 
     private static long reverse(long n) {
-        boolean isPositive = n >= 0;
+        boolean isPositive = n > 0;
         n = isPositive ? n : -n;
         long rev = 0;
         while (n != 0) {

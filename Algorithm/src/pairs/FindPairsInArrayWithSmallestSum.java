@@ -6,20 +6,20 @@ package pairs;
 public class FindPairsInArrayWithSmallestSum {
     private static void findPairsInArrayWithSmallestSum(int[] a, int[] b, int k) {
         if (k > a.length * b.length) {
-            System.out.print("k pairs don't exist");
+            System.out.println("k pairs don't exist");
             return;
         }
         int[] temp = new int[a.length];
-        while (k > 0) {
-            int index = getMinIndex(a, b, temp);
-            System.out.print("(" + a[index] + ", " + b[temp[index]] + ") ");
-            temp[index]++;
+        while (k != 0) {
+            int i = getMinIndex(a, b, temp);
+            System.out.print("(" + a[i] + ", " + b[temp[i]] + ") ");
+            temp[i]++;
             k--;
         }
     }
 
     private static int getMinIndex(int[] a, int[] b, int[] temp) {
-        int index = 0 , minSum = Integer.MAX_VALUE;
+        int index = 0, minSum = Integer.MAX_VALUE;
         // To pick next pair, traverse for all elements of a[], for every element
         // find corresponding current element in b[] and pick minimum of all formed pairs.
         for (int i = 0; i < a.length; i++) {

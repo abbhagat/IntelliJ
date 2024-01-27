@@ -17,7 +17,7 @@ public class FunctionalInterfaceStaticMethodDemo implements I {
 
     public static void main(String[] args) {
         FunctionalInterfaceStaticMethodDemo obj = new FunctionalInterfaceStaticMethodDemo();
-        obj.print("");
+        obj.print("ABC");
         obj.isNull("abc");
         I.isNull("abc");
 //        StaticAndDefaultMethodInterface.super.print("abc");

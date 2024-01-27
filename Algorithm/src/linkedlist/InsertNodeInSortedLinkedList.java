@@ -11,7 +11,7 @@ public class InsertNodeInSortedLinkedList {
         }
         Node prev = null;
         for (Node temp = first; temp != null && temp.num < num; temp = temp.next) {
-            prev = temp;
+             prev = temp;
         }
         Node node = new Node(num, null);
         node.next = prev.next;

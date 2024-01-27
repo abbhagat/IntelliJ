@@ -6,8 +6,14 @@ import java.util.Map;
 import java.util.TreeMap;
 
 class MapUtility {
-    public static <K, V extends Comparable<V>> Map<K, V> sortOnValues(Map<K, V> map) {
+    public static <K, V extends Comparable<V>> Map<K, V> sortByValues(Map<K, V> map) {
         Map<K, V> sortedMap = new TreeMap<>(new ValueComparator<>(map));
+        sortedMap.putAll(map);
+        return sortedMap;
+    }
+
+    public static <K extends Comparable<K>, V> Map<K, V> sortByKeys(Map<K, V> map) {
+        Map<K, V> sortedMap = new TreeMap<>(Comparator.reverseOrder());
         sortedMap.putAll(map);
         return sortedMap;
     }
@@ -36,6 +42,8 @@ public class TreeMapValueSort {
         map.put("Z", 2);
         map.put("C", 3);
         System.out.println(map);
-        System.out.println(MapUtility.sortOnValues(map));
+        map = MapUtility.sortByKeys(map);
+        System.out.println(map);
+        System.out.println(MapUtility.sortByValues(map));
     }
 }

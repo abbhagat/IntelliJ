@@ -1,7 +1,7 @@
 package geeksforgeeks;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /*
 Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
@@ -31,7 +31,7 @@ Input :  abc
 
 public class PrintAllSubstringOfAGivenString {
     private static Set<String> printAllSubstring(String s) {
-        Set<String> set = new TreeSet<>(String::compareTo);
+        Set<String> set = new LinkedHashSet<>();
         for (int i = 0; i < s.length(); i++) {
             set.add(String.valueOf(s.charAt(i)));
             set.add(s.substring(i));

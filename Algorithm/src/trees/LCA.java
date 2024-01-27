@@ -10,7 +10,7 @@ public class LCA {
         if (root == null) {
             return null;
         }
-        if (num1 < root.num && num2 > root.num) {
+        if ((num1 < root.num && num2 > root.num) || (num1 > root.num && num2 < root.num)) {
             return root;
         }
         if (num1 < root.num && num2 < root.num) {

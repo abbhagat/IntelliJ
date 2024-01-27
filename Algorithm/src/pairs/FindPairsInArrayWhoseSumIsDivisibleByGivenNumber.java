@@ -16,12 +16,12 @@ public class FindPairsInArrayWhoseSumIsDivisibleByGivenNumber {
             list.add(i);
             map.put(x, list);
         }
-        for (int i = 0; i < a.length; i++) {
-            int x = a[i] % k;
+        for (int value : a) {
+            int x = value % k;
             int y = k - x;
             if (map.containsKey(y) || (y == 0 && map.get(y).size() > 1)) {
                 for (int j : map.get(y)) {
-                    System.out.println(a[i] + "," + a[j]);
+                    System.out.println(value + "," + a[j]);
                     count++;
                 }
             }

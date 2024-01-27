@@ -1,12 +1,18 @@
 package oracle;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class HashMap<K, V> {
 
     private final static int SIZE = 128;
     private final Entry<K,V>[] table = new Entry[SIZE];
 
     private static final class Entry<K, V> {
+        @Getter
         private final K key;
+        @Getter
+        @Setter
         private V value;
         private Entry<K,V> next;
 
@@ -14,18 +20,6 @@ public class HashMap<K, V> {
             this.key = key;
             this.value = value;
             this.next = null;
-        }
-
-        public K getKey() {
-            return key;
-        }
-
-        public V getValue() {
-            return value;
-        }
-
-        public void setValue(V value) {
-            this.value = value;
         }
     }
 

@@ -12,10 +12,10 @@ the longest palindromic subsequence. This solution is exponential in terms of ti
 public class LongestPalindromicSequence {
 
     private static int lps(char[] seq, int i, int j) {
-        if (i == j) {                          // If there is only one character in the array it is palindrome
+        if (i == j) {
             return 1;
         }
-        if (seq[i] == seq[j] && i + 1 == j) { // if there are 2 char and both are same
+        if (seq[i] == seq[j] && i + 1 == j) {
             return 2;
         }
         if (seq[i] == seq[j]) {              // if 1st and last char are same
@@ -48,7 +48,7 @@ public class LongestPalindromicSequence {
     }
 
     public static void main(String[] args) {
-        char[] seq = "BBABCBCAB".toCharArray();
+        char[] seq = "AABA".toCharArray();
         System.out.println("The length of the LPS is " + lps(seq, 0, seq.length - 1));
         System.out.println("The length of the LPS is " + lps(seq));
     }

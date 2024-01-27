@@ -13,7 +13,6 @@ public class ArrayRotation {
         rotate(a, n, a.length - 1);
         rotate(a, 0, a.length - 1);
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
-        System.out.println();
     }
 
     private static void rotate(int[] a, int i, int j) {
@@ -26,6 +25,7 @@ public class ArrayRotation {
 
     public static void main(String[] args) {
         arrayRotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);  // 5 6 7 1 2 3 4
+        System.out.println();
         arrayRotate(new int[]{1, 2, 3, 4, 5}, 2);       // 4 5 1 2 3
     }
 }

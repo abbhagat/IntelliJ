@@ -37,5 +37,6 @@ public class BeautifulNumber {
         System.out.println(isHappyNumber(31));
         System.out.println(isHappyNumber(32));
         System.out.println(isHappyNumber(33));
+        System.out.println(isHappyNumber(1234));
     }
 }

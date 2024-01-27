@@ -19,7 +19,7 @@ public class Doubleton implements Cloneable, Serializable {
         return getInstance();
     }
 
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         try {
             return getInstance();
         } catch (Exception e) {

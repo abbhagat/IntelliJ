@@ -1,11 +1,15 @@
 package oracle;
 
+import lombok.Getter;
+
 import java.util.Date;
 import java.util.Objects;
 
 final class FinalClass {
 
+    @Getter
     private final String key;
+    @Getter
     private final int value;
     private final Date date;
 
@@ -15,20 +19,8 @@ final class FinalClass {
         this.date = date;
     }
 
-    public String getKey() {
-        return key;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
     public Date getDate() {
         return (Date) this.date.clone();
-    }
-
-    public String toString() {
-        return key + "\t" + value + "\t" + date;
     }
 
     public boolean equals(Object obj) {

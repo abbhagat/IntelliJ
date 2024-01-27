@@ -8,7 +8,7 @@ import static java.lang.Math.abs;
 public class LengthOfTheLongestBalancedBracket {
 
     private static int findLength(String bracket) {
-        int maxLength = Integer.MIN_VALUE;
+        int max = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         for (int i = 0; i < bracket.length(); i++) {
@@ -19,10 +19,10 @@ public class LengthOfTheLongestBalancedBracket {
                 if (stack.isEmpty()) {
                     stack.push(i);
                 }
-                maxLength = max(maxLength, abs(i - stack.peek()));
+                max = max(max, abs(i - stack.peek()));
             }
         }
-        return maxLength;
+        return max;
     }
 
     public static void main(String[] args) {

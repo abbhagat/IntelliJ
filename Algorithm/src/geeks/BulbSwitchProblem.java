@@ -2,10 +2,7 @@ package geeks;
 
 public class BulbSwitchProblem {
 
-    private static final int[] a = {1, 1, 0, 0, 1, 0, 0};
-    private static final int[] q = {2, 2, 6};
-
-    private static int solve() {
+    private static int solve(int[] a, int[] q) {
         int countOne = 0;
         for (int x : a) {
             if (x == 1) {
@@ -27,6 +24,6 @@ public class BulbSwitchProblem {
     }
 
     public static void main(String[] args) {
-        System.out.println(solve());
+        System.out.println(solve(new int[]{1, 1, 0, 0, 1, 0, 0}, new int[]{2, 2, 6}));
     }
 }

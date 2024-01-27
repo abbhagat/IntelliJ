@@ -13,13 +13,13 @@ public class StringSplitProblem {
                 continue;
             }
             int[] temp = new int[128];
-            for(char c : s.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 temp[c]++;
             }
-            for(int i = 0 ; i < s2.length(); i++) {
+            for (int i = 0; i < s2.length(); i++) {
                 flag = temp[s2.charAt(i)] != 0;
             }
-            if(flag) {
+            if (flag) {
                 System.out.println(s);
             }
         }

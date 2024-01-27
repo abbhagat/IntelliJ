@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
-import static java.lang.Integer.*;
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 public class EggDroppingPuzzle {
 
@@ -44,5 +45,6 @@ public class EggDroppingPuzzle {
     public static void main(String[] args) {
         System.out.println(eggDrop(2, 10) + "\t" + eggDropDP(2, 10));
         System.out.println(eggDrop(1,  8) + "\t" + eggDropDP(1,  8));
+        System.out.println(eggDrop(2,  8) + "\t" + eggDropDP(2,  8));
     }
 }

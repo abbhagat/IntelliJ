@@ -24,7 +24,6 @@ public class IsMirrorImage {
 
     public static void main(String[] args) {
         /*
-
                  1              1
                 / \            / \
                2   3          3   2

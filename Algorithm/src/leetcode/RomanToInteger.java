@@ -21,18 +21,18 @@ public class RomanToInteger {
     };
 
     private static int romanToInt(String s) {
-        int sum = 0;
+        int n = 0;
         for (int i = 0; i < s.length(); i++) {
             int x = map.get(s.charAt(i));
             int y = i + 1 < s.length() ? map.get(s.charAt(i + 1)) : 0;
             if (x < y) {
-                sum += y - x;
+                n += y - x;
                 i++;
             } else {
-                sum += x;
+                n += x;
             }
         }
-        return sum;
+        return n;
     }
 
     public static void main(String[] args) {

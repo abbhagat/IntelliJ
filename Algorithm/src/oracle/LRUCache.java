@@ -15,9 +15,9 @@ How to add a page to the q:
 2. If the cache is full, remove the last node of the linked q and move the new page to the start of the q.
 */
 
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class LRUCache<K, V> {
@@ -28,7 +28,7 @@ public class LRUCache<K, V> {
     private final int cacheSize;
 
     public LRUCache(int cacheSize) {
-        this.q = new ArrayDeque<>();
+        this.q = new LinkedList<>();
         this.map = new HashMap<>();
         this.cacheSize = cacheSize;
     }

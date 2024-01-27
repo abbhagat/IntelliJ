@@ -8,6 +8,9 @@ public class CheckIfTwoNodesAreOnSamePath {
             return false;
         }
         list.add(root.num);
+        if (list.contains(x) && list.contains(y)) {
+            return true;
+        }
         if (root.left == null && root.right == null) {
             return list.contains(x) && list.contains(y);
         }

@@ -2,7 +2,7 @@ package jpmorgan;
 
 public class FindNextPrimeNumber {
     public static int findNextPrimeNumber(int n) {
-        n = n == 0 || n == 1 ? 2 : n + 1;
+        n = n <= 1 ? 2 : n + 1;
         for (int i = 2; i <= n / 2; i++) {
             if (n % i == 0) {
                 n++;

@@ -12,17 +12,17 @@ public class InsertNodeInLevelOrderTraversal {
         q.add(root);
         while (!q.isEmpty()) {
             root = q.poll();
-            if (root.left == null) {
+            if (root.left != null) {
+                q.add(root.left);
+            } else {
                 root.left = new Node(n);
                 break;
-            } else {
-                q.add(root.left);
             }
-            if (root.right == null) {
+            if (root.right != null) {
+                q.add(root.right);
+            } else {
                 root.right = new Node(n);
                 break;
-            } else {
-                q.add(root.right);
             }
         }
     }

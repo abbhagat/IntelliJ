@@ -34,9 +34,7 @@ public class QuickSortString {
     }
 
     public static void main(String[] args) {
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
         quickSort(0, a.length - 1);
-        System.out.println();
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

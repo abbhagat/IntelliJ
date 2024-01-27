@@ -58,6 +58,6 @@ public class GoldMineProblem {
                          {5, 0, 2, 3},
                          {0, 6, 1, 2}
                        };
-        System.out.print(getMaxGold(gold));
+        System.out.println(getMaxGold(gold));
     }
 }

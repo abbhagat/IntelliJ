@@ -31,11 +31,11 @@ public class Singleton implements Cloneable, Serializable {
     }
 
     @Override
-    public Singleton clone() {
+    public Singleton clone() throws CloneNotSupportedException {
         try {
             _instance = getInstance();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new CloneNotSupportedException();
         }
         return _instance;
     }

@@ -1,6 +1,7 @@
 package leetcode;
 
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AllNumsDisappearedInArray {
 
@@ -15,11 +16,11 @@ public class AllNumsDisappearedInArray {
                 System.out.print(i + " ");
             }
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {
         findDisappearedNumbers(new int[]{4, 3, 2, 7, 8, 2, 3, 1});
+        System.out.println();
         findDisappearedNumbers(new int[]{1, 1});
     }
 }

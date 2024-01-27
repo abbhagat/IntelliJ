@@ -27,6 +27,10 @@ class Computer {
         this.isBluetoothEnabled    = builder.isBluetoothEnabled;
     }
 
+    public String toString() {
+        return this.getHDD() + " " + this.getRAM() + " " + this.isGraphicsCardEnabled() + " " + this.isBluetoothEnabled();
+    }
+
     public static class Builder {
         private String HDD;
         private String RAM;
@@ -60,6 +64,7 @@ class Computer {
 }
 
 public class BuilderDesignPattern {
+
     public static void main(String[] args) {
         Computer computer = new Computer.Builder()
                                         .setHDD("500 GB")
@@ -67,6 +72,6 @@ public class BuilderDesignPattern {
                                         .setBluetoothEnabled(true)
                                         .setGraphicsCardEnabled(true)
                                         .build();
-        System.out.println(computer.getHDD() + " " + computer.getRAM() + " " + computer.isGraphicsCardEnabled() + " " + computer.isBluetoothEnabled());
+        System.out.println(computer);
     }
 }

@@ -40,7 +40,7 @@ public class NextPalindromeNumber {
         System.out.println(findNextPalindrome(43));           // 44
         System.out.println(findNextPalindrome(47));           // 55
         System.out.println(findNextPalindrome(55));           // 66
-        System.out.println(findNextPalindrome(99));           // 101
+        System.out.println(findNextPalindrome(99));           // 99
         System.out.println(findNextPalindrome(93));           // 101
         System.out.println(findNextPalindrome(101));          // 111
         System.out.println(findNextPalindrome(191));          // 202

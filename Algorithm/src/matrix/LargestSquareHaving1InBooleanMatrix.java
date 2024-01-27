@@ -30,23 +30,23 @@ public class LargestSquareHaving1InBooleanMatrix {
             }
             System.out.println();
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {
         int[][] M = {
-                {0, 1, 1, 0, 1},
-                {1, 1, 0, 1, 0},
-                {0, 1, 1, 1, 0},
-                {1, 1, 1, 1, 0},
-                {1, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0}
-        };
+                       {0, 1, 1, 0, 1},
+                       {1, 1, 0, 1, 0},
+                       {0, 1, 1, 1, 0},
+                       {1, 1, 1, 1, 0},
+                       {1, 1, 1, 1, 1},
+                       {0, 0, 0, 0, 0}
+                    };
         findMatrix(M);
         int[][] N = {
-                {0, 1, 0},
                 {1, 1, 1},
-                {0, 1, 1}
+                {1, 1, 1},
+                {1, 1, 1},
+                {0, 0, 0},
         };
         findMatrix(N);
     }

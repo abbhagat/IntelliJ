@@ -1,6 +1,7 @@
 package vmware;
 
-// Given an array of integers, every element appears twice except for one which appears exactly once. Find that number.
+// Given an array of integers, every element appears twice except for one which appears exactly once.
+// Find that number.
 
 import java.util.HashMap;
 import java.util.Map;

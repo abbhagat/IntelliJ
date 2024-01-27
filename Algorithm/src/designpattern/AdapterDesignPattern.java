@@ -10,7 +10,6 @@ package designpattern;
  *       we go for adapter design pattern.
  */
 
-@FunctionalInterface
 interface MediaPlayer {
     void play(String fileName, String fileType);
 }

@@ -5,20 +5,20 @@ package searching;
 
 public class SearchAnElementInSortedAndRotatedArray {
 
-    private static int pivotedBinarySearch(int[] a, int key) {
+    private static int pivotedBinarySearch(int[] a, int n) {
         int low = 0, high = a.length - 1;
-        int pivot = findPivot(a, low, high);
+        int pivot = findPivot(a);
         if (pivot == high) {
-            return binarySearch(a, low, high, key);
+            return binarySearch(a, low, high, n);
         }
-        if (a[pivot] == key) {
+        if (a[pivot] == n) {
             return pivot;
         }
-        return a[low] > key ? binarySearch(a, pivot + 1, high, key) : binarySearch(a, low, pivot - 1, key);
+        return a[low] > n ? binarySearch(a, pivot + 1, high, n) : binarySearch(a, low, pivot - 1, n);
     }
 
-    private static int findPivot(int[] a, int low, int high) {
-        int mid = 0;
+    private static int findPivot(int[] a) {
+        int low = 0, high = a.length - 1, mid = 0;
         while (low <= high) {
             mid = (low + high) / 2;
             if (a[mid] == a[high]) {
@@ -34,13 +34,13 @@ public class SearchAnElementInSortedAndRotatedArray {
         return mid;
     }
 
-    private static int binarySearch(int[] a, int low, int high, int key) {
+    private static int binarySearch(int[] a, int low, int high, int n) {
         if (low <= high) {
             int mid = (low + high) / 2;
-            if (key == a[mid]) {
+            if (n == a[mid]) {
                 return mid;
             }
-            return key < a[mid] ? binarySearch(a, low, mid - 1, key) : binarySearch(a, mid + 1, high, key);
+            return n < a[mid] ? binarySearch(a, low, mid - 1, n) : binarySearch(a, mid + 1, high, n);
         }
         return -1;
     }

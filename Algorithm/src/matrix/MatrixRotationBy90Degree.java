@@ -24,6 +24,16 @@ public class MatrixRotationBy90Degree {
         }
     }
 
+    private static void clockWises(int[][] M) {
+        int R = M.length - 1, C = M[0].length - 1;
+        for (int i = 0; i <= R; i++) {
+            for (int j = C; j >= 0; j--) {
+                System.out.print(M[j][i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     private static void antiClockWise(int[][] M) {
         int n = M.length;
         for (int i = 0; i < n / 2; i++) {
@@ -45,7 +55,7 @@ public class MatrixRotationBy90Degree {
         };
         System.out.println("\nOriginal Matrix\n");
         printMatrix(M);
-        clockWise(M);
+        clockWises(M);
         System.out.println("\nRotated Matrix\n");
         printMatrix(M);
         System.out.println();

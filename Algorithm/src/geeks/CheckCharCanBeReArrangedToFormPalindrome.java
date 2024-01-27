@@ -12,7 +12,7 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
         }
         int count = 0;
         for (int x : temp) {
-            if (x % 2 != 0) {
+            if (x % 2 == 1) {
                 count++;
             }
             if (count > 1) {

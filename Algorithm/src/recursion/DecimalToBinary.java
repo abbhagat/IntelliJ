@@ -27,7 +27,7 @@ public class DecimalToBinary {
         while (n != 0) {
             carry = n / 2;
             binary.insert(0, n % 2);
-            n /= 2;
+            n = n / 2;
         }
         return carry == 0 ? binary.toString() : "1" + binary;
     }

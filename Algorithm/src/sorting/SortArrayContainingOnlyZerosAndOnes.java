@@ -2,18 +2,18 @@ package sorting;
 
 import java.util.stream.IntStream;
 
+import static util.CommonUtils.swap;
+
 public class SortArrayContainingOnlyZerosAndOnes {
 
     public static void main(String[] args) {
         final int[] a = {1, 0, 0, 1, 0, 1, 0, 1, 0, 1};
-        int countZero = 0;
-        for (int x : a) {
-            if (x == 0) {
-                countZero++;
+        for (int j = 0, i = 0; i < a.length; i++) {
+            if (a[i] == 0) {
+                swap(a, i, j);
+                j++;
             }
         }
-        final int c = countZero;
-        IntStream.range(0, a.length).forEach(i -> a[i] = (i < c) ? 0 : 1);
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

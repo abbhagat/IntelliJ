@@ -15,6 +15,7 @@ public class HashSet<E> implements Cloneable, Serializable {
     }
 
     public boolean add(E e) {
+
         return map.put(e, PRESENT) == null;
     }
 
