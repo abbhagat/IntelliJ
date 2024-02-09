@@ -2,33 +2,27 @@ package jpmorgan;
 
 public class PrintTriangleInAPattern {
     private static void printPattern(int n) {
-        int low = 0, high = n;
+        int low = 1, high = n;
         int mid = (low + high) / 2;
-        while (low <= mid) {
-            for (int i = 0; i <= low; i++) {
-                if (low >= 2) {
-                    System.out.print(i == 0 || i == low ? "#" : " ");
-                } else if (i == 0 || i == 1) {
-                    System.out.print("#");
-                }
+        while(low <= mid) {
+            for(int i = 1; i <= low; i++) {
+                System.out.print((i == 1 || i == low) ? "#" : ' ');
             }
-            System.out.println();
             low++;
-        }
-        while (mid < high) {
-            for (int i = mid + 1; i <= high; i++) {
-                if (mid >= 2) {
-                    System.out.print(i == mid + 1 || i == high ? "#" : " ");
-                } else if (i == high || i == high - 1) {
-                    System.out.print("#");
-                }
-            }
             System.out.println();
+        }
+        while(mid <= high) {
+            for(int i = mid + 1; i <= high; i++) {
+                System.out.print((i == mid + 1 || i == high) ? "#" : ' ');
+            }
             high--;
+            System.out.println();
         }
     }
 
     public static void main(String[] args) {
+        printPattern(5);
+        System.out.println();
         printPattern(7);
     }
 }
