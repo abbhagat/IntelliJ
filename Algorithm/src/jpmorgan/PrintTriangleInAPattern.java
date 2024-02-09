@@ -6,14 +6,14 @@ public class PrintTriangleInAPattern {
         int mid = (low + high) / 2;
         while(low <= mid) {
             for(int i = 1; i <= low; i++) {
-                System.out.print((i == 1 || i == low) ? "#" : ' ');
+                System.out.print((i == 1 || i == low) ? "*" : ' ');
             }
             System.out.println();
             low++;
         }
         while(mid <= high) {
             for(int i = mid + 1; i <= high; i++) {
-                System.out.print((i == mid + 1 || i == high) ? "#" : ' ');
+                System.out.print((i == mid + 1 || i == high) ? "*" : ' ');
             }
             System.out.println();
             high--;
