@@ -1,39 +1,50 @@
 package trees;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
-
 // Time Complexity O(n)
 public class LargestBSTSubTreeInBT {
-    @NoArgsConstructor
-    @AllArgsConstructor
-    private static class BST {
-        int size, min, max;
+
+    private static int maxSize = Integer.MIN_VALUE;
+
+    static class BST {
         boolean isBST;
+        int min, max, size;
+
+        public BST() {
+            isBST = false;
+            min = Integer.MAX_VALUE;
+            max = Integer.MIN_VALUE;
+            size = 0;
+        }
     }
 
-    private static BST largestBST(Node root) {
+    private static BST largestBSTSubtree(Node root) {
+        BST bst = new BST();
         if (root == null) {
-            return new BST(0, Integer.MIN_VALUE, Integer.MAX_VALUE, true);
+            bst.isBST = true;
+            return bst;
         }
-        BST left  = largestBST(root.left);
-        BST right = largestBST(root.right);
-        BST bst   = new BST();
-        bst.min   = min(left.min, root.num);
-        bst.max   = max(right.max, root.num);
-        bst.isBST = left.isBST && right.isBST && root.num > left.max && root.num < right.min;
-        bst.size  = bst.isBST ? left.size + right.size + 1 : max(left.size, right.size);
+        BST left = largestBSTSubtree(root.left);
+        BST right = largestBSTSubtree(root.right);
+        if (left.isBST && root.num > left.max && right.isBST && root.num < right.min) {
+            bst.isBST = true;
+            bst.min = Math.min(root.num, left.min);
+            bst.max = Math.max(root.num, right.max);
+            bst.size = left.size + right.size + 1;
+            if (bst.size > maxSize) {
+                maxSize = bst.size;
+            }
+        }
         return bst;
     }
 
     public static void main(String[] args) {
-        Node root      = new Node(60);
-        root.left      = new Node(65);
-        root.right     = new Node(70);
-        root.left.left = new Node(50);
-        System.out.print("Size of the largest BST is " + largestBST(root).size);
+        Node root        = new Node(10);
+        root.left        = new Node(5);
+        root.right       = new Node(15);
+        root.left.left   = new Node(1);
+        root.left.right  = new Node(8);
+        root.right.right = new Node(7);
+        largestBSTSubtree(root);
+        System.out.print("Size of the largest BST is " + maxSize);
     }
 }
