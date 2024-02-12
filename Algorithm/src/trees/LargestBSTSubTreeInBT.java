@@ -1,5 +1,8 @@
 package trees;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 // Time Complexity O(n)
 public class LargestBSTSubTreeInBT {
 
@@ -23,16 +26,14 @@ public class LargestBSTSubTreeInBT {
             bst.isBST = true;
             return bst;
         }
-        BST left = largestBSTSubtree(root.left);
+        BST left  = largestBSTSubtree(root.left);
         BST right = largestBSTSubtree(root.right);
-        if (left.isBST && root.num > left.max && right.isBST && root.num < right.min) {
+        if (left.isBST && right.isBST && root.num > left.max && root.num < right.min) {
             bst.isBST = true;
-            bst.min = Math.min(root.num, left.min);
-            bst.max = Math.max(root.num, right.max);
-            bst.size = left.size + right.size + 1;
-            if (bst.size > maxSize) {
-                maxSize = bst.size;
-            }
+            bst.min   = min(root.num, left.min);
+            bst.max   = max(root.num, right.max);
+            bst.size  = left.size + right.size + 1;
+            maxSize   = max(maxSize, bst.size);
         }
         return bst;
     }
