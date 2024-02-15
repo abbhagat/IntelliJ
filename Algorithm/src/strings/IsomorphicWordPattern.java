@@ -22,15 +22,15 @@ Output: false
 public class IsomorphicWordPattern {
 
     public static boolean isIsomorphicPattern(String s1, String s2) {
-        String[] s = s2.split(" ");
-        if (s1.length() == s.length) {
+        String[] word = s2.split(" ");
+        if (s1.length() == word.length) {
             Map<Character, String> map = new HashMap<>();
             char[] c = s1.toCharArray();
             for (int i = 0; i < c.length; i++) {
-                if (map.containsKey(c[i]) && !map.get(c[i]).equals(s[i])) {
+                if (map.containsKey(c[i]) && !map.get(c[i]).equals(word[i])) {
                     return false;
                 }
-                map.put(c[i], s[i]);
+                map.put(c[i], word[i]);
             }
             return true;
         }

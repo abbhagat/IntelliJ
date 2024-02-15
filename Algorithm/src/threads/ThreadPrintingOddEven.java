@@ -19,8 +19,8 @@ class OddEvenThreadPrinter {
                     if (!threadID.equals(threadIDToRun)) {
                         monitor.wait();
                     } else {
-                        System.out.println(n + " " + Thread.currentThread().getName());
-                        threadIDToRun = n++ % 2 == 0 ? "ODD" : "EVEN";
+                        System.out.println(n++ + " " + Thread.currentThread().getName());
+                        threadIDToRun = threadID.equals("EVEN") ? "ODD" : "EVEN";
                         monitor.notifyAll();
                     }
                 }

@@ -11,7 +11,7 @@ public class BombEnemy {
 
     private static final int ROW = M.length;
     private static final int COL = M[0].length;
-    private static int area = 0;
+    private static int area = 1;
     private static final boolean[][] visited = new boolean[ROW][COL];
 
     private static final int[] rowIdx = {-1, -1, -1, 0, 0, 1, 1, 1};

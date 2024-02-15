@@ -2,7 +2,6 @@ package strings;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class LongestRepeatingSubsquence {
 
@@ -28,17 +27,14 @@ public class LongestRepeatingSubsquence {
 
     public static void main(String[] args) {
         Map<String, Integer> hm = longestRepeatingSubsequence("abcxyzabcmnoabcxyzzzzzzabczzzzzzpqrijklxyz");
-        Set<Map.Entry<String, Integer>> set = hm.entrySet();
-        String s = null, str = null;
+        String str = null;
         int max = 0;
-        for (Map.Entry<String, Integer> map : set) {
-            System.out.println(map.getKey() + "->" + map.getValue());
+        for (Map.Entry<String, Integer> map : hm.entrySet()) {
             if (max < map.getValue()) {
                 str = map.getKey();
                 max = map.getValue();
             }
         }
-        System.out.println(s);
         System.out.println(str + " " + max);
     }
 }

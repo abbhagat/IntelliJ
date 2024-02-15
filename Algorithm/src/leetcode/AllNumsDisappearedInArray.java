@@ -1,7 +1,6 @@
 package leetcode;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class AllNumsDisappearedInArray {
 
@@ -12,7 +11,7 @@ public class AllNumsDisappearedInArray {
         }
         int sum = map.values().stream().reduce(0, Integer::sum); // map.values().stream().reduce(0, (x,y) -> x + y);
         for (int i = 1; i < a.length || i <= sum; i++) {
-            if (map.get(i) == null) {
+            if (!map.containsKey(i)) {
                 System.out.print(i + " ");
             }
         }

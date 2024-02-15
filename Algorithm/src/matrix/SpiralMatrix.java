@@ -2,7 +2,7 @@ package matrix;
 
 // Time Complexity O(M*N)
 
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 public class SpiralMatrix {
 

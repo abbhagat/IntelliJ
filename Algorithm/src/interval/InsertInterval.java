@@ -1,5 +1,7 @@
 package interval;
 
+import util.Interval;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,19 +9,6 @@ import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class InsertInterval {
-
-    private static class Interval {
-        int start, end;
-
-        public Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-
-        public String toString() {
-            return "(" + this.start + "," + this.end + ")";
-        }
-    }
 
     private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
         int i = 0;

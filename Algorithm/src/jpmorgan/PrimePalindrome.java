@@ -7,21 +7,12 @@ package jpmorgan;
  * An integer is a palindrome if it reads the same from left to right as it does from right to left.
  * For example, 101 and 12321 are palindromes.
  * The test cases are generated so that the answer always exists and is in the range [2, 2 * 108].
- * Example 1:
- * Input: n = 6
- * Output: 7
- * Example 2:
- * <p>
- * Input: n = 8
- * Output: 11
- * Example 3:
- * <p>
- * Input: n = 13
- * Output: 101
+ * Ex 1: Input: n = 6  Output: 7
+ * Ex 2: Input: n = 8  Output: 11
+ * Ex 3: Input: n = 13 Output: 101
  */
 
 public class PrimePalindrome {
-
     private static boolean isPalindrome(int n) {
         String s = String.valueOf(n);
         return new StringBuilder(s).reverse().toString().equals(s);
@@ -45,14 +36,15 @@ public class PrimePalindrome {
                 return n;
             }
             n++;
-            // Code added to pass in HackerRank
-            if (n > 10_000_000 && n < 100_000_000) {
+            if (n > 10_000_000 && n < 100_000_000) {  // Code added to pass in HackerRank
                 n = 100_000_001;
             }
         }
     }
 
     public static void main(String[] args) {
+        System.out.println(primePalindrome(6));
+        System.out.println(primePalindrome(8));
         System.out.println(primePalindrome(13));
     }
 }

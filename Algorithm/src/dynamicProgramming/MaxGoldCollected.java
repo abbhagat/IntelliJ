@@ -25,6 +25,16 @@ import static java.lang.Integer.max;
 
 public class MaxGoldCollected {
 
+    private static int maxGoldCollected(int[][] a, int m, int n, int ROW, int COL) {
+        if (m > ROW || n > COL) {
+            return Integer.MIN_VALUE;
+        }
+        if (m == ROW && n == COL) {
+            return a[m][n];
+        }
+        return a[m][n] + max(maxGoldCollected(a, m + 1, n, ROW, COL), maxGoldCollected(a, m, n + 1, ROW, COL));
+    }
+
     private static int maxGoldCollected(int[][] a) {
         final int R = a.length, C = a[0].length;
         for (int i = 1; i < R; i++) {
@@ -71,6 +81,6 @@ public class MaxGoldCollected {
                 b[i][j] = list.get(i).get(j);
             }
         }
-        System.out.println(maxGoldCollected(a) + "\t" + maxGoldCollectedDP(b));
+        System.out.println(maxGoldCollected(a, 0, 0, a.length - 1, a[0].length - 1) + "\t" + maxGoldCollectedDP(b));
     }
 }

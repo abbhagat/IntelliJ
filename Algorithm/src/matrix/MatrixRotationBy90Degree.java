@@ -7,7 +7,7 @@ package matrix;
   23 24 25 26           26 22 18 14     [n-j-1][i] --- [n-i-1][n-j-1]
 */
 
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 public class MatrixRotationBy90Degree {
 

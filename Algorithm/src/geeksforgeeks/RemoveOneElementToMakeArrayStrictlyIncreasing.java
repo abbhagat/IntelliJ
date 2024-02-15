@@ -16,11 +16,7 @@ public class RemoveOneElementToMakeArrayStrictlyIncreasing {
         if (count > 1) {
             return false;
         }
-        if (index == 1) {
-            System.out.println(a[index]);
-            return true;
-        }
-        if (a[index - 1] < a[index + 1]) {
+        if (index == 1 || (a[index - 1] < a[index + 1])) {
             System.out.println(a[index]);
             return true;
         }

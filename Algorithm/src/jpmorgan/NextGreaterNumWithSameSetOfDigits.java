@@ -23,17 +23,16 @@ public class NextGreaterNumWithSameSetOfDigits {
             }
         }
         int[] res = new int[a.length];
-        int index = a.length - 1;
+        int k = a.length - 1;
         System.arraycopy(a, 0, res, 0, i);
         for (int j = i; j < res.length; j++) {
-            res[j] = a[index--];
+            res[j] = a[k--];
         }
         return res;
     }
 
     public static void main(String[] args) {
-        int[] b = nextPermutation(new int[]{3, 1, 2});
-        IntStream.range(0, b.length).forEach(i -> System.out.print(b[i] + " "));
-        System.out.println();
+        int[] a = nextPermutation(new int[]{3, 1, 2});
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

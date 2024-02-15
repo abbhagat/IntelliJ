@@ -1,20 +1,13 @@
 package interval;
 
+import util.Interval;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MeetingRoomsII {
-
-    private static class Interval {
-        int start, end;
-
-        public Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
 
     private static int findMinRooms(List<Interval> intervalList) {
         intervalList.sort(Comparator.comparingInt(interval -> interval.start));

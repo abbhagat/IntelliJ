@@ -1,5 +1,7 @@
 package trees;
 
+import lombok.Getter;
+
 import java.util.Stack;
 
 interface Iterator {
@@ -14,13 +16,10 @@ interface Iterable {
     Iterator iterator();
 }
 
+@Getter
 class TreeIterator implements Iterable {
 
     private final Stack<Node> stack = new Stack<>();
-
-    public Stack<Node> getStack() {
-        return stack;
-    }
 
     @Override
     public Iterator iterator() {

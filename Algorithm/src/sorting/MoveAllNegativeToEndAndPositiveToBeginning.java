@@ -22,10 +22,8 @@ public class MoveAllNegativeToEndAndPositiveToBeginning {
     }
 
     public static void main(String[] args) {
-        final int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
         move(a);
-        System.out.println();
         IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
     }
 }

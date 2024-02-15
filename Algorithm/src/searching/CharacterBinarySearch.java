@@ -2,6 +2,7 @@ package searching;
 
 import java.util.Arrays;
 
+// Time Complexity O(log n)
 public class CharacterBinarySearch {
 
     public static void main(String[] args) {

@@ -20,10 +20,8 @@ public class FindPairsInArrayWithSmallestSum {
 
     private static int getMinIndex(int[] a, int[] b, int[] temp) {
         int index = 0, minSum = Integer.MAX_VALUE;
-        // To pick next pair, traverse for all elements of a[], for every element
-        // find corresponding current element in b[] and pick minimum of all formed pairs.
         for (int i = 0; i < a.length; i++) {
-            if (temp[i] < b.length && a[i] + b[temp[i]] < minSum) {  // Check if current element of a[] plus element of array2 to be used gives minimum sum
+            if (temp[i] < b.length && a[i] + b[temp[i]] < minSum) {
                 index = i;
                 minSum = a[i] + b[temp[i]];
             }

@@ -16,7 +16,9 @@ public class FindElementPositionAfterSorting {
             if (i == pos) {
                 continue;
             }
-            index += a[i] <= n ? 1 : 0;
+            if (a[i] <= n) {
+                index++;
+            }
         }
         return index;
     }

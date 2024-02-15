@@ -8,7 +8,7 @@ package geeks;
 
 import java.util.Arrays;
 
-public class EquilibriumPointInAnArray {
+public class    EquilibriumPointInAnArray {
 
     private static int findEquilibriumPoint(int[] a) {
         int sum1 = Arrays.stream(a).reduce(0, Integer::sum);

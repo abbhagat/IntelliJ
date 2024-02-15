@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 // Time Complexity: O(n log n)
 // Auxiliary Space: O(M+N)

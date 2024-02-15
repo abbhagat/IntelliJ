@@ -4,16 +4,18 @@ package strings;
 
 public class BinaryStringInAPattern {
 
-    private static void printBinaryString(char[] a, int index) {
-        if (index == a.length) {
-            System.out.println(a);
-        } else if (a[index] == '?') {
-            a[index] = '0';
-            printBinaryString(a, index + 1);
-            a[index] = '1';
-            printBinaryString(a, index + 1);
+    private static void printBinaryString(char[] c, int index) {
+        if (index == c.length) {
+            System.out.println(c);
+            return;
+        }
+        if (c[index] == '?') {
+            c[index] = '0';
+            printBinaryString(c, index + 1);
+            c[index] = '1';
+            printBinaryString(c, index + 1);
         } else {
-            printBinaryString(a, index + 1);
+            printBinaryString(c, index + 1);
         }
     }
 

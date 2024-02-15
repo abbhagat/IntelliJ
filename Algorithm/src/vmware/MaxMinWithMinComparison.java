@@ -14,7 +14,7 @@ public class MaxMinWithMinComparison {
         } else {
             i = 1;
         }
-        while (i < a.length - 1) {
+        while (i + 1 < a.length) {
             if (a[i] > a[i + 1]) {
                 max = max(max, a[i]);
                 min = min(min, a[i + 1]);

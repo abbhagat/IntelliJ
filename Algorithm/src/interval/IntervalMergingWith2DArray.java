@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 
 import static java.lang.Integer.max;
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 public class IntervalMergingWith2DArray {
 
@@ -20,9 +20,7 @@ public class IntervalMergingWith2DArray {
                 interval.getLast()[1] = max(interval.getLast()[1], a[i][1]);
             }
         }
-        int[][] result = new int[interval.size()][2];
-        interval.toArray(result);
-        return result;
+        return interval.toArray(new int[interval.size()][2]);
     }
 
     public static void main(String[] args) {

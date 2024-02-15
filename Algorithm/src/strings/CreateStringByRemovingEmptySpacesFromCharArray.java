@@ -2,12 +2,17 @@ package strings;
 
 public class CreateStringByRemovingEmptySpacesFromCharArray {
 
-    public static void main(String[] args) {
-        String str = " abc d e    f ghi  j  k ";
+    private static StringBuilder removeEmptyChar(String str) {
+        StringBuilder sb = new StringBuilder();
         for (char x : str.trim().toCharArray()) {
             if (x != ' ') {
-                System.out.print(x);
+                sb.append(x);
             }
         }
+        return sb;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(removeEmptyChar(" abc d e    f ghi  j  k "));
     }
 }

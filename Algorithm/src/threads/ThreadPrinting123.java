@@ -19,8 +19,7 @@ class PrinterThread implements Runnable {
                     if (threadId != threadIdToRun) {
                         monitor.wait();
                     } else {
-                        System.out.println(threadId + " " + Thread.currentThread().getName());
-                        n++;
+                        System.out.println(n++ + " " + Thread.currentThread().getName());
                         switch (threadId) {
                             case 1: threadIdToRun = 2; break;
                             case 2: threadIdToRun = 3; break;

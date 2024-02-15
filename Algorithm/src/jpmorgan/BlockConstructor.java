@@ -41,6 +41,4 @@ public class BlockConstructor {
         new Sub();
         new Super();
     }
-
-
 }

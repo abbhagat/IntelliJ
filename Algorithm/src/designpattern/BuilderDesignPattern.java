@@ -17,14 +17,14 @@ class Computer {
 
     private final String HDD;
     private final String RAM;
-    private final boolean isGraphicsCardEnabled;
     private final boolean isBluetoothEnabled;
+    private final boolean isGraphicsCardEnabled;
 
     private Computer(Builder builder) {
         this.HDD = builder.HDD;
         this.RAM = builder.RAM;
-        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
         this.isBluetoothEnabled    = builder.isBluetoothEnabled;
+        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
     }
 
     public String toString() {

@@ -46,4 +46,43 @@ public class CommonUtils {
     public static int maximum(int x, int y, int z) {
         return Integer.max(x, Integer.max(y, z));
     }
+
+    public static void printArray(int[] a) {
+        for(int x : a) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(char[] a) {
+        for(char c : a) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printArray(String[] str) {
+        for(String s : str) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
+
+    public static void printMatrix(int[][] M) {
+        for (int[] x : M) {
+            for (int y : x) {
+                System.out.print(y + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(char[][] M) {
+        for (char[] x : M) {
+            for (char y : x) {
+                System.out.print(y + " ");
+            }
+            System.out.println();
+        }
+    }
 }

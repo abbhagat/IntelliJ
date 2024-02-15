@@ -32,7 +32,7 @@ public class MaxLengthChainPairs {
             }
         }
         // mcl[i] now stores the maximum chain length ending with pair i Pick maximum of all MCL values
-        return Arrays.stream(mcl).reduce(Integer.MIN_VALUE, Integer::max);
+        return Arrays.stream(mcl).max().getAsInt();
     }
 
     public static void main(String[] args) {
@@ -43,6 +43,6 @@ public class MaxLengthChainPairs {
                                    new Pair(27, 40),
                                    new Pair(50, 60)
                                 };
-        System.out.println("Length of maximum size chain is " + maxChainLength(pair));
+        System.out.println("Maximum Chain Size = " + maxChainLength(pair));
     }
 }

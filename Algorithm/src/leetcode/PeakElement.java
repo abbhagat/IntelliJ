@@ -18,7 +18,7 @@ public class PeakElement {
     }
 
     private static int findPeakElements(int[] a) {
-        for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i + 1 < a.length; i++) {
             if (a[i] > a[i + 1]) {
                 return a[i];
             }

@@ -6,7 +6,7 @@ package matrix;
   then make all the cells of ith row and jth column as 1.
  */
 
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 // Time  Complexity O(M*N)
 // Space Complexity O(M*N)

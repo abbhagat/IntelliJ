@@ -6,7 +6,7 @@ import java.util.Set;
 /*
 Given an integer array nums and an integer k,
 return true if there are two distinct indices i and j in the array
-such that nums[i] == nums[j] and abs(i - j) <= k.
+such that nums[i] == nums[j] and abs(i - j) <= k
  */
 public class ContainsDuplicateII {
 
@@ -25,8 +25,8 @@ public class ContainsDuplicateII {
 
     private static boolean containsDuplicate(int[] a) {
         Set<Integer> set = new HashSet<>();
-        for (int num : a)
-            if (!set.add(num)) {
+        for (int n : a)
+            if (!set.add(n)) {
                 return true;
             }
         return false;

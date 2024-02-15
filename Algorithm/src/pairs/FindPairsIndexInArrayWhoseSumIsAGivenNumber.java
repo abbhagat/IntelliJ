@@ -34,7 +34,9 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
     }
 
     public static void main(String[] args) {
-        int[] index = twoSumIndex(new int[]{2, 6, 7, 1, 8, 3, 5, 5, 5, 5}, 8);
+        int[] index = twoSumIndex(new int[]{3, 2, 4}, 6);
+        System.out.println(index[0] + "," + index[1]);
+        index = twoSumIndex(new int[]{3, 3}, 6);
         System.out.println(index[0] + "," + index[1]);
     }
 }

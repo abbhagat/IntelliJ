@@ -18,7 +18,7 @@ public class BinaryTreeMinimumHeight {
         counts.add(1);
         while (!q.isEmpty()) {
             Node node = q.poll();
-            int count = counts.poll();
+            int count = counts.remove();
             if (node.left != null) {
                 q.add(node.left);
                 counts.add(count + 1);

@@ -2,16 +2,14 @@ package oracle;
 
 import lombok.Getter;
 
+@Getter
 public class ArrayListImpl<E> {
 
-    @Getter
     private transient E[] list;
-    @Getter
     private int size;
-    private static final int DEFAULT_CAPACITY = 10;
 
     public ArrayListImpl() {
-        this(DEFAULT_CAPACITY);
+        this(10);
     }
 
     public ArrayListImpl(int initialCapacity) {

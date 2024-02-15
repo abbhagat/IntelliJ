@@ -1,10 +1,10 @@
 package vmware;
 
 public class NumberOfOneBits {
-    
-    private static int numOfOneBit(int n){
+
+    private static int numOfOneBit(int n) {
         int count = 0;
-        while (n != 0){
+        while (n != 0) {
             count++;
             n = n & (n - 1);
         }

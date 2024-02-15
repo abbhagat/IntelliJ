@@ -14,7 +14,7 @@ public class SymmetricPairsIn2DArray {
             int _1stVal = x[0];
             int _2ndVal = x[1];
             Integer val = map.get(_2ndVal);
-            if (null != val && val == _1stVal) {
+            if (val != null && val == _1stVal) {
                 System.out.println("(" + _1stVal + "," + _2ndVal + ")");
             }
             map.put(_1stVal, _2ndVal);

@@ -15,11 +15,9 @@ Constructed Binary tree is:
                       6     9
 */
 
-// Time Complexity : O(n * 2^h)
+// Time Complexity : O(n)
 // Space Complexity: O(2^h)
 public class BinaryTreeMaxWidth {
-
-    // Time Complexity : O(n)
     private static int findMaxWidth(Node root) {
         Queue<Node> q = new LinkedList<>();
         q.add(root);

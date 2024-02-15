@@ -3,7 +3,6 @@ package leetcode;
 import java.util.Arrays;
 
 public class SummaryRanges {
-
     private static void printSummaryRanges(int[] a) {
         Arrays.sort(a);
         int start = a[0], end = 0;

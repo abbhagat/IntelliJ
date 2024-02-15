@@ -1,6 +1,6 @@
 package matrix;
 
-import static matrix.MatrixPrint.printMatrix;
+import static util.CommonUtils.printMatrix;
 
 // Time Complexity O(M*N)
 public class NQueenProblem {

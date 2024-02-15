@@ -8,7 +8,8 @@ public class BalanceStringAfterRemovingExtraBrackets {
         for (char c : str.toCharArray()) {
             if (c == '(') {
                 open++;
-            } else if (c == ')') {
+            }
+            if (c == ')') {
                 if (open == 0) {
                     continue;
                 }

@@ -3,7 +3,8 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
-// Given a LinkedList Partition all the nodes in such a way that all node less than x comes before x and remaining after it.
+// Given a LinkedList Partition all the nodes in such a way
+// that all node less than x comes before x and remaining after it.
 
 public class LinkedListPartition {
 

@@ -29,7 +29,7 @@ public class IsMirrorImage {
                2   3          3   2
               / \                / \
              4   5              5   4
-         */
+       */
         Node root1       = new Node(1);
         root1.left       = new Node(2);
         root1.right      = new Node(3);

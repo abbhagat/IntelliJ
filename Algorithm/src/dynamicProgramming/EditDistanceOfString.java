@@ -32,10 +32,10 @@ public class EditDistanceOfString {
     private static int editDist(String s1, String s2) {
         int m = s1.length(), n = s2.length();
         int[][] dp = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; i++) {
+        for (int i = 1; i <= m; i++) {
             dp[i][0] = i;
         }
-        for (int j = 0; j <= n; j++) {
+        for (int j = 1; j <= n; j++) {
             dp[0][j] = j;
         }
         for (int i = 1; i <= m; i++) {
@@ -60,7 +60,9 @@ public class EditDistanceOfString {
     }
 
     public static void main(String[] args) {
-        System.out.println(editDist("cat", "cut")         + "\t" + editDist("cat", "cut",         3, 3));
+        String s1, s2;
+        s1 = "cat"; s2 = "cut";
+        System.out.println(editDist(s1, s2) + "\t" + editDist(s1, s2,s1.length(), s2.length()));
         System.out.println(editDist("geek", "gesek")      + "\t" + editDist("geek", "gesek",      4, 5));
         System.out.println(editDist("sunday", "saturday") + "\t" + editDist("sunday", "saturday",  6, 8));
         System.out.println(editDist("ros", "horse")       + "\t" + editDist("ros", "horse",        3, 5));

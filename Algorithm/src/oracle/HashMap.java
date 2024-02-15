@@ -35,19 +35,18 @@ public class HashMap<K, V> {
 
     public V put(K key, V value) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry<K,V> e = table[hash];
-        if (null != e) {
-            if (null == e.getKey() || e.getKey().equals(key)) {
-                e.setValue(value);
-                return null;
-            } else {
-                while (e.next != null) {
-                    e = e.next;
+        if (null != table[hash]) {
+            Entry<K,V> prev = null;
+            for (Entry<K,V> e = table[hash]; e != null; e = e.next) {
+                prev = e;
+                if (null == e.getKey() || e.getKey().equals(key)) {
+                    e.setValue(value);
+                    return null;
                 }
-                table[hash] = new Entry<>(key, value);
-                e.next = table[hash];
-                return e.getValue();
             }
+            table[hash] = new Entry<>(key, value);
+            prev.next = table[hash];
+            return prev.getValue();
         }
         table[hash] = new Entry<>(key, value);
         return null;

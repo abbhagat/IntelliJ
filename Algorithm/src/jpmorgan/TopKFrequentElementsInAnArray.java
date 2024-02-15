@@ -24,10 +24,24 @@ public class TopKFrequentElementsInAnArray {
                 .toArray();
     }
 
+    private static void topKFrequentWords(String[] a, int k) {
+        Map<String, Integer> map = new LinkedHashMap<>();
+        for (String x : a) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+        List<Map.Entry<String, Integer>> sortedList = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toList());
+        List<Map.Entry<String, Integer>> topKList = sortedList.subList(0, Integer.min(k, sortedList.size()));
+        topKList.forEach(entry -> System.out.println(entry.getKey()));
+    }
+
     public static void main(String[] args) {
         for (int x : topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2)) {
             System.out.print(x + " ");
         }
         System.out.println();
+        topKFrequentWords(new String[]{"i", "love", "leetcode", "i", "love", "coding"}, 2);
     }
 }
