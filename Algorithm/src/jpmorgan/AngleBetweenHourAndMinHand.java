@@ -12,7 +12,7 @@ public class AngleBetweenHourAndMinHand {
         hr = hr == 12 ? 0 : hr;
         if (min == 60) {
             min = 0;
-            hr += 1;
+            hr++;
             hr -= hr > 12 ? 12 : 0;
         }
         int hourAngle = (int) (0.5 * (hr * 60 + min));   // Calculate the angles moved by hour and minute hands with reference to 12:00
