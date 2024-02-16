@@ -8,6 +8,7 @@ public class AngleBetweenHourAndMinHand {
     private static int calcAngle(double hr, double min) {
         if (hr < 0 || min < 0 || hr > 12 || min > 60) {
             System.out.println("Wrong input");
+            return -1;
         }
         hr = hr == 12 ? 0 : hr;
         if (min == 60) {
