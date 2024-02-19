@@ -1,0 +1,47 @@
+Functional Requirement:-
+
+1. View Feeds                    | GET getFeeds(String userID) List of 20 posts as feed
+2. Create a POST                 | POST createPost(@RequestBody Post post)
+3. Like and Comment on a POST    | POST interactionService(@RequestBody Interaction interaction)
+4. Search for Users              | GET search(String searchString) Return 30 search results
+5. Follow Users                  | POST followUser(String userId1, String userId2)
+6. Send Notifications            |
+
+NFR :-
+
+1. Low Latency [ Search User Like/Comment ]
+2. High Availability
+3. View POST [Eventual Consistency]
+
+Capacity Estimation :-
+
+Number of POST per day = 100M/day and assume 1 Post is 10 MB in size
+Total Storage is 100TB/day
+Storage Amazon S3
+
+We will be going with NoSQL Document Cassandra DB
+
+1. User
+2. Connection/Follower DB
+
+   FollowerUserId   FollowingUserId
+1.     A                     B
+2.     A                     C
+1.     C                     B
+
+3. POST DB
+    {
+       PostID
+       userID
+       timeStamp
+       Description
+       url
+    }
+4. Interaction DB
+   {
+        postId
+        userID
+        like:
+        comment:
+        media:urls
+   }

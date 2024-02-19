@@ -1,0 +1,25 @@
+FR:-
+
+1. User should be able to reserver a parking spot.
+2. System should generate a ticket/receipt.
+3. 3 Types of vehicles[Compact, Regular, Large]
+4. Flat rate based on time but different rate for each vehicle type.
+5. User must not be able to book the same parking spot.
+6. Send Notification to user when parking spot is booked/canceled
+
+NFR :-
+
+1. Low Latency
+2. High Consistency
+
+API Design
+
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| POST    |   reserve           |  @PathVariable String garageId, @PathVariable Date startTime, @PathVariable Date endTime  Returns spotId and reservationId
+| POST    |   payment           |  @PathVariable String reservationId
+| POST    |   cancel            |  @PathVariable String reservationId
+| GET     |   calculatePayment  |  @PathVariable String reservationId
+| DELETE  |   freeSpot          |  @PathVariable String garageId, @PathVariable String vehicleType, @PathVariable String time
+| PUT     |   allocateSpot      |  @PathVariable String garageId, @PathVariable String vehicleType, @PathVariable String time
+| POST    |   create_account    |  @RequestBody User user
+|------------------------------------------------------------------------------------------------------------------------------------------------------------
