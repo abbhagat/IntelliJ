@@ -1,37 +1,44 @@
 Functional Requirements
 
-1. User can add expenses.
-2. User can edit expenses.
-3. User can settle expenses.
-4. User can make groups and add/remove members in the group.
-5. Split can be either equal or percentage split.
-6. All amount are in INR currency.
+1. Users can add expenses.
+2. Users can edit expenses.
+3. Users can settle expenses.
+4. Users can make groups.
+5. User can add more users to the group.
+6. Split can be either equal or percentage split.
+7. All amount are in INR currency.
 
 NFR :-
-Low Latency.
-High Consistency.
-System must be reliable.
-System must be scalable.
+1. Low Latency.
+2. High Consistency.
+3. System must be reliable. The data must persist in the DB after the transaction.
+4. System must be scalable i.e we can add more users to the group.
 
-We need to create the following table called GROUP, USER, EXPENSE and AMOUNT_OWNED
-|-----------------------------------------------------------------------------------------------|----------------------------------------|
-|                1. GROUP                |           2. USER                                    |         3. USER_TO_GROUP               |
-|-----------------------------------------------------------------------------------------------|----------------------------------------|
-|GROUP_ID     GROUP_NAME     GROUP_COUNT |-USER_ID  USER_NAME   EMAIL  FIRST_NAME    LAST_NAME  | USER_ID      GROUP_ID   IS_ADMIN       |
-|-----------------------------------------------------------------------------------------------|----------------------------------------|
-|   1           G1               2       |  A       A           ABC       A           X         |  A             1            Y          |
-|   2           G2               3       |  B       B           BCA       B           Y         |  B             1            N          |
-|-----------------------------------------------------------------------------------------------|----------------------------------------|
+We need to create the following tables:-
+1. GROUP
+2. USER
+3. USER_TO_GROUP  Many user can belong to Many Group to @ManyToMany
+4. EXPENSE
+5. AMOUNT_OWNED
 
-Let's say A purchase Rs 100 milk and added it to the Expense table as shown below.
+|-------------------------------------------------------------------------------------------------|--------------------------------------|
+|           1. GROUP                     |              2. USER                                   |        3. USER_TO_GROUP              |
+|-------------------------------------------------------------------------------------------------|--------------------------------------|
+|GROUP_ID     GROUP_NAME     GROUP_COUNT |   USER_ID  USER_NAME   EMAIL  FIRST_NAME    LAST_NAME  |     USER_ID      GROUP_ID   IS_ADMIN |
+|-------------------------------------------------------------------------------------------------|--------------------------------------|
+|   1           G1               2       |     A                                                  |      A             1            Y    |
+|   2           G2               3       |     B                                                  |      B             1            N    |
+|-------------------------------------------------------------------------------------------------|--------------------------------------|
+
+Let's say A purchase Rs 100 milk and added it to the EXPENSE table as shown below.
 
 EXPENSE
-|--------------------------------------------------------------------|
-|EXP_ID   USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
-|--------------------------------------------------------------------|
-|   1       A         100       1           Equal           SYSDATE  |
-|   2       A         200       1          Percentage       SYSDATE  |
-|--------------------------------------------------------------------|
+|-------------------------------------------------------------------|
+|EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
+|-------------------------------------------------------------------|
+|   1      A         100       1           Equal           SYSDATE  |
+|   2      A         200       1          Percentage       SYSDATE  |
+|-------------------------------------------------------------------|
 
 As soon as the entry is made to the EXPENSE table we call a service layer code [PaymentSplitService] to split the expense.
 From expense table it will get the GroupID and from group id it will fetch total GROUP_COUNT.
@@ -45,18 +52,18 @@ At first time since there is no entry in the table we can make an entry in the b
 
 At any point of time this table will keep the latest snapshot of the balance.
 
-|-----------------------------------------|
-|            AMOUNT_OWNED                 |
-|-----------------------------------------|
-|ID FROM_USER  TO_USER    AMOUNT  GROUP_ID|
-|-----------------------------------------|
-|1    B          A          50       1    |      // Since User A has made the payment so B owns Rs 50 to A
-|2    A          B         -50       1    |     //  Since User A has made the payment so B owns Rs 50 to A
-|-----------------------------------------|
+|-------------------------------------------------------|
+|            AMOUNT_OWNED                               |
+|-----------------------------------------|-------------|
+|ID FROM_USER  TO_USER    AMOUNT  GROUP_ID|   IS_SETTLED|
+|-----------------------------------------|-------------|
+|1    B          A          50       1    |     N       |   // Since User A has made the payment so B owns Rs 50 to A
+|2    A          B         -50       1    |     N       |  //  Since User A has made the payment so B owns Rs 50 to A
+|-----------------------------------------|-------------|
 
 Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
 
-Rs 200/2 = Rs 100 + Scan Table to check for the due amount for Each User in the group except the payee
+Rs 200/2 = Rs 100 + Scan Table to check for due amount for Each User in the group except the payee.
 
 SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER A' AND GROUP_ID = 1;
 
@@ -66,9 +73,9 @@ Calculate the NetAmount = Rs 100 + amount
 
 AMOUNT_OWNED
 ------------------------------------------------------------------------------------------------------------------
-ID FROM_USER       TO_USER     AMOUNT  GROUP_ID
-1     B              A          150      1          // Since User A has made the payment so B owns Rs 150 to A
-2     A              B         -150      1
+ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
+1       B              A          150      1          // Since User A has made the payment so B owns Rs 150 to A
+2       A              B         -150      1
 ------------------------------------------------------------------------------------------------------------------
 
 Now User B paid Rs 500 for Dinner with equal split
@@ -86,7 +93,7 @@ Amount owned by A = Rs 250 + (-150) = Rs 100
 AMOUNT_OWNED
 ------------------------------------------------------------------------------------------------------------------
 ID FROM_USER       TO_USER     AMOUNT  GROUP_ID
-1     B              A         -100      1          // Since User B has made the payment, so A owns Rs 100 to B
+1     B              A         -100      1          // Since User B has made the payment so A owns Rs 100 to B
 2     A              B          100      1
 ------------------------------------------------------------------------------------------------------------------
 
@@ -111,11 +118,12 @@ Split Amount = Rs 900/GROUP_COUNT = Rs 900/3 = Rs 300
 
 Current Snapshot of AMOUNT_OWNED table
 
-FROM_USER       TO_USER     AMOUNT  GROUP_ID
----------------------------------------------
-A                 B          100      1
-B                 A         -100      1
----------------------------------------------
+|---------------------------------------------|
+|FROM_USER       TO_USER     AMOUNT  GROUP_ID |
+|---------------------------------------------|
+|A                 B          100      1      |
+|B                 A         -100      1      |
+|---------------------------------------------|
 
 Query :- SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER C' AND GROUP_ID = 1;
 
@@ -125,6 +133,7 @@ AMOUNT_OWNED
 ---------------------------------------
 A                 B          100      1
 B                 A         -100      1
+
 B                 C          300      1     // Below are the new entry created
 C                 B         -300      1
 A                 C          300      1
@@ -133,12 +142,12 @@ C                 A         -300      1
 
 API Design
 
-Expenses[] getGroupExpenses(GroupID gid)
-User getUser(UserID uid)
-User[] getUsersInGroup(GroupID gid)
-ExpenseID addExpense(GroupID gid, UserID uid, int amount, string splitType)
-void editExpense(ExpenseID eid, UserID uid, int amount, string splitType)
-void settleExpense(ExpenseID eid)
-GroupID make group(User[] users, string name)
-Group getGroup(GroupID gid)
-Expense getExpense(ExpenseID eid)
+1. Expenses[] getGroupExpenses(GroupID gid)
+2. User getUser(UserID uid)
+3. User[] getUsersInGroup(GroupID gid)
+4. ExpenseID addExpense(GroupID gid, UserID uid, int amount, string splitType)
+5. void editExpense(ExpenseID eid, UserID uid, int amount, string splitType)
+6. void settleExpense(ExpenseID eid)
+7. GroupID make group(User[] users, string name)
+8. Group getGroup(GroupID gid)
+9. Expense getExpense(ExpenseID eid)
