@@ -2,38 +2,25 @@ package adobe;
 
 import static java.lang.Integer.max;
 
+// Time Complexity : O(n log n)
 public class LongestSubstringWithAtLeastKRepeatingCharacters {
-    public static int longestSubstring(String s, int k) {
-        if (s == null || s.isEmpty()) {
-            return 0;
+
+    private static int longestSubString(String s, int start, int end, int k) {
+        int[] temp = new int[26];
+        for (int i = start; i < end; i++) {
+            temp[s.charAt(i) - 'a']++;
         }
-        int[] temp = new int[128];
-        for (char c : s.toCharArray()) {
-            temp[c]++;
-        }
-        boolean flag = true;
-        for (int x : temp) {
-            if (x > 0 && x < k) {
-                flag = false;
-                break;
+        for (int i = start; i < end; i++) {
+            if (temp[s.charAt(i) - 'a'] < k) {
+                return max(longestSubString(s, start, i, k), longestSubString(s, i + 1, end, k));
             }
         }
-        if (flag) {
-            return s.length();
-        }
-        int max = 0, start = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (temp[s.charAt(i)] < k) {
-                max   = max(max, longestSubstring(s.substring(start, i), k));
-                start = i + 1;
-            }
-        }
-        return max(max, longestSubstring(s.substring(start), k));
+        return end - start;
     }
 
     public static void main(String[] args) {
-        System.out.println(longestSubstring("ababbc",2));
-        System.out.println(longestSubstring("aaabb", 3));
-        System.out.println(longestSubstring("aaabbb", 3));
+        System.out.println(longestSubString("ababbc",0, "ababbc".length(),2));
+        System.out.println(longestSubString("aaabb", 0, "aaabb".length() ,3));
+        System.out.println(longestSubString("aaabbb",0, "aaabbb".length(),3));
     }
 }
