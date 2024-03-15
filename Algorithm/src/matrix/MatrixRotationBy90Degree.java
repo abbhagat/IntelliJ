@@ -25,9 +25,9 @@ public class MatrixRotationBy90Degree {
     }
 
     private static void clockWises(int[][] M) {
-        int R = M.length - 1, C = M[0].length - 1;
-        for (int i = 0; i <= R; i++) {
-            for (int j = C; j >= 0; j--) {
+        int R = M.length, C = M[0].length;
+        for (int i = 0; i < R; i++) {
+            for (int j = C - 1; j >= 0; j--) {
                 System.out.print(M[j][i] + " ");
             }
             System.out.println();

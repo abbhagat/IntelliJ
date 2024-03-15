@@ -48,7 +48,7 @@ public class LongestPalindromicSequence {
     }
 
     public static void main(String[] args) {
-        char[] seq = "AABA".toCharArray();
+        char[] seq = "BABCBCABB".toCharArray();
         System.out.println("The length of the LPS is " + lps(seq, 0, seq.length - 1));
         System.out.println("The length of the LPS is " + lps(seq));
     }

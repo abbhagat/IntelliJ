@@ -5,6 +5,9 @@ import static linkedlist.LinkList.add;
 public class MidPointOfLinkedList {
 
     public static Node findMid(Node first) {
+        if (first == null) {
+            return null;
+        }
         Node slow = first, fast = first.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
@@ -14,6 +17,9 @@ public class MidPointOfLinkedList {
     }
 
     public static Node findPrevMidPoint(Node first) {
+        if (first == null) {
+            return null;
+        }
         Node slow = first, prev_slow = first, fast = first.next;
         while (fast != null && fast.next != null) {
             prev_slow = slow;

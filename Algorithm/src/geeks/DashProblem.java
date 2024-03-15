@@ -8,11 +8,10 @@ package geeks;
 
 public class DashProblem {
 
-    public static void main(String[] args) {
-        String str = "1223504567";
+    private static String dashProblem(String str) {
         int[] a = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
-            a[i] = str.charAt(i) - 48;
+            a[i] = str.charAt(i) - '0';
         }
         String s = "";
         boolean prev_odd  = false;
@@ -26,8 +25,7 @@ public class DashProblem {
         for (i = 1; i < a.length; i++) {
             s += a[i - 1];
             if (a[i] == 0) {
-                s += a[i];
-                i++;
+                continue;
             }
             if (a[i] % 2 == 0 && prev_even) {
                 s += "*";
@@ -44,6 +42,12 @@ public class DashProblem {
             }
         }
         s += a[i - 1];
-        System.out.println(s);
+        return s;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(dashProblem("1234567"));
+        System.out.println(dashProblem("13244670"));
+        System.out.println(dashProblem("1223504567"));
     }
 }

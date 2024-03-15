@@ -29,7 +29,7 @@ public class FormLargestNumberFromGivenArray {
         List<String> list = new ArrayList<>();
         int countZero = 0;
         for (int x : a) {
-            list.add(Integer.toString(x));
+            list.add(String.valueOf(x));
             if (x == 0) {
                 countZero++;
             }
@@ -38,11 +38,9 @@ public class FormLargestNumberFromGivenArray {
             return "0";
         }
         list.sort((x, y) -> (y + x).compareTo(x + y));
-        String result = "";
-        for (String s : list) {
-            result += s;
-        }
-        return result;
+        StringBuilder result = new StringBuilder();
+        list.forEach(result::append);
+        return result.toString();
     }
 
     public static void main(String[] args) {

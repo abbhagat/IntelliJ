@@ -6,8 +6,8 @@ public class Doubleton implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static volatile Doubleton _instance1, _instance2;
-    private static volatile int n = 1;
+    private static Doubleton _instance1, _instance2;
+    private static int n = 1;
 
     private Doubleton() throws Exception {
         if (null != _instance1 || null != _instance2) {

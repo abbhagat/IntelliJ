@@ -1,14 +1,8 @@
 package geeks;
 
-/*
- * Find a point in an array where sum of left side array members(wrt to that point)
- * and right side(wrt to that point) are equal..in other words equilibrium point
- * int a[] ={1,3,4,10,18,3,1,6,3,1,4}; // 18 is the point..
- */
-
 import java.util.Arrays;
 
-public class    EquilibriumPointInAnArray {
+public class EquilibriumPointInAnArray {
 
     private static int findEquilibriumPoint(int[] a) {
         int sum1 = Arrays.stream(a).reduce(0, Integer::sum);

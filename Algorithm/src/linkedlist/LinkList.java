@@ -7,11 +7,12 @@ public class LinkList {
     public static Node add(Node first, int num) {
         Node node = new Node(num, null);
         if (first == null) {
-             first = temp = node;
+             first = node;
         } else {
             temp.next = node;
-            temp = last = node;
+            last = node;
         }
+        temp = node;
         return first;
     }
 }

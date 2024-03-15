@@ -11,7 +11,7 @@ import static java.lang.Integer.max;
 
 public class IntervalMerging {
     private static LinkedList<Interval> mergeInterval(List<Interval> intervalList) {
-        intervalList.sort(Comparator.comparingInt(interval -> interval.start));      // Collections.sort(intervalList, (interval1, interval2) -> interval1.start - interval2.start);
+        intervalList.sort(Comparator.comparingInt(interval -> interval.start)); // Collections.sort(intervalList, (interval1, interval2) -> interval1.start - interval2.start);
         LinkedList<Interval> mergedInterval = new LinkedList<>();
         for (Interval interval : intervalList) {
             if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {

@@ -8,15 +8,15 @@ public class LargestBSTSubTreeInBT {
 
     private static int maxSize = Integer.MIN_VALUE;
 
-    static class BST {
+    private static class BST {
         boolean isBST;
         int min, max, size;
 
         public BST() {
-            isBST = false;
-            min = Integer.MAX_VALUE;
-            max = Integer.MIN_VALUE;
-            size = 0;
+            this.isBST = false;
+            this.min   = Integer.MAX_VALUE;
+            this.max   = Integer.MIN_VALUE;
+            this.size  = 0;
         }
     }
 
@@ -28,7 +28,7 @@ public class LargestBSTSubTreeInBT {
         }
         BST left  = largestBSTSubtree(root.left);
         BST right = largestBSTSubtree(root.right);
-        if (left.isBST && right.isBST && root.num > left.max && root.num < right.min) {
+        if (left.isBST && right.isBST && left.max < root.num && root.num < right.min) {
             bst.isBST = true;
             bst.min   = min(root.num, left.min);
             bst.max   = max(root.num, right.max);

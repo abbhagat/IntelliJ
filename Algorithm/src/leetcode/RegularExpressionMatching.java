@@ -15,6 +15,7 @@ public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         System.out.println(isMatch("aa", "a"));
+        System.out.println(isMatch("ABC", "A*"));
         System.out.println(isMatch("aa", "a*"));
         System.out.println(isMatch("ab", ".*"));
         System.out.println(isMatch("aab", "c*a*b"));

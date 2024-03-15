@@ -2,8 +2,7 @@ package jpmorgan;
 
 public class PrintTriangleInPattern {
     private static void printPattern(int n) {
-        int low = 1, high = n;
-        int mid = (low + high) / 2;
+        int low = 1, high = n, mid = n / 2;
         while (low <= mid) {
             for (int i = 1; i <= low; i++) {
                 System.out.print("*");

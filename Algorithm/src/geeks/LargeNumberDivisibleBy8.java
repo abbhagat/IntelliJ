@@ -3,7 +3,7 @@ package geeks;
 public class LargeNumberDivisibleBy8 {
 
     private static boolean isDivisibleBy8(String s) {
-        s = !s.isEmpty() && s.length() <= 2 ? s :  s.substring(s.length() - 3);
+        s = !s.isEmpty() && s.length() <= 3 ? s :  s.substring(s.length() - 3);
         int n = Integer.parseInt(s);
         return n % 8 == 0;
     }

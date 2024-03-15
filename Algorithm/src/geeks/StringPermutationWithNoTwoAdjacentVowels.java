@@ -13,7 +13,7 @@ Output : 907200           | 3175200
 
 Approach: Consider the above example string “permutation”:
 
-First place all of the consonants in the alternate places like below:
+First place all the consonants in the alternate places like below:
 -- p -- r -- m -- t -- t -- n --
 Number of ways to place consonants = 6! / 2!. as t  appears twice and should be considered once.
 Then place the vowels in the remaining positions. We have 7 remaining positions and 5 vowels to fill these 7 places.
@@ -33,13 +33,13 @@ public class StringPermutationWithNoTwoAdjacentVowels {
         return factorial(n) / (factorial(r) * factorial(n - r));
     }
 
-    private static int countWays(char[] c) {  // Function to count permutations of string such that no two vowels are adjacent
+    private static int countWays(char[] c) {
         int[] temp = new int[26];
         for (char x : c) {
-            temp[x - 'a']++;  // Finding the frequencies of the characters
+            temp[x - 'a']++;
         }
         int countVowels = 0, countConsonants = 0;
-        for (int i = 0; i < 26; i++) {   // finding the no. of vowels and consonants in given word
+        for (int i = 0; i < 26; i++) {
             if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20) {
                 countVowels += temp[i];
             } else {

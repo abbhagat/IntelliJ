@@ -30,5 +30,6 @@ public class StringCompareToImpl {
         System.out.println("Java.compareTo(Java)  " + compareTo("Java", "Java"));
         System.out.println("Javaa.compareTo(Java) " + compareTo("Javaa", "Java"));
         System.out.println("Java.compareTo(Javaa) " + compareTo("Java", "Javaa"));
+        System.out.println(null == null);
     }
 }

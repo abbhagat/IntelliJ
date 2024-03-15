@@ -4,9 +4,8 @@ import java.util.Arrays;
 
 public class NumOfToysCanBePurchasedWithAmountK {
 
-    public static void main(String[] args) {
-        int[] cost = {1, 12, 5, 111, 200, 1000, 10, 9, 12, 15};
-        int k = 50, count = 0, sum = 0;
+    private static int numOfToys(int[] cost, int k) {
+        int count = 0, sum = 0;
         Arrays.sort(cost);
         for (int x : cost) {
             sum += x;
@@ -16,6 +15,10 @@ public class NumOfToysCanBePurchasedWithAmountK {
                 break;
             }
         }
-        System.out.println(count);
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(numOfToys(new int[]{1, 12, 5, 111, 200, 1000, 10, 9, 12, 15}, 50));
     }
 }

@@ -5,9 +5,6 @@ import java.util.Stack;
 public class BasicCalculator {
 
     private static int calculate(String exp) {
-        if (exp == null || exp.isEmpty()) {
-            return 0;
-        }
         int result = 0, sign = 1, n = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(sign);

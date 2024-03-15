@@ -1,9 +1,12 @@
 package jpmorgan;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.lang.Integer.min;
 
 public class TopKFrequentElementsInAnArray {
 
@@ -16,7 +19,7 @@ public class TopKFrequentElementsInAnArray {
                 .stream()
                 .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
                 .collect(Collectors.toList());
-        List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, Integer.min(k, sortedList.size()));
+        List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
         topKList.forEach(entry -> System.out.println(entry.getKey()));
         return topKList.stream()
                 .map(Map.Entry::getKey)
@@ -24,17 +27,16 @@ public class TopKFrequentElementsInAnArray {
                 .toArray();
     }
 
-    private static void topKFrequentWords(String[] a, int k) {
+    private static void topKFrequentWords(List<String> list) {
         Map<String, Integer> map = new LinkedHashMap<>();
-        for (String x : a) {
+        for (String x : list) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
         List<Map.Entry<String, Integer>> sortedList = map.entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .collect(Collectors.toList());
-        List<Map.Entry<String, Integer>> topKList = sortedList.subList(0, Integer.min(k, sortedList.size()));
-        topKList.forEach(entry -> System.out.println(entry.getKey()));
+        sortedList.forEach(entry -> System.out.println(entry.getKey()));
     }
 
     public static void main(String[] args) {
@@ -42,6 +44,8 @@ public class TopKFrequentElementsInAnArray {
             System.out.print(x + " ");
         }
         System.out.println();
-        topKFrequentWords(new String[]{"i", "love", "leetcode", "i", "love", "coding"}, 2);
+        List<String> list = new ArrayList<>(List.of("Abhinaw", "Amit", "Aman", "Abhinaw", "Ankit", "Abhinaw", "Ankit"));
+        list.sort(String::compareTo);
+        topKFrequentWords(list);
     }
 }

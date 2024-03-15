@@ -11,11 +11,10 @@ import static util.CommonUtils.swap;
 // Time  Complexity  O(n)
 public class SortingInBigO_n {
 
-    private static void sort(int[] a, char[] c) {
+    private static void sort(int[] a) {
         int i = 0;
         while (i < a.length) {
             if (i != a[i]) {
-                swap(c, i, a[i]);
                 swap(a, i, a[i]);
             } else {
                 i++;
@@ -24,14 +23,9 @@ public class SortingInBigO_n {
     }
 
     public static void main(String[] args) {
-        int[] a = {4, 3, 2, 0, 1};
-        char[] c = {'e', 'd', 'c', 'a', 'b'};
-        sort(a, c);
+        int[]  a  = {4, 3, 2, 0, 1};
+        sort(a);
         for (int x : a) {
-            System.out.print(x + " ");
-        }
-        System.out.println();
-        for (char x : c) {
             System.out.print(x + " ");
         }
         System.out.println();

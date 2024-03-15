@@ -28,12 +28,29 @@ public class FilteringList {
         mainList.forEach(System.out::println);
 
         List<Employee> cancelList = new ArrayList<>();
+        cancelList.add(new Employee("A", 65));
         cancelList.add(new Employee("C", 67));
         cancelList.add(new Employee("D", 68));
+        cancelList.add(new Employee("I", 73));
+        cancelList.add(new Employee("J", 74));
+        System.out.println();
+        // We create a stream of elements from the first list.
+
+        mainList = mainList
+                .stream()
+                .filter(line -> (cancelList.stream()
+                        .filter(cancelLine -> (line.getName().equals(cancelLine.getName())) && line.getId().equals(cancelLine.getId())).count()) < 1)
+                .collect(Collectors.toList());
+
+        List<Employee> list = mainList.stream()
+                .filter(line -> cancelList.stream()
+                        .anyMatch(cancelLine -> cancelLine.getName().equals(line.getName()) && cancelLine.getId().equals(line.getId())))
+                .collect(Collectors.toList());
+        System.out.println(list);
         System.out.println();
         mainList = mainList
-                .stream().filter(line -> (cancelList.stream()
-                        .filter(cancelLine -> (line.getName().equals(cancelLine.getName())) && line.getId().equals(cancelLine.getId())).count()) < 1)
+                .stream()
+                .filter(line -> cancelList.stream().noneMatch(cancelLine -> (line.getName().equals(cancelLine.getName())) && line.getId().equals(cancelLine.getId())))
                 .collect(Collectors.toList());
         mainList.forEach(System.out::println);
         System.out.println();

@@ -38,7 +38,7 @@ public class DeleteOperationOnTwoStrings {
         if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
             return 1 + lcs(s1, s2, m - 1, n - 1);
         }
-        return max(lcs(s1, s2, m - 1, n), lcs(s2, s2, m, n - 1));
+        return max(lcs(s1, s2, m - 1, n), lcs(s1, s2, m, n - 1));
     }
 
     // Time Complexity: O(m*n)

@@ -11,6 +11,7 @@ public class KthSmallestElementInBST {
             k--;
             if (k == 0) {
                 System.out.println(root.num);
+                return;
             }
             findKthSmallest(root.right);
         }

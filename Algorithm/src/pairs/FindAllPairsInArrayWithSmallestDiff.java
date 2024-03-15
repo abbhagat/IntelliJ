@@ -17,7 +17,6 @@ public class FindAllPairsInArrayWithSmallestDiff {
                 System.out.println(a[i - 1] + "," + a[i]);
             }
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {

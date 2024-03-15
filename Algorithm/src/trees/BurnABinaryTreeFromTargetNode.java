@@ -35,7 +35,7 @@ the whole tree burns.
 public class BurnABinaryTreeFromTargetNode {
     private static int time;
     private static final Queue<Node> q = new LinkedList<>();
-    public static int burnTree(Node root, int target) {
+    private static int burnTree(Node root, int target) {
         if (root == null) {
             return -1;
         }

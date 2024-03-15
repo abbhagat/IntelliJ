@@ -11,7 +11,7 @@ public class LongestCommonSubsequence {
         if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
             return 1 + lcs(s1, s2, m - 1, n - 1);
         }
-        return max(lcs(s1, s2, m - 1, n), lcs(s2, s2, m, n - 1));
+        return max(lcs(s1, s2, m - 1, n), lcs(s1, s2, m, n - 1));
     }
 
     private static int lcsDP(String s1, String s2) {
@@ -26,13 +26,12 @@ public class LongestCommonSubsequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(lcsDP("cat", "cut"));
-        System.out.println(lcsDP("geek", "gesek"));
-        System.out.println(lcsDP("sunday", "saturday"));
-        System.out.println(lcsDP("ros", "horse"));
-        System.out.println(lcsDP("sea", "eat"));
-        System.out.println(lcsDP("AGGTAB", "GXTXAYB"));
-        System.out.println(lcsDP("abcde", "ace"));
-        System.out.println(lcsDP("abcde", "ace"));
+        System.out.println(lcs("cat", "cut", 3, 3)         + "\t" + lcsDP("cat", "cut"));
+        System.out.println(lcs("geek", "gesek", 4, 5)      + "\t" + lcsDP("geek", "gesek"));
+        System.out.println(lcs("sunday", "saturday", 6, 8) + "\t" + lcsDP("sunday", "saturday"));
+        System.out.println(lcs("ros", "horse", 3, 5)       + "\t" + lcsDP("ros", "horse"));
+        System.out.println(lcs("sea", "eat", 3, 3)         + "\t" + lcsDP("sea", "eat"));
+        System.out.println(lcs("AGGTAB", "GXTXAYB", 6, 7)  + "\t" + lcsDP("AGGTAB", "GXTXAYB"));
+        System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcsDP("ace", "abcde"));
     }
 }

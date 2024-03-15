@@ -12,6 +12,7 @@ public class KthLargestElementInBST {
             k--;
             if (k == 0) {
                 System.out.println(root.num);
+                return;
             }
             findKthLargest(root.left);
         }

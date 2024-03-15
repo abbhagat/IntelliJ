@@ -12,7 +12,7 @@ public class RemoveInValidBracket {
         set.add(str);
         while (!stack.isEmpty()) {
             str = stack.pop();
-            if (!str.isEmpty() && isValidString(str)) {
+            if (isValid(str)) {
                 System.out.println(str);
             } else {
                 for (int i = 0; i < str.length(); i++) {
@@ -28,7 +28,10 @@ public class RemoveInValidBracket {
         }
     }
 
-    private static boolean isValidString(String str) {   // method returns true if string contains valid parenthesis
+    private static boolean isValid(String str) {   // method returns true if string contains valid parenthesis
+        if (str.isEmpty()) {
+            return false;
+        }
         int count = 0;
         for (char x : str.toCharArray()) {
             if (x == '(') {

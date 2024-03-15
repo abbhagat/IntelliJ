@@ -1,8 +1,10 @@
 package microsoft;
 
 /*
-We are given an array consisting of n elements. At each operation you can select any one element and increase rest of n-1 elements by 1.
-You have to make all elements equal performing such operation as many times you wish. Find the minimum number of operations needed for this.
+We are given an array consisting of n elements.
+At each operation you can select any one element and increase rest of n-1 elements by 1.
+You have to make all elements equal performing such operation as many times you wish.
+Find the minimum number of operations needed for this.
 
 Examples:
 
@@ -22,17 +24,35 @@ operation | increased elements | after increment
      2    |    2, 3           | 5, 5, 5
  */
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import static java.lang.Integer.min;
 
 public class MinNumOfOperationToMakeAllArrayElementEqual {
 
     private static int printMinOp(int[] a) {
         int sum = 0, min = a[0];
-        for(int x : a) {
+        for (int x : a) {
             sum += x;
             min = min(min, x);
         }
         return sum - a.length * min;
+    }
+
+    private static int printMinOps(int[] a) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int x : a) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+        List<Map.Entry<Integer, Integer>> list = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                .collect(Collectors.toList());
+        int max = list.get(0).getKey();
+        return Math.abs(max - a.length);
     }
 
     /*
@@ -83,7 +103,9 @@ public class MinNumOfOperationToMakeAllArrayElementEqual {
         System.out.println(printMinOp(new int[]{4, 3, 4}));
         System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
         System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
-
+        System.out.println();
+        System.out.println(printMinOps(new int[]{1, 2, 3, 4}));
+        System.out.println();
         System.out.println(countMinimumMoves(new int[]{1, 2, 3, 4}, 4));
         System.out.println(countMinimumMoves(new int[]{2, 1}, 1));
 

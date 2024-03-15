@@ -13,11 +13,8 @@ public class DistanceBetweenTwoGivenNodesOfABT {
         if (root == target) {
             return level;
         }
-        int distance = findLevel(root.left,  target, level + 1);
-        if (distance == -1) {
-            return     findLevel(root.right, target, level + 1);
-        }
-        return distance;
+        int    distance  =      findLevel(root.left,  target, level + 1);
+        return distance == -1 ? findLevel(root.right, target, level + 1) : distance;
     }
 
     private static int findDistance(Node root, Node x, Node y) {

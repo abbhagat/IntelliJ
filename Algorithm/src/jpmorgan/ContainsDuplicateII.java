@@ -25,10 +25,11 @@ public class ContainsDuplicateII {
 
     private static boolean containsDuplicate(int[] a) {
         Set<Integer> set = new HashSet<>();
-        for (int n : a)
-            if (!set.add(n)) {
+        for (int i = 0; i < a.length; i++) {
+            if (!set.add(a[i])) {
                 return true;
             }
+        }
         return false;
     }
 

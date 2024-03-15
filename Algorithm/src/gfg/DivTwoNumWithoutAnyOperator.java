@@ -1,5 +1,9 @@
 package gfg;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -28,8 +32,11 @@ public class DivTwoNumWithoutAnyOperator {
         }
     }
 
-    public static void main(String[] args) {
-        int x = 16, y = 3;
+    public static void main(String[] args) throws IOException {
+        BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the value of x and y ");
+        int x = Integer.parseInt(R.readLine());
+        int y = Integer.parseInt(R.readLine());
         divide(max(x, y), min(x, y));
         divide(max(x, y), min(x, y), 0);
     }

@@ -1,5 +1,7 @@
 package gfg;
 
+import static java.lang.Integer.max;
+
 public class CountProperFraction {
 
     public static int countProperFractions(int d) {
@@ -19,7 +21,19 @@ public class CountProperFraction {
         return y == 0 ? x : findHCF(y, x % y);
     }
 
+    private static int findGCD(int x, int y) {
+        int gcd = 0;
+        for (int i = 1; i <= max(x, y); i++) {
+            if (x % i == 0 && y % i == 0) {
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
+
     public static void main(String[] args) {
         System.out.println(countProperFractions(8));
+        System.out.println(findGCD(0,5));
+        System.out.println(findGCD(5,0));
     }
 }

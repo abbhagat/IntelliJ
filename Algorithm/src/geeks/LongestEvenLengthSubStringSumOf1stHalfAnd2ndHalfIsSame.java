@@ -11,7 +11,7 @@ Input: str = "1538023" Output: 4
 The longest substring with same first and second half sum is "5380"
 */
 
-import static java.lang.Math.max;
+import static java.lang.Integer.max;
 
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 

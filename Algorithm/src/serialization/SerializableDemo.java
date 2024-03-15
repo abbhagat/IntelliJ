@@ -59,6 +59,7 @@ public class SerializableDemo {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Son son = new Son();
         son.x = 50;
+        son.parent = 500;
         FileOutputStream fileOutputStream = new FileOutputStream("son.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(son);

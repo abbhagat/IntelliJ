@@ -35,6 +35,7 @@ class Son1 extends Father1 {
 }
 
 public class SerializationDemo {
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Son1 son = new Son1();
 //        son.child = 11;

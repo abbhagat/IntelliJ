@@ -12,11 +12,11 @@ public class MeetingRoomsII {
     private static int findMinRooms(List<Interval> intervalList) {
         intervalList.sort(Comparator.comparingInt(interval -> interval.start));
         intervalList.sort(Comparator.comparingInt(interval -> interval.end));
-        LinkedList<Interval> mergedInterval = new LinkedList<>();
+        LinkedList<Interval> mergeInterval = new LinkedList<>();
         int n = 1;
         for (Interval interval : intervalList) {
-            if (mergedInterval.isEmpty() || mergedInterval.getLast().start < interval.start || mergedInterval.getLast().end <= interval.start) {
-                mergedInterval.add(interval);
+            if (mergeInterval.isEmpty() || mergeInterval.getLast().start < interval.start || mergeInterval.getLast().end <= interval.start) {
+                mergeInterval.add(interval);
             } else {
                 n++;
             }

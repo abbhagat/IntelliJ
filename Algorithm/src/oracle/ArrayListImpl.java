@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class ArrayListImpl<E> {
 
-    private transient E[] list;
+    private E[] list;
     private int size;
 
     public ArrayListImpl() {

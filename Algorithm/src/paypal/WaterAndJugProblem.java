@@ -1,21 +1,18 @@
 package paypal;
 
+import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class WaterAndJugProblem {
 
     private static int gcd(int x, int y) {
-        return y == 0 ? x : gcd(y, x % y);
-    }
-
-    private static int hcf(int x, int y) {
-        int hcf = 0;
-        for (int i = 1; i <= x || i <= y; i++) {
+        int gcd = 0;
+        for (int i = 1; i <= max(x,y); i++) {
             if (x % i == 0 && y % i == 0) {
-                hcf = i;
+                gcd = i;
             }
         }
-        return hcf;
+        return gcd;
     }
 
     /* x -- Capacity of jug from which water is poured

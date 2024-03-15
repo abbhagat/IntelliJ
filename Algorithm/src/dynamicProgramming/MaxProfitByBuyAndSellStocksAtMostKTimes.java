@@ -27,5 +27,6 @@ public class MaxProfitByBuyAndSellStocksAtMostKTimes {
         System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}, 2));
         System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}, 2));
         System.out.println(maxProfit(new int[]{10, 22, 5, 75, 65, 80}, 2));
+        System.out.println(maxProfit(new int[]{1, 2, 3, 4, 5}, 2));
     }
 }

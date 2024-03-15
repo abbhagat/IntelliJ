@@ -40,10 +40,10 @@ class Producer implements Runnable {
     }
 
     public void run() {
-        int n = 1;
+        int n = 0;
         while (true) {
             try {
-                System.out.println("Put : " + n++) ;
+                System.out.println("Put : " + ++n) ;
                 q.put(n);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

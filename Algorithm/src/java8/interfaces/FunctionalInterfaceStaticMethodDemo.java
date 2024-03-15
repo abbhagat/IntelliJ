@@ -23,8 +23,9 @@ public class FunctionalInterfaceStaticMethodDemo implements I {
 //        StaticAndDefaultMethodInterface.super.print("abc");
     }
 
-    void isNull(String str) {
+    boolean isNull(String str) {
         System.out.println("Impl Null Check");
         I.super.print(str);
+        return true;
     }
 }

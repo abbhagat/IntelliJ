@@ -13,6 +13,7 @@ public class FindPairsInArrayWithSmallestSum {
         while (k != 0) {
             int i = getMinIndex(a, b, temp);
             System.out.print("(" + a[i] + ", " + b[temp[i]] + ") ");
+            System.out.print(a[i] + b[temp[i]]);
             temp[i]++;
             k--;
         }

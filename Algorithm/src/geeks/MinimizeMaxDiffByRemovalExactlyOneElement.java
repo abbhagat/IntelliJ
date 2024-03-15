@@ -8,7 +8,6 @@ import static java.lang.Integer.min;
  * Given an array arr[] consisting of N integers(N > 2), the task is to minimize the maximum difference between any pair of elements
  * (arr[i], arr[j]) by removing exactly one element.
  * Examples:
- * <p>
  * Input: arr[] = {1, 3, 4, 7}
  * Output: 3
  * Explanation:
@@ -20,7 +19,6 @@ import static java.lang.Integer.min;
  * gives the minimized maximum difference between every pair of elements.
  * Time Complexity: O(N3)
  * Auxiliary Space: O(N)
- * <p>
  * Efficient Approach: The above approach can also be optimized by observing the fact that the maximum difference
  * is equal to the difference between the maximum and the minimum element of the given array.
  * So, removing the maximum element or removing the minimum element always gives the optimal answer.

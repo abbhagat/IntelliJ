@@ -5,7 +5,7 @@ import java.util.*;
 public class AllNumsDisappearedInArray {
 
     public static void findDisappearedNumbers(int[] a) {
-        Map<Integer, Integer> map = new TreeMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
