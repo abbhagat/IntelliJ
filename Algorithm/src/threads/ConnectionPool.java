@@ -1,0 +1,62 @@
+package threads;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Vector;
+
+public class ConnectionPool {
+
+    private final String driverName;
+    private final String url;
+    private final String username;
+    private final String password;
+
+    private static final Vector<Connection> connectionPool = new Vector<>();
+
+    private static final int MAX_POOL_SIZE = 10;
+
+    public ConnectionPool() {
+        this.driverName = "sun.jdbc.odbc.JdbcOdbcDriver";
+        this.url = "localhost:8080";
+        this.username = "system";
+        this.password = "zed";
+        initializeConnectionPool();
+    }
+
+    public ConnectionPool(String driverName, String url, String username, String password) {
+        this.driverName = driverName;
+        this.url = url;
+        this.username = username;
+        this.password = password;
+        initializeConnectionPool();
+    }
+
+    private void initializeConnectionPool() {
+        while (connectionPool.size() < MAX_POOL_SIZE) {
+            connectionPool.add(getConnection());
+        }
+    }
+
+    private Connection getConnection() {
+        Connection connection = null;
+        try {
+            Class.forName(this.driverName);
+            connection = DriverManager.getConnection(this.url, this.username, this.password);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+
+    public synchronized Connection getConnectionFromPool() {
+        Connection connection = connectionPool.firstElement();
+        connectionPool.removeElementAt(0);
+        return connection;
+    }
+
+    public synchronized void returnConnectionToPool(Connection connection) {
+        connectionPool.add(connection);
+    }
+
+}
