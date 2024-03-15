@@ -1,23 +1,23 @@
 Functional Requirement:-
 
-1. Given a long URL generate a short URL
-2. Given a short URL redirect to a long URL
-3. We will be supporting over a period of 10 years
-4. Length of the short URL to start with 7 character
-5. Character Set included a-zA-Z0-9
+1. Given a long URL generate a short URL.
+2. Given a short URL redirect to a long URL.
 
 NFR :-
 1. Low Latency
 2. High Availability
-3. Eventual Consistency
+
+Question To be asked from Interviewer :-
+1. Length of the short URL to start with 7 character.
+2. What is the scale at which the system should perform.
+3. Till what duration we need to persist the url ? 10 years
+4. Character Set included a-zA-Z0-9
 
 Capacity Estimation:-
 
 Character Set to be used for generating short url A-Za-z0-9 = 62 characters.
 If length of url is y = 1 we can handle 62^1 unique short urls
 If length of url is y = 2 we can handle 62^2 unique short urls
-
-62^7 = 3.5 Trillion
 
 1. URL Length
 
@@ -26,16 +26,20 @@ Total Request in 10 yrs = 1000 * 60 * 60 * 24 * 365 * 10 = 10^3 * 31536 * 10^4 =
 
 y = 4 * 10 ^ 11
 
-y >= 62^n
+62^n >= y =>  n log 62 = log y => n = log62(y)
+
 log y = n log 62
 n = log (4 * 10 ^ 11) / log 62 = let say this number comes out to be 7
+
+62^7 = 3.5 Trillion
 
 Data Estimation:-
 
 Let's say the size of long url is 2KB and short url is 1KB
-Total storage over 10 yrs = 4 * 10 ^ 11 * (2kb + 1kb) = 1 * 10^12 KB = 10^3 TB = 1000 TB zzzzzso we will go with NO SQL Cassandra DB
+Total storage over 10 yrs = 4 * 10 ^ 11 * (2kb + 1kb) = 1 * 10^12 KB = 10^3 TB = 1000 TB
 
-API Design
+We go for NoSQL Cassandra DB
+
 POST /{longUrl}  Returns String with shortUrl
 GET  /{shortUrl} Returns String with longUrl
 

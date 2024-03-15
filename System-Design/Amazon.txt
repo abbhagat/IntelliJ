@@ -1,0 +1,44 @@
+Requirements:-
+
+1. Search for a product                 |  GET List<Product> search(String searchString, String userId) Return list of products
+2. Get Recommendation on Home Page      |  GET List<Product> GetRecommendation(String userId)           Return list of 10 products
+3. Place Order                          |  POST placeOrder(@RequestBody Order and OrderItems)           Return boolean
+4. View the status of the order         |  GET Enumeration getOrderStatus(String orderId)               Return Order Status
+5. Write/View Product Review            |  POST addReview(@RequestBody  Review review)
+6. Send Notification of various events  |
+
+1. Low Latency       [ Recommendation and Search]
+2. High Consistency  [ Placing Order, Order Status, Payment ]
+3. High Availability
+
+Tables:
+
+1. User | 2.Address | 3.Product | 4.Order | 5.Order Items | 6. Review [ProductId, Rating, Description, Images/Videos]
+
+Capacity Estimation
+
+Search      -> 1k/sec  300M Active Users and each user makes 10 searches/month
+Data Volume -> 100 TB Storage Assuming there are 10M products and 1 product takes 10 MB
+We would require an S3 storage.
+
+@Entity
+public class Order {
+   @Id
+   @Column(name="ORDER_ID")
+   private int orderId;
+
+   @OneToMany(mappedBy="order", cascade==CascadeType.ALL)
+   @Fetch(FetchMode.SUBSELECT)
+   private List<OrderItem> orderItems = new ArrayList<>();
+}
+
+@Entity
+public class OrderItem {
+  @Id
+  private int orderItemId;
+
+  @ManyToOne
+  @JoinColumn(name = "ORDER_ID")
+  private Order order;
+
+}
