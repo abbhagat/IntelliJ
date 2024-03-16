@@ -2,6 +2,7 @@ package jpmorgan;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static util.CommonUtils.swap;
 
@@ -49,13 +50,13 @@ import static util.CommonUtils.swap;
 
 public class TopKFrequentElementsInAnArrayII {
 
-    private static void topKFrequent(int[] a, int k) {
+    private static void topKFrequent(Stream<Integer> intStream, int k) {
         int[] temp = new int[k + 1];
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i <= k; i++) {
             map.put(i, 0);
         }
-        for (int x : a) {
+        intStream.forEach(x -> {
             map.put(x, map.getOrDefault(x, 0) + 1);
             temp[k] = x;
             for (int i = search(temp, x) - 1; i >= 0; i--) {
@@ -68,7 +69,7 @@ public class TopKFrequentElementsInAnArrayII {
             for (int i = 0; i < k && temp[i] != 0; i++) {
                 System.out.print(temp[i] + " ");
             }
-        }
+        });
     }
 
     private static int search(int[] temp, int n) {
@@ -80,8 +81,10 @@ public class TopKFrequentElementsInAnArrayII {
     }
 
     public static void main(String[] args) {
-        topKFrequent(new int[]{5, 2, 1, 3, 2}, 4);
+        topKFrequent(Stream.of(5, 2, 1, 3, 2), 4);
         System.out.println();
-        topKFrequent(new int[]{5, 2, 1, 3, 4}, 4);
+        topKFrequent(Stream.of(5, 2, 1, 3, 4), 4);
+        System.out.println();
+        topKFrequent(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
     }
 }
