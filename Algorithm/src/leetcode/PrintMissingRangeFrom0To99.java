@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 public class PrintMissingRangeFrom0To99 {
     private static void printMissingRanges(int[] a, int start, int end) {
         Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
-        int index = -1, i = start;
-        while (i <= end) {
+        int index = -1, i;
+        for (i = start; i <= end; i++) {
             if (!set.contains(i)) {
                 index = index == -1 ? i : index;
             } else {
@@ -20,7 +20,6 @@ public class PrintMissingRangeFrom0To99 {
                     index = -1;
                 }
             }
-            i++;
         }
         if (index != -1) {
             System.out.println(index == i - 1 ? index : index + "-" + (i - 1));
