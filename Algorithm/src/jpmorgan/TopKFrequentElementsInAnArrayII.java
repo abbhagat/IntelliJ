@@ -32,7 +32,7 @@ import static util.CommonUtils.swap;
  * As 2, is smaller than 5 but their frequency is the same so we will print 2 5.
  * After reading 1, we will have 3 elements 1, 2 and 5 with the same frequency,
  * so print 1 2 5.
- * Similarly after reading 3, print 1 2 3 5
+ * Similarly, after reading 3, print 1 2 3 5
  * After reading last element 4, All the elements have same frequency
  * So print, 1 2 3 4
  * Approach: The idea is to store the temp k elements with maximum frequency. To store them a vector or an array can be used. To keep the track of frequencies of elements creates a HashMap to store element-frequency pairs. Given a stream of numbers, when a new element appears in the stream update the frequency of that element in HashMap and put that element at the end of the list of K numbers (total k+1 elements) now compare adjacent elements of the list and swap if higher frequency element is stored next to it.
@@ -56,11 +56,13 @@ public class TopKFrequentElementsInAnArrayII {
         for (int i = 0; i <= k; i++) {
             map.put(i, 0);
         }
-        intStream.forEach(x -> {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-            temp[k] = x;
-            for (int i = search(temp, x) - 1; i >= 0; i--) {
-                if (map.get(temp[i]) < map.get(temp[i + 1]) || ((map.get(temp[i]) == map.get(temp[i + 1])) && (temp[i] > temp[i + 1]))) {
+        intStream.forEach(n -> {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+            temp[k] = n;
+            for (int i = search(temp, n) - 1; i >= 0; i--) {
+                int x = map.get(temp[i]);
+                int y = map.get(temp[i + 1]);
+                if (x < y || (x == y && temp[i] > temp[i + 1])) {
                     swap(temp, i, i + 1);
                 } else {
                     break;
