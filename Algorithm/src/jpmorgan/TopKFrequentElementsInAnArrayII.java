@@ -48,27 +48,25 @@ import static util.CommonUtils.swap;
 // Space Complexity: O(n) To store the elements in HashMap O(n) space is required.
 
 public class TopKFrequentElementsInAnArrayII {
+
     private static void topKFrequent(int[] a, int k) {
         int[] temp = new int[k + 1];
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < k + 1; i++) {
+        for (int i = 0; i <= k; i++) {
             map.put(i, 0);
         }
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
             temp[k] = x;
-            int i = search(temp, x);
-            i--;
-            while (i >= 0) {
+            for (int i = search(temp, x) - 1; i >= 0; i--) {
                 if (map.get(temp[i]) < map.get(temp[i + 1]) || ((map.get(temp[i]) == map.get(temp[i + 1])) && (temp[i] > temp[i + 1]))) {
                     swap(temp, i, i + 1);
                 } else {
                     break;
                 }
-                i--;
             }
-            for (int j = 0; j < k && temp[j] != 0; j++) {
-                System.out.print(temp[j] + " ");
+            for (int i = 0; i < k && temp[i] != 0; i++) {
+                System.out.print(temp[i] + " ");
             }
         }
     }
@@ -82,8 +80,8 @@ public class TopKFrequentElementsInAnArrayII {
     }
 
     public static void main(String[] args) {
-        topKFrequent(new int[]{5, 2, 1, 3, 2}, 1);
+        topKFrequent(new int[]{5, 2, 1, 3, 2}, 4);
         System.out.println();
-        topKFrequent(new int[]{5, 2, 1, 3, 4}, 1);
+        topKFrequent(new int[]{5, 2, 1, 3, 4}, 4);
     }
 }
