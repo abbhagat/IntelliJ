@@ -13,9 +13,7 @@ public class PrintMatrixDiagonalElements {
             System.out.println(M[i][j]);
         }
         for (int i = 0, j = COL - 1; i < ROW && j >= 0; i++, j--) {
-            if (i + j == COL - 1) {
-                System.out.println(M[i][j]);
-            }
+            System.out.println(M[i][j]);
         }
     }
 }
