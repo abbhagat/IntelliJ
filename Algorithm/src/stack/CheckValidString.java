@@ -46,10 +46,8 @@ public class CheckValidString {
             switch (c) {
                 case '(' : x++; break;
                 case '*' : y++; break;
-                case ')' : if (x > 0) {
-                               x--;
-                           }
-                           else return false;
+                case ')' : if (x <= 0) return false;
+                           x--;
             }
         }
         return x <= y;
