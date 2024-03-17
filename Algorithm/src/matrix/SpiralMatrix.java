@@ -9,9 +9,7 @@ public class SpiralMatrix {
     public static void main(String[] args) {
         final int n = 4;
         int[][] M = new int[n][n];
-        int R1, R2, C1, C2, k = n * n;
-        R1 = C1 = 0;
-        R2 = C2 = M[0].length - 1;
+        int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1, k = n * n;
         while (R1 <= R2 && C1 <= C2) {
             for (int i = C1; i <= C2; i++) {
                 M[R1][i] = k--;
