@@ -68,7 +68,13 @@ public class TopKFrequentElementsInAnArrayII {
                     break;
                 }
             }
-            for (int i = 0; i < k && temp[i] != 0; i++) {
+/*    Replace the below for loop with this for k = 1
+            int i = 0;
+            if (temp[i] != 0) {
+                System.out.print(temp[i] + " ");
+            }
+*/
+            for (int i = 0; i < k && temp[i] != 0; i++) {  // for(int i = temp.length - 2; i >= k - 1; i--) {
                 System.out.print(temp[i] + " ");
             }
         });
@@ -83,7 +89,7 @@ public class TopKFrequentElementsInAnArrayII {
     }
 
     public static void main(String[] args) {
-        topKFrequent(Stream.of(5, 2, 1, 3, 2), 4);
+        topKFrequent(Stream.of(5, 2, 1, 3, 2), 2);
         System.out.println();
         topKFrequent(Stream.of(5, 2, 1, 3, 4), 4);
         System.out.println();
