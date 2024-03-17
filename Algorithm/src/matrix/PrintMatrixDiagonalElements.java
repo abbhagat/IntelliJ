@@ -9,10 +9,10 @@ public class PrintMatrixDiagonalElements {
                       {7, 8, 9}
                     };
         int ROW = M.length, COL = M[0].length;
-        for (int i = 0, j = 0; i < ROW && j < COL; j++, i++) {
+        for (int i = 0, j = 0; i < ROW && j < COL; i++, j++) {
             System.out.println(M[i][j]);
         }
-        for (int i = 0, j = COL - 1; j >= 0 && i < ROW; j--, i++) {
+        for (int i = 0, j = COL - 1; i < ROW && j >= 0; i++, j--) {
             if (i + j == COL - 1) {
                 System.out.println(M[i][j]);
             }
