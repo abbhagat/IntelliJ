@@ -46,7 +46,7 @@ public class GoldMineProblem {
         }
         int max = goldTable[0][0];
         for(int[] a : goldTable) {
-            max = Math.max(max, a[0]);   // The max amount of gold collected will be the max value in first column of all rows
+            max = max(max, a[0]);   // The max amount of gold collected will be the max value in first column of all rows
         }
         return max;
     }
