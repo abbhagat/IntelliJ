@@ -69,9 +69,8 @@ public class TopKFrequentElementsInAnArrayII {
                 }
             }
 /*    Replace the below for loop with this for k = 1
-            int i = 0;
-            if (temp[i] != 0) {
-                System.out.print(temp[i] + " ");
+            if (temp[0] != 0) {
+                System.out.print(temp[0] + " ");
             }
 */
             for (int i = 0; i < k && temp[i] != 0; i++) {  // for(int i = temp.length - 2; i >= k - 1; i--) {
