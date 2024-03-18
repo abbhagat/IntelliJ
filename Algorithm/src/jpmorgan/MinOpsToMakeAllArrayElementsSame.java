@@ -1,9 +1,7 @@
 package microsoft;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
 Given an array with n positive integers. We need to find the minimum number of operation to make all elements equal.
@@ -21,12 +19,13 @@ public class MinOpsToMakeAllArrayElementsSame {
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        List<Map.Entry<Integer, Integer>> list = map.entrySet()
-                .stream()
-                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-                .collect(Collectors.toList());
-        int max = list.get(0).getKey();
-        return Math.abs(max - a.length);
+        int max = 0;
+        for (Map.Entry<Integer, Integer> set : map.entrySet()) {
+            if (max < set.getValue()) {
+                max = set.getKey();
+            }
+        }
+        return a.length - max;
     }
 
     public static void main(String[] args) {
