@@ -7,33 +7,33 @@ package designpattern;
  */
 
 interface Strategy {
-    int doOperation(int x, int y);
+    int execute(int x, int y);
 }
 
 class Add implements Strategy {
 
-    public int doOperation(int x, int y) {
+    public int execute(int x, int y) {
         return x + y;
     }
 }
 
 class Sub implements Strategy {
 
-    public int doOperation(int x, int y) {
+    public int execute(int x, int y) {
         return x - y;
     }
 }
 
 class Mul implements Strategy {
 
-    public int doOperation(int x, int y) {
+    public int execute(int x, int y) {
         return x * y;
     }
 }
 
 class Div implements Strategy {
 
-    public int doOperation(int x, int y) {
+    public int execute(int x, int y) {
         return x / y;
     }
 }
@@ -47,7 +47,7 @@ class Context {
     }
 
     public int executeStrategy(int num1, int num2) {
-        return strategy.doOperation(num1, num2);
+        return strategy.execute(num1, num2);
     }
 }
 
