@@ -14,15 +14,24 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "USER_DETAILS")
 @NamedNativeQueries(
-        {
-                @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
-        }
+   {
+     @NamedNativeQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)", resultClass = UserDetails.class)
+   }
 )
 @NamedQueries(
-        {
-                @NamedQuery(name = "userDetails", query = "from UserDetails where userID = :userID and userName =:userName"),
-                @NamedQuery(name = "userDetailsProcedure", query = "CALL PROCEDURE_NAME(:userID,:userName)")
-        }
+   {
+      @NamedQuery(name = "userDetails", query = "from UserDetails where userID = :userID and userName =:userName"),
+      @NamedQuery(name = "userDetailsProcedure1", query = "CALL PROCEDURE_NAME(:userID,:userName)")
+   }
+)
+@NamedStoredProcedureQuery(
+        name="userDetails",
+        procedureName="userDetails",
+        resultClasses = { UserDetails.class },
+        parameters={
+                     @StoredProcedureParameter(name="userID",   type=String.class, mode=ParameterMode.IN),
+                     @StoredProcedureParameter(name="userName", type=String.class, mode=ParameterMode.IN)
+                   }
 )
 public class UserDetails {
 
@@ -35,3 +44,5 @@ public class UserDetails {
     private String userName;
 
 }
+
+
