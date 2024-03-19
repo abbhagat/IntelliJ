@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import javax.persistence.LockModeType;
+import javax.persistence.StoredProcedureQuery;
 import java.util.List;
 
 import static util.Util.sessionFactory;
@@ -12,6 +13,11 @@ import static util.Util.sessionFactory;
 public class Main {
 
     public static void main(String[] args) {
+
+        StoredProcedureQuery spQuery = sessionFactory.createEntityManager().createNamedStoredProcedureQuery("GetFoosByName");
+        spQuery.setParameter("fooName", "NewFooName");
+        spQuery.getResultList();
+
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Query query;
