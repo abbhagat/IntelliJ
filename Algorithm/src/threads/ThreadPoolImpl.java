@@ -7,16 +7,16 @@ import java.util.concurrent.BlockingQueue;
 
 class ThreadPool<Runnable> {
     private final BlockingQueue<Runnable> taskQueue;
-    private final List<ThreadPoolRunnable> runnable = new ArrayList<>();
+    private final List<ThreadPoolRunnable> runnableList = new ArrayList<>();
     private boolean isStopped = false;
 
     public ThreadPool(int numOfThreads, int maxNumOfTasks) {
         taskQueue = new ArrayBlockingQueue<>(maxNumOfTasks);
-        for (int i = 0; i < numOfThreads; i++) {
+        for (int i = 1; i <= numOfThreads; i++) {
             ThreadPoolRunnable threadPoolRunnable = new ThreadPoolRunnable((BlockingQueue<java.lang.Runnable>) taskQueue);
-            runnable.add(threadPoolRunnable);
+            runnableList.add(threadPoolRunnable);
         }
-        for (ThreadPoolRunnable runnable : runnable) {
+        for (ThreadPoolRunnable runnable : runnableList) {
              new Thread(runnable).start();
         }
     }
@@ -30,7 +30,7 @@ class ThreadPool<Runnable> {
 
     public synchronized void stop() {
         this.isStopped = true;
-        for (ThreadPoolRunnable runnable : runnable) {
+        for (ThreadPoolRunnable runnable : runnableList) {
             runnable.doStop();
         }
     }
@@ -51,8 +51,8 @@ class ThreadPoolRunnable implements Runnable {
     private final BlockingQueue<Runnable> taskQueue;
     private boolean isStopped = false;
 
-    public ThreadPoolRunnable(BlockingQueue<Runnable> queue) {
-        taskQueue = queue;
+    public ThreadPoolRunnable(BlockingQueue<Runnable> taskQueue) {
+        this.taskQueue = taskQueue;
     }
 
     @Override
@@ -83,11 +83,8 @@ public class ThreadPoolImpl {
     public static void main(String[] args) throws Exception {
         ThreadPool<Runnable> threadPool = new ThreadPool<>(3, 10);
         for (int i = 0; i < 10; i++) {
-            int taskNo = i;
-            threadPool.execute(() -> {
-                String message = Thread.currentThread().getName() + ": Task " + taskNo;
-                System.out.println(message);
-            });
+            int taskNum = i;
+            threadPool.execute(() -> System.out.println(Thread.currentThread().getName() + ": Task " + taskNum));
         }
         threadPool.waitUntilAllTasksFinished();
         threadPool.stop();
