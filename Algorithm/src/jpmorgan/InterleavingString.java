@@ -4,6 +4,24 @@ package jpmorgan;
 // Space: O(mn)
 public class InterleavingString {
 
+    // Time Complexity: O(2^n), where n is the length of the given string.
+    // Space Complexity: O(1).
+    public static boolean isInterleaved(String s1, String s2, String s3) {
+        if (s1.isEmpty() && s2.isEmpty() && s3.isEmpty()) {
+            return true;
+        }
+        if (s3.isEmpty()) {
+            return false;
+        }
+        if (!s1.isEmpty()) {
+            return s3.charAt(0) == s1.charAt(0) && isInterleaved(s1.substring(1), s2, s3.substring(1));
+        }
+        if (!s2.isEmpty()) {
+            return s3.charAt(0) == s2.charAt(0) && isInterleaved(s1, s2.substring(1), s3.substring(1));
+        }
+        return true;
+    }
+
     public static boolean isInterleave(String s1, String s2, String s3) {
         int m = s1.length(), n = s2.length();
         if (m + n != s3.length()) {
@@ -28,6 +46,8 @@ public class InterleavingString {
 
     public static void main(String[] args) {
         System.out.println(isInterleave("aabcc", "dbbca", "aadbbcbcac"));
+        System.out.println(isInterleaved("XXY", "XXZ", "XXZXXXY"));
         System.out.println(isInterleave("aabcc", "dbbca", "aadbbbaccc"));
+        System.out.println(isInterleaved("aabcc", "dbbca", "aadbbbaccc"));
     }
 }
