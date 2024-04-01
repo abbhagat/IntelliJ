@@ -16,4 +16,5 @@ spring:
         bootstrap.servers: localhost:9092, localhost:9093, localhost:9094
 server:
   port: 8081
-topic.name: library-events
+topic:
+  name: library-events
