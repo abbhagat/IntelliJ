@@ -6,6 +6,9 @@ package amazon;
   Both the array has to be sorted in O(n).
  */
 
+import util.CommonUtils;
+
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time  Complexity  O(n)
@@ -25,9 +28,6 @@ public class SortingInBigO_n {
     public static void main(String[] args) {
         int[]  a  = {4, 3, 2, 0, 1};
         sort(a);
-        for (int x : a) {
-            System.out.print(x + " ");
-        }
-        System.out.println();
+        printArray(a);
     }
 }

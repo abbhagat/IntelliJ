@@ -5,12 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Rectangle {
 
     private Point[] pointArray;
 
+    public Point[] getPointArray() {
+        return pointArray;
+    }
+
+    public void setPointArray(Point[] pointArray) {
+        this.pointArray = pointArray;
+    }
 }
