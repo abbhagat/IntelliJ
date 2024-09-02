@@ -25,16 +25,20 @@ import java.util.concurrent.TimeoutException;
 @Component
 public class LibraryEventProducer {
 
-    @Autowired
-    private KafkaTemplate<Integer, String> kafkaTemplate;
+    private final KafkaTemplate<Integer, String> kafkaTemplate;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
 
     private String TOPIC_NAME;
+
+    @Autowired
+    public LibraryEventProducer(KafkaTemplate<Integer, String> kafkaTemplate, ObjectMapper objectMapper, Environment env) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.objectMapper = objectMapper;
+        this.env = env;
+    }
 
     @PostConstruct
     public void postConstruct() {
@@ -61,8 +65,7 @@ public class LibraryEventProducer {
     public ListenableFuture<SendResult<Integer, String>> sendLibraryEventApproach2(LibraryEvent libraryEvent) throws JsonProcessingException {
         Integer key = libraryEvent.getLibraryEventId();
         String value = objectMapper.writeValueAsString(libraryEvent);
-/*       ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, value, TOPIC_NAME);
-         ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(TOPIC_NAME, key, value);*/
+        // ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(TOPIC_NAME, key, value);
         ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, value, TOPIC_NAME);
         ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(producerRecord);
         listenableFuture.addCallback(new ListenableFutureCallback<>() {
@@ -82,9 +85,8 @@ public class LibraryEventProducer {
     private ProducerRecord<Integer, String> buildProducerRecord(Integer key, String value, String topicName) {
         List<Header> headers = List.of(new RecordHeader("event-source", "scanner".getBytes()), new RecordHeader("event-type", "scanning".getBytes()));
         // return new ProducerRecord(topicName, null, key,value, null);
-        return new ProducerRecord(topicName, null, key,value, headers);
+        return new ProducerRecord<>(topicName, null, key, value, headers);
     }
-
 
     public SendResult<Integer, String> sendLibraryEventSynchronous(LibraryEvent libraryEvent) throws JsonProcessingException, TimeoutException {
         Integer key = libraryEvent.getLibraryEventId();
@@ -101,9 +103,9 @@ public class LibraryEventProducer {
 
     private void handleFailure(Integer key, String value, Throwable ex) {
         log.info("Error sending the message and the exception is {} ", ex.getMessage());
-        try{
+        try {
             throw ex;
-        }catch (Throwable throwable) {
+        } catch (Throwable throwable) {
             log.error("Error in OnFailure: {}", throwable.getMessage());
         }
     }

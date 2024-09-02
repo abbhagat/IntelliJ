@@ -18,3 +18,4 @@ inspectionProfiles
 .idea/
 dataSources.xml
 /production/
+*.iml

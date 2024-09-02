@@ -34,18 +34,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                    )
 public class LibraryEventsControllerITTest {
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+    private final TestRestTemplate restTemplate;
 
-    @Autowired
-    private EmbeddedKafkaBroker embeddedKafkaBroker;
+    private final EmbeddedKafkaBroker embeddedKafkaBroker;
 
     private Consumer<Integer, String> consumer;
 
+    @Autowired
+    public LibraryEventsControllerITTest(TestRestTemplate restTemplate, EmbeddedKafkaBroker embeddedKafkaBroker) {
+        this.restTemplate = restTemplate;
+        this.embeddedKafkaBroker = embeddedKafkaBroker;
+    }
+
     @BeforeEach
     public void setUp() {
-        Map<String, Object> config = new HashMap<>(KafkaTestUtils.consumerProps("group1", "true", embeddedKafkaBroker));
-        consumer = new DefaultKafkaConsumerFactory<>(config, new IntegerDeserializer(), new StringDeserializer()).createConsumer();
+        Map<String, Object> configMap = new HashMap<>(KafkaTestUtils.consumerProps("group1", "true", embeddedKafkaBroker));
+        consumer = new DefaultKafkaConsumerFactory<>(configMap, new IntegerDeserializer(), new StringDeserializer()).createConsumer();
         // consumer.subscribe(List.of("library-events"));
         embeddedKafkaBroker.consumeFromAllEmbeddedTopics(consumer);
     }
@@ -68,12 +72,12 @@ public class LibraryEventsControllerITTest {
                 .libraryEventType(LibraryEventType.NEW)
                 .book(book).build();
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE.toString());
+        headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<LibraryEvent> request = new HttpEntity<>(libraryEvent);
         ResponseEntity<LibraryEvent> responseEntity = restTemplate.exchange("/v1/libraryevent", HttpMethod.POST, request, LibraryEvent.class);
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         ConsumerRecord<Integer, String> consumerRecord = KafkaTestUtils.getSingleRecord(consumer, "library-events");
-        String expected = "{\"libraryEventId\":null,\"libraryEventType\":\"NEW\",\"book\":{\"bookId\":123,\"bookName\":\"Kafka\",\"bookAuthor\":\"Abhinaw\"}}";
+        final String expected = "{\"libraryEventId\":null,\"libraryEventType\":\"NEW\",\"book\":{\"bookId\":123,\"bookName\":\"Kafka\",\"bookAuthor\":\"Abhinaw\"}}";
         String value = consumerRecord.value();
         assertEquals(expected, value);
     }
