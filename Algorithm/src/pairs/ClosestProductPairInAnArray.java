@@ -9,13 +9,13 @@ public class ClosestProductPairInAnArray {
     private static void findPair(int[] a, int n) {
         Arrays.sort(a);
         int i = 0, j = a.length - 1, x = 0, y = 0;
-        int diff = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         while (i < j) {
-            int mul = abs(a[i] * a[j] - n);
-            if (mul < diff) {
+            int diff = abs(a[i] * a[j] - n);
+            if (diff < min) {
                 x = a[i];
                 y = a[j];
-                diff = mul;
+                min = diff;
             }
             int k = a[i] * a[j] < n ? i++ : j--;
         }

@@ -9,13 +9,13 @@ public class ClosestSumPairInAnArray {
     private static void findPair(int[] a) {
         Arrays.sort(a);
         int i = 0, j = a.length - 1, x = 0, y = 0, n = 47;
-        int diff = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         while (i < j) {
-            int mul = abs(a[i] + a[j] - n);
-            if (mul < diff) {
+            int diff = abs(a[i] + a[j] - n);
+            if (diff < min) {
                 x = a[i];
                 y = a[j];
-                diff = mul;
+                min = diff;
             }
             int k = a[i] + a[j] < n ? i++ : j--;
         }
