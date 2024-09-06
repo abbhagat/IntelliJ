@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class RetryScheduler {
 
-    private FailureRecordRepository failureRecordRepository;
-    private LibraryEventsService libraryEventsService;
+    private final FailureRecordRepository failureRecordRepository;
+    private final LibraryEventsService libraryEventsService;
 
     public RetryScheduler(FailureRecordRepository failureRecordRepository, LibraryEventsService libraryEventsService) {
         this.failureRecordRepository = failureRecordRepository;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FailureRecordService {
 
-    private FailureRecordRepository failureRecordRepository;
+    private final FailureRecordRepository failureRecordRepository;
 
     public FailureRecordService(FailureRecordRepository repository) {
         this.failureRecordRepository = repository;

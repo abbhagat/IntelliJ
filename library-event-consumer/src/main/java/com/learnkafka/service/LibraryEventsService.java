@@ -10,17 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.RecoverableDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
 @Service
 public class LibraryEventsService {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
+
+    private final LibraryEventsRepository libraryEventsRepository;
 
     @Autowired
-    private LibraryEventsRepository libraryEventsRepository;
+    public LibraryEventsService(ObjectMapper objectMapper, LibraryEventsRepository libraryEventsRepository) {
+        this.objectMapper = objectMapper;
+        this.libraryEventsRepository = libraryEventsRepository;
+    }
 
     public void processLibraryEvent(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
         LibraryEvent libraryEvent = objectMapper.readValue(consumerRecord.value(), LibraryEvent.class);
@@ -57,6 +62,5 @@ public class LibraryEventsService {
         libraryEventsRepository.save(libraryEvent);
         log.info("Successfully Persisted the library Event {} : ", libraryEvent);
     }
-
 
 }

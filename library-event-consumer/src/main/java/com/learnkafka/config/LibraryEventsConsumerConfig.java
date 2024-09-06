@@ -54,12 +54,10 @@ public class LibraryEventsConsumerConfig {
     public static final String SUCCESS = "SUCCESS";
 
     public DeadLetterPublishingRecoverer publishingRecoverer() {
-        DeadLetterPublishingRecoverer recoverer = new DeadLetterPublishingRecoverer(kafkaTemplate, (consumerRecord, e) ->
+        return new DeadLetterPublishingRecoverer(kafkaTemplate, (consumerRecord, e) ->
                 e.getCause() instanceof RecoverableDataAccessException ? new TopicPartition(retryTopic, consumerRecord.partition())
-                        :
-                        new TopicPartition(deadLetterTopic, consumerRecord.partition())
+                                                                       : new TopicPartition(deadLetterTopic, consumerRecord.partition())
         );
-        return recoverer;
     }
 
     ConsumerRecordRecoverer consumerRecordRecoverer = (consumerRecord, e) -> {
@@ -76,12 +74,8 @@ public class LibraryEventsConsumerConfig {
     };
 
     public DefaultErrorHandler errorHandler() {
-        var exceptionToIgnoreList = List.of(
-                IllegalArgumentException.class
-        );
-        var exceptionToRetryList = List.of(
-                RecoverableDataAccessException.class
-        );
+        var exceptionToIgnoreList = List.of(IllegalArgumentException.class);
+        var exceptionToRetryList = List.of(RecoverableDataAccessException.class);
         var fixedBackOff = new FixedBackOff(1000L, 2);
         var expBackOff = new ExponentialBackOffWithMaxRetries(2);
         expBackOff.setInitialInterval(1_000L);
