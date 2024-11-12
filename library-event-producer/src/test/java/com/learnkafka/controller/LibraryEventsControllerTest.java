@@ -43,7 +43,7 @@ public class LibraryEventsControllerTest {
                 .libraryEventType(LibraryEventType.NEW)
                 .book(book).build();
         String json = objectMapper.writeValueAsString(libraryEvent);
-        doNothing().when(libraryEventProducer).sendLibraryEventApproach2(libraryEvent);
+        doNothing().when(libraryEventProducer).sendLibraryEvent(libraryEvent);
         mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isCreated());
     }

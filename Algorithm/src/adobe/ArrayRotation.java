@@ -7,8 +7,9 @@ import static util.CommonUtils.swap;
 public class ArrayRotation {
 
     private static void arrayRotate(int[] a, int k) {
+        int n;
         k = k % a.length;
-        int n = a.length - k;
+        n = a.length - k;
         rotate(a, 0, n - 1);
         rotate(a, n, a.length - 1);
         rotate(a, 0, a.length - 1);
@@ -16,7 +17,7 @@ public class ArrayRotation {
     }
 
     private static void rotate(int[] a, int i, int j) {
-        while (i <= j) {
+        while (i < j) {
             swap(a, i, j);
             i++;
             j--;

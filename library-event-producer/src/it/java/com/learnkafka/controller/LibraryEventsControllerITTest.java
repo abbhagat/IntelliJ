@@ -73,15 +73,14 @@ public class LibraryEventsControllerITTest {
                 .book(book).build();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE);
-        HttpEntity<LibraryEvent> request = new HttpEntity<>(libraryEvent);
-        ResponseEntity<LibraryEvent> responseEntity = restTemplate.exchange("/v1/libraryevent", HttpMethod.POST, request, LibraryEvent.class);
+        HttpEntity<LibraryEvent> request = new HttpEntity<>(libraryEvent, headers);
+        ResponseEntity<LibraryEvent> responseEntity = restTemplate.exchange("/v1/libraryEvent", HttpMethod.POST, request, LibraryEvent.class);
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         ConsumerRecord<Integer, String> consumerRecord = KafkaTestUtils.getSingleRecord(consumer, "library-events");
         final String expected = "{\"libraryEventId\":null,\"libraryEventType\":\"NEW\",\"book\":{\"bookId\":123,\"bookName\":\"Kafka\",\"bookAuthor\":\"Abhinaw\"}}";
         String value = consumerRecord.value();
         assertEquals(expected, value);
     }
-
 
     @Test
     @Timeout(5)
@@ -96,9 +95,9 @@ public class LibraryEventsControllerITTest {
                 .libraryEventType(LibraryEventType.UPDATE)
                 .book(book).build();
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE.toString());
-        HttpEntity<LibraryEvent> request = new HttpEntity<>(libraryEvent);
-        ResponseEntity<LibraryEvent> responseEntity = restTemplate.exchange("/v1/libraryevent", HttpMethod.PUT, request, LibraryEvent.class);
+        headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<LibraryEvent> request = new HttpEntity<>(libraryEvent, headers);
+        ResponseEntity<LibraryEvent> responseEntity = restTemplate.exchange("/v1/libraryEvent", HttpMethod.PUT, request, LibraryEvent.class);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         ConsumerRecord<Integer, String> consumerRecord = KafkaTestUtils.getSingleRecord(consumer, "library-events");
         String expected = "{\"libraryEventId\":123,\"libraryEventType\":\"UPDATE\",\"book\":{\"bookId\":123,\"bookName\":\"Kafka\",\"bookAuthor\":\"Abhinaw\"}}";

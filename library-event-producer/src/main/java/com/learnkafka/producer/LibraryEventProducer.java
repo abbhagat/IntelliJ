@@ -62,6 +62,19 @@ public class LibraryEventProducer {
         });
     }
 
+    public SendResult<Integer, String> sendLibraryEventSynchronous(LibraryEvent libraryEvent) throws JsonProcessingException, TimeoutException {
+        Integer key = libraryEvent.getLibraryEventId();
+        String value = objectMapper.writeValueAsString(libraryEvent);
+        SendResult<Integer, String> sendResult;
+        try {
+            sendResult = kafkaTemplate.sendDefault(key, value).get(1, TimeUnit.SECONDS);
+        } catch (ExecutionException | InterruptedException e) {
+            log.info("ExecutionException | InterruptedException sending the message and the exception is {} ", e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return sendResult;
+    }
+
     public ListenableFuture<SendResult<Integer, String>> sendLibraryEventApproach2(LibraryEvent libraryEvent) throws JsonProcessingException {
         Integer key = libraryEvent.getLibraryEventId();
         String value = objectMapper.writeValueAsString(libraryEvent);
@@ -84,21 +97,7 @@ public class LibraryEventProducer {
 
     private ProducerRecord<Integer, String> buildProducerRecord(Integer key, String value, String topicName) {
         List<Header> headers = List.of(new RecordHeader("event-source", "scanner".getBytes()), new RecordHeader("event-type", "scanning".getBytes()));
-        // return new ProducerRecord(topicName, null, key,value, null);
-        return new ProducerRecord<>(topicName, null, key, value, headers);
-    }
-
-    public SendResult<Integer, String> sendLibraryEventSynchronous(LibraryEvent libraryEvent) throws JsonProcessingException, TimeoutException {
-        Integer key = libraryEvent.getLibraryEventId();
-        String value = objectMapper.writeValueAsString(libraryEvent);
-        SendResult<Integer, String> sendResult;
-        try {
-            sendResult = kafkaTemplate.sendDefault(key, value).get(1, TimeUnit.SECONDS);
-        } catch (ExecutionException | InterruptedException e) {
-            log.info("ExecutionException | InterruptedException sending the message and the exception is {} ", e.getMessage());
-            throw new RuntimeException(e);
-        }
-        return sendResult;
+        return new ProducerRecord<>(topicName, null, key, value, headers); // pass header as null if don't want to add extra headers
     }
 
     private void handleFailure(Integer key, String value, Throwable ex) {
