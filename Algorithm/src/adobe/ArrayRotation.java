@@ -1,7 +1,6 @@
 package adobe;
 
 import java.util.stream.IntStream;
-
 import static util.CommonUtils.swap;
 
 public class ArrayRotation {

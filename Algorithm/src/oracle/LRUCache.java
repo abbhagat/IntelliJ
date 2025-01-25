@@ -1,7 +1,7 @@
 package oracle;
 
 /*
-LRU cache is implemented using a Deque q and a hash map.
+LRU cache is implemented using a Deque and HashMap.
 Deque is used to store queue of pages with most recently used page at the start of the q.
 So, as more pages are added to the q, least recently used pages are moved to the end of the q with
 page at tail being the least recently used page in the q.

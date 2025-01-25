@@ -2,7 +2,9 @@ package adobe;
 
 import java.util.Arrays;
 
+// Time Complexity - log(n)
 public class MissingNumberInSortedArray {
+
     private static int findMissingNumber(int[] a) {
         int low = 0, high = a.length - 1;
         while (low <= high) {

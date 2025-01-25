@@ -46,8 +46,8 @@ public class LibraryEventProducer {
     }
 
     public void sendLibraryEvent(LibraryEvent libraryEvent) throws JsonProcessingException {
-        Integer key = libraryEvent.getLibraryEventId();
-        String value = objectMapper.writeValueAsString(libraryEvent);
+        var key   = libraryEvent.getLibraryEventId();
+        var value = objectMapper.writeValueAsString(libraryEvent);
         ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.sendDefault(key, value);
         listenableFuture.addCallback(new ListenableFutureCallback<>() {
             @Override
@@ -76,8 +76,8 @@ public class LibraryEventProducer {
     }
 
     public ListenableFuture<SendResult<Integer, String>> sendLibraryEventApproach2(LibraryEvent libraryEvent) throws JsonProcessingException {
-        Integer key = libraryEvent.getLibraryEventId();
-        String value = objectMapper.writeValueAsString(libraryEvent);
+        var key   = libraryEvent.getLibraryEventId();
+        var value = objectMapper.writeValueAsString(libraryEvent);
         // ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(TOPIC_NAME, key, value);
         ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, value, TOPIC_NAME);
         ListenableFuture<SendResult<Integer, String>> listenableFuture = kafkaTemplate.send(producerRecord);
