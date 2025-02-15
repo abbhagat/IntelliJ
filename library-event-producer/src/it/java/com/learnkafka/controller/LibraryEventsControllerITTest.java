@@ -49,7 +49,8 @@ public class LibraryEventsControllerITTest {
     @BeforeEach
     public void setUp() {
         Map<String, Object> configMap = new HashMap<>(KafkaTestUtils.consumerProps("group1", "true", embeddedKafkaBroker));
-        consumer = new DefaultKafkaConsumerFactory<>(configMap, new IntegerDeserializer(), new StringDeserializer()).createConsumer();
+        DefaultKafkaConsumerFactory defaultKafkaConsumerFactory = new DefaultKafkaConsumerFactory<>(configMap, new IntegerDeserializer(), new StringDeserializer());
+        consumer = defaultKafkaConsumerFactory.createConsumer();
         // consumer.subscribe(List.of("library-events"));
         embeddedKafkaBroker.consumeFromAllEmbeddedTopics(consumer);
     }

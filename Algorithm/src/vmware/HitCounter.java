@@ -6,6 +6,7 @@ package vmware;
 public class HitCounter {
 
     private final int[] hits , times;
+
     public HitCounter(int timeInSecs) {
         this.hits  = new int[timeInSecs];
         this.times = new int[timeInSecs];

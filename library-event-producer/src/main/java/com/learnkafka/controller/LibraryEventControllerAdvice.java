@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 public class LibraryEventControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handleRequestBody(MethodArgumentNotValidException e) {
+    public ResponseEntity<?> handleException(MethodArgumentNotValidException e) {
         List<FieldError> errorList = e.getBindingResult().getFieldErrors();
-        String errorMessage = errorList.stream()
+        var errorMessage = errorList.stream()
                 .map(fieldError -> fieldError.getField() + "-" + fieldError.getDefaultMessage())
                 .sorted()
                 .collect(Collectors.joining(","));

@@ -3,7 +3,7 @@ package threads;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class BlockingQueue<K> {
+class BlockingQueue<K extends Number> {
 
     private final Queue<K> q;
     private final int maxSize;
@@ -30,21 +30,21 @@ class BlockingQueue<K> {
     }
 }
 
-class Producer implements Runnable {
+class Producer<K extends Number> implements Runnable {
 
-    private final BlockingQueue q;
+    private final BlockingQueue<K> q;
 
-    public Producer(BlockingQueue q) {
+    public Producer(BlockingQueue<K> q) {
         this.q = q;
         new Thread(this, "Producer").start();
     }
 
     public void run() {
-        int n = 0;
+        Integer n = 0;
         while (true) {
             try {
                 System.out.println("Put : " + ++n) ;
-                q.put(n);
+                q.put((K) n);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -52,10 +52,11 @@ class Producer implements Runnable {
     }
 }
 
-class Consumer implements Runnable {
-    private final BlockingQueue q;
+class Consumer<K extends Number> implements Runnable {
 
-    public Consumer(BlockingQueue q) {
+    private final BlockingQueue<K> q;
+
+    public Consumer(BlockingQueue<K> q) {
         this.q = q;
         new Thread(this, "Consumer").start();
     }

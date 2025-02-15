@@ -6,13 +6,13 @@ import static java.lang.Integer.min;
 
 public class LongestCommonPrefix {
 
-    private static String longestCommonPrefix(String[] str, int low, int high) {
+    private static String longestCommonPrefix(String[] s, int low, int high) {
         if (low == high) {
-            return str[low];
+            return s[low];
         }
         int mid = (low + high) / 2;
-        String left  = longestCommonPrefix(str, low, mid);
-        String right = longestCommonPrefix(str, mid + 1, high);
+        String left  = longestCommonPrefix(s, low, mid);
+        String right = longestCommonPrefix(s, mid + 1, high);
         return commonPrefix(left, right);
     }
 

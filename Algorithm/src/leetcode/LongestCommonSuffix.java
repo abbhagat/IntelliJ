@@ -6,13 +6,13 @@ import static java.lang.Integer.min;
 
 public class LongestCommonSuffix {
 
-    private static String longestCommonSuffix(String[] str, int low, int high) {
+    private static String longestCommonSuffix(String[] s, int low, int high) {
         if (low == high) {
-            return str[low];
+            return s[low];
         }
         int mid = (low + high) / 2;
-        String left  = longestCommonSuffix(str, low, mid);
-        String right = longestCommonSuffix(str, mid + 1, high);
+        String left  = longestCommonSuffix(s, low, mid);
+        String right = longestCommonSuffix(s, mid + 1, high);
         return longestCommonSuffix(left, right);
     }
 
