@@ -6,10 +6,10 @@ public class Singleton implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static volatile Singleton _instance;
+    private static volatile Singleton singleton;
 
     private Singleton() throws Exception {
-        if (null != _instance) {
+        if (null != singleton) {
             throw new Exception();
         }
     }
@@ -20,23 +20,23 @@ public class Singleton implements Cloneable, Serializable {
     }
 
     public static Singleton getInstance() throws Exception {
-        if (null == _instance) {
+        if (null == singleton) {
             synchronized (Singleton.class) {
-                if (null == _instance) {
-                    _instance = new Singleton();
+                if (null == singleton) {
+                    singleton = new Singleton();
                 }
             }
         }
-        return _instance;
+        return singleton;
     }
 
     @Override
     public Singleton clone() throws CloneNotSupportedException {
         try {
-            _instance = getInstance();
+            singleton = getInstance();
         } catch (Exception e) {
             throw new CloneNotSupportedException();
         }
-        return _instance;
+        return singleton;
     }
 }

@@ -10,8 +10,8 @@ class Q {
             while (flag) {
                 wait();
             }
-            System.out.println(n++ + " " + Thread.currentThread().getName());
-            flag = !flag;
+            System.out.println(n++ + "->" + Thread.currentThread().getName());
+            flag = true;
             notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -23,8 +23,8 @@ class Q {
             while (!flag) {
                 wait();
             }
-            System.out.println(n++ + " " + Thread.currentThread().getName());
-            flag = !flag;
+            System.out.println(n++ + "->" + Thread.currentThread().getName());
+            flag = false;
             notify();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -33,9 +33,10 @@ class Q {
 }
 
 class Even {
+
     private Q q;
 
-    Even(Q q) {
+    public Even(Q q) {
         this.q = q;
         new Thread(runnable, "Even").start();
     }
@@ -51,7 +52,7 @@ class Odd {
 
     private Q q;
 
-    Odd(Q q) {
+    public Odd(Q q) {
         this.q = q;
         new Thread(runnable, "ODD").start();
     }

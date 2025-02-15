@@ -6,6 +6,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 class ThreadPool<Runnable> {
+
     private final BlockingQueue<Runnable> taskQueue;
     private final List<ThreadPoolRunnable> runnableList = new ArrayList<>();
     private boolean isStopped = false;
