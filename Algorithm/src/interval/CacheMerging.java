@@ -8,6 +8,7 @@ import java.util.List;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
+// Time complexity O(n), where n is the number of intervals in the intervalList.
 public class CacheMerging {
 
     private static void insertInterval(List<Interval> intervalList, Interval newInterval) {

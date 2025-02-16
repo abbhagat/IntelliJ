@@ -19,11 +19,12 @@ public class FailureRecord {
     @Id
     @GeneratedValue
     private Integer id;
-    private String topic;
     private Integer key;
-    private String errorRecord;
     private Integer partition;
-    private long offset_value;
+    private String topic;
+    private String errorRecord;
     private String exception;
     private String status;
+    private long offset_value;
+
 }

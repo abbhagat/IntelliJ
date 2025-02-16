@@ -8,6 +8,7 @@ import com.learnkafka.service.FailureRecordService;
 import com.learnkafka.service.LibraryEventsService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ public class RetryScheduler {
     private final FailureRecordRepository failureRecordRepository;
     private final LibraryEventsService libraryEventsService;
 
+    @Autowired
     public RetryScheduler(FailureRecordRepository failureRecordRepository, LibraryEventsService libraryEventsService) {
         this.failureRecordRepository = failureRecordRepository;
         this.libraryEventsService = libraryEventsService;
