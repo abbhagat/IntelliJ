@@ -33,7 +33,7 @@ public class LibraryEventsService {
         if(libraryEvent != null && libraryEvent.getLibraryEventId() != null && libraryEvent.getLibraryEventId() == 999) {
             throw new RecoverableDataAccessException("Temporary Network Issue");
         }
-        switch (libraryEvent.getLibraryEventType()) {
+        switch (Objects.requireNonNull(libraryEvent).getLibraryEventType()) {
             case NEW:
                 save(libraryEvent);
                 break;

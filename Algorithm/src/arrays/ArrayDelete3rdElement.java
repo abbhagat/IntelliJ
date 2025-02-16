@@ -2,6 +2,7 @@ package arrays;
 
 import java.util.stream.IntStream;
 
+// Time Complexity O(n^2)
 public class ArrayDelete3rdElement {
 
     private static void modifyArray(int[] a, int pos) {
