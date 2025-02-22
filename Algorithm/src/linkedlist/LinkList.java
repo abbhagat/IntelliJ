@@ -4,15 +4,15 @@ public class LinkList {
 
     static Node temp, last;
 
-    public static Node add(Node first, int num) {
+    public static Node add(Node head, int num) {
         Node node = new Node(num, null);
-        if (first == null) {
-             first = node;
+        if (head == null) {
+             head = node;
         } else {
             temp.next = node;
             last = node;
         }
         temp = node;
-        return first;
+        return head;
     }
 }

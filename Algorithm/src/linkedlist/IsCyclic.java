@@ -4,8 +4,8 @@ import static linkedlist.LinkList.add;
 
 public class IsCyclic {
 
-    public static boolean hasCycle(Node first) {
-        Node slow = first, fast = first.next;
+    public static boolean hasCycle(Node head) {
+        Node slow = head, fast = head.next;
         while (true) {
             if (fast == null || fast.next == null) {
                 return false;
@@ -20,11 +20,11 @@ public class IsCyclic {
 
     public static void main(String[] args) {
         int[] a = {2, 4, 3};
-        Node first = null;
+        Node head = null;
         for (int x : a) {
-            first = add(first, x);
+            head = add(head, x);
         }
-        LinkList.last.next = first;
-        System.out.println(hasCycle(first));
+        LinkList.last.next = head;
+        System.out.println(hasCycle(head));
     }
 }

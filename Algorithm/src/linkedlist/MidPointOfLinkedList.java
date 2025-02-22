@@ -4,11 +4,11 @@ import static linkedlist.LinkList.add;
 
 public class MidPointOfLinkedList {
 
-    public static Node findMid(Node first) {
-        if (first == null) {
+    public static Node findMid(Node head) {
+        if (head == null) {
             return null;
         }
-        Node slow = first, fast = first.next;
+        Node slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -16,11 +16,11 @@ public class MidPointOfLinkedList {
         return slow;
     }
 
-    public static Node findPrevMidPoint(Node first) {
-        if (first == null) {
+    public static Node findPrevMidPoint(Node head) {
+        if (head == null) {
             return null;
         }
-        Node slow = first, prev_slow = first, fast = first.next;
+        Node slow = head, prev_slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             prev_slow = slow;
             slow = slow.next;

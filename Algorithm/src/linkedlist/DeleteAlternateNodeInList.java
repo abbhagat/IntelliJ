@@ -14,12 +14,12 @@ public class DeleteAlternateNodeInList {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 5};
-        Node first = null;
+        Node head = null;
         for (int x : a) {
-            first = add(first, x);
+            head = add(head, x);
         }
-        traverseList(first);
-        deleteAlternateNode(first);
-        traverseList(first);
+        traverseList(head);
+        deleteAlternateNode(head);
+        traverseList(head);
     }
 }

@@ -10,9 +10,10 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DeleteRepeatedElementsInList {
 
-    private static void removeDuplicate(Node first) {
+    private static void removeDuplicate(Node head) {
         Set<Integer> set = new HashSet<>();
-        for (Node prev = null, temp = first; temp != null; temp = temp.next) {
+        Node prev = null;
+        for (Node temp = head; temp != null; temp = temp.next) {
             if (set.contains(temp.num)) {
                 prev.next = temp.next;
             } else {
@@ -24,11 +25,11 @@ public class DeleteRepeatedElementsInList {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 1, 1, 1, 3, 4, 3, 5, 5};
-        Node first = null;
+        Node head = null;
         for (int x : a) {
-            first = add(first, x);
+            head = add(head, x);
         }
-        removeDuplicate(first);
-        traverseList(first);
+        removeDuplicate(head);
+        traverseList(head);
     }
 }

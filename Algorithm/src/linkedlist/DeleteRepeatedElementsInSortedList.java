@@ -7,8 +7,8 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DeleteRepeatedElementsInSortedList {
 
-    private static void removeDuplicate(Node first) {
-        for (Node prev = first, temp = first.next; temp != null; temp = temp.next) {
+    private static void removeDuplicate(Node head) {
+        for (Node prev = head, temp = head.next; temp != null; temp = temp.next) {
             if (prev.num == temp.num) {
                 prev.next = temp.next;
             } else {
@@ -19,11 +19,11 @@ public class DeleteRepeatedElementsInSortedList {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 2, 3, 3, 4, 5, 5};
-        Node first = null;
+        Node head = null;
         for (int x : a) {
-            first = add(first, x);
+            head = add(head, x);
         }
-        removeDuplicate(first);
-        traverseList(first);
+        removeDuplicate(head);
+        traverseList(head);
     }
 }
