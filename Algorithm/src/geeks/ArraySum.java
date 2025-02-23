@@ -6,20 +6,20 @@ import java.util.*;
 
 public class ArraySum {
 
-    public static void combinationForSum(int[] a, int index, int givenSum, int curSum, LinkedList<Integer> list) {
-        if (curSum == givenSum && !list.isEmpty()) {
+    public static void combinationForSum(int[] a, int index, int givenSum, int currSum, LinkedList<Integer> list) {
+        if (currSum == givenSum && !list.isEmpty()) {
             System.out.println(list);
             return;
         }
-        if (curSum > givenSum) {
+        if (currSum > givenSum) {
             return;
         }
         for (int i = index; i < a.length; i++) {
-            curSum += a[i];
+            currSum += a[i];
             list.add(a[i]);
-            combinationForSum(a, i + 1, givenSum, curSum, list);
+            combinationForSum(a, i + 1, givenSum, currSum, list);
             list.removeLast();
-            curSum -= a[i];
+            currSum -= a[i];
         }
     }
 

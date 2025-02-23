@@ -29,10 +29,14 @@ public class StreamMatchAnyMatchAll {
                                                     new Employee("I", 73)
                                                  );
 
-        List<String> name = mainList.stream().map(Employee::getName).collect(Collectors.toList());
+        List<String> name = mainList.stream()
+                                    .map(Employee::getName)
+                                    .collect(Collectors.toList());
 
         // Set A intersection Set B
-        List<Employee> commonList = cancelList.stream().filter(e -> name.contains(e.getName())).collect(Collectors.toList());
+        List<Employee> commonList = cancelList.stream()
+                                              .filter(e -> name.contains(e.getName()))
+                                              .collect(Collectors.toList());
         commonList.forEach(System.out::println);
         System.out.println();
 

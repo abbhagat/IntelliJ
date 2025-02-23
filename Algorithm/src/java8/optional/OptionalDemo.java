@@ -1,10 +1,13 @@
 package java8.optional;
 
+import lombok.Getter;
+
 import java.util.*;
 
 public class OptionalDemo {
 
-    private static List<Map<String, List<Employee>>> mapList = new ArrayList<>();
+    @Getter
+    private static final List<Map<String, List<Employee>>> mapList = new ArrayList<>();
 
     static {
         Map<String, List<Employee>> map1 = new HashMap<>();
@@ -20,10 +23,6 @@ public class OptionalDemo {
         mapList.add(map3);
 
         mapList.add(null);
-    }
-
-    public static List<Map<String, List<Employee>>> getMapList() {
-        return mapList;
     }
 
     public static void main(String[] args) {

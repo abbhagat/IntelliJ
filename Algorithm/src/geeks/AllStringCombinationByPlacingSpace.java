@@ -3,9 +3,7 @@ package geeks;
 import java.util.ArrayList;
 import java.util.List;
 
-// Time Complexity: O(n*(2^n))
-// Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2^n-1.
-/*
+/**
 Given a string you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
 
 Input:  str[] = "ABC"
@@ -14,6 +12,7 @@ Output: ABC
         A BC
         A B C
 */
+// Time Complexity: O(n*(2^n)) Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2^n-1.
 public class AllStringCombinationByPlacingSpace {
 
     private static List<String> spaceString(String str) {

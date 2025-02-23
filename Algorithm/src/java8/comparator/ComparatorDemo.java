@@ -29,10 +29,10 @@ public class ComparatorDemo {
         Comparator<Employee> byName = (e1, e2) -> e2.getName().compareTo(e1.getName());
         Comparator<Employee> byId = Comparator.comparingInt(Employee::getId).reversed();
 
-        Collections.sort(mainList, byId);
+        mainList.sort(byId);
         mainList.forEach(System.out::println);
 
-        Collections.sort(mainList, byName);
+        mainList.sort(byName);
         mainList.stream().forEachOrdered(System.out::println);
 
         System.out.println();
