@@ -12,7 +12,9 @@ public class ArrayJoinDemo {
         String[] s3 = new String[]{"g", "h", "i"};
 
         // join object type array
-        String[] result = Stream.of(s1, s2, s3).flatMap(Stream::of).toArray(String[]::new);
+        String[] result = Stream.of(s1, s2, s3)
+                                .flatMap(Stream::of)
+                                .toArray(String[]::new);
         System.out.println(Arrays.toString(result));
 
         int[] int1 = new int[]{1, 2, 3};

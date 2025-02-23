@@ -16,7 +16,7 @@ public class BooleanLambda {
     }
 
     static boolean isEven(int x) {
-        return x % 2 == 0 ? true : false;
+        return x % 2 == 0;
     }
 
     public static void main(String... args) {

@@ -2,6 +2,8 @@ package java8.flatMap;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class FlatMapDemo {
 
@@ -23,15 +25,16 @@ public class FlatMapDemo {
         map.put("John", "555-1123");
         map.put("Mary", "555-2243");
         map.put("Steve", "555-6654");
-        map.values()
-                .stream()
-                .collect(Collectors.toList()).
-                forEach(System.out::println);
+        new ArrayList<>(map.values()).forEach(System.out::println);
 
         String[][] dataArray = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}, {"g", "h"}};
         List<String> listOfAllChars = Arrays.stream(dataArray)
-                .flatMap(Arrays::stream)
-                .collect(Collectors.toList());
+                                            .flatMap(Arrays::stream)
+                                            .collect(Collectors.toList());
         System.out.println(listOfAllChars);
+
+        int[] a = {1, 2, 3, 4, 5};
+        IntStream integerStream = Arrays.stream(a);
+        integerStream.forEach(System.out::println);
     }
 }
