@@ -25,9 +25,9 @@ public class MinPathTriangleSum {
 
     public static void main(String[] args) {
         System.out.println(minPathSum(Arrays.asList(
-                List.of(2),
-                Arrays.asList(3, 4),
-                Arrays.asList(6, 5, 7),
+                    Arrays.asList(2),
+                  Arrays.asList(3, 4),
+                 Arrays.asList(6, 5, 7),
                 Arrays.asList(4, 1, 8, 3)
         )));
     }

@@ -1,5 +1,7 @@
 package leetcode;
 
+import util.CommonUtils;
+
 public class MergeTwoSortedArrayII {
 
     public static void main(String[] args) {
@@ -17,12 +19,7 @@ public class MergeTwoSortedArrayII {
             }
             i++;
         }
-        for (int x : a) {
-            System.out.print(x + " ");
-        }
-        System.out.println();
-        for (int x : b) {
-            System.out.print(x + " ");
-        }
+        CommonUtils.printArray(a);
+        CommonUtils.printArray(b);
     }
 }

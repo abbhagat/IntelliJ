@@ -3,7 +3,6 @@ package leetcode;
 import static java.lang.Integer.min;
 
 // Time Complexity O(n log n)
-
 public class LongestCommonPrefix {
 
     private static String longestCommonPrefix(String[] s, int low, int high) {

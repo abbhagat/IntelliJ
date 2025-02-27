@@ -1,5 +1,7 @@
 package util;
 
+import java.util.stream.IntStream;
+
 public class CommonUtils {
 
     public static void swap(int[] a, int i, int j) {
@@ -48,9 +50,7 @@ public class CommonUtils {
     }
 
     public static void printArray(int[] a) {
-        for(int x : a) {
-            System.out.print(x + " ");
-        }
+        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
         System.out.println();
     }
 
@@ -78,11 +78,8 @@ public class CommonUtils {
     }
 
     public static void printMatrix(char[][] M) {
-        for (char[] x : M) {
-            for (char y : x) {
-                System.out.print(y + " ");
-            }
-            System.out.println();
+        for (char[] c : M) {
+            printArray(c);
         }
     }
 }
