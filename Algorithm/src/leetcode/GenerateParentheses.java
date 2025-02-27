@@ -2,7 +2,6 @@ package leetcode;
 
 // Time Complexity O(2^n)  For every index there can be two options ‘(‘ or ‘)’
 // Space Complexity: O(n)
-
 public class GenerateParentheses {
 
     private static void generateParentheses(String bracket, int open, int close, int n) {

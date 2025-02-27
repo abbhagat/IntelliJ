@@ -17,9 +17,10 @@ public class GroupByStream {
         Map<String, Long> finalMap = new LinkedHashMap<>();
 
         //Sort a map and add to finalMap
-        result.entrySet().stream()
-                .sorted(Map.Entry.<String, Long>comparingByValue()
-                        .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+        result.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
         System.out.println(finalMap);
 
     }

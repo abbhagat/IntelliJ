@@ -1,5 +1,12 @@
 package leetcode;
 
+/**
+    The method is a recursive function that checks if a given array represents a max heap.
+    For each node, it checks the left and right children and then recursively checks the subtrees.
+    The recursion depth is proportional to the height of the heap, which is (O(log n)).
+    Each recursive call performs a constant amount of work. Overall Complexity is O(n).
+ */
+// Time Complexity: O(n) where n is the number of elements in the array
 public class CheckIfAnArrayRepresentsMaxHeap {
 
     private static boolean isMaxHeap(int[] a, int i, int n) {

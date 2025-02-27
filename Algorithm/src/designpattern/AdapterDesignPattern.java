@@ -25,14 +25,12 @@ class VLC implements AdvancedMediaPlayer {
         System.out.println("Playing VLC file : " + fileName);
     }
 
-    public void playMP4(String fileName) {
-    }
+    public void playMP4(String fileName) {}
 }
 
 class MP4 implements AdvancedMediaPlayer {
 
-    public void playVLC(String fileName) {
-    }
+    public void playVLC(String fileName) {}
 
     public void playMP4(String fileName) {
         System.out.println("Playing MP4 file : " + fileName);
@@ -56,9 +54,10 @@ class MediaAdapter implements MediaPlayer {
 }
 
 class AudioPlayer implements MediaPlayer {
+
     public void play(String fileName, String fileType) {
         switch (fileType) {
-            case "mp3": System.out.println("Playing MP3 file : " + fileName);
+            case "MP3": System.out.println("Playing MP3 file : " + fileName);
                         break;
             case "MP4":
             case "VLC": MediaAdapter mediaAdapter = new MediaAdapter(fileType);

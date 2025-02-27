@@ -1,6 +1,6 @@
 package leetcode;
 
-// Time  Complexity  O(n log n)
+// Time  Complexity  O(log n)
 
 public class IntegerToRoman {
     private static final int[] INTEGER = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};

@@ -9,8 +9,15 @@ import static java.lang.Integer.max;
  * Output: 658
  * Input: N = 2589, K = 2
  * Output: 89
+ * The outer loop runs k times, where k is the number of digits to remove.
+ * The inner loop iterates over the digits of the number n.
+ * In the worst case, this loop runs O(d) times, where d is the number of digits in n.
+ * Since the number of digits d in a number n is O(log n), the overall time complexity is O(k * log n).
  */
+
+// Time complexity is O(k * log n).
 public class LargestSumAfterRemovingKDigit {
+
     private static int maxNumber(int n, int k) {
         for (int j = 1; j <= k; j++) {
             int max = Integer.MIN_VALUE, result;

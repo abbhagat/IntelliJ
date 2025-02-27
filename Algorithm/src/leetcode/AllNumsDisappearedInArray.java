@@ -10,7 +10,8 @@ public class AllNumsDisappearedInArray {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
         int sum = map.values().stream().reduce(0, Integer::sum); // map.values().stream().reduce(0, (x,y) -> x + y);
-        for (int i = 1; i < a.length || i <= sum; i++) {
+        int min = Arrays.stream(a).min().orElse(0);
+        for (int i = min; i < a.length || i <= sum; i++) {
             if (!map.containsKey(i)) {
                 System.out.print(i + " ");
             }
