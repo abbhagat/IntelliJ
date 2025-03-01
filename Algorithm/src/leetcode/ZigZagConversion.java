@@ -1,6 +1,5 @@
 package leetcode;
 
-
 // Time Complexity: O(n) where n is length of input string.
 // Auxiliary Space: O(n)
 public class ZigZagConversion {

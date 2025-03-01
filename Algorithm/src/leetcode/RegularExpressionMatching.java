@@ -1,5 +1,6 @@
 package leetcode;
 
+// Time complexity : O(2^(m+n)) where m is the length of the string s and n is the length of the string p.
 public class RegularExpressionMatching {
 
     private static boolean isMatch(String s, String p) {

@@ -7,12 +7,12 @@ import java.util.LinkedList;
 
 public class PrintAllSubsetOfString {
 
-    private static void findSubSet(char[] a, int index, LinkedList<String> list) {
+    private static void findSubSet(char[] a, int index, LinkedList<Character> list) {
         if (index == a.length) {
             System.out.println(list);
             return;
         }
-        list.add(String.valueOf(a[index]));
+        list.add(a[index]);
         findSubSet(a, index + 1, list);
         list.removeLast();
         findSubSet(a, index + 1, list);

@@ -12,7 +12,7 @@ public class RotateFunction {
         }
         int max = k;
         for (int i = n - 1; i >= 1; i--) {
-            k = k + sum - n * a[i];
+            k += sum - n * a[i];
             max = max(max, k);
         }
         return max;

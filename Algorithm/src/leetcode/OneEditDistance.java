@@ -1,5 +1,6 @@
 package leetcode;
 
+// Time Complexity: O(n) n = length of the shorter string between s1 and s2.
 public class OneEditDistance {
 
     private static boolean isOneEditDistance(String s1, String s2) {
