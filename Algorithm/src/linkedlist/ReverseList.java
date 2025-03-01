@@ -21,10 +21,10 @@ public class ReverseList {
         if (node == null || node.next == null) {
             return node;
         }
-        Node first = reverseList(node.next);
+        Node head = reverseList(node.next);
         node.next.next = node;
         node.next = null;
-        return first;
+        return head;
     }
 
     public static void main(String[] args) {

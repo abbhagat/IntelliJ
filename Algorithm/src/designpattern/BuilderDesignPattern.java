@@ -28,7 +28,7 @@ class Computer {
     }
 
     public String toString() {
-        return this.getHDD() + " " + this.getRAM() + " " + this.isGraphicsCardEnabled() + " " + this.isBluetoothEnabled();
+        return this.getHDD() + "\n" + this.getRAM() + "\n" + (this.isGraphicsCardEnabled() ?  "Graphics Card Enabled" : "Graphics Card Disabled") + "\n" + (this.isBluetoothEnabled() ? "Bluetooth Enabled" : "Bluetooth Disabled");
     }
 
     public static class Builder {
@@ -57,7 +57,7 @@ class Computer {
             return this;
         }
 
-        public Computer build() {
+        Computer build() {
             return new Computer(this);
         }
     }
