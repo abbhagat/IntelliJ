@@ -5,7 +5,6 @@ import java.util.stream.IntStream;
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n log n)
-
 public class QuickSort {
     private static void quickSort(int[] a, int low, int high) {
         int i = low, j = high;

@@ -1,11 +1,9 @@
 package sorting;
 
 import java.util.stream.IntStream;
-
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n log n)
-
 public class QuickSortString {
 
     private static final String[] a = {"Ani", "Sam", "Joe"};

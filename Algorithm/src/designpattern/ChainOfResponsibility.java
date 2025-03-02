@@ -1,16 +1,15 @@
 package designpattern;
 
+import lombok.Setter;
+
 /**
  * Chain of responsibility pattern creates a chain of receiver objects for a request.
  */
 
+@Setter
 abstract class AbstractLogger {
 
     private AbstractLogger nextLogger;
-
-    public void setNextLogger(AbstractLogger nextLogger) {
-        this.nextLogger = nextLogger;
-    }
 
     public void logMessage(String message) {
         write(message);

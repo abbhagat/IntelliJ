@@ -1,11 +1,9 @@
 package sorting;
 
 import java.util.stream.IntStream;
-
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n^2)
-
 public class BubbleSort {
 
     public static void main(String[] args) {
