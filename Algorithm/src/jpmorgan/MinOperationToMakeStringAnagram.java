@@ -1,4 +1,4 @@
-package microsoft;
+package jpmorgan;
 
 public class MinOperationToMakeStringAnagram {
 

@@ -1,4 +1,4 @@
-package microsoft;
+package jpmorgan;
 
 /*
 We are given an array consisting of n elements.

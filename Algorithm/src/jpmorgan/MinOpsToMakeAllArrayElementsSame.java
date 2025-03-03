@@ -1,4 +1,4 @@
-package microsoft;
+package jpmorgan;
 
 import java.util.HashMap;
 import java.util.Map;

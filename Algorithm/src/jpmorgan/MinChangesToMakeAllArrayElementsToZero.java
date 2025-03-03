@@ -1,4 +1,4 @@
-package microsoft;
+package jpmorgan;
 
 public class MinChangesToMakeAllArrayElementsToZero {
     private static int minimumChangesToMakeAllArrayElementsToZero(int[] a) {

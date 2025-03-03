@@ -1,6 +1,5 @@
 package dynamicProgramming;
 
-
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 

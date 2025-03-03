@@ -1,4 +1,4 @@
-package microsoft;
+package jpmorgan;
 
 /*
 Given an array containing N elements and an integer K. It is allowed to perform the following operation any number of times on the given array:
