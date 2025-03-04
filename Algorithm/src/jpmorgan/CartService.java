@@ -3,8 +3,8 @@ package jpmorgan;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-//Map<String,Integer> itemQtyMap     =    APPLE, 10  validation
-//Map<String,Integer> categoryQtyMap =    FRUIT, 20  validation
+// Map<String,Integer> itemQtyMap     =    APPLE, 10  validation
+// Map<String,Integer> categoryQtyMap =    FRUIT, 20  validation
 
 class TotalCartQty {
     int totalQtyInCart;

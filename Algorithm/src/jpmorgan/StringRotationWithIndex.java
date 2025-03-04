@@ -17,6 +17,8 @@ public class StringRotationWithIndex {
     }
 
     public static void main(String[] args) {
-        System.out.println(rotate("abcde", 3, 1));
+        String s = "abcde";
+        System.out.println(rotate(s, 3, 1));
+        System.out.println(rotate(s, 4, 2));
     }
 }

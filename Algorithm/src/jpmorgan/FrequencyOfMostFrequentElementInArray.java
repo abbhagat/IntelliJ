@@ -6,7 +6,7 @@ import static java.lang.Integer.max;
 
 /**
  * The frequency of an element is the number of times it occurs in an array.
- * You are given an int a[] and an integer k. In one operation, you can choose an index of a and increment the element at that index by 1.
+ * You are given an int a[] and an integer k. In one operation, you can choose an index of a[] and increment the element at that index by 1.
  * Return the maximum possible frequency of an element after performing at most k operations.
  * Example 1:
  * Input: a = [1,2,4], k = 5
@@ -27,6 +27,7 @@ import static java.lang.Integer.max;
 
 // Time Complexity : O(n log n)
 public class FrequencyOfMostFrequentElementInArray {
+
     public static int maxFrequency(int[] a, int k) {
         Arrays.sort(a);
         int sum = 0, max = Integer.MIN_VALUE;

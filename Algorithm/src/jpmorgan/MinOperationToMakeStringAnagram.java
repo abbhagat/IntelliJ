@@ -22,6 +22,10 @@ public class MinOperationToMakeStringAnagram {
     }
 
     public static void main(String[] args) {
+        System.out.println(minOperationToMakeStringAnagram("12321"));
+        System.out.println(minOperationToMakeStringAnagram("12341"));
+        System.out.println(minOperationToMakeStringAnagram("12345"));
         System.out.println(minOperationToMakeStringAnagram("123456"));
+        System.out.println(minOperationToMakeStringAnagram("1234567"));
     }
 }
