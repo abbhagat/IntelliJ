@@ -7,8 +7,8 @@ public class StringCompression {
 
     public static String compressString(String str) {
         StringBuilder sb = new StringBuilder();
-        int index = 0, count = 1;
-        sb.append(str.charAt(index));
+        int count = 1;
+        sb.append(str.charAt(0));
         for(int i = 1; i < str.length(); i++) {
             if(str.charAt(i) == str.charAt(i - 1)) {
                 count++;
