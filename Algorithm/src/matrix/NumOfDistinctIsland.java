@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+// Time  Complexity: O(ROW * COL)
+// Space Complexity: O(ROW * COL)
 public class NumOfDistinctIsland {
 
     private static final int[][] M = new int[][]{
@@ -26,12 +28,12 @@ public class NumOfDistinctIsland {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];
     }
 
-    private static void DFS(int row, int col, int row0, int col0, List<String> list) {
+    private static void DFS(int row, int col, int r, int c, List<String> list) {
         visited[row][col] = true;
-        list.add(toString(row - row0, col - col0));
+        list.add(toString(row - r, col - c));
         for (int k = 0; k < 4; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-                DFS(row + rowIdx[k], col + colIdx[k], row0, col0, list);
+                DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
             }
         }
     }
