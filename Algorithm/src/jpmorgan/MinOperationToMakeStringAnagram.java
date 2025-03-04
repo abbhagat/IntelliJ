@@ -3,8 +3,9 @@ package jpmorgan;
 public class MinOperationToMakeStringAnagram {
 
     public static int minOperationToMakeStringAnagram(String s) {
-        String s1 = s.substring(0, s.length() / 2);
-        String s2 = s.substring(s.length() / 2);
+        int n = s.length() / 2;
+        String s1 = s.substring(0, n);
+        String s2 = s.substring(n);
         int[] temp = new int[128];
         for (int i = 0; i < s1.length(); i++) {
             temp[s1.charAt(i)]++;
