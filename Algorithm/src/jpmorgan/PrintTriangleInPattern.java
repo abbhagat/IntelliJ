@@ -1,6 +1,8 @@
 package jpmorgan;
 
+// Time Complexity:- O(n^2)
 public class PrintTriangleInPattern {
+
     private static void printPattern(int n) {
         int low = 1, high = n, mid = n / 2;
         while (low <= mid) {
