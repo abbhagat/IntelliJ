@@ -2,6 +2,8 @@ package stack;
 
 import java.util.Stack;
 
+// Time  Complexity (O(n))
+// Space Complexity (O(n))
 public class NextGreaterElement {
 
     private static void nextGreaterElement(int[] a) {

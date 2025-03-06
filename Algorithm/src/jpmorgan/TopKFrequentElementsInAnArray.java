@@ -20,7 +20,8 @@ public class TopKFrequentElementsInAnArray {
                 .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
                 .collect(Collectors.toList());
         List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
-        topKList.forEach(entry -> System.out.println(entry.getKey()));
+        topKList.forEach(entry -> System.out.print(entry.getKey() + " "));
+        System.out.println();
         return topKList.stream()
                 .map(Map.Entry::getKey)
                 .mapToInt(Integer::intValue)

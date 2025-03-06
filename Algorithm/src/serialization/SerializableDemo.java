@@ -25,19 +25,21 @@ class Father {
 
     public Father() {
         System.out.println("Father Constructor");
-        parent = 3;
+        // parent = 3;
     }
 
     {
         System.out.println("Non static Father Block");
-        parent = 2;
+        // parent = 2;
     }
 }
 
 class Son extends Father implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     transient int k = 4;
+    static int y = 100;
     int child = 4;
 
     public Son() {
@@ -60,6 +62,7 @@ public class SerializableDemo {
         Son son = new Son();
         son.x = 50;
         son.parent = 500;
+        son.y = 500;
         FileOutputStream fileOutputStream = new FileOutputStream("son.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(son);
@@ -69,5 +72,6 @@ public class SerializableDemo {
         System.out.println(son.parent + " " + son.s + " " + son.x);
         System.out.println(son.child);
         System.out.println(son.k);
+        System.out.println(Son.y);
     }
 }

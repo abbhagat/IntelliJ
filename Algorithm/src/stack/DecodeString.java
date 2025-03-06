@@ -13,14 +13,14 @@ public class DecodeString {
             if (Character.isDigit(c)) {
                 n = n * 10 + c - '0';
             } else if (c == '[') {
-                count.push(n);
                 stack.push(decode);
+                count.push(n);
                 n = 0;
                 decode = "";
             } else if (c == ']') {
                 String temp = decode;
                 decode = stack.pop();
-                for (int k = count.pop(); k > 0; k--) {
+                for (int i = count.pop(); i > 0; i--) {
                     decode += temp;
                 }
             } else {

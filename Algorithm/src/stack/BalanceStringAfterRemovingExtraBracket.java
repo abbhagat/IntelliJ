@@ -5,6 +5,7 @@ package stack;
 
 // Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBracket {
+
     private static void balancedString(String exp) {
         int open = 0;
         for (char c : exp.toCharArray()) {
