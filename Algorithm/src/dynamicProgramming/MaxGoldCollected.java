@@ -25,6 +25,7 @@ import static java.lang.Integer.max;
 
 public class MaxGoldCollected {
 
+    // Time Complexity: O(2^(m+n))
     private static int maxGoldCollected(int[][] a, int m, int n, int ROW, int COL) {
         if (m > ROW || n > COL) {
             return Integer.MIN_VALUE;

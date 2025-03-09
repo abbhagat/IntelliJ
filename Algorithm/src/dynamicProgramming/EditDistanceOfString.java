@@ -60,9 +60,7 @@ public class EditDistanceOfString {
     }
 
     public static void main(String[] args) {
-        String s1, s2;
-        s1 = "cat"; s2 = "cut";
-        System.out.println(editDist(s1, s2) + "\t" + editDist(s1, s2,s1.length(), s2.length()));
+        System.out.println(editDist("cat", "cut") + "\t" + editDist("cat", "cut",3, 3));
         System.out.println(editDist("geek", "gesek")      + "\t" + editDist("geek", "gesek",      4, 5));
         System.out.println(editDist("sunday", "saturday") + "\t" + editDist("sunday", "saturday",  6, 8));
         System.out.println(editDist("ros", "horse")       + "\t" + editDist("ros", "horse",        3, 5));
