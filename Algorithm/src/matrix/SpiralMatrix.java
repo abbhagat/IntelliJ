@@ -1,15 +1,13 @@
 package matrix;
 
-// Time Complexity O(M*N)
-
 import static util.CommonUtils.printMatrix;
 
+// Time Complexity O(M*N)
 public class SpiralMatrix {
 
-    public static void main(String[] args) {
-        final int n = 4;
+    private static int[][] spiralMatrix(int n) {
         int[][] M = new int[n][n];
-        int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1, k = n * n;
+        int R1 = 0, C1 = 0, R2 = n - 1, C2 = n - 1, k = n * n;
         while (R1 <= R2 && C1 <= C2) {
             for (int i = C1; i <= C2; i++) {
                 M[R1][i] = k--;
@@ -20,7 +18,7 @@ public class SpiralMatrix {
             for (int i = C2 - 1; i >= C1; i--) {
                 M[R2][i] = k--;
             }
-            for (int i = R2 - 1; i >= R1 + 1; i--) {
+            for (int i = R2 - 1; i > R1; i--) {
                 M[i][C1] = k--;
             }
             R1++;
@@ -28,7 +26,11 @@ public class SpiralMatrix {
             C1++;
             C2--;
         }
+        return M;
+    }
+
+    public static void main(String[] args) {
         System.out.println("The Spiral Matrix is : ");
-        printMatrix(M);
+        printMatrix(spiralMatrix(3));
     }
 }

@@ -2,6 +2,7 @@ package matrix;
 
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
+    // Time Complexity : O(m + n)
     private static boolean search(int[][] M, int key) {
         int R1 = 0, R2 = M.length - 1;
         int C1 = 0, C2 = M[0].length - 1;
@@ -18,6 +19,7 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
         return false;
     }
 
+    // Time Complexity : O log(m*n)
     private static boolean searchMatrix(int[][] M, int num) {
         int m = M.length, n = M[0].length, low = 0, high = m * n - 1;
         while (low <= high) {

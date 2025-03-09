@@ -21,7 +21,7 @@ public class WaterAndJugProblem {
    */
     public static int pour(int x, int y, int z) {
         int from = x, to = 0, step = 1;
-        while (from != z && to != z) {          // Break the loop when either of the two jugs has d litre water
+        while (from != z && to != z) {            // Break the loop when either of the two jugs has d litre water
             int temp = min(from, y - to);    // Find the maximum amount that can be poured
             to += temp;                         // Pour "temp" liters from "from" to "to"
             from -= temp;
@@ -71,6 +71,6 @@ public class WaterAndJugProblem {
 
     public static void main(String[] args) {
         System.out.println(canMeasure(3, 5, 4) ? minSteps(3, 5, 4) : "Not Possible");
-        System.out.println(canMeasure(3, 5, 3) ? minSteps(3, 5, 3) : "Not Possible");
+        System.out.println(canMeasure(5, 3, 3) ? minSteps(3, 5, 3) : "Not Possible");
     }
 }
