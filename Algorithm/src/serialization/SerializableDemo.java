@@ -25,12 +25,14 @@ class Father {
 
     public Father() {
         System.out.println("Father Constructor");
-        // parent = 3;
+         parent = 3;
+         s = "Java is an OOP";
     }
 
     {
         System.out.println("Non static Father Block");
-        // parent = 2;
+        parent = 2;
+        s = "Java is an OOP";
     }
 }
 
@@ -62,7 +64,7 @@ public class SerializableDemo {
         Son son = new Son();
         son.x = 50;
         son.parent = 500;
-        son.y = 500;
+        Son.y = 500;
         FileOutputStream fileOutputStream = new FileOutputStream("son.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(son);

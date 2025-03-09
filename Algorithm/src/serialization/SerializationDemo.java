@@ -25,7 +25,7 @@ class Son1 extends Father1 {
 
     public Son1() {
         System.out.println("Son1 Constructor...");
-        child = 5;
+        // child = 5;
     }
 
     {

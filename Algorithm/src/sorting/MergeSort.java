@@ -2,7 +2,8 @@ package sorting;
 
 import java.util.stream.IntStream;
 
-// Time Complexity O(n log n)
+// Time  Complexity O(n log n)
+// Space Complexity O(n)
 public class MergeSort {
 
     private static final int[] a = {4, 5, 1, 3, 2, 7, 6, 8};

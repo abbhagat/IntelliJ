@@ -19,3 +19,4 @@ inspectionProfiles
 dataSources.xml
 /production/
 *.iml
+/son.txt
