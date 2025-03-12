@@ -3,6 +3,7 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Time complexity : O(n)
 public class InsertNodeInSortedLinkedList {
 
     public static Node insertNodeInSortedLinkedList(Node first, int num) {

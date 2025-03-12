@@ -2,6 +2,7 @@ package linkedlist;
 
 import static linkedlist.LinkList.add;
 
+// Time complexity : O(m + n)
 public class IntersectionPointOfTwoLinkedList {
 
     private static int countNodes(Node node) {
