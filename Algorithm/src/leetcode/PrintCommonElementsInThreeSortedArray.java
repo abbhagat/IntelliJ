@@ -25,6 +25,4 @@ public class PrintCommonElementsInThreeSortedArray {
         int[] c = {3, 4, 10, 15, 20, 30, 70, 80, 120};
         printCommonElements(a, b, c);
     }
-
-
 }

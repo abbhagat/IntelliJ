@@ -1,5 +1,6 @@
 package leetcode;
 
+// Time Complexity : O(n)
 public class PrintMissingRangeInSortedArray {
 
     private static void printMissingRange(int[] a) {
