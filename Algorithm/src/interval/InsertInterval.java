@@ -8,6 +8,8 @@ import java.util.List;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
 public class InsertInterval {
 
     private static void insertInterval(List<Interval> intervalList, Interval newInterval) {

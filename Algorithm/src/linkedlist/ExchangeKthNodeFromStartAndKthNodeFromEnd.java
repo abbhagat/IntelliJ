@@ -14,7 +14,7 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
     private static Node nthNodeFromEnd(Node first, int n) {
         Node head = new Node(-1, first);
         Node slow = head, fast = head;
-        for (int i = 1; i <= n + 1; i++) {
+        for (int i = 0; i <= n; i++) {
             slow = slow.next;
         }
         while (slow != null) {

@@ -9,6 +9,8 @@ import java.util.List;
 
 import static java.lang.Integer.max;
 
+// Time Complexity : O(n log n)
+// Space Complexity : O(1)
 public class IntervalMerging {
     private static LinkedList<Interval> mergeInterval(List<Interval> intervalList) {
         intervalList.sort(Comparator.comparingInt(interval -> interval.start)); // Collections.sort(intervalList, (interval1, interval2) -> interval1.start - interval2.start);

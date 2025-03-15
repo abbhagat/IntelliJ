@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import static java.lang.Integer.max;
 import static util.CommonUtils.printMatrix;
 
+// Time Complexity : O(n log n)
 public class IntervalMergingWith2DArray {
 
     private static int[][] mergeInterval(int[][] a) {
