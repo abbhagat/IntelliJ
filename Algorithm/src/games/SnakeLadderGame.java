@@ -99,7 +99,7 @@ class Game {
         private final Map<Integer,Integer> ladderMap = new HashMap<>();
         private final Map<Integer,Integer> snakeMap = new HashMap<>();
 
-        public Game build() {
+        Game build() {
             return new Game(this);
         }
 

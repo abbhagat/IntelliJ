@@ -1,7 +1,5 @@
 package adobe;
 
-import java.util.Arrays;
-
 // Time Complexity - log(n)
 public class MissingNumberInSortedArray {
 
@@ -18,9 +16,7 @@ public class MissingNumberInSortedArray {
         return low;
     }
 
-    public static void main(String[] args) {
-        int[] a = {9, 7, 3, 5, 10, 1, 2, 8, 6, 0};
-        Arrays.sort(a);
-        System.out.println(findMissingNumber(a));
+    public static void main(String[] args) {;
+        System.out.println(findMissingNumber(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 9, 10}));
     }
 }

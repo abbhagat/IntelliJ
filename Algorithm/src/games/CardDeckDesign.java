@@ -50,7 +50,7 @@ public class CardDeckDesign {
         System.out.println(result);
     }
 
-    public static Card findMax(Card card1, Card card2) {
+    private static Card findMax(Card card1, Card card2) {
         String rank1 = card1.getRank();
         String rank2 = card2.getRank();
         for (Map.Entry<String, List<String>> m : suitRankMap.entrySet()) {
@@ -68,6 +68,5 @@ public class CardDeckDesign {
         createCardMap();
         System.out.println(findMax(new Card("heart", "king"), new Card("spade", "queen")));
         sort();
-
     }
 }

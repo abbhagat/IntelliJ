@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.Integer.max;
 
+// Time Complexity : O(n)
 public class LongestConsecutiveSequence {
 
     private static int longestConsecutiveSequence(int[] a) {
@@ -30,5 +31,6 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
         System.out.println(longestConsecutiveSequence(new int[]{100, 4, 20, 1, 3, 2}));
+        System.out.println(longestConsecutiveSequence(new int[]{10, 4, 9, 1, 3, 2, 8 , 7 , 6}));
     }
 }

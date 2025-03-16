@@ -1,6 +1,5 @@
 package adobe;
 
-
 import static java.lang.Integer.max;
 
 /**
