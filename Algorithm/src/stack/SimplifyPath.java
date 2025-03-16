@@ -2,6 +2,7 @@ package stack;
 
 import java.util.Stack;
 
+// Time Complexity: O(n)
 public class SimplifyPath {
 
     private static String simplifyPath(String path) {
@@ -20,7 +21,8 @@ public class SimplifyPath {
         }
         StringBuilder result = new StringBuilder();
         while (!stack.isEmpty()) {
-            result.insert(0, stack.pop()).insert(0, "/");
+            result.insert(0, stack.pop())
+                  .insert(0, "/");
         }
         return result.length() == 0 ? "/" : result.toString();
     }

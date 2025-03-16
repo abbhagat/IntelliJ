@@ -4,7 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
+// Time Complexity : O(2^n * n^2)
+// Space Complexity : O(2^n * n)
 public class RemoveInValidBracket {
+
     private static void removeInvalidParenthesis(String str) {
         Set<String>     set = new HashSet<>();  // set to ignore already visited string
         Stack<String> stack = new Stack<>();

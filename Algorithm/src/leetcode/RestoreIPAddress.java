@@ -18,11 +18,13 @@ import java.util.List;
   Input: s = "101023"
   Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
  */
+
+// Time Complexity: O(2^N) where N is the length of the string s.
 public class RestoreIPAddress {
 
     private static List<String> restoreIPAddress(String s) {
         List<String> list = new ArrayList<>();
-        if (s.length() > 12) {    //In IPV4 address is of 12 digit max excluding '.'
+        if (s.length() > 12) {    // In IPV4 address is of 12 digit max excluding '.'
             return list;
         }
         restoreIP(s, 3, list, "");
@@ -44,10 +46,10 @@ public class RestoreIPAddress {
     }
 
     private static boolean isValid(String s) {
-        if (s.charAt(0) == '0' && s.length() != 1 || Integer.parseInt(s) > 255) {
+        if (s.charAt(0) == '0' && s.length() > 1) {
             return false;
         }
-        return true;
+        return Integer.parseInt(s) <= 255;
     }
 
     public static void main(String[] args) {
