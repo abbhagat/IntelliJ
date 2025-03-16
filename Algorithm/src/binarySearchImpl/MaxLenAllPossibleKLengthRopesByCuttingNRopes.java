@@ -28,6 +28,7 @@ import java.util.Arrays;
  * Time Complexity: O(N * log N)
  * Auxiliary Space: O(1)
  */
+//  Time Complexity : O(N * log(max(arr)))
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
     private static int maximumSize(int[] a, int k) {

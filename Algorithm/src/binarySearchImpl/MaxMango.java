@@ -42,7 +42,7 @@ public class MaxMango {
         int low = 0, high = W, result = 0;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (check(W, C, x, y, mid)) {      // Check if it is possible to buy mid number of mangoes
+            if (check(W, C, x, y, mid)) {      // Check if it is possible to buy mid-number of mangoes
                 result = mid;
                 low = mid + 1;
             } else {
