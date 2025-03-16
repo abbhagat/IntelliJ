@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
-// Time Complexity : O(2^n * n^2)
+// Time  Complexity : O(2^n * n^2)
 // Space Complexity : O(2^n * n)
 public class RemoveInValidBracket {
 

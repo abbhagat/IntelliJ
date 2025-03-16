@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/*
+     Collection::stream = x -> x.stream(), x = List<String> means it is a Collection
+ */
 public class FlatMapDemo {
 
     public static void main(String[] args) {
@@ -18,7 +21,10 @@ public class FlatMapDemo {
                 .stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
-        List<String> phones1 = people.values().stream().flatMap(x -> x.stream()).collect(Collectors.toList());
+        List<String> phones1 = people.values()
+                .stream()
+                .flatMap(x -> x.stream())
+                .collect(Collectors.toList());
         phones1.forEach(System.out::println);
         phones.forEach(System.out::println);
         Map<String, String> map = new LinkedHashMap<>();
