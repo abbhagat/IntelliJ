@@ -44,13 +44,11 @@ public class RetryScheduler {
     }
 
     private ConsumerRecord<Integer, String> buildConsumerRecord(FailureRecord failureRecord) {
-
-        return new ConsumerRecord<>(
-                failureRecord.getTopic(),
-                failureRecord.getPartition(),
-                failureRecord.getOffset_value(),
-                failureRecord.getKey(),
-                failureRecord.getErrorRecord()
-        );
+        return new ConsumerRecord<>(failureRecord.getTopic(),
+                                    failureRecord.getPartition(),
+                                    failureRecord.getOffset_value(),
+                                    failureRecord.getKey(),
+                                    failureRecord.getErrorRecord()
+                                   );
     }
 }

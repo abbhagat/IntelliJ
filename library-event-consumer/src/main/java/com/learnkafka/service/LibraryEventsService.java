@@ -30,19 +30,16 @@ public class LibraryEventsService {
     public void processLibraryEvent(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
         LibraryEvent libraryEvent = objectMapper.readValue(consumerRecord.value(), LibraryEvent.class);
         log.info("LibraryEvent {} : ", libraryEvent);
-        if(libraryEvent != null && libraryEvent.getLibraryEventId() != null && libraryEvent.getLibraryEventId() == 999) {
+        if (libraryEvent != null && libraryEvent.getLibraryEventId() != null && libraryEvent.getLibraryEventId() == 999) {
             throw new RecoverableDataAccessException("Temporary Network Issue");
         }
         switch (Objects.requireNonNull(libraryEvent).getLibraryEventType()) {
-            case NEW:
-                save(libraryEvent);
-                break;
-            case UPDATE:
-                validate(libraryEvent);
-                save(libraryEvent);
-                break;
-            default:
-                log.info("Invalid Library Event Type");
+            case NEW: save(libraryEvent);
+                      break;
+            case UPDATE: validate(libraryEvent);
+                         save(libraryEvent);
+                         break;
+            default:     log.info("Invalid Library Event Type");
         }
     }
 
@@ -51,7 +48,7 @@ public class LibraryEventsService {
             throw new IllegalArgumentException("Library Event Id is missing");
         }
         Optional<LibraryEvent> libraryEventOptional = libraryEventsRepository.findById(libraryEvent.getLibraryEventId());
-        if (!libraryEventOptional.isPresent()) {
+        if (libraryEventOptional.isEmpty()) {
             throw new IllegalArgumentException("Not a valid library event");
         }
         log.info("Validation is successful for the library Event : {} ", libraryEventOptional.get());
