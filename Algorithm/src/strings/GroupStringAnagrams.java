@@ -4,6 +4,7 @@ import java.util.*;
 
 public class GroupStringAnagrams {
 
+    // Time Complexity: O(N * M * log M) where N is the length of the input list and M is the maximum length of a string in the list.
     private static List<List<String>> groupAnagrams(String[] str) {
         Map<String, List<String>> map = new HashMap<>();
         for (String s : str) {

@@ -6,26 +6,22 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Date;
 
+class Employee implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private int id;
+    private String name;
+    private Date dob;
+
+    public Employee(int id, String name, Date dob) {
+        this.id = id;
+        this.name = name;
+        this.dob = dob;
+    }
+}
 
 public class CalculateSizeOfObject {
-
-    static class Employee implements Serializable {
-
-        private static long serialVersionUID = 1L;
-
-        private int id;
-        private String name;
-        private Date dob;
-
-        Employee() {
-        }
-
-        Employee(int id, String name, Date dob) {
-            this.id = id;
-            this.name = name;
-            this.dob = dob;
-        }
-    }
 
     public static void main(String[] args) throws Exception {
         Employee emp = new Employee(1, "Abhinaw", new Date("07-OCT-1986"));

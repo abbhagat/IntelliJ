@@ -3,6 +3,8 @@ package strings;
 import java.util.HashMap;
 import java.util.Map;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(n)
 public class Isomorphic {
 
     private static boolean isIsomorphic(char[] c1, char[] c2) {

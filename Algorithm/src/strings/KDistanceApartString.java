@@ -19,6 +19,5 @@ public class KDistanceApartString {
             }
         }
         System.out.println(s1 + " and " + s2 + " are " + count + " distance apart.");
-        System.out.println(s1 + " and " + s2 + " are " + Math.abs(s1.length() - s2.length()) + " distance apart.");
     }
 }

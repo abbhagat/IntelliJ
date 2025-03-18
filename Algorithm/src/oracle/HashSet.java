@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class HashSet<E> implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
+
     private static final Object PRESENT = new Object();
     private transient HashMap<E, Object> map;
 

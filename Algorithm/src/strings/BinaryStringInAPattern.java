@@ -1,6 +1,6 @@
 package strings;
 
-// Time Complexity : O(2^n)
+// Time Complexity : O(2^n) For every index we have 2 choices
 
 public class BinaryStringInAPattern {
 

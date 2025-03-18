@@ -14,5 +14,6 @@ public class DecimalToBinary {
 
     public static void main(String[] args) {
         System.out.println(35 + " -> " + decimalToBinary(35));
+        System.out.println(10 + " -> " + decimalToBinary(10));
     }
 }

@@ -1,7 +1,11 @@
 package strings;
 
+
+// The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
 public class HammingDistance {
-    private static int findHammingDistance(String s1, String s2) {
+
+    private static int hammingDistance(String s1, String s2) {
         int dis = 0;
         if (s1.length() == s2.length()) {
             for (int i = 0; i < s1.length(); i++) {
@@ -25,8 +29,8 @@ public class HammingDistance {
     }
 
     public static void main(String[] args) {
-        System.out.println(findHammingDistance("geeksforgeeks", "geeksandgeeks"));
-        System.out.println(findHammingDistance("1011101", "1001001"));
+        System.out.println(hammingDistance("geeksforgeeks", "geeksandgeeks"));
+        System.out.println(hammingDistance("1011101", "1001001"));
         System.out.println(hammingDistance(1, 4));
         System.out.println(hammingDistance(3, 1));
     }
