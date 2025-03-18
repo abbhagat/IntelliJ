@@ -45,6 +45,7 @@ final class FinalClass {
 }
 
 public class TestFinalClass {
+
     public static void main(String[] args) {
         FinalClass finalObj = new FinalClass("A", 65, new Date());
         System.out.println(finalObj.hashCode());

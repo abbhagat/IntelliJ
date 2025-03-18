@@ -1,6 +1,7 @@
 package oracle;
 
 public class VendingMachine {
+
     private static boolean isValid(int n) {
         return n % 3 == 0 || n % 5 == 0 || n % 7 == 0;
     }
