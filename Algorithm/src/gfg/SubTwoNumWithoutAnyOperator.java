@@ -3,10 +3,11 @@ package gfg;
 public class SubTwoNumWithoutAnyOperator {
 
     private static int sub(int x, int y) {
+        int carry;
         while (y != 0) {
-            int carry = (~x & y) << 1;
-            x = x ^ y;
-            y = carry;
+            carry = (~x & y) << 1;
+                x = x ^ y;
+                y = carry;
         }
         return x;
     }

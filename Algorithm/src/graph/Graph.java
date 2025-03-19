@@ -3,6 +3,7 @@ package graph;
 import java.util.LinkedList;
 
 public class Graph {
+
     private final int v;
     private final LinkedList<Integer>[] edge;
 
