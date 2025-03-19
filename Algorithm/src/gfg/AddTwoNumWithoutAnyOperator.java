@@ -19,8 +19,8 @@ public class AddTwoNumWithoutAnyOperator {
     public static void main(String[] args) {
         System.out.println(sum(13, 5));
         System.out.println(add(13, 5));
-        System.out.println(sum(0, 5));
-        System.out.println(add(0, 5));
-        System.out.println(add(5, 0));
+        System.out.println(sum(0, 6));
+        System.out.println(add(0, 6));
+        System.out.println(add(6, 0));
     }
 }
