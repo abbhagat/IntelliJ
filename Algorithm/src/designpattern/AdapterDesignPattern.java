@@ -56,6 +56,7 @@ class MediaAdapter implements MediaPlayer {
 class AudioPlayer implements MediaPlayer {
 
     public void play(String fileName, String fileType) {
+
         switch (fileType) {
             case "MP3": System.out.println("Playing MP3 file : " + fileName);
                         break;
