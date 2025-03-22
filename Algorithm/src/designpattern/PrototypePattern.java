@@ -1,8 +1,11 @@
 package designpattern;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
 abstract class Shapes implements Cloneable {
 
     protected String type;
@@ -11,9 +14,6 @@ abstract class Shapes implements Cloneable {
         return super.clone();
     }
 
-    public String getType() {
-        return type;
-    }
 }
 
 class Rectangles extends Shapes {
@@ -42,7 +42,7 @@ class Circles extends Shapes {
 
 class ShapeCache {
 
-    private static Map<String, Shapes> shapeMap = new HashMap<>();
+    private static final Map<String, Shapes> shapeMap = new HashMap<>();
 
     public static Shapes getShape(String shapeId) throws CloneNotSupportedException {
         Shapes cachedShape = shapeMap.get(shapeId);
