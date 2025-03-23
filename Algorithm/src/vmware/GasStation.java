@@ -28,6 +28,7 @@ package vmware;
  */
 
 public class GasStation {
+
     private static int canCompleteCircuit(int[] gas, int[] cost) {
         int prev = 0, restGas = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
