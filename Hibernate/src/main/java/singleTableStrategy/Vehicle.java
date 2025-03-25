@@ -22,7 +22,7 @@ public class Vehicle {
     private String name;
 }
 
-/**
+/*
  * Table Generated
 
  * ID   dtype         Name      steeringHandle    steeringWheel
