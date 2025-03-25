@@ -1,7 +1,6 @@
 package joinedTableStrategy;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
