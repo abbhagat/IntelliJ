@@ -12,7 +12,7 @@
         <property name="connection.password">zed</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="connection.pool_size">1</property>
-        <property name="dialect">org.hibernate.dialect.PostgresPlusDialect</property>
+        <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
         <property name="current_session_context_class">thread</property>

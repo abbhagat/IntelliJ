@@ -2,13 +2,12 @@ package selectBeforeUpdate;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USER_DETAILS")
 @Getter
 @Setter
+@Table(name = "USER_DETAILS")
 @org.hibernate.annotations.Entity(selectBeforeUpdate = true)
 public class UserDetails {
 
