@@ -1,7 +1,6 @@
 package tablePerClassStrategy;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +15,7 @@ public class Vehicle {
     private String name;
 }
 
-/**
+/*
  * Tables Generated
  * Vehicle
  * ID   Name
