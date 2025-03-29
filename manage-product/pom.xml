@@ -14,7 +14,7 @@
     <name>manage-product</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>1.9</java.version>
+        <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     </properties>
 

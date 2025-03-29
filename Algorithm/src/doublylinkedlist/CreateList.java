@@ -1,7 +1,8 @@
 package doublylinkedlist;
 
 public class CreateList {
-    static Node temp, first, last;
+
+    static Node temp, head, last;
     static int size = 0;
 
     static Node createList(int num, Node node) {
@@ -9,13 +10,13 @@ public class CreateList {
             node = new Node(num);
             size++;
         }
-        if (first == null) {
-            first = temp = last = node;
+        if (head == null) {
+            head = temp = last = node;
         } else {
             temp.right = node;
             node.left = temp;
             temp = last = node;
         }
-        return first;
+        return head;
     }
 }

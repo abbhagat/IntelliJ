@@ -7,8 +7,8 @@ import static doublylinkedlist.TraverseList.traverseList;
 // Auxiliary Space: O(1)
 public class MergeSort {
 
-    private static Node findMid(Node first) {
-        Node slow = first, fast = first.right;
+    private static Node findMid(Node head) {
+        Node slow = head, fast = head.right;
         while (fast != null && fast.right != null) {
             slow = slow.right;
             fast = fast.right.right;

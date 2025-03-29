@@ -17,8 +17,8 @@ public class ConnectionPool {
     private static final int MAX_POOL_SIZE = 10;
 
     public ConnectionPool() {
-        this.driverName = "sun.jdbc.odbc.JdbcOdbcDriver";
-        this.url = "localhost:8080";
+        this.driverName = "oracle.jdbc.OracleDriver";
+        this.url = "jdbc:oracle:thin:@localhost:1521:XE";
         this.username = "system";
         this.password = "zed";
         initializeConnectionPool();
@@ -57,6 +57,14 @@ public class ConnectionPool {
 
     public synchronized void returnConnectionToPool(Connection connection) {
         connectionPool.add(connection);
+    }
+
+    public static void main(String[] args) {
+        ConnectionPool connectionPool = new ConnectionPool();
+        Connection connection = connectionPool.getConnectionFromPool();
+        System.out.println("Got connection: " + connection);
+        connectionPool.returnConnectionToPool(connection);
+        System.out.println("Returned connection to pool.");
     }
 
 }

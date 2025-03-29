@@ -15,7 +15,7 @@ public class WaterAndJugProblem {
         return gcd;
     }
 
-    /* x -- Capacity of jug from which water is poured
+   /*  x -- Capacity of jug from which water is poured
        y -- Capacity of jug to which water is poured
        z -- Amount to be measured
    */

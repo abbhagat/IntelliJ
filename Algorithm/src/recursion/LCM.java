@@ -5,6 +5,8 @@ package recursion;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
+// Time  Complexity: O(x*y)
+// Space Complexity: O(x*y)
 public class LCM {
 
     private static int findLCM(int x, int y, int lcm) {
