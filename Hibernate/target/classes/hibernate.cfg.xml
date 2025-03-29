@@ -4,13 +4,15 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
-        <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.username">hydra</property>
-        <property name="connection.password">password</property>
+<!--        <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>-->
+<!--        <property name="connection.driver_class">org.postgresql.Driver</property>-->
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.username">system</property>
+        <property name="connection.password">zed</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="connection.pool_size">1</property>
-        <property name="dialect">org.hibernate.dialect.PostgresPlusDialect</property>
+        <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
         <property name="current_session_context_class">thread</property>
@@ -26,7 +28,7 @@
         <!--        <mapping class="ManyToMany.UserDetails"></mapping>-->
         <!--        <mapping class="ManyToMany.Vehicles"></mapping>-->
         <!--        <mapping class="secondLevelCache.UserDetails"></mapping>-->
-        <mapping class="selectBeforeUpdate.UserDetails"></mapping>
+        <mapping class="selectBeforeUpdate.UserDetails"/>
         <!--        <mapping class="attributeOverrides.UserDetails"></mapping>-->
         <!--        <mapping class="attributeOverridesCollections.UserDetails"></mapping>-->
     </session-factory>

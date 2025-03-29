@@ -1,7 +1,8 @@
 package recursion;
 
 import java.util.Objects;
-
+// Time  Complexity: O(2^n)
+// Space Complexity: O(n)
 public class DifferentWaysToDisplay5 {
 
     private static int count = 0;

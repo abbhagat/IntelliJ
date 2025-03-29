@@ -1,6 +1,7 @@
 package recursion;
 
 public class DecimalToBinary {
+
     private static String decimalToBinary(int n) {
         StringBuilder binary = new StringBuilder();
         int carry = 0;

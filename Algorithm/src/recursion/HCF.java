@@ -4,10 +4,14 @@ import static java.lang.Integer.max;
 
 public class HCF {
 
+    // Time Complexity: O log(min(x,y))
+    // Space Complexity: O log(min(x,y))
     private static int findHCF(int x, int y) {
         return y == 0 ? x : findHCF(y, x % y);
     }
 
+    // Time Complexity: O(max(x,y))
+    // Space Complexity: O(1)
     private static int findGCD(int x, int y) {
         int hcf = 0;
         for (int i = 1; i <= max(x,y); i++) {

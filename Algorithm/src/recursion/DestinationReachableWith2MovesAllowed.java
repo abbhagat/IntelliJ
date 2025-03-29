@@ -17,6 +17,7 @@ package recursion;
  */
 
 public class DestinationReachableWith2MovesAllowed {
+
     private static boolean isReachable(int sx, int sy, int dx, int dy) {
         if (sx > dx || sy > dy) {
             return false;
