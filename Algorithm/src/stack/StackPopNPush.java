@@ -1,8 +1,10 @@
 package stack;
 
 public class StackPopNPush {
+
     Node first;
     char c;
+
     Node push(char num) {
         Node node = new Node();
         node.num = num;
@@ -10,6 +12,7 @@ public class StackPopNPush {
         first = node;
         return node;
     }
+
     Node pop(Node first) {
         Node temp = null;
         if (first != null) {

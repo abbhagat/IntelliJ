@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class QueueWithTwoStacks<E> {
 
-    Stack<E> s1 = new Stack<>();
-    Stack<E> s2 = new Stack<>();
+    private final Stack<E> s1 = new Stack<>();
+    private final Stack<E> s2 = new Stack<>();
 
     void deQueue() {
         while (!s1.isEmpty()) {

@@ -5,6 +5,8 @@ import java.util.Stack;
 import static java.lang.Integer.max;
 import static java.lang.Math.abs;
 
+// Time Complexity  - O(n)
+// Space Complexity - O(n)
 public class LengthOfTheLongestBalancedBracket {
 
     private static int findLength(String bracket) {
