@@ -1,8 +1,6 @@
 package designpattern;
 
-
 import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +19,14 @@ class Subject {
         observers.add(observer);
     }
 
-    public void notifyAllObservers() {
+    private void notifyAllObservers() {
         observers.forEach(observer -> observer.notify(observer));
     }
 }
 
 abstract class Observer {
-
     protected Subject subject;
-
     public abstract void notify(Observer observer);
-
 }
 
 class BinaryObserver extends Observer {
