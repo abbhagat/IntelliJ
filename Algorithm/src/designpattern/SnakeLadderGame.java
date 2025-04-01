@@ -74,15 +74,17 @@ class Game {
                     player.index += n;
                 }
                 System.out.println(player.name + " moved to " + player.index);
+                if (ladderMap.containsKey(player.index)) {
+                    player.index = ladderMap.get(player.index);
+                    System.out.println(player.name + " climbed ladder to " + player.index);
+                }
+                if (snakeMap.containsKey(player.index)) {
+                    player.index = snakeMap.get(player.index);
+                    System.out.println(player.name + " bitten by snake to " + player.index);
+                }
                 if (player.index == 100) {
                     System.out.println(player.name + " is winner");
                     return;
-                } else if (ladderMap.containsKey(player.index)) {
-                    player.index = ladderMap.get(player.index);
-                    System.out.println(player.name + " climbed ladder to " + player.index);
-                } else if (snakeMap.containsKey(player.index)) {
-                    player.index = snakeMap.get(player.index);
-                    System.out.println(player.name + " bitten by snake to " + player.index);
                 }
             }
         }
@@ -124,8 +126,8 @@ public class SnakeLadderGame {
 
     public static void main(String[] args) {
         Game g = new Game.Builder()
-                .addSnake(34, 12).addSnake(43, 5).addSnake(99, 1)
-                .addLadder(23, 56).addLadder(11, 100).addLadder(15, 55)
+                .addSnake(34, 12).addSnake(43, 5)
+                .addLadder(23, 56).addLadder(15, 55)
                 .addPlayer("X")
                 .addPlayer("Y")
                 .build();
