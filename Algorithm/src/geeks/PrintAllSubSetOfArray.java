@@ -21,7 +21,7 @@ import java.util.LinkedList;
  * Explanation: These are all the subsets that can be formed using the array.
  */
 
-// Time  Complexity :- O((2^n))
+// Time  Complexity :- O(2^n)
 // Space Complexity :- O(n)
 
     public class PrintAllSubSetOfArray {
