@@ -19,7 +19,8 @@ public class SortMapWithKeyAndValue {
         map.put("C", 67);
         map.put("D", 1);
         System.out.println(map);
-        Map<String, Integer> result = map.entrySet().stream()
+        Map<String, Integer> result = map.entrySet()
+                .stream()
                 .sorted(Map.Entry.comparingByKey())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));

@@ -41,7 +41,7 @@ public class FilteringList {
                 .filter(line -> (cancelList.stream()
                         .filter(cancelLine -> (line.getName().equals(cancelLine.getName())) && line.getId().equals(cancelLine.getId())).count()) < 1)
                 .collect(Collectors.toList());
-
+        System.out.println(mainList);
         List<Employee> list = mainList.stream()
                 .filter(line -> cancelList.stream()
                         .anyMatch(cancelLine -> cancelLine.getName().equals(line.getName()) && cancelLine.getId().equals(line.getId())))

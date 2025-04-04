@@ -9,7 +9,7 @@ public class FileReadDemo {
 
     public static void main(String[] args) {
 
-        String fileName = "/Users/abhinawb/Notes/API Gateway.txt";
+        String fileName = "C:/Users/Admin/Desktop/IntelliJ License.txt";
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 //            String line = stream.collect(Collectors.joining("\n"));
 //            System.out.println(line);

@@ -12,32 +12,36 @@ public class StreamSetOperations {
 
     public static void main(String[] args) {
 
-        List<Employee> mainList = Arrays.asList(new Employee("A", 65), new Employee("B", 66),
-                new Employee("C", 67), new Employee("D", 68),
-                new Employee("E", 69), new Employee("F", 70),
-                new Employee("G", 71), new Employee("H", 72));
+        List<Employee> mainList = Arrays.asList(
+                                                 new Employee("A", 65), new Employee("B", 66),
+                                                 new Employee("C", 67), new Employee("D", 68),
+                                                 new Employee("E", 69), new Employee("F", 70),
+                                                 new Employee("G", 71), new Employee("H", 72)
+                                              );
 
-        List<Employee> cancelList = Arrays.asList(new Employee("C", 67), new Employee("D", 68),
-                new Employee("I", 73));
-
-        List<String> name = mainList.stream().map(Employee::getName).collect(Collectors.toList());
+        List<Employee> cancelList = Arrays.asList(
+                                                    new Employee("C", 67),
+                                                    new Employee("D", 68),
+                                                    new Employee("I", 73)
+                                                 );
 
         // Set A intersection Set B
-        //List<Employee> commonList = cancelList.stream().filter(e -> name.contains(e.getName())).collect(Collectors.toList());
-        List<Employee> commonList = cancelList.stream().filter(cList ->
-                mainList.stream().filter(mList -> cList.getName().equals(mList.getName())).count() > 0
+        // List<Employee> commonList = cancelList.stream().filter(e -> name.contains(e.getName())).collect(Collectors.toList());
+        List<Employee> commonList = mainList.stream().filter(mList ->
+                cancelList.stream().anyMatch(cList -> mList.getName().equals(cList.getName()))
         ).collect(Collectors.toList());
         commonList.forEach(System.out::println);
         System.out.println();
 
         // Set B - Set A
-        List<Employee> onlyInCancelList = cancelList.stream().filter(e -> !name.contains(e.getName())).collect(Collectors.toList());
+        List<Employee> onlyInCancelList = cancelList.stream().filter(cList -> mainList.stream().noneMatch(mList -> mList.getName().equals(cList.getName()))).collect(Collectors.toList());
         onlyInCancelList.forEach(System.out::println);
         System.out.println();
 
         // Set A - Set B
-        Set<String> name1 = cancelList.stream().map(Employee::getName).collect(Collectors.toSet());
-        List<Employee> onlyInMainList = mainList.stream().filter(e -> !name1.contains(e.getName())).collect(Collectors.toList());
+        List<Employee> onlyInMainList = mainList.stream()
+                .filter(mList -> cancelList.stream().noneMatch(cList-> mList.getName().equals(cList.getName())))
+                .collect(Collectors.toList());
         onlyInMainList.forEach(System.out::println);
         System.out.println();
 
