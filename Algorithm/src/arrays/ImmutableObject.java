@@ -19,7 +19,7 @@ public class ImmutableObject {
         public int hashCode() {
             final int prime = 31;
             int result = 1;
-            result = result * prime + ((date == null) ? 0 : date.hashCode());
+            result = result * prime + (date == null ? 0 : date.hashCode());
             return result;
         }
 

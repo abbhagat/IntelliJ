@@ -15,7 +15,7 @@ import static java.lang.Integer.max;
  * Since the number of digits d in a number n is O(log n), the overall time complexity is O(k * log n).
  */
 
-// Time complexity is O(k * log n).
+// Time complexity is O(k * log n)
 public class LargestSumAfterRemovingKDigit {
 
     private static int maxNumber(int n, int k) {

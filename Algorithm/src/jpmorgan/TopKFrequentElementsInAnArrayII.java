@@ -35,7 +35,9 @@ import static util.CommonUtils.swap;
  * Similarly, after reading 3, print 1 2 3 5
  * After reading last element 4, All the elements have same frequency
  * So print, 1 2 3 4
- * Approach: The idea is to store the temp k elements with maximum frequency. To store them a vector or an array can be used. To keep the track of frequencies of elements creates a HashMap to store element-frequency pairs. Given a stream of numbers, when a new element appears in the stream update the frequency of that element in HashMap and put that element at the end of the list of K numbers (total k+1 elements) now compare adjacent elements of the list and swap if higher frequency element is stored next to it.
+ * Approach: The idea is to store the temp k elements with maximum frequency.
+ * To store them a vector or an array can be used. To keep the track of frequencies of elements creates a HashMap to store element-frequency pairs.
+ * Given a stream of numbers, when a new element appears in the stream update the frequency of that element in HashMap and put that element at the end of the list of K numbers (total k+1 elements) now compare adjacent elements of the list and swap if higher frequency element is stored next to it.
  * Algorithm:
  * Create a Hashmap and an array of k + 1 length.
  * Traverse the input array from start to end.

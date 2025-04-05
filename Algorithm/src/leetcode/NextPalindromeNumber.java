@@ -1,5 +1,6 @@
 package leetcode;
 
+// Time Complexity : O(d) d = Number of Digits in the number N
 public class NextPalindromeNumber {
 
     private static String reverse(String s) {
