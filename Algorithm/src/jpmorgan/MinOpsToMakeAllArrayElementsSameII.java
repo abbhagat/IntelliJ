@@ -39,6 +39,7 @@ public class MinOpsToMakeAllArrayElementsSameII {
 
     public static void main(String[] args) {
         System.out.println(printMinOp(new int[]{1, 2, 3}));
+        System.out.println(printMinOp(new int[]{1, 2, 3, 4}));
         System.out.println(printMinOp(new int[]{4, 3, 4}));
         System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
         System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));

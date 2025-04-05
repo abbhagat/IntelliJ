@@ -2,6 +2,7 @@ package jpmorgan;
 
 import java.util.stream.IntStream;
 
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 public class NextSmallerNumWithSameSetOfDigits {
@@ -33,8 +34,7 @@ public class NextSmallerNumWithSameSetOfDigits {
     }
 
     public static void main(String[] args) {
-        int[] b = nextPermutation(new int[]{3, 1, 2});
-        IntStream.range(0, b.length).forEach(i -> System.out.print(b[i] + " "));
-        System.out.println();
+        int[] a = nextPermutation(new int[]{3, 1, 2});
+        printArray(a);
     }
 }

@@ -1,6 +1,7 @@
 package jpmorgan;
 
 public class MinChangesToMakeAllArrayElementsToZero {
+
     private static int minimumChangesToMakeAllArrayElementsToZero(int[] a) {
         int change = 0;
         for (int i = 0; i + 1 < a.length; i++) {

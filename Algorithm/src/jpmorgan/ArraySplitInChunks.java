@@ -24,14 +24,15 @@ public class ArraySplitInChunks {
     }
 
     public static void main(String[] args) {
-        for (int[] x : splitArray(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 2)) {
+        int[] a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        for (int[] x : splitArray(a, 2)) {
             for (int y : x) {
                 System.out.print(y + " ");
             }
             System.out.println();
         }
         System.out.println();
-        for (int[] x : splitArray(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 3)) {
+        for (int[] x : splitArray(a, 3)) {
             for (int y : x) {
                 System.out.print(y + " ");
             }

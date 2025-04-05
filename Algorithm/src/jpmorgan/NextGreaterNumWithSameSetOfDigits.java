@@ -1,6 +1,8 @@
 package jpmorgan;
 
 import java.util.stream.IntStream;
+
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 public class NextGreaterNumWithSameSetOfDigits {
@@ -33,6 +35,6 @@ public class NextGreaterNumWithSameSetOfDigits {
 
     public static void main(String[] args) {
         int[] a = nextPermutation(new int[]{3, 1, 2});
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }

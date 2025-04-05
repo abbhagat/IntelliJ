@@ -13,6 +13,7 @@ package jpmorgan;
  */
 
 public class PrimePalindrome {
+
     private static boolean isPalindrome(int n) {
         String s = String.valueOf(n);
         return new StringBuilder(s).reverse().toString().equals(s);
