@@ -12,7 +12,8 @@ Output: ABC
         A BC
         A B C
 */
-// Time Complexity: O(n*(2^n)) Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2^n-1.
+// Time  Complexity: O(n*(2^n)) Since the number of Gaps is n-1, there are total 2^(n-1) patterns each having length ranging from n to 2^n-1.
+// Space Complexity: O(n*(2^n))
 public class AllStringCombinationByPlacingSpace {
 
     private static List<String> spaceString(String str) {

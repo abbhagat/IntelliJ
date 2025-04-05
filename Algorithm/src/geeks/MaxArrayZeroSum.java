@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import static java.lang.Integer.max;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(n)
 public class MaxArrayZeroSum {
 
     private static int maxLen(int[] a) {

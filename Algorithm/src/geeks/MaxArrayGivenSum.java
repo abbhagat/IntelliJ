@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// Time  Complexity : O(2^n)
+// Space Complexity : O(n)
 public class MaxArrayGivenSum {
 
     public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum, List<List<Integer>> list) {

@@ -1,30 +1,32 @@
 package vmware;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
-// Time  Complexity O(n*2^n)
-// Space Complexity O(n)
+// Time  Complexity : O(2^n)
+// Space Complexity : O(n)
 public class CombinationOfSum {
 
-    private static void combinationForSum(int index, int givenSum, int[] a, LinkedList<Integer> list) {
-        if (givenSum == 0) {
+    private static void combinationForSum(int index, int currSum, int givenSum, int[] a, LinkedList<Integer> list) {
+        if (currSum == givenSum && !list.isEmpty()) {
             System.out.println(list);
             return;
         }
+        if(currSum > givenSum) {
+            return;
+        }
         for (int i = index; i < a.length; i++) {
-            int newTarget = givenSum - a[i];
-            if (newTarget >= 0) {
-                list.add(a[i]);
-                combinationForSum(i, newTarget, a, list);
-                list.removeLast();
-            } else {
-                break;
-            }
+            currSum += a[i];
+            list.add(a[i]);
+            combinationForSum(i + 1, currSum, givenSum, a, list);
+            list.removeLast();
+            currSum -= a[i];
         }
     }
 
     public static void main(String[] args) {
         int[] a = {2, 3, 6, 7, 11};
-        combinationForSum(0, 11, a, new LinkedList<>());
+        Arrays.sort(a);
+        combinationForSum(0, 0, 11, a, new LinkedList<>());
     }
 }
