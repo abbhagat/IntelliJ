@@ -1,17 +1,16 @@
 package jpmorgan;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.lang.Integer.min;
 
+// Time  Complexity: O(n log n)
+// Space Complexity: O(n)
 public class TopKFrequentElementsInAnArray {
 
     private static int[] topKFrequent(int[] a, int k) {
-        Map<Integer, Integer> map = new LinkedHashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }

@@ -5,10 +5,11 @@ import static java.lang.Integer.min;
 
 public class Main {
 
-    private static final Map<Integer, Integer> map = new LinkedHashMap<>();
-
-    private static void topKFrequent(int x, int k) {
-        map.put(x, map.getOrDefault(x, 0) + 1);
+    private static void topKFrequent(int[] a, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int x : a) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
         List<Map.Entry<Integer, Integer>> sortedList = map.entrySet()
                 .stream()
                 .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
@@ -22,8 +23,6 @@ public class Main {
 
     // Driver program to test above function
     public static void main(String[] args) {
-        for (int x : new int[]{5, 2, 1, 3, 2}) {
-            topKFrequent(x, 4);
-        }
+        topKFrequent(new int[]{5, 2, 1, 3, 2, 2, 1, 2, 1 , 5}, 2);
     }
 }

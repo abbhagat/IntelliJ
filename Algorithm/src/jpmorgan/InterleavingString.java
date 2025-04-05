@@ -1,7 +1,5 @@
 package jpmorgan;
 
-// Time : O(mn)
-// Space: O(mn)
 public class InterleavingString {
 
     // Time Complexity: O(2^n), where n is the length of the given string.
@@ -22,6 +20,8 @@ public class InterleavingString {
         return true;
     }
 
+    // Time  Complexity: O(m*n)
+    // Space Complexity: O(m*n)
     public static boolean isInterleave(String s1, String s2, String s3) {
         int m = s1.length(), n = s2.length();
         if (m + n != s3.length()) {
