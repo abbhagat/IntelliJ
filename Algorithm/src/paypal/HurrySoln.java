@@ -6,14 +6,14 @@ import java.util.LinkedList;
 
 public class HurrySoln {
 
-    public static int maxTasksInTheGivenBudget(int[][] task, int t) {
-        Arrays.sort(task, Comparator.comparingInt(x -> x[0]));
+    public static int maxTasksInTheGivenBudget(int[][] tasks, int t) {
+        Arrays.sort(tasks, Comparator.comparingInt(x -> x[0]));
         LinkedList<Integer> list = new LinkedList<>();
         int sum = 0, ans = 0;
-        for (int i = 0; i < task.length; i++) {
-            sum += task[i][1];
-            list.add(-task[i][1]);
-            int time = 2 * task[i][0];
+        for (int[] task : tasks) {
+            sum += task[1];
+            list.add(-task[1]);
+            int time = 2 * task[0];
             while (!list.isEmpty() && sum + time > t) {
                 sum += list.getFirst();
                 list.removeFirst();
