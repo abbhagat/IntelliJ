@@ -2,7 +2,10 @@ package trees;
 
 import java.util.LinkedList;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(H)
 public class CheckIfTwoNodesAreOnSamePath {
+
     private static boolean isOnSamePath(Node root, int x, int y, LinkedList<Integer> list) {
         if (root == null) {
             return false;

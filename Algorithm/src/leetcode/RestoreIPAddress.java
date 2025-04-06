@@ -54,7 +54,6 @@ public class RestoreIPAddress {
 
     public static void main(String[] args) {
         System.out.println(restoreIPAddress("25525511135"));
-        System.out.println();
         System.out.println(restoreIPAddress("25525511115"));
     }
 }

@@ -6,6 +6,7 @@ import java.util.Stack;
 // Auxiliary Space: O(h1 + h2), Where h1 and h2 are the heights of the first and second tree respectively.
 
 public class CommonNodesInTwoBST {
+
     private static void commonNodes(Node root1, Node root2) {
         Stack<Node> s1 = new Stack<>();
         Stack<Node> s2 = new Stack<>();

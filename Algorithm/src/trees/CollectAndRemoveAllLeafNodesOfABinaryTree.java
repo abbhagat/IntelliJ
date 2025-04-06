@@ -18,12 +18,6 @@ import static java.lang.Integer.max;
 
 public class CollectAndRemoveAllLeafNodesOfABinaryTree {
 
-    public static List<List<Integer>> findLeaves(Node root) {
-        List<List<Integer>> list = new ArrayList<>();
-        treeHeight(list, root);
-        return list;
-    }
-
     // traverse the tree bottom-up recursively
     private static int treeHeight(List<List<Integer>> list, Node root) {
         if (root == null) {
@@ -37,6 +31,12 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
         }
         list.get(height).add(root.num);
         return height;
+    }
+
+    public static List<List<Integer>> findLeaves(Node root) {
+        List<List<Integer>> list = new ArrayList<>();
+        treeHeight(list, root);
+        return list;
     }
 
     public static void main(String[] args) {

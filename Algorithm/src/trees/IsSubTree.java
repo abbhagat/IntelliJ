@@ -3,6 +3,8 @@ package trees;
 import static trees.CreateBST.createBST;
 import static trees.TreeTraversal.inorder;
 
+// Time  Complexity : O(m*n)
+// Space Complexity : O(H)
 public class IsSubTree {
 
     private static boolean isSubTree(Node rootSuper, Node rootSub) {

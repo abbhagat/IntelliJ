@@ -7,6 +7,7 @@ import static trees.CreateBST.createBST;
 
 // Time Complexity O(n)
 public class IsBST {
+
     private static boolean isBST(Node root, long min, long max, Set<Integer> set) {
         if (root == null) {
             return true;

@@ -1,5 +1,7 @@
 package leetcode;
 
+// Time complexity : O(1)
+// Space Complexity: O(1)
 public class ValidateIPAddress {
 
     private static boolean isValidIPv4(String ipAddress) {
@@ -28,7 +30,7 @@ public class ValidateIPAddress {
 
     private static boolean isValidIPv6(String ipAddress) {
         String[] ipv6 = ipAddress.split(":");
-        if(ipv6.length != 8) {
+        if (ipv6.length != 8) {
             return false;
         }
         String hexDigits = "0123456789abcdefABCDEF";
@@ -46,8 +48,8 @@ public class ValidateIPAddress {
     }
 
     public static void main(String[] args) {
-        System.out.println(isValidIPv4("204.120.0.255")                          ? "Valid IPv4" : "Invalid IPv4");
-        System.out.println(isValidIPv4("204.120.01.1")                           ? "Valid IPv4" : "Invalid IPv4");
+        System.out.println(isValidIPv4("204.120.0.255") ? "Valid IPv4" : "Invalid IPv4");
+        System.out.println(isValidIPv4("204.120.01.1") ? "Valid IPv4" : "Invalid IPv4");
         System.out.println(isValidIPv6("2001:db8:3333:4444:5555:6666:7777:8888") ? "Valid IPv6" : "Invalid IPv6");
         System.out.println(isValidIPv6("2001:db8:3!33:4444:5555:6666:7777:8888") ? "Valid IPv6" : "Invalid IPv6");
     }

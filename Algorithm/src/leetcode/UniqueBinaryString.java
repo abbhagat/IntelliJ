@@ -3,25 +3,22 @@ package leetcode;
 import java.util.HashSet;
 import java.util.Set;
 
+// Time  Complexity: O(2^n)
+// Space Complexity: O(2^n)
 public class UniqueBinaryString {
 
-    private static void findAllBinaryPermutation(String s, int itr, Set<String> set) {
-        if (itr == 0) {
+    private static void findUniqueBinaryString(String s, int n, Set<String> set) {
+        if (n == 0) {
             set.add(s);
             return;
         }
-        findAllBinaryPermutation(s + "0", itr - 1, set);
-        findAllBinaryPermutation(s + "1", itr - 1, set);
-    }
-
-    public static String findUniqueBinaryString(String[] nums) {
-        Set<String> set = new HashSet<>();
-        findAllBinaryPermutation("", nums.length, set);
-        System.out.println(set);
-        return (String) set.toArray()[0];
+        findUniqueBinaryString(s + "0", n - 1, set);
+        findUniqueBinaryString(s + "1", n - 1, set);
     }
 
     public static void main(String[] args) {
-        System.out.println(findUniqueBinaryString(new String[]{"01", "10"}));
+        Set<String> set = new HashSet<>();
+        findUniqueBinaryString("",2, set);
+        System.out.println(set);
     }
 }

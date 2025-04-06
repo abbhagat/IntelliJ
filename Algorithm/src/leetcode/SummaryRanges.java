@@ -2,7 +2,10 @@ package leetcode;
 
 import java.util.Arrays;
 
+// Time  Complexity: O(n log n)
+// Space Complexity: O(1)
 public class SummaryRanges {
+
     private static void printSummaryRanges(int[] a) {
         Arrays.sort(a);
         int start = a[0], end = 0;
