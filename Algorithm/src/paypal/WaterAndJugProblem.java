@@ -23,17 +23,17 @@ public class WaterAndJugProblem {
         int from = x, to = 0, step = 1;
         while (from != z && to != z) {            // Break the loop when either of the two jugs has d litre water
             int temp = min(from, y - to);    //  Find the maximum amount that can be poured
-            to   = to   + temp;                 //   Pour "temp" liters from "from" to "to"
-            from = from - temp;
+            to   += temp;                      //   Pour "temp" liters from "from" to "to"
+            from -= temp;
             step++;
             if (from == z || to == z) {
                 break;
             }
-            if (from == 0) {    // If first jug becomes empty, fill it
+            if (from == 0) { // If first jug becomes empty, fill it
                 from = x;
                 step++;
             }
-            if (to == y) {      // If second jug becomes full, empty it
+            if (to == y) {  // If second jug becomes full, empty it
                 to = 0;
                 step++;
             }

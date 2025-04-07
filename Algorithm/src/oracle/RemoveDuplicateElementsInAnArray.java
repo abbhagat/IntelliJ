@@ -1,14 +1,14 @@
 package oracle;
 
 import util.CommonUtils;
-
 import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 
 public class RemoveDuplicateElementsInAnArray {
 
     private static void removeDuplicates(int[] a) {
-        Map<Integer, Integer> map = new java.util.HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for(int x : a) {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
@@ -16,7 +16,7 @@ public class RemoveDuplicateElementsInAnArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 5, 7, 1, 6, 8, 9, 10, 3000, 6, 3, 5, 10, 2000, 4, 9, 10};
+        int[] a = {1, 2, 5, 7, 1, 6, 8, 9, 10, 30, 6, 3, 5, 10, 20, 4, 9, 10, 1, 30};
         removeDuplicates(a);
         Arrays.sort(a);
         CommonUtils.printArray(a);

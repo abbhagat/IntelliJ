@@ -16,22 +16,21 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
                 if (x == y && map.get(y) == 1) {
                     continue;
                 }
-                if (x == y) {
-                    System.out.println("(" + x + "," + y + ")");
-                } else {
-                    System.out.println("(" + x + "," + y + ")");
+                System.out.println("(" + x + "," + y + ")");
+                if (x != y) {
                     System.out.println("(" + y + "," + x + ")");
                 }
                 map.remove(x);
                 map.remove(y);
             }
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {
         findPairs(new int[]{1, 2, 3, 4, 5}, 5);
+        System.out.println();
         findPairs(new int[]{2, -3, 3, 3, -2}, 0);
+        System.out.println();
         findPairs(new int[]{2, -6, 2, 5, 2}, 4);
     }
 }

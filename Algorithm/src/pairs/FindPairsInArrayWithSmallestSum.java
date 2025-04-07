@@ -1,9 +1,9 @@
 package pairs;
 
-// Time Complexity : O(k*n) where n = a.length
-// Auxiliary Space : O(n)
-
+// Time  Complexity : O(k*n) where n = a.length
+// Space Complexity : O(n)
 public class FindPairsInArrayWithSmallestSum {
+
     private static void findPairsInArrayWithSmallestSum(int[] a, int[] b, int k) {
         if (k > a.length * b.length) {
             System.out.println("k pairs don't exist");
@@ -13,7 +13,6 @@ public class FindPairsInArrayWithSmallestSum {
         while (k != 0) {
             int i = getMinIndex(a, b, temp);
             System.out.print("(" + a[i] + ", " + b[temp[i]] + ") ");
-            System.out.print(a[i] + b[temp[i]]);
             temp[i]++;
             k--;
         }
