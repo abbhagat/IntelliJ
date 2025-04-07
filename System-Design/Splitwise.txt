@@ -92,18 +92,18 @@ A                 B         -150      1
 
 Amount owned by A = Rs 250 + (-150) = Rs 100
 
-AMOUNT_OWNED
-------------------------------------------------------------------------------------------------------------------
-ID FROM_USER       TO_USER     AMOUNT  GROUP_ID
-1     B              A         -100      1          // Since User B has made the payment so A owns Rs 100 to B
-2     A              B          100      1
-------------------------------------------------------------------------------------------------------------------
+                    AMOUNT_OWNED
+--------------------------------------------------
+ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
+1       B              A         -100      1          // Since User B has made the payment so A owns Rs 100 to B
+2       A              B          100      1
+--------------------------------------------------
 
 if(NetAmount == 0) -> settle the expense between the user A and User B
 if(NetAmount > 0)  -> make the reverse entry with the updated value
 if(NetAmount < 0)  -> update the row with the net amount
 
-Let's say now we added User C in the group
+Let's say now we added User C in the Group 1
 
                USER
 |-----------------------------------------|
@@ -154,6 +154,6 @@ API Design
 4. ExpenseID addExpense(GroupID gid, UserID uid, int amount, string splitType)
 5. void editExpense(ExpenseID eid, UserID uid, int amount, string splitType)
 6. void settleExpense(ExpenseID eid)
-7. GroupID make group(User[] users, string name)
+7. GroupID createGroup(User[] users, string name)
 8. Group getGroup(GroupID gid)
 9. Expense getExpense(ExpenseID eid)
