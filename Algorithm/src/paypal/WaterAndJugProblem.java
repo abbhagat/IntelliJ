@@ -1,19 +1,9 @@
 package paypal;
 
-import static java.lang.Integer.max;
 import static java.lang.Integer.min;
+import static util.CommonUtils.gcd;
 
 public class WaterAndJugProblem {
-
-    private static int gcd(int x, int y) {
-        int gcd = 0;
-        for (int i = 1; i <= max(x,y); i++) {
-            if (x % i == 0 && y % i == 0) {
-                gcd = i;
-            }
-        }
-        return gcd;
-    }
 
    /*  x -- Capacity of jug from which water is poured
        y -- Capacity of jug to which water is poured
@@ -52,7 +42,7 @@ public class WaterAndJugProblem {
     }
 
     public static void main(String[] args) {
-        System.out.println(canMeasure(3, 5, 4) ? min(minSteps(3, 5, 4), minSteps(5, 3, 4)) : "Not Possible");
-        System.out.println(canMeasure(5, 3, 3) ? min(minSteps(3, 5, 3), minSteps(5, 3, 3)) : "Not Possible");
+        System.out.println(canMeasure(3, 5, 4) ? min(minSteps(3, 5, 4), minSteps(5, 3, 4)) : -1);
+        System.out.println(canMeasure(5, 3, 3) ? min(minSteps(3, 5, 3), minSteps(5, 3, 3)) : -1);
     }
 }

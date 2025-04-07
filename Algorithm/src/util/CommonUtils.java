@@ -2,6 +2,8 @@ package util;
 
 import java.util.stream.IntStream;
 
+import static java.lang.Integer.max;
+
 public class CommonUtils {
 
     public static void swap(int[] a, int i, int j) {
@@ -81,5 +83,15 @@ public class CommonUtils {
         for (char[] c : M) {
             printArray(c);
         }
+    }
+
+    public static int gcd(int x, int y) {
+        int gcd = 0;
+        for (int i = 1; i <= max(x,y); i++) {
+            if (x % i == 0 && y % i == 0) {
+                gcd = i;
+            }
+        }
+        return gcd;
     }
 }
