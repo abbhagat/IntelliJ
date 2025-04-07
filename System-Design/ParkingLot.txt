@@ -1,6 +1,6 @@
 FR:-
 
-1. User should be able to reserver a parking spot.
+1. User should be able to reserve a parking spot.
 2. System should generate a ticket/receipt.
 3. 3 Types of vehicles[Compact, Regular, Large]
 4. Flat rate based on time but different rate for each vehicle type.

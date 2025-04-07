@@ -12,7 +12,7 @@ NFR :-
 1. Low Latency.
 2. High Consistency.
 3. System must be reliable. The data must persist in the DB after the transaction.
-4. System must be scalable i.e we can add more users to the group.
+4. System must be scalable i.e. we can add more users to the group.
 
 We need to create the following tables:-
 1. GROUP
@@ -28,6 +28,8 @@ We need to create the following tables:-
 |-------------------------------------------------------------------------------------------------|--------------------------------------|
 |   1           G1               2       |     A                                                  |      A             1            Y    |
 |   2           G2               3       |     B                                                  |      B             1            N    |
+|   3           G3               4       |     C                                                  |      B             2            Y    |
+|   4           G4               5       |     D                                                  |      C             2            N    |
 |-------------------------------------------------------------------------------------------------|--------------------------------------|
 
 Let's say A purchase Rs 100 milk and added it to the EXPENSE table as shown below.
@@ -52,14 +54,14 @@ At first time since there is no entry in the table we can make an entry in the b
 
 At any point of time this table will keep the latest snapshot of the balance.
 
-|-------------------------------------------------------|
-|            AMOUNT_OWNED                               |
-|-----------------------------------------|-------------|
-|ID FROM_USER  TO_USER    AMOUNT  GROUP_ID|   IS_SETTLED|
-|-----------------------------------------|-------------|
-|1    B          A          50       1    |     N       |   // Since User A has made the payment so B owns Rs 50 to A
-|2    A          B         -50       1    |     N       |  //  Since User A has made the payment so B owns Rs 50 to A
-|-----------------------------------------|-------------|
+|----------------------------------------------------|
+|                   AMOUNT_OWNED                     |
+|----------------------------------------------------|
+|ID FROM_USER  TO_USER AMOUNT  GROUP_ID|   IS_SETTLED|
+|--------------------------------------|-------------|
+|1    B          A       50       1    |     N       |   // Since User A has made the payment so B owns Rs 50 to A
+|2    A          B      -50       1    |     N       |  //  Since User A has made the payment so B owns Rs 50 to A
+|--------------------------------------|-------------|
 
 Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
 
@@ -129,16 +131,20 @@ Query :- SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER C' AND GROUP_ID = 1;
 
 Results in 0 rows so no adjustment is required in split amount
 
-AMOUNT_OWNED
----------------------------------------
-A                 B          100      1
-B                 A         -100      1
-
-B                 C          300      1     // Below are the new entry created
-C                 B         -300      1
-A                 C          300      1
-C                 A         -300      1
----------------------------------------
+            AMOUNT_OWNED
+-------------------------------------------------
+ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
+-------------------------------------------------
+1      A               B          100      1
+2      B               A         -100      1
+-------------------------------------------------
+      Below are the new entry created
+-------------------------------------------------
+3      B               C          300      1
+4      C               B         -300      1
+5      A               C          300      1
+6      C               A         -300      1
+-------------------------------------------------
 
 API Design
 
