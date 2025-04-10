@@ -1,9 +1,11 @@
 package threads;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Singleton implements Cloneable, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private static volatile Singleton singleton;
@@ -15,6 +17,7 @@ public class Singleton implements Cloneable, Serializable {
     }
 
     // To prevent from Serializable
+    @Serial
     protected Object readResolve() throws Exception {
         return getInstance();
     }

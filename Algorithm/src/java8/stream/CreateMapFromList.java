@@ -1,9 +1,6 @@
 package java8.stream;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,6 +15,7 @@ public class CreateMapFromList {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
+    @ToString
     private static class Employee {
         private int id;
         private String deptName;
@@ -34,6 +32,9 @@ public class CreateMapFromList {
         List<Employee> employeeList = List.of(emp1, emp2, emp3, emp4, emp5);
         Map<Employee, String> result = employeeList.stream().collect(Collectors.toMap(Function.identity(), Employee::getDeptName));
         System.out.println(result);
+        Map<String, List<Integer>> deptToIdsMap = employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getDeptName, Collectors.mapping(Employee::getId, Collectors.toList())));
+        System.out.println(deptToIdsMap);
         Map<String, List<Integer>> map = new LinkedHashMap<>();
         employeeList.forEach(emp -> {
             List<Integer> list = map.containsKey(emp.getDeptName()) ? map.get(emp.getDeptName()) : new ArrayList<>();
