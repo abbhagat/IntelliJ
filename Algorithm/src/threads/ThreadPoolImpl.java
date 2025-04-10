@@ -1,9 +1,9 @@
 package threads;
 
+import java.util.concurrent.BlockingQueue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 class ThreadPool<Runnable> {
 
@@ -39,7 +39,7 @@ class ThreadPool<Runnable> {
     public synchronized void waitUntilAllTasksFinished() {
         while (!this.taskQueue.isEmpty()) {
             try {
-                Thread.sleep(1);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -48,6 +48,7 @@ class ThreadPool<Runnable> {
 }
 
 class ThreadPoolRunnable implements Runnable {
+
     private Thread thread = null;
     private final BlockingQueue<Runnable> taskQueue;
     private boolean isStopped = false;
@@ -64,7 +65,7 @@ class ThreadPoolRunnable implements Runnable {
                 Runnable runnable = taskQueue.take();
                 runnable.run();
             } catch (Exception e) {
-                //log or otherwise report exception,but keep pool thread alive.
+                e.printStackTrace();
             }
         }
     }

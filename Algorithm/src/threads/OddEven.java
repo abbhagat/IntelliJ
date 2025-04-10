@@ -3,14 +3,14 @@ package threads;
 class Q {
 
     private boolean flag;
-    private int n = 1;
+    private volatile int n = 1;
 
     public synchronized void printODD() {
         try {
             while (flag) {
                 wait();
             }
-            System.out.println(n++ + "->" + Thread.currentThread().getName());
+            System.out.println(n++ + " -> " + Thread.currentThread().getName());
             flag = true;
             notify();
         } catch (InterruptedException e) {
@@ -23,7 +23,7 @@ class Q {
             while (!flag) {
                 wait();
             }
-            System.out.println(n++ + "->" + Thread.currentThread().getName());
+            System.out.println(n++ + " -> " + Thread.currentThread().getName());
             flag = false;
             notify();
         } catch (InterruptedException e) {

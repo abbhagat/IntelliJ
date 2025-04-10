@@ -73,9 +73,10 @@ class Consumer<K extends Number> implements Runnable {
 }
 
 public class CustomBlockingQueue {
+
     public static void main(String[] args) throws InterruptedException {
         BlockingQueue<Integer> q = new BlockingQueue<>(5);
-        new Producer(q);
-        new Consumer(q);
+        new Producer<>(q);
+        new Consumer<>(q);
     }
 }
