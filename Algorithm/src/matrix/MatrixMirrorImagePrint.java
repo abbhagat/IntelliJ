@@ -5,31 +5,30 @@ import static util.CommonUtils.swap;
 
 public class MatrixMirrorImagePrint {
 
-
-    private static void mirrorImages(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0, k = a[i].length - 1; j < k; j++, k--) {
-                int t = a[i][j];
-                a[i][j] = a[i][k];
-                a[i][k] = t;
+    private static void mirrorImages(int[][] M) {
+        for (int i = 0; i < M.length; i++) {
+            for (int j = 0, k = M[i].length - 1; j < k; j++, k--) {
+                int t = M[i][j];
+                M[i][j] = M[i][k];
+                M[i][k] = t;
             }
         }
     }
 
-    private static void mirrorImage(int[][] a) {
-        for (int[] m : a) {
-            for (int i = 0, j = m.length - 1; i < j; i++, j--) {
-                swap(m, i, j);
+    private static void mirrorImage(int[][] M) {
+        for (int[] ROW : M) {
+            for (int i = 0, j = ROW.length - 1; i < j; i++, j--) {
+                swap(ROW, i, j);
             }
         }
     }
 
     public static void main(String[] args) {
-        int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        printMatrix(a);
+        int[][] M = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        printMatrix(M);
         System.out.println();
-        mirrorImage(a);
-        printMatrix(a);
+        mirrorImage(M);
+        printMatrix(M);
         System.out.println();
     }
 }

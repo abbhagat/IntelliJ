@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-/*
+/**
      Collection::stream = x -> x.stream(), x = List<String> means it is a Collection
- */
+*/
 public class FlatMapDemo {
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class FlatMapDemo {
                 .collect(Collectors.toList());
         List<String> phones1 = people.values()
                 .stream()
-                .flatMap(x -> x.stream())
+                .flatMap(lists -> lists.stream())
                 .collect(Collectors.toList());
         phones1.forEach(System.out::println);
         phones.forEach(System.out::println);
@@ -35,7 +35,8 @@ public class FlatMapDemo {
 
         String[][] dataArray = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}, {"g", "h"}};
         List<String> listOfAllChars = Arrays.stream(dataArray)
-                                            .flatMap(Arrays::stream)
+//                                          .flatMap(Arrays::stream)
+                                            .flatMap(s -> Arrays.stream(s))
                                             .collect(Collectors.toList());
         System.out.println(listOfAllChars);
 

@@ -49,25 +49,24 @@ public class MatrixRotationBy90Degree {
 
     public static void main(String[] args) {
         final int[][] M = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
-        System.out.println("\nOriginal Matrix\n");
+                            {1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}
+                          };
+        System.out.println("Original Matrix");
         printMatrix(M);
-        clockWises(M);
-        System.out.println("\nRotated Matrix\n");
+        clockWise(M);
+        System.out.println("Rotated Matrix");
         printMatrix(M);
-        System.out.println();
         final int[][] n = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
-        System.out.println("\nOriginal Matrix\n");
+                            {1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}
+                          };
+        System.out.println("Original Matrix");
         printMatrix(n);
         antiClockWise(n);
-        System.out.println("\nRotated Matrix\n");
+        System.out.println("Rotated Matrix");
         printMatrix(n);
     }
 }

@@ -3,6 +3,7 @@ package matrix;
 import static java.lang.Integer.max;
 
 public class BombEnemy {
+
     private static final char[][] M = new char[][]{
                                                     {'O', 'E', 'O', 'O'},
                                                     {'E', 'O', 'E', 'E'},
@@ -26,8 +27,8 @@ public class BombEnemy {
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-                   area++;
-                   DFS(row + rowIdx[k], col + colIdx[k]);
+                area++;
+                DFS(row + rowIdx[k], col + colIdx[k]);
             }
         }
     }
