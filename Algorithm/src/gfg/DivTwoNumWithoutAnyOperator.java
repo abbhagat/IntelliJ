@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
+//Time  Complexity: O(x/y)
+//Space Complexity: O(x/y)
 public class DivTwoNumWithoutAnyOperator {
 
     private static void divide(int x, int y) {
