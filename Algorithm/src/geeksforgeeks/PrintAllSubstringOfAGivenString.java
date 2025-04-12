@@ -26,10 +26,10 @@ Input :  abc
           abc
  */
 
-// Time Complexity   O(n)
-// Space Complexity  O(n)
-
+// Time  Complexity: O(n^2)
+// Space Complexity: O(n^2)
 public class PrintAllSubstringOfAGivenString {
+
     private static Set<String> printAllSubstring(String s) {
         Set<String> set = new LinkedHashSet<>();
         for (int i = 0; i < s.length(); i++) {
@@ -41,6 +41,14 @@ public class PrintAllSubstringOfAGivenString {
         return set;
     }
 
+    public static void printAllSubstrings(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
+                System.out.println(s.substring(i, j));
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Set<String> set = printAllSubstring("abc");
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
@@ -50,5 +58,7 @@ public class PrintAllSubstringOfAGivenString {
         System.out.println();
         set = printAllSubstring("LEETCODE");
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
+
+        printAllSubstrings("abc");
     }
 }

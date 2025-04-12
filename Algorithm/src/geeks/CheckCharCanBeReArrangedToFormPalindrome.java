@@ -11,8 +11,8 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
             temp[c]++;
         }
         int count = 0;
-        for (int x : temp) {
-            if (x % 2 == 1) {
+        for (int n : temp) {
+            if (n % 2 == 1) {
                 count++;
             }
             if (count > 1) {

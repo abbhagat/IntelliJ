@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// Time  Complexity : O(2^n)
+// Time  Complexity : O(n*2^n)
 // Space Complexity : O(n)
 public class MaxArrayGivenSum {
 

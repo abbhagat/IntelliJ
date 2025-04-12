@@ -4,6 +4,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class MaxAreaOrContainerWithMaxWater {
+
     public static int maxArea(int[] a) {
         int low = 0, high = a.length - 1, max = Integer.MIN_VALUE;
         while (low < high) {

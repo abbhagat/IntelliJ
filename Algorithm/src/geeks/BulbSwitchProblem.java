@@ -11,8 +11,8 @@ public class BulbSwitchProblem {
         int count = 0;
         for (int x : q) {
             boolean prev = glows;
-            countOne += (a[x - 1] == 0) ? 1 : -1;
-            a[x - 1] ^= 1;
+            countOne += (a[x] == 0) ? 1 : -1;
+            a[x] ^= 1;
             glows = countOne >= (double) (a.length / 2);
             if (prev != glows) {
                 count++;

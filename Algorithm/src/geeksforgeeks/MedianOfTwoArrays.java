@@ -1,7 +1,6 @@
 package geeksforgeeks;
 
 // Time Complexity : O(log n + log m)
-// median = (i < a.length && j < b.length) ? a[i] < b[j]  ? a[i++] : b[j++] : i < a.length ? a[i++] : b[j++];
 public class MedianOfTwoArrays {
 
     private static float findMedian(int[] a, int[] b) {

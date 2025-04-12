@@ -17,9 +17,8 @@ package geeks;
  * Calculate water trapped on smaller elements out of A[low] and A[high] first and move the pointers till low doesn’t cross high.
  */
 
-// Time Complexity: O(n)
-// Auxiliary Space: O(1)
-
+// Time  Complexity: O(n)
+// Space Complexity: O(1)
 public class TrappingRainWater {
 
     private static int findWater(int[] a) {

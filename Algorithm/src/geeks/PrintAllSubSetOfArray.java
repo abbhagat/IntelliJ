@@ -23,8 +23,7 @@ import java.util.LinkedList;
 
 // Time  Complexity :- O(2^n)
 // Space Complexity :- O(n)
-
-    public class PrintAllSubSetOfArray {
+public class PrintAllSubSetOfArray {
 
     public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
         if (index == a.length) {

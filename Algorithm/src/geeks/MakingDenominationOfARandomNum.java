@@ -6,13 +6,17 @@ package geeks;
  * whether you can make the amount with both denominations.
 	for example:
 	U r given a number: 23 then 5*4 +3*1 = 23 so true
-	U r given a number :16 then true. 5*2+3*3
+	U r given a number :19 then true. 5*2+3*3
+	U r given a number :16 then true. 5*2+3*2
 	U r given a number :17 then true. 5*1 + 3*4
  */
 
 public class MakingDenominationOfARandomNum {
 
     public static void isSumOfCoins(int x, int y, int n) {
+        if (x > n && y > n) {
+            return;
+        }
         if (n % x == 0) {
             System.out.println(x + " * " + n / x + " + 0 *" + y + " = " + n);
             return;
@@ -33,6 +37,7 @@ public class MakingDenominationOfARandomNum {
     }
 
     public static void main(String[] args) {
+        isSumOfCoins(3, 5, 1);
         isSumOfCoins(3, 5, 19);
         isSumOfCoins(3, 5, 23);
         isSumOfCoins(3, 5, 16);

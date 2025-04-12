@@ -3,6 +3,7 @@ package geeksforgeeks;
 import java.util.stream.IntStream;
 
 public class RemoveAGivenRepeatedElementFromArray {
+
     private static void removeAGivenRepeatedElementFromArray(int[] a, int n) {
         int j = 0;
         for (int i = 0; i < a.length; i++) {
