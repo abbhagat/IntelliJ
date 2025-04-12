@@ -3,10 +3,10 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
-// Time Complexity:  O(m+n) Same for both methods
-
+// Time Complexity:  O(m+n)
 public class MergeTwoSortedList {
 
+    // Time Complexity:  O(m+n)
     public static Node merge(Node a, Node b) {
         if (a == null) {
             return b;
@@ -23,6 +23,7 @@ public class MergeTwoSortedList {
         }
     }
 
+    // Time Complexity:  O(m+n)
     private static Node mergeTwoLists(Node head1, Node head2) {
         Node merged = new Node();
         Node temp = merged;

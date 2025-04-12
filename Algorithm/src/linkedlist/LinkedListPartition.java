@@ -31,7 +31,7 @@ public class LinkedListPartition {
 
     public static void main(String[] args) {
         Node first = null;
-        for (int x : new int[]{1, 4, 3, 2, 5, 2}) {
+        for (int x : new int[]{1, 3, 6, 2, 5, 4, 0}) {
             first = add(first, x);
         }
         traverseList(first);

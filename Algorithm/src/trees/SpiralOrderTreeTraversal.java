@@ -9,12 +9,12 @@ public class SpiralOrderTreeTraversal {
         Deque<Node> q = new LinkedList<>();
         q.addFirst(root);
         boolean flag = true;
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             int size = q.size();
-            if(flag) {
-                while(size != 0) {
+            if (flag) {
+                while (size != 0) {
                     Node node = q.pollFirst();
-                    if(node != null) {
+                    if (node != null) {
                         System.out.print(node.num + " ");
                         if (node.left != null) {
                             q.addLast(node.left);
@@ -25,11 +25,10 @@ public class SpiralOrderTreeTraversal {
                     }
                     size--;
                 }
-            }
-            else {
+            } else {
                 while (size != 0) {
                     Node node = q.pollLast();
-                    if(node != null) {
+                    if (node != null) {
                         System.out.print(node.num + " ");
                         if (node.right != null) {
                             q.addFirst(node.right);
@@ -57,15 +56,15 @@ public class SpiralOrderTreeTraversal {
                                \
                                 0
          */
-        Node root                    = new Node(1);
-        root.left                    = new Node(2);
-        root.right                   = new Node(3);
-        root.left.left               = new Node(4);
-        root.left.right              = new Node(5);
-        root.right.right             = new Node(6);
-        root.left.right.left         = new Node(7);
-        root.left.right.right        = new Node(8);
-        root.right.right.right       = new Node(9);
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+        root.left.right.left = new Node(7);
+        root.left.right.right = new Node(8);
+        root.right.right.right = new Node(9);
         root.right.right.right.right = new Node(0);
         spiralOrderTreeTraversal(root);
     }

@@ -5,7 +5,6 @@ import static linkedlist.TraverseList.traverseList;
 
 // Time Complexity  : O(1)
 // Auxiliary Space  : O(1)
-
 public class DeleteNodeWithoutHeadPointer {
 
     private static void deleteNode(Node node) {

@@ -6,9 +6,7 @@ import java.util.Stack;
 
 interface Iterator {
     boolean hasNext();
-
     Node curr();
-
     Node next();
 }
 

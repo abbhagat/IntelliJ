@@ -2,6 +2,8 @@ package linkedlist;
 
 import static linkedlist.LinkList.add;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class IsCyclic {
 
     public static boolean hasCycle(Node head) {

@@ -7,7 +7,6 @@ import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 // Time complexity: O(n)
-
 public class DeleteRepeatedElementsInList {
 
     private static void removeDuplicate(Node head) {

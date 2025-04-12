@@ -1,10 +1,9 @@
 package linkedlist;
 
-// Time complexity: O(n log n) where n is the number of nodes in Linked List.
-
 import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findPrevMidPoint;
 
+// Time complexity: O(n log n)
 public class ConvertSortedListToBalancedTree {
 
     private static class TreeNode {
