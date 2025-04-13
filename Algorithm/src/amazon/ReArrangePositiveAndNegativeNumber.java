@@ -4,9 +4,8 @@ import java.util.stream.IntStream;
 
 import static util.CommonUtils.swap;
 
-// Time  Complexity  O(n)
-// Space Complexity  O(1)
-
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class ReArrangePositiveAndNegativeNumber {
 
     private static void reArrangePositiveAndNegativeNumber(int[] a) {

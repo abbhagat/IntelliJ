@@ -2,9 +2,8 @@ package amazon;
 
 import java.util.stream.IntStream;
 
-// Time  Complexity  O(n)
-// Space Complexity  O(n)
-
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class ArrayMulOtherThanOwnPosition {
 
     private static int[] productExceptSelf(int[] nums) {

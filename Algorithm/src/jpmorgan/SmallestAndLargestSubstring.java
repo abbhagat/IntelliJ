@@ -1,7 +1,7 @@
 package jpmorgan;
 
-// Time Complexity:- The time complexity of this program is O(n*k), where n is the length of the input string s and k is the size of the substring.
-//Auxiliary Space:- The auxiliary space used by this program is O(k), which is the space required to store the current substring, the
+// Time  Complexity : O(n*k)
+// Space Complexity : O(k)
 public class SmallestAndLargestSubstring {
 
     public static void getSmallestAndLargest(String s, int k) {

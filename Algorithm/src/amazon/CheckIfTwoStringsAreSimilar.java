@@ -1,6 +1,6 @@
 package amazon;
 
-// Time  Complexity  O(n)
+// Time  Complexity : O(n)
 public class CheckIfTwoStringsAreSimilar {
 
     private static boolean isSimilar(String s1, String s2) {

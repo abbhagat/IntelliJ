@@ -3,9 +3,8 @@ package amazon;
 import java.util.HashMap;
 import java.util.Map;
 
-// Time  Complexity  O(n)
-// Space Complexity  O(n)
-
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class CountSubArray01 {
 
     public static int getSubArrayWithEqual01(int[] a) {

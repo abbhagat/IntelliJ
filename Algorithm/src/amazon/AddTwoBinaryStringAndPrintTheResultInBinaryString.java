@@ -1,9 +1,8 @@
 package amazon;
 
-// Time Complexity O(n)
-
 import static java.lang.Integer.max;
 
+// Time Complexity : O(n)
 public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
     private static String add(String num1, String num2, int base) {
