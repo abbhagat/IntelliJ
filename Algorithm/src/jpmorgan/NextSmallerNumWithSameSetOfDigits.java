@@ -25,10 +25,11 @@ public class NextSmallerNumWithSameSetOfDigits {
             }
         }
         int[] res = new int[a.length];
-        int index = a.length - 1;
+        int k = a.length - 1;
         System.arraycopy(a, 0, res, 0, i);
         for (int j = i; j < res.length; j++) {
-            res[j] = a[index--];
+            res[j] = a[k];
+            k--;
         }
         return res;
     }

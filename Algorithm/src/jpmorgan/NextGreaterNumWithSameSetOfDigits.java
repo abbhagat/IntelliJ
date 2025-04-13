@@ -5,6 +5,8 @@ import java.util.stream.IntStream;
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class NextGreaterNumWithSameSetOfDigits {
 
     private static int[] nextPermutation(int[] a) {
@@ -28,7 +30,8 @@ public class NextGreaterNumWithSameSetOfDigits {
         int k = a.length - 1;
         System.arraycopy(a, 0, res, 0, i);
         for (int j = i; j < res.length; j++) {
-            res[j] = a[k--];
+            res[j] = a[k];
+            k--;
         }
         return res;
     }

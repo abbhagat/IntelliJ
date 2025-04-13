@@ -1,7 +1,8 @@
 package jpmorgan;
 
 /*
-Given an array containing N elements and an integer K. It is allowed to perform the following operation any number of times on the given array:
+Given an array containing N elements and an integer K.
+It is allowed to perform the following operation any number of times on the given array:
 Insert the K-th element at the end of the array and delete the first element of the array.
 The task is to find the minimum number of moves needed to make all elements of the array equal.
 Print -1 if it is not possible.

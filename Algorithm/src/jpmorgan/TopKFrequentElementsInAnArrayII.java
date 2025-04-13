@@ -3,11 +3,13 @@ package jpmorgan;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
-
 import static util.CommonUtils.swap;
 
 /**
- * Given an array of n numbers. Your task is to read numbers from the array and keep at-most K numbers at the temp (According to their decreasing frequency) every time a new number is read. We basically need to print temp k numbers sorted by frequency when input stream has included k distinct elements, else need to print all distinct elements sorted by frequency.
+ * Given an array of n numbers. Your task is to read numbers from the array and keep at-most K numbers at the temp
+ * (According to their decreasing frequency) every time a new number is read.
+ * We basically need to print temp k numbers sorted by frequency when input stream has included k distinct elements,
+ * else need to print all distinct elements sorted by frequency.
  * Examples:
  * Input : arr[] = {5, 2, 1, 3, 2}
  * k = 4
@@ -37,19 +39,21 @@ import static util.CommonUtils.swap;
  * So print, 1 2 3 4
  * Approach: The idea is to store the temp k elements with maximum frequency.
  * To store them a vector or an array can be used. To keep the track of frequencies of elements creates a HashMap to store element-frequency pairs.
- * Given a stream of numbers, when a new element appears in the stream update the frequency of that element in HashMap and put that element at the end of the list of K numbers (total k+1 elements) now compare adjacent elements of the list and swap if higher frequency element is stored next to it.
+ * Given a stream of numbers, when a new element appears in the stream update the frequency of that element in HashMap
+ * and put that element at the end of the list of K numbers (total k+1 elements) now compare adjacent elements of the list
+ * and swap if higher frequency element is stored next to it.
  * Algorithm:
  * Create a Hashmap and an array of k + 1 length.
  * Traverse the input array from start to end.
  * Insert the element at k+1 th position of the array, and update the frequency of that element in HashMap.
  * Now, iterate from the position of element to zero.
- * For very element, compare the frequency and swap if a higher frequency element is stored next to it, if the frequency is the same then the swap is the next element is greater.
+ * For very element, compare the frequency and swap if a higher frequency element is stored next to it,
+ * if the frequency is the same then the swap is the next element is greater.
  * print the temp k element in each traversal of the original array.
  */
 
 // Time Complexity:  O(n * k) In each traversal the temp array of size k is traversed, So the time Complexity is O( n * k ).
 // Space Complexity: O(n) To store the elements in HashMap O(n) space is required.
-
 public class TopKFrequentElementsInAnArrayII {
 
     private static void topKFrequent(Stream<Integer> intStream, int k) {
