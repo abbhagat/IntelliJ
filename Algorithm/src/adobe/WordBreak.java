@@ -25,7 +25,7 @@ import java.util.List;
  Output: false
  */
 
-// Time  Complexity: O(n^2 * m)
+// Time  Complexity: O(n^2 * m)  n = Length of given String AND m = no of words in the dictionary
 // Space Complexity: O(n)
 public class WordBreak {
 
