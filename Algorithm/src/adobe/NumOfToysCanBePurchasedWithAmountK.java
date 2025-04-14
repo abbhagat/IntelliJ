@@ -20,5 +20,6 @@ public class NumOfToysCanBePurchasedWithAmountK {
 
     public static void main(String[] args) {
         System.out.println(numOfToys(new int[]{1, 12, 5, 111, 200, 1000, 10, 9, 12, 15}, 50));
+        System.out.println(numOfToys(new int[]{1, 12, 5, 111, 200, 1000, 10, 9, 12, 15}, 90));
     }
 }

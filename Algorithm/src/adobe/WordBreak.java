@@ -25,7 +25,8 @@ import java.util.List;
  Output: false
  */
 
-// Time complexity: O(n^2 * m)
+// Time  Complexity: O(n^2 * m)
+// Space Complexity: O(n)
 public class WordBreak {
 
     public static boolean wordBreak(String str, List<String> list) {

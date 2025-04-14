@@ -3,6 +3,8 @@ package adobe;
 import java.util.HashSet;
 import java.util.Set;
 
+import static util.CommonUtils.printArray;
+
 /*
   * Given an integer array nums and an integer k,
   * you are asked to construct the array A of size n-k+1 where A[i] is the number
@@ -35,9 +37,7 @@ public class ArrayUniqueCountInSubset {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 2, 2, 1, 3};
-        for (int x : distinctNumbersBrute(nums, 3)) {
-            System.out.print(x + " ");
-        }
+        final int[] a = distinctNumbersBrute(new int[] {1, 2, 3, 2, 2, 1, 3}, 3);
+        printArray(a);
     }
 }

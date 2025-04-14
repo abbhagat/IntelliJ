@@ -22,6 +22,8 @@ import java.util.Set;
  * Output: []
  */
 
+// Time  Complexity: O(2^n)
+// Space Complexity: O(m + n)
 public class WordBreakII {
     public static List<String> wordBreak(String s, List<String> wordDict) {
         List<String> list = new ArrayList<>();

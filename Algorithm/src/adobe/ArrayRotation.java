@@ -3,12 +3,13 @@ package adobe;
 import java.util.stream.IntStream;
 import static util.CommonUtils.swap;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(1)
 public class ArrayRotation {
 
-    private static void arrayRotate(int[] a, int k) {
-        int n;
-        k = k % a.length;
-        n = a.length - k;
+    private static void arrayRotate(int[] a, int rotationIndex) {
+        rotationIndex = rotationIndex % a.length;
+        int n = a.length - rotationIndex;
         rotate(a, 0, n - 1);
         rotate(a, n, a.length - 1);
         rotate(a, 0, a.length - 1);
