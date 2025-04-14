@@ -1,6 +1,6 @@
 package amazon;
 
-// Time  Complexity  O(n)
+// Time  Complexity : O(n)
 public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
 
     private static boolean hasSameSetOfChars(char[] a) {

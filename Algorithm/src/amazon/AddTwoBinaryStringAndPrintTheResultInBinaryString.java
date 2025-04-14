@@ -7,10 +7,10 @@ public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
     private static String add(String num1, String num2, int base) {
         StringBuilder result = new StringBuilder();
-        int carry = 0, l1 = num1.length(), l2 = num2.length();
-        for (int i = 0; i < max(l1, l2); i++) {
-            int x = i < l1 ? num1.charAt(l1 - 1 - i) - '0' : 0;
-            int y = i < l2 ? num2.charAt(l2 - 1 - i) - '0' : 0;
+        int carry = 0, l1 = num1.length() - 1, l2 = num2.length() - 1;
+        for (int i = 0; i <= max(l1, l2); i++) {
+            int x = i <= l1 ? num1.charAt(l1 - i) - '0' : 0;
+            int y = i <= l2 ? num2.charAt(l2 - i) - '0' : 0;
             int sum = x + y + carry;
             carry = sum / base;
             result.insert(0, sum % base);
