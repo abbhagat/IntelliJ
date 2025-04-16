@@ -3,11 +3,11 @@ package threads;
 class OddEvenThreadPrinter {
 
     private static final Object monitor = new Object();
-    private static String threadIDToRun = "ODD";
+    private static volatile String threadIDToRun = "ODD";
+    private static volatile int n = 1;
     private String threadID;
-    private static int n = 1;
 
-    OddEvenThreadPrinter(String threadID) {
+    public OddEvenThreadPrinter(String threadID) {
         this.threadID = threadID;
         new Thread(runnable, threadID).start();
     }
