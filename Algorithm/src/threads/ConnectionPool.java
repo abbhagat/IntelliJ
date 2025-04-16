@@ -66,5 +66,4 @@ public class ConnectionPool {
         connectionPool.returnConnectionToPool(connection);
         System.out.println("Returned connection to pool.");
     }
-
 }

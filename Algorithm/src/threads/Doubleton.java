@@ -1,11 +1,12 @@
 package threads;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Doubleton implements Cloneable, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-
     private static Doubleton _instance1, _instance2;
     private static int n = 1;
 
@@ -15,6 +16,7 @@ public class Doubleton implements Cloneable, Serializable {
         }
     }
 
+    @Serial
     protected Object readResolve() throws Exception {
         return getInstance();
     }
