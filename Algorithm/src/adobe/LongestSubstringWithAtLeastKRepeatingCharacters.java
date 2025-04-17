@@ -2,7 +2,8 @@ package adobe;
 
 import static java.lang.Integer.max;
 
-// Time Complexity : O(n log n)
+// Time  Complexity : O(n log n)
+// Space Complexity : O(log n)
 public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
     private static int longestSubString(String s, int start, int end, int k) {

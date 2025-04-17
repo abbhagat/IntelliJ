@@ -2,20 +2,19 @@ package adobe;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import static java.lang.Integer.max;
 
 public class LongestSubstringWithKDistinctCharacters {
 
     private static int lengthOfLongestSubstringKDistinct(char[] c, int k) {
         int max = 0, distinct = 0, j = 0;
-        int[] temp = new int[128];
+        int[] temp = new int[26];
         for (int i = 0; i < c.length; i++) {
-            if (++temp[c[i]] == 1) {
+            if (++temp[c[i] - 'a'] == 1) {
                 distinct++;
             }
             while (distinct == k + 1) {
-                if (--temp[c[j++]] == 0) {
+                if (--temp[c[j++] - 'a'] == 0) {
                     distinct--;
                 }
             }

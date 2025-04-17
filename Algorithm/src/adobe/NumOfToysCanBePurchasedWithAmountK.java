@@ -2,6 +2,7 @@ package adobe;
 
 import java.util.Arrays;
 
+// Time Complexity : n log(n)
 public class NumOfToysCanBePurchasedWithAmountK {
 
     private static int numOfToys(int[] cost, int k) {
