@@ -5,7 +5,7 @@ public class CheckIfTwoStringsAreSimilar {
 
     private static boolean isSimilar(String s1, String s2) {
         if (s1.length() == s2.length()) {
-            int[] temp = new int[256];
+            int[] temp = new int[128];
             for (int i = 0; i < s1.length(); i++) {
                 temp[s1.charAt(i)]++;
                 temp[s2.charAt(i)]--;

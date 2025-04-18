@@ -1,7 +1,7 @@
 package amazon;
 
 // a % b =  a - int(a / b) * b
-// n & 1 == 0 ? Even : Odd
+// n & 1 == 0 ? EVEN : ODD
 // Time  Complexity : O(1)
 public class CheckOddOrEvenWithoutModulus {
 

@@ -11,9 +11,9 @@ public class ReArrangePositiveAndNegativeNumber {
     private static void reArrangePositiveAndNegativeNumber(int[] a) {
         int i = 0, j = 1;
         while (i < a.length && j < a.length) {
-            if (a[i] < 0) {
+            if (a[i] > 0) {
                 i += 2;
-            } else if (a[j] >= 0) {
+            } else if (a[j] <= 0) {
                 j += 2;
             } else {
                 swap(a, i, j);
