@@ -1,9 +1,6 @@
 package adobe;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static java.lang.Integer.max;
 
@@ -17,6 +14,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
             set.add(s.substring(0, i));
             set.add(s.substring(i, s.length() - 1));
         }
+//        for (int i = 0; i < s.length(); i++) {
+//            for (int j = i + 1; j <= s.length(); j++) {
+//                set.add(s.substring(i, j));
+//            }
+//        }
         List<String> result = new ArrayList<>();
         for (String str : set) {
             int[] temp = new int[128];
@@ -34,17 +36,19 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 result.add(str);
             }
         }
-        int index = 0, length = result.get(0).length();
+        int index = 0, max = result.get(0).length();
         for (int i = 1; i < result.size(); i++) {
-            if (length < result.get(i).length()) {
-                length = result.get(i).length();
+            if (max < result.get(i).length()) {
+                max = result.get(i).length();
                 index = i;
             }
         }
         System.out.println(result.get(index));
     }
 
-    private static void lengthOfLongestSubstring(char[] c) {
+    // Time  Complexity : O(n)
+    // Space Complexity : O(128)
+    private static int lengthOfLongestSubstring(char[] c) {
         int j = Integer.MIN_VALUE, max = Integer.MIN_VALUE;
         int[] temp = new int[128];
         for (int i = 0; i < c.length; i++) {
@@ -52,15 +56,30 @@ public class LongestSubstringWithoutRepeatingCharacters {
             max = max(max, i - j + 1);
             temp[c[i]] = i + 1;
         }
-        System.out.println(max);
+        return max;
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
+        Set<Character> set = new HashSet<>();
+        int max = 0, j = 0;
+        for (int i = 0; i < s.length(); i++) {
+            while (set.contains(s.charAt(i))) {
+                set.remove(s.charAt(j));
+                j++;
+            }
+            set.add(s.charAt(i));
+            max = max(max, i - j + 1);
+        }
+        return max;
     }
 
     public static void main(String[] args) {
-        lengthOfLongestSubstring("abcabcbb".toCharArray());
-        lengthOfLongestSubstring("aabacbebebe".toCharArray());
-        lengthOfLongestSubstring("bbbbb".toCharArray());
-        lengthOfLongestSubstring("pwwkew".toCharArray());
-        lengthOfLongestSubstring("geeksforgeeks".toCharArray());
+        System.out.println(lengthOfLongestSubstring("abcabcbb".toCharArray())      + "\t" + lengthOfLongestSubstring("abcabcbb"));  // abc
+        System.out.println(lengthOfLongestSubstring("aabacbebebe".toCharArray())   + "\t" + lengthOfLongestSubstring("aabacbebebe"));  // acbe
+        System.out.println(lengthOfLongestSubstring("bbbbb".toCharArray())         + "\t" + lengthOfLongestSubstring("bbbbb"));  // b
+        System.out.println(lengthOfLongestSubstring("pwwkew".toCharArray())        + "\t" + lengthOfLongestSubstring("pwwkew")); // wke, kew
+        System.out.println(lengthOfLongestSubstring("geeksforgeeks".toCharArray()) + "\t" + lengthOfLongestSubstring("geeksforgeeks"));
+
         findFirstLongestSubstringWithoutRepeatingChar("kyckyckk");
     }
 }
