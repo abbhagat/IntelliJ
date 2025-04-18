@@ -47,7 +47,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     // Time  Complexity : O(n)
-    // Space Complexity : O(128)
+    // Space Complexity : O(1)
     private static int lengthOfLongestSubstring(char[] c) {
         int j = Integer.MIN_VALUE, max = Integer.MIN_VALUE;
         int[] temp = new int[128];
