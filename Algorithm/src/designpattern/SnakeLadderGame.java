@@ -126,8 +126,12 @@ public class SnakeLadderGame {
 
     public static void main(String[] args) {
         Game g = new Game.Builder()
-                .addSnake(34, 12).addSnake(43, 5)
-                .addLadder(23, 56).addLadder(15, 55)
+                .addSnake(99, 10).addSnake(52, 5)
+                .addSnake(35, 12).addSnake(68, 3)
+                .addSnake(75, 28).addSnake(86, 37)
+                .addLadder(10, 98).addLadder(12, 55)
+                .addLadder(25, 76).addLadder(36, 62)
+                .addLadder(45, 89).addLadder(66, 95)
                 .addPlayer("X")
                 .addPlayer("Y")
                 .build();
