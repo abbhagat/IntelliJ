@@ -22,10 +22,6 @@ abstract class Games {
 
 class Cricket extends Games {
 
-    void endPlay() {
-        System.out.println("Cricket Game Finished!");
-    }
-
     void initialize() {
         System.out.println("Cricket Game Initialized! Start playing.");
     }
@@ -33,13 +29,14 @@ class Cricket extends Games {
     void startPlay() {
         System.out.println("Cricket Game Started. Enjoy the game!");
     }
+
+    void endPlay() {
+        System.out.println("Cricket Game Finished!");
+    }
+
 }
 
 class Football extends Games {
-
-    void endPlay() {
-        System.out.println("Football Game Finished!");
-    }
 
     void initialize() {
         System.out.println("Football Game Initialized! Start playing.");
@@ -48,6 +45,11 @@ class Football extends Games {
     void startPlay() {
         System.out.println("Football Game Started. Enjoy the game!");
     }
+
+    void endPlay() {
+        System.out.println("Football Game Finished!");
+    }
+
 }
 
 public class TemplateDesignPattern {
