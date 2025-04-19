@@ -3,8 +3,8 @@ package doublylinkedlist;
 import static doublylinkedlist.CreateList.createList;
 import static doublylinkedlist.TraverseList.traverseList;
 
-// Time Complexity: O(N), where N denotes the number of nodes in the doubly linked list.
-// Auxiliary Space: O(1)
+// Time Complexity : O(N), where N denotes the number of nodes in the doubly linked list.
+// Auxiliary Space : O(1)
 public class ReverseList {
 
     private static Node reverseList(Node head) {

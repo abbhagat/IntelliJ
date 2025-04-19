@@ -3,8 +3,8 @@ package doublylinkedlist;
 import static doublylinkedlist.CreateList.createList;
 import static doublylinkedlist.TraverseList.traverseList;
 
-// Time Complexity: O(n log n)
-// Auxiliary Space: O(1)
+// Time  Complexity: O(n log n)
+// Space Complexity: O(1)
 public class MergeSort {
 
     private static Node findMid(Node head) {
