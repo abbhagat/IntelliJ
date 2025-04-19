@@ -23,7 +23,7 @@ package binarySearchImpl;
   Print the value of ans as the result
  */
 
-// Time Complexity: O(log(W))
+// Time Complexity: O log(W)
 // Auxiliary Space: O(1)
 public class MaxMango {
 

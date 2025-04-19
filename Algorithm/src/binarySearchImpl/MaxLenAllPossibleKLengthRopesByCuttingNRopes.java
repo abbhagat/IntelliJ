@@ -25,8 +25,7 @@ import java.util.Arrays;
  * If the value of count is at least K, then update the value of mid as result and update the value of low as (mid + 1).
  * Otherwise, update the value of high as (mid – 1).
  * After completing the steps, print the value of result as the result.
- * Time Complexity: O(N * log N)
- * Auxiliary Space: O(1)
+ * Space Complexity: O(1)
  */
 //  Time Complexity : O(N * log(max(arr)))
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {

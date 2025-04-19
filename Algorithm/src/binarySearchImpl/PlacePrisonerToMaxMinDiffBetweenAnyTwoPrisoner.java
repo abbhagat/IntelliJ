@@ -24,7 +24,7 @@ import java.util.Arrays;
  * Finally, print the maximized distance.
  */
 
-// Time Complexity: O(N*log(N))
+// Time Complexity: O(n * log n)
 public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
 
     private static boolean canPlace(int[] a, int n, int mid) {
