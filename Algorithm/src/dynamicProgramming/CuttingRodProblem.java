@@ -2,7 +2,7 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
-// Time Complexity:  O(2^n) where n is the length of the price array
+// Time  Complexity: O(2^n) where n is the length of the price array
 // Space Complexity: O(n)   where n is the length of the price array
 public class CuttingRodProblem {
 

@@ -24,8 +24,8 @@ public class DeleteOperationOnTwoStrings {
 
     public static int minDistance(String s1, String s2) {
         int lcs = lcs(s1, s2, s1.length(), s2.length());
-        int del = s1.length() - lcs;   // no. of deletions
-        int ins = s2.length() - lcs;  // no. of insertions
+        int del = s1.length() - lcs;   // no of deletions
+        int ins = s2.length() - lcs;  //  no of insertions
         return ins + del;
     }
 
@@ -41,8 +41,8 @@ public class DeleteOperationOnTwoStrings {
         return max(lcs(s1, s2, m - 1, n), lcs(s1, s2, m, n - 1));
     }
 
-    // Time Complexity: O(m*n)
-    // Auxiliary Space: O(1)
+    // Time  Complexity: O(m*n)
+    // Space Complexity: O(1)
     private static int minDistanceDP(String s1, String s2) {
         int m = s1.length(), n = s2.length();
         int[][] dp = new int[m + 1][n + 1];
