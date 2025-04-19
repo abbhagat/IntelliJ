@@ -20,9 +20,9 @@ import java.util.*;
 
      Start() {
      roll the dice
-     random number 1- 6;
+     random number 1-6;
      check for snakes -> new position
-     check for ladder -> if 100 winner
+     check for ladder -> if 100 winners
      run in loop() till the game ends
      }
 
