@@ -1,7 +1,7 @@
 package designpattern.abstractfactory;
 
-/* Abstract Factory patterns work around a super-factory which creates other factories.
- * In Abstract Factory pattern an interface is responsible for creating a factory of
+/** Abstract Factory patterns work around a super-factory which creates other factories.
+ * In Abstract Factory pattern, an interface is responsible for creating a factory of
  * related objects without explicitly specifying their classes.
  */
 
@@ -54,7 +54,6 @@ class Green implements Color {
 
 abstract class AbstractFactory {
     abstract Color getColor(String color);
-
     abstract Shape getShape(String shape);
 }
 
