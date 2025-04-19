@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import static java.lang.Integer.max;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class LongestSubstringWithKDistinctCharacters {
 
     private static int lengthOfLongestSubstringKDistinct(char[] c, int k) {
@@ -23,6 +25,8 @@ public class LongestSubstringWithKDistinctCharacters {
         return max;
     }
 
+    // Time  Complexity : O(n)
+    // Space Complexity : O(1)
     private static void kUniques(String s, int k) {
         Set<Character> set = new HashSet<>();
         for (char c : s.toCharArray()) {
