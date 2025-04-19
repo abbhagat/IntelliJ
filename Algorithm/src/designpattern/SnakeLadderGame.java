@@ -13,7 +13,7 @@ import java.util.*;
      - Use the Design Patterns wherever applicable
 
      Init()
-     1. User create a game
+     1. User creates game
      2. addPlayer()
      3. addSnakes()
      4. addLadders()
@@ -58,8 +58,8 @@ class Game {
 
     private Game(Builder builder) {
         this.playerList = builder.playerList;
-        this.ladderMap = builder.ladderMap;
-        this.snakeMap = builder.snakeMap;
+        this.ladderMap  = builder.ladderMap;
+        this.snakeMap   = builder.snakeMap;
     }
 
     public final void play() {
