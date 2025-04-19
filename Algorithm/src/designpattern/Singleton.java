@@ -1,16 +1,19 @@
 package designpattern;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Singleton implements Cloneable, Serializable {
 
-    private static Singleton _instance;
+    @Serial
     private static final long serialVersionUID = 1L;
+    private static Singleton _instance;
 
     private Singleton() {
         throw new RuntimeException("Can't instantiate singleton twice");
     }
 
+    @Serial
     protected Object readResolve() {
         return getInstance();
     }

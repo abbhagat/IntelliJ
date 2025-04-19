@@ -12,13 +12,13 @@ import java.util.*;
      - Design the Game Flow
      - Use the Design Patterns wherever applicable
 
-     init()
-     1. user create a game
+     Init()
+     1. User create a game
      2. addPlayer()
      3. addSnakes()
      4. addLadders()
 
-     start() {
+     Start() {
      roll the dice
      random number 1- 6;
      check for snakes -> new position
@@ -26,7 +26,7 @@ import java.util.*;
      run in loop() till the game ends
      }
 
-     end() {
+     End() {
      end the game
      }
      Game g = new Game.Builder().addSnake(34,12).addLadder(23,56).addPlayer("Sanjay").build();

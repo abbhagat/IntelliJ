@@ -1,14 +1,16 @@
 package designpattern;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * For any java class if we are allowed to create at most two objects,
- * such type of class is called as Doubleton Class.
+ * such a type of class is called as Doubleton Class.
  */
 
 public class Doubleton implements Cloneable, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private static Doubleton instance1, instance2;
@@ -31,6 +33,7 @@ public class Doubleton implements Cloneable, Serializable {
         return index++ % 2 == 0 ? instance1 : instance2;
     }
 
+    @Serial
     public Object readResolve() {
         return getInstance();
     }
