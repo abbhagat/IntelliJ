@@ -11,28 +11,24 @@ interface Strategy {
 }
 
 class Add implements Strategy {
-
     public int execute(int x, int y) {
         return x + y;
     }
 }
 
 class Sub implements Strategy {
-
     public int execute(int x, int y) {
         return x - y;
     }
 }
 
 class Mul implements Strategy {
-
     public int execute(int x, int y) {
         return x * y;
     }
 }
 
 class Div implements Strategy {
-
     public int execute(int x, int y) {
         return x / y;
     }
