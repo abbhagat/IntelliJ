@@ -11,12 +11,12 @@ public class CreateList {
             size++;
         }
         if (head == null) {
-            head = temp = last = node;
+            head = node;
         } else {
             temp.right = node;
             node.left = temp;
-            temp = last = node;
         }
+        temp = last = node;
         return head;
     }
 }
