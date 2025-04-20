@@ -1,10 +1,9 @@
 package dynamicProgramming;
 
-
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
-/*
+/**
 
 You are given an array prices where prices[i] is the price of a given stock on the ith day,
 and an integer fee representing a transaction fee.
@@ -34,6 +33,7 @@ Output: 6
  */
 
 public class MaxProfitWithTrxnFee {
+
     public static int maxProfit(int[] a, int fee) {
         int buy = Integer.MAX_VALUE, profit = 0;
         for (int x : a) {
