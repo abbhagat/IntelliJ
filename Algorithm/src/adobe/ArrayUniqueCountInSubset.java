@@ -1,6 +1,8 @@
 package adobe;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import static util.CommonUtils.printArray;
@@ -20,9 +22,11 @@ import static util.CommonUtils.printArray;
   - nums[4:6] = [2,1,3] so ans[4] = 3
 */
 
+// Time  Complexity: O(n * k)
+// Space Complexity: O(k)
 public class ArrayUniqueCountInSubset {
 
-    public static int[] distinctNumbersBrute(int[] nums, int k) {
+    public static int[] distinctNumbers1(int[] nums, int k) {
         int n = nums.length - k + 1;
         int[] a = new int[n];
         Set<Integer> set = new HashSet<>();
@@ -36,8 +40,32 @@ public class ArrayUniqueCountInSubset {
         return a;
     }
 
+    // Time Complexity: O(n)
+   // Space Complexity: O(k)
+    public static int[] distinctNumbers2(int[] nums, int k) {
+        int n = nums.length - k + 1;
+        int[] a = new int[n];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < k; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+        a[0] = map.size();
+        // Slide the window
+        for (int i = 1; i < n; i++) {
+            int x = nums[i - 1];         // Remove the element going out of the window
+            map.put(x, map.get(x) - 1);
+            if (map.get(x) == 0) {
+                map.remove(x);
+            }
+            int y = nums[i + k - 1];   // Add the new element coming into the window
+            map.put(y, map.getOrDefault(y, 0) + 1);
+            a[i] = map.size();  // Store the size of the map as the count of distinct elements
+        }
+        return a;
+    }
+
     public static void main(String[] args) {
-        final int[] a = distinctNumbersBrute(new int[] {1, 2, 3, 2, 2, 1, 3}, 3);
-        printArray(a);
+        printArray(distinctNumbers1(new int[] {1, 2, 3, 2, 2, 1, 3}, 3));
+        printArray(distinctNumbers2(new int[] {1, 2, 3, 2, 2, 1, 3}, 3));
     }
 }
