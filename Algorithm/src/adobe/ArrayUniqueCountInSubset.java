@@ -25,7 +25,7 @@ import static util.CommonUtils.printArray;
 
 public class ArrayUniqueCountInSubset {
     // Time  Complexity: O(n * k)
-   // Space Complexity: O(k)
+   //  Space Complexity: O(k)
     public static int[] distinctNumbers1(int[] nums, int k) {
         int n = nums.length - k + 1;
         int[] a = new int[n];
@@ -40,8 +40,8 @@ public class ArrayUniqueCountInSubset {
         return a;
     }
 
-     // Time Complexity: O(n)
-    // Space Complexity: O(k)
+     // Time  Complexity: O(n)
+    //  Space Complexity: O(k)
     public static int[] distinctNumbers2(int[] a, int k) {
         int n = a.length - k + 1;
         int[] res = new int[n];
