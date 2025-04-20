@@ -20,10 +20,10 @@ public class DFSTraversal {
         Graph g = createGraph(4);
         DFS(g, 0, new boolean[g.getV()]);   // 0 1 2 3
         System.out.println();
-        DFS(g, 1, new boolean[g.getV()]);  // 1 2 0 3
+        DFS(g, 1, new boolean[g.getV()]);  //  1 2 0 3
         System.out.println();
-        DFS(g, 2, new boolean[g.getV()]);  // 2 0 1 3
+        DFS(g, 2, new boolean[g.getV()]);  //  2 0 1 3
         System.out.println();
-        DFS(g, 3, new boolean[g.getV()]);  // 3
+        DFS(g, 3, new boolean[g.getV()]);  //  3
     }
 }
