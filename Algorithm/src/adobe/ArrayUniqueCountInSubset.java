@@ -10,7 +10,7 @@ import static util.CommonUtils.printArray;
 /*
   * Given an integer array nums and an integer k,
   * you are asked to construct the array A of size n-k+1 where A[i] is the number
-  * of distinct numbers in the subarray nums[i:i+k-1] = [nums[i], nums[i+1], ..., nums[i+k-1]].
+  * of distinct numbers in the subarray nums[i: i+k-1] = [nums[i], nums[i+1], ..., nums[i+k-1]].
   *
   *  Input: nums = [1,2,3,2,2,1,3], k = 3
   Output: [3,2,2,2,3]
