@@ -6,6 +6,7 @@ import java.util.Queue;
 import static graph.CreateGraph.createGraph;
 
 public class BFSTraversal {
+
     public static void BFS(Graph g, int v, boolean[] visited) {
         Queue<Integer> q = new LinkedList<>();
         visited[v] = true;
