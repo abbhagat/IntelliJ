@@ -1,7 +1,7 @@
 package dynamicProgramming;
 
-// Time Complexity : O(n)
-// Auxiliary Space : O(n)
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class DifferentWaysToExpressNAsSumOf134 {
 
     private static int countWays(int n) {

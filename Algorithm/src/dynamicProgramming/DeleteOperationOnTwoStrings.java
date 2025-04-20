@@ -2,7 +2,7 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
-/*
+/**
 Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.
 Example 1:
 
@@ -15,10 +15,10 @@ Input: word1 = "leetcode", word2 = "etco"
 Output: 4
 
 The intuition behind this is to find the LCS (Longest Common Subsequence) between the two strings.
-The characters that are not part of the LCS need to be deleted in order to make the two strings equal.
+The characters that are not part of the LCS need to be deleted to make the two strings equal.
 By subtracting the LCS count from the total length of the strings, we can determine the characters that need to be deleted.
 This approach allows us to calculate the total number of deletions required to achieve string equality.
- */
+*/
 
 public class DeleteOperationOnTwoStrings {
 
@@ -52,8 +52,8 @@ public class DeleteOperationOnTwoStrings {
             }
         }
         int lcs = dp[m][n];
-        int del = s1.length() - lcs;   // no. of deletions
-        int ins = s2.length() - lcs;  // no. of insertions
+        int del = s1.length() - lcs;   // no of deletions
+        int ins = s2.length() - lcs;  //  no of insertions
         return ins + del;
     }
 

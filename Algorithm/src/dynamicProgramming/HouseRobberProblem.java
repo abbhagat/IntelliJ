@@ -46,7 +46,7 @@ public class HouseRobberProblem {
     }
 
     private static int maxGoldLootedDP(int[] a) {
-        int n = a.length;
+        int    n = a.length;
         int[] dp = new int[n];            // dp[i] represent the maximum value stolen so far after reaching house i.
         dp[0]    = a[0];
         dp[1]    = max(a[0], a[1]);
