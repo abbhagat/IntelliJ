@@ -20,11 +20,11 @@ public class FlatMapDemo {
         List<String> phones = people.values()
                 .stream()
                 .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+                .toList();
         List<String> phones1 = people.values()
                 .stream()
                 .flatMap(lists -> lists.stream())
-                .collect(Collectors.toList());
+                .toList();
         phones1.forEach(System.out::println);
         phones.forEach(System.out::println);
         Map<String, String> map = new LinkedHashMap<>();
