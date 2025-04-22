@@ -8,7 +8,7 @@ interface InterfaceA {
     }
 
     private void display() {
-
+        System.out.println("Interface A private method");
     }
 
     static void staticMethod() {

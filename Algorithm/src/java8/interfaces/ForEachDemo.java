@@ -18,7 +18,7 @@ public class ForEachDemo {
         });
         // traversing with Consumer interface implementation
         myList.forEach(new MyConsumer());
-        //myList.forEach(MyConsumer::accept);
+//        myList.forEach(MyConsumer::accept);
     }
 }
 

@@ -1,6 +1,5 @@
 package java8.stream;
 
-
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,13 +18,16 @@ public class SortMapWithKeyAndValue {
         map.put("C", 67);
         map.put("D", 1);
         System.out.println(map);
-        Map<String, Integer> result = map.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        Map<String, Integer> result = map
+                                        .entrySet()
+                                        .stream()
+                                        .sorted(Map.Entry.comparingByKey())
+                                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        //                              .collect(Collectors.toMap(entry-> entry.getKey(), entry -> entry.getValue()));
         System.out.println(result);
-        result = map.entrySet().stream()
+        result = map
+                .entrySet()
+                .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
         System.out.println(result);

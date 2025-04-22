@@ -37,7 +37,7 @@ public class FlatMapDemo {
         List<String> listOfAllChars = Arrays.stream(dataArray)
 //                                          .flatMap(Arrays::stream)
                                             .flatMap(s -> Arrays.stream(s))
-                                            .collect(Collectors.toList());
+                                            .toList();
         System.out.println(listOfAllChars);
 
         int[] a = {1, 2, 3, 4, 5};
