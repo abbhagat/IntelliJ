@@ -2,14 +2,15 @@ package searching;
 
 import java.util.Arrays;
 
-// Time Complexity O(log n)
+// Time Complexity O(n log n)
 
 public class BinarySearch {
 
     public static void main(String[] args) {
         int[] a = {20, 3, 45, 15, 6, 19, 8, 2, 1, 35, 123};
         Arrays.sort(a);
-        System.out.println(binarySearch(a, 0, a.length - 1, 35) ? "Present" : "Not Present");
+        var isPresent = binarySearch(a, 0, a.length - 1, 35);
+        System.out.println(isPresent ? "Present" : "Not Present");
     }
 
     static boolean binarySearch(int[] a, int low, int high, int n) {

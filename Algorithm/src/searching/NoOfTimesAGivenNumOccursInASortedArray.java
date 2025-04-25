@@ -1,5 +1,7 @@
 package searching;
 
+// Time  Complexity : O(log n)
+// Space Complexity : O(log n)
 public class NoOfTimesAGivenNumOccursInASortedArray {
 
     private static int binarySearchStartIndex(int[] a, int low, int high, int n) {

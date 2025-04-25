@@ -8,7 +8,8 @@ public class CharacterBinarySearch {
     public static void main(String[] args) {
         char[] a = {'a', 'b', 'c', 'd', 'e', 'f'};
         Arrays.sort(a);
-        System.out.println(binarySearch(a, 0, a.length - 1, 'c') ? "Present" : "Not Present");
+        var isPresent = binarySearch(a, 0, a.length - 1, 'c');
+        System.out.println(isPresent ? "Present" : "Not Present");
     }
 
     private static boolean binarySearch(char[] a, int low, int high, char c) {
