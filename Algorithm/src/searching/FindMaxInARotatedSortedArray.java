@@ -1,7 +1,8 @@
 package searching;
 
-// Time Complexity O(log N)
+// Time Complexity O(log n)
 public class FindMaxInARotatedSortedArray {
+
     private static int findMax(int[] a) {
         int low = 0, mid = 0, high = a.length - 1;
         while (low <= high) {

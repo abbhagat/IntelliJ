@@ -1,7 +1,8 @@
 package searching;
 
-// Time Complexity O(log N)
+// Time Complexity O(log n)
 public class FindMinInARotatedSortedArray {
+
     private static int findMinimum(int[] a) {
         int low = 0, high = a.length - 1;
         while (low < high) {
