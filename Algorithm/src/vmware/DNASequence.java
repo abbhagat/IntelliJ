@@ -2,6 +2,8 @@ package vmware;
 
 import java.util.*;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class DNASequence {
 
     private static List<String> findRepeatedDNASeq(String str) {
