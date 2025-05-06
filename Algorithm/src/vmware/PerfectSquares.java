@@ -5,6 +5,7 @@ package vmware;
 // Space Complexity : O(1)
 
 public class PerfectSquares {
+
     private static boolean isSquare(int n) {
         int sqRoot = (int) Math.sqrt(n);
         return sqRoot * sqRoot == n;

@@ -1,6 +1,6 @@
 package vmware;
 
-// Given an array of integers, in which 2 elements appears exactly once and all other elements appears exactly twice.
+// Given an array of integers, in which 2 elements appears exactly once and all other elements appear exactly twice.
 // Find the two numbers.
 
 // Time Complexity O(n)
