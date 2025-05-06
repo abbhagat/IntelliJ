@@ -23,13 +23,13 @@ public class HitCounter {
     }
 
     public int getHits(int timestamp) {
-        int result = 0;
+        int hits = 0;
         for (int i = 0; i < 10; i++) {
             if (timestamp - times[i] < 10) {
-                result += hits[i];
+                hits += this.hits[i];
             }
         }
-        return result;
+        return hits;
     }
 
     public static void main(String[] args) {
