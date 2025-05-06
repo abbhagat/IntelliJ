@@ -8,17 +8,18 @@ public class HitCounter {
     private final int[] hits, times;
 
     public HitCounter(int timeInSecs) {
-        this.hits = new int[timeInSecs];
+        this.hits  = new int[timeInSecs];
         this.times = new int[timeInSecs];
     }
 
     public void hit(int timestamp) {
         int i = timestamp % 10;
         if (times[i] != timestamp) {
-            times[i] = timestamp;
-            hits[i] = 1;
+            times[i]  = timestamp;
+            hits[i]   = 1;
+        } else {
+            hits[i]++;
         }
-        hits[i]++;
     }
 
     public int getHits(int timestamp) {
