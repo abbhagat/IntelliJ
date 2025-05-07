@@ -9,7 +9,7 @@ package vmware;
  * Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
  * Output: 3
  * Explanation:
- * Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+ * Start at station 3 (index 3) and fill up with 4 units of gas. Your tank = 0 + 4 = 4
  * Travel to station 4. Your tank = 4 - 1 + 5 = 8
  * Travel to station 0. Your tank = 8 - 2 + 1 = 7
  * Travel to station 1. Your tank = 7 - 3 + 2 = 6
@@ -20,10 +20,10 @@ package vmware;
  * Output: -1
  * Explanation:
  * You can't start at station 0 or 1, as there is not enough gas to travel to the next station.
- * Let's start at station 2 and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+ * Let's start at station 2 and fill up with 4 units of gas. Your tank = 0 + 4 = 4
  * Travel to station 0. Your tank = 4 - 3 + 2 = 3
  * Travel to station 1. Your tank = 3 - 3 + 3 = 3
- * You cannot travel back to station 2, as it requires 4 unit of gas, but you only have 3.
+ * You cannot travel back to station 2, as it requires 4 units of gas, but you only have 3.
  * Therefore, you can't travel around the circuit once no matter where you start.
  */
 

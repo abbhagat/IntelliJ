@@ -1,6 +1,7 @@
 package vmware;
 
 public class NumberOfStringSegments {
+
     private static int findNoOfSegments(String str) {
         return str.isEmpty() ? 0 : str.trim().split(" ").length;
     }
