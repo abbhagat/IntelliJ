@@ -1,5 +1,6 @@
 package util;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static java.lang.Integer.max;
@@ -82,6 +83,15 @@ public class CommonUtils {
     public static void printMatrix(char[][] M) {
         for (char[] c : M) {
             printArray(c);
+        }
+    }
+
+    public static void printArray(List<int[]> M) {
+        for (int[] x : M) {
+            for (int y : x) {
+                System.out.print(y + " ");
+            }
+            System.out.println();
         }
     }
 

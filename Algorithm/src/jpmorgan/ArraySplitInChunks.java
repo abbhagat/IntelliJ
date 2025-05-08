@@ -3,6 +3,8 @@ package jpmorgan;
 import java.util.ArrayList;
 import java.util.List;
 
+import static util.CommonUtils.printArray;
+
 public class ArraySplitInChunks {
 
     private static List<int[]> splitArray(int[] a, int splitSize) {
@@ -25,18 +27,7 @@ public class ArraySplitInChunks {
 
     public static void main(String[] args) {
         int[] a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        for (int[] x : splitArray(a, 2)) {
-            for (int y : x) {
-                System.out.print(y + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-        for (int[] x : splitArray(a, 3)) {
-            for (int y : x) {
-                System.out.print(y + " ");
-            }
-            System.out.println();
-        }
+        printArray(splitArray(a, 2));
+        printArray(splitArray(a, 3));
     }
 }
