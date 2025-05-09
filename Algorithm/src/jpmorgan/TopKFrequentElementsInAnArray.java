@@ -27,7 +27,7 @@ public class TopKFrequentElementsInAnArray {
                        .toArray();
     }
 
-    private static void topKFrequentWords(List<String> list) {
+    private static String[] topKFrequentWords(List<String> list) {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (String x : list) {
             map.put(x, map.getOrDefault(x, 0) + 1);
@@ -37,6 +37,9 @@ public class TopKFrequentElementsInAnArray {
                                                          .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                                                          .toList();
         sortedList.forEach(entry -> System.out.println(entry.getKey()));
+        return sortedList.stream()
+                .map(Map.Entry::getKey)
+                .toArray(String[]::new);
     }
 
     public static void main(String[] args) {
@@ -46,6 +49,8 @@ public class TopKFrequentElementsInAnArray {
         System.out.println();
         List<String> list = new ArrayList<>(List.of("Abhinaw", "Amit", "Aman", "Abhinaw", "Ankit", "Abhinaw", "Ankit"));
         list.sort(String::compareTo);
-        topKFrequentWords(list);
+        for (String s : topKFrequentWords(list)) {
+            System.out.print(s + " ");
+        }
     }
 }
