@@ -15,16 +15,16 @@ public class TopKFrequentElementsInAnArray {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
         List<Map.Entry<Integer, Integer>> sortedList = map.entrySet()
-                .stream()
-                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-                .toList();
+                                                          .stream()
+                                                          .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                                                          .toList();
         List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
         topKList.forEach(entry -> System.out.print(entry.getKey() + " "));
         System.out.println();
         return topKList.stream()
-                .map(Map.Entry::getKey)
-                .mapToInt(Integer::intValue)
-                .toArray();
+                       .map(Map.Entry::getKey)
+                       .mapToInt(Integer::intValue)
+                       .toArray();
     }
 
     private static void topKFrequentWords(List<String> list) {
@@ -33,9 +33,9 @@ public class TopKFrequentElementsInAnArray {
             map.put(x, map.getOrDefault(x, 0) + 1);
         }
         List<Map.Entry<String, Integer>> sortedList = map.entrySet()
-                .stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .toList();
+                                                         .stream()
+                                                         .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                                                         .toList();
         sortedList.forEach(entry -> System.out.println(entry.getKey()));
     }
 
