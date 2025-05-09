@@ -2,9 +2,10 @@ package jpmorgan;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static util.CommonUtils.printArray;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(n)
 public class ArraySplitInChunks {
 
     private static List<int[]> splitArray(int[] a, int splitSize) {

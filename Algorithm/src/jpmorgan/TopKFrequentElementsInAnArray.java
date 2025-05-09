@@ -17,7 +17,7 @@ public class TopKFrequentElementsInAnArray {
         List<Map.Entry<Integer, Integer>> sortedList = map.entrySet()
                 .stream()
                 .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-                .collect(Collectors.toList());
+                .toList();
         List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
         topKList.forEach(entry -> System.out.print(entry.getKey() + " "));
         System.out.println();
@@ -35,7 +35,7 @@ public class TopKFrequentElementsInAnArray {
         List<Map.Entry<String, Integer>> sortedList = map.entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .collect(Collectors.toList());
+                .toList();
         sortedList.forEach(entry -> System.out.println(entry.getKey()));
     }
 
