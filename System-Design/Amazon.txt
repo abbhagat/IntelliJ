@@ -1,12 +1,14 @@
 Requirements:-
 
-1. Search for a product                 |  GET List<Product> search(String searchString, String userId) Return list of products
-2. Get Recommendation on Home Page      |  GET List<Product> GetRecommendation(String userId)           Return list of 10 products
-3. Place Order                          |  POST placeOrder(@RequestBody Order and OrderItems)           Return boolean
-4. View the status of the order         |  GET Enumeration getOrderStatus(String orderId)               Return Order Status
+Functional Requirement:
+1. Search for a product                 |  GET  List<Product> search(String searchString, String userId) Return list of products
+2. Get Recommendation on Home Page      |  GET  List<Product> getRecommendation(String userId)           Return list of 10 products
+3. Place Order                          |  POST placeOrder(@RequestBody Order and OrderItems)            Return boolean
+4. View the status of the order         |  GET  Enumeration getOrderStatus(String orderId)               Return Order Status
 5. Write/View Product Review            |  POST addReview(@RequestBody  Review review)
 6. Send Notification of various events  |
 
+Non-Functional Requirement:
 1. Low Latency       [ Recommendation and Search]
 2. High Consistency  [ Placing Order, Order Status, Payment ]
 3. High Availability
@@ -17,8 +19,8 @@ Tables:
 
 Capacity Estimation
 
-Search      -> 1k/sec  300M Active Users and each user makes 10 searches/month
-Data Volume -> 100 TB Storage Assuming there are 10M products and 1 product takes 10 MB
+Search      -> 1k/sec 300M Active Users, and each user makes 10 searches/month
+Data Volume -> 100 TB Storage Assuming there are 10M products, and 1 product takes 10 MB
 We would require an S3 storage.
 
 @Entity
@@ -35,6 +37,7 @@ public class Order {
 @Entity
 public class OrderItem {
   @Id
+  @Column(name="ORDER_ITEM_ID")
   private int orderItemId;
 
   @ManyToOne
