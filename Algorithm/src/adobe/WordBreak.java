@@ -29,7 +29,7 @@ public class WordBreak {
     public static boolean wordBreak(String str, List<String> list) {
         int n = str.length();
         boolean[] dp = new boolean[n + 1];  // To keep track of the words, whether a substring of str can be segmented into words from the dictionary
-        dp[0] = true;                      // An empty string can always be segmented
+        dp[0] = true;                      //  An empty string can always be segmented
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j <= i; j++) {
                 String s = str.substring(j, i);

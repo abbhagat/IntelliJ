@@ -24,6 +24,7 @@ import java.util.Set;
 // Time  Complexity: O(2^n)
 // Space Complexity: O(m + n)
 public class WordBreakII {
+
     public static List<String> wordBreak(String s, List<String> wordDict) {
         List<String> list = new ArrayList<>();
         wordBreak(0, s, new StringBuilder(), new HashSet<>(wordDict), list);
