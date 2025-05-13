@@ -2,6 +2,8 @@ package adobe;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 import static java.lang.Integer.max;
 
 // Time  Complexity : O(n)
@@ -28,10 +30,7 @@ public class LongestSubstringWithKDistinctCharacters {
     // Time  Complexity : O(n)
     // Space Complexity : O(1)
     private static void kUniques(String s, int k) {
-        Set<Character> set = new HashSet<>();
-        for (char c : s.toCharArray()) {
-            set.add(c);
-        }
+        Set<Character> set = s.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
         if (set.size() < k) {
             System.out.print("Not enough unique characters");
             return;

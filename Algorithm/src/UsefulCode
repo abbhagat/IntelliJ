@@ -1,0 +1,21 @@
+1. Convert char[] to Set
+   Set<Character> set = charArray.chars()
+                                 .mapToObj(c -> (char) c)
+                                 .collect(Collectors.toSet());
+
+2. Convert Set to char[]
+   char[] charArray = set.stream()
+                          .map(String::valueOf)
+                          .collect(Collectors.joining())
+                          .toCharArray();
+3. Convert int[] to Set
+   Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
+
+4. Convert Set to int[]
+    int[] a = set.stream().mapToInt(i -> i).toArray();
+
+5. Find max and min in an array
+   int maxCandy = Arrays.stream(candies).reduce(0, Integer::max);
+   int minCandy = Arrays.stream(candies).reduce(0, Integer::min);
+
+6.

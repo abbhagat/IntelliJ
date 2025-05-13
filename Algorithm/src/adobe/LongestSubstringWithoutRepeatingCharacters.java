@@ -59,6 +59,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return max;
     }
 
+    // Time  Complexity : O(n)
+    // Space Complexity : O(1)
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int max = 0, j = 0;
