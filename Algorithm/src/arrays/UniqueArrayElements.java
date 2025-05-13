@@ -1,9 +1,6 @@
 package arrays;
 
-/*
- * Find the unique number that is present only once in array
- * while all the others are present three times.
-*/
+// Find the unique number that is present only once in an array while all the others are present three times.
 
 import java.util.HashMap;
 import java.util.Map;
