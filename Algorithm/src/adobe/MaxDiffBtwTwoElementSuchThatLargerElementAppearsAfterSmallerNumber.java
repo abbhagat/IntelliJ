@@ -26,7 +26,7 @@ public class MaxDiffBtwTwoElementSuchThatLargerElementAppearsAfterSmallerNumber 
     }
 
     public static void main(String[] args) {
-        System.out.println(maxDiff(new int[] {2, 3, 10}));
+        System.out.println(maxDiff(new int[] {4, 21, 3, 15, 10}));
         System.out.println(maxDiff(new int[] {2, 3, 10, 6, 4, 8, 1}));
         System.out.println(maxDiff(new int[] {7, 9, 5, 6, 3, 2}));
     }
