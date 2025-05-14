@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
-Soln 1: using a hashmap
-Soln 2: using a BST
-Soln 3: O(n^2)
- */
+Solution 1: Using Hashmap
+Solution 2: Using BST
+Solution 3: O(n^2)
+*/
 
 public class PrintRepeatingNumInArray {
 
