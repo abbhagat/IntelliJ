@@ -1,14 +1,14 @@
 package arrays;
 
-/*
+/**
 A string is said to be colindrome if it has consecutive 3 alphabets
 followed by the reverse of these 3 alphabets and so on.
 
 Input : cappaccappac
-Output : String is colindrome
+Output: String is colindrome
 
 Input : mollomaappaa
-Output : String is Colindrome
+Output: String is Colindrome
 
  */
 public class ColindromeString {
