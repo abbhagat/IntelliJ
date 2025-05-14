@@ -29,7 +29,7 @@ public class CountAsterisks {
             if (c == '|') {
                 insidePipe = !insidePipe;
             }
-            if (!insidePipe && c == '*') {
+            if (c == '*'  && !insidePipe) {
                 count++;
             }
         }

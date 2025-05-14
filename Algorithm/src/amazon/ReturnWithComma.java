@@ -1,6 +1,6 @@
 package amazon;
 
-// Time  Complexity  O(n)
+// Time  Complexity : O(n)
 public class ReturnWithComma {
 
     public static String returnWithCommas(String s, final int k) {

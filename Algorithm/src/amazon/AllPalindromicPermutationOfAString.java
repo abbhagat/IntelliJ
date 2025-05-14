@@ -23,16 +23,16 @@ public class AllPalindromicPermutationOfAString {
         }
     }
 
-    private static List<List<String>> findAllPalindromicPermutation(int index, String str, List<String> list, List<List<String>> lists) {
+    private static List<LinkedList<String>> findAllPalindromicPermutation(int index, String str, LinkedList<String> list, List<LinkedList<String>> lists) {
         if (index == str.length()) {
-            lists.add(new ArrayList<>(list));
+            lists.add(new LinkedList<>(list));
         }
         for (int i = index; i < str.length(); i++) {
             String s = str.substring(index, i + 1);
             if (s.contentEquals(new StringBuilder(s).reverse())) {
                 list.add(s);
                 findAllPalindromicPermutation(i + 1, str, list, lists);
-                list.remove(list.size() - 1);
+                list.removeLast();
             }
         }
         return lists;
@@ -44,9 +44,9 @@ public class AllPalindromicPermutationOfAString {
         findAllPalindromicPermutation(0, "nitin", new LinkedList<>());
         findAllPalindromicPermutation(0, "geeks", new LinkedList<>());
         System.out.println();
-        System.out.println(findAllPalindromicPermutation(0, "xx"   , new ArrayList<>(), new ArrayList<>()));
-        System.out.println(findAllPalindromicPermutation(0, "madam", new ArrayList<>(), new ArrayList<>()));
-        System.out.println(findAllPalindromicPermutation(0, "nitin", new ArrayList<>(), new ArrayList<>()));
-        System.out.println(findAllPalindromicPermutation(0, "geeks", new ArrayList<>(), new ArrayList<>()));
+        System.out.println(findAllPalindromicPermutation(0, "xx"   , new LinkedList<>(), new ArrayList<>()));
+        System.out.println(findAllPalindromicPermutation(0, "madam", new LinkedList<>(), new ArrayList<>()));
+        System.out.println(findAllPalindromicPermutation(0, "nitin", new LinkedList<>(), new ArrayList<>()));
+        System.out.println(findAllPalindromicPermutation(0, "geeks", new LinkedList<>(), new ArrayList<>()));
     }
 }
