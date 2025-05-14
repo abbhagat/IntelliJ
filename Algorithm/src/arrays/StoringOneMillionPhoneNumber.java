@@ -4,16 +4,16 @@ public class StoringOneMillionPhoneNumber {
 
     private static final boolean[] flag = new boolean[1000000000];
 
-    private static void add(int idx) {
-        flag[idx] = true;
+    private static void add(int index) {
+        flag[index] = true;
     }
 
-    private static void remove(int idx) {
-        flag[idx] = false;
+    private static void remove(int index) {
+        flag[index] = false;
     }
 
-    private static boolean isPresent(int idx) {
-        return flag[idx];
+    private static boolean isPresent(int index) {
+        return flag[index];
     }
 
     public static void main(String[] args) {
