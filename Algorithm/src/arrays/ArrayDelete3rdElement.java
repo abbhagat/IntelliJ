@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 // Time Complexity O(n^2)
@@ -12,13 +13,11 @@ public class ArrayDelete3rdElement {
             System.arraycopy(a, i + 1, a, i, n - i - 1);
             n--;
         }
-        IntStream.range(n, a.length).forEach(i -> a[i] = 0);
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        Arrays.fill(a, n, a.length, 0);
+        System.out.println(Arrays.toString(a));
     }
 
     public static void main(String[] args) {
-        modifyArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2);
-        System.out.println();
         modifyArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3);
     }
 }
