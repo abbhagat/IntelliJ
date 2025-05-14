@@ -18,4 +18,5 @@
    int maxCandy = Arrays.stream(candies).reduce(0, Integer::max);
    int minCandy = Arrays.stream(candies).reduce(0, Integer::min);
 
-6.
+6. new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
+   LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
