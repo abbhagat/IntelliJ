@@ -12,15 +12,11 @@ public class QuickSort {
         for (Node j = low; j != high; j = j.right) {
             if (j.num <= pivot) {
                 i = (i == null) ? low : i.right;
-                int temp = i.num;
-                i.num = j.num;
-                j.num = temp;
+                swap(i, j);
             }
         }
         i = (i == null) ? low : i.right;
-        int temp = i.num;
-        i.num = high.num;
-        high.num = temp;
+        swap(i, high);
         return i;
     }
 
@@ -32,9 +28,15 @@ public class QuickSort {
         }
     }
 
+    private static void swap(Node x, Node y) {
+        int temp = x.num;
+        x.num = y.num;
+        y.num = temp;
+    }
+
     public static void main(String[] args) {
         Node head = null;
-        int[] a = {10, 3, 4, 6, 9, 2, 1, 5, 8, 7};
+        int[] a = {1, 3, 5, 2, 4};
         for (int x : a) {
             head = createList(x, null);
         }
