@@ -8,6 +8,7 @@ class Subject {
 
     @Getter
     private int state;
+
     private final List<Observer> observers = new ArrayList<>();
 
     public void setState(int state) {
@@ -16,11 +17,11 @@ class Subject {
     }
 
     public void addObserver(Observer observer) {
-        observers.add(observer);
+        this.observers.add(observer);
     }
 
     private void notifyAllObservers() {
-        observers.forEach(observer -> observer.notify(observer));
+        this.observers.forEach(observer -> observer.notify(observer));
     }
 }
 

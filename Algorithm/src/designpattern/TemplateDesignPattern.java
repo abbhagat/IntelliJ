@@ -9,28 +9,28 @@ package designpattern;
 
 abstract class Games {
 
-    abstract void initialize();
-    abstract void startPlay();
-    abstract void endPlay();
+    abstract void init();
+    abstract void start();
+    abstract void end();
 
     public final void play() {
-        initialize();
-        startPlay();
-        endPlay();
+        init();
+        start();
+        end();
     }
 }
 
 class Cricket extends Games {
 
-    void initialize() {
+    void init() {
         System.out.println("Cricket Game Initialized! Start playing.");
     }
 
-    void startPlay() {
+    void start() {
         System.out.println("Cricket Game Started. Enjoy the game!");
     }
 
-    void endPlay() {
+    void end() {
         System.out.println("Cricket Game Finished!");
     }
 
@@ -38,21 +38,22 @@ class Cricket extends Games {
 
 class Football extends Games {
 
-    void initialize() {
+    void init() {
         System.out.println("Football Game Initialized! Start playing.");
     }
 
-    void startPlay() {
+    void start() {
         System.out.println("Football Game Started. Enjoy the game!");
     }
 
-    void endPlay() {
+    void end() {
         System.out.println("Football Game Finished!");
     }
 
 }
 
 public class TemplateDesignPattern {
+
     public static void main(String[] args) {
         Games game = new Cricket();
         game.play();
