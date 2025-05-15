@@ -15,7 +15,7 @@ interface Iterable {
 
 class NameRepository implements Iterable {
 
-    private final List<String> names = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
+    private final List<String> nameList = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
 
     @Override
     public Iterator iterator() {
@@ -23,31 +23,33 @@ class NameRepository implements Iterable {
     }
 
     private class NameIterator implements Iterator {
-        int index = 0;
+
+        private int index = 0;
 
         @Override
         public boolean hasNext() {
-            return index < names.size();
+            return index < nameList.size();
         }
 
         @Override
         public Object next() {
-            return names.get(index++);
+            return nameList.get(index++);
         }
 
         @Override
         public Object curr() {
-            return names.get(index);
+            return nameList.get(index);
         }
     }
 }
 
 public class IteratorDesignPattern {
+
     public static void main(String[] args) {
         NameRepository nameRepository = new NameRepository();
         Iterator iterator = nameRepository.iterator();
+        System.out.println(iterator.curr());
         while (iterator.hasNext()) {
-            System.out.println(iterator.curr());
             System.out.println(iterator.next());
         }
     }

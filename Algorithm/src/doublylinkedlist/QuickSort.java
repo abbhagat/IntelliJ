@@ -6,21 +6,29 @@ import static doublylinkedlist.TraverseList.traverseList;
 
 public class QuickSort {
 
-    private static Node partition(Node head, Node last) {
-        int x  = head.num;
-        Node i = last.left;                             // similar to i = last-1 for array implementation
-        i = (i == null) ? last : i.right;         // Similar to i++
+    private static Node partition(Node low, Node high) {
+        int pivot = high.num;
+        Node i = low.left;
+        for (Node j = low; j != high; j = j.right) {
+            if (j.num <= pivot) {
+                i = (i == null) ? low : i.right;
+                int temp = i.num;
+                i.num = j.num;
+                j.num = temp;
+            }
+        }
+        i = (i == null) ? low : i.right;
         int temp = i.num;
-        i.num = head.num;
-        head.num = temp;
+        i.num = high.num;
+        high.num = temp;
         return i;
     }
 
-    private static void quickSort(Node head, Node last) {
-        if (head != null && last != head && last != head.right) {
-            Node temp = partition(last, head);
-            quickSort(last, temp.left);
-            quickSort(temp.right, head);
+    private static void quickSort(Node low, Node high) {
+        if (low != null && high != null && low != high && low != high.right) {
+            Node pivot = partition(low, high);
+            quickSort(low, pivot.left);
+            quickSort(pivot.right, high);
         }
     }
 
