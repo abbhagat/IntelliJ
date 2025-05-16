@@ -1,12 +1,13 @@
 package interval;
 
 import util.Interval;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+// Time  Complexity : O(n log n)
+// Space Complexity : O(n)
 public class MeetingRoomsII {
 
     private static int findMinRooms(List<Interval> intervalList) {
