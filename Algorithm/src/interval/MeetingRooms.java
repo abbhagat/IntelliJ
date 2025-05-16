@@ -22,8 +22,29 @@ public class MeetingRooms {
         return true;
     }
 
+    private static boolean canAttendAllMeeting(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(x -> x[0]));
+        int end = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++) {
+            if (end < intervals[i][0]) {
+                end = intervals[i][1];
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        System.out.println(canAttendAllMeeting(Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20))));
-        System.out.println(canAttendAllMeeting(Arrays.asList(new Interval(7, 10), new Interval(2, 4))));
+        List<Interval> intervalList;
+        int[][] intervals;
+
+        intervalList = Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20));
+        intervals    = new int[][]{{0, 30}, {15, 20}, {5, 10}};
+        System.out.println(canAttendAllMeeting(intervalList) + "\t" + canAttendAllMeeting(intervals));
+
+        intervalList = Arrays.asList(new Interval(7, 10), new Interval(2, 4));
+        intervals    = new int[][]{{7, 10}, {2, 4}};
+        System.out.println(canAttendAllMeeting(intervalList) + "\t" + canAttendAllMeeting(intervals));
     }
 }

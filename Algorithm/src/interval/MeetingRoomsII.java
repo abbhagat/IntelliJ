@@ -24,6 +24,22 @@ public class MeetingRoomsII {
         return n;
     }
 
+    private static int findMinRooms(int[][] a) {
+        Arrays.sort(a, Comparator.comparingInt(i -> i[0]));
+        Arrays.sort(a, Comparator.comparingInt(i -> i[1]));
+        LinkedList<int[]> intervals = new LinkedList<>();
+        intervals.add(a[0]);
+        int n = 1;
+        for (int i = 1; i < a.length; i++) {
+            if (intervals.getLast()[0] < a[i][0] || intervals.getLast()[1] <= a[i][0]) {
+                intervals.add(a[i]);
+            } else {
+                n++;
+            }
+        }
+        return n;
+    }
+
     public static void main(String[] args) {
         System.out.println(findMinRooms(Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20))));
         System.out.println(findMinRooms(Arrays.asList(new Interval(7, 10), new Interval(2, 4))));
@@ -31,5 +47,14 @@ public class MeetingRoomsII {
         System.out.println(findMinRooms(Arrays.asList(new Interval(0, 5), new Interval(1, 2), new Interval(1, 10))));
         System.out.println(findMinRooms(Arrays.asList(new Interval(0, 1), new Interval(0, 2), new Interval(2, 3), new Interval(1, 3), new Interval(2, 4), new Interval(3, 5))));
         System.out.println(findMinRooms(Arrays.asList(new Interval(1, 18), new Interval(18, 23), new Interval(15, 29), new Interval(4, 15), new Interval(2, 11), new Interval(5, 13))));
+
+        System.out.println();
+
+        System.out.println(findMinRooms(new int[][]{{0, 30}, {5, 10}, {15, 20}}));
+        System.out.println(findMinRooms(new int[][]{{7, 10}, {2, 4}}));
+        System.out.println(findMinRooms(new int[][]{{0, 5}, {1, 2}, {6, 10}}));
+        System.out.println(findMinRooms(new int[][]{{0, 5}, {1, 2}, {1, 10}}));
+        System.out.println(findMinRooms(new int[][]{{0, 1}, {0, 2}, {2, 3}, {1, 3}, {2, 4}, {3, 5}}));
+        System.out.println(findMinRooms(new int[][]{{1, 18}, {18, 23}, {15, 29}, {4, 15}, {2, 11}, {5, 13}}));
     }
 }

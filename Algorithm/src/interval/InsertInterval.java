@@ -1,14 +1,12 @@
 package interval;
 
 import util.Interval;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
-// Time Complexity : O(n)
+// Time  Complexity : O(n)
 // Space Complexity : O(1)
 public class InsertInterval {
 
