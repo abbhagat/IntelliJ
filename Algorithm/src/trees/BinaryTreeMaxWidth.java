@@ -11,11 +11,11 @@ Constructed Binary tree is:
                 2      3
               /  \    /  \
              4    5  7    8
-                       /   \
-                      6     9
+                         / \
+                        6   9
 */
 
-// Time Complexity : O(n)
+// Time  Complexity : O(n)
 // Space Complexity: O(2^h)
 public class BinaryTreeMaxWidth {
 
