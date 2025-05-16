@@ -3,8 +3,8 @@ package strings;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class XMLOPerations {
-    static String xml = "<?xml version=\"1.0\"?>"
+public class XMLOperations {
+    private static String xml = "<?xml version=\"1.0\"?>"
             + "<config>"
             + "<Request name=\"ValidateEmailRequest\">"
             + "<requestqueue>emailrequest</requestqueue>"
