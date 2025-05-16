@@ -28,12 +28,12 @@ public class MeetingRoomsII {
     private static int findMinRooms(int[][] a) {
         Arrays.sort(a, Comparator.comparingInt(i -> i[0]));
         Arrays.sort(a, Comparator.comparingInt(i -> i[1]));
-        LinkedList<int[]> intervals = new LinkedList<>();
-        intervals.add(a[0]);
+        LinkedList<int[]> mergeInterval = new LinkedList<>();
+        mergeInterval.add(a[0]);
         int n = 1;
         for (int i = 1; i < a.length; i++) {
-            if (intervals.getLast()[0] < a[i][0] || intervals.getLast()[1] <= a[i][0]) {
-                intervals.add(a[i]);
+            if (mergeInterval.getLast()[0] < a[i][0] || mergeInterval.getLast()[1] <= a[i][0]) {
+                mergeInterval.add(a[i]);
             } else {
                 n++;
             }
