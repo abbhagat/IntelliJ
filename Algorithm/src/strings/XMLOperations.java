@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class XMLOperations {
+
     private static String xml = "<?xml version=\"1.0\"?>"
             + "<config>"
             + "<Request name=\"ValidateEmailRequest\">"
