@@ -1,7 +1,9 @@
 package vmware;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
 Given two strings s and p, return an array of all the start indices of p's anagrams in s.
@@ -24,10 +26,10 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 public class FindAllAnagramsInAString {
 
     private static List<Integer> findAnagrams(String s, String p) {
-        List<Integer> list = new ArrayList<>();
         if (s.length() < p.length()) {
-            return list;
+            return Collections.emptyList();
         }
+        List<Integer> list = new ArrayList<>();
         int[] sData = new int[128];
         int[] pData = new int[128];
         for (int i = 0; i < p.length(); i++) {

@@ -6,14 +6,16 @@ package vmware;
 public class HitCounter {
 
     private final int[] hits, times;
+    private final int time;
 
-    public HitCounter(int timeInSecs) {
+    public HitCounter(int timeInSecs, int time) {
         this.hits  = new int[timeInSecs];
         this.times = new int[timeInSecs];
+        this.time  = time;
     }
 
     public void hit(int timestamp) {
-        int i = timestamp % 10;
+        int i = timestamp % time;
         if (times[i] != timestamp) {
             times[i]  = timestamp;
             hits[i]   = 1;
@@ -24,8 +26,8 @@ public class HitCounter {
 
     public int getHits(int timestamp) {
         int hits = 0;
-        for (int i = 0; i < 10; i++) {
-            if (timestamp - times[i] < 10) {
+        for (int i = 0; i < time; i++) {
+            if (timestamp - times[i] < time) {
                 hits += this.hits[i];
             }
         }
@@ -33,7 +35,7 @@ public class HitCounter {
     }
 
     public static void main(String[] args) {
-        HitCounter counter = new HitCounter(10);
+        HitCounter counter = new HitCounter(10, 10);
         counter.hit(1);
         counter.hit(2);
         counter.hit(2);
