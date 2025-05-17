@@ -30,9 +30,11 @@ public class SingleNumber {
     }
 
     public static void main(String[] args) {
-        singleNumber(new int[]{2, 2, 1});
-        singleNumberSolnWithMap(new int[]{2, 2, 1});
-        singleNumber(new int[]{4, 1, 2, 1, 2});
-        singleNumberSolnWithMap(new int[]{4, 1, 2, 1, 2});
+        int[] a  = {2, 2, 1};
+        singleNumber(a);
+        singleNumberSolnWithMap(a);
+        int[] b = {4, 1, 2, 1, 2};
+        singleNumber(b);
+        singleNumberSolnWithMap(b);
     }
 }
