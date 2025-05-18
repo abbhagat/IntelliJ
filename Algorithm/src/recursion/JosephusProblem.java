@@ -1,6 +1,5 @@
 package recursion;
 
-
 /**
 There are n people standing in a circle waiting to be executed.
 The counting out begins at some point in the circle and proceeds around the circle in a fixed direction.

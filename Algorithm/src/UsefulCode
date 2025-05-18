@@ -5,9 +5,9 @@
 
 2. Convert Set to char[]
    char[] charArray = set.stream()
-                          .map(String::valueOf)
-                          .collect(Collectors.joining())
-                          .toCharArray();
+                         .map(String::valueOf)
+                         .collect(Collectors.joining())
+                         .toCharArray();
 3. Convert int[] to Set
    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
 
