@@ -1,6 +1,6 @@
 package matrix;
 
-public class    Sudoku {
+public class Sudoku {
 
     private static final char[][] board = {
             {3, 0, 6, 5, 0, 8, 4, 0, 0},
