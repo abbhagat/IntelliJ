@@ -1,8 +1,7 @@
 package searching;
 
-// Time Complexity: O(log n)
-// Space Complexity:O(1), No extra space is required.
-
+// Time  Complexity: O(log n)
+// Space Complexity: O(1)
 public class SearchAnElementInSortedAndRotatedArray {
 
     private static int pivotedBinarySearch(int[] a, int n) {

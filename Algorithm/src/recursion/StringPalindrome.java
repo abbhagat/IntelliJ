@@ -10,6 +10,7 @@ public class StringPalindrome {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("MADAM"));
+        System.out.println(isPalindrome("MADAM") ? "Palindrome" : "Not Palindrome");
+        System.out.println(isPalindrome("MADDM") ? "Palindrome" : "Not Palindrome");
     }
 }

@@ -4,12 +4,6 @@ import java.util.Arrays;
 
 public class StringBinarySearch {
 
-    public static void main(String[] args) {
-        String[] str = {"A", "B", "C", "F", "I", "S"};
-        Arrays.sort(str);
-        System.out.println(binarySearch(str, 0, str.length - 1, "F"));
-    }
-
     private static int binarySearch(String[] str, int low, int high, String s) {
         if (low <= high) {
             int mid = (low + high) / 2;
@@ -21,4 +15,11 @@ public class StringBinarySearch {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        String[] str = {"A", "B", "C", "F", "I", "S"};
+        Arrays.sort(str);
+        System.out.println(binarySearch(str, 0, str.length - 1, "F"));
+    }
+
 }

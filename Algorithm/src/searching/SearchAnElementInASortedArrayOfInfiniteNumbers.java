@@ -1,7 +1,7 @@
 package searching;
 
-// Time Complexity: O(log N)
-// Auxiliary Space: O(1)
+// Time  Complexity: O(log n)
+// Space Complexity: O(1)
 public class SearchAnElementInASortedArrayOfInfiniteNumbers {
 
     private static int search(int[] a, int n) {
