@@ -7,18 +7,18 @@ package vmware;
 public class SingleNumberII {
 
     private static int singleNumberII(int[] a) {
-        int result = 0;
+        int n = 0;
         for (int i = 0; i < 32; i++) {
             int sum = 0;
-            for (int n : a) {
-                if ((n >> i & 1) == 1) {
+            for (int x : a) {
+                if ((x >> i & 1) == 1) {
                     sum++;
                 }
             }
             sum %= 3;
-            result |= sum << i;
+            n |= sum << i;
         }
-        return result;
+        return n;
     }
 
     public static void main(String[] args) {
