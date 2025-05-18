@@ -11,7 +11,7 @@ class ThreadPool {
 
     public ThreadPool(int numThreads) {
         taskQueue = new LinkedBlockingQueue<>();
-        threads = new Thread[numThreads];
+        threads   = new Thread[numThreads];
         isStopped = false;
         for (int i = 0; i < numThreads; i++) {
             threads[i] = new Worker(taskQueue);
@@ -28,7 +28,7 @@ class ThreadPool {
 
     public void stop() {
         isStopped = true;
-        for (Thread thread : threads) {
+        for (Thread thread : threads) { // Arrays.stream(threads).forEach(Thread::interrupt);
             thread.interrupt();
         }
     }
@@ -36,7 +36,7 @@ class ThreadPool {
     public void waitUntilAllTasksFinished() {
         while (!taskQueue.isEmpty()) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -68,7 +68,7 @@ class ThreadPool {
 public class ThreadPoolImpl {
 
     public static void main(String[] args) {
-        ThreadPool threadPool = new ThreadPool(4);
+        ThreadPool threadPool = new ThreadPool(5);
         for (int i = 0; i < 10; i++) {
             final int taskNum = i;
             threadPool.execute(() -> System.out.println(Thread.currentThread().getName() + " is executing task " + taskNum));
