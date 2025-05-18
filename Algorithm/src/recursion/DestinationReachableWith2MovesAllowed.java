@@ -7,13 +7,11 @@ From any point (x, y) there are only two types of valid movements:
 Note: All coordinates are positive.
 
 Input: (x1, y1) = (2, 10)
-        (x2, y2) = (26, 12)
-Output : true
-         (2, 10)->(2, 12)->(14, 12)->(26, 12) is a valid path.
+       (x2, y2) = (26, 12)
+Output: -> (2, 10)->(2, 12)->(14, 12)->(26, 12) is a valid path.
 Input: (x1, y1) = (20, 10)
        (x2, y2) = (6, 12)
-Output : false
-No such path is possible because x1 > x2 and coordinates are positive
+Output: false -> No such path is possible because x1 > x2 and coordinates are positive
 */
 
 public class DestinationReachableWith2MovesAllowed {

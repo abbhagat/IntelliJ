@@ -4,7 +4,7 @@ import static java.lang.Integer.max;
 
 public class HCF {
 
-    // Time Complexity: O log(min(x,y))
+    // Time Complexity : O log(min(x,y))
     // Space Complexity: O log(min(x,y))
     private static int findHCF(int x, int y) {
         return y == 0 ? x : findHCF(y, x % y);
