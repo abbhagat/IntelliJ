@@ -8,7 +8,7 @@ public class HomeResource {
 
     @GetMapping(value = "/")
     public String home() {
-        return "<H1>Welcome</H1>";
+        return "<H1>Welcome Home</H1>";
     }
 
     @GetMapping(value = "/user")

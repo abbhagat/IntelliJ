@@ -22,13 +22,13 @@ public class UserDetail implements UserDetails {
     }
 
     public UserDetail(User user) {
-        this.id = user.getId();
-        this.userName = user.getUserName();
-        this.password = user.getPassword();
-        this.active = user.isActive();
+        this.id          = user.getId();
+        this.userName    = user.getUserName();
+        this.password    = user.getPassword();
+        this.active      = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+                                                        .map(SimpleGrantedAuthority::new)
+                                                        .collect(Collectors.toList());
     }
 
     @Override

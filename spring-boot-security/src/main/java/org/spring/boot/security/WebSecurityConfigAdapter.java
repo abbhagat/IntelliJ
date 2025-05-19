@@ -15,17 +15,22 @@ import org.springframework.stereotype.Component;
 @EnableWebSecurity
 public class WebSecurityConfigAdapter extends WebSecurityConfigurerAdapter {
 
+    private final UserDetailService userDetailService;
+
     @Autowired
-    private UserDetailService userDetailService;
+    public WebSecurityConfigAdapter(UserDetailService userDetailService) {
+        this.userDetailService = userDetailService;
+    }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailService);
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(userDetailService);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/admin").hasRole("admin")
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("admin")
                 .antMatchers("/user").hasAnyRole("admin", "user")
                 .antMatchers("/").permitAll()
                 .and().csrf().and().cors().and().formLogin();

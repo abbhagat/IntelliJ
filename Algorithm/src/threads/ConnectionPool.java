@@ -17,7 +17,7 @@ public class ConnectionPool {
     private static final int MAX_POOL_SIZE = 10;
 
     public ConnectionPool() {
-        this.driverName = "oracle.jdbc.driver.OracleData";
+        this.driverName = "oracle.jdbc.driver.OracleDriver";
         this.url = "jdbc:oracle:thin:@localhost:1521:XE";
         this.username = "system";
         this.password = "zed";
