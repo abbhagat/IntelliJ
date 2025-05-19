@@ -33,7 +33,7 @@ public class ArrayRotation {
     public static void main(String[] args) {
         arrayRotate(new int[]{1, 2, 3, 4, 5,6, 7}, 3, "left");      // 5 6 7 1 2 3 4
         arrayRotate(new int[]{1, 2, 3, 4, 5,6, 7}, 3, "right");    //  4 5 6 7 1 2 3
-        arrayRotate(new int[]{1, 2, 3, 4, 5}, 2, "left");         //   4 5 1 2 3
-        arrayRotate(new int[]{1, 2, 3, 4, 5}, 2, "right");       //    3 4 5 1 2
+        arrayRotate(new int[]{1, 2, 3, 4, 5},      2, "left");    //   4 5 1 2 3
+        arrayRotate(new int[]{1, 2, 3, 4, 5},      2, "right");  //    3 4 5 1 2
     }
 }
