@@ -14,21 +14,21 @@ public class LongestSubstringWithKDistinctCharacters {
             return;
         }
         Map<Character, Integer> map = new HashMap<>();
-        int start = 0, maxLength = 0, maxStart = 0;
-        for (int end = 0; end < s.length(); end++) {
-            char endChar = s.charAt(end);
-            map.put(endChar, map.getOrDefault(endChar, 0) + 1);
+        int j = 0, maxLength = 0, maxStart = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char x = s.charAt(i);
+            map.put(x, map.getOrDefault(x, 0) + 1);
             while (map.size() > k) {
-                char startChar = s.charAt(start);
-                map.put(startChar, map.get(startChar) - 1);
-                if (map.get(startChar) == 0) {
-                    map.remove(startChar);
+                char y = s.charAt(j);
+                map.put(y, map.get(y) - 1);
+                if (map.get(y) == 0) {
+                    map.remove(y);
                 }
-                start++;
+                j++;
             }
-            if (end - start + 1 > maxLength) {
-                maxLength = end - start + 1;
-                maxStart = start;
+            if (i - j + 1 > maxLength) {
+                maxLength = i - j + 1;
+                maxStart = j;
             }
         }
         System.out.println(s.substring(maxStart, maxStart + maxLength) + "\t" + maxLength);
