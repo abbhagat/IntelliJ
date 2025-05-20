@@ -1,73 +1,43 @@
 package adobe;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static java.lang.Integer.max;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(1)
 public class LongestSubstringWithKDistinctCharacters {
 
-    private static int lengthOfLongestSubstringKDistinct(char[] c, int k) {
-        int max = 0, distinct = 0, j = 0;
-        int[] temp = new int[26];
-        for (int i = 0; i < c.length; i++) {
-            if (++temp[c[i] - 'a'] == 1) {
-                distinct++;
-            }
-            while (distinct == k + 1) {
-                if (--temp[c[j++] - 'a'] == 0) {
-                    distinct--;
-                }
-            }
-            max = max(max, i - j + 1);
-        }
-        return max;
-    }
-
-    // Time  Complexity : O(n)
-    // Space Complexity : O(1)
-    private static void kUniques(String s, int k) {
-        Set<Character> set = s.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
-        if (set.size() < k) {
-            System.out.print("Not enough unique characters");
+    public static void longestSubstringWithKDistinctCharacters(String s, int k) {
+        if (s == null || s.isEmpty() || k <= 0) {
             return;
         }
-        int start = 0, end = 0, startIndex = 0, max_window_size = 1;
-        int[] temp = new int[128];
-        temp[s.charAt(0)]++;
-        for (int i = 1; i < s.length(); i++) {
-            temp[s.charAt(i)]++;
-            end++;
-            while (!isValid(temp, k)) {
-                temp[s.charAt(start)]--;
+        Map<Character, Integer> map = new HashMap<>();
+        int start = 0, maxLength = 0, maxStart = 0;
+        for (int end = 0; end < s.length(); end++) {
+            char endChar = s.charAt(end);
+            map.put(endChar, map.getOrDefault(endChar, 0) + 1);
+            while (map.size() > k) {
+                char startChar = s.charAt(start);
+                map.put(startChar, map.get(startChar) - 1);
+                if (map.get(startChar) == 0) {
+                    map.remove(startChar);
+                }
                 start++;
             }
-            if (end - start + 1 > max_window_size) {
-                max_window_size = end - start + 1;
-                startIndex = start;
+            if (end - start + 1 > maxLength) {
+                maxLength = end - start + 1;
+                maxStart = start;
             }
         }
-        System.out.println("Max substring is : " + s.substring(startIndex, startIndex + max_window_size) + " with length " + max_window_size);
-    }
-
-    private static boolean isValid(int[] temp, int k) {
-        int count = 0;
-        for (int x : temp) {
-            if (x > 0) {
-                count++;
-            }
-        }
-        return count <= k;
+        System.out.println(s.substring(maxStart, maxStart + maxLength));
     }
 
     public static void main(String[] args) {
-        kUniques("aabacbebebe", 3);
-        System.out.println(lengthOfLongestSubstringKDistinct("aabacbebebe".toCharArray(), 3));
-        kUniques("aabbcc", 1);
-        kUniques("aabbcc", 2);
-        kUniques("aabbcc", 3);
+        longestSubstringWithKDistinctCharacters("aabacbebebe", 3);
+        longestSubstringWithKDistinctCharacters("aabbcc", 1);
+        longestSubstringWithKDistinctCharacters("aabbcc", 2);
+        longestSubstringWithKDistinctCharacters("aabbcc", 3);
     }
 }

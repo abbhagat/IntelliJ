@@ -9,7 +9,7 @@ import static java.lang.Integer.max;
 // Space Complexity : O(k) k = Size of the character set
 public class LongestSubstringWithoutRepeatingCharacters {
 
-    public static void lengthOfLongestSubstring(String s) {
+    public static void longestSubstring(String s) {
         Set<Character> set = new LinkedHashSet<>();
         int max = 0, j = 0;
         String maxString = "";
@@ -27,11 +27,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        lengthOfLongestSubstring("abcabcbb");
-        lengthOfLongestSubstring("aabacbebebe");
-        lengthOfLongestSubstring("bbbbb");
-        lengthOfLongestSubstring("pwwkew");
-        lengthOfLongestSubstring("geeksforgeeks");
-        lengthOfLongestSubstring("kyckyckk");
+        longestSubstring("abcabcbb");
+        longestSubstring("aabacbebebe");
+        longestSubstring("bbbbb");
+        longestSubstring("pwwkew");
+        longestSubstring("geeksforgeeks");
+        longestSubstring("kyckyckk");
     }
 }
