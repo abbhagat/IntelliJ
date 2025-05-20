@@ -9,6 +9,11 @@
                          .collect(Collectors.joining())
                          .toCharArray();
 
+3. Convert Set<Character> to String
+   String result = set.stream()
+                      .map(String::valueOf)
+                      .collect(Collectors.joining());
+
 3. Convert int[] to Set<Integer>
    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
 
