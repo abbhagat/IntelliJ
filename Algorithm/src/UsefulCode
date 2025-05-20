@@ -14,18 +14,18 @@
                       .map(String::valueOf)
                       .collect(Collectors.joining());
 
-3. Convert int[] to Set<Integer>
+4. Convert int[] to Set<Integer>
    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
 
-4. Convert Set to int[]
+5. Convert Set to int[]
     int[] a = set.stream().mapToInt(i -> i).toArray();
 
-5. Find max and min in an array 'a'
+6. Find max and min in an array 'a'
    int max = Arrays.stream(a).reduce(0, Integer::max); OR Arrays.stream(a).max().getAsInt();
    int min = Arrays.stream(a).reduce(0, Integer::min); OR Arrays.stream(a).min().getAsInt();
    int sum = Arrays.stream(a).sum();
    int cnt = Arrays.stream(a).count();
    int avg = (int) Arrays.stream(a).average().orElse(0);
 
-6. new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
+7. new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
    LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
