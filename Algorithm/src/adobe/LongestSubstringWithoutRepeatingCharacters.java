@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import static java.lang.Integer.max;
 
 // Time  Complexity : O(n)
-// Space Complexity : O(1)
+// Space Complexity : O(k) k = Size of the character set
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void lengthOfLongestSubstring(String s) {
