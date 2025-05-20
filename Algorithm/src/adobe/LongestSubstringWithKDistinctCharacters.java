@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 // Space Complexity : O(k)
 public class LongestSubstringWithKDistinctCharacters {
 
-    public static void longestSubstringWithKDistinctCharacters(String s, int k) {
+    public static void longestSubstring(String s, int k) {
         if (s == null || s.isEmpty() || k <= 0) {
             return;
         }
@@ -31,13 +31,13 @@ public class LongestSubstringWithKDistinctCharacters {
                 maxStart = start;
             }
         }
-        System.out.println(s.substring(maxStart, maxStart + maxLength));
+        System.out.println(s.substring(maxStart, maxStart + maxLength) + "\t" + maxLength);
     }
 
     public static void main(String[] args) {
-        longestSubstringWithKDistinctCharacters("aabacbebebe", 3);
-        longestSubstringWithKDistinctCharacters("aabbcc", 1);
-        longestSubstringWithKDistinctCharacters("aabbcc", 2);
-        longestSubstringWithKDistinctCharacters("aabbcc", 3);
+        longestSubstring("aabacbebebe", 3);
+        longestSubstring("aabbcc", 1);
+        longestSubstring("aabbcc", 2);
+        longestSubstring("aabbcc", 3);
     }
 }
