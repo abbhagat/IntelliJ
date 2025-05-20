@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 // Time  Complexity : O(n)
-// Space Complexity : O(1)
+// Space Complexity : O(k)
 public class LongestSubstringWithKDistinctCharacters {
 
     public static void longestSubstringWithKDistinctCharacters(String s, int k) {
