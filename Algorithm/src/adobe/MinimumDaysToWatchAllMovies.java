@@ -6,18 +6,18 @@ public class MinimumDaysToWatchAllMovies {
 
     public static int findMinimumDays(float[] a) {
         Arrays.sort(a);
-        int i = 0, j = a.length - 1, count = 0;
+        int i = 0, j = a.length - 1, days = 0;
         while (i < j) {
             if (a[i] + a[j] <= 3.0f) {
                 i++;
             }
             j--;
-            count++;
+            days++;
         }
         if (i == j && a[i] <= 3.0f) {
-            count++;
+            days++;
         }
-        return count;
+        return days;
     }
 
     public static void main(String[] args) {

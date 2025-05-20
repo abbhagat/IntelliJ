@@ -4,7 +4,7 @@ import static java.lang.Integer.max;
 
 public class LongestCommonSubsequence {
 
-    // Time  Complexity: O(2^(m+n))
+     // Time Complexity: O(2^(m+n))
     // Space Complexity: O(m+n)
     public static int lcs(String s1, String s2, int m, int n) {
         if (m == 0 || n == 0) {
@@ -16,7 +16,7 @@ public class LongestCommonSubsequence {
         return max(lcs(s1, s2, m - 1, n), lcs(s1, s2, m, n - 1));
     }
 
-    // Time  Complexity: O(m*n)
+     // Time Complexity: O(m*n)
     // Space Complexity: O(m*n)
     private static int lcsDP(String s1, String s2) {
         int m = s1.length(), n = s2.length();

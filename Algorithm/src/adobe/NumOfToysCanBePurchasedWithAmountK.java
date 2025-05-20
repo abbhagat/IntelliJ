@@ -9,12 +9,12 @@ public class NumOfToysCanBePurchasedWithAmountK {
         int count = 0, sum = 0;
         Arrays.sort(cost);
         for (int x : cost) {
-            sum += x;
-            if (sum <= k) {
-                count++;
-            } else {
-                break;
-            }
+             sum += x;
+             if (sum <= k) {
+                 count++;
+             } else {
+                 break;
+             }
         }
         return count;
     }
