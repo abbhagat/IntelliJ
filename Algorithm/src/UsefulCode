@@ -29,3 +29,5 @@
 
 7. new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
    LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+
+8. Arrays.stream(a).filter(x -> map.get(x) > a.length / 2).findFirst().orElse(-1);
