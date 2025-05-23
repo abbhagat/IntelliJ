@@ -4,7 +4,7 @@ package jpmorgan;
 // Space Complexity : O(k)
 public class SmallestAndLargestSubstring {
 
-    public static void getSmallestAndLargest(String s, int k) {
+    public static void smallestAndLargestSubstring(String s, int k) {
         String str = s.substring(0, k);
         String min = str, max = str;
         for (int i = k; i < s.length(); i++) {
@@ -16,6 +16,6 @@ public class SmallestAndLargestSubstring {
     }
 
     public static void main(String[] args) {
-        getSmallestAndLargest("GeeksForGeeks", 3);
+        smallestAndLargestSubstring("GeeksForGeeks", 3);
     }
 }

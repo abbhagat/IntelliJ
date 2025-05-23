@@ -1,5 +1,6 @@
 package util;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -53,7 +54,7 @@ public class CommonUtils {
     }
 
     public static void printArray(int[] a) {
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        Arrays.stream(a).forEach(x -> System.out.print(x + " "));
         System.out.println();
     }
 
@@ -65,17 +66,13 @@ public class CommonUtils {
     }
 
     public static void printArray(String[] str) {
-        for(String s : str) {
-            System.out.print(s + " ");
-        }
+        Arrays.stream(str).forEach(s -> System.out.print(s + " "));
         System.out.println();
     }
 
     public static void printMatrix(int[][] M) {
         for (int[] x : M) {
-            for (int y : x) {
-                System.out.print(y + " ");
-            }
+            Arrays.stream(x).forEach(e -> System.out.print(e + " "));
             System.out.println();
         }
     }
