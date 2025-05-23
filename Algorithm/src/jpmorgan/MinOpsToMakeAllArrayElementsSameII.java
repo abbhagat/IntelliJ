@@ -15,8 +15,8 @@ operation | increased elements | after increment
 Input: a[] = {4, 3, 4}  Output: Minimum Operation = 2
 Explanation:
 operation | increased elements | after increment
-     1    |    1, 2           | 5, 4, 4
-     2    |    2, 3           | 5, 5, 5
+     1    |    1, 2            | 5, 4, 4
+     2    |    2, 3            | 5, 5, 5
 */
 
 import static java.lang.Integer.min;
