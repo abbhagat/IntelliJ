@@ -19,7 +19,7 @@ public class AngleBetweenHourAndMinHand {
         }
         int hourAngle = (int) (0.5 * (hr * 60 + min));
         int minAngle  = 6 * min;
-        int angle = abs(hourAngle - minAngle);
+        int angle     = abs(hourAngle - minAngle);
         return min(360 - angle, angle);
     }
 
