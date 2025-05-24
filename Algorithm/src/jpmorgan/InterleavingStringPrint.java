@@ -1,25 +1,21 @@
 package jpmorgan;
 
-
 /**
 Given two strings str1 and str2, write a function that prints all interleaving of the given two strings.
-You may assume that all characters in both strings are different
+You may assume that all characters in both strings are different.
+---------------------------------------------------------------------------------------------------
 Example:
-Input: str1 = "AB",  str2 = "CD"
-Output:
-        ABCD
-        ACBD
-        ACDB
-        CABD
-        CADB
-        CDAB
-Input: str1 = "AB",  str2 = "C"
-Output:
-        ABC
-        ACB
-        CAB
+Input: str1 = "AB",  str2 = "CD"            | Input: str1 = "AB",  str2 = "C"
+Output:                                     | Output:
+        ABCD                                |           ABC
+        ACBD                                |           ABC
+        ACDB                                |           ACB
+        CABD                                |
+        CADB                                |
+        CDAB                                |
+---------------------------------------------------------------------------------------------------
 An interleaved string of given two strings preserves the order of characters in individual strings.
-For example, in all the interleaving of above first example, ‘A’ comes before ‘B’ and ‘C’ comes before ‘D’.
+For example, in all the interleaving of above first example, ‘A’ comes before ‘B’ and ‘C’ comes before ‘D’
 */
 
 // Time Complexity: O(2^(m+n))

@@ -59,9 +59,10 @@ public class CommonUtils {
     }
 
     public static void printArray(char[] a) {
-        for(char c : a) {
-            System.out.print(c + " ");
-        }
+        IntStream.range(0, a.length)
+                 .mapToObj(i -> a[i])
+                 .forEach(s -> System.out.print(s + " "));
+        // Arrays.stream(String.valueOf(a).split("")).forEach(c -> System.out.print(c + " "));
         System.out.println();
     }
 
