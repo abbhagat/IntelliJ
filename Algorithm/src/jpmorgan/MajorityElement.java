@@ -23,9 +23,7 @@ public class MajorityElement {
 
     private static int majorityElement(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
         return Arrays.stream(a).filter(x -> map.get(x) > a.length / 2).findFirst().orElse(-1);
     }
 
