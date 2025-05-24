@@ -12,10 +12,10 @@ public class InterleavingString {
             return false;
         }
         if (!s1.isEmpty()) {
-            return s3.charAt(0) == s1.charAt(0) && isInterleaved(s1.substring(1), s2, s3.substring(1));
+            return s1.charAt(0) == s3.charAt(0) && isInterleaved(s1.substring(1), s2, s3.substring(1));
         }
         if (!s2.isEmpty()) {
-            return s3.charAt(0) == s2.charAt(0) && isInterleaved(s1, s2.substring(1), s3.substring(1));
+            return s2.charAt(0) == s3.charAt(0) && isInterleaved(s1, s2.substring(1), s3.substring(1));
         }
         return true;
     }
