@@ -8,7 +8,7 @@ The House Robber Problem states that, in a neighborhood in a city, there is a si
 A thief is planning to carry a heist in this neighborhood. He knows how much gold is concealed in each of the houses.
 However, in order to avoid triggering an alarm and raise suspicion, he plans to carry heist in such a way that no two consecutive houses are looted.
 i.e., if the house at index = i is looted, the houses at i-1 and i+1 are not looted.
-Find out what is the maximum number of gold the thief can steal following the given constraints.
+Find out the maximum amount of gold the thief can steal following the given constraints.
 Input 1: arr[] = [2,3,4,2,3]
 Maximum gold = [2, X, 4, X, 3] = 9
 Output: 6
