@@ -12,18 +12,18 @@ public class WaterAndJugProblem {
     public static int minSteps(int x, int y, int z) {
         int from = x, to = 0, step = 1;
         while (from != z && to != z) {            // Break the loop when either of the two jugs has d litre water
-            int temp = min(from, y - to);    //  Find the maximum amount that can be poured
-            to   += temp;                      //   Pour "temp" liters from "from" to "to"
-            from -= temp;
+            int pour = min(from, y - to);    //  Find the maximum amount that can be poured
+            to   += pour;                       //   Pour "pour" liters from "from" to "to"
+            from -= pour;
             step++;
             if (from == z || to == z) {
                 break;
             }
-            if (from == 0) { // If first jug becomes empty, fill it
+            if (from == 0) { // If the first jug becomes empty, fill it
                 from = x;
                 step++;
             }
-            if (to == y) {  // If second jug becomes full, empty it
+            if (to == y) {  // If the second jug becomes full, empty it
                 to = 0;
                 step++;
             }
