@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+import static java.lang.Integer.max;
+
 public class HurrySoln {
 
     public static int maxTasksInTheGivenBudget(int[][] tasks, int t) {
@@ -18,7 +20,7 @@ public class HurrySoln {
                 sum += list.getFirst();
                 list.removeFirst();
             }
-            ans = Integer.max(ans, list.size());
+            ans = max(ans, list.size());
         }
         return ans;
     }

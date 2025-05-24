@@ -3,14 +3,15 @@ package dynamicProgramming;
 import static java.lang.Integer.max;
 
 public class MaxProfitByBuyAndSellStocksAtMostKTimes {
+
     private static int maxProfit(int[] price, final int k) {
         int n = price.length - 1;
         int[][] dp = new int[k + 1][n + 1];
         for (int i = 0; i <= k; i++) {    // For day 0, you can't earn money irrespective of how many times you trade
             dp[i][0] = 0;
         }
-        for (int i = 0; i <= n; i++) {  // profit is 0 if we don't do any transaction (i.e. k = 0)
-            dp[0][i] = 0;
+        for (int j = 0; j <= n; j++) {  // profit is 0 if we don't do any transaction (i.e., k = 0)
+            dp[0][j] = 0;
         }
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
