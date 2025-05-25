@@ -32,12 +32,12 @@ public class MinCostPathRecursion {
         return cost[m][n] + minimum(x, y, z);
     }
 
-    // Time Complexity: O(m * n), which is much better than Naive Recursive implementation.
-    // Auxiliary Space: O(m * n)
+    // Time Complexity : O(m * n), which is much better than Naive Recursive implementation.
+    // Auxiliary Space : O(m * n)
     private static int minCostDP(int[][] cost) {
         int m = cost.length, n = cost[0].length;
         int[][] tc = new int[m][n];
-        tc[0][0] = cost[0][0];
+        tc[0][0]   = cost[0][0];
         for (int i = 1; i < m; i++) {
             tc[i][0] = tc[i - 1][0] + cost[i][0];
         }
@@ -54,10 +54,10 @@ public class MinCostPathRecursion {
 
     public static void main(String[] args) {
         int[][] cost = {
-                {1, 2, 3},
-                {4, 8, 2},
-                {1, 5, 3}
-        };
+                         {1, 2, 3},
+                         {4, 8, 2},
+                         {1, 5, 3}
+                       };
         int ROW = cost.length - 1;
         int COL = cost[0].length - 1;
         System.out.println(minCost(cost, ROW, COL) + "\t" + minCostDP(cost) + "\t" + minCost(cost, 0, 0, ROW, COL));

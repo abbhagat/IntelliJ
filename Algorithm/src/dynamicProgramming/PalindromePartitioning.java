@@ -10,6 +10,8 @@ Input: str = "ababbbabbababa" Output: 3 Explanation: After 3 partitioning substr
 Input: str = "aaabba"         Output: 1 Explanation: The substrings after 1 partitioning are "aa" and "abba".
 */
 
+// Time  Complexity: O(n^2)
+// Space Complexity: O(n)
 public class PalindromePartitioning {
 
     private static int minPalindromePartition(String str, int low, int high) {
