@@ -1,6 +1,7 @@
 package strings;
 
-// Time Complexity log(n)
+// Time  Complexity log(n)
+// Space Complexity log(n)
 public class NewTypePalindromeString {
 
     private static boolean isNewTypePalindrome(String s) {

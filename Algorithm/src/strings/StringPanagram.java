@@ -4,9 +4,9 @@ public class StringPanagram {
 
     private static boolean isPanagram(String s) {
         int[] temp = new int[26];
-        for (char x : s.toLowerCase().toCharArray()) {
-            if (x >= 'a' && x <= 'z') {
-                temp[x - 'a']++;
+        for (char c : s.toLowerCase().toCharArray()) {
+            if (c >= 'a' && c <= 'z') {
+                temp[c - 'a']++;
             }
         }
         for (int x : temp) {

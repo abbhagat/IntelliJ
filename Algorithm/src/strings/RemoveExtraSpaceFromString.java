@@ -16,4 +16,3 @@ public class RemoveExtraSpaceFromString {
         System.out.println(result.toString().trim());
     }
 }
-

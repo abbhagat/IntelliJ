@@ -12,12 +12,12 @@ public class RemoveStringDuplicatesUsingRec {
     }
 
     public static void main(String[] args) {
-        char[] c = "JavavavaJi".toCharArray();
-        removeDuplicates(c, 0);
-        for (char x : c) {
-            if (temp[x] >= 1) {
-                System.out.print(x);
-                temp[x] = 0;
+        char[] a = "JavavavaJi".toCharArray();
+        removeDuplicates(a, 0);
+        for (char c : a) {
+            if (temp[c] >= 1) {
+                System.out.print(c);
+                temp[c] = 0;
             }
         }
         System.out.println();
