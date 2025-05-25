@@ -5,21 +5,10 @@ import lombok.Getter;
 import java.util.Date;
 import java.util.Objects;
 
-final class FinalClass {
+record FinalClass(@Getter String key, @Getter int value, Date date) {
 
-    @Getter
-    private final String key;
-    @Getter
-    private final int value;
-    private final Date date;
-
-    public FinalClass(String key, int value, Date date) {
-        this.key = key;
-        this.value = value;
-        this.date = date;
-    }
-
-    public Date getDate() {
+    @Override
+    public Date date() {
         return (Date) this.date.clone();
     }
 
@@ -31,16 +20,16 @@ final class FinalClass {
             return false;
         }
         final FinalClass fcObj = (FinalClass) obj;
-        return Objects.equals(this.getKey(), fcObj.getKey()) && this.getValue() == fcObj.getValue() && this.getDate().compareTo(fcObj.getDate()) == 0;
+        return Objects.equals(this.key(), fcObj.key()) && this.value() == fcObj.value() && this.date().compareTo(fcObj.date()) == 0;
     }
 
     public int hashCode() {
         final int prime = 31;
-        int result = 1;
-        result = prime * result + value;
-        result = prime * result + (this.getKey()  == null ? 0 : this.getKey().hashCode());
-        result = prime * result + (this.getDate() == null ? 0 : this.getDate().hashCode());
-        return result;
+        int hashCode = 1;
+        hashCode = prime * hashCode + value;
+        hashCode = prime * hashCode + (this.key()  == null ? 0 : this.key().hashCode());
+        hashCode = prime * hashCode + (this.date() == null ? 0 : this.date().hashCode());
+        return hashCode;
     }
 }
 
@@ -49,7 +38,7 @@ public class TestFinalClass {
     public static void main(String[] args) {
         FinalClass finalObj = new FinalClass("A", 65, new Date());
         System.out.println(finalObj.hashCode());
-        finalObj.getDate().setTime(10000);
+        finalObj.date().setTime(10000);
         System.out.println(finalObj.hashCode());
     }
 }
