@@ -22,6 +22,7 @@ public class KStringAnagram {
     }
 
     public static void main(String[] args) {
+        System.out.println(isKStringAnagram("anagram".toCharArray(), "grammar".toCharArray(), 3));
         System.out.println(isKStringAnagram("anagram".toCharArray(), "grammar".toCharArray(), 4));
     }
 }

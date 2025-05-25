@@ -1,7 +1,6 @@
 package strings;
 
 // Time Complexity : O(2^n) For every index we have 2 choices
-
 public class BinaryStringInAPattern {
 
     private static void printBinaryString(char[] c, int index) {

@@ -1,8 +1,10 @@
 package strings;
 
-// Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a permutation.
+import static util.CommonUtils.swap;
 
+// Time Complexity: O(n*n!) There are n! permutations and it requires O(n) time to print a permutation.
 public class AllPossibleCombinationOfString {
+
     private static void permute(char[] c, int start, int end) {
         if (start == end) {
             System.out.println(c);
@@ -13,12 +15,6 @@ public class AllPossibleCombinationOfString {
             permute(c, start + 1, end);
             swap(c, i, start);
         }
-    }
-
-    private static void swap(char[] c, int x, int y) {
-        char t = c[x];
-          c[x] = c[y];
-          c[y] = t;
     }
 
     public static void main(String[] args) {

@@ -14,5 +14,6 @@ public class CreateStringByRemovingEmptySpacesFromCharArray {
 
     public static void main(String[] args) {
         System.out.println(removeEmptyChar(" abc d e    f ghi  j  k "));
+        System.out.println(removeEmptyChar(" abc d e    f ghi  j "));
     }
 }

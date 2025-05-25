@@ -19,21 +19,19 @@ public class GroupStringAnagrams {
     }
 
     /*
-    Time Complexity : Let there be N-words and each word has a maximum of M characters. The upper bound is O(NM).
-    Space Complexity: Let there be N-words and each word has maximum M characters, therefore max. storage space for each word with at max.
-                      M characters will be O(M), therefore for max N-words, it will be O(N*M). Therefore, the upper bound is O(NM).
+    Time  Complexity: O(NM) Let there be N-words and each word has a maximum of M characters. The upper bound is O(NM).
+    Space Complexity: O(NM) Let there be N-words and each word has maximum M characters, therefore max. storage space for each word with at max.
+                            M characters will be O(M), therefore for max N-words, it will be O(N*M). Therefore, the upper bound is O(NM).
     */
     private static List<List<String>> groupAnagrams(List<String> list) {
         Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
-        for (String str : list) {
+        list.forEach(str -> {
             Map<Character, Integer> tempMap = new HashMap<>();
-            for(char c : str.toCharArray()) {
-                tempMap.put(c, tempMap.getOrDefault(c, 0) + 1);
-            }
+            str.chars().forEach(c -> tempMap.put((char) c, tempMap.getOrDefault((char) c, 0) + 1));
             List<String> tempList = map.containsKey(tempMap) ? map.get(tempMap) : new ArrayList<>();
             tempList.add(str);
             map.put(tempMap, tempList);
-        }
+        });
         return new ArrayList<>(map.values());
     }
 
