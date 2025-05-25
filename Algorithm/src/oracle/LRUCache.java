@@ -1,15 +1,15 @@
 package oracle;
 
-/*
+/**
 LRU cache is implemented using a Deque and HashMap.
-Deque is used to store queue of pages with most recently used page at the start of the q.
+Deque is used to store queue of pages with the most recently used page at the start of the q.
 So, as more pages are added to the q, least recently used pages are moved to the end of the q with
 page at tail being the least recently used page in the q.
 Hash Map (key: page number, value: page) is used for O(1) access to pages in cache
 
 When a page is accessed, there can be 2 cases:
-1. Page is present in the cache     - If the page is already present in the cache, we move the page to the start of the q.
-2. Page is not present in the cache - If the page is not present in the cache, we add the page to the q.
+1. The Page is     present in the cache - If the page is already present in the cache, we move the page to the start of the q.
+2. The Page is not present in the cache - If the page is not present in the cache, we add the page to the q.
 How to add a page to the q:
 1. If the cache is not full, add the new page to the start of the q.
 2. If the cache is full, remove the last node of the linked q and move the new page to the start of the q.
@@ -25,7 +25,7 @@ public class LRUCache<K, V> {
     private final int cacheSize;
  
     public LRUCache(int cacheSize) {
-        this.q = new LinkedList<>();
+        this.q   = new LinkedList<>();
         this.map = new HashMap<>();
         this.cacheSize = cacheSize;
     }
