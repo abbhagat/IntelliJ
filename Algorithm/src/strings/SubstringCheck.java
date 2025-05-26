@@ -1,23 +1,32 @@
 package strings;
 
+// Time  Complexity : O(n * m) where n is the length of s1 and m is the length of s2
+// Space Complexity : O(m)     where m is the length of s2
 public class SubstringCheck {
 
-    private static boolean isASubString(String s1, String s2) {
-        if (s2.equals(s1)) {
-            return true;
+    private static void countSubString(String s1, String s2) {
+        if (s2.contentEquals(s1)) {
+            System.out.println(true + "\t" + 1);
         }
         if (s2.length() > s1.length()) {
-            return false;
+            System.out.println(false + "\t" + 0);
         }
         String s = "";
-        int j = 0, index = -1;
+        int j = 0, count = 0, index = -1;
+        boolean isSubString = false;
         for (int i = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);
                 j++;
-            } else if (s.equals(s2)) {
-                return true;
+                if (s.contentEquals(s2)) {
+                    isSubString = true;
+                    count++;
+                    i = index;
+                    index = -1;
+                    j = 0;
+                    s = "";
+                }
             } else {
                 i = index != -1 ? index : i;
                 index = -1;
@@ -25,36 +34,16 @@ public class SubstringCheck {
                 s = "";
             }
         }
-        return s.equals(s2);
-    }
-
-    private static boolean isSubString(String s1, String s2) {
-        int count = 0;
-        char[] c1 = s1.toCharArray();
-        char[] c2 = s2.toCharArray();
-        for (int i = 0; i < c1.length; i++) {
-            if (c1[i] == c2[0]) {
-                String s = "";
-                for (int j = i; (j < i + c2.length) && (j < c1.length); j++) {
-                    s += c1[j];
-                }
-                if (s.equals(s2)) {
-                    count++;
-                }
-            }
-        }
-        if (count != 0) {
-            System.out.print("No of Substrings " + count + " ");
-            return true;
-        }
-        return false;
+        System.out.println(isSubString + "\t" + count);
     }
 
     public static void main(String[] args) {
-        System.out.println(isSubString("ABC", "BC")              ? "Substring" : "Not Substring");
-        System.out.println(isSubString("ABCABEABCDEF", "ABEABC") ? "Substring" : "Not Substring");
-        System.out.println(isASubString("ABCABEABCDEF", "ABEABC")? "Substring" : "Not Substring");
-        System.out.println(isSubString("ABEFGCDEFG",   "EFG")    ? "Substring" : "Not Substring");
-        System.out.println(isASubString("ABEFAGCDEFG", "EFG")    ? "Substring" : "Not Substring");
+        countSubString("ABC", "BC");
+        countSubString("ABC", "DE");
+        countSubString("ABC", "DEFG");
+        countSubString("ABCABEABCDEF", "ABEABC");
+        countSubString("ABCABEABCDEF", "ABEABC");
+        countSubString("ABEFGCDEFG",   "EFG");
+        countSubString("ABEFAGCDEFG",  "EFG");
     }
 }
