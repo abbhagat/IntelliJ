@@ -1,15 +1,19 @@
 package strings;
 
 public class ToggleAllCharactersInAString {
-    public static void main(String[] args) {
-        char[] a = "aBc12#".toCharArray();
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] >= 65 && a[i] <= 90) {
-                a[i] += 32;
-            } else if (a[i] >= 97 && a[i] <= 122) {
-                a[i] -= 32;
+
+    private static char[] toggleCase(char[] c) {
+        for (int i = 0; i < c.length; i++) {
+            if (c[i] >= 65 && c[i] <= 90) {
+                c[i] += 32;
+            } else if (c[i] >= 97 && c[i] <= 122) {
+                c[i] -= 32;
             }
         }
-        System.out.println(a);
+        return c;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(toggleCase("aBc12#".toCharArray()));
     }
 }
