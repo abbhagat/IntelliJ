@@ -1,18 +1,18 @@
 package searching;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 public class UnionIntersect {
 
     private static void findUnionIntersection(int[] a, int[] b) {
         Set<Integer> set = new HashSet<>();
-        IntStream.range(0, a.length).forEach(i -> set.add(a[i]));
+        Arrays.stream(a).forEach(set::add);
         System.out.println("Intersection");
-        IntStream.range(0, b.length).forEach(i -> {
-            if (!set.add(b[i])) {
-                System.out.print(b[i] + " ");
+        Arrays.stream(b).forEach(n -> {
+            if (!set.add(n)) {
+                System.out.print(n + " ");
             }
         });
         System.out.println("\nUnion");

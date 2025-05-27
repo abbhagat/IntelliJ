@@ -2,15 +2,12 @@ package paypal;
 
 import static util.CommonUtils.swap;
 
-/*
-Given a string x, return the “reversed” string where all characters that are not a letter stay in the same place, and all letters reverse their positions.
-Sample 1:
-Input: s = “ab-cd”
-Output: “dc-ba”
-Sample 2:
-Input: s = “a-bC-dEf-ghIj”
-Output: “j-Ih-gfE-dCba”
- */
+/**
+Given a string x, return the “reversed” string where all characters that are not a letter stay in the same place,
+and all letters reverse their positions.
+Sample 1: Input: s = “ab-cd”         Output: “dc-ba”
+Sample 2: Input: s = “a-bC-dEf-ghIj” Output: “j-Ih-gfE-dCba”
+*/
 public class ReverseStringWithCondition {
 
     private static char[] reverse(char[] c) {
