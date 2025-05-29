@@ -1,8 +1,14 @@
 package matrix;
 
+/*
+  11 12 13 14           23 19 15 11     [i][j]   ------ [j][n-i-1]
+  15 16 17 18   ---->   24 20 16 12
+  19 20 21 22           25 21 17 13
+  23 24 25 26           26 22 18 14     [n-j-1][i] --- [n-i-1][n-j-1]
+*/
 public class GivenTwoMatrixCheckIfOtherIsObtainedAfterRotation {
 
-    private static boolean findRotation(int[][] a, int[][] b) {
+    private static boolean checkRotation(int[][] a, int[][] b) {
         int n = a.length;
         int c0 = 0, c90 = 0, c180 = 0, c270 = 0;
         for (int i = 0; i < n; i++) {
@@ -35,6 +41,6 @@ public class GivenTwoMatrixCheckIfOtherIsObtainedAfterRotation {
                       {0, 1, 0},
                       {0, 0, 0}
                     };
-        System.out.println(findRotation(a, b));
+        System.out.println(checkRotation(a, b));
     }
 }

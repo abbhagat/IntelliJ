@@ -1,50 +1,45 @@
 package matrix;
 
-/*
-  11 12 13 14           23 19 15 11     [i][j]   ------ [j][n-i-1]
-  15 16 17 18   ---->   24 20 16 12
-  19 20 21 22           25 21 17 13
-  23 24 25 26           26 22 18 14     [n-j-1][i] --- [n-i-1][n-j-1]
-*/
-
 import static util.CommonUtils.printMatrix;
 
 public class MatrixRotationBy90Degree {
 
-    private static void clockWise(int[][] M) {
-        int n = M.length;
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = i; j < n - i - 1; j++) {
+    private static void findTranspose(int[][] M) {
+        final int ROW = M.length, COL = M[0].length;
+        for (int i = 0; i < ROW; i++) {
+            for (int j = i; j < COL; j++) {
                 int t = M[i][j];
-                M[i][j] = M[n - j - 1][i];
-                M[n - j - 1][i] = M[n - i - 1][n - j - 1];
-                M[n - i - 1][n - j - 1] = M[j][n - i - 1];
-                M[j][n - i - 1] = t;
+                M[i][j] = M[j][i];
+                M[j][i] = t;
             }
         }
     }
 
-    private static void clockWises(int[][] M) {
-        int R = M.length, C = M[0].length;
-        for (int i = 0; i < R; i++) {
-            for (int j = C - 1; j >= 0; j--) {
-                System.out.print(M[j][i] + " ");
+    public static void rotate90Clockwise(int[][] M) {
+        findTranspose(M);
+        final int ROW = M.length, COL = M[0].length;
+        // Reverse each row
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0, k = COL - 1; j < k; j++, k--) {
+                int t = M[i][j];
+                M[i][j] = M[i][k];
+                M[i][k] = t;
             }
-            System.out.println();
         }
+        printMatrix(M);
     }
 
-    private static void antiClockWise(int[][] M) {
-        int n = M.length;
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = i; j < n - i - 1; j++) {
-                int t = M[i][j];
-                M[i][j] = M[j][n - i - 1];
-                M[j][n - i - 1] = M[n - i - 1][n - j - 1];
-                M[n - i - 1][n - j - 1] = M[n - j - 1][i];
-                M[n - j - 1][i] = t;
+    public static void rotate90AntiClockwise(int[][] M) {
+        findTranspose(M);
+        final int ROW = M.length, COL = M[0].length;
+        for (int i = 0; i < ROW; i++) {               // Reverse Each Column
+            for (int j = 0, k = COL - 1; j < k; j++, k--) {
+                int t = M[j][i];
+                M[j][i] = M[k][i];
+                M[k][i] = t;
             }
         }
+        printMatrix(M);
     }
 
     public static void main(String[] args) {
@@ -53,20 +48,7 @@ public class MatrixRotationBy90Degree {
                             {4, 5, 6},
                             {7, 8, 9}
                           };
-        System.out.println("Original Matrix");
-        printMatrix(M);
-        clockWise(M);
-        System.out.println("Rotated Matrix");
-        printMatrix(M);
-        final int[][] n = {
-                            {1, 2, 3},
-                            {4, 5, 6},
-                            {7, 8, 9}
-                          };
-        System.out.println("Original Matrix");
-        printMatrix(n);
-        antiClockWise(n);
-        System.out.println("Rotated Matrix");
-        printMatrix(n);
+        rotate90Clockwise(M);
+        rotate90AntiClockwise(M);
     }
 }
