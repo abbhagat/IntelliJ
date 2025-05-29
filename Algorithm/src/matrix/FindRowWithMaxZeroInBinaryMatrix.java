@@ -1,5 +1,6 @@
 package matrix;
 
+// Time Complexity : O(n log n)
 public class FindRowWithMaxZeroInBinaryMatrix {
 
     private static int rowWithMax0s(int[] a, int low, int high) {
@@ -20,14 +21,14 @@ public class FindRowWithMaxZeroInBinaryMatrix {
                       {0, 0, 0, 0},
                       {0, 1, 1, 1}
                     };
-        int index = 0, count = 0;
+        int index = 0, max = 0;
         for (int i = 0; i < M.length; i++) {
-            int countZero = rowWithMax0s(M[i], 0, M[i].length - 1);
-            if (count < countZero) {
-                count = countZero;
+            int maxCount = rowWithMax0s(M[i], 0, M[i].length - 1);
+            if (max < maxCount) {
+                max = maxCount;
                 index = i;
             }
         }
-        System.out.println("MaxZeroRowIndex " + index);
+        System.out.println("Index With Max Zero  " + index);
     }
 }

@@ -1,6 +1,6 @@
 package matrix;
 
-// Time Complexity O(n log n)
+// Time Complexity : O(n log n)
 public class FindRowWithMaxOneInBinaryMatrix {
 
     private static int rowWithMax1s(int[] a, int low, int high) {
@@ -21,14 +21,14 @@ public class FindRowWithMaxOneInBinaryMatrix {
                       {0, 0, 0, 0},
                       {0, 1, 1, 1}
                     };
-        int index = 0, count = 0;
+        int index = 0, max = 0;
         for (int i = 0; i < M.length; i++) {
-            int countOne = rowWithMax1s(M[i], 0, M[i].length - 1);
-            if (count < countOne) {
-                count = countOne;
+            int maxCount = rowWithMax1s(M[i], 0, M[i].length - 1);
+            if (max < maxCount) {
+                max = maxCount;
                 index = i;
             }
         }
-        System.out.println("MaxOneRowIndex  " + index);
+        System.out.println("Index With Max One  " + index);
     }
 }

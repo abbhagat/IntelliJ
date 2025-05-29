@@ -2,6 +2,7 @@ package matrix;
 
 import static java.lang.Integer.max;
 
+// Time Complexity: O(ROW * COL)
 public class BombEnemy {
 
     private static final char[][] M = new char[][]{
@@ -9,7 +10,6 @@ public class BombEnemy {
                                                     {'E', 'O', 'E', 'E'},
                                                     {'O', 'E', 'O', 'O'}
                                                   };
-
     private static final int ROW = M.length;
     private static final int COL = M[0].length;
     private static int area = 1;
@@ -23,27 +23,31 @@ public class BombEnemy {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 'E' && !visited[row][col];
     }
 
-    private static void DFS(int row, int col) {
+    private static void dfs(int row, int col) {
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
                 area++;
-                DFS(row + rowIdx[k], col + colIdx[k]);
+                dfs(row + rowIdx[k], col + colIdx[k]);
             }
         }
     }
 
-    public static void main(String[] args) {
-        int maxEnemyKilled = 0;
+    private static void findMaxEnemyKilled() {
+        int max = 0;
         for (int row = 0; row < ROW; row++) {
             for (int col = 0; col < COL; col++) {
                 if (M[row][col] == 'E' && !visited[row][col]) {
                     area = 1;
-                    DFS(row, col);
-                    maxEnemyKilled = max(maxEnemyKilled, area);
+                    dfs(row, col);
+                    max = max(max, area);
                 }
             }
         }
-        System.out.println("Max Enemy Killed " + maxEnemyKilled);
+        System.out.println("Max Enemy Killed " + max);
+    }
+
+    public static void main(String[] args) {
+        findMaxEnemyKilled();
     }
 }

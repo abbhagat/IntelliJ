@@ -3,13 +3,12 @@ package matrix;
 import static java.lang.Integer.max;
 
 // Time Complexity: O(ROW * COL)
-
 public class AreaOfLargestIslandIn2DMatrix {
 
     private static final int[][] M = new int[][]{
             {1, 1, 0, 0, 0},
             {1, 1, 0, 1, 1},
-            {1, 0, 1, 1, 1},
+            {0, 0, 0, 1, 1},
             {1, 0, 1, 0, 1},
             {1, 0, 1, 0, 1}
     };
@@ -36,7 +35,7 @@ public class AreaOfLargestIslandIn2DMatrix {
         }
     }
 
-    private static int[] getNumOfIsland() {
+    private static void findLargestIsland() {
         int maxArea = 0, numOfIsland = 0;
         for (int row = 0; row < ROW; row++) {
             for (int col = 0; col < COL; col++) {
@@ -49,12 +48,11 @@ public class AreaOfLargestIslandIn2DMatrix {
                 }
             }
         }
-        return new int[]{numOfIsland, maxArea};
+        System.out.println("Number of Islands are : " + numOfIsland);
+        System.out.println("Max Area " + maxArea);
     }
 
     public static void main(String[] args) {
-        int[] result = getNumOfIsland();
-        System.out.println("Number of islands is: " + result[0]);
-        System.out.println("Max Area " + result[1]);
+        findLargestIsland();
     }
 }

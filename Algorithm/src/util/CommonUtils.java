@@ -76,12 +76,14 @@ public class CommonUtils {
             Arrays.stream(x).forEach(e -> System.out.print(e + " "));
             System.out.println();
         }
+        System.out.println();
     }
 
     public static void printMatrix(char[][] M) {
         for (char[] c : M) {
             printArray(c);
         }
+        System.out.println();
     }
 
     public static void printArray(List<int[]> M) {
