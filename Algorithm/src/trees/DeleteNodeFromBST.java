@@ -3,7 +3,6 @@ package trees;
 import static trees.TreeTraversal.inorder;
 
 // Time Complexity: O(h)
-
 public class DeleteNodeFromBST {
 
     private static Node deleteNodeFromBST(Node root, int num) {

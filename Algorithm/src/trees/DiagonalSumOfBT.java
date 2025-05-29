@@ -15,7 +15,7 @@ public class DiagonalSumOfBT {
 
     private static void rightDiagonalSumOfBT(Node root) {
         Queue<Node> q = new LinkedList<>();
-        Map<Integer, Integer> map = new HashMap<>();  // Map to store sum of node's data lying diagonally
+        Map<Integer, Integer> map = new HashMap<>();  // Map to store a sum of node's data lying diagonally
         root.vd = 0;
         q.add(root);
         while (!q.isEmpty()) {

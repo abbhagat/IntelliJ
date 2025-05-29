@@ -6,10 +6,7 @@ import static trees.TreeTraversal.inorder;
 public class DeleteLeafNodeInBinaryTree {
 
     private static Node deleteLastNode(Node root) {
-        if (root == null) {
-            return null;
-        }
-        if (root.left == null && root.right == null) {
+        if (root == null || (root.left == null && root.right == null)) {
             return null;
         }
         root.left  = deleteLastNode(root.left);
@@ -18,17 +15,17 @@ public class DeleteLeafNodeInBinaryTree {
     }
 
     public static void main(String[] args) {
-         /*
-                                1
-                            /      \
-                           2        3
-                         /   \       \
-                        4     5       6
-                             / \      \
-                            7  8       9
-                                        \
-                                        10
-         */
+        /*
+                        1
+                    /      \
+                   2        3
+                 /   \       \
+                4     5       6
+                     / \      \
+                    7  8       9
+                                \
+                                10
+        */
         Node root              = new Node(1);
         root.left              = new Node(2);
         root.right             = new Node(3);
