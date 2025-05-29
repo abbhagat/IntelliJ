@@ -5,33 +5,31 @@ import static util.CommonUtils.gcd;
 
 public class WaterAndJugProblem {
 
-   /*  x -- Capacity of jug from which water is poured
-       y -- Capacity of jug to which water is poured
-       z -- Amount to be measured
-   */
+    /*  x -- Capacity of jug from which water is poured
+        y -- Capacity of jug to which water is poured
+        z -- Amount to be measured
+    */
     public static int minSteps(int x, int y, int z) {
-        int from = x, to = 0, step = 1;
-        while (from != z && to != z) {            // Break the loop when either of the two jugs has z liter water
-            int pour = min(from, y - to);    //  Find the maximum amount that can be poured
-            to   += pour;                       //   Pour "pour" liters from "from" to "to"
-            from -= pour;
-            step++;
-            if (from == z || to == z) {
-                break;
-            }
-            if (from == 0) { // If the first jug becomes empty, fill it
-                from = x;
-                step++;
-            }
-            if (to == y) {  // If the second jug becomes full, empty it
-                to = 0;
-                step++;
-            }
+        if (z > x && z > y || z % gcd(x, y) != 0) {
+            return -1;
         }
-        return step;
+        int from = 0, to = 0, steps = 0;
+        while (from != z && to != z) {
+            if (from == 0) {
+                from = x;                  // Fill jug x
+            } else if (to == y) {
+                to = 0;                   // Empty jug y
+            } else {
+                int pour = min(from, y - to);
+                from -= pour;
+                to += pour;
+            }
+            steps++;
+        }
+        return steps;
     }
 
-    private static boolean canMeasure(int x, int y, int z) {
+    private static boolean canMeasureII(int x, int y, int z) {
         if (x + y < z) {
             return false;
         }
@@ -39,6 +37,10 @@ public class WaterAndJugProblem {
             return true;
         }
         return z % gcd(x, y) == 0;
+    }
+
+    private static boolean canMeasure(int x, int y, int z) {
+        return (z <= x || z <= y) && z % gcd(x, y) == 0;
     }
 
     public static void main(String[] args) {
