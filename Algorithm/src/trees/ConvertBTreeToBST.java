@@ -14,19 +14,19 @@ public class ConvertBTreeToBST {
     private static final List<Integer> list = new ArrayList<>();
     private static int index;
 
-    public static void createList(Node root) {   // Inorder
-        if (null != root) {
-            createList(root.left);
-            list.add(root.num);
-            createList(root.right);
-        }
-    }
-
     private static void listToBST(Node root) {  // Inorder
         if (root != null) {
             listToBST(root.left);
             root.num = list.get(index++);
             listToBST(root.right);
+        }
+    }
+
+    public static void createList(Node root) {   // Inorder
+        if (null != root) {
+            createList(root.left);
+            list.add(root.num);
+            createList(root.right);
         }
     }
 

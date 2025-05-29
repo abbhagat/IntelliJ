@@ -1,30 +1,29 @@
 package trees;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Integer.max;
 
-/*
- *       1
- *      / \
- *     2    3
- *    / \  / \
- *   4   5 6  7
- *
- * O/P :- [[4, 5, 6, 7], [2, 3], [1]]
- */
+/**
+                                            1
+                                           / \
+                                          2    3
+                                         / \  / \
+                                        4   5 6  7
+
+                                O/P :- [[4, 5, 6, 7], [2, 3], [1]]
+*/
 
 public class CollectAndRemoveAllLeafNodesOfABinaryTree {
 
-    // traverse the tree bottom-up recursively
-    private static int treeHeight(List<List<Integer>> list, Node root) {
+    // Traverse the tree bottom-up recursively
+    private static int treeHeight(Node root, List<List<Integer>> list) {
         if (root == null) {
             return -1;
         }
-        int lH = treeHeight(list, root.left);
-        int rH = treeHeight(list, root.right);
+        int lH = treeHeight(root.left,  list);
+        int rH = treeHeight(root.right, list);
         int height = max(lH, rH) + 1;
         if (list.size() <= height) {
             list.add(new ArrayList<>());
@@ -35,7 +34,7 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
 
     public static List<List<Integer>> findLeaves(Node root) {
         List<List<Integer>> list = new ArrayList<>();
-        treeHeight(list, root);
+        treeHeight(root, list);
         return list;
     }
 

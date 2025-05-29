@@ -2,7 +2,7 @@ package trees;
 
 import java.util.Stack;
 
-// Time Complexity: O(N+M). Here ‘M’ and ‘N’ are the number of nodes in the first and second trees respectively
+// Time Complexity: O(N+M) Here M and N are the number of nodes in the first and second tree respectively.
 // Auxiliary Space: O(h1 + h2), Where h1 and h2 are the heights of the first and second tree respectively.
 
 public class CommonNodesInTwoBST {

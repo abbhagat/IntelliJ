@@ -6,13 +6,13 @@ import java.util.Queue;
 /**
 
 Input :
-                       12
-                     /     \
-                   13       10
-                          /     \
-                       14       15
-                      /   \     /  \
-                     21   24   22   23
+                        12
+                       /  \
+                     13    10
+                          /   \
+                       14      15
+                      /   \    /  \
+                     21   24  22   23
 target node = 14
 
 Output :
@@ -33,8 +33,8 @@ Now, get the size of the queue and run while loop. Print elements in the queue.
 // Space complexity: O(N) for queue
 public class BurnABinaryTreeFromTargetNode {
 
-    private static int time;
     private static final Queue<Node> q = new LinkedList<>();
+    private static int time;
 
     private static int burnTree(Node root, int target) {
         if (root == null) {
