@@ -25,12 +25,12 @@ public class AreaOfLargestIslandIn2DMatrix {
         return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];
     }
 
-    private static void dfs(int row, int col) {
+    private static void DFS(int row, int col) {
         visited[row][col] = true;
         for (int k = 0; k < 8; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
                 area++;
-                dfs(row + rowIdx[k], col + colIdx[k]);
+                DFS(row + rowIdx[k], col + colIdx[k]);
             }
         }
     }
@@ -41,7 +41,7 @@ public class AreaOfLargestIslandIn2DMatrix {
             for (int col = 0; col < COL; col++) {
                 if (M[row][col] == 1 && !visited[row][col]) {
                     area = 1;
-                    dfs(row, col);
+                    DFS(row, col);
                     System.out.println("Area of Each Island " + area);
                     numOfIsland++;
                     maxArea = max(maxArea, area);
