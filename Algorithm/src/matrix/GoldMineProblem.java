@@ -3,36 +3,39 @@ package matrix;
 import static java.lang.Integer.max;
 import static util.CommonUtils.maximum;
 
-/*
+/**
 Given a gold mine of ROW*COL dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
-Initially the miner is at first column but can be at any row. He can move only (right,right up,right down)
+Initially, the miner is at first column but can be at any row. He can move only (right,right up,right down)
 that is from a given cell, the miner can move to the cell diagonally up towards the right or diagonally down towards the right.
-Find out maximum amount of gold he can collect.
+Find out the maximum amount of gold he can collect.
 
-Input : mat[][] = {{1, 3, 3},
+Input: M[][] = {{1, 3, 3},
                    {2, 1, 4},
                   {0, 6, 4}};
-Output : 12
-{(1,0)->(2,1)->(1,2)}
+Output: 12 {(1,0)->(2,1)->(1,2)}
 
-Input: mat[][] = { {1, 3, 1, 5},
+Input: M[][] = { {1, 3, 1, 5},
                    {2, 2, 4, 1},
                    {5, 0, 2, 3},
                    {0, 6, 1, 2}
                 };
-Output : 16
-(2,0) -> (1,1) -> (1,2) -> (0,3) OR
-(2,0) -> (3,1) -> (2,2) -> (2,3)
+Output : 16  (2,0) -> (1,1) -> (1,2) -> (0,3) OR (2,0) -> (3,1) -> (2,2) -> (2,3)
 
-Input : mat[][] = {{10, 33, 13, 15},
+Input: M[][] = {{10, 33, 13, 15},
                   {22, 21, 04, 1},
                   {5, 0, 2, 3},
                   {0, 6, 14, 2}};
-Output : 83
- */
+Output: 83
+A miner can start from any row in the first column of a gold mine and can move only right, right-up or right-down.
+The goal is to find the maximum amount of gold that can be collected by the miner.
+Approach: Dynamic Programming
+1.Create a table to store the maximum gold that can be collected when starting from each cell.
+2.Fill the table by considering the three possible moves (right, right-up, right-down).
+3.The answer will be the maximum value in the first column of the table.
+*/
 public class GoldMineProblem {
 
-    // Returns maximum amount of gold that can be collected when journey started from first column and moves allowed are right, right-up and right-down
+    // Returns maximum amount of gold that can be collected when a journey started from the first column and moves allowed are right, right-up and right-down
     private static int getMaxGold(int[][] gold) {
         // The first row of goldMineTable gives the maximum gold that the miner can collect when starts that row
         int ROW = gold.length, COL = gold[0].length;
