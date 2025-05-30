@@ -1,6 +1,5 @@
 package oracle;
 
-import util.CommonUtils;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
@@ -11,8 +10,8 @@ public class RemoveDuplicateElementsInAnArray {
 
     private static void removeDuplicates(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         System.out.println(set + "\n" + map.keySet());
     }
 
