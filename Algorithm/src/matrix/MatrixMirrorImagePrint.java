@@ -16,9 +16,11 @@ public class MatrixMirrorImagePrint {
     }
 
     private static void mirrorImage(int[][] M) {
-        for (int[] ROW : M) {
-            for (int i = 0, j = ROW.length - 1; i < j; i++, j--) {
-                swap(ROW, i, j);
+        for (int[] a : M) {
+            for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+                int t = a[i];
+                a[i]  = a[j];
+                a[j]  = t;
             }
         }
     }
