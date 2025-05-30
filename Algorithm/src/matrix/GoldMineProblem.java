@@ -21,10 +21,12 @@ Input: M[][] = { {1, 3, 1, 5},
                 };
 Output : 16  (2,0) -> (1,1) -> (1,2) -> (0,3) OR (2,0) -> (3,1) -> (2,2) -> (2,3)
 
-Input: M[][] = {{10, 33, 13, 15},
-                  {22, 21, 04, 1},
-                  {5, 0, 2, 3},
-                  {0, 6, 14, 2}};
+Input: M[][] = {
+                {10, 33, 13, 15},
+                {22, 21, 04, 1},
+                {5,   0,  2, 3},
+                {0,   6, 14, 2}
+ };
 Output: 83
 A miner can start from any row in the first column of a gold mine and can move only right, right-up or right-down.
 The goal is to find the maximum amount of gold that can be collected by the miner.
