@@ -4,10 +4,12 @@ package geeks;
 You have infinite number of Rs 3 coins and Rs 5 coins.
 And you are provided one random number, and you need to find whether you can make the amount with both denominations.
 Examples:
-	23 = 5*4 +3*1 = 23, so true
-	19 = 5*2+3*3 so true
-	16 = 5*2+3*2 so true
-	17 = 5*1 + 3*4 so true
+ 19 = 3 * 3 + 5 * 2
+ 23 = 3 * 1 + 5 * 4
+ 16 = 3 * 2 + 5 * 2
+ 17 = 3 * 4 + 5 * 1
+ 103 = 3 * 1 + 5 * 20
+ 113 = 3 * 1 + 5 * 22
 */
 
 public class MakingDenominationOfARandomNum {
