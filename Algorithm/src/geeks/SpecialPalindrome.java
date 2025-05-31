@@ -2,28 +2,28 @@ package geeks;
 
 public class SpecialPalindrome {
 
-    private static boolean palindrome(int num) {
-        return num == reverse(num);
+    private static boolean palindrome(int n) {
+        return n == reverse(n);
     }
 
-    private static int reverse(int num) {
+    private static int reverse(int n) {
         int rev = 0;
-        while (num != 0) {
-            int k = num % 10;
+        while (n != 0) {
+            int k = n % 10;
             rev = (rev * 10) + k;
-            num /= 10;
+            n /= 10;
         }
         return rev;
     }
 
     public static void main(String[] args) {
-        int num = 195;
+        int n = 195;
         while (true) {
-            if (palindrome(num)) {
-                System.out.println(num);
+            if (palindrome(n)) {
+                System.out.println(n);
                 break;
             }
-            num = num + reverse(num);
+            n = n + reverse(n);
         }
     }
 }
