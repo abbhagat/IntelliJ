@@ -14,19 +14,21 @@ public class PrintOuterNodesOfTheTree {
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
-                if (first != null && last == null) {
-                    System.out.println(first.num);
-                } else {
-                    System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
+                if (first != null) {
+                    if (last == null) {
+                        System.out.println(first.num);
+                    } else {
+                        System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
+                    }
                 }
                 flag  = !flag;
                 first = last = null;
             }
             if (node != null) {
                  if (first == null) {
-                    first = node;
+                     first = node;
                 } else {
-                    last  = node;
+                     last  = node;
                 }
                 if (node.left != null) {
                     q.add(node.left);
