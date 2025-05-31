@@ -35,7 +35,8 @@ public class NumberOfJumpsToCrossWalls {
         System.out.println(findJumps(new int[]{11}, 10, 1));
         System.out.println(findJumps(new int[]{11, 11}, 8, 2));
         System.out.println(findJumps(new int[]{11, 10, 10, 9}, 10, 1));
-        // Below code is the scenario for single case
+
+        // Below code is the scenario for a single case
         int height = 11, x = 10, y = 1, jumps = 1;
         while (height > x) {
             height -= x + y;
