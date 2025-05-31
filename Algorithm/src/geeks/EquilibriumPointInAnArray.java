@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class EquilibriumPointInAnArray {
 
     private static int findEquilibriumPoint(int[] a) {
-        int sum1 = Arrays.stream(a).reduce(0, Integer::sum);
+        int sum1 = Arrays.stream(a).sum();
         int sum2 = 0;
         for (int x : a) {
             sum2 += x;
