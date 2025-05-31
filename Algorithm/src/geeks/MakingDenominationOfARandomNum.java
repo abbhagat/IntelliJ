@@ -1,15 +1,14 @@
 package geeks;
 
-/*
- * You have infinite number of 3Rs coins and 5Rs coins.
- * And you are provided one random number and u need to find
- * whether you can make the amount with both denominations.
-	for example:
-	U r given a number: 23 then 5*4 +3*1 = 23 so true
-	U r given a number :19 then true. 5*2+3*3
-	U r given a number :16 then true. 5*2+3*2
-	U r given a number :17 then true. 5*1 + 3*4
- */
+/**
+You have infinite number of Rs 3 coins and Rs 5 coins.
+And you are provided one random number, and you need to find whether you can make the amount with both denominations.
+Examples:
+	23 = 5*4 +3*1 = 23, so true
+	19 = 5*2+3*3 so true
+	16 = 5*2+3*2 so true
+	17 = 5*1 + 3*4 so true
+*/
 
 public class MakingDenominationOfARandomNum {
 
@@ -27,8 +26,9 @@ public class MakingDenominationOfARandomNum {
         }
         int i = 1, k;
         while (true) {
-            if ((n - (x * i)) % y == 0) {
-                k = (n - (x * i)) / y;
+            int num = n - (x * i);
+            if (num % y == 0) {
+                k = num / y;
                 break;
             }
             i++;
@@ -43,5 +43,6 @@ public class MakingDenominationOfARandomNum {
         isSumOfCoins(3, 5, 16);
         isSumOfCoins(3, 5, 17);
         isSumOfCoins(3, 5, 103);
+        isSumOfCoins(3, 5, 113);
     }
 }
