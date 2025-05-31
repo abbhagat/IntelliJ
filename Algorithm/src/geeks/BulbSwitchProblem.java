@@ -9,19 +9,17 @@ public class BulbSwitchProblem {
         }
         boolean glows = countOne >= (double) (a.length / 2);
         int count = 0;
-        for (int x : q) {
-            boolean prev = glows;
-            countOne += (a[x] == 0) ? 1 : -1;
-            a[x] ^= 1;
-            glows = countOne >= (double) (a.length / 2);
-            if (prev != glows) {
-                count++;
-            }
+        for (int i : q) {
+             boolean prev = glows;
+             countOne += (a[i] == 0) ? 1 : -1;
+             a[i]  ^= 1;
+             glows  = countOne >= (double) (a.length / 2);
+             count += prev != glows ? 1 : 0;
         }
         return count;
     }
 
     public static void main(String[] args) {
-        System.out.println(solve(new int[]{1, 1, 0, 0, 1, 0, 0}, new int[]{2, 2, 6}));
+        System.out.println(solve(new int[]{1, 1, 0, 0, 1, 0, 0}, new int[]{1, 2, 5}));
     }
 }

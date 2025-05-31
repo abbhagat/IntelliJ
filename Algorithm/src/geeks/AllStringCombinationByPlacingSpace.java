@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-Given a string you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
+Given a string, you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
 
-Input:  str[] = "ABC"
+Input: str[] = "ABC"
 Output: ABC
         AB C
         A BC

@@ -1,5 +1,7 @@
 package geeks;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(log n)
 public class CountOneInSortedBinaryArray {
 
     private static int countOnes(int[] a, int low, int high) {

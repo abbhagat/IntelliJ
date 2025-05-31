@@ -11,27 +11,27 @@ public class DashProblem {
     private static String dashProblem(String str) {
         int[] a = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
-            a[i] = str.charAt(i) - '0';
+              a[i] = str.charAt(i) - '0';
         }
-        String s = "";
         boolean prev_odd  = false;
         boolean prev_even = false;
         if (a[0] % 2 == 0) {
             prev_even = true;
         } else {
-            prev_odd = true;
+            prev_odd  = true;
         }
         int i;
+        StringBuilder sb = new StringBuilder();
         for (i = 1; i < a.length; i++) {
-            s += a[i - 1];
+            sb.append(a[i - 1]);
             if (a[i] == 0) {
                 continue;
             }
             if (a[i] % 2 == 0 && prev_even) {
-                s += "*";
+                sb.append("*");
             }
             if (a[i] % 2 != 0 && prev_odd) {
-                s += "-";
+                sb.append("-");
             }
             if (a[i] % 2 == 0) {
                 prev_even = true;
@@ -41,8 +41,8 @@ public class DashProblem {
                 prev_even = false;
             }
         }
-        s += a[i - 1];
-        return s;
+        sb.append(a[i - 1]);
+        return sb.toString();
     }
 
     public static void main(String[] args) {

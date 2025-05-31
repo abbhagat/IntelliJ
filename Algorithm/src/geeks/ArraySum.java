@@ -15,11 +15,11 @@ public class ArraySum {
             return;
         }
         for (int i = index; i < a.length; i++) {
-            currSum += a[i];
-            list.add(a[i]);
-            combinationForSum(a, i + 1, givenSum, currSum, list);
-            list.removeLast();
-            currSum -= a[i];
+             currSum += a[i];
+             list.add(a[i]);
+             combinationForSum(a, i + 1, givenSum, currSum, list);
+             list.removeLast();
+             currSum -= a[i];
         }
     }
 
