@@ -12,9 +12,9 @@ public class SubstringCheck {
             System.out.println(false + "\t" + 0);
         }
         String s = "";
-        int j = 0, count = 0, index = -1;
+        int index = -1, count = 0;
         boolean isSubString = false;
-        for (int i = 0; i < s1.length() && j < s2.length(); i++) {
+        for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);

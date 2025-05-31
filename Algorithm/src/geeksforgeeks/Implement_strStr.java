@@ -9,23 +9,24 @@ public class Implement_strStr {
         if (s2.length() > s1.length()) {
             return -1;
         }
-        int index = -1, j = 0;
         String s = "";
-        for (int i = 0; i < s1.length() && j < s2.length(); i++) {
+        int index = -1;
+        for (int i = 0, j = 0; i < s1.length() && j < s2.length(); i++) {
             if (s1.charAt(i) == s2.charAt(j)) {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);
                 j++;
-            } else if (s.contentEquals(s2)) {
-                return index;
-            } else {
+                if (s.contentEquals(s2)) {
+                    return index;
+                }
+            }else {
                 i = index != -1 ? index : i;
                 index = -1;
                 j = 0;
                 s = "";
             }
         }
-        return s.contentEquals(s2) ? index : -1;
+        return -1;
     }
 
     public static void main(String[] args) {
