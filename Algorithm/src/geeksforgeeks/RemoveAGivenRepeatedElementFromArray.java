@@ -1,6 +1,7 @@
 package geeksforgeeks;
 
 import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 
 public class RemoveAGivenRepeatedElementFromArray {
 
@@ -13,14 +14,12 @@ public class RemoveAGivenRepeatedElementFromArray {
             }
         }
         IntStream.range(j, a.length).forEach(i -> a[i] = 0);
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 
     public static void main(String[] args) {
         removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 4, 2}, 2);
-        System.out.println();
         removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 3, 2}, 3);
-        System.out.println();
         removeAGivenRepeatedElementFromArray(new int[]{3, 2, 2, 3}, 3);
     }
 }

@@ -1,7 +1,8 @@
 package geeksforgeeks;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
+
 /**
 Given an int[] a move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 Input: a = [0,1,0,3,12] Output: [1,3,12,0,0]
@@ -19,8 +20,7 @@ public class MoveZeroesToEnd {
             }
         }
         IntStream.range(j, a.length).forEach(i -> a[i] = 0);
-        Arrays.stream(a).forEach(i -> System.out.print(a[i] + " "));
-        System.out.println();
+        printArray(a);
     }
 
     public static void main(String[] args) {
