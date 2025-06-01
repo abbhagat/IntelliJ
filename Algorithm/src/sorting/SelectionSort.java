@@ -1,7 +1,6 @@
 package sorting;
 
-import java.util.stream.IntStream;
-
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n^2)
@@ -16,6 +15,6 @@ public class SelectionSort {
                 }
             }
         }
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }

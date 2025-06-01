@@ -1,6 +1,6 @@
 package sorting;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n log n)
@@ -9,9 +9,10 @@ public class QuickSortString {
     private static final String[] a = {"Ani", "Sam", "Joe"};
 
     private static void quickSort(int low, int high) {
-        int i = low;
-        int j = high;
-        String key = a[(i + j) / 2];
+        int i   = low;
+        int j   = high;
+        int mid = (low + high) / 2;
+        var key = a[mid];
         while (a[i].compareTo(key) > 0) {
             i++;
         }
@@ -33,6 +34,6 @@ public class QuickSortString {
 
     public static void main(String[] args) {
         quickSort(0, a.length - 1);
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }

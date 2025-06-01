@@ -1,18 +1,13 @@
 package sorting;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 
 // Time  Complexity O(n log n)
 // Space Complexity O(n)
 public class MergeSort {
 
-    private static final int[] a = {4, 5, 1, 3, 2, 7, 6, 8};
+    private static final int[] a = {4, 5, 1, 3, 2, 9, 7, 6, 8, 10};
     private static final int[] temp = new int[a.length];
-
-    public static void main(String[] args) {
-        mergeSort(0, a.length - 1);
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
-    }
 
     private static void mergeSort(int low, int high) {
         if (low < high) {
@@ -37,5 +32,10 @@ public class MergeSort {
         for (int l = low; l <= high; l++) {
             a[l] = temp[l];
         }
+    }
+
+    public static void main(String[] args) {
+        mergeSort(0, a.length - 1);
+        printArray(a);
     }
 }

@@ -1,6 +1,6 @@
 package sorting;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 public class NthHighestElement {
@@ -42,6 +42,6 @@ public class NthHighestElement {
 
     public static void main(String[] args) {
         sort();
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }

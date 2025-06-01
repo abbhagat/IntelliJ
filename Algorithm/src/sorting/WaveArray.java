@@ -1,13 +1,11 @@
 package sorting;
 
-import java.util.stream.IntStream;
-
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
-// This function sorts a[0..n-1] a[0] >= a[1] <= a[2] >= a[3] <= a[4]....
+// This function sorts a[0..n-1] a[0] >= a[1] <= a[2] >= a[3] <= a[4]
 // Time Complexity: O(N)
 // Auxiliary Space: O(1)
-
 public class WaveArray {
     private static void sortInWave(int[] a) {
         for (int i = 0; i < a.length - 1; i += 2) {
@@ -23,6 +21,6 @@ public class WaveArray {
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 5};
         sortInWave(a);
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }

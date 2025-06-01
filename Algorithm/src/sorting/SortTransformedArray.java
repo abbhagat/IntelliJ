@@ -1,9 +1,10 @@
 package sorting;
 
-// Given an array and int value a,b,c.
-// Apply f(x) = pow(a,2) + bx + c
-// Time Complexity O(n)
+import static util.CommonUtils.printArray;
 
+// Given an array and int value a,b,c. Apply f(x) = pow(a,2) + bx + c
+// Time  Complexity O(n)
+// Space Complexity O(n)
 public class SortTransformedArray {
 
     private static int[] sortTransformedArray(int[] nums, int a, int b, int c) {
@@ -25,12 +26,7 @@ public class SortTransformedArray {
     }
 
     public static void main(String[] args) {
-        for (int x : sortTransformedArray(new int[]{-4, -2, 2, 4}, 1, 3, 5)) {
-            System.out.print(x + " ");
-        }
-        System.out.println();
-        for (int x : sortTransformedArray(new int[]{-4, -2, 2, 4}, -1, 3, 5)) {
-            System.out.print(x + " ");
-        }
+        printArray(sortTransformedArray(new int[]{-4, -2, 2, 4}, 1, 3, 5));
+        printArray(sortTransformedArray(new int[]{-4, -2, 2, 4}, -1, 3, 5));
     }
 }

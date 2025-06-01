@@ -1,9 +1,10 @@
 package sorting;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 public class NthHighestAndNthLowestUsingMinHeap {
+
     private static final int[] a = {10, 4, 6, 9, 2, 1, 5, 8, 7, 3};
     private static int n = a.length - 1;
     private static final int kth = 1;
@@ -42,6 +43,6 @@ public class NthHighestAndNthLowestUsingMinHeap {
 
     public static void main(String[] args) {
         heapSort();
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }
