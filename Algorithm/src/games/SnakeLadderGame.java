@@ -62,15 +62,17 @@ class Game {
         this.snakeMap   = builder.snakeMap;
     }
 
-    public final void play() {
+    public final void play() throws InterruptedException {
         while (true) {
             for (Player player : playerList) {
+                Thread.sleep(1000);
                 int n = rollDice();
                 System.out.println(player.name + " rolled " + n);
                 player.index += n;
                 while (player.index > 100) {
                     player.index -= n;
                     n = rollDice();
+                    System.out.println(player.name + " rolled " + n);
                     player.index += n;
                 }
                 System.out.println(player.name + " moved to " + player.index);
@@ -124,7 +126,7 @@ class Game {
 
 public class SnakeLadderGame {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Game g = new Game.Builder()
                 .addSnake(99, 10).addSnake(52, 5)
                 .addSnake(35, 12).addSnake(68, 3)
