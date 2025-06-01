@@ -9,13 +9,13 @@ public class SortMapKeyAndByValues {
 
     public static <K extends Comparable<K>, V > Map<K, V> sortByKey(Map<K, V> map) {
         return map.entrySet()
-                .stream()
-                .sorted(Map.Entry.<K, V>comparingByKey())
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (e1, e2) -> e1,
-                        LinkedHashMap::new
+                  .stream()
+                  .sorted(Map.Entry.<K, V>comparingByKey())
+                  .collect(Collectors.toMap(
+                                            Map.Entry::getKey,
+                                            Map.Entry::getValue,
+                                            (e1, e2) -> e1,
+                                            LinkedHashMap::new
                 ));
     }
 
