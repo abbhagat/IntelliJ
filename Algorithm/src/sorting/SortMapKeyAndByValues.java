@@ -12,8 +12,8 @@ public class SortMapKeyAndByValues {
                   .stream()
                   .sorted(Map.Entry.<K, V>comparingByKey())
                   .collect(Collectors.toMap(
-                                            Map.Entry::getKey,
-                                            Map.Entry::getValue,
+                                            Map.Entry::getKey,     // entry -> entry.getKey()
+                                            Map.Entry::getValue,  //  entry -> entry.getValue()
                                             (e1, e2) -> e1,
                                             LinkedHashMap::new
                 ));

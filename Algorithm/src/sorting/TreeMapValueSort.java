@@ -14,7 +14,7 @@ class MapUtility {
     }
 
     public static <K extends Comparable<K>, V> Map<K, V> sortByKeys(Map<K, V> map) {
-        Map<K, V> sortedMap = new TreeMap<>(Comparator.reverseOrder());
+        Map<K, V> sortedMap = new TreeMap<>(Comparator.reverseOrder()); // Comparator.reverseOrder() = (k1, k2) -> k2.compareTo(k1) k1.compareTo(k2) = Comparable::compareTo
         sortedMap.putAll(map);
         return sortedMap;
     }

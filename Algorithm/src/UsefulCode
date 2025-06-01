@@ -20,7 +20,7 @@
 5. Convert Set to int[]
     int[] a = set.stream().mapToInt(i -> i).toArray();
 
-6. Find max and min in an array 'a'
+6. Find max and min in an int[]
    int max = Arrays.stream(a).reduce(0, Integer::max); OR Arrays.stream(a).max().getAsInt();
    int min = Arrays.stream(a).reduce(0, Integer::min); OR Arrays.stream(a).min().getAsInt();
    int sum = Arrays.stream(a).sum();
@@ -31,3 +31,8 @@
    LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
 
 8. Arrays.stream(a).filter(x -> map.get(x) > a.length / 2).findFirst().orElse(-1);
+
+9. Comparator.reverseOrder() = (k1, k2) -> k2.compareTo(k1)
+   Comparable::compareTo     = k1.compareTo(k2)
+   Map.Entry::getKey         = entry -> entry.getKey()
+   Map.Entry::getValue       = entry -> entry.getValue()
