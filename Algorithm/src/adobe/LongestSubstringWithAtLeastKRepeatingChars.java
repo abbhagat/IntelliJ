@@ -24,12 +24,10 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
         s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
         for (int i = start; i < end; i++) {
             if (map.get(s.charAt(i)) < k) {
-                // return max(longestSubString(s, start, i, k, index), longestSubString(s, i + 1, end, k, index));
                 int max;
-                // Below Code to find the substring as well
-                int left = longestSubString(s, start, i, k, index);
+                int left  = longestSubString(s, start, i, k, index);
                 int right = longestSubString(s, i + 1, end, k, index);
-                if (left > right) {
+                if (left >= right) {
                     max = left;
                     index.setStart(start);
                     index.setEnd(i);
@@ -46,13 +44,15 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
 
     public static void main(String[] args) {
         Index index = new Index(0, 0);
-        System.out.println(longestSubString("ababbc",0, "ababbc".length(),2, index));
-        System.out.println("ababbc".substring(index.start, index.end));
+        int maxLength = longestSubString("ababbc",0, "ababbc".length(),2, index);
+        System.out.println("ababbc".substring(index.start, index.end) + "\t" + maxLength);
+
         index = new Index(0, 0);
-        System.out.println(longestSubString("aaabb", 0, "aaabb".length() ,3, index));
-        System.out.println("aaabb".substring(index.start, index.end));
+        maxLength = longestSubString("aaabb", 0, "aaabb".length() ,3, index);
+        System.out.println("aaabb".substring(index.start, index.end) + "\t" + maxLength);
+
         index = new Index(0, 0);
-        System.out.println(longestSubString("aaabbb",0, "aaabbb".length(),3, index));
-        System.out.println("aaabbb".substring(index.start, index.end));
+        maxLength = longestSubString("aaabbb",0, "aaabbb".length(),3, index);
+        System.out.println("aaabbb".substring(index.start, index.end) + "\t" + maxLength);
     }
 }

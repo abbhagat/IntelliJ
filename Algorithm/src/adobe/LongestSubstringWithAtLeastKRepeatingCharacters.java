@@ -1,5 +1,8 @@
 package adobe;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static java.lang.Integer.max;
 
 // Time  Complexity : O(n log n)
@@ -8,12 +11,10 @@ import static java.lang.Integer.max;
 public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
     private static int longestSubString(String s, int start, int end, int k) {
-        int[] temp = new int[128];
+        Map<Character, Integer> map = new HashMap<>();
+        s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
         for (int i = start; i < end; i++) {
-            temp[s.charAt(i)]++;
-        }
-        for (int i = start; i < end; i++) {
-            if (temp[s.charAt(i)] < k) {
+            if (map.get(s.charAt(i)) < k) {
                 return max(longestSubString(s, start, i, k), longestSubString(s, i + 1, end, k));
             }
         }
