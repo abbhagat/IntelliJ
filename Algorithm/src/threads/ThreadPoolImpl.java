@@ -1,20 +1,21 @@
 package threads;
 
+import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 class ThreadPool {
 
-    private final BlockingQueue<Runnable> taskQueue;
+    private final BlockingQueue<Runnable> queue;
     private final Thread[] threads;
     private volatile boolean isStopped;
 
     public ThreadPool(int numThreads) {
-        taskQueue = new LinkedBlockingQueue<>();
+        queue = new LinkedBlockingQueue<>();
         threads   = new Thread[numThreads];
         isStopped = false;
         for (int i = 0; i < numThreads; i++) {
-            threads[i] = new Worker(taskQueue);
+            threads[i] = new Worker(queue);
             threads[i].start();
         }
     }
@@ -23,18 +24,16 @@ class ThreadPool {
         if (isStopped) {
             throw new IllegalStateException("ThreadPool is stopped");
         }
-        taskQueue.offer(task);
+        queue.offer(task);
     }
 
     public void stop() {
         isStopped = true;
-        for (Thread thread : threads) { // Arrays.stream(threads).forEach(Thread::interrupt);
-            thread.interrupt();
-        }
+        Arrays.stream(threads).forEach(Thread::interrupt);
     }
 
     public void waitUntilAllTasksFinished() {
-        while (!taskQueue.isEmpty()) {
+        while (!queue.isEmpty()) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -45,17 +44,17 @@ class ThreadPool {
 
     private static class Worker extends Thread {
 
-        private final BlockingQueue<Runnable> taskQueue;
+        private final BlockingQueue<Runnable> queue;
 
-        public Worker(BlockingQueue<Runnable> taskQueue) {
-            this.taskQueue = taskQueue;
+        public Worker(BlockingQueue<Runnable> queue) {
+            this.queue = queue;
         }
 
         @Override
         public void run() {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
-                    Runnable task = taskQueue.take();
+                    Runnable task = queue.take();
                     task.run();
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -71,7 +70,8 @@ public class ThreadPoolImpl {
         ThreadPool threadPool = new ThreadPool(5);
         for (int i = 0; i < 10; i++) {
             final int taskNum = i;
-            threadPool.execute(() -> System.out.println(Thread.currentThread().getName() + " is executing task " + taskNum));
+            Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + taskNum);
+            threadPool.execute(runnable);
         }
         threadPool.waitUntilAllTasksFinished();
         threadPool.stop();
