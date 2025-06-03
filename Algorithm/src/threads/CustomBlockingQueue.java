@@ -40,11 +40,12 @@ class Producer<K extends Number> implements Runnable {
     }
 
     public void run() {
-        Integer n = 0;
+        int n = 0;
         while (true) {
             try {
                 System.out.println("Put : " + ++n) ;
-                q.put((K) n);
+                q.put((K)Integer.valueOf(n));
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -65,6 +66,7 @@ class Consumer<K extends Number> implements Runnable {
         while (true) {
             try {
                 System.out.println("Get : " + q.get());
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
