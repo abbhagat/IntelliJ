@@ -1,8 +1,9 @@
 package trees;
 
-/* Given a BST and a node. Find the inorder successor of that node in the BST
-   In Binary Tree, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree.
-   Inorder Successor is NULL for the last node in Inorder traversal.
+/**
+Given a BST and a node. Find the inorder successor of that node in the BST
+In Binary Tree, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree.
+Inorder Successor is NULL for the last node in Inorder traversal.
 */
 
 // Time Complexity O(log n)
