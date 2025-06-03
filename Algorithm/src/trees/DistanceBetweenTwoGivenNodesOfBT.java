@@ -4,17 +4,17 @@ import static trees.LCAOfBinaryTree.findLCA;
 
 
 
-public class DistanceBetweenTwoGivenNodesOfABT {
+public class DistanceBetweenTwoGivenNodesOfBT {
 
     private static int findLevel(Node root, Node target, int level) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         if (root == target) {
             return level;
         }
-        int    distance  =      findLevel(root.left,  target, level + 1);
-        return distance == -1 ? findLevel(root.right, target, level + 1) : distance;
+        int    distance  =     findLevel(root.left,  target, level + 1);
+        return distance == 0 ? findLevel(root.right, target, level + 1) : distance;
     }
 
     private static int findDistance(Node root, Node x, Node y) {

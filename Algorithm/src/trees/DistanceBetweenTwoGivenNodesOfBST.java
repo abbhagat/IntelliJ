@@ -2,17 +2,17 @@ package trees;
 
 import static trees.LCA.lca;
 
-public class DistanceBetweenTwoGivenNodesOfABST {
+public class DistanceBetweenTwoGivenNodesOfBST {
 
     private static int findLevel(Node root, int target, int level) {
         if (root == null) {
-            return -1;
+            return 0;
         }
         if (root.num == target) {
             return level;
         }
-        int    distance  =      findLevel(root.left,  target, level + 1);
-        return distance == -1 ? findLevel(root.right, target, level + 1) : distance;
+        int    distance  =     findLevel(root.left,  target, level + 1);
+        return distance == 0 ? findLevel(root.right, target, level + 1) : distance;
     }
 
     private static int findDistance(Node root, int num1, int num2) {
