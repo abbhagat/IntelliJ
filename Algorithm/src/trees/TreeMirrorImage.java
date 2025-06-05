@@ -2,16 +2,13 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 import static trees.TreeTraversal.inorder;
 
-/*
+/**
 Tree Array = {1,2,3,4,5}
-Inorder traversal of the constructed tree is
-4 2 5 1 3
-Inorder traversal of the mirror tree is
-7 3 6 1 5 2 4
- */
+Inorder traversal of the tree is 4 2 5 1 3
+Inorder traversal of the tree is 7 3 6 1 5 2 4
+*/
 // Time Complexity : O(n)
 public class TreeMirrorImage {
 
@@ -30,9 +27,9 @@ public class TreeMirrorImage {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
-            Node node = q.poll();
-            Node temp = node.left;
-            node.left = node.right;
+            Node node  = q.poll();
+            Node temp  = node.left;
+            node.left  = node.right;
             node.right = temp;
             if (node.left != null) {
                 q.add(node.left);

@@ -52,6 +52,6 @@ public class TreeHeightWithoutRecursion {
         root.left.right.left   = new Node(7);
         root.left.right.right  = new Node(8);
         root.right.right.right = new Node(9);
-        System.out.println("Tree Height : " + treeHeight(root));
+        System.out.println("Tree Height " + treeHeight(root));
     }
 }

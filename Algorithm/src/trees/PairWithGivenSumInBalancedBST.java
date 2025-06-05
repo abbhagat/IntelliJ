@@ -29,11 +29,11 @@ public class PairWithGivenSumInBalancedBST {
     private static void isPairPresent(Node root, int target) {
         Set<Integer> set = inorder(root, new HashSet<>());
         for (int x : set) {
-            int y = target - x;
-            if (set.contains(y) && y > x) {
-                System.out.println(x + "," + y);
-            }
-        }
+             int y = target - x;
+             if (set.contains(y) && y > x) {
+                 System.out.println(x + "," + y);
+             }
+         }
     }
 
     public static void main(String[] args) {

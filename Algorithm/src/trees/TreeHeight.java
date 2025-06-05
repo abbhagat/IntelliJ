@@ -2,11 +2,9 @@ package trees;
 
 import static java.lang.Math.max;
 
-// Time Complexity : O(n)
+// Time  Complexity: O(n)
 // Space Complexity: O(2^h) - 1
 public class TreeHeight {
-
-    private static int lH, rH;
 
     public static int treeHeight(Node root) {
         return null == root ? 0 : max(treeHeight(root.left), treeHeight(root.right)) + 1;
@@ -42,7 +40,7 @@ public class TreeHeight {
         root.left.right.left   = new Node(7);
         root.left.right.right  = new Node(8);
         root.right.right.right = new Node(9);
-        System.out.println("Tree Height :" + treeHeight(root));
-        System.out.println("Tree Height :" + heights(root));
+        System.out.println("Tree Height " + treeHeight(root));
+        System.out.println("Tree Height " + heights(root));
     }
 }

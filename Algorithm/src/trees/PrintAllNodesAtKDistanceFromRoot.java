@@ -1,8 +1,7 @@
 package trees;
 
-// Time Complexity  : O(n) where n is number of nodes in the given binary tree.
-// Space Complexity : O(height of the binary tree).
-
+// Time  Complexity: O(n) n is number of nodes in the given binary tree.
+// Space Complexity: O(H) H is the height of the binary tree.
 public class PrintAllNodesAtKDistanceFromRoot {
 
     private static void printNodes(Node root, int level) {
