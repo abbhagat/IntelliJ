@@ -44,6 +44,11 @@ public final class Employee {
     }
 
     public static void main(String[] args) {
-
+        Employee e1 = new Employee("Abhinaw", 1);
+        Employee e2 = new Employee("Abhinaw", 1);
+        System.out.println(e1);
+        System.out.println(e2);
+        System.out.println(e1.equals(e2));
+        System.out.println(e1.hashCode() == e2.hashCode());
     }
 }
