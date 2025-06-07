@@ -12,7 +12,6 @@ public class SortMapWithKeyAndValue {
         map.put("A", 65);
         map.put("X", 88);
         map.put("Z", 90);
-        map.put("A", 65);
         map.put("B", 66);
         map.put("Y", 89);
         map.put("C", 67);
