@@ -9,8 +9,8 @@ public class DateComparison {
 
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date1 = LocalDate.of(2009, 12, 31);
-        LocalDate date2 = LocalDate.of(2010, 01, 31);
-        LocalDate date3 = LocalDate.of(2010, 01, 31);
+        LocalDate date2 = LocalDate.of(2010,  1, 31);
+        LocalDate date3 = LocalDate.of(2010,  1, 31);
 
         System.out.println("date2 equals date3 : " + date2.isEqual(date3));
         System.out.println(DateTimeFormatter.ofPattern("dd-MMM-yyyy").format(date1));
