@@ -13,18 +13,18 @@ public class LongestConsecutiveSequence {
         Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         int max = 0;
         for (int x : a) {
-            int i = x - 1, j = x + 1, count = 1;
-            while (set.contains(i)) {
-                count++;
-                set.remove(i);
-                i--;
-            }
-            while (set.contains(j)) {
-                count++;
-                set.remove(j);
-                j++;
-            }
-            max = max(max, count);
+             int i = x - 1, j = x + 1, count = 1;
+             while (set.contains(i)) {
+                 count++;
+                 set.remove(i);
+                 i--;
+             }
+             while (set.contains(j)) {
+                 count++;
+                 set.remove(j);
+                 j++;
+             }
+             max = max(max, count);
         }
         return max;
     }
