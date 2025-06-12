@@ -2,8 +2,6 @@ package arrays;
 
 import java.util.Arrays;
 
-import static util.CommonUtils.printArray;
-
 // Time Complexity O(n^2)
 public class ArrayDelete3rdElement {
 

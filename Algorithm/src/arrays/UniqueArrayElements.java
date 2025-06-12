@@ -2,15 +2,14 @@ package arrays;
 
 // Find the unique number that is present only once in an array while all the others are present three times.
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class UniqueArrayElements {
     private static void printUniqueArrayElements(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
         map.forEach((k, v) -> {
             if (v == 1 || v == 3) {
                 System.out.println(k);

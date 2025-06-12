@@ -12,6 +12,6 @@ public class ArrayListDelete3rdElement {
         for (int i = pos; i < list.size(); i += pos) {
             list.remove(i);
         }
-        list.forEach(x -> System.out.print(x + " "));
+        System.out.println(list);
     }
 }
