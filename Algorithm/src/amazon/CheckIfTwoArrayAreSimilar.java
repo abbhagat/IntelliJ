@@ -10,10 +10,10 @@ public class CheckIfTwoArrayAreSimilar {
         if (a.length == b.length) {
             List<Integer> list = new ArrayList<>();
             for (int x : a) {
-                list.add(x);
+                 list.add(x);
             }
             for (int x : b) {
-                list.remove(Integer.valueOf(x));
+                 list.remove(Integer.valueOf(x));
             }
             return list.isEmpty();
         }

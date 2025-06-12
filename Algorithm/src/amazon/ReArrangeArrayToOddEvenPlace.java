@@ -1,7 +1,6 @@
 package amazon;
 
-import java.util.stream.IntStream;
-
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time  Complexity : O(n)
@@ -21,7 +20,7 @@ public class ReArrangeArrayToOddEvenPlace {
                 i += 2;
             }
         }
-        IntStream.range(0, a.length).forEach(k -> System.out.print(a[k] + " "));
+        printArray(a);
     }
 
     public static void main(String[] args) {

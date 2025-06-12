@@ -6,8 +6,6 @@ package amazon;
   Both the array has to be sorted in O(n).
  */
 
-import util.CommonUtils;
-
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 

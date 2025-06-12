@@ -10,11 +10,11 @@ public class ArrayMulOtherThanOwnPosition {
         int[] a = new int[nums.length];
         a[0] = 1;
         for (int i = 1; i < a.length; i++) {
-            a[i] = a[i - 1] * nums[i - 1];
+             a[i]  = a[i - 1] * nums[i - 1];
         }
-        for (int k = 1, i = a.length - 1; i >= 0; i--) {
-            a[i] *= k;
-              k  *= nums[i];
+        for (int i = a.length - 1,  k = 1; i >= 0; i--) {
+             a[i] *= k;
+               k  *= nums[i];
         }
         return a;
     }
