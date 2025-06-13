@@ -1,23 +1,13 @@
 package arrays;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-/**
-Solution 1: Using Hashmap
-Solution 2: Using BST
-Solution 3: O(n^2)
-*/
+import java.util.*;
 
 public class PrintRepeatingNumInArray {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 100, 3, 6, 6, 4, 5, 3, 5, 4, 3};
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        Arrays.stream(a).forEach(n -> { map.put(n, map.getOrDefault(n, 0) + 1); });
         Set<Map.Entry<Integer, Integer>> set = map.entrySet();
         for (Map.Entry<Integer, Integer> m : set) {
             if (m.getValue() > 1) {

@@ -1,18 +1,21 @@
 package arrays;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RemoveDuplicatesInCharArray {
 
     private static void removeDuplicate() {
         final char[] a = {'A', 'B', 'B', 'C', 'D', 'E', 'R', 'R', 'D'};
-        int[] temp = new int[128];
+        Map<Character, Integer> map = new HashMap<>();
         for (char c : a) {
-            temp[c]++;
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        for (int i = 0; i < temp.length; i++) {
-            if (temp[i] == 1) {
-                System.out.print((char) (i));
+        map.forEach((k, v) -> {
+            if (v == 1) {
+                System.out.print(k + " ");
             }
-        }
+        });
     }
 
     public static void main(String[] args) {
