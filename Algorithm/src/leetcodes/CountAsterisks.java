@@ -32,6 +32,7 @@ public class CountAsterisks {
 
     public static void main(String[] args) {
         System.out.println(countAsterisks("l|*e**et|c**o|*de|"));
+        System.out.println(countAsterisks("l|*e**et|c**o|*de|*"));
         System.out.println(countAsterisks("iamprogrammer"));
         System.out.println(countAsterisks("yo|uar|e**|b|e***au|tifu|l"));
     }

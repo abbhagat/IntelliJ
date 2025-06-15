@@ -15,7 +15,7 @@ Input: str = "((ng)ipm(ca))"     Output: camping
 // Space Complexity: O(n)
 public class ReverseSubstringsBetweenParenthesis {
 
-    private static String reverseParentheses(String str) {
+    private static StringBuilder reverseParentheses(String str) {
         Stack<StringBuilder> stack = new Stack<>();
         StringBuilder sb = new StringBuilder();
         for (char c : str.toCharArray()) {
@@ -29,7 +29,7 @@ public class ReverseSubstringsBetweenParenthesis {
                 sb.append(c);
             }
         }
-        return sb.toString();
+        return sb;
     }
 
     public static void main(String[] args) {

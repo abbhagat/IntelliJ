@@ -1,8 +1,5 @@
 package leetcodes;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
