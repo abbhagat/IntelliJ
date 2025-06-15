@@ -7,14 +7,14 @@ public class PrintTriangleInPattern {
         int low = 1, high = n, mid = n / 2;
         while (low <= mid) {
             for (int i = 1; i <= low; i++) {
-                System.out.print("*");
+                 System.out.print("*");
             }
             System.out.println();
             low++;
         }
         while (mid <= high) {
             for (int i = mid + 1; i <= high; i++) {
-                System.out.print("*");
+                 System.out.print("*");
             }
             System.out.println();
             high--;

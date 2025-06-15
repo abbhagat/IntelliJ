@@ -9,7 +9,7 @@ public class TopKFrequentElementsInAnArray {
 
     private static int[] topKFrequent(int[] a, int k) {
         Map<Integer, Integer> map = new HashMap<>();
-        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
         List<Map.Entry<Integer, Integer>> sortedList = map.entrySet()
                                                           .stream()
                                                           .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())

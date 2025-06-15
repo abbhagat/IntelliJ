@@ -1,7 +1,5 @@
 package jpmorgan;
 
-import java.util.stream.IntStream;
-
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
@@ -26,8 +24,8 @@ public class NextGreaterNumWithSameSetOfDigits {
                 }
             }
         }
-        int[] res = new int[a.length];
         int k = a.length - 1;
+        int[] res = new int[a.length];
         System.arraycopy(a, 0, res, 0, i);
         for (int j = i; j < res.length; j++) {
             res[j] = a[k];
