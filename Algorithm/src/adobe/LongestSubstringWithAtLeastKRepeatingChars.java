@@ -39,20 +39,22 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
                 return max;
             }
         }
+        index.start = start;
+        index.end   = end;
         return end - start;
     }
 
     public static void main(String[] args) {
         Index index = new Index(0, 0);
-        int maxLength = longestSubString("ababbc",0, "ababbc".length(),2, index);
-        System.out.println("ababbc".substring(index.start, index.end) + "\t" + maxLength);
+        int max = longestSubString("ababbc",0, "ababbc".length(),2, index);
+        System.out.println("ababbc".substring(index.start, index.end) + "\t" + max);
 
         index = new Index(0, 0);
-        maxLength = longestSubString("aaabb", 0, "aaabb".length() ,3, index);
-        System.out.println("aaabb".substring(index.start, index.end) + "\t" + maxLength);
+        max = longestSubString("aaabb", 0, "aaabb".length() ,3, index);
+        System.out.println("aaabb".substring(index.start, index.end) + "\t" + max);
 
         index = new Index(0, 0);
-        maxLength = longestSubString("aaabbb",0, "aaabbb".length(),3, index);
-        System.out.println("aaabbb".substring(index.start, index.end) + "\t" + maxLength);
+        max = longestSubString("aaabbb",0, "aaabbb".length(),3, index);
+        System.out.println("aaabbb".substring(index.start, index.end) + "\t" + max);
     }
 }
