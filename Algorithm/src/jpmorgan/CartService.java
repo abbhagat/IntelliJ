@@ -19,11 +19,11 @@ class ItemCart {
     private final Map<String, Map<String, Integer>> cartMap = new ConcurrentHashMap<>();  // put(category,put(item,qty))
 
     static {
-        itemQtyMap.put("APPLE", 10);
-        itemQtyMap.put("BANANA", 5);
-        itemQtyMap.put("ORANGE", 8);
-        itemQtyMap.put("MANGO", 12);
-        itemQtyMap.put("GUAVA", 12);
+        itemQtyMap.put("Apple", 10);
+        itemQtyMap.put("Banana", 5);
+        itemQtyMap.put("Orange", 8);
+        itemQtyMap.put("Mango", 12);
+        itemQtyMap.put("Guava", 12);
 
         categoryQtyMap.put("FRUIT", 20);
         categoryQtyMap.put("VEGETABLE", 15);
@@ -55,11 +55,11 @@ public class CartService {
     public static void main(String[] args) {
         ItemCart itemCart = new ItemCart();
         TotalCartQty totalCartQty = new TotalCartQty();
-        itemCart.addItemToCart("APPLE",  "FRUIT",   5, totalCartQty);
-        itemCart.addItemToCart("BANANA", "FRUIT",   3, totalCartQty);
-        itemCart.addItemToCart("ORANGE", "FRUIT",   2, totalCartQty);
-        itemCart.addItemToCart("MANGO",  "FRUIT",  10, totalCartQty);
-        itemCart.addItemToCart("GUAVA",  "FRUIT",  12, totalCartQty);
+        itemCart.addItemToCart("Apple",  "FRUIT",   5, totalCartQty);
+        itemCart.addItemToCart("Banana", "FRUIT",   3, totalCartQty);
+        itemCart.addItemToCart("Orange", "FRUIT",   2, totalCartQty);
+        itemCart.addItemToCart("Mango",  "FRUIT",  10, totalCartQty);
+        itemCart.addItemToCart("Guava",  "FRUIT",  12, totalCartQty);
         System.out.println(itemCart.getCartMap());
         System.out.println("Total quantity in cart: " + totalCartQty.totalQtyInCart);
     }
