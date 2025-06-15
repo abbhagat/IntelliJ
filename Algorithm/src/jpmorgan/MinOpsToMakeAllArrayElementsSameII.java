@@ -1,5 +1,7 @@
 package jpmorgan;
 
+import java.util.Arrays;
+
 /**
 Given an array consisting of n elements. At each operation, you can select any one element and increase the rest of n-1 elements by 1.
 You have to make all elements equal performing such operation as many times you wish.
@@ -19,16 +21,11 @@ operation | increased elements | after increment
      2    |    2, 3            | 5, 5, 5
 */
 
-import static java.lang.Integer.min;
-
 public class MinOpsToMakeAllArrayElementsSameII {
 
     private static int printMinOp(int[] a) {
-        int sum = 0, min = a[0];
-        for (int x : a) {
-            sum += x;
-            min = min(min, x);
-        }
+        int sum = Arrays.stream(a).sum();
+        int min = Arrays.stream(a).min().getAsInt();
         return sum - a.length * min;
     }
 
