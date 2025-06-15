@@ -53,7 +53,7 @@ public class TopKFrequentElementsInAnArrayII {
         int[] temp = new int[k + 1];
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i <= k; i++) {
-            map.put(i, 0);
+             map.put(i, 0);
         }
         intStream.forEach(n -> {
             map.put(n, map.getOrDefault(n, 0) + 1);
@@ -73,16 +73,16 @@ public class TopKFrequentElementsInAnArrayII {
             }
 */
             for (int i = 0; i < k && temp[i] != 0; i++) {  // for(int i = temp.length - 2; i >= k - 1; i--) {
-                System.out.print(temp[i] + " ");
+                 System.out.print(temp[i] + " ");
             }
         });
     }
 
     private static int search(int[] temp, int n) {
         for (int i = 0; i < temp.length; i++)
-            if (temp[i] == n) {
-                return i;
-            }
+             if (temp[i] == n) {
+                 return i;
+             }
         return -1;
     }
 
