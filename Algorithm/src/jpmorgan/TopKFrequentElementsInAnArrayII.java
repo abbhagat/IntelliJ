@@ -15,7 +15,7 @@ Input : arr[] = {5, 2, 1, 3, 2} k = 4
 Output: 5 2 5 1 2 5 1 2 3 5 2 1 3 5
 After reading 5, there is only one element 5 whose frequency is max till now. so print 5.
 After reading 2, we will have two elements 2 and 5 with the same frequency.
-As 2 is smaller than 5 but their frequency is the same so we will print 2 5.
+As 2 is smaller than 5 but their frequency is the same, so we will print 2 5.
 After reading 1, we will have 3 elements 1, 2 and 5 with the same frequency, so print 1 2 5.
 Similarly, after reading 3, print 1 2 3 5
 After reading last element 2 since 2 has already occurred, so we have now a
