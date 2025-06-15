@@ -59,13 +59,13 @@ public class TopKFrequentElementsInAnArrayII {
             map.put(n, map.getOrDefault(n, 0) + 1);
             temp[k] = n;
             for (int i = search(temp, n) - 1; i >= 0; i--) {
-                int x = map.get(temp[i]);
-                int y = map.get(temp[i + 1]);
-                if (x < y || (x == y && temp[i] > temp[i + 1])) {
-                    swap(temp, i, i + 1);
-                } else {
-                    break;
-                }
+                 int x = map.get(temp[i]);
+                 int y = map.get(temp[i + 1]);
+                 if (x < y || (x == y && temp[i] > temp[i + 1])) {
+                     swap(temp, i, i + 1);
+                 } else {
+                     break;
+                 }
             }
 /*    Replace the below for loop with this for k = 1
             if (temp[0] != 0) {
