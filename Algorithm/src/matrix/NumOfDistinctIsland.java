@@ -30,20 +30,22 @@ public class NumOfDistinctIsland {
         list.add((row - r) + " " + (col - c));
         for (int k = 0; k < 4; k++) {
             if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-                DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
+                   DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
             }
         }
     }
 
     private static int countDistinctIslands() {
         Set<List<String>> set = new HashSet<>();
-        for (int row = 0; row < ROW; row++)
-            for (int col = 0; col < COL; col++)
+        for (int row = 0; row < ROW; row++) {
+            for (int col = 0; col < COL; col++) {
                 if (M[row][col] == 1 && !visited[row][col]) {
                     List<String> list = new ArrayList<>();
                     DFS(row, col, row, col, list);
                     set.add(list);
                 }
+            }
+        }
         return set.size();
     }
 
