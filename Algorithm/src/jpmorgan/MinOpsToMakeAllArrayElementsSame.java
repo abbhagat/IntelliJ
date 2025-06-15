@@ -3,6 +3,7 @@ package jpmorgan;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
 Given an array with n positive integers. We need to find the minimum number of operations to make all elements equal.
@@ -16,12 +17,10 @@ public class MinOpsToMakeAllArrayElementsSame {
 
     private static int printMinOps(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
         int max = 0;
         for (Map.Entry<Integer, Integer> set : map.entrySet()) {
-            if (max < set.getValue()) {
-                max = set.getKey();
-            }
+             max = max < set.getValue() ? set.getKey() : max;
         }
         return a.length - max;
     }
