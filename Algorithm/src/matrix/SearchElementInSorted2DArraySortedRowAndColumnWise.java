@@ -12,7 +12,7 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
             } else if (key > M[R1][C2]) {
                 R1++;
             } else {
-                System.out.println("[" + R1 + "]" + "[" + C2 + "]");
+                System.out.println("M[" + R1 + "]" + "[" + C2 + "]");
                 return true;
             }
         }
@@ -26,7 +26,7 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
             int mid = (low + high) / 2;
             int key = M[mid / n][mid % n];
             if (key == num) {
-                System.out.print("[" + mid / n + "]" + "[" + mid % n + "]");
+                System.out.println("M[" + mid / n + "]" + "[" + mid % n + "]");
                 return true;
             } else if (num < key) {
                 high = mid - 1;
