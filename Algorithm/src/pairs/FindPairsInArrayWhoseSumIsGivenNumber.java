@@ -1,5 +1,6 @@
 package pairs;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,9 +8,7 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
     public static void findPairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
         for (int x : a) {
             int y = target - x;
             if (map.containsKey(y)) {

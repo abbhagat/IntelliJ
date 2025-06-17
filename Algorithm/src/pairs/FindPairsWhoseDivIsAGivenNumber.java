@@ -1,19 +1,15 @@
 package pairs;
 
 import util.Pair;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+
+import java.util.*;
 
 public class FindPairsWhoseDivIsAGivenNumber {
 
     private static Set<Pair> findPairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         Set<Pair> set = new HashSet<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
         if (target == 0 && map.containsKey(0)) {
             for (int x : a) {
                 if (x != 0) {
