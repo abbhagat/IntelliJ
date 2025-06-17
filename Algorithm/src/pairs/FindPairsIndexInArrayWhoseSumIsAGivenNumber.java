@@ -1,5 +1,6 @@
 package pairs;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,23 +17,21 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
 
     public static int[] twoSumIndex(int[] a, int target) {
         if (a == null || a.length < 2) {
-            return new int[]{0, 0};
+            return null;
         }
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
-            int y = target - a[i];
-            if (map.containsKey(y)) {
-                return new int[]{map.get(y), i};
-            }
-            map.put(a[i], i);
+             int y = target - a[i];
+             if (map.containsKey(y)) {
+                 return new int[]{map.get(y), i};
+             }
+             map.put(a[i], i);
         }
-        return new int[]{0, 0};
+        return null;
     }
 
     public static void main(String[] args) {
-        int[] index = twoSumIndex(new int[]{3, 2, 4}, 6);
-        System.out.println(index[0] + "," + index[1]);
-        index = twoSumIndex(new int[]{3, 3}, 6);
-        System.out.println(index[0] + "," + index[1]);
+        System.out.println(Arrays.toString(twoSumIndex(new int[]{3, 2, 4}, 6)));
+        System.out.println(Arrays.toString(twoSumIndex(new int[]{3, 3}, 6)));
     }
 }
