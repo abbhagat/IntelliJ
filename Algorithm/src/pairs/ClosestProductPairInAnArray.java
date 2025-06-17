@@ -1,9 +1,10 @@
 package pairs;
 
 import java.util.Arrays;
-
 import static java.lang.Math.abs;
 
+// Time  Complexity : O(n log n)
+// Space Complexity : O(1)
 public class ClosestProductPairInAnArray {
 
     private static void findPair(int[] a, int n) {
@@ -24,5 +25,6 @@ public class ClosestProductPairInAnArray {
 
     public static void main(String[] args) {
         findPair(new int[]{2, 3, 5, 9}, 47);
+        findPair(new int[]{2, 3, 5, 9}, 17);
     }
 }
