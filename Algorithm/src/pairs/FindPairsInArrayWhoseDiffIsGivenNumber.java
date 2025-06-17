@@ -6,6 +6,8 @@ import java.util.*;
 
 public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
+    // Time  Complexity : O(n)
+    // Space Complexity : O(n)
     private static void findPairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         Set<Pair> set = new HashSet<>();
@@ -19,6 +21,8 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
         System.out.println(set);
     }
 
+    // Time  Complexity : O(n log n)
+    // Space Complexity : O(n)
     private static void findPair(int[] a, int target) {
         Arrays.sort(a);
         int i = 0, j = 0, n = a.length - 1;
@@ -34,7 +38,7 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
             } else if (a[j] - a[i] < target) {
                 j++;
             } else {
-                System.out.println("(" + a[j] + ", " + a[i] + ")");
+                System.out.println("(" + a[i] + ", " + a[j] + ")");
                 i++;
                 j++;
             }
