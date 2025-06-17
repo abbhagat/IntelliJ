@@ -16,6 +16,7 @@ public class FindPairsInArrayWithSmallestSum {
             temp[i]++;
             k--;
         }
+        System.out.println();
     }
 
     private static int getMinIndex(int[] a, int[] b, int[] temp) {
@@ -30,10 +31,8 @@ public class FindPairsInArrayWithSmallestSum {
     }
 
     public static void main(String[] args) {
-        findPairsInArrayWithSmallestSum(new int[]{1, 2}, new int[]{3, 4}, 3);
-        System.out.println();
-        findPairsInArrayWithSmallestSum(new int[]{1, 1, 2}, new int[]{1, 2, 3}, 2);
-        System.out.println();
+        findPairsInArrayWithSmallestSum(new int[]{1, 2},     new int[]{3, 4},    3);
+        findPairsInArrayWithSmallestSum(new int[]{1, 1, 2},  new int[]{1, 2, 3}, 2);
         findPairsInArrayWithSmallestSum(new int[]{1, 7, 11}, new int[]{2, 4, 6}, 3);
     }
 }
