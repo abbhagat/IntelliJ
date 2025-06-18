@@ -1,6 +1,6 @@
 package sorting;
 
-import static util.CommonUtils.printArray;
+import java.util.Arrays;
 
 // Time  Complexity O(n log n)
 // Space Complexity O(n)
@@ -30,12 +30,12 @@ public class MergeSort {
             temp[k++] = a[j++];
         }
         for (int l = low; l <= high; l++) {
-            a[l] = temp[l];
+              a[l] = temp[l];
         }
     }
 
     public static void main(String[] args) {
         mergeSort(0, a.length - 1);
-        printArray(a);
+        System.out.println(Arrays.toString(a));
     }
 }

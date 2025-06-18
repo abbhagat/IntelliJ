@@ -1,6 +1,6 @@
 package sorting;
 
-import static util.CommonUtils.printArray;
+import java.util.Arrays;
 import static util.CommonUtils.swap;
 
 public class MoveAllNegativeToEndAndPositiveToBeginning {
@@ -23,6 +23,6 @@ public class MoveAllNegativeToEndAndPositiveToBeginning {
     public static void main(String[] args) {
         int[] a = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
         move(a);
-        printArray(a);
+        System.out.println(Arrays.toString(a));
     }
 }

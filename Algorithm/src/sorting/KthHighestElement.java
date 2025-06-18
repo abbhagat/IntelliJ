@@ -2,15 +2,17 @@ package sorting;
 
 import java.util.PriorityQueue;
 
+// Time  Complexity O(n log k)
+// Space Complexity O(k)
 public class KthHighestElement {
 
     private static int findKthHighest(int[] a, int k) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int x : a) {
-            pq.add(x);
-            if (pq.size() > k) {
-                pq.poll();
-            }
+             pq.add(x);
+             if (pq.size() > k) {
+                 pq.poll();
+             }
         }
         return !pq.isEmpty() ? pq.peek() : -1;
     }

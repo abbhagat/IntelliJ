@@ -1,6 +1,6 @@
 package sorting;
 
-import static util.CommonUtils.printArray;
+import java.util.Arrays;
 import static util.CommonUtils.swap;
 
 // Time Complexity O(n^2)
@@ -15,6 +15,6 @@ public class InsertionSort {
                 j--;
              }
          }
-        printArray(a);
+        System.out.println(Arrays.toString(a));
     }
 }
