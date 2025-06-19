@@ -8,11 +8,11 @@ public class EquilibriumPointInAnArray {
         int sum1 = Arrays.stream(a).sum();
         int sum2 = 0;
         for (int x : a) {
-            sum2 += x;
-            if (sum1 == sum2) {
-                return x;
-            }
-            sum1 -= x;
+             sum2 += x;
+             if (sum1 == sum2) {
+                 return x;
+             }
+             sum1 -= x;
         }
         return -1;
     }

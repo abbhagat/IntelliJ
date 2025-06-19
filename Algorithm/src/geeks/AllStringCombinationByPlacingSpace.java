@@ -24,8 +24,8 @@ public class AllStringCombinationByPlacingSpace {
         }
         List<String> list = spaceString(str.substring(1));
         for (String s : list) {
-            al.add(str.charAt(0) + s);
-            al.add(str.charAt(0) + " " + s);
+             al.add(str.charAt(0) + s);
+             al.add(str.charAt(0) + " " + s);
         }
         return al;
     }

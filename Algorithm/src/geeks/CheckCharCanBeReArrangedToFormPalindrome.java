@@ -1,6 +1,7 @@
 package geeks;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class CheckCharCanBeReArrangedToFormPalindrome {
@@ -8,25 +9,23 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
     private static boolean canFormPalindrome(String s) {
         int[] temp = new int[128];
         for (char c : s.toCharArray()) {
-            temp[c]++;
+             temp[c]++;
         }
         int count = 0;
         for (int n : temp) {
-            if (n % 2 == 1) {
-                count++;
-            }
-            if (count > 1) {
-                return false;
-            }
+             if (n % 2 == 1) {
+                 count++;
+             }
+             if (count > 1) {
+                 return false;
+             }
         }
         return true;
     }
 
     private static boolean canFormPalindromeUsingMap(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
-        }
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
         int count = 0;
         for (int n : map.values()) {
             if (n % 2 == 1) {

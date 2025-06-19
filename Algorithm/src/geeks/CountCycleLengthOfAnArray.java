@@ -15,12 +15,11 @@ public class CountCycleLengthOfAnArray {
                 if (a[i] == a[startIndex]) {
                     return count;
                 } else {
-                    int j = 0;
-                    while (j < a.length) {
+                    int j;
+                    for (j = 0; j < a.length; j++) {
                         if (a[i] == a[j]) {
                             break;
                         }
-                        j++;
                     }
                     return list.size() - j;
                 }

@@ -8,7 +8,7 @@ package geeks;
 
 public class DashProblem {
 
-    private static String dashProblem(String str) {
+    private static StringBuilder dashProblem(String str) {
         int[] a = new int[str.length()];
         for (int i = 0; i < str.length(); i++) {
               a[i] = str.charAt(i) - '0';
@@ -42,7 +42,7 @@ public class DashProblem {
             }
         }
         sb.append(a[i - 1]);
-        return sb.toString();
+        return sb;
     }
 
     public static void main(String[] args) {

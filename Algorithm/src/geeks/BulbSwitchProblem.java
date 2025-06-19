@@ -5,7 +5,7 @@ public class BulbSwitchProblem {
     private static int solve(int[] a, int[] q) {
         int countOne = 0;
         for (int x : a) {
-            countOne += (x == 1) ? 1 : 0;
+             countOne += (x == 1) ? 1 : 0;
         }
         boolean glows = countOne >= (double) (a.length / 2);
         int count = 0;

@@ -19,7 +19,7 @@ public class LCMSumFrom1toN {
     public static void main(String[] args) {
         int n = 5, sum = 0;
         for (int i = 1; i <= n; i++) {
-            sum += lcm(i, n, max(i, n));
+             sum += lcm(i, n, max(i, n));
         }
         System.out.println(sum);
     }

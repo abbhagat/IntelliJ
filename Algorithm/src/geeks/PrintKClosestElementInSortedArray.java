@@ -12,7 +12,7 @@ Note that if the element is present in array, then it should not be in output, o
 */
 // Time  Complexity: O(n)
 // Space Complexity: O(1)
-public class PrintKClosestElementInAnArray {
+public class PrintKClosestElementInSortedArray {
 
     private static void printKClosestElementInAnArray(int[] a, int n, int k) {
         int i = 0, j = a.length - 1;
