@@ -1,15 +1,13 @@
 package geeks;
 
 /**
- * Input: A = “10010010”, B = “00001000”
- * nOutput: 3
- * Explanation:
- * Operation 1: Flipping A[0] modifies A to “00010010”.
- * Operation 2: Flipping A[6] modifies A to “00010000”.
- * Operation 3: Swapping A[3] and A[4] modifies A to “00001000”
- * Therefore, the total number of operations is 3.
- * Input: A = “11”, B = “00”
- * Output: 2
+ Input: A = “10010010” B = “00001000” Output: 3
+ Explanation:
+ Operation 1: Flipping A[0] modifies A to “00010010”
+ Operation 2: Flipping A[6] modifies A to “00010000”
+ Operation 3: Swapping A[3] and A[4] modifies A to “00001000”
+ Therefore, the total number of operations is 3.
+ Input: A = “11” B = “00” Output: 2
  */
 public class MinFlipToMakeBinaryStringSame {
 

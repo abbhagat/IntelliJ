@@ -14,13 +14,9 @@ public class StringSplitProblem {
                 continue;
             }
             Map<Character, Integer> treeMap = new TreeMap<>();
-            for (char c : s.toCharArray()) {
-                treeMap.put(c, treeMap.getOrDefault(c, 0) + 1);
-            }
+            s.chars().forEach(c -> treeMap.put((char) c, treeMap.getOrDefault((char) c, 0) + 1));
             Map<Character, Integer> map = new TreeMap<>();
-            for (char c : s2.toCharArray()) {
-                map.put(c, map.getOrDefault(c, 0) + 1);
-            }
+            s2.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
             for (int i = 0; i < s2.length(); i++) {
                 if (treeMap.get(s2.charAt(i)) == null || treeMap.get(s2.charAt(i)) < map.get(s2.charAt(i))) {
                     flag = false;
