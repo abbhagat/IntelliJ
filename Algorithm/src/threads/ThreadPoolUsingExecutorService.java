@@ -10,8 +10,8 @@ public class ThreadPoolUsingExecutorService {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         for (int i = 1; i <= 5; i++) {
-            Future<?> future = executorService.submit(new WorkerThread());
-            future.get();
+             Future<?> future = executorService.submit(new WorkerThread());
+             future.get();
         }
         executorService.shutdown();
     }

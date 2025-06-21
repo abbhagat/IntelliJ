@@ -1,11 +1,9 @@
 package oracle;
 
-import lombok.Getter;
-
 import java.util.Date;
 import java.util.Objects;
 
-record FinalClass(@Getter String key, @Getter int value, Date date) {
+record FinalClass(String key, int value, Date date) {
 
     @Override
     public Date date() {

@@ -36,7 +36,7 @@ public class ArrayListImpl<E> {
         if (index < 0 || index >= size) {
             throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
         }
-        E oldValue = list[index];
+        E oldValue   = list[index];
         int numMoved = size - index - 1;
         if (numMoved > 0) {
             System.arraycopy(list, index + 1, list, index, numMoved);
