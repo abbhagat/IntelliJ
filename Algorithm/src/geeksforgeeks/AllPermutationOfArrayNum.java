@@ -1,7 +1,6 @@
 package geeksforgeeks;
 
-import java.util.stream.IntStream;
-
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time Complexity :- O(n * n!)
@@ -9,8 +8,7 @@ public class AllPermutationOfArrayNum {
 
     private static void permutation(int[] a, int start, int end) {
         if (start == end) {
-            IntStream.range(0, a.length).forEach(i -> System.out.print(a[i]));
-            System.out.println();
+            printArray(a);
             return;
         }
         for (int i = start; i <= end; i++) {

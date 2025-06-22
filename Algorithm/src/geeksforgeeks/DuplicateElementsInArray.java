@@ -5,8 +5,8 @@ public class DuplicateElementsInArray {
     private static void findDuplicates(int[] a) {
         int n = a.length;
         for (int x : a) {
-            int i = x % n;
-            a[i] += n;
+             int i = x % n;
+             a[i] += n;
         }
         System.out.print("Duplicate Elements are : ");
         for (int i = 0; i < n; i++) {
