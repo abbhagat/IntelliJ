@@ -34,11 +34,7 @@ class ThreadPool {
 
     public void waitUntilAllTasksFinished() {
         while (!queue.isEmpty()) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+            Thread.yield();
         }
     }
 
