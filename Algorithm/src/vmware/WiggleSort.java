@@ -1,18 +1,17 @@
 package vmware;
 
-import java.util.stream.IntStream;
-
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 public class WiggleSort {
 
     private static void wiggleSort(int[] a) {
-        for (int i = 1; i < a.length - 1; i++) {
+        for (int i = 1; i + 1 < a.length; i++) {
             if ((i % 2 == 0) == (a[i] > a[i + 1])) {
                 swap(a, i, i + 1);
             }
         }
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 
     public static void main(String[] args) {

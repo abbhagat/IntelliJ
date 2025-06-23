@@ -1,6 +1,6 @@
 package amazon;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(n)
@@ -20,7 +20,7 @@ public class ArrayMulOtherThanOwnPosition {
     }
 
     public static void main(String[] args) {
-        int[] a = productExceptSelf(new int[] {1, 2, 0});
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(productExceptSelf(new int[] {1, 2, 0}));
+        printArray(productExceptSelf(new int[] {1, 2, 3}));
     }
 }

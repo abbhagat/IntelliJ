@@ -1,6 +1,6 @@
 package leetcode;
 
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 
 public class MergeTwoSortedArray {
 
@@ -21,7 +21,7 @@ public class MergeTwoSortedArray {
         while (j < b.length) {
             c[k++] = b[j++];
         }
-        IntStream.range(0, k).forEach(l -> System.out.print(c[l] + " "));
+        printArray(c,0, k);
     }
 
     public static void main(String[] args) {

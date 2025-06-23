@@ -35,7 +35,6 @@ public class NextGreaterNumWithSameSetOfDigits {
     }
 
     public static void main(String[] args) {
-        int[] a = nextPermutation(new int[]{3, 1, 2});
-        printArray(a);
+        printArray(nextPermutation(new int[]{3, 1, 2}));
     }
 }

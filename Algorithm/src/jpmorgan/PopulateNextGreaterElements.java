@@ -1,7 +1,7 @@
 package jpmorgan;
 
 import java.util.Stack;
-import java.util.stream.IntStream;
+import static util.CommonUtils.printArray;
 
 public class PopulateNextGreaterElements {
 
@@ -24,6 +24,6 @@ public class PopulateNextGreaterElements {
             stack.push(i);
         }
         a[a.length - 1] = -1;
-        IntStream.range(0, a.length).forEach(i -> System.out.print(a[i] + " "));
+        printArray(a);
     }
 }
