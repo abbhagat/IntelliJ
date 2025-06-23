@@ -1,7 +1,5 @@
 package jpmorgan;
 
-import java.util.stream.IntStream;
-
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
