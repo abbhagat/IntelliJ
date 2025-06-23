@@ -3,7 +3,7 @@ package geeksforgeeks;
 public class Implement_strStr {
 
     public static int strStr(String s1, String s2) {
-        if (s2.isEmpty() || s2.equals(s1)) {
+        if (s2.isEmpty() || s2.contentEquals(s1)) {
             return 0;
         }
         if (s2.length() > s1.length()) {
@@ -30,6 +30,7 @@ public class Implement_strStr {
     }
 
     public static void main(String[] args) {
+        System.out.println("mississippi".indexOf(""));
         System.out.println(strStr("mississippi", "issipi"));
         System.out.println(strStr("mississippi", "issip"));
         System.out.println(strStr("abc", "c"));

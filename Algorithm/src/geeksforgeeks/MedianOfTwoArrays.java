@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import java.text.DecimalFormat;
+
 // Time Complexity : O(log n + log m)
 public class MedianOfTwoArrays {
 
@@ -18,10 +20,11 @@ public class MedianOfTwoArrays {
     }
 
     public static void main(String[] args) {
-        System.out.println(findMedian(new int[]{1, 2},   new int[]{3}));
-        System.out.println(findMedian(new int[]{1, 2},   new int[]{3, 4}));
-        System.out.println(findMedian(new int[]{10, 20}, new int[]{30, 40}));
-        System.out.println(findMedian(new int[]{10, 20, 25}, new int[]{30, 40}));
-        System.out.println(findMedian(new int[]{10, 20}, new int[]{30, 40, 50}));
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.println(df.format(findMedian(new int[]{1, 2},   new int[]{3})));
+        System.out.println(df.format(findMedian(new int[]{1, 2},   new int[]{3, 4})));
+        System.out.println(df.format(findMedian(new int[]{10, 20}, new int[]{30, 40})));
+        System.out.println(df.format(findMedian(new int[]{10, 20, 25}, new int[]{30, 40})));
+        System.out.println(df.format(findMedian(new int[]{10, 20}, new int[]{30, 40, 50})));
     }
 }

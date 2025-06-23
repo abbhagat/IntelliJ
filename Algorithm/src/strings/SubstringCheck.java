@@ -1,7 +1,7 @@
 package strings;
 
-// Time  Complexity : O(n * m) where n is the length of s1 and m is the length of s2
-// Space Complexity : O(m)     where m is the length of s2
+// Time  Complexity : O(n) where n is the length of s1
+// Space Complexity : O(m) where m is the length of s2
 public class SubstringCheck {
 
     private static void countSubString(String s1, String s2) {
