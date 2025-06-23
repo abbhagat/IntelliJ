@@ -24,14 +24,14 @@ public class NextGreaterNumWithSameSetOfDigits {
                 }
             }
         }
-        int k = a.length - 1;
-        int[] res = new int[a.length];
-        System.arraycopy(a, 0, res, 0, i);
-        for (int j = i; j < res.length; j++) {
-            res[j] = a[k];
+        int   k = a.length - 1;
+        int[] b = new int[a.length];
+        System.arraycopy(a, 0, b, 0, i);
+        for (int j = i; j < b.length; j++) {
+            b[j] = a[k];
             k--;
         }
-        return res;
+        return b;
     }
 
     public static void main(String[] args) {
