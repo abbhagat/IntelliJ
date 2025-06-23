@@ -4,17 +4,38 @@ import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+class Worker extends Thread {
+
+    private final BlockingQueue<Runnable> queue;
+
+    public Worker(BlockingQueue<Runnable> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                Runnable task = queue.take();
+                task.run();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+}
+
 class ThreadPool {
 
     private final BlockingQueue<Runnable> queue;
     private final Thread[] threads;
     private volatile boolean isStopped;
 
-    public ThreadPool(int numThreads) {
+    public ThreadPool(int poolSize) {
         queue     = new LinkedBlockingQueue<>();
-        threads   = new Thread[numThreads];
+        threads   = new Thread[poolSize];
         isStopped = false;
-        for (int i = 0; i < numThreads; i++) {
+        for (int i = 0; i < poolSize; i++) {
              threads[i] = new Worker(queue);
              threads[i].start();
         }
@@ -35,27 +56,6 @@ class ThreadPool {
     public void waitUntilAllTasksFinished() {
         while (!queue.isEmpty()) {
             Thread.yield();
-        }
-    }
-
-    private static class Worker extends Thread {
-
-        private final BlockingQueue<Runnable> queue;
-
-        public Worker(BlockingQueue<Runnable> queue) {
-            this.queue = queue;
-        }
-
-        @Override
-        public void run() {
-            while (!Thread.currentThread().isInterrupted()) {
-                try {
-                    Runnable task = queue.take();
-                    task.run();
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
         }
     }
 }
