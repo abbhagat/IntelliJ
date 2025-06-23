@@ -1,37 +1,36 @@
 package gfg;
 
-import java.util.stream.IntStream;
-
 import static java.lang.Math.max;
+import static util.CommonUtils.printArray;
 
 public class LargestContiguousSumArrayPrint {
 
     private static int largestContiguousSum(int[] a) {
-        int cur_sum = a[0], max_sum = a[0];
+        int curSum = a[0], maxSum = a[0];
         for(int x : a) {
-            cur_sum = max(x ,  x + cur_sum);
-            max_sum = max(max_sum, cur_sum);
+            curSum = max(x ,  x + curSum);
+            maxSum = max(maxSum, curSum);
         }
-        return max_sum;
+        return maxSum;
     }
 
     public static void main(String[] args) {
         int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
-        int cur_sum, max_sum, start, end, s;
-        cur_sum = max_sum = a[0];
+        int curSum, maxSum, start, end, s;
+        curSum = maxSum = a[0];
         start = end = s = 0;
         for (int i = 1; i < a.length; i++) {
-            cur_sum = max(a[i]   , cur_sum + a[i]);
-            max_sum = max(max_sum, cur_sum);
-            if (cur_sum < max_sum) {
-                start = s;
-                end   = i;
-            }
-            if (max_sum < 0) {
-                s = i + 1;
-            }
+             curSum = max(a[i]  , curSum + a[i]);
+             maxSum = max(maxSum, curSum);
+             if (curSum < maxSum) {
+                 start = s;
+                 end   = i;
+             }
+             if (maxSum < 0) {
+                 s = i + 1;
+             }
         }
-        System.out.println(max_sum + "\t" + largestContiguousSum(a));
-        IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
+        System.out.println(maxSum + "\t" + largestContiguousSum(a));
+        printArray(a, start, end);
     }
 }

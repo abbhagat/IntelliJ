@@ -2,6 +2,8 @@ package util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
+
 import static java.lang.Integer.max;
 
 public class CommonUtils {
@@ -49,6 +51,10 @@ public class CommonUtils {
 
     public static int maximum(int x, int y, int z) {
         return Integer.max(x, Integer.max(y, z));
+    }
+
+    public static void printArray(int[] a, int start, int end) {
+        IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
     }
 
     public static void printArray(int[] a) {
