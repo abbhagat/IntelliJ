@@ -10,9 +10,8 @@ public class LinkList {
              head = node;
         } else {
             temp.next = node;
-            last = node;
         }
-        temp = node;
+        temp = last = node;
         return head;
     }
 }

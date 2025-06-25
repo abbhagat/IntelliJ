@@ -4,6 +4,7 @@ import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
 public class DetectAndRemoveLoopInLinkedList {
+
     private static void detectAndRemoveLoop(Node first) {
         Node slow = first, fast = first.next;
         boolean hasCycle;
