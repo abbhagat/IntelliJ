@@ -1,12 +1,10 @@
 package linkedlist;
 
-/*
- *   Input ->  1 2 3 4 5 , k = 3
- *   Output -> 4 5 1 2 3
- */
-
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
+
+// Input ->  1 2 3 4 5 and k = 3  Output -> 4 5 1 2 3
+// Time Complexity  : O(n)
 
 public class LinkedListRotation {
 
@@ -22,7 +20,7 @@ public class LinkedListRotation {
             temp = temp.next;
         }
         last.next = first;
-        first = temp.next;
+        first     = temp.next;
         temp.next = null;
         return first;
     }

@@ -30,23 +30,23 @@ public class MergeTwoSortedList {
         while (head1 != null && head2 != null) {
             if (head1.num < head2.num) {
                 temp.next = head1;
-                head1 = head1.next;
-                temp = temp.next;
+                head1     = head1.next;
+                temp      = temp.next;
             } else {
                 temp.next = head2;
-                head2 = head2.next;
-                temp = temp.next;
+                head2     = head2.next;
+                temp      = temp.next;
             }
         }
         while (head1 != null) {
             temp.next = head1;
-            head1 = head1.next;
-            temp = temp.next;
+            head1     = head1.next;
+            temp      = temp.next;
         }
         while (head2 != null) {
             temp.next = head2;
-            head2 = head2.next;
-            temp = temp.next;
+            head2     = head2.next;
+            temp      = temp.next;
         }
         return merged.next;
     }

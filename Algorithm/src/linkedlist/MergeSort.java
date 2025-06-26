@@ -4,26 +4,19 @@ import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMid;
 import static linkedlist.TraverseList.traverseList;
 
-/**
- * The time complexity of the mergeSort method is O(n log n). This is because:
- * The list is recursively divided into two halves until the base case is reached. This division takes O(log n) time.
- * The merging process for each level of recursion takes O(n) time.
- * Combining these, the overall time complexity is O(n log n).
- */
-
-// Time complexity: O(n log n)
-
+// Time complexity : O(n log n)
+// Space complexity: O(log n)
 public class MergeSort {
 
     private static Node mergeSort(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
-        Node mid = findMid(head);
+        Node mid   = findMid(head);
         Node head2 = mid.next;
-        mid.next = null;
-        Node a = mergeSort(head);
-        Node b = mergeSort(head2);
+        mid.next   = null;
+        Node a     = mergeSort(head);
+        Node b     = mergeSort(head2);
         return merge(a, b);
     }
 
