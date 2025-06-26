@@ -2,8 +2,8 @@ package linkedlist;
 
 import static linkedlist.TraverseList.traverseList;
 
-// Time Complexity : O(n)
-// Space Complexity: O(1)
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class ReverseNodesInPairs {
 
     private static Node reverseNodesInPairs(Node first) {
@@ -11,7 +11,7 @@ public class ReverseNodesInPairs {
         Node temp = head;
         while (temp != null && temp.next != null && temp.next.next != null) {
             temp.next = swap(temp.next, temp.next.next);
-            temp = temp.next.next;
+            temp      = temp.next.next;
         }
         return head.next;
     }

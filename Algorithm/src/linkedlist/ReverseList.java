@@ -11,8 +11,8 @@ public class ReverseList {
         while (temp != null) {
             Node node = temp.next;
             temp.next = prev;
-            prev = temp;
-            temp = node;
+            prev      = temp;
+            temp      = node;
         }
         return prev;
     }
@@ -21,9 +21,9 @@ public class ReverseList {
         if (node == null || node.next == null) {
             return node;
         }
-        Node head = reverseList(node.next);
+        Node head      = reverseList(node.next);
         node.next.next = node;
-        node.next = null;
+        node.next      = null;
         return head;
     }
 
