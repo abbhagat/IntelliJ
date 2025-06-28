@@ -7,7 +7,7 @@ public class Singleton implements Cloneable, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-    private static Singleton _instance;
+    private static Singleton singleton;
 
     private Singleton() {
         throw new RuntimeException("Can't instantiate singleton twice");
@@ -24,13 +24,13 @@ public class Singleton implements Cloneable, Serializable {
     }
 
     public static Singleton getInstance() {
-        if (_instance == null) {
+        if (singleton == null) {
             synchronized (Singleton.class) { // Lock is taken on Singleton.class
-                if (_instance == null) {
-                    _instance = new Singleton();
+                if (singleton == null) {
+                    singleton = new Singleton();
                 }
             }
         }
-        return _instance;
+        return singleton;
     }
 }
