@@ -1,18 +1,12 @@
 package designpattern;
 
 import lombok.Getter;
+import lombok.ToString;
 
-/**
- * In builder design pattern, we build a complex object using a simple object and uses step-by-step approach.
- * First, you need to create a static nested class and then copy all the arguments from the outer class to the Builder class.
- * We should follow the naming convention, and if the class name is Computer, then builder class should be named as ComputerBuilder.
- * Java Builder class should have a public constructor with all the required attributes as parameters.
- * Java Builder class should have methods to set the optional parameters, and it should return the same Builder object after setting the optional attribute.
- * The final step is to provide a build() method in the builder class that will return the Object needed by client program.
- * For this, we need to have a private constructor in the Class with Builder class as argument.
- */
+// In builder design pattern, we build a complex object using a simple object and use step-by-step approach.
 
 @Getter
+@ToString
 class Computer {
 
     private final String HDD;
@@ -25,10 +19,6 @@ class Computer {
         this.RAM = builder.RAM;
         this.isBluetoothEnabled    = builder.isBluetoothEnabled;
         this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
-    }
-
-    public String toString() {
-        return this.getHDD() + "\n" + this.getRAM() + "\n" + (this.isGraphicsCardEnabled() ?  "Graphics Card Enabled" : "Graphics Card Disabled") + "\n" + (this.isBluetoothEnabled() ? "Bluetooth Enabled" : "Bluetooth Disabled");
     }
 
     public static class Builder {
@@ -67,12 +57,8 @@ class Computer {
 public class BuilderDesignPattern {
 
     public static void main(String[] args) {
-        Computer computer = new Computer.Builder()
-                                        .setHDD("500 GB")
-                                        .setRAM("2 GB")
-                                        .setBluetoothEnabled(true)
-                                        .setGraphicsCardEnabled(true)
-                                        .build();
+        Computer.Builder builder = new Computer.Builder().setHDD("500 GB").setRAM("2 GB").setBluetoothEnabled(true).setGraphicsCardEnabled(true);
+        Computer        computer = builder.build();
         System.out.println(computer);
     }
 }

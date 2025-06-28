@@ -2,9 +2,7 @@ package designpattern;
 
 import lombok.Setter;
 
-/**
- * Chain of responsibility pattern creates a chain of receiver objects for a request.
- */
+// Chain of responsibility pattern creates a chain of receiver objects for a request.
 
 @Setter
 abstract class AbstractLogger {
@@ -40,6 +38,7 @@ class DebugLogger extends AbstractLogger {
 }
 
 public class ChainOfResponsibility {
+
     private static AbstractLogger getChainOfLoggers() {
         AbstractLogger consoleLogger = new ConsoleLogger();
         AbstractLogger debugLogger   = new DebugLogger();

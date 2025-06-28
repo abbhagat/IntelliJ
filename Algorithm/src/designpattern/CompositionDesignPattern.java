@@ -1,12 +1,11 @@
 package designpattern;
 
-/*
- *  Composition design pattern is used when we need to treat a group of objects as a single entity.
- *  Existence of one object depends on the existence of the another object.
- */
+/**
+Composition design pattern is used when we need to treat a group of objects as a single entity.
+The Existence of one object depends on the existence of another object.
+*/
 
 import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +18,9 @@ class Employee {
     private final List<Employee> subordinates;
 
     public Employee(String name, String dept, int salary) {
-        this.name = name;
-        this.dept = dept;
-        this.salary = salary;
+        this.name         = name;
+        this.dept         = dept;
+        this.salary       = salary;
         this.subordinates = new ArrayList<>();
     }
 

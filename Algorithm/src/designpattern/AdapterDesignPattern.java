@@ -1,14 +1,14 @@
 package designpattern;
 
 /**
- * Adapter design pattern acts as a bridge between two incompatible interfaces.
- * It is used extensively by the adapter classes in java.awt.event.
+Adapter design pattern acts as a bridge between two incompatible interfaces.
+It is used extensively by the adapter classes in java.awt.event.
 
- * Example: -
- * There is a media player that is capable of playing MP3 files.
- * There is an advanced media player capable of playing VLC and MP4 files.
- * Now I want my media player to play MP3,VLC and MP4 files we go for an adapter design pattern.
- */
+Example:-
+There is a media player that is capable of playing MP3 files.
+There is an advanced media player capable of playing VLC and MP4 files.
+Now I want my media player to play MP3,VLC and MP4 files we go for an adapter design pattern.
+*/
 
 interface MediaPlayer {
     void play(String fileName, String fileType);
