@@ -1,11 +1,11 @@
 package designpattern;
 
 /**
-In this design pattern, the behavior of a class can be changed at runtime.
-Here we create objects which represent various strategies and a context object
-whose behavior varies as per its strategy object.
-Comparable, Comparator and Collections.sort() is the strategy pattern in Java API.
-*/
+ * In this design pattern, the behavior of a class can be changed at runtime.
+ * Here we create objects which represent various strategies and a context object
+ * whose behavior varies as per its strategy object.
+ * Comparable, Comparator and Collections.sort() is the strategy pattern in Java API.
+ */
 
 interface Strategy {
     int execute(int x, int y);

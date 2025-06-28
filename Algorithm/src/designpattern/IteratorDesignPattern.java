@@ -3,26 +3,26 @@ package designpattern;
 import java.util.Arrays;
 import java.util.List;
 
-interface Iterator {
+interface Iterator<E> {
     boolean hasNext();
-    Object curr();
-    Object next();
+    E curr();
+    E next();
 }
 
-interface Iterable {
-    Iterator iterator();
+interface Iterable<E> {
+    Iterator<E> iterator();
 }
 
-class NameRepository implements Iterable {
+class NameRepository implements Iterable<String> {
 
     private final List<String> nameList = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
 
     @Override
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         return new NameIterator();
     }
 
-    private class NameIterator implements Iterator {
+    private class NameIterator implements Iterator<String> {
 
         private int index = 0;
 
@@ -32,12 +32,12 @@ class NameRepository implements Iterable {
         }
 
         @Override
-        public Object next() {
+        public String next() {
             return nameList.get(index++);
         }
 
         @Override
-        public Object curr() {
+        public String curr() {
             return nameList.get(index);
         }
     }
@@ -47,7 +47,7 @@ public class IteratorDesignPattern {
 
     public static void main(String[] args) {
         NameRepository nameRepository = new NameRepository();
-        Iterator iterator = nameRepository.iterator();
+        Iterator<String> iterator = nameRepository.iterator();
         System.out.println(iterator.curr());
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
