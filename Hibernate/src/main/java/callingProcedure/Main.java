@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StoredProcedureQuery spQuery = sessionFactory.createEntityManager().createNamedStoredProcedureQuery("GetFoosByName");
-        spQuery.setParameter("fooName", "NewFooName");
+        StoredProcedureQuery spQuery = sessionFactory.createEntityManager().createNamedStoredProcedureQuery("sp_user_details");
+        spQuery.setParameter("userName", "User1");
         spQuery.getResultList();
 
         Session session = sessionFactory.openSession();
@@ -27,7 +27,7 @@ public class Main {
         query.setParameter("userName", "V705417");
         List<UserDetails> userDetailsList = query.list();
 
-        query = session.createSQLQuery("CALL PROCEDURE_NAME(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
+        query = session.createSQLQuery("CALL sp_user_details(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
         query.setParameter("userID", 1);
         query.setParameter("userName", "V705417");
         List<UserDetails> userDetailLists = query.list();

@@ -24,7 +24,7 @@ import java.io.Serializable;
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
 @DynamicUpdate
-// Mean the update sql statement is generated at runtime and contains only those columns whose values have changed.
+// Mean the update SQL statement is generated at runtime and contains only those columns whose values have changed.
 @Table(name = "USER_DETAILS")
 public class UserDetails implements Serializable {
 

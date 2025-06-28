@@ -7,9 +7,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
-
 import java.util.List;
-
 import static util.Util.sessionFactory;
 
 public class SecondLevelCache {
@@ -18,7 +16,9 @@ public class SecondLevelCache {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.get(UserDetails.class, 1);
-        Query query1 = session.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class).setCacheable(true).setCacheRegion("USER1");
+        Query<UserDetails> query1 = session.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class)
+                                           .setCacheable(true)
+                                           .setCacheRegion("USER1");
         query1.setParameter("userID", 1);
         query1.setParameter("userName", "V705417");
         query1.getResultList();
@@ -58,8 +58,8 @@ public class SecondLevelCache {
         session.close();
 
         session = sessionFactory.openSession();
-        Query query = session.createSQLQuery("SELECT * FROM USER_DETAILS");
-        Query query3 = session.createQuery("from UserDetails"); // Creates HQL Query
+        Query<UserDetails> query  = session.createSQLQuery("SELECT * FROM USER_DETAILS");
+        Query<UserDetails> query3 = session.createQuery("from UserDetails"); // Creates HQL Query
         List<UserDetails> userDetailsList = query.list();
         transaction.commit();
         session.close();

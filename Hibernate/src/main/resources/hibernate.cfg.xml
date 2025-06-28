@@ -18,8 +18,7 @@
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <property name="hibernate.cache.use_query_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
-        </property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
         <!--        <property name="cache.region.factory_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>-->
         <!--        <mapping class="OneToOne.UserDetails"></mapping>-->
         <!--        <mapping class="OneToOne.Vehicles"></mapping>-->
@@ -27,8 +26,8 @@
         <!--        <mapping class="OneToMany.Vehicles"></mapping>-->
         <!--        <mapping class="ManyToMany.UserDetails"></mapping>-->
         <!--        <mapping class="ManyToMany.Vehicles"></mapping>-->
-        <!--        <mapping class="secondLevelCache.UserDetails"></mapping>-->
-        <mapping class="selectBeforeUpdate.UserDetails"/>
+                <mapping class="secondLevelCache.UserDetails"/>
+<!--        <mapping class="selectBeforeUpdate.UserDetails"/>-->
         <!--        <mapping class="attributeOverrides.UserDetails"></mapping>-->
         <!--        <mapping class="attributeOverridesCollections.UserDetails"></mapping>-->
     </session-factory>
