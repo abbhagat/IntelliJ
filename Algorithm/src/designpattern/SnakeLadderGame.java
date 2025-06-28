@@ -78,11 +78,11 @@ class Game {
                     player.index = ladderMap.get(player.index);
                     System.out.println(player.name + " climbed ladder to " + player.index);
                 }
-                if (snakeMap.containsKey(player.index)) {
+                else if (snakeMap.containsKey(player.index)) {
                     player.index = snakeMap.get(player.index);
                     System.out.println(player.name + " bitten by snake to " + player.index);
                 }
-                if (player.index == 100) {
+                else if (player.index == 100) {
                     System.out.println(player.name + " is winner");
                     return;
                 }
