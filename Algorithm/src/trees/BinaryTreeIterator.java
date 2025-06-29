@@ -1,7 +1,6 @@
 package trees;
 
 import lombok.Getter;
-
 import java.util.Stack;
 
 interface Iterator {

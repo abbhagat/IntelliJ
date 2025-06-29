@@ -18,7 +18,7 @@ public class KafkaSender {
     }
 
     public void sendMessageWithCallBack(String message, String topic) {
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
+        ListenableFuture<SendResult<String, String>> future = (ListenableFuture<SendResult<String, String>>) kafkaTemplate.send(topic, message);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
