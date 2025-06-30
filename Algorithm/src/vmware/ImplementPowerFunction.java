@@ -1,5 +1,7 @@
 package vmware;
 
+import java.text.DecimalFormat;
+
 public class ImplementPowerFunction {
 
     private static double powers(double x, int n) {
@@ -31,9 +33,10 @@ public class ImplementPowerFunction {
     }
 
     public static void main(String[] args) {
-        System.out.println(pow(2.00000, 10) + "\t" + powers(2.00000, 10));
-        System.out.println(pow(2.10000, 3)  + "\t" + powers(2.10000, 3));
-        System.out.println(pow(2.00000, -2) + "\t" + powers(2.00000, -2));
-        System.out.println(pow(2.00000, 0)  + "\t" + powers(2.00000, 0));
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.println(df.format(pow(2, 10)) + "\t" + df.format(powers(2, 10)));
+        System.out.println(df.format(pow(3, 3))  + "\t" + df.format(powers(3, 3)));
+        System.out.println(df.format(pow(2, -2)) + "\t" + df.format(powers(2, -2)));
+        System.out.println(df.format(pow(2, 0))  + "\t" + df.format(powers(2, 0)));
     }
 }

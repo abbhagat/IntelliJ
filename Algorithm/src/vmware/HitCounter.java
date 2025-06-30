@@ -27,9 +27,9 @@ public class HitCounter {
     public int getHits(int timestamp) {
         int hits = 0;
         for (int i = 0; i < time; i++) {
-            if (timestamp - times[i] < time) {
-                hits += this.hits[i];
-            }
+             if (timestamp - times[i] < time) {
+                 hits += this.hits[i];
+             }
         }
         return hits;
     }

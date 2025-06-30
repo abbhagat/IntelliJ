@@ -10,9 +10,9 @@ public class GroupShiftedString {
             int offset = s.charAt(0) - 'a';
             String key = "";
             for (char x : s.toCharArray()) {
-                char c = (char) (x - offset);
-                c += (char) (c < 'a' ? 26 : 0);
-                key += c;
+                 char c = (char) (x - offset);
+                 c += (char) (c < 'a' ? 26 : 0);
+                 key += c;
             }
             List<String> list = map.containsKey(key) ? map.get(key) : new ArrayList<>();
             list.add(s);

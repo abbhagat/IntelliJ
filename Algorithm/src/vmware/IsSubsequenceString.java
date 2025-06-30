@@ -1,14 +1,15 @@
 package vmware;
 
-// Time  Complexity O(n)
-// Space Complexity O(1)
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class IsSubsequenceString {
 
     private static boolean isSubsequence(String s, String t) {
         if (s.isEmpty()) {
             return true;
         }
-        for (int i = 0, j = 0; i < t.length(); i++) {
+        int j = 0;
+        for (int i = 0; i < t.length(); i++) {
             if (t.charAt(i) == s.charAt(j)) {
                 j++;
             }

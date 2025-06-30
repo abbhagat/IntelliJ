@@ -1,40 +1,36 @@
 package vmware;
 
-// Given an array of integers, every element appears twice except for one which appears exactly once.
-// Find that number.
-
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+// Given an array of integers, every element appears twice except for one which appears exactly once. Find that number.
 // Time Complexity O(n)
 public class SingleNumber {
 
-    private static void singleNumber(int[] a) {
+    private static int singleNumber(int[] a) {
         int n = 0;
         for (int x : a) {
-            n ^= x;
+             n ^= x;
         }
-        System.out.println(n);
+        return n;
     }
 
-    private static void singleNumberSolnWithMap(int[] a) {
+    private static int singleNumberWithMap(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
-        map.forEach((k, v) -> {
-            if (v == 1) {
-                System.out.println(k);
+        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if(entry.getValue() == 1) {
+                return entry.getKey();
             }
-        });
+        }
+        return 0;
     }
 
     public static void main(String[] args) {
         int[] a  = {2, 2, 1};
-        singleNumber(a);
-        singleNumberSolnWithMap(a);
+        System.out.println(singleNumber(a) + "\t" + singleNumberWithMap(a));
         int[] b = {4, 1, 2, 1, 2};
-        singleNumber(b);
-        singleNumberSolnWithMap(b);
+        System.out.println(singleNumber(b) + "\t" + singleNumberWithMap(b));
     }
 }
