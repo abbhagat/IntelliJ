@@ -3,6 +3,7 @@ package threads;
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.stream.IntStream;
 
 class Worker extends Thread {
 
@@ -32,29 +33,29 @@ class ThreadPool {
     private volatile boolean isStopped;
 
     public ThreadPool(int poolSize) {
-        queue     = new LinkedBlockingQueue<>();
-        threads   = new Thread[poolSize];
-        isStopped = false;
+        this.queue     = new LinkedBlockingQueue<>();
+        this.threads   = new Thread[poolSize];
+        this.isStopped = false;
         for (int i = 0; i < poolSize; i++) {
-             threads[i] = new Worker(queue);
-             threads[i].start();
+             this.threads[i] = new Worker(queue);
+             this.threads[i].start();
         }
     }
 
     public void execute(Runnable task) {
-        if (isStopped) {
+        if (this.isStopped) {
             throw new IllegalStateException("ThreadPool is stopped");
         }
-        queue.offer(task);
+        this.queue.offer(task);
     }
 
     public void stop() {
-        isStopped = true;
-        Arrays.stream(threads).forEach(Thread::interrupt);
+        this.isStopped = true;
+        Arrays.stream(this.threads).forEach(Thread::interrupt);
     }
 
     public void waitUntilAllTasksFinished() {
-        while (!queue.isEmpty()) {
+        while (!this.queue.isEmpty()) {
             Thread.yield();
         }
     }
@@ -64,11 +65,10 @@ public class ThreadPoolImpl {
 
     public static void main(String[] args) {
         ThreadPool threadPool = new ThreadPool(5);
-        for (int i = 0; i < 10; i++) {
-             final int taskNum = i;
-             Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + taskNum);
-             threadPool.execute(runnable);
-        }
+        IntStream.range(0, 10).forEach(task -> {
+            Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + task);
+            threadPool.execute(runnable);
+        });
         threadPool.waitUntilAllTasksFinished();
         threadPool.stop();
     }
