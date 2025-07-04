@@ -11,7 +11,6 @@ public class ThreadLocalExample {
             threadLocal.set(value + 1);
             System.out.println(Thread.currentThread().getName() + " after set: " + threadLocal.get());
         };
-
         new Thread(task, "Thread-A").start();
         new Thread(task, "Thread-B").start();
     }
