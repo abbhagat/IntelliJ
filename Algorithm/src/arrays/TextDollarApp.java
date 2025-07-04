@@ -21,7 +21,7 @@ public class TextDollarApp {
             try {
                 prettyTextualPrinter("C:\\Users\\abbhagat\\Desktop\\A.txt");
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("Exception occurred with " + e.getMessage());
             }
         }
     }

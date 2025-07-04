@@ -11,10 +11,10 @@ class Q {
                 wait();
             }
             System.out.println(n++ + " -> " + Thread.currentThread().getName());
-            flag = true;
+            flag = !flag;
             notify();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Exception occurred with " + e.getMessage());
         }
     }
 
@@ -24,10 +24,10 @@ class Q {
                 wait();
             }
             System.out.println(n++ + " -> " + Thread.currentThread().getName());
-            flag = false;
+            flag = !flag;
             notify();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Exception occurred with " + e.getMessage());
         }
     }
 }

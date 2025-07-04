@@ -17,12 +17,12 @@ public class GetRequestGIF {
             os = new FileOutputStream(new File(resultFileName), true);
             os.write(data.getBytes(), 0, data.length());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Exception occurred with " + e.getMessage());
         } finally {
             try {
                 os.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Exception occurred with " + e.getMessage());
             }
         }
     }

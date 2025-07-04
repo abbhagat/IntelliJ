@@ -3,6 +3,8 @@ package threads;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// peek() retrieves head of the queue element and returns null if the queue is empty
+// remove() throws an exception if the queue is empty whereas poll() returns null is the queue is empty
 class BlockingQueue<K extends Number> {
 
     private final Queue<K> q;

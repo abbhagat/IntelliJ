@@ -7,7 +7,7 @@ public class ThreadStarvation extends Thread {
     }
 
     public void run() {
-        System.out.println(currentThread().getName() + " Thread execution starts");
+        System.out.println(Thread.currentThread().getName() + " Thread execution starts");
     }
 
     public static void main(String[] args) throws InterruptedException {

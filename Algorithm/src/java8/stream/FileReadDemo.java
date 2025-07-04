@@ -19,7 +19,7 @@ public class FileReadDemo {
             });
 //            stream.forEach(System.out::println);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Exception occurred with " + e.getMessage());
         }
     }
 }

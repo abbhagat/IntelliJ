@@ -7,6 +7,7 @@ public class Doubleton implements Cloneable, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
     private static Doubleton _instance1, _instance2;
     private static int n = 1;
 

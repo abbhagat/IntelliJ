@@ -44,7 +44,7 @@ public class ConnectionPool {
             Class.forName(this.driverName);
             connection = DriverManager.getConnection(this.url, this.username, this.password);
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            System.out.println("Exception occurred with " + e.getMessage());
         }
         return connection;
     }

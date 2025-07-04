@@ -12,6 +12,7 @@ public class AdditionUsingFiveThreads {
                 for (int i = start; i <= end; i++) {
                     sum += i;
                 }
+            System.out.println("Current Thread Name : " + Thread.currentThread().getName());
                 return sum;
             }
         }
@@ -26,7 +27,7 @@ public class AdditionUsingFiveThreads {
         workerThreads[4] = new WorkerThread(51, 60);
         for (WorkerThread workerThread : workerThreads) {
             Future<Integer> future = service.submit(workerThread);
-            System.out.println(future.get());
+            System.out.println(future.get());  // future.get() is a synchronous call it blocks the current thread
             Thread.sleep(500);
         }
         service.shutdown();
