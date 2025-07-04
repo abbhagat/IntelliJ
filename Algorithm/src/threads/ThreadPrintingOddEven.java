@@ -9,18 +9,18 @@ class OddEvenThreadPrinter {
 
     public OddEvenThreadPrinter(String threadID) {
         this.threadID = threadID;
-        new Thread(runnable, threadID).start();
+        new Thread(runnable, "Thread - " + threadID).start();
     }
 
     Runnable runnable = () -> {
-        while (n <= 10) {
+        while (n <= 20) {
             try {
                 synchronized (monitor) {
                     if (!threadID.equals(threadIDToRun)) {
                         monitor.wait();
                     } else {
                         System.out.println(n++ + " " + Thread.currentThread().getName());
-                        threadIDToRun = threadID.equals("EVEN") ? "ODD" : "EVEN";
+                        threadIDToRun = threadID.contentEquals("EVEN") ? "ODD" : "EVEN";
                         monitor.notifyAll();
                     }
                 }

@@ -4,13 +4,15 @@ class PrinterThreads implements Runnable {
 
     private static final Object monitor = new Object();
 
-    private static int threadIdToRun = 1, n = 0, i = 0, j = 0, k = 0;
+    private static int threadIdToRun = 1, n = 0;
 
     private final int threadId;
 
     private final int[] a = new int[]{1, 4, 7};
     private final int[] b = new int[]{2, 5, 8};
     private final int[] c = new int[]{3, 6, 9};
+
+    private static final ThreadLocal<Integer> threadLocal = ThreadLocal.withInitial(() -> 0);
 
     public PrinterThreads(int threadId) {
         this.threadId = threadId;
@@ -27,19 +29,20 @@ class PrinterThreads implements Runnable {
                     } else {
                         switch (threadId) {
                             case 1:
-                                System.out.println(Thread.currentThread().getName() + " " + a[i++]);
+                                System.out.println(Thread.currentThread().getName() + " " + a[threadLocal.get()]);
                                 threadIdToRun = 3;
                                 break;
                             case 2:
-                                System.out.println(Thread.currentThread().getName() + " " + b[j++]);
+                                System.out.println(Thread.currentThread().getName() + " " + b[threadLocal.get()]);
                                 threadIdToRun = 1;
                                 break;
                             case 3:
-                                System.out.println(Thread.currentThread().getName() + " " + c[k++]);
+                                System.out.println(Thread.currentThread().getName() + " " + c[threadLocal.get()]);
                                 threadIdToRun = 2;
                                 break;
                         }
                         n++;
+                        threadLocal.set(threadLocal.get() + 1);
                         monitor.notifyAll();
                     }
                 }

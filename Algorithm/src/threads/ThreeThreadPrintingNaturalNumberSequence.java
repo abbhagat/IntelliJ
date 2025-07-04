@@ -13,7 +13,7 @@ class PrinterThreadForNaturalNumber implements Runnable {
 
     @Override
     public void run() {
-        while (n <= 20) {
+        while (n <= 21) {
             try {
                 synchronized (monitor) {
                     if (threadID != threadIdToRun) {
