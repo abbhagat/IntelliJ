@@ -9,8 +9,8 @@ import org.springframework.data.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Id;
 import javax.persistence.*;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
