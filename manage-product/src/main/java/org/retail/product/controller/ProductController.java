@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,5 +43,11 @@ public class ProductController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteProductByID(@PathVariable Long productID) {
         service.deleteProductByID(productID);
+    }
+
+    @GetMapping(value = "/getConfig", produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> getProductByID() {
+        return service.getEnvConfig();
     }
 }

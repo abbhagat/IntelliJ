@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
@@ -30,14 +31,14 @@ public class HibernateConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName(env.getProperty("datasource.driver-class-name"));
+        ds.setDriverClassName(Objects.requireNonNull(env.getProperty("datasource.driver-class-name")));
         ds.setUrl(env.getProperty("datasource.url"));
         ds.setUsername(env.getProperty("datasource.username"));
         ds.setPassword(env.getProperty("datasource.password"));
         return ds;
     }
 
-    private final Properties hibernateProperties() {
+    private Properties hibernateProperties() {
         Properties hibernate = new Properties();
         hibernate.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         hibernate.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));

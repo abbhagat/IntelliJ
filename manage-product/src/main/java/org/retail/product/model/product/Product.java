@@ -11,7 +11,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -24,6 +26,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Product implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

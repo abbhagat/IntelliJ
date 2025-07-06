@@ -8,7 +8,10 @@ spring:
           uri: ${uri:https://github.com/abbhagat/spring-boot-config}
           username: ${username:}
           password: ${password:}
-
+          search-paths:
+            - 'pbcustody/manage-product/prod/'
+            - 'pbcustody/common'
+          default-label: master
 server:
   port: 8888
 

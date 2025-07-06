@@ -10,10 +10,12 @@ import org.springframework.data.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Id;
-import javax.persistence.Version;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -27,6 +29,7 @@ import java.util.Date;
 @AccessType(Type.PROPERTY)
 public class Uom implements Serializable {
 
+    @Serial
     public static final long serialVersionUID = 1L;
 
     @Id
