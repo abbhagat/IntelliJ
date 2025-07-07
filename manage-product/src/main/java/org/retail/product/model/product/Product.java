@@ -1,9 +1,6 @@
 package org.retail.product.model.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -23,6 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "PRODUCT")
+@ToString
 @EntityListeners(AuditingEntityListener.class)
 public class Product implements Serializable {
 
@@ -33,7 +31,7 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PK_GEN")
     @SequenceGenerator(sequenceName = "PK_SEQ", name = "PK_GEN", initialValue = 1, allocationSize = 1)
     @Column(name = "PRODUCT_ID")
-    private Long productID;
+    private Long productId;
 
     @Column(name = "PRODUCT_NAME")
     private String productName;
@@ -51,7 +49,7 @@ public class Product implements Serializable {
     private Integer quantityAvailable;
 
     @Column(name = "UOM_ID")
-    private Integer uomID;
+    private Integer uomId;
 
     @Column(name = "STATUS")
     private String status = "Y";
@@ -65,7 +63,7 @@ public class Product implements Serializable {
 
     @Column(name = "CREATED_DATE")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd-MMM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @CreatedDate
     private Date createdDate;
 
@@ -76,7 +74,7 @@ public class Product implements Serializable {
     @LastModifiedDate
     @Temporal(TemporalType.DATE)
     @Column(name = "LAST_MODIFIED_DATE")
-    @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastModifiedDate;
 
     @Version

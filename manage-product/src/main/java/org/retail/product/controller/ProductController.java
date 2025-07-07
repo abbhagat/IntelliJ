@@ -45,9 +45,9 @@ public class ProductController {
         service.deleteProductByID(productID);
     }
 
-    @GetMapping(value = "/getConfig", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getProductConfig", produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getProductByID() {
-        return service.getEnvConfig();
+    public ResponseEntity<?> getProductConfig() {
+        return service.getProductProperties();
     }
 }

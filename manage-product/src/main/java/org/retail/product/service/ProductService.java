@@ -1,22 +1,21 @@
 package org.retail.product.service;
 
+import lombok.AllArgsConstructor;
+import org.retail.product.config.ProductProperties;
 import org.retail.product.model.product.Product;
 import org.retail.product.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductService {
 
-    @Autowired
-    private ProductRepository productDAO;
-
-    @Autowired
-    private Environment env;
+    private final ProductRepository productDAO;
+    private final Environment env;
+    private final ProductProperties productProperties;
 
     public List<Product> getAllProducts() {
         return productDAO.findAll();
@@ -34,10 +33,11 @@ public class ProductService {
         productDAO.deleteById(productID);
     }
 
-    public ResponseEntity<?> getEnvConfig() {
+    public ResponseEntity<?> getProductProperties() {
         String eureka = env.getProperty("eureka.client.fetch-registry");
         String dynamicProp = env.getProperty("dynamic.prop");
         System.out.println(dynamicProp + "\t" +  eureka);
-        return  ResponseEntity.ok().body(dynamicProp + "\t" +  eureka);
+        System.out.println("Product Info From Yaml Config : " + productProperties.getItems());
+        return  ResponseEntity.ok().body(dynamicProp + "\t" +  eureka + "\t" +  productProperties.getItems());
     }
 }
