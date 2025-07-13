@@ -14,7 +14,7 @@ class TotalCartQty {
 class ItemCart {
 
     private static final Map<String, Integer>     itemQtyMap  = new ConcurrentHashMap<>();
-    private static final Map<String, String> itemcategoryMap = new ConcurrentHashMap<>();
+    private static final Map<String, String> itemcategoryMap  = new ConcurrentHashMap<>();
     private static final Map<String, Integer> categoryQtyMap  = new ConcurrentHashMap<>();
     @Getter
     private final Map<String, Map<String, Integer>> cartMap = new ConcurrentHashMap<>();  // put(category,put(item,qty))
@@ -43,7 +43,7 @@ class ItemCart {
         if (category != null && cartMap.containsKey(category)) {
             int sumOfCategoryCount = cartMap.get(category).values().stream().reduce(0, Integer::sum);
             int count = cartMap.get(category).getOrDefault(item, 0);
-            if (count < itemQtyMap.get(item) && sumOfCategoryCount < categoryQtyMap.get(category) && totalCartQty.totalQtyInCart < 30) {
+            if (count < itemQtyMap.get(item) && sumOfCategoryCount < categoryQtyMap.get(category) && totalCartQty.totalQtyInCart < 100) {
                 Map<String, Integer> tempMap = cartMap.get(category);
                 totalCartQty.totalQtyInCart += qty;
                 tempMap.put(item, qty);
