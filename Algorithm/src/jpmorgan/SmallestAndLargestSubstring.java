@@ -12,7 +12,7 @@ public class SmallestAndLargestSubstring {
             max = max.compareTo(str) < 0 ? str : max;
             min = min.compareTo(str) > 0 ? str : min;
         }
-        System.out.println(min + "\t" + max);
+        System.out.println("Smallest : " + min + "\t" + "Largest : " + max);
     }
 
     public static void main(String[] args) {
