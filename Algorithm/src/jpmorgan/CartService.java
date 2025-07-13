@@ -34,8 +34,8 @@ class ItemCart {
         itemcategoryMap.put("Pen",    "Stationery");
         itemcategoryMap.put("Pencil", "Stationery");
 
-        categoryQtyMap.put("FRUIT", 20);
-        categoryQtyMap.put("VEGETABLE", 15);
+        categoryQtyMap.put("Fruit", 20);
+        categoryQtyMap.put("Stationery", 15);
     }
 
     public void addItemToCart(String item, int qty, TotalCartQty totalCartQty) {
