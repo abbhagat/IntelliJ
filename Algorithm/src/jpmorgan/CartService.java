@@ -13,8 +13,9 @@ class TotalCartQty {
 
 class ItemCart {
 
-    private static final Map<String, Integer>     itemQtyMap = new ConcurrentHashMap<>();
-    private static final Map<String, Integer> categoryQtyMap = new ConcurrentHashMap<>();
+    private static final Map<String, Integer>     itemQtyMap  = new ConcurrentHashMap<>();
+    private static final Map<String, String> itemcategoryMap = new ConcurrentHashMap<>();
+    private static final Map<String, Integer> categoryQtyMap  = new ConcurrentHashMap<>();
     @Getter
     private final Map<String, Map<String, Integer>> cartMap = new ConcurrentHashMap<>();  // put(category,put(item,qty))
 
@@ -25,12 +26,21 @@ class ItemCart {
         itemQtyMap.put("Mango", 12);
         itemQtyMap.put("Guava", 12);
 
+        itemcategoryMap.put("Apple",  "Fruit");
+        itemcategoryMap.put("Banana", "Fruit");
+        itemcategoryMap.put("Orange", "Fruit");
+        itemcategoryMap.put("Mango",  "Fruit");
+        itemcategoryMap.put("Guava",  "Fruit");
+        itemcategoryMap.put("Pen",    "Stationery");
+        itemcategoryMap.put("Pencil", "Stationery");
+
         categoryQtyMap.put("FRUIT", 20);
         categoryQtyMap.put("VEGETABLE", 15);
     }
 
-    public void addItemToCart(String item, String category, int qty, TotalCartQty totalCartQty) {
-        if (cartMap.containsKey(category)) {
+    public void addItemToCart(String item, int qty, TotalCartQty totalCartQty) {
+        String category = !itemcategoryMap.isEmpty() && itemcategoryMap.containsKey(item) ? itemcategoryMap.get(item) : null;
+        if (category != null && cartMap.containsKey(category)) {
             int sumOfCategoryCount = cartMap.get(category).values().stream().reduce(0, Integer::sum);
             int count = cartMap.get(category).getOrDefault(item, 0);
             if (count < itemQtyMap.get(item) && sumOfCategoryCount < categoryQtyMap.get(category) && totalCartQty.totalQtyInCart < 30) {
@@ -53,13 +63,13 @@ class ItemCart {
 public class CartService {
 
     public static void main(String[] args) {
-        ItemCart itemCart = new ItemCart();
+        ItemCart itemCart         = new ItemCart();
         TotalCartQty totalCartQty = new TotalCartQty();
-        itemCart.addItemToCart("Apple",  "FRUIT",   5, totalCartQty);
-        itemCart.addItemToCart("Banana", "FRUIT",   3, totalCartQty);
-        itemCart.addItemToCart("Orange", "FRUIT",   2, totalCartQty);
-        itemCart.addItemToCart("Mango",  "FRUIT",  10, totalCartQty);
-        itemCart.addItemToCart("Guava",  "FRUIT",  12, totalCartQty);
+        itemCart.addItemToCart("Apple",  5,  totalCartQty);
+        itemCart.addItemToCart("Banana", 3,  totalCartQty);
+        itemCart.addItemToCart("Orange", 2,  totalCartQty);
+        itemCart.addItemToCart("Mango",  10, totalCartQty);
+        itemCart.addItemToCart("Guava",  12, totalCartQty);
         System.out.println(itemCart.getCartMap());
         System.out.println("Total quantity in cart: " + totalCartQty.totalQtyInCart);
     }
