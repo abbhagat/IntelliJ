@@ -1,6 +1,7 @@
 package jpmorgan;
 
 class Super {
+
     static {
         System.out.println("Super Static Block");
     }
@@ -15,6 +16,7 @@ class Super {
 }
 
 class Sub extends Super {
+
     static {
         System.out.println("Sub Static Block");
     }
