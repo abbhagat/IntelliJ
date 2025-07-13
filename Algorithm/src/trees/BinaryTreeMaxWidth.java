@@ -2,8 +2,8 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 import static java.lang.Integer.max;
+
 /*
 Constructed Binary tree is:
                     1
@@ -14,7 +14,6 @@ Constructed Binary tree is:
                          / \
                         6   9
 */
-
 // Time  Complexity : O(n)
 // Space Complexity: O(2^h)
 public class BinaryTreeMaxWidth {

@@ -5,8 +5,8 @@ import java.util.Stack;
 
 interface Iterator {
     boolean hasNext();
-    Node curr();
-    Node next();
+    Node    curr();
+    Node    next();
 }
 
 interface Iterable {
