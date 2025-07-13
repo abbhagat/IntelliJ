@@ -7,18 +7,20 @@ public class StringCompression {
 
     public static StringBuilder compressString(String str) {
         StringBuilder sb = new StringBuilder();
-        int count = 1;
-        sb.append(str.charAt(0));
-        for (int i = 1; i < str.length(); i++) {
-            if (str.charAt(i) == str.charAt(i - 1)) {
-                count++;
-            } else {
-                sb.append(count);
-                sb.append(str.charAt(i));
-                count = 1;
+        if (!str.isEmpty()) {
+            int count = 1;
+            sb.append(str.charAt(0));
+            for (int i = 1; i < str.length(); i++) {
+                if (str.charAt(i) == str.charAt(i - 1)) {
+                    count++;
+                } else {
+                    sb.append(count);
+                    sb.append(str.charAt(i));
+                    count = 1;
+                }
             }
+            sb.append(count);
         }
-        sb.append(count);
         return sb;
     }
 
