@@ -7,15 +7,15 @@ public class AdditionUsingFiveThreads {
     private record WorkerThread(int start, int end) implements Callable<Integer> {
 
         @Override
-            public Integer call() {
-                int sum = 0;
-                for (int i = start; i <= end; i++) {
-                    sum += i;
-                }
-            System.out.println("Current Thread Name : " + Thread.currentThread().getName());
-                return sum;
+        public Integer call() {
+            int sum = 0;
+            for (int i = start; i <= end; i++) {
+                sum += i;
             }
+            System.out.println("Current Thread Name : " + Thread.currentThread().getName());
+            return sum;
         }
+    }
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ExecutorService service = Executors.newFixedThreadPool(10);
