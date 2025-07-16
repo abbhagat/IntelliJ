@@ -28,7 +28,7 @@ class BlockingQueue<K extends Number> {
             wait();
         }
         notifyAll();
-        return q.remove();
+        return q.poll();
     }
 }
 

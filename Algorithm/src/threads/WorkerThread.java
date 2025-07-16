@@ -1,6 +1,6 @@
 package threads;
 
-public record WorkerThread implements Runnable {
+public record WorkerThread() implements Runnable {
 
     public WorkerThread() {
         new Thread(this, "Worker Thread").start();
