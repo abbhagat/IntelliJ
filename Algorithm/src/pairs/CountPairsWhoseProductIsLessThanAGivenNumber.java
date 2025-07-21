@@ -1,8 +1,13 @@
 package pairs;
 
+import java.util.Arrays;
+
+// Time  Complexity : O(n log n)
+// Space Complexity : O(1)
 public class CountPairsWhoseProductIsLessThanAGivenNumber {
 
     private static int countPairs(int[] a, int n) {
+        Arrays.sort(a);
         int i = 0, j = a.length - 1, count = 0;
         while (i < j) {
             if (a[i] * a[j] < n) {

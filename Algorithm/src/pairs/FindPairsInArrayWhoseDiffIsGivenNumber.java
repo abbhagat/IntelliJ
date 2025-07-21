@@ -11,13 +11,13 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
     private static void findPairs(int[] a, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         Set<Pair> set = new HashSet<>();
-        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
-        for (int x : a) {
+        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Arrays.stream(a).forEach(x -> {
              int y = x - target;
              if (map.containsKey(y) && (map.get(y) > 1 || target != 0)) {
                    set.add(new Pair(x, y));
              }
-        }
+        });
         System.out.println(set);
     }
 

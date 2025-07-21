@@ -25,11 +25,12 @@ public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
         for (int[] a : M) {
              int i = check(a);
              if (i != -1) {
-                 IntStream.range(0, i + 1).forEach(j -> System.out.print(a[j] + " and "));
+                 IntStream.range(0, i + 1)       .forEach(j -> System.out.print(a[j] + " "));
+                 System.out.print("and ");
                  IntStream.range(i + 1, a.length).forEach(j -> System.out.print(a[j] + " "));
                  System.out.println();
              } else {
-                 System.out.println("The array cannot be divided into two subarrays with equal sum");
+                 System.out.println("Array cannot be divided into two sub arrays with equal sum");
              }
         }
     }

@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import static java.lang.Integer.min;
 
+// Time  Complexity : O(n log n)
+// Space Complexity : O(1)
 public class FindAllPairsInArrayWithSmallestDiff {
 
     private static void findPairs(int[] a) {
