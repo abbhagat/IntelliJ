@@ -54,17 +54,16 @@ public class HashMap<K, V> {
 
     public V remove(K key) {
         int hash = (null == key) ? 0 : key.hashCode() % SIZE;
-        Entry<K,V> e = table[hash], prev = e;
-        if (e == null) {
+        if (table[hash] == null) {
             return null;
         }
-        while (e != null) {
+        Entry<K,V> prev   = table[hash];
+        for (Entry<K,V> e = table[hash]; e != null; e = e.next) {
             if (e.next == null) {
                 table[hash] = null;
             } else if (null == e.getKey() || e.getKey().equals(key)) {
                     prev.next = e.next;
               }
-            e = e.next;
         }
         return prev.getValue();
     }
