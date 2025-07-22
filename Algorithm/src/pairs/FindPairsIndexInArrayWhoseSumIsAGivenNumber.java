@@ -1,8 +1,8 @@
 package pairs;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import static util.CommonUtils.printArray;
 
 /**
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -31,7 +31,7 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSumIndex(new int[]{3, 2, 4}, 6)));
-        System.out.println(Arrays.toString(twoSumIndex(new int[]{3, 3}, 6)));
+        printArray(twoSumIndex(new int[]{3, 2, 4}, 6));
+        printArray(twoSumIndex(new int[]{3, 3}, 6));
     }
 }

@@ -3,6 +3,8 @@ package pairs;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// Time Complexity: O(n * sqrt(sum))   [ O(n) + O(√sum) + O(n * m) ]
+// Space Complexity: O(√sum) + O(n)
 public class FindPairsWithPerfectSquareSum {
 
     public static List<Integer> getPerfectSquares(int sum) {
@@ -39,7 +41,7 @@ public class FindPairsWithPerfectSquareSum {
     }
 
     public static void main(String[] args) {
-        final int[] a = {2, 3, 6, 9, 10, 20};
+        int[] a = {2, 3, 6, 9, 10, 20};
         int sum = maxPairSum(a);
         List<Integer> list = getPerfectSquares(sum);
         Set<Integer>   set = Arrays.stream(a).boxed().collect(Collectors.toSet());
