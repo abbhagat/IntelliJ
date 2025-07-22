@@ -3,7 +3,6 @@ package paypal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 import static java.lang.Integer.max;
 
 public class HurrySoln {
@@ -11,7 +10,7 @@ public class HurrySoln {
     public static int maxTasksInTheGivenBudget(int[][] tasks, int t) {
         Arrays.sort(tasks, Comparator.comparingInt(x -> x[0]));
         LinkedList<Integer> list = new LinkedList<>();
-        int sum = 0, ans = 0;
+        int sum = 0, max = 0;
         for (int[] task : tasks) {
             sum += task[1];
             list.add(-task[1]);
@@ -20,9 +19,9 @@ public class HurrySoln {
                 sum += list.getFirst();
                 list.removeFirst();
             }
-            ans = max(ans, list.size());
+            max = max(max, list.size());
         }
-        return ans;
+        return max;
     }
 
     public static void main(String[] args) {
