@@ -1,6 +1,6 @@
 package stack;
 
-/*
+/**
 When checking whether the string is valid, we only cared about the "balance": the number of extra, open left brackets as we parsed through the string.
 For example, when checking whether '(()())' is valid, we had a balance of 1, 2, 1, 2, 1, 0
 as we parse through the string: '(' has 1 left bracket, '((' has 2, '(()' has 1, and so on.
@@ -44,10 +44,12 @@ public class CheckValidString {
         int x = 0, y = 0;
         for (char c : exp.toCharArray()) {
             switch (c) {
-                case '(' : x++; break;
-                case '*' : y++; break;
-                case ')' : if (x <= 0) return false;
-                           x--;
+                case '(' -> x++;
+                case '*' -> y++;
+                case ')' -> {
+                    if (x <= 0) return false;
+                    x--;
+                }
             }
         }
         return x <= y;

@@ -1,7 +1,6 @@
 package stack;
 
 import java.util.Stack;
-
 import static java.lang.Integer.max;
 import static java.lang.Math.abs;
 
