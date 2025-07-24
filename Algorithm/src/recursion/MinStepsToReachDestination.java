@@ -26,21 +26,21 @@ import static java.lang.Integer.min;
 // Auxiliary Space : O(2^n)
 public class MinStepsToReachDestination {
 
-    private static int steps(int source, int step, int dest) {
+    private static int minSteps(int source, int steps, int dest) {
         if (Math.abs(source) > dest) {
             return Integer.MAX_VALUE;
         }
         if (source == dest) {
-            return step;
+            return steps;
         }
-        step++;
-        int pos = steps(source + step, step, dest);
-        int neg = steps(source - step, step, dest);
+        steps++;
+        int pos = minSteps(source + steps, steps, dest);
+        int neg = minSteps(source - steps, steps, dest);
         return min(pos, neg);
     }
 
     public static void main(String[] args) {
-        System.out.println("No of steps required" + " to reach " + 3 + " is " + steps(0, 0, 3));
-        System.out.println("No of steps required" + " to reach " + 5 + " is " + steps(0, 0, 5));
+        System.out.println("Steps required" + " to reach " + 3 + " is " + minSteps(0, 0, 3));
+        System.out.println("Steps required" + " to reach " + 5 + " is " + minSteps(0, 0, 5));
     }
 }
