@@ -99,4 +99,8 @@ public class CommonUtils {
         }
         return gcd;
     }
+
+    public static void print(int n) {
+        System.out.print(n + " ");
+    }
 }
