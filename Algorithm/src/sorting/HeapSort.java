@@ -1,6 +1,6 @@
 package sorting;
 
-import java.util.Arrays;
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 /**
@@ -44,6 +44,6 @@ public class HeapSort {
 
     public static void main(String[] args) {
         heapSort();
-        System.out.println(Arrays.toString(a));
+        printArray(a);
     }
 }
