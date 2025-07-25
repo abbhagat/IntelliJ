@@ -31,5 +31,8 @@ public class BasicCalculatorII {
         System.out.println("3+2*2    = " + calculate("3+2*2"));
         System.out.println("3/2      = " + calculate("3/2"));
         System.out.println("3 +5 / 2 = " + calculate(" 3 +5 / 2"));
+        System.out.println(calculate("1 + 1"));
+        System.out.println(calculate("2 - 1 + 2"));
+        System.out.println(calculate("1 + (4 + 5 + 2) - 3 + (6 + 8)"));
     }
 }
