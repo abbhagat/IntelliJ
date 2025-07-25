@@ -5,12 +5,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SortMapKeyAndByValues {
+public class SortMapByKeyAndByValues {
 
     public static <K extends Comparable<K>, V > Map<K, V> sortByKey(Map<K, V> map) {
         return map.entrySet()
                   .stream()
-                  .sorted(Map.Entry.<K, V>comparingByKey())
+                  .sorted(Map.Entry.comparingByKey())
                   .collect(Collectors.toMap(
                                             Map.Entry::getKey,     // entry -> entry.getKey()
                                             Map.Entry::getValue,  //  entry -> entry.getValue()
@@ -24,8 +24,8 @@ public class SortMapKeyAndByValues {
                   .stream()
                   .sorted(Map.Entry.<K, V>comparingByValue().reversed())
                   .collect(Collectors.toMap(
-                                            Map.Entry::getKey,
-                                            Map.Entry::getValue,
+                                            Map.Entry::getKey,     // entry -> entry.getKey()
+                                            Map.Entry::getValue,  //  entry -> entry.getValue()
                                             (e1, e2) -> e1,
                                             LinkedHashMap::new
                 ));
