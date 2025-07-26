@@ -12,7 +12,6 @@ public class StringReverseWordByWord {
                 c[i] = (char) (c[i] ^ c[j]);
             }
             System.out.print(c);
-            System.out.print(" ");
         }
     }
 }

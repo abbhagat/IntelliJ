@@ -42,11 +42,11 @@ class ThreadPool {
         }
     }
 
-    public void execute(Runnable task) {
+    public void addTaskToQueue(Runnable task) {
         if (this.isStopped) {
             throw new IllegalStateException("ThreadPool is stopped");
         }
-        this.queue.offer(task);
+        this.queue.add(task);
     }
 
     public void stop() {
@@ -67,7 +67,7 @@ public class ThreadPoolImpl {
         ThreadPool threadPool = new ThreadPool(5);
         IntStream.range(0, 10).forEach(task -> {
             Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + task);
-            threadPool.execute(runnable);
+            threadPool.addTaskToQueue(runnable);
         });
         threadPool.waitUntilAllTasksFinished();
         threadPool.stop();

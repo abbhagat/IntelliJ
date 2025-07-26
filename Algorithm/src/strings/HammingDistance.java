@@ -2,7 +2,6 @@ package strings;
 
 
 // The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
-
 public class HammingDistance {
 
     private static int hammingDistance(String s1, String s2) {

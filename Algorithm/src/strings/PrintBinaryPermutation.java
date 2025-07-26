@@ -14,6 +14,7 @@ public class PrintBinaryPermutation {
     }
 
     public static void main(String[] args) {
+        binaryPermutation("", 2);
         binaryPermutation("", 3);
     }
 }
