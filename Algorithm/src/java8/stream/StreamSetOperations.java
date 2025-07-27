@@ -26,22 +26,26 @@ public class StreamSetOperations {
                                                  );
 
         // Set A intersection Set B
-        // List<Employee> commonList = cancelList.stream().filter(e -> name.contains(e.getName())).collect(Collectors.toList());
-        List<Employee> commonList = mainList.stream().filter(mList ->
-                cancelList.stream().anyMatch(cList -> mList.getName().equals(cList.getName()))
-        ).collect(Collectors.toList());
+        List<Employee> commonList = mainList
+                                            .stream()
+                                            .filter(mList -> cancelList.stream().anyMatch(cList -> mList.getName().equals(cList.getName())))
+                                            .toList();
         commonList.forEach(System.out::println);
         System.out.println();
 
         // Set B - Set A
-        List<Employee> onlyInCancelList = cancelList.stream().filter(cList -> mainList.stream().noneMatch(mList -> mList.getName().equals(cList.getName()))).collect(Collectors.toList());
+        List<Employee> onlyInCancelList = cancelList
+                                                   .stream()
+                                                   .filter(cList -> mainList.stream().noneMatch(mList -> mList.getName().equals(cList.getName())))
+                                                   .toList();
         onlyInCancelList.forEach(System.out::println);
         System.out.println();
 
         // Set A - Set B
-        List<Employee> onlyInMainList = mainList.stream()
-                .filter(mList -> cancelList.stream().noneMatch(cList-> mList.getName().equals(cList.getName())))
-                .collect(Collectors.toList());
+        List<Employee> onlyInMainList = mainList
+                                                .stream()
+                                                .filter(mList -> cancelList.stream().noneMatch(cList -> mList.getName().equals(cList.getName())))
+                                                .toList();
         onlyInMainList.forEach(System.out::println);
         System.out.println();
 

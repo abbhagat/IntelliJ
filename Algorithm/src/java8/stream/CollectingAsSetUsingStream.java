@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class CollectingAsSetUsingStream {
 
     public static void main(String[] args) {
-        String whiteListedOrgId = "0fb524a1-15b7-4cb2-88f1-2981474954b0,a4bda066-c5fc-4247-9f00-0bfab1922ac8,199758c1-96ca-4e95-b139-0bbbcfa6252b, ,10ce4dd3-8aa8-4385-8dff-b24b044357fe";
+        String whiteListedOrgId = "1,2,3, ,4, ,5,1,2";
         Set<String> set = Arrays.stream(whiteListedOrgId.split(","))
                                 .filter(s -> !s.isBlank())
                                 .collect(Collectors.toUnmodifiableSet());

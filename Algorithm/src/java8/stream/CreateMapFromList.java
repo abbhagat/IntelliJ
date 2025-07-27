@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class CreateMapFromList {
 
-    private static record Employee(@Getter int id, @Getter String deptName) {
+    private record Employee(@Getter int id, @Getter String deptName) {
 
     }
 

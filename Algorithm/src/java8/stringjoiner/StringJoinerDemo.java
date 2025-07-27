@@ -3,6 +3,7 @@ package java8.stringjoiner;
 import java.util.StringJoiner;
 
 public class StringJoinerDemo {
+
     public static void main(String[] args) {
         StringJoiner joiner = new StringJoiner("|");
         joiner.add("Java");

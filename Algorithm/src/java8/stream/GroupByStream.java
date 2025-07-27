@@ -24,9 +24,9 @@ public class GroupByStream {
         System.out.println(finalMap);
         System.out.println(map);
         map = map.entrySet()
-                .stream()
-                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue, LinkedHashMap::new));
+                 .stream()
+                 .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue, LinkedHashMap::new));
         System.out.println(map);
 
     }
