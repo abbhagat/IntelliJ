@@ -36,10 +36,10 @@ class ThreadPool {
         this.queue     = new LinkedBlockingQueue<>();
         this.threads   = new Thread[poolSize];
         this.isStopped = false;
-        for (int i = 0; i < poolSize; i++) {
-             this.threads[i] = new Worker(queue);
-             this.threads[i].start();
-        }
+        IntStream.range(0, poolSize).forEach(i -> {
+            this.threads[i] = new Worker(queue);
+            this.threads[i].start();
+        });
     }
 
     public void addTaskToQueue(Runnable task) {

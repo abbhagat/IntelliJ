@@ -1,14 +1,13 @@
 package linkedlist;
 
-/*
-     Example: if the linked list is 5->10->25->45->31->16->23->51 and k=3
-     Then linked should be converted to 5->10->16->45->31->25->23->51
-     Boundary cases had to be handled properly.
-*/
-
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+/**
+ If the linked list is 5->10->25->45->31->16->23->51 and k=3
+ Then linked should be converted to 5->10->16->45->31->25->23->51
+ Boundary cases had to be handled properly.
+ */
 public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
 
     private static Node nthNodeFromEnd(Node first, int n) {
@@ -30,7 +29,6 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
             first = add(first, x);
         }
         traverseList(first);
-        System.out.println();
         Node temp = first, prev = null;
         final int n = 2;
         for (int i = 1; temp != null && i < n; i++, temp = temp.next) {
