@@ -2,36 +2,7 @@ package games;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import java.util.*;
-
-/**
- Design a Snake & Ladder Game
-
- - Design Entity/Domain classes
- - Design the Game Flow
- - Use the Design Patterns wherever applicable
-
- Init()
- 1. User creates game
- 2. addPlayer()
- 3. addSnakes()
- 4. addLadders()
-
- Start() {
- roll the dice
- random number 1-6;
- check for snakes -> new position
- check for ladder -> if 100 winners
- run in loop() till the game ends
- }
-
- End() {
- end the game
- }
- Game g = new Game.Builder().addSnake(34,12).addLadder(23,56).addPlayer("Sanjay").build();
- g.play()
- */
 
 @Getter
 @AllArgsConstructor
@@ -70,6 +41,7 @@ class Game {
                 System.out.println(player.name + " rolled " + n);
                 player.index += n;
                 while (player.index > 100) {
+                    System.out.println(player.name + " index exceed index 100 so rolling dice again");
                     player.index -= n;
                     n = rollDice();
                     System.out.println(player.name + " rolled " + n);
