@@ -1,14 +1,13 @@
 package geeks;
 
-/*
-Given a string ‘str’ of digits, find the max of the longest substring of ‘str,’
-such that the max of the substring is 2k digits and the sum of left k digits is equal to the sum of right k digits.
-Examples: Input: str = "123123" Output: 6
-The complete string is of even max and sum of first and second half digits is the same
-
-Input: str = "1538023" Output: 4
-The longest substring with the same first and second half sum is "5380"
-*/
+/**
+ * Problem:
+ * Given a string of digits, find the longest even-length substring such that the sum of the first half equals the sum of the second half.
+ * The output should be the length of this substring.
+ * Example:
+ * Input: str = "123123"  Output: 6 (the entire string is valid)
+ * Input: str = "1538023" Output: 4 (the longest valid substring is "5380")
+ */
 // Time  Complexity: O(n^2) where n is the length of the string
 // Space Complexity: O(1)
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
@@ -23,14 +22,11 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
                 rightSum += s.charAt(j) - '0';
                 if(leftSum == rightSum) {
                     String str = s.substring(i, j + 1);
-                    if(maxString.length() < str.length()) {
-                        max = str.length();
-                        maxString = str;
-                    }
+                    maxString = maxString.length() < str.length() ? str : maxString;
                 }
             }
         }
-        System.out.println(maxString + "\t" + max);
+        System.out.println(maxString + "\t" + maxString.length());
     }
 
     public static void main(String[] args) {

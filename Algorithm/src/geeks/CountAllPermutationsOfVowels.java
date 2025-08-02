@@ -13,10 +13,10 @@ public class CountAllPermutationsOfVowels {
 
              next[1] += current[0];           // Each vowel 'a' may only be followed by an 'e'.
 
-             next[0] += current[1];          //  Each vowel 'e' may only be followed by an 'a' or an 'i'.
+             next[0] += current[1];          // Each vowel 'e' may only be followed by an 'a' or an 'i'.
              next[2] += current[1];
 
-             next[0] += current[2];         //   Each vowel 'i' may not be followed by another 'i'.
+             next[0] += current[2];         // Each vowel 'i' may not be followed by another 'i'.
              next[1] += current[2];
              next[3] += current[2];
              next[4] += current[2];
