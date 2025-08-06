@@ -11,9 +11,11 @@ public class HashMap<K, V> {
     private static final class Entry<K, V> {
         @Getter
         private final K key;
+
         @Getter
         @Setter
         private V value;
+
         private Entry<K,V> next;
 
         public Entry(K key, V value) {
@@ -61,9 +63,12 @@ public class HashMap<K, V> {
         for (Entry<K,V> e = table[hash]; e != null; e = e.next) {
             if (e.next == null) {
                 table[hash] = null;
-            } else if (null == e.getKey() || e.getKey().equals(key)) {
-                    prev.next = e.next;
-              }
+                break;
+            }
+            if (null == e.getKey() || e.getKey().equals(key)) {
+                prev.next = e.next;
+                break;
+            }
         }
         return prev.getValue();
     }
