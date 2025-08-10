@@ -10,7 +10,8 @@ import static util.CommonUtils.printMatrix;
 public class SortBoundaryElementsOfMatrix {
 
     private static List<Integer> getTheBoundaryElements(int[][] M, List<Integer> list) {
-        int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1;
+        int R1 = 0, R2 = M.length - 1;
+        int C1 = 0, C2 = M[0].length - 1;
         for (int i = C1; i <= C2; i++) {
             list.add(M[R1][i]);
         }

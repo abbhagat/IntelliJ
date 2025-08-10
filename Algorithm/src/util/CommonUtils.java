@@ -14,6 +14,12 @@ public class CommonUtils {
         a[j]  = t;
     }
 
+    public static void swap(int[][] a, int i, int j) {
+        int t    = a[i][j];
+        a[i][j]  = a[j][i];
+        a[j][i]  = t;
+    }
+
     public static void swap(char[] a, int i, int j) {
         char t = a[i];
         a[i]   = a[j];
