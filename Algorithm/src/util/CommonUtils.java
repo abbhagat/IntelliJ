@@ -3,7 +3,6 @@ package util;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
-
 import static java.lang.Integer.max;
 
 public class CommonUtils {

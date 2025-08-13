@@ -6,10 +6,8 @@ public class AllNumsDisappearedInArray {
 
     public static void findDisappearedNumbers(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int x : a) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
-        int sum = map.values().stream().reduce(0, Integer::sum); // map.values().stream().reduce(0, (x,y) -> x + y);
+        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        int sum = map.values().stream().reduce(0, Integer::sum); // map.values().stream().reduce(0, (x, y) -> x + y);
         int min = Arrays.stream(a).min().orElse(0);
         for (int i = min; i < a.length || i <= sum; i++) {
             if (!map.containsKey(i)) {

@@ -39,5 +39,12 @@ public class RomanToInteger {
         System.out.println(romanToInt("I"));
         System.out.println(romanToInt("IX"));
         System.out.println(romanToInt("MCMIV"));
+        System.out.println(romanToInt("X"));
+        System.out.println(romanToInt("XI"));
+        System.out.println(romanToInt("XCIX"));
+        System.out.println(romanToInt("CI"));
+        System.out.println(romanToInt("CII"));
+        System.out.println(romanToInt("DX"));
+        System.out.println(romanToInt("MMMDXLIX"));
     }
 }

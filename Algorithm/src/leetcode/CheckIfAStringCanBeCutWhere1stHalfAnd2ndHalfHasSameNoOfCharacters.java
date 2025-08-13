@@ -1,24 +1,14 @@
 package leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
     public static boolean sameFrequencyCharactersInString(String str) {
         Map<Character, Integer> map = new HashMap<>();
-        for (char x : str.toCharArray()) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-        }
+        str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
         Set<Integer> set = new HashSet<>();
-        for (int value : map.values()) {
-            if (!set.add(value)) {
-                return false;
-            }
-        }
-        return true;
+        return map.values().stream().allMatch(set::add);  // all elements added to the set must be unique
     }
 
     public static void main(String[] args) {

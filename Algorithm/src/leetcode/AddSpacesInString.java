@@ -2,7 +2,7 @@ package leetcode;
 
 public class AddSpacesInString {
 
-    private static String addSpaces(String s, int[] spaces) {
+    private static StringBuilder addSpaces(String s, int[] spaces) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0, j = 0; i < s.length(); i++) {
             if (j < spaces.length && i == spaces[j]) {
@@ -11,7 +11,7 @@ public class AddSpacesInString {
             }
             sb.append(s.charAt(i));
         }
-        return sb.toString();
+        return sb;
     }
 
     public static void main(String[] args) {

@@ -1,10 +1,11 @@
 package leetcode;
 
-import util.CommonUtils;
+import static util.CommonUtils.printArray;
 
+// Input : a = {4, 7, 10}; b = {3, 6, 15, 20};
+// Output: a = {3,4,6}     b = {7, 10, 15, 20}
 // Time  Complexity O(n)
 // Space Complexity O(1)
-// Output :- a = 3,4,6 // b = 7, 10, 15, 20  Space Complexity O(1)
 public class MergeTwoSortedArrayII {
 
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class MergeTwoSortedArrayII {
             }
             i++;
         }
-        CommonUtils.printArray(a);
-        CommonUtils.printArray(b);
+        printArray(a);
+        printArray(b);
     }
 }

@@ -15,9 +15,13 @@ public class LongestCommonSuffix {
         return longestCommonSuffix(left, right);
     }
 
+    private static String reverse(String str) {
+        return new StringBuilder(str).reverse().toString();
+    }
+
     private static String longestCommonSuffix(String left, String right) {
-        left  = new StringBuilder(left ).reverse().toString();
-        right = new StringBuilder(right).reverse().toString();
+        left    = reverse(left);
+        right   = reverse(right);
         int min = min(left.length(), right.length());
         for (int i = 0; i < min; i++) {
             if (left.charAt(i) != right.charAt(i)) {
