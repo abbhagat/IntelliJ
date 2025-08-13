@@ -8,21 +8,25 @@ import static util.CommonUtils.printArray;
 // Space Complexity O(1)
 public class MergeTwoSortedArrayII {
 
-    public static void main(String[] args) {
-        int[] a = {4, 7, 10};
-        int[] b = {3, 6, 15, 20};
+    private static void merge(int[] a, int[] b) {
         int i = 0, j = 0;
-        while (i < a.length && j + 1 < b.length) {
+        while (i < a.length && j < b.length) {
             if (a[i] > b[j]) {
                 int t = a[i];
                 a[i] = b[j];
                 b[j] = t;
-                if (b[j] > b[j + 1]) {
+                if (j + 1 < b.length && b[j] > b[j + 1]) {
                     j++;
                 }
             }
             i++;
         }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {4, 7, 10};
+        int[] b = {3, 6, 15, 20};
+        merge(a, b);
         printArray(a);
         printArray(b);
     }
