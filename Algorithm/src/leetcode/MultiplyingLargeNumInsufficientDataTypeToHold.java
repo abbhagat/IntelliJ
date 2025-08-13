@@ -10,14 +10,22 @@ public class MultiplyingLargeNumInsufficientDataTypeToHold {
         for (int i = x.length - 1; i >= 0; i--) {
             int carry = 0, sum;
             for (int j = y.length - 1; j >= 0; j--) {
-                sum = x[i] * y[j] + carry + mul[k - 1];
-                carry = sum / 10;
+                sum      = x[i] * y[j] + carry + mul[k - 1];
+                carry    = sum / 10;
                 mul[--k] = sum % 10;
             }
             mul[--k] = carry;
             k += y.length;
         }
-        IntStream.range(0, mul.length).forEach(j -> System.out.print(mul[j]));
+        int start = 0;
+        for(int n : mul) {
+            if (n != 0) {
+                break;
+            } else {
+                start++;
+            }
+        }
+        IntStream.range(start, mul.length).forEach(i -> System.out.print(mul[i]));
     }
 
     public static void main(String[] args) {
