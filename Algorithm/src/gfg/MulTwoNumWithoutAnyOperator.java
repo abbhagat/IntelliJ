@@ -12,7 +12,7 @@ public class MulTwoNumWithoutAnyOperator {
     private static int mul(int x, int y) {
         int mul = 0;
         for (int i = 1; i <= min(x, y); i++) {
-            mul = add(mul, max(x, y));
+             mul   = add(mul, max(x, y));
         }
         return mul;
     }

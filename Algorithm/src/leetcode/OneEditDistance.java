@@ -1,11 +1,13 @@
 package leetcode;
 
+import static java.lang.Math.abs;
+
 // Time Complexity: O(n) n = length of the shorter string between s1 and s2.
 public class OneEditDistance {
 
     private static boolean isOneEditDistance(String s1, String s2) {
         int m = s1.length(), n = s2.length();
-        if (n - m > 1) {
+        if (abs(n - m) > 1) {
             return false;
         }
         for (int i = 0; i < m; i++) {

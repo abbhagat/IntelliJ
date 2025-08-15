@@ -22,8 +22,8 @@ public class SentenceProblem {
         }
         StringBuilder sb = new StringBuilder();
         map.forEach((k, v) -> {
-            for (String x : v) {
-                sb.append(x).append(" ");
+            for (String s : v) {
+                sb.append(s).append(" ");
             }
         });
         String result = sb.toString().trim();

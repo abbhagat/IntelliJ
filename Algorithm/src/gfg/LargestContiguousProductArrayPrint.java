@@ -4,6 +4,7 @@ import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class LargestContiguousProductArrayPrint {
+
     private static int maxSubArrayProduct(int[] a) {
         int min = a[0], max = a[0], maxProduct = Integer.MIN_VALUE;
         for (int i = 1; i < a.length; i++) {
