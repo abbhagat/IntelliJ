@@ -25,18 +25,17 @@ public class ComparatorDemo {
         mainList.add(new Employee("Kumar", 5));
         mainList.add(new Employee("Bhagat", 1));
 
-        Comparator<Employee> byName = (e1, e2) -> e2.getName().compareTo(e1.getName());
-        Comparator<Employee> byId = (Comparator.comparingInt(Employee::getId));
+        Comparator<Employee> byName = (e1, e2) -> e1.getName().compareTo(e2.getName()); // Comparator.comparing(Employee::getName);
+        Comparator<Employee> byId   = (e1, e2) -> e1.getId().compareTo(e2.getId());    // Comparator.comparingInt(Employee::getId);
 
         mainList.sort(byId);
-        mainList.forEach(System.out::println);
+        System.out.println(mainList);
 
         mainList.sort(byName);
-        mainList.forEach(System.out::println);
+        System.out.println(mainList);
 
-        System.out.println();
         Collections.sort(mainList, byId.thenComparing(byName));
-        // mainList.sort(byId.thenComparing(byName));
-        mainList.forEach(System.out::println);
+        mainList.sort(byId.thenComparing(byName));
+        System.out.println(mainList);
     }
 }

@@ -1,9 +1,9 @@
 package java8.flatMap;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 // Collection::stream = x -> x.stream(), x = List<String> means it is a Collection
+// Arrays::stream     = s -> Arrays.stream(s)
 public class FlatMapDemo {
 
     public static void main(String[] args) {
@@ -21,24 +21,34 @@ public class FlatMapDemo {
                                        .stream()
                                        .flatMap(list -> list.stream())
                                        .toList();
-        deptList1.forEach(System.out::println);
-        deptList2.forEach(System.out::println);
+        System.out.println(deptList1);
+        System.out.println(deptList2);
 
         Map<String, String> map = new LinkedHashMap<>();
-        map.put("John", "555-1123");
-        map.put("Mary", "555-2243");
+        map.put("John",  "555-1123");
+        map.put("Mary",  "555-2243");
         map.put("Steve", "555-6654");
-        new ArrayList<>(map.values()).forEach(System.out::println);
+        System.out.println(map.values());
 
         String[][]        dataArray = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}, {"g", "h"}};
         List<String> listOfAllChars = Arrays.stream(dataArray)
-//                                          .flatMap(Arrays::stream)
-                                            .flatMap(s -> Arrays.stream(s))
+                                            .flatMap(Arrays::stream)
                                             .toList();
         System.out.println(listOfAllChars);
+        String[] stringArray = Arrays.stream(dataArray)
+                                     .flatMap(Arrays::stream)
+                                     .toArray(String[]::new);
+        System.out.println(Arrays.toString(stringArray));
 
-        int[] a = {1, 2, 3, 4, 5};
-        IntStream integerStream = Arrays.stream(a);
-        integerStream.forEach(System.out::println);
+        int[][]        intArray  = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        List<Integer> integerList = Arrays.stream(intArray)
+                                          .flatMapToInt(Arrays::stream)
+                                          .boxed()
+                                          .toList();
+        System.out.println(integerList);
+        int[] integerArray = Arrays.stream(intArray)
+                                   .flatMapToInt(Arrays::stream)
+                                   .toArray();
+        System.out.println(Arrays.toString(integerArray));
     }
 }

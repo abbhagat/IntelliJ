@@ -3,7 +3,7 @@ package java8.emp;
 public final class Employee {
 
     private final String name;
-    private final Integer id;
+    private final int id;
 
     public Employee(String name, Integer id) {
         this.name = name;

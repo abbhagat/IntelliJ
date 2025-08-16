@@ -16,19 +16,23 @@ public class SecondLevelCache {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.get(UserDetails.class, 1);
-        Query<UserDetails> query1 = session.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class)
+        Query<UserDetails> query = session.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class)
                                            .setCacheable(true)
                                            .setCacheRegion("USER1");
-        query1.setParameter("userID", 1);
-        query1.setParameter("userName", "V705417");
-        query1.getResultList();
+        query.setParameter("userID", 1);
+        query.setParameter("userName", "V705417");
+        query.getResultList();
         session.getTransaction().commit();
         session.close();
 
         Session session2 = sessionFactory.openSession();
         session2.beginTransaction();
         session2.get(UserDetails.class, 1);
-        Query query2 = session2.createQuery("from UserDetails", UserDetails.class).setCacheable(true).setCacheRegion("USER1");
+        Query<UserDetails> query2 = session2.createQuery("from UserDetails where userID = :userID and userName = :userName", UserDetails.class)
+                                            .setCacheable(true)
+                                            .setCacheRegion("USER1");
+        query2.setParameter("userID", 1);
+        query2.setParameter("userName", "V705417");
         query2.getResultList();
         session2.getTransaction().commit();
         session2.close();
@@ -58,9 +62,9 @@ public class SecondLevelCache {
         session.close();
 
         session = sessionFactory.openSession();
-        Query<UserDetails> query  = session.createSQLQuery("SELECT * FROM USER_DETAILS");
-        Query<UserDetails> query3 = session.createQuery("from UserDetails"); // Creates HQL Query
-        List<UserDetails> userDetailsList = query.list();
+        Query<UserDetails> query4  = session.createSQLQuery("SELECT * FROM USER_DETAILS");
+        Query<UserDetails> query3  = session.createQuery("from UserDetails"); // Creates HQL Query
+        List<UserDetails> userDetailsList = query4.list();
         transaction.commit();
         session.close();
 

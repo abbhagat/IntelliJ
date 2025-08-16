@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
@@ -23,11 +24,11 @@ import java.io.Serializable;
 )
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.TRANSACTIONAL)
-@DynamicUpdate
-// Mean the update SQL statement is generated at runtime and contains only those columns whose values have changed.
+@DynamicUpdate // Mean the update SQL statement is generated at runtime and contains only those columns whose values have changed.
 @Table(name = "USER_DETAILS")
 public class UserDetails implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
