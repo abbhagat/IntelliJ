@@ -11,7 +11,6 @@ public class DateTimeFormatterDemo {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM uuuu");
             LocalDate holiday = LocalDate.parse(goodFriday, formatter);
             System.out.println(holiday);
-            //System.out.printf("Successfully parsed String %s, date is %s%n", goodFriday, holiday);
         } catch (DateTimeParseException ex) {
             System.out.printf("%s is not parsable!%n", goodFriday);
         }
