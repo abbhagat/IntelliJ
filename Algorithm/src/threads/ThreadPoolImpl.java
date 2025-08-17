@@ -49,16 +49,17 @@ class ThreadPool {
         this.queue.add(task);
     }
 
-    public void stop() {
-        this.isStopped = true;
-        Arrays.stream(this.threads).forEach(Thread::interrupt);
-    }
-
     public void waitUntilAllTasksFinished() {
         while (!this.queue.isEmpty()) {
             Thread.yield();
         }
     }
+
+    public void stop() {
+        this.isStopped = true;
+        Arrays.stream(this.threads).forEach(Thread::interrupt);
+    }
+
 }
 
 public class ThreadPoolImpl {
