@@ -5,53 +5,45 @@ import static linkedlist.TraverseList.traverseList;
 
 public class QuickSort {
 
-    private static Node partitionLast(Node start, Node end) {
-        if (start == end || start == null || end == null) {
-            return start;
-        }
-        Node prevPivot = start;
-        Node curr      = start;
-        int pivot      = end.num;
-        while (start != end) {               // iterate till one before the end, no need to iterate till the end because the end is pivot
-            if (start.num < pivot) {
-                prevPivot  = curr;
-                // swap(current, start)
-                int temp   = curr.num;
-                curr.num   = start.num;
-                start.num  = temp;
-                curr       = curr.next;
+    private static Node partition(Node low, Node high) {
+        int pivot = high.num;
+        Node i = null;
+        for (Node j = low; j != high; j = j.next) {
+            if (j.num <= pivot) {
+                i = (i == null) ? low : i.next;
+                swap(i, j);
             }
-            start = start.next;
         }
-        int temp = curr.num;     // Swap the position of curr i.e., next suitable index and pivot
-        curr.num = pivot;
-        end.num  = temp;
-        return prevPivot;      // Return one previous to current because current is now pointing to pivot
+        i = (i == null) ? low : i.next;
+        swap(i, high);
+        return i;
     }
 
-    private static void quickSort(Node start, Node end) {
-        if (start == null || start == end || start == end.next) {
-            return;
+    private static void quickSort(Node low, Node high) {
+        if (low != null && high != null && low != high && low != high.next) {
+            Node pivot = partition(low, high);
+            Node temp = low;
+            while (temp.next != pivot) {
+                   temp = temp.next;
+            }
+            quickSort(low, temp);
+            quickSort(pivot.next, high);
         }
-        Node prevPivot = partitionLast(start, end);     // Split list and partition recurse
-        quickSort(start, prevPivot);
-        // If pivot is picked and moved to the start, that means start and pivot is the same so pick from next of pivot
-        if (prevPivot != null && prevPivot == start) {
-            quickSort(prevPivot.next, end);
-        }
-        // If pivot is in between of the list, start from next of pivot, since we have prevPivot, so we move two nodes
-        else if (prevPivot != null && prevPivot.next != null) {
-            quickSort(prevPivot.next.next, end);
-        }
+    }
+
+    private static void swap(Node x, Node y) {
+        int temp = x.num;
+        x.num = y.num;
+        y.num = temp;
     }
 
     public static void main(String[] args) {
         Node head = null;
-        for (int x : new int[]{1, 3, 5, 2, 4}) {
+        for (int x : new int[]{1, 3, 5, 2, 4, 7, 10, 6, 9, 8}) {
              head = add(head, x);
         }
         traverseList(head);
-        quickSort(head, head.next.next.next.next);
+        quickSort(head, LinkList.last);
         traverseList(head);
     }
 }

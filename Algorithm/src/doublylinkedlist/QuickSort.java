@@ -30,8 +30,8 @@ public class QuickSort {
 
     private static void swap(Node x, Node y) {
         int temp = x.num;
-        x.num = y.num;
-        y.num = temp;
+           x.num = y.num;
+           y.num = temp;
     }
 
     public static void main(String[] args) {

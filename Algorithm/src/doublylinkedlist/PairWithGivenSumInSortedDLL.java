@@ -8,7 +8,7 @@ import static doublylinkedlist.TraverseList.traverseList;
 public class PairWithGivenSumInSortedDLL {
 
     private static void pairSum(Node low, Node high, final int key) {
-        while (low != high && high.right != low) {
+        while (low != high && low != high.right) {
             int n = low.num + high.num;
             if (n == key) {
                 System.out.println("(" + low.num + ", " + high.num + ")");
@@ -24,7 +24,7 @@ public class PairWithGivenSumInSortedDLL {
 
     public static void main(String[] args) {
         Node head = null;
-        int[] a = {1, 2, 3, 4, 5, 6, 8, 9};
+        int[] a = {1, 2, 3, 4, 5, 6, 8, 9, 10};
         for (int x : a) {
             head = createList(x, null);
         }
