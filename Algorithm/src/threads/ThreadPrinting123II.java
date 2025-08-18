@@ -4,7 +4,7 @@ class PrinterThreads implements Runnable {
 
     private static final Object monitor = new Object();
     private static int threadIdToRun    = 1;
-    private static int             n    = 0;
+    private static int             i    = 0;
     private final int threadId;
 
     private final int[] a = new int[]{1, 4, 7};
@@ -20,24 +20,24 @@ class PrinterThreads implements Runnable {
 
     @Override
     public void run() {
-        while (n < a.length + b.length + c.length) {
+        while (i < a.length + b.length + c.length) {
             try {
                 synchronized (monitor) {
                     if (threadId != threadIdToRun) {
                         monitor.wait();
                     } else {
                         switch (threadId) {
-                            case 1:  System.out.println(Thread.currentThread().getName() + " " + a[threadLocal.get()]);
+                            case 1:  System.out.println(Thread.currentThread().getName() + " -> " + a[threadLocal.get()]);
                                      threadIdToRun = 3;
                                      break;
-                            case 2:  System.out.println(Thread.currentThread().getName() + " " + b[threadLocal.get()]);
+                            case 2:  System.out.println(Thread.currentThread().getName() + " -> " + b[threadLocal.get()]);
                                      threadIdToRun = 1;
                                      break;
-                            case 3:  System.out.println(Thread.currentThread().getName() + " " + c[threadLocal.get()]);
+                            case 3:  System.out.println(Thread.currentThread().getName() + " -> " + c[threadLocal.get()]);
                                      threadIdToRun = 2;
                                      break;
                         }
-                        n++;
+                        i++;
                         threadLocal.set(threadLocal.get() + 1);
                         monitor.notifyAll();
                     }
