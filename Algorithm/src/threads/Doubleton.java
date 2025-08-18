@@ -8,11 +8,11 @@ public class Doubleton implements Cloneable, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static Doubleton _instance1, _instance2;
+    private static Doubleton instance1, instance2;
     private static int n = 1;
 
     private Doubleton() throws Exception {
-        if (null != _instance1 || null != _instance2) {
+        if (null != instance1 || null != instance2) {
             throw new Exception("Doubleton Already Initialized");
         }
     }
@@ -22,23 +22,24 @@ public class Doubleton implements Cloneable, Serializable {
         return getInstance();
     }
 
-    public Object clone() {
+    @Override
+    public Doubleton clone() throws CloneNotSupportedException {
         try {
             return getInstance();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new CloneNotSupportedException();
         }
     }
 
     public static synchronized Doubleton getInstance() throws Exception {
-        if (null == _instance1) {
-            _instance1 = new Doubleton();
-            return _instance1;
+        if (null == instance1) {
+            instance1 = new Doubleton();
+            return instance1;
         }
-        if (null == _instance2) {
-            _instance2 = new Doubleton();
-            return _instance2;
+        if (null == instance2) {
+            instance2 = new Doubleton();
+            return instance2;
         }
-        return n++ % 2 == 0 ? _instance1 : _instance2;
+        return n++ % 2 == 0 ? instance1 : instance2;
     }
 }

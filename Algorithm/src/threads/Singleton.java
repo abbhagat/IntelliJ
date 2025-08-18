@@ -12,7 +12,7 @@ public class Singleton implements Cloneable, Serializable {
 
     private Singleton() throws Exception {
         if (null != singleton) {
-            throw new Exception();
+            throw new Exception("Singleton is already initialized. Use getInstance() method to access the singleton instance.");
         }
     }
 

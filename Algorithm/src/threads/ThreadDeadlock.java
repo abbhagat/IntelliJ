@@ -4,9 +4,9 @@ class Thread1 implements Runnable {
 
     private final ThreadDeadlock threadDeadlock;
 
-    public Thread1(ThreadDeadlock threadDeadlock) {
+    public Thread1(ThreadDeadlock threadDeadlock, String threadName) {
         this.threadDeadlock = threadDeadlock;
-        new Thread(this).start();
+        new Thread(this, threadName).start();
     }
 
     @Override
@@ -20,9 +20,9 @@ class Thread2 implements Runnable {
 
     private final ThreadDeadlock threadDeadlock;
 
-    public Thread2(ThreadDeadlock threadDeadlock) {
+    public Thread2(ThreadDeadlock threadDeadlock, String threadName) {
         this.threadDeadlock = threadDeadlock;
-        new Thread(this).start();
+        new Thread(this, threadName).start();
     }
 
     @Override
@@ -31,29 +31,30 @@ class Thread2 implements Runnable {
         threadDeadlock.method1();
     }
 }
+
 public class ThreadDeadlock {
 
     public void method1() {
         synchronized (Integer.class) {
-            System.out.println("Lock On Integer class");
+            System.out.println(Thread.currentThread().getName() + " Lock On Integer class");
             synchronized (String.class) {
-                System.out.println("Lock On String class");
+                System.out.println(Thread.currentThread().getName() + "Lock On String class");
             }
         }
     }
 
     public void method2() {
         synchronized (String.class) {
-            System.out.println("Lock On String class");
+            System.out.println(Thread.currentThread().getName() + "Lock On String class");
             synchronized (Integer.class) {
-                System.out.println("Lock On Integer class");
+                System.out.println(Thread.currentThread().getName() + "Lock On Integer class");
             }
         }
     }
 
     public static void main(String[] args) {
         ThreadDeadlock threadDeadlock = new ThreadDeadlock();
-        new Thread1(threadDeadlock);
-        new Thread2(threadDeadlock);
+        new Thread1(threadDeadlock, "Thread-1");
+        new Thread2(threadDeadlock, "Thread-2");
     }
 }

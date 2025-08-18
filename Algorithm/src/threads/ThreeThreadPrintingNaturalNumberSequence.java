@@ -3,7 +3,8 @@ package threads;
 class PrinterThreadForNaturalNumber implements Runnable {
 
     private static final Object monitor = new Object();
-    private static volatile int threadIdToRun = 1, n = 1;
+    private static int threadIdToRun    = 1;
+    private static int n                = 1;
     private final int threadID;
 
     public PrinterThreadForNaturalNumber(int threadID) {
