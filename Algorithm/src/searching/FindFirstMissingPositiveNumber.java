@@ -8,8 +8,9 @@ public class FindFirstMissingPositiveNumber {
         int n = a.length;
         boolean[] isPresent = new boolean[n + 1];
         for (int x : a) {
-            if (x > 0 && x <= n)
+            if (x > 0 && x <= n) {
                 isPresent[x] = true;
+            }
         }
         for (int i = 1; i <= n; i++) {
             if (!isPresent[i]) {
