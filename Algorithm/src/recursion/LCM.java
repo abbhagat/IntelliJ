@@ -1,13 +1,13 @@
 package recursion;
 
-// HCF * LCM = a * b
-
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 // Time  Complexity: O(x*y)
 // Space Complexity: O(x*y)
 public class LCM {
+
+                               // HCF * LCM = a * b
 
     private static int findLCM(int x, int y, int lcm) {
         return (lcm % x == 0 && lcm % y == 0) ? lcm : findLCM(x, y, lcm + y);
@@ -16,7 +16,7 @@ public class LCM {
     private static void findLCM(int[] a) {
         int lcm = a[0];
         for (int i = 1; i < a.length; i++) {
-            lcm = findLCM(min(lcm, a[i]), max(a[i], lcm), max(a[i], lcm));
+            lcm = findLCM(min(a[i], lcm), max(a[i], lcm), max(a[i], lcm));
         }
         System.out.println("LCM := " + lcm);
     }
