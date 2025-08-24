@@ -19,9 +19,9 @@ public class HashMap<K, V> {
         private Entry<K,V> next;
 
         public Entry(K key, V value) {
-            this.key = key;
+            this.key   = key;
             this.value = value;
-            this.next = null;
+            this.next  = null;
         }
     }
 
