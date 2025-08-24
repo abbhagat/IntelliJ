@@ -26,6 +26,7 @@ public class InsertInterval {
     public static void main(String[] args) {
         List<Interval> intervalList = new ArrayList<>();
         insertInterval(intervalList, new Interval(8, 10));
+        insertInterval(intervalList, new Interval(8, 12));
         insertInterval(intervalList, new Interval(16, 18));
         insertInterval(intervalList, new Interval(7, 9));
         insertInterval(intervalList, new Interval(0, 3));

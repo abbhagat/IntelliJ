@@ -11,7 +11,7 @@ import java.util.List;
 public class MeetingRooms {
 
     private static boolean canAttendAllMeeting(List<Interval> intervalList) {
-        intervalList.sort(Comparator.comparingInt(interval -> interval.start));
+        intervalList.sort((interval1, interval2) -> interval1.start - interval2.start); // Comparator.comparingInt(interval -> interval.start)
         LinkedList<Interval> mergedInterval = new LinkedList<>();
         for (Interval interval : intervalList) {
             if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {
@@ -24,7 +24,7 @@ public class MeetingRooms {
     }
 
     private static boolean canAttendAllMeeting(int[][] intervals) {
-        Arrays.sort(intervals, Comparator.comparingInt(x -> x[0]));
+        Arrays.sort(intervals, (x, y) -> x[0] - y[0]);  // Comparator.comparingInt(x -> x[0])
         int end = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
             if (end < intervals[i][0]) {

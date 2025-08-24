@@ -26,8 +26,8 @@ public class MeetingRoomsII {
     }
 
     private static int findMinRooms(int[][] a) {
-        Arrays.sort(a, Comparator.comparingInt(i -> i[0]));
-        Arrays.sort(a, Comparator.comparingInt(i -> i[1]));
+        Arrays.sort(a, (x, y) -> x[0] - y[0]);  // Comparator.comparingInt(x -> x[0])
+        Arrays.sort(a, (x, y) -> x[1] - y[1]); //  Comparator.comparingInt(x -> x[1])
         LinkedList<int[]> mergeInterval = new LinkedList<>();
         mergeInterval.add(a[0]);
         int n = 1;

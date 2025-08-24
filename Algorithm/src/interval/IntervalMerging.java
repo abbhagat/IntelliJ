@@ -12,8 +12,7 @@ import static util.CommonUtils.printMatrix;
 public class IntervalMerging {
 
     private static LinkedList<Interval> mergeInterval(List<Interval> intervalList) {
-        // intervalList.sort((interval1, interval2) -> interval1.start - interval2.start);
-        intervalList.sort(Comparator.comparingInt(interval -> interval.start));
+        intervalList.sort((interval1, interval2) -> interval1.start - interval2.start); // Comparator.comparingInt(interval -> interval.start)
         LinkedList<Interval> mergedInterval = new LinkedList<>();
         for (Interval interval : intervalList) {
             if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {
@@ -26,7 +25,7 @@ public class IntervalMerging {
     }
 
     private static int[][] mergeInterval(int[][] a) {
-        Arrays.sort(a, Comparator.comparingInt(x -> x[0])); // Arrays.sort(a, (x, y) -> x[0] - y[0]);
+        Arrays.sort(a, (x, y) -> x[0] - y[0]); // Arrays.sort(Comparator.comparingInt(x -> x[0]));
         LinkedList<int[]> interval = new LinkedList<>();
         interval.add(a[0]);
         for (int i = 1; i < a.length; i++) {
@@ -48,9 +47,9 @@ public class IntervalMerging {
         mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
         System.out.println();
         printMatrix(mergeInterval(new int[][]{ {1, 3},
-                {6, 9},
-                {2, 5},
-                {-2, 10}
-        }));
+                                               {6, 9},
+                                               {2, 5},
+                                               {-2, 10}
+                                             }));
     }
 }
