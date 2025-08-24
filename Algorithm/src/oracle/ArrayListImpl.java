@@ -26,16 +26,12 @@ public class ArrayListImpl<E> {
     }
 
     public E get(int index) {
-        if (index < 0 || index >= size) {
-            throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
-        }
+        validateIndex(index);
         return list[index];
     }
 
     public E remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
-        }
+        validateIndex(index);
         E oldValue   = list[index];
         int numMoved = size - index - 1;
         if (numMoved > 0) {
@@ -52,6 +48,12 @@ public class ArrayListImpl<E> {
             int newCapacity = oldCapacity * 3 / 2 + 1;
             list = (E[]) new Object[newCapacity];
             System.arraycopy(oldData, 0, list, 0, size);
+        }
+    }
+
+    private void validateIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
         }
     }
 
