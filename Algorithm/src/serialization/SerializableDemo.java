@@ -4,10 +4,10 @@ import java.io.*;
 
 /**
  * Serialization Rule
-
+ * <p>
  * During serialization process, if any instance variable is inherited from non-serializable parent class,
  * then JVM will ignore the normal value instead it will store the default value for that variable.
-
+ * <p>
  * Deserialization Rule
  * During deserialization process, if we have any non-serializable parent class,
  * then JVM will perform following things for that non-serializable parent class.
@@ -25,19 +25,20 @@ class Father {
 
     public Father() {
         System.out.println("Father Constructor");
-         parent = 3;
-         s = "Java is an OOP";
+        parent = 3;
+        s = "Java is an OOP";
     }
 
     {
         System.out.println("Non static Father Block");
         parent = 2;
-        s = "Java is an OOP";
+        s = "Java is OOP";
     }
 }
 
 class Son extends Father implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     transient int k = 4;
@@ -45,9 +46,9 @@ class Son extends Father implements Serializable {
     int child = 4;
 
     public Son() {
-        System.out.println("Son Constructor");
-        child = 10;
-        k = 100;
+       System.out.println("Son Constructor");
+       child = 10;
+       k = 100;
     }
 
     {

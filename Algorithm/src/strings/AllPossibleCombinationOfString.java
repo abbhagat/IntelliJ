@@ -11,9 +11,9 @@ public class AllPossibleCombinationOfString {
             return;
         }
         for (int i = start; i <= end; i++) {
-            swap(c, i, start);
-            permute(c, start + 1, end);
-            swap(c, i, start);
+             swap(c, i, start);
+             permute(c, start + 1, end);
+             swap(c, i, start);
         }
     }
 

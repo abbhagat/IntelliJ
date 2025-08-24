@@ -6,8 +6,8 @@ public class KStringAnagram {
         if (c1.length == c2.length) {
             int[] temp = new int[128];
             for (int i = 0; i < c1.length; i++) {
-                temp[c1[i]]++;
-                temp[c2[i]]--;
+                 temp[c1[i]]++;
+                 temp[c2[i]]--;
             }
             int count = 0;
             for (int x : temp) {
