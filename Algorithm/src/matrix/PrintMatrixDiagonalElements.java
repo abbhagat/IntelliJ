@@ -25,6 +25,7 @@ public class PrintMatrixDiagonalElements {
                       {7, 8, 9}
                     };
         printLeftDiagonal(M);
+        System.out.println();
         printRightDiagonal(M);
     }
 }

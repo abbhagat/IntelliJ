@@ -3,13 +3,13 @@ package matrix;
 public class SearchElementInSorted2DArraySortedRowAndColumnWise {
 
     // Time Complexity : O(m + n)
-    private static boolean search(int[][] M, int key) {
+    private static boolean search(int[][] M, int n) {
         int R1 = 0, R2 = M.length - 1;
         int C1 = 0, C2 = M[0].length - 1;
         while (R1 <= R2 && C1 <= C2) {
-            if (key < M[R1][C2]) {
+            if (n < M[R1][C2]) {
                 C2--;
-            } else if (key > M[R1][C2]) {
+            } else if (n > M[R1][C2]) {
                 R1++;
             } else {
                 System.out.println("M[" + R1 + "]" + "[" + C2 + "]");
