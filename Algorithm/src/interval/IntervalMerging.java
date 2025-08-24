@@ -43,13 +43,11 @@ public class IntervalMerging {
         intervalList.add(new Interval(1, 3));
         intervalList.add(new Interval(6, 9));
         intervalList.add(new Interval(2, 5));
-        intervalList.add(new Interval(-2, 10));
         mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
         System.out.println();
         printMatrix(mergeInterval(new int[][]{ {1, 3},
                                                {6, 9},
-                                               {2, 5},
-                                               {-2, 10}
+                                               {2, 5}
                                              }));
     }
 }

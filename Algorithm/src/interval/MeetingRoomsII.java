@@ -11,8 +11,8 @@ import java.util.List;
 public class MeetingRoomsII {
 
     private static int findMinRooms(List<Interval> intervalList) {
-        intervalList.sort(Comparator.comparingInt(interval -> interval.start));
-        intervalList.sort(Comparator.comparingInt(interval -> interval.end));
+        intervalList.sort((interval1, interval2) -> interval1.start - interval2.start);  // Comparator.comparingInt(interval -> interval.start)
+        intervalList.sort((interval1, interval2) -> interval1.end - interval2.end);     //  Comparator.comparingInt(interval -> interval.end)
         LinkedList<Interval> mergeInterval = new LinkedList<>();
         int n = 1;
         for (Interval interval : intervalList) {
