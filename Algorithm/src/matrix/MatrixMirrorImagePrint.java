@@ -1,7 +1,6 @@
 package matrix;
 
 import static util.CommonUtils.printMatrix;
-import static util.CommonUtils.swap;
 
 public class MatrixMirrorImagePrint {
 
