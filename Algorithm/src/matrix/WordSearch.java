@@ -7,7 +7,8 @@ public class WordSearch {
                                          {'M', 'A', 'R', 'N'},
                                          {'U', 'K', 'W', 'A'}
                                       };
-    private static final int ROW = M.length , COL = M[0].length;
+    private static final int      ROW = M.length;
+    private static final int      COL = M[0].length;
     private static final int[] rowIdx = new int[]{-1, 1, 0, 0};
     private static final int[] colIdx = new int[]{0, 0, -1, 1};
 
