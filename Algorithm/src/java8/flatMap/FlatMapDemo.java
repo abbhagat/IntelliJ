@@ -2,6 +2,8 @@ package java8.flatMap;
 
 import java.util.*;
 
+import static util.CommonUtils.printArray;
+
 // Collection::stream = x -> x.stream(), x = List<String> means it is a Collection
 // Arrays::stream     = s -> Arrays.stream(s)
 public class FlatMapDemo {
@@ -38,7 +40,7 @@ public class FlatMapDemo {
         String[] stringArray = Arrays.stream(dataArray)
                                      .flatMap(Arrays::stream)
                                      .toArray(String[]::new);
-        System.out.println(Arrays.toString(stringArray));
+        printArray(stringArray);
 
         int[][]        intArray  = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         List<Integer> integerList = Arrays.stream(intArray)

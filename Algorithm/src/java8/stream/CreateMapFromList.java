@@ -1,19 +1,14 @@
 package java8.stream;
 
-import lombok.*;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CreateMapFromList {
 
-    private record Employee(@Getter int id, @Getter String deptName) {
-
-    }
+    private record Employee(int id, String deptName) { }
 
     public static void main(String[] args) {
 
@@ -26,20 +21,20 @@ public class CreateMapFromList {
 
         List<Employee> employeeList = List.of(emp1, emp2, emp3, emp4, emp5, emp6);
         Map<Integer, String> result = employeeList
-                                                   .stream()
-                                                   .collect(Collectors.toMap(Employee::getId, Employee::getDeptName));
+                                                  .stream()
+                                                  .collect(Collectors.toMap(Employee::id, Employee::deptName));
         System.out.println(result);
         Map<String, List<Integer>> deptToIdsMap = employeeList
                                                     .stream()
                                                     .collect(
-                                                            Collectors.groupingBy(Employee::getDeptName, Collectors.mapping(Employee::getId, Collectors.toList()))
+                                                            Collectors.groupingBy(Employee::deptName, Collectors.mapping(Employee::id, Collectors.toList()))
                                                             );
         System.out.println(deptToIdsMap);
         Map<String, List<Integer>> map = new LinkedHashMap<>();
         employeeList.forEach(emp -> {
-            List<Integer> list = map.containsKey(emp.getDeptName()) ? map.get(emp.getDeptName()) : new ArrayList<>();
-            list.add(emp.getId());
-            map.put(emp.getDeptName(), list);
+            List<Integer> list = map.containsKey(emp.deptName()) ? map.get(emp.deptName()) : new ArrayList<>();
+            list.add(emp.id());
+            map.put(emp.deptName(), list);
         });
         System.out.println(map);
     }
