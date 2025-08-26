@@ -27,8 +27,7 @@ public class SortMapWithKeyAndValue {
         result = map
                 .entrySet()
                 .stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
         System.out.println(result);
     }
 }

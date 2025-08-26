@@ -32,7 +32,7 @@ public class StreamMatchAnyMatchAll {
                                               .toList();
         commonList.forEach(System.out::println);
         System.out.println();
-        A_InterSection_B(mainList, cancelList);
+        commonList = A_InterSection_B(mainList, cancelList);
         commonList.forEach(System.out::println);
         System.out.println();
         // Set B - Set A
@@ -49,11 +49,11 @@ public class StreamMatchAnyMatchAll {
         System.out.println(set);
     }
 
-    private static void A_InterSection_B(List<Employee> mainList, List<Employee> cancelList) {
-        mainList.stream()
+    private static List<Employee> A_InterSection_B(List<Employee> mainList, List<Employee> cancelList) {
+        return mainList.stream()
                 .filter(mList ->
-                        cancelList.stream().anyMatch(cList -> cList.getName().equals(mList.getName())))
-                .toList()
-                .forEach(System.out::println);
+                        cancelList.stream().anyMatch(cList -> cList.getName().equals(mList.getName()))
+                       )
+                .toList();
     }
 }

@@ -6,9 +6,9 @@ import java.util.stream.Stream;
 import static util.CommonUtils.swap;
 
 /**
-Given an array of n numbers. Your task is to read numbers from the array and keep at-most K numbers at the temp
+Given an array of n numbers. Your task is to read numbers from the array and keep at-most K numbers at the top
 (According to their decreasing frequency) every time a new number is read.
-We basically need to print temp k numbers sorted by frequency when input stream has included k distinct elements,
+We basically need to print top k numbers sorted by frequency when input stream has included k distinct elements,
 else need to print all distinct elements sorted by frequency.
 Examples:
 Input : arr[] = {5, 2, 1, 3, 2} k = 4

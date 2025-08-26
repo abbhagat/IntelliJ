@@ -17,7 +17,7 @@ public class TopKFrequentElementsInAnArray {
                                                           .toList();
         List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
         return topKList.stream()
-                       .map(Map.Entry::getKey)
+                       .map(entry -> entry.getKey())
                        .mapToInt(Integer::intValue)
                        .toArray();
     }
