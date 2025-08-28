@@ -14,8 +14,8 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
     @Setter
     @AllArgsConstructor
     static class Index {
-        int start;
-        int end;
+        private int start;
+        private int end;
     }
 
     private static int longestSubString(String s, int start, int end, int k, Index index) {
@@ -38,13 +38,15 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
                 return max;
             }
         }
-        index.start = start;
-        index.end   = end;
+        index.setStart(start);
+        index.setEnd(end);
         return end - start;
     }
 
     public static void main(String[] args) {
-        Index index = new Index(0, 0);
+        Index index;
+
+        index = new Index(0, 0);
         int max = longestSubString("ababbc",0, "ababbc".length(),2, index);
         System.out.println("ababbc".substring(index.start, index.end) + "\t" + max);
 

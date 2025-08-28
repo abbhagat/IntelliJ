@@ -7,9 +7,7 @@ public class JewelAndStones {
 
     private static int numJewelsInStones(String jewels, String stones) {
         Set<Character> set = new HashSet<>();
-        for (char c : jewels.toCharArray()) {
-            set.add(c);
-        }
+        jewels.chars().forEach(c -> set.add((char) c));
         int count = 0;
         for (char c : stones.toCharArray()) {
             if (set.contains(c)) {

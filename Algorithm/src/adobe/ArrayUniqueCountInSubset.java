@@ -1,6 +1,7 @@
 package adobe;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 import static util.CommonUtils.printArray;
 
@@ -41,9 +42,7 @@ public class ArrayUniqueCountInSubset {
         int n = a.length - k + 1;
         int[] res = new int[n];
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < k; i++) {
-            map.put(a[i], map.getOrDefault(a[i], 0) + 1);
-        }
+        IntStream.range(0, k).forEach(i -> map.put(a[i], map.getOrDefault(a[i], 0) + 1));
         res[0] = map.size();
         // Slide the window
         for (int i = 1; i < n; i++) {
