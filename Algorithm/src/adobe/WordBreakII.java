@@ -30,18 +30,18 @@ public class WordBreakII {
         return result;
     }
 
-    private static void wordBreak(int start, String s, StringBuilder current, Set<String> wordSet, List<String> result) {
-        if (start == s.length()) {
-            result.add(current.toString().trim());
+    private static void wordBreak(int index, String s, StringBuilder sb, Set<String> wordSet, List<String> result) {
+        if (index == s.length()) {
+            result.add(sb.toString().trim());
             return;
         }
-        for (int end = start + 1; end <= s.length(); end++) {
-            String word = s.substring(start, end);
+        for (int i = index + 1; i <= s.length(); i++) {
+            String word = s.substring(index, i);
             if (wordSet.contains(word)) {
-                int len = current.length();
-                current.append(word).append(" ");
-                wordBreak(end, s, current, wordSet, result);
-                current.setLength(len);
+                int len = sb.length();
+                sb.append(word).append(" ");
+                wordBreak(i, s, sb, wordSet, result);
+                sb.setLength(len);
             }
         }
     }
