@@ -25,28 +25,29 @@ Output: []
 public class WordBreakII {
 
     public static List<String> wordBreak(String s, List<String> wordDict) {
-        List<String> list = new ArrayList<>();
-        wordBreak(0, s, new StringBuilder(), new HashSet<>(wordDict), list);
-        return list;
+        List<String> result = new ArrayList<>();
+        wordBreak(0, s, new StringBuilder(), new HashSet<>(wordDict), result);
+        return result;
     }
 
-    public static void wordBreak(int index, String s, StringBuilder sb, Set<String> set, List<String> list) {
-        if (index == s.length()) {
-            list.add(sb.toString().trim());
+    private static void wordBreak(int start, String s, StringBuilder current, Set<String> wordSet, List<String> result) {
+        if (start == s.length()) {
+            result.add(current.toString().trim());
             return;
         }
-        for (int i = index; i < s.length(); i++) {
-            String str = s.substring(index, i + 1);
-            if (set.contains(str)) {
-                sb.append(str).append(" ");
-                wordBreak(i + 1, s, sb, set, list);
-                sb.delete(sb.length() - str.length() - 1, sb.length());
+        for (int end = start + 1; end <= s.length(); end++) {
+            String word = s.substring(start, end);
+            if (wordSet.contains(word)) {
+                int len = current.length();
+                current.append(word).append(" ");
+                wordBreak(end, s, current, wordSet, result);
+                current.setLength(len);
             }
         }
     }
 
     public static void main(String[] args) {
-        List<String> list = wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"));
-        list.forEach(System.out::println);
+        List<String> sentences = wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"));
+        sentences.forEach(System.out::println);
     }
 }
