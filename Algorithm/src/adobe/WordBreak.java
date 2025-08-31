@@ -22,12 +22,12 @@ public class WordBreak {
 
     // Time  Complexity: O(2^n)
     // Space Complexity: O(n)
-    private static boolean wordBreak(String str, List<String> list, int j) {
-        if (j == str.length()) {
+    private static boolean wordBreak(String str, List<String> list, int index) {
+        if (index == str.length()) {
             return true;
         }
-        for (int i = j + 1; i <= str.length(); i++) {
-            String s = str.substring(j, i);
+        for (int i = index + 1; i <= str.length(); i++) {
+            String s = str.substring(index, i);
             if (list.contains(s) && wordBreak(str, list, i)) {
                 return true;
             }

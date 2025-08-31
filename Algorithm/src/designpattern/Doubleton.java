@@ -23,8 +23,8 @@ public class Doubleton implements Cloneable, Serializable {
     }
 
     public static synchronized Doubleton getInstance() {
-        instance1 = null == instance1 ? new Doubleton() : instance1;
-        instance2 = null == instance2 ? new Doubleton() : instance2;
+        instance1 = (null == instance1) ? new Doubleton() : instance1;
+        instance2 = (null == instance2) ? new Doubleton() : instance2;
         return index++ % 2 == 0 ? instance1 : instance2;
     }
 

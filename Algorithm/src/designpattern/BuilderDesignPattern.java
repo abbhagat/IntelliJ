@@ -57,7 +57,11 @@ class Computer {
 public class BuilderDesignPattern {
 
     public static void main(String[] args) {
-        Computer.Builder builder = new Computer.Builder().setHDD("500 GB").setRAM("2 GB").setBluetoothEnabled(true).setGraphicsCardEnabled(true);
+        Computer.Builder builder = new Computer.Builder()
+                                               .setHDD("500 GB")
+                                               .setRAM("2 GB")
+                                               .setBluetoothEnabled(true)
+                                               .setGraphicsCardEnabled(true);
         Computer        computer = builder.build();
         System.out.println(computer);
     }
