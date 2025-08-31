@@ -1,8 +1,5 @@
 package adobe;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,12 +7,13 @@ import java.util.Map;
 // Space Complexity : O(log n)
 public class LongestSubstringWithAtLeastKRepeatingChars {
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    static class Index {
-        private int start;
-        private int end;
+    private static class Index {
+        int start;
+        int end;
+        public Index(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
     }
 
     private static int longestSubString(String s, int start, int end, int k, Index index) {
@@ -28,18 +26,18 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
                 int right = longestSubString(s, i + 1, end, k, index);
                 if (left >= right) {
                     max = left;
-                    index.setStart(start);
-                    index.setEnd(i);
+                    index.start = start;
+                    index.end   = i;
                 } else {
                     max = right;
-                    index.setStart(i + 1);
-                    index.setEnd(end);
+                    index.start = i + 1;
+                    index.end   = end;
                 }
                 return max;
             }
         }
-        index.setStart(start);
-        index.setEnd(end);
+        index.start = start;
+        index.end   = end;
         return end - start;
     }
 
