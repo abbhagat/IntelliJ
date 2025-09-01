@@ -1,10 +1,10 @@
 package designpattern.abstractfactory;
 
 /**
-Abstract Factory patterns work around a super-factory which creates other factories.
-In Abstract Factory pattern, an interface is responsible for creating a factory of
-related objects without explicitly specifying their classes.
-*/
+ * Abstract Factory patterns work around a super-factory which creates other factories.
+ * In Abstract Factory pattern, an interface is responsible for creating a factory of
+ * related objects without explicitly specifying their classes.
+ */
 
 interface Shape {
     void draw();
