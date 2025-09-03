@@ -1,20 +1,21 @@
 package dynamicProgramming;
 
-/*
-There are n stairs, a person standing at the bottom wants to reach the top.
-The person can climb either 1 stair or 2 stairs at a time.
-Count the number of ways, the person can reach the top.
-ways(n) = ways(n-1) + ways(n-2)
-*/
+/**
+ * There are n stairs, a person standing at the bottom wants to reach the top.
+ * The person can climb either 1 stair or 2 stairs at a time.
+ * Count the number of ways, the person can reach the top.
+ * ways(n) = ways(n-1) + ways(n-2)
+ */
 public class NthStairClimbWays {
 
     // Time  Complexity: O(n)
     // Space Complexity: O(n)
     private static int stairCountDP(int n) {
-        int[] dp = new int[n + 1];
         if (n == 0) {
             return 0;
         }
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
         dp[1] = 1;
         dp[2] = 2;
         for (int i = 3; i <= n; i++) {
@@ -26,11 +27,11 @@ public class NthStairClimbWays {
     // Time  Complexity: O(2^n)
     // Space Complexity: O(1)
     private static int stairCount(int n) {
-        return switch (n) {
-            case 1 -> 1;
-            case 2 -> 2;
-            default -> stairCount(n - 1) + stairCount(n - 2);
-        };
+         switch (n) {
+             case 1  : return 1;
+             case 2  : return 2;
+             default : return stairCount(n - 1) + stairCount(n - 2);
+        }
     }
 
     private static int climbStairs(int n) {

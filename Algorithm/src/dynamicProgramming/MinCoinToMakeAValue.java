@@ -1,21 +1,20 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
-
 import static java.lang.Integer.min;
 
 public class MinCoinToMakeAValue {
 
     // Time  Complexity : O(V^m) where V is the value and m is the number of coin
     // Space Complexity : O(V) for recursion stack space
-    private static int minCoins(int[] coins, int value) {
-        if (value == 0) {
+    private static int minCoins(int[] coins, final int V) {
+        if (V == 0) {
             return 0;
         }
         int min = Integer.MAX_VALUE;
         for (int coin : coins) {
-             if (coin <= value) {
-                 int result = 1 + minCoins(coins, value - coin);
+             if (coin <= V) {
+                 int result = 1 + minCoins(coins, V - coin);
                  min = min(min, result);
              }
         }
