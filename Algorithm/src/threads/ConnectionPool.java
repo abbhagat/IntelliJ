@@ -5,22 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
 
-public class ConnectionPool {
-
-    private final String driverName;
-    private final String url;
-    private final String username;
-    private final String password;
+public record ConnectionPool(String driverName, String url, String username, String password) {
 
     private static final Vector<Connection> connectionPool = new Vector<>();
 
     private static final int MAX_POOL_SIZE = 10;
 
     public ConnectionPool() {
-        this.driverName = "oracle.jdbc.driver.OracleDriver";
-        this.url = "jdbc:oracle:thin:@localhost:1521:XE";
-        this.username = "system";
-        this.password = "zed";
+        this("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:XE", "system", "zed");
         initializeConnectionPool();
     }
 

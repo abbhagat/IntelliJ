@@ -14,7 +14,7 @@ Example 2:
 Input: word1 = "leetcode", word2 = "etco"
 Output: 4
 
-The intuition behind this is to find the LCS (Longest Common Subsequence) between the two strings.
+The intuition behind this is to find the LCS (The Longest Common Subsequence) between the two strings.
 The characters that are not part of the LCS need to be deleted to make the two strings equal.
 By subtracting the LCS count from the total length of the strings, we can determine the characters that need to be deleted.
 This approach allows us to calculate the total number of deletions required to achieve string equality.
@@ -58,6 +58,7 @@ public class DeleteOperationOnTwoStrings {
     }
 
     public static void main(String[] args) {
+        System.out.println(minDistance("cat", "")         + "\t" + minDistanceDP("cat", ""));
         System.out.println(minDistance("cat", "cut")         + "\t" + minDistanceDP("cat", "cut"));
         System.out.println(minDistance("geek", "gesek")      + "\t" + minDistanceDP("geek", "gesek"));
         System.out.println(minDistance("sunday", "saturday") + "\t" + minDistanceDP("sunday", "saturday"));

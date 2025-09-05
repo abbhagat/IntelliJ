@@ -46,7 +46,7 @@ public class EditDistanceOfString {
         return dp[m][n];
     }
 
-    // Time Complexity: O(3^max(m,n)
+    // Time Complexity: O(3^max(m,n))
     private static int editDist(String s1, String s2, int m, int n) {
         if (m == 0) {
             return n;
