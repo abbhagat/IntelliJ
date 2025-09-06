@@ -22,7 +22,7 @@ public class BinaryTreeMaxWidth {
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
-        int width = 0, maxWidth = Integer.MIN_VALUE;
+        int width = 0, maxWidth = 0;
         while (!q.isEmpty()) {
             Node node = q.poll();
             if (node == null) {
@@ -54,6 +54,6 @@ public class BinaryTreeMaxWidth {
         root.right.right       = new Node(8);
         root.right.right.left  = new Node(6);
         root.right.right.right = new Node(9);
-        System.out.println("Maximum width = " + findMaxWidth(root));
+        System.out.println("Maximum Width = " + findMaxWidth(root));
     }
 }
