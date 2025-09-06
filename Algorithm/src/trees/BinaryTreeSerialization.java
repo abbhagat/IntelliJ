@@ -9,7 +9,7 @@ public class BinaryTreeSerialization {
 
     private static String serialize(Node root, String s) {
         if (root == null) {
-            s += "null,";
+            s += "null" + ",";
         } else {
             s += root.num + ",";
             s  = serialize(root.left,  s);
@@ -24,7 +24,8 @@ public class BinaryTreeSerialization {
             list.removeFirst();
             return null;
         }
-        Node root = new Node(Integer.parseInt(s));
+        int num = Integer.parseInt(s);
+        Node root = new Node(num);
         list.removeFirst();
         root.left  = deserialize(list);
         root.right = deserialize(list);
