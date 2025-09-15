@@ -9,7 +9,8 @@ public class ThreadLocalExample {
             int value = threadLocal.get();
             System.out.println(Thread.currentThread().getName() + ": " + value);
             threadLocal.set(value + 1);
-            System.out.println(Thread.currentThread().getName() + " after set: " + threadLocal.get());
+            value = threadLocal.get();
+            System.out.println(Thread.currentThread().getName() + ": " + value);
         };
         new Thread(task, "Thread-A").start();
         new Thread(task, "Thread-B").start();
