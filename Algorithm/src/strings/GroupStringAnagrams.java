@@ -26,12 +26,22 @@ public class GroupStringAnagrams {
     private static List<List<String>> groupAnagrams(List<String> list) {
         Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
         list.forEach(str -> {
-            Map<Character, Integer> tempMap = new HashMap<>();
-            str.chars().forEach(c -> tempMap.put((char) c, tempMap.getOrDefault((char) c, 0) + 1));
-            List<String> tempList = map.containsKey(tempMap) ? map.get(tempMap) : new ArrayList<>();
-            tempList.add(str);
-            map.put(tempMap, tempList);
+            Map<Character, Integer> keyMap = new HashMap<>();
+            str.chars().forEach(c -> keyMap.put((char) c, keyMap.getOrDefault((char) c, 0) + 1));
+            List<String> valList = map.containsKey(keyMap) ? map.get(keyMap) : new ArrayList<>();
+            valList.add(str);
+            map.put(keyMap, valList);
         });
+        return new ArrayList<>(map.values());
+    }
+
+    private static List<List<String>> groupAnagram(List<String> list) {
+        Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
+        for (String str : list) {
+            Map<Character, Integer> keyMap = new HashMap<>();
+            str.chars().forEach(c -> keyMap.merge((char) c, 1, Integer::sum));
+            map.computeIfAbsent(keyMap, k -> new ArrayList<>()).add(str);
+        }
         return new ArrayList<>(map.values());
     }
 

@@ -1,12 +1,14 @@
 package strings;
 
+// Time  Complexity: O(n)
+// Space Complexity: O(n)
 public class CreateStringByRemovingEmptySpacesFromCharArray {
 
     private static StringBuilder removeEmptyChar(String str) {
         StringBuilder sb = new StringBuilder();
-        for (char x : str.trim().toCharArray()) {
-            if (x != ' ') {
-                sb.append(x);
+        for (char c : str.trim().toCharArray()) {
+            if (c != ' ') {
+                sb.append(c);
             }
         }
         return sb;
