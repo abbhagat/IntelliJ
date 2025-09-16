@@ -41,6 +41,7 @@ class Producer<K extends Number> implements Runnable {
         new Thread(this, "Producer").start();
     }
 
+    @Override
     public void run() {
         int n = 0;
         while (true) {
@@ -64,6 +65,7 @@ class Consumer<K extends Number> implements Runnable {
         new Thread(this, "Consumer").start();
     }
 
+    @Override
     public void run() {
         while (true) {
             try {
