@@ -9,14 +9,14 @@ public class NewTypePalindromeString {
             return true;
         }
         int mid = (s.length() - 1) / 2;
-        int lastIndex = s.lastIndexOf(s.charAt(0));
-        if (lastIndex > mid) {
-            String s1 = s.substring(lastIndex);
+        int end = s.lastIndexOf(s.charAt(0));
+        if (end > mid) {
+            String s1 = s.substring(end);
             char lastCharInS1 = s1.charAt(s1.length() - 1);
-            int firstIndex = s.indexOf(lastCharInS1);
-            if (firstIndex != -1 && firstIndex <= mid) {
-                String s2 = s.substring(0, firstIndex + 1);
-                return s1.equals(s2) && isNewTypePalindrome(s.substring(firstIndex + 1, lastIndex));
+            int start = s.indexOf(lastCharInS1);
+            if (start != -1 && start <= mid) {
+                String s2 = s.substring(0, start + 1);
+                return s1.equals(s2) && isNewTypePalindrome(s.substring(start + 1, end));
             }
         }
         return false;

@@ -19,5 +19,6 @@ public class StringPanagram {
 
     public static void main(String[] args) {
         System.out.println(isPanagram("The quick brown fox jumps over the lazy dog") ? "Panagram" : "Not Panagram");
+        System.out.println(isPanagram("The quick brown fox jumps over the lays dog") ? "Panagram" : "Not Panagram");
     }
 }

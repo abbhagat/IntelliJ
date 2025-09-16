@@ -7,23 +7,20 @@ import java.util.TreeMap;
 
 public class RearrangeWordsInASentence {
 
-    public static String arrangeWords(String text) {
+    public static StringBuilder arrangeWords(String text) {
         String[] str = text.split(" ");
         Map<Integer, List<String>> map = new TreeMap<>();
         for (String s : str) {
-            List<String> list = map.containsKey(s.length()) ? map.get(s.length()) : new ArrayList<>();
-            list.add(s);
-            map.put(s.length(), list);
+            map.computeIfAbsent(s.length(), k -> new ArrayList<>()).add(s.toLowerCase());
         }
-        String k = "";
+        StringBuilder sb = new StringBuilder();
         for (Map.Entry<Integer, List<String>> set : map.entrySet()) {
             for (String s : set.getValue()) {
-                k += s + " ";
+                sb.append(s).append(" ");
             }
         }
-        char[] a = k.trim().toLowerCase().toCharArray();
-        a[0] = (char) (a[0] - 32);
-        return new String(a);
+        sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
+        return sb;
     }
 
     public static void main(String[] args) {
