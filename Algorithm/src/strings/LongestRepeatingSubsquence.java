@@ -17,7 +17,7 @@ public class LongestRepeatingSubsquence {
                 if (diff == 0) {
                     continue;
                 }
-                map.put(s, map.getOrDefault(s, 0) + 1);
+                map.put(s, map.getOrDefault(s, 0) + 1);  // map.merge(s, 1, Integer::sum);
                 s = String.valueOf(c[i]);
             }
         }
