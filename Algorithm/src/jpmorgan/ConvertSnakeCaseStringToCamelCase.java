@@ -15,8 +15,8 @@ public class ConvertSnakeCaseStringToCamelCase {
     }
 
     public static void main(String[] args) {
-        System.out.println(convert("geeks_for_geeks"));
-        System.out.println(convert("Geeks_for_geeks"));
-        System.out.println(convert("snake_case_to_camel_case"));
+        System.out.println(convert("geeks_for_geeks"));             // geeksForGeeks
+        System.out.println(convert("Geeks_for_geeks"));            //  geeksForGeeks
+        System.out.println(convert("snake_case_to_camel_case"));  //   snakeCaseToCamelCase
     }
 }

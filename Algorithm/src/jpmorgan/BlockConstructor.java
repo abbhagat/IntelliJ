@@ -31,6 +31,7 @@ class Sub extends Super {
 }
 
 public class BlockConstructor {
+
     static {
         System.out.println("BlockDemo Static Block");
         String s = "Java";
