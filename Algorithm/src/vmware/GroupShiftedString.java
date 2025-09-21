@@ -1,6 +1,9 @@
 package vmware;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GroupShiftedString {
 
@@ -14,14 +17,13 @@ public class GroupShiftedString {
                  c += (char) (c < 'a' ? 26 : 0);
                  key += c;
             }
-            List<String> list = map.containsKey(key) ? map.get(key) : new ArrayList<>();
-            list.add(s);
-            map.put(key, list);
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
         });
         System.out.println(map.values());
     }
 
     public static void main(String[] args) {
-        groupStrings(Arrays.asList("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"));
+        List<String> stringList = List.of("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z");
+        groupStrings(stringList);
     }
 }

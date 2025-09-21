@@ -31,18 +31,17 @@ public class FindAllAnagramsInAString {
         int[] sData = new int[128];
         int[] pData = new int[128];
         for (int i = 0; i < p.length(); i++) {
-             pData[p.charAt(i)]++;
              sData[s.charAt(i)]++;
+             pData[p.charAt(i)]++;
         }
-        if (matches(sData, pData)) {
-            list.add(0);
-        }
-        for (int i = 0, j = p.length(); j < s.length(); i++, j++) {
-             sData[s.charAt(j)]++;
-             sData[s.charAt(i)]--;
-             if (matches(sData, pData)) {
-                 list.add(i + 1);
-             }
+        for (int i = 0; i <= s.length() - p.length(); i++) {
+            if (i > 0) {
+                sData[s.charAt(i - 1)]--;
+                sData[s.charAt(i - 1 + p.length())]++;
+            }
+            if (matches(sData, pData)) {
+                list.add(i);
+            }
         }
         return list;
     }

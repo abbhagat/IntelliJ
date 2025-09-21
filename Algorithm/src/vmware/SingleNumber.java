@@ -18,7 +18,7 @@ public class SingleNumber {
 
     private static int singleNumberWithMap(int[] a) {
         Map<Integer, Integer> map = new HashMap<>();
-        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
         for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if(entry.getValue() == 1) {
                 return entry.getKey();
