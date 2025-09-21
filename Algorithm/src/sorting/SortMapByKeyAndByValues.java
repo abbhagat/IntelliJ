@@ -10,7 +10,7 @@ public class SortMapByKeyAndByValues {
     public static <K extends Comparable<K>, V > Map<K, V> sortByKey(Map<K, V> map) {
         return map.entrySet()
                   .stream()
-                  .sorted(Map.Entry.comparingByKey())
+                  .sorted(Map.Entry.<K, V>comparingByKey().reversed())
                   .collect(Collectors.toMap(
                                             Map.Entry::getKey,     // entry -> entry.getKey()
                                             Map.Entry::getValue,  //  entry -> entry.getValue()

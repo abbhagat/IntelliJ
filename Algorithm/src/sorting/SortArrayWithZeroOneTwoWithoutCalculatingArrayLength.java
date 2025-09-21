@@ -18,7 +18,7 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
             }
         }
         for(int i = 0; i < c0 + c1 + c2; i++) {
-            a[i] = i < c0 ? 0 : i < c0 + c1 ? 1 : 2;
+            a[i] = (i < c0) ? 0 : i < (c0 + c1) ? 1 : 2;
         }
     }
 
