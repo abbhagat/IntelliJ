@@ -1,6 +1,6 @@
 package recursion;
 
-import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 public class HCF {
 
@@ -10,11 +10,11 @@ public class HCF {
         return y == 0 ? x : findHCF(y, x % y);
     }
 
-    // Time Complexity: O(max(x,y))
+    // Time Complexity: O(min(x,y))
     // Space Complexity: O(1)
     private static int findGCD(int x, int y) {
         int hcf = 0;
-        for (int i = 1; i <= max(x,y); i++) {
+        for (int i = 1; i <= min(x,y); i++) {
             if (x % i == 0 && y % i == 0)
                 hcf = i;
         }
@@ -29,6 +29,8 @@ public class HCF {
         }
         System.out.println("HCF := " + hcf);
         System.out.println(findHCF(0,5) + "\t" + findGCD(0,5));
-        System.out.println(findHCF(5,0) + "\t" + findGCD(5,0));
+        System.out.println(findHCF(0,5) + "\t" + findGCD(0,5));
+        System.out.println(findHCF(5,10) + "\t" + findGCD(5,10));
+        System.out.println(findHCF(0,0) + "\t" + findGCD(0,0));
     }
 }

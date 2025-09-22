@@ -14,8 +14,7 @@ public class FibonacciSeries {
 
     public static void main(String[] args) {
         int f = 0, s = 1;
-        print(f);
-        print(s);
+        print(f, s);
         printFibonacci(f, s, 8);
     }
 }

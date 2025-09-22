@@ -3,7 +3,7 @@ package util;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
-import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 public class CommonUtils {
 
@@ -97,7 +97,7 @@ public class CommonUtils {
 
     public static int gcd(int x, int y) {
         int gcd = 0;
-        for (int i = 1; i <= max(x,y); i++) {
+        for (int i = 1; i <= min(x,y); i++) {
             if (x % i == 0 && y % i == 0) {
                 gcd = i;
             }
@@ -107,5 +107,9 @@ public class CommonUtils {
 
     public static void print(int n) {
         System.out.print(n + " ");
+    }
+
+    public static void print(int x, int y) {
+        System.out.print(x + " " + y);
     }
 }
