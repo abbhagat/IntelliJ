@@ -2,6 +2,7 @@ package matrix;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import static util.CommonUtils.printMatrix;
 
@@ -9,7 +10,7 @@ import static util.CommonUtils.printMatrix;
 // Auxiliary Space: O(M+N)
 public class SortBoundaryElementsOfMatrix {
 
-    private static List<Integer> getTheBoundaryElements(int[][] M, List<Integer> list) {
+    private static List<Integer> getBoundaryElements(int[][] M, List<Integer> list) {
         int R1 = 0, R2 = M.length - 1;
         int C1 = 0, C2 = M[0].length - 1;
         for (int i = C1; i <= C2; i++) {
@@ -28,18 +29,18 @@ public class SortBoundaryElementsOfMatrix {
     }
 
     private static void sort(int[][] M, List<Integer> list) {
-        int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1, k = 0;
+        int R1 = 0, C1 = 0, R2 = M.length - 1, C2 = M[0].length - 1, j = 0;
         for (int i = C1; i <= C2; i++) {
-            M[R1][i] = list.get(k++);
+            M[R1][i] = list.get(j++);
         }
         for (int i = R1 + 1; i <= R2; i++) {
-            M[i][C2] = list.get(k++);
+            M[i][C2] = list.get(j++);
         }
         for (int i = C2 - 1; i >= C1; i--) {
-            M[R2][i] = list.get(k++);
+            M[R2][i] = list.get(j++);
         }
         for (int i = R2 - 1; i > R1; i--) {
-            M[i][C1] = list.get(k++);
+            M[i][C1] = list.get(j++);
         }
     }
 
@@ -50,8 +51,8 @@ public class SortBoundaryElementsOfMatrix {
                                        {1, 2, 2, 2, 4},
                                        {1, 9, 3, 1, 7}
                                      };
-        List<Integer> list = getTheBoundaryElements(M, new ArrayList<>());
-        Collections.sort(list);  // list.sort(Comparator.comparingInt(x -> x));
+        List<Integer> list = getBoundaryElements(M, new ArrayList<>());
+        list.sort(Comparator.comparingInt(x -> x));
         sort(M, list);
         printMatrix(M);
     }

@@ -1,5 +1,6 @@
 package matrix;
 
+import static util.CommonUtils.swap;
 import static util.CommonUtils.printMatrix;
 
 public class MatrixMirrorImagePrint {
@@ -17,9 +18,7 @@ public class MatrixMirrorImagePrint {
     private static void mirrorImage(int[][] M) {
         for (int[] a : M) {
             for (int i = 0, j = a.length - 1; i < j; i++, j--) {
-                int t = a[i];
-                a[i]  = a[j];
-                a[j]  = t;
+                swap(a, i, j);
             }
         }
     }

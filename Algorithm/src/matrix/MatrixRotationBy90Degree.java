@@ -6,9 +6,9 @@ import static util.CommonUtils.swap;
 public class MatrixRotationBy90Degree {
 
     private static void findTranspose(int[][] M) {
-        final int ROW = M.length, COL = M[0].length;
-        for (int i = 0; i < ROW; i++) {
-            for (int j = i; j < COL; j++) {
+        final int m = M.length, n = M[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = i; j < n; j++) {
                 swap(M, i, j);
             }
         }
@@ -16,7 +16,7 @@ public class MatrixRotationBy90Degree {
 
     public static void rotate90Clockwise(int[][] M) {
         findTranspose(M);
-        final int ROW = M.length, COL = M[0].length;
+        final int COL = M[0].length;
         // Reverse each row
         for (int[] a : M) {
             for (int i = 0, j = COL - 1; i < j; i++, j--) {
@@ -41,10 +41,10 @@ public class MatrixRotationBy90Degree {
 
     public static void main(String[] args) {
         final int[][] M = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
+                            {1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}
+                          };
         rotate90Clockwise(M);
         rotate90AntiClockwise(M);
     }

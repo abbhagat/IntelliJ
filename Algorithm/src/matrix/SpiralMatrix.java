@@ -32,5 +32,6 @@ public class SpiralMatrix {
     public static void main(String[] args) {
         System.out.println("The Spiral Matrix is : ");
         printMatrix(spiralMatrix(3));
+        printMatrix(spiralMatrix(4));
     }
 }
