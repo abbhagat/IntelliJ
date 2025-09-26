@@ -8,13 +8,13 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
     public static void findPairs(int[] a, int k) {
         Set<Integer> set = new HashSet<>();
-        Set<String> result = new HashSet<>();
+        Set<List<Integer>> result = new HashSet<>();
         for (int x : a) {
             if (set.contains(x - k)) {
-                result.add("(" + x + "," + (x - k) + ")");
+                result.add(List.of(x , x - k));
             }
             if (set.contains(x + k)) {
-                result.add("(" + x + "," + (x + k) + ")");
+                result.add(List.of(x , x + k));
             }
             set.add(x);
         }
