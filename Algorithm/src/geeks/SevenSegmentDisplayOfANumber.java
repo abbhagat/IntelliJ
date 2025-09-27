@@ -61,6 +61,7 @@ public class SevenSegmentDisplayOfANumber {
 
     public static void main(String[] args) {
         System.out.println(getSevenSegments(5));
+        System.out.println(getSevenSegments(7));
     }
 
 }

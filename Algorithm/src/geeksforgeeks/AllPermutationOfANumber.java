@@ -4,7 +4,7 @@ import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 // Time Complexity :- O(n * n!)
-public class AllPermutationOfArrayNum {
+public class AllPermutationOfANumber {
 
     private static void permutation(int[] a, int start, int end) {
         if (start == end) {
@@ -19,6 +19,12 @@ public class AllPermutationOfArrayNum {
     }
 
     public static void main(String[] args) {
-        permutation(new int[]{1, 2, 3}, 0 , 2);
+        int n = 123;
+        int l = String.valueOf(n).length();
+        int[] a = new int[l];
+        for(int i = 0; i < l; i++) {
+            a[i] = Character.getNumericValue(String.valueOf(n).charAt(i));
+        }
+        permutation(a, 0 , l - 1);
     }
 }
