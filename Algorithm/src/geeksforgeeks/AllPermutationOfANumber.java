@@ -18,13 +18,21 @@ public class AllPermutationOfANumber {
         }
     }
 
-    public static void main(String[] args) {
-        int n = 123;
-        int l = String.valueOf(n).length();
-        int[] a = new int[l];
+    private static int[] convert(int n) {
+        String  s = String.valueOf(n);
+        int     l = s.length();
+        int[]   a = new int[l];
         for(int i = 0; i < l; i++) {
-            a[i] = Character.getNumericValue(String.valueOf(n).charAt(i));
+             a[i] = Character.getNumericValue(s.charAt(i));
         }
-        permutation(a, 0 , l - 1);
+        return a;
+    }
+
+    public static void main(String[] args) {
+        int[] a = convert(123);
+        permutation(a, 0 , a.length - 1);
+        System.out.println();
+        a = convert(102);
+        permutation(a, 0 , a.length - 1);
     }
 }
