@@ -27,11 +27,11 @@ public class DivTwoNumWithoutAnyOperator {
 
     private static void divide(int x, int y, int c) {
         if (x >= y) {
-            divide(x - y, y, ++c);
-        } else {
-            System.out.println("Quotient  :" + c);
-            System.out.println("Remainder :" + x);
+            divide(sub(x, y), y, ++c);
+            return;
         }
+        System.out.println("Quotient  :" + c);
+        System.out.println("Remainder :" + x);
     }
 
     public static void main(String[] args) throws IOException {
