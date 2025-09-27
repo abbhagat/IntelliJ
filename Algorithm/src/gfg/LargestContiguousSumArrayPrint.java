@@ -1,8 +1,5 @@
 package gfg;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.lang.Integer.max;
 import static util.CommonUtils.printArray;
 
