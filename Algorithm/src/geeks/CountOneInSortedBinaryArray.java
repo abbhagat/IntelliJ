@@ -1,6 +1,6 @@
 package geeks;
 
-// Time  Complexity: O(n)
+// Time  Complexity: O(log n)
 // Space Complexity: O(log n)
 public class CountOneInSortedBinaryArray {
 

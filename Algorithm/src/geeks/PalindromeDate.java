@@ -15,8 +15,8 @@ public class PalindromeDate {
     private static String nextPalindromeDate(String inputDate, String format) {
         Calendar cal = Calendar.getInstance();
         int year  = Integer.parseInt(inputDate.substring(0, 4));
-        int month = Integer.parseInt(inputDate.substring(4, 7));
-        int day = Integer.parseInt(inputDate.substring(7));
+        int month = Integer.parseInt(inputDate.substring(4, 6));
+        int day = Integer.parseInt(inputDate.substring(6));
         cal.set(year, month, day);
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         Date date = cal.getTime();

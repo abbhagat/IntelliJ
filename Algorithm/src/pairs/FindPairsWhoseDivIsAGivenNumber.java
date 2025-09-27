@@ -31,8 +31,8 @@ public class FindPairsWhoseDivIsAGivenNumber {
         findPairs(new int[]{5, 10, 5}, 1);
         findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 0}, 0);
         findPairs(new int[]{12, 3, 6, 12, 8, 3, 24, 144, 1}, 12);
-        findPairs(new int[]{8, 4, 2, 16, 32, 1, 0}, 2);   // Example: (8,4), (4,2), (16,8), etc.
-        findPairs(new int[]{5, 10, 20, 0}, 5);             // Example: (10,2), (20,4), etc.
-        findPairs(new int[]{0, 0, 1}, 1);                  // Example: (0,0)
+        findPairs(new int[]{8, 4, 2, 16, 32, 1, 0}, 2);
+        findPairs(new int[]{5, 10, 20, 0}, 5);
+        findPairs(new int[]{0, 0, 1}, 1);
     }
 }

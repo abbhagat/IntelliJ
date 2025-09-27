@@ -5,7 +5,7 @@ import java.util.*;
 // Time Complexity: O(n*(2^n))
 public class ArraySum {
 
-    public static void combinationForSum(int[] a, int index, int givenSum, int currSum, LinkedList<Integer> list) {
+    public static void combinationForSum(int[] a, int index, int currSum, int givenSum, LinkedList<Integer> list) {
         if (currSum == givenSum && !list.isEmpty()) {
             System.out.println(list);
             return;
@@ -16,7 +16,7 @@ public class ArraySum {
         for (int i = index; i < a.length; i++) {
              currSum += a[i];
              list.add(a[i]);
-             combinationForSum(a, i + 1, givenSum, currSum, list);
+             combinationForSum(a, i + 1, currSum, givenSum, list);
              list.removeLast();
              currSum -= a[i];
         }

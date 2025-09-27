@@ -28,7 +28,7 @@ public class FindPairsWithPerfectSquareSum {
         return max + secondMax;
     }
 
-    public static int countPairsWith(int x, List<Integer> list, Set<Integer> set) {
+    public static int countPairs(int x, List<Integer> list, Set<Integer> set) {
         int count = 0;
         for (int target : list) {
              int y = target - x;
@@ -47,7 +47,7 @@ public class FindPairsWithPerfectSquareSum {
         Set<Integer>   set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         int count = 0;
         for (int x : a) {
-            count += countPairsWith(x, list, set);
+            count += countPairs(x, list, set);
         }
         System.out.println("Count of Perfect Squares : " + count);
     }

@@ -12,12 +12,12 @@ public class ArrayUnionIntersection {
         for (int x : a) {
              set.add(x);
         }
-        System.out.println("Intersection");
+        System.out.print("Intersection : ");
         for (int x : b) {
             if (!set.add(x)) {
                 System.out.print(x + " ");
             }
         }
-        System.out.println("\nUnion\n" + set);
+        System.out.println("\nUnion        : " + set);
     }
 }

@@ -1,7 +1,5 @@
 package geeks;
 
-import java.util.Arrays;
-
 public class BulbSwitchProblem {
 
     private static int solve(int[] a, int[] q) {

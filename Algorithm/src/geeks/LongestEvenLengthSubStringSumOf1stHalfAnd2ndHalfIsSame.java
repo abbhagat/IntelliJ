@@ -13,7 +13,6 @@ package geeks;
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
     private static void findLength(String s) {
-        int max = 0;
         String maxString = "";
         for(int k = 0; k < s.length(); k++) {
             int leftSum = 0, rightSum = 0;

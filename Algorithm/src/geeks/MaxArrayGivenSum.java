@@ -3,13 +3,15 @@ package geeks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 // Time  Complexity : O(n*2^n)
 // Space Complexity : O(n)
 public class MaxArrayGivenSum {
 
-    public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum, List<List<Integer>> list) {
-        if (curSum == givenSum && !list.contains(al) && !al.isEmpty()) {
+    public static void combinationForSum(int[] a, int index, List<Integer> al, int givenSum, int curSum, Set<List<Integer>> list) {
+        if (curSum == givenSum && !al.isEmpty()) {
             list.add(new ArrayList<>(al));
             return;
         }
@@ -28,7 +30,7 @@ public class MaxArrayGivenSum {
     public static void main(String[] args) {
         int[] a = {-1, 0, 1, 2, -1, -4};
         Arrays.sort(a);
-        List<List<Integer>> list = new ArrayList<>();
+        Set<List<Integer>> list = new HashSet<>();
         combinationForSum(a, 0, new ArrayList<>(), 0, 0, list);
         System.out.println(list);
     }
