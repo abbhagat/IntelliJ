@@ -7,30 +7,25 @@ import java.util.Set;
 
 public class GetRequestGIF {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
         String filename = scan.nextLine();
-        OutputStream os = null;
         String data = readFile(filename);
         String resultFileName = "gifs_" + filename;
-        try {
-            os = new FileOutputStream(new File(resultFileName), true);
-            os.write(data.getBytes(), 0, data.length());
-        } catch (IOException e) {
-            System.out.println("Exception occurred with " + e.getMessage());
-        } finally {
+        try (OutputStream os = new FileOutputStream(new File(resultFileName), true)) {
             try {
-                os.close();
+                os.write(data.getBytes(), 0, data.length());
             } catch (IOException e) {
                 System.out.println("Exception occurred with " + e.getMessage());
             }
+        } catch (IOException e) {
+            System.out.println("Exception occurred with " + e.getMessage());
         }
     }
 
     private static String readFile(String fileName) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
-        Set<String> set = new HashSet<>();
-        try {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            Set<String> set = new HashSet<>();
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
             while (line != null) {
@@ -48,8 +43,6 @@ public class GetRequestGIF {
             }
             System.out.println(sb);
             return sb.toString();
-        } finally {
-            br.close();
         }
     }
 }
