@@ -4,7 +4,7 @@ package leetcode;
 // Auxiliary Space: O(n)
 public class ZigZagConversion {
 
-    private static String convert(String s, int rows) {
+    private static StringBuilder convert(String s, int rows) {
         StringBuilder[] sb = new StringBuilder[rows];
         for (int i = 0; i < rows; i++) {
             sb[i] = new StringBuilder();
@@ -21,7 +21,7 @@ public class ZigZagConversion {
         for (i = 1; i < rows; i++) {
             sb[0].append(sb[i]);
         }
-        return sb[0].toString();
+        return sb[0];
     }
 
     public static void main(String[] args) {

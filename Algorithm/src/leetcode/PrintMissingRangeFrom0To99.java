@@ -13,13 +13,13 @@ public class PrintMissingRangeFrom0To99 {
         Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         int index = -1, i;
         for (i = start; i <= end; i++) {
-            if (!set.contains(i)) {
-                index = index == -1 ? i : index;
-            } else {
+            if (set.contains(i)) {
                 if (index != -1) {
                     System.out.println(index == i - 1 ? index : index + "-" + (i - 1));
                     index = -1;
                 }
+            } else {
+                index = index == -1 ? i : index;
             }
         }
         if (index != -1) {

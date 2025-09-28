@@ -9,7 +9,9 @@ public class PrintAllSubsetOfString {
 
     private static void findSubSet(char[] a, int index, LinkedList<Character> list) {
         if (index == a.length) {
-            System.out.println(list);
+            if (!list.isEmpty()) {
+                System.out.println(list);
+            }
             return;
         }
         list.add(a[index]);

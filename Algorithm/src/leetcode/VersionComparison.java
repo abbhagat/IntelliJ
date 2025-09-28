@@ -15,6 +15,9 @@ public class VersionComparison {
         if (v1.isEmpty() && v2.isEmpty()) {
             return 0;
         }
+        if (v1.isEmpty() || v2.isEmpty()) {
+            return v1.isEmpty() ? -1 : 1;
+        }
         String[] s1 = v1.split("\\.");
         String[] s2 = v2.split("\\.");
         for (int i = 0; i < max(s1.length,s2.length); i++) {
@@ -33,6 +36,7 @@ public class VersionComparison {
         System.out.println(compareVersion(null, "1.1"));
         System.out.println(compareVersion(null, ""));
         System.out.println(compareVersion("", ""));
+        System.out.println(compareVersion("", "1.2"));
         System.out.println(compareVersion("", null));
         System.out.println(compareVersion(null, null));
         System.out.println(compareVersion("1.0.1", "1"));

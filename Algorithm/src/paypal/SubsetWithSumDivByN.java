@@ -21,6 +21,7 @@ public class SubsetWithSumDivByN {
 
     public static void main(String[] args) {
         findSubset(new int[]{1, 2, 4},    0, 0, 3, new LinkedList<>());
+        System.out.println("------------");
         findSubset(new int[]{1, 2, 3, 4}, 0, 0, 5, new LinkedList<>());
     }
 }

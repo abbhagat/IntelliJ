@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import static java.lang.Integer.max;
 
-public class HurrySoln {
+public class HurrySolution {
 
     public static int maxTasksInTheGivenBudget(int[][] tasks, int t) {
         Arrays.sort(tasks, Comparator.comparingInt(x -> x[0]));

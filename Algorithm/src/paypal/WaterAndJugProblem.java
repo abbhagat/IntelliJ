@@ -9,11 +9,12 @@ public class WaterAndJugProblem {
     x - Capacity of jug from which water is poured.
     y - Capacity of jug to which water is poured.
     z - Amount to be measured.
+
+   if (z > x && z > y || z % gcd(x, y) != 0) {
+       return -1;
+   }
 */
     public static int minSteps(int x, int y, int z) {
-        if (z > x && z > y || z % gcd(x, y) != 0) {
-            return -1;
-        }
         int from = 0, to = 0, steps = 0, pour;
         while (from != z && to != z) {
             if (from == 0) {
