@@ -16,6 +16,7 @@ public class IntegerToRoman {
     }
 
     public static void main(String[] args) {
+        System.out.println(intToRoman(3,    0));
         System.out.println(intToRoman(10,   0));
         System.out.println(intToRoman(11,   0));
         System.out.println(intToRoman(99,   0));

@@ -17,7 +17,7 @@ public class SmallestSumAfterRemovingKDigit {
         }
         for (int j = 1; j <= k; j++) {
             int min = Integer.MAX_VALUE, result;
-            for (int i = 1; n / i != 0; i *= 10) {       // Remove the last digit after every iteration
+            for (int i = 1; n / i != 0; i *= 10) {     // Remove the last digit after every iteration
                 result = n / (i * 10) * i + (n % i);  // Store the numbers formed after removing every digit once
                 min    = min(min, result);
             }

@@ -5,10 +5,18 @@ import java.util.*;
 public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
     public static boolean sameFrequencyCharactersInString(String str) {
-        Map<Character, Integer> map = new HashMap<>();
-        str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
-        Set<Integer> set = new HashSet<>();
-        return map.values().stream().allMatch(set::add);  // all elements added to the set must be unique
+        int n = str.length();
+        int k = n % 2 == 0 ? (n / 2) - 1 : n / 2;
+        int count = 0;
+        for (int i = k; i >= 0; i--) {
+            count++;
+
+        }
+        for (int i = k; i < n; i++) {
+            count--;
+
+        }
+        return count == 0;
     }
 
     public static void main(String[] args) {
