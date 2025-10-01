@@ -1,8 +1,9 @@
 package doublylinkedlist;
 
-class Node {
-    int num;
-    Node left, right;
+public class Node {
+
+    public int num;
+    public Node left, right;
 
     public Node(int num) {
         this.num = num;

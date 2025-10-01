@@ -25,10 +25,10 @@ public class LongestCommonSuffix {
         int min = min(left.length(), right.length());
         for (int i = 0; i < min; i++) {
             if (left.charAt(i) != right.charAt(i)) {
-                return new StringBuilder(left.substring(0, i)).reverse().toString();
+                return reverse(left.substring(0, i));
             }
         }
-        return new StringBuilder(left.substring(0, min)).reverse().toString();
+        return reverse(left.substring(0, min));
     }
 
     public static void main(String[] args) {

@@ -3,6 +3,7 @@ package doublylinkedlist;
 import static doublylinkedlist.CreateList.createList;
 import static doublylinkedlist.CreateList.last;
 import static doublylinkedlist.TraverseList.traverseList;
+import static util.CommonUtils.swap;
 
 public class QuickSort {
 
@@ -26,12 +27,6 @@ public class QuickSort {
             quickSort(low, pivot.left);
             quickSort(pivot.right, high);
         }
-    }
-
-    private static void swap(Node x, Node y) {
-        int temp = x.num;
-           x.num = y.num;
-           y.num = temp;
     }
 
     public static void main(String[] args) {

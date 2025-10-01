@@ -1,5 +1,7 @@
 package util;
 
+import doublylinkedlist.Node;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -29,6 +31,12 @@ public class CommonUtils {
         String t = a[i];
         a[i]     = a[j];
         a[j]     = t;
+    }
+
+    public static void swap(Node x, Node y) {
+        int temp = x.num;
+        x.num = y.num;
+        y.num = temp;
     }
 
     public static boolean isPalindrome(String str, int i, int j) {

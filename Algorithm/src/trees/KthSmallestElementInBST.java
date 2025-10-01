@@ -5,6 +5,7 @@ import static trees.CreateBST.createBST;
 public class KthSmallestElementInBST {
 
     private static int k = 2;
+
     private static void findKthSmallest(Node root) {
         if (root != null) {
             findKthSmallest(root.left);
