@@ -1,51 +1,44 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 
-public class BatchExecutor {
-
+public class RunBatFile {
     public static void main(String[] args) {
-        String batFilePath = "C:\\path\\to\\your\\script.bat"; // Replace with your .bat file path
-        String param1 = "Value1";
-        String param2 = "Another Value"; // Example with a parameter containing spaces
-
         try {
-            // Construct the command array
-            List<String> command = new ArrayList<>();
-            command.add("cmd.exe"); // The command interpreter
-            command.add("/c");     // Flag to execute the command and then terminate
-            command.add(batFilePath);
-            command.add(param1);
-            command.add(param2);
+            // Path to your .bat file
+            String batFilePath = "C:\\path\\to\\yourScript.bat";
 
-            ProcessBuilder processBuilder = new ProcessBuilder(command);
-            Process process = processBuilder.start();
+            // Main class arguments
+            String fileName = "inputFile.csv";
+            String cometJobName = "DailyJob";
 
-            // Read output from the batch file
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println("BAT Output: " + line);
+            // VM options
+            String vmOption1 = "-Dspring-config-profile=dev";
+            String vmOption2 = "-DchannelConfigPath=abc";
+
+            // Build the process command
+            ProcessBuilder builder = new ProcessBuilder(
+                "cmd.exe", "/c", batFilePath, vmOption1, vmOption2, fileName, cometJobName
+            );
+
+            builder.redirectErrorStream(true);
+
+            // Start process
+            Process process = builder.start();
+
+            // Read console output from .bat execution
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
             }
 
-            // Read error output from the batch file (if any)
-            BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-            while ((line = errorReader.readLine()) != null) {
-                System.err.println("BAT Error: " + line);
-            }
-
-            // Wait for the process to complete and get the exit code
+            // Wait for process completion
             int exitCode = process.waitFor();
-            System.out.println("Batch file exited with code: " + exitCode);
+            System.out.println("Process exited with code: " + exitCode);
 
-        } catch (IOException e) {
-            System.err.println("Error executing batch file: " + e.getMessage());
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            System.err.println("Batch file execution interrupted: " + e.getMessage());
-            Thread.currentThread().interrupt(); // Restore the interrupted status
         }
     }
 }
