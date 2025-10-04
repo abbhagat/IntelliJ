@@ -9,7 +9,7 @@ public class DeleteNthNodeFromEnd {
     private static Node deleteNthNode(Node first, int n) {
         Node head = new Node(-1, first);
         Node slow = head, fast = head;
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n + 1; i++) {
             slow = slow.next;
         }
         while (slow != null) {
