@@ -10,19 +10,19 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void longestSubstring(String s) {
         Set<Character> set = new LinkedHashSet<>();
-        int end = 0, max = 0;
+        int start = 0, max = 0;
         String maxString = "";
-        for (int start = 0; start < s.length(); start++) {
-            while (set.contains(s.charAt(start))) {
-                set.remove(s.charAt(end));
-                end++;
+        for (int end = 0; end < s.length(); end++) {
+            while (set.contains(s.charAt(end))) {
+                set.remove(s.charAt(start));
+                start++;
             }
-            set.add(s.charAt(start));
+            set.add(s.charAt(end));
             String str = set.stream()
                            .map(String::valueOf)
                            .collect(Collectors.joining());
-            if (max < start - end + 1) {
-                max = start - end + 1;
+            if (max < end - start + 1) {
+                max = end - start + 1;
                 maxString = str;
             }
         }
