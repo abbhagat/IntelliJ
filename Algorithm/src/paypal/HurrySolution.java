@@ -25,6 +25,6 @@ public class HurrySolution {
     }
 
     public static void main(String[] args) {
-        // maxTasksInTheGivenBudget();
+        System.out.println(maxTasksInTheGivenBudget(new int[][] {{1, 2}, {2, 4}, {3, 2}, {4, 1}}, 13));
     }
 }

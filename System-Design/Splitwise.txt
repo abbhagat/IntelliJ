@@ -14,7 +14,7 @@ NFR :-
 3. System must be reliable. The data must persist in the DB after the transaction.
 4. System must be scalable i.e. we can add more users to the group.
 
-We need to create the following tables: -
+We need to create the following tables:-
 1. GROUP
 2. USER
 3. USER_TO_GROUP  Many user can belong to Many Group to @ManyToMany
