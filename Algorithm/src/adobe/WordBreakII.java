@@ -24,30 +24,29 @@ Output: []
 // Space Complexity: O(m + n)
 public class WordBreakII {
 
-    public static List<String> wordBreak(String s, List<String> wordDict) {
+    public static List<String> wordBreak(String str, List<String> wordDict) {
         List<String> list = new ArrayList<>();
-        wordBreak(0, s, new StringBuilder(), new HashSet<>(wordDict), list);
+        wordBreak(0, str, new StringBuilder(), new HashSet<>(wordDict), list);
         return list;
     }
 
-    private static void wordBreak(int index, String s, StringBuilder sb, Set<String> wordSet, List<String> list) {
-        if (index == s.length()) {
+    private static void wordBreak(int index, String str, StringBuilder sb, Set<String> wordSet, List<String> list) {
+        if (index == str.length()) {
             list.add(sb.toString().trim());
             return;
         }
-        for (int i = index + 1; i <= s.length(); i++) {
-            String word = s.substring(index, i);
-            if (wordSet.contains(word)) {
+        for (int i = index + 1; i <= str.length(); i++) {
+            String s = str.substring(index, i);
+            if (wordSet.contains(s)) {
                 int len = sb.length();
-                sb.append(word).append(" ");
-                wordBreak(i, s, sb, wordSet, list);
+                sb.append(s).append(" ");
+                wordBreak(i, str, sb, wordSet, list);
                 sb.setLength(len);
             }
         }
     }
 
     public static void main(String[] args) {
-        List<String> list = wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"));
-        list.forEach(System.out::println);
+        System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
     }
 }

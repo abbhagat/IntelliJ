@@ -27,7 +27,7 @@ public class BatchExecutor {
         try {
             // Combine JVM options and class arguments
             String jvmOptions = String.join(" ", jvmOption1, jvmOption2, jvmOption3);
-            String mainArgs = String.join(" ", mainArg1, mainArg2, mainArg3);
+            String mainArgs = String.join(" ", "--", mainArg1, mainArg2, mainArg3);
 
             // Full command to execute the .bat script
             String command = String.format("\"%s\" %s %s", batFilePath, jvmOptions, mainArgs);

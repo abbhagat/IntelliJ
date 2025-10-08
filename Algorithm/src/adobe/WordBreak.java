@@ -54,13 +54,13 @@ public class WordBreak {
     }
 
     public static void main(String[] args) {
-        System.out.println( wordBreak("catsanddog",     List.of("cat","cats","and","sand","dog")));
-        System.out.println( wordBreak("catsanddog",     List.of("cat","cats","and","sand","dog"), 0));
-        System.out.println( wordBreak("catsandog",      List.of("cats","dog","sand","and","cat")));
-        System.out.println( wordBreak("catsandog",      List.of("cats","dog","sand","and","cat"), 0));
-        System.out.println( wordBreak("applepenapple",  List.of("apple","pen")));
-        System.out.println( wordBreak("applepenapple",  List.of("apple","pen"), 0));
-        System.out.println( wordBreak("leetcode",       List.of("leet","code")));
-        System.out.println( wordBreak("leetcode",       List.of("leet","code"), 0));
+        System.out.println(wordBreak("catsanddog",     List.of("cat","cats","and","sand","dog")));
+        System.out.println(wordBreak("catsanddog",     List.of("cat","cats","and","sand","dog"), 0));
+        System.out.println(wordBreak("catsandog",      List.of("cats","dog","sand","and","cat")));
+        System.out.println(wordBreak("catsandog",      List.of("cats","dog","sand","and","cat"), 0));
+        System.out.println(wordBreak("applepenapple",  List.of("apple","pen")));
+        System.out.println(wordBreak("applepenapple",  List.of("apple","pen"), 0));
+        System.out.println(wordBreak("leetcode",       List.of("leet","code")));
+        System.out.println(wordBreak("leetcode",       List.of("leet","code"), 0));
     }
 }
