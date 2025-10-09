@@ -35,7 +35,7 @@ class Game {
 
     public final void play() throws InterruptedException {
         while (true) {
-            Thread.sleep(500);
+            Thread.sleep(200);
             System.out.println("-------------------");
             for (Player player : playerList) {
                 int n = rollDice();
