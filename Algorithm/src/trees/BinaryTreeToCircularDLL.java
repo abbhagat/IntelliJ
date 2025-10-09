@@ -1,7 +1,7 @@
 package trees;
 
 // Time  Complexity : O(n)
-// Space Complexity : O(log N)
+// Space Complexity : O(log n)
 public class BinaryTreeToCircularDLL {
 
     private static Node temp, head;
@@ -22,8 +22,8 @@ public class BinaryTreeToCircularDLL {
     }
 
     public static void main(String[] args) {
-        Node root  = new Node(1);
-        root.left  = new Node(2);
+        Node root  = new Node(2);
+        root.left  = new Node(1);
         root.right = new Node(3);
         convertTreeToDLL(root);
         temp.right = head;

@@ -1,7 +1,7 @@
 package trees;
 
-// Time Complexity : O(n)
-// Auxiliary space: O(log N)
+// Time Complexity  : O(n)
+// Space Complexity : O(log n)
 public class BinaryTreeToDLL {
 
     private static Node temp, head;
