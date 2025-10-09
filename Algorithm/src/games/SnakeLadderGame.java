@@ -35,13 +35,14 @@ class Game {
 
     public final void play() throws InterruptedException {
         while (true) {
+            Thread.sleep(500);
+            System.out.println("-------------------");
             for (Player player : playerList) {
-                Thread.sleep(1000);
                 int n = rollDice();
                 System.out.println(player.name + " rolled " + n);
                 player.index += n;
                 while (player.index > 100) {
-                    System.out.println(player.name + " index exceed index 100 so rolling dice again");
+                    System.out.println(player.name + " index exceeded 100 so rolling dice again");
                     player.index -= n;
                     n = rollDice();
                     System.out.println(player.name + " rolled " + n);
