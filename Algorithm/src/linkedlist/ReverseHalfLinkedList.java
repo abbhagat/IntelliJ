@@ -23,7 +23,7 @@ public class ReverseHalfLinkedList {
             first = LinkList.add(first, x);
         }
         traverseList(first);
-        Node node = reverseHalfList(first);
-        traverseList(node);
+        first = reverseHalfList(first);
+        traverseList(first);
     }
 }
