@@ -7,7 +7,7 @@ public class RemoveDuplicateElementsInAnArray {
 
     private static void removeDuplicates(int[] a) {
         Map<Integer, Integer> map = new LinkedHashMap<>();
-        Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+        Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
         Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
         System.out.println(set + "\n" + map.keySet());
     }

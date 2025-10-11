@@ -9,7 +9,9 @@ public class HashSet<E> implements Cloneable, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
     private static final Object PRESENT = new Object();
+
     private transient HashMap<E, Object> map;
 
     public HashSet() {

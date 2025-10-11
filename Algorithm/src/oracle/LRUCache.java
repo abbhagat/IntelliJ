@@ -24,8 +24,8 @@ public class LRUCache<K, V> {
     private final int cacheSize;
  
     public LRUCache(int cacheSize) {
-        this.q   = new LinkedList<>();
-        this.map = new HashMap<>();
+        this.q         = new LinkedList<>();
+        this.map       = new HashMap<>();
         this.cacheSize = cacheSize;
     }
 
