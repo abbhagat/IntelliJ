@@ -30,6 +30,7 @@ We need to create the following tables:-
 |   2           G2               3       |     B                                                  |      B             1            N    |
 |   3           G3               4       |     C                                                  |      B             2            Y    |
 |   4           G4               5       |     D                                                  |      C             2            N    |
+|   5           G5               7       |     E                                                  |      E             5            Y    |
 |-------------------------------------------------------------------------------------------------|--------------------------------------|
 
 Let's say A purchase Rs 100 milk and add it to the EXPENSE table as shown below.
@@ -67,7 +68,7 @@ Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
 
 Rs 200/2 = Rs 100 + Scan Table to check for due amount for Each User in the group except the payee.
 
-SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER A' AND GROUP_ID = 1;
+SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'A' AND GROUP_ID = 1;
 
 Since User B owns Rs 50 to User A, so we update the table as below:-
 
@@ -84,13 +85,13 @@ Now User B paid Rs 500 for Dinner with equal split
 
 Rs 500/2 = Rs 250 + Scan Table to check for due amount for Each User in the group except the payee
 
-SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER B' AND GROUP_ID = 1;
+SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'B' AND GROUP_ID = 1 AND IS_SETTLED = 'N';
 
 The below result will be fetched: -
 FROM_USER       TO_USER     AMOUNT  GROUP_ID
 A                 B         -150      1
 
-Amount owned by A = Rs 250 + (-150) = Rs 100
+Calculate the NetAmount = Rs 250 + (-150) = Rs 100 -> Amount owned by A
 
                     AMOUNT_OWNED
 --------------------------------------------------
@@ -99,9 +100,9 @@ ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
 2       A              B          100      1
 --------------------------------------------------
 
-if(NetAmount == 0) -> settle the expense between the user A and User B
-if(NetAmount > 0)  -> make the reverse entry with the updated value
-if(NetAmount < 0)  -> update the row with the net amount
+if ( NetAmount == 0)  -> settle the expense between the user A and User B, IS_SETTLED = 'Y' delete the entry from the table and move it to a history table
+if ( NetAmount > 0 )  -> make the reverse entry with the updated value
+if ( NetAmount < 0 )  -> update the row with the net amount
 
 Let's say now we added User C in the Group 1
 
@@ -127,24 +128,24 @@ Current Snapshot of AMOUNT_OWNED table
 |B                 A         -100      1      |
 |---------------------------------------------|
 
-Query :- SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'USER C' AND GROUP_ID = 1;
+Query :- SELECT * FROM AMOUNT_OWNED WHERE TO_USER = 'C' AND GROUP_ID = 1;
 
 Results in 0 rows so no adjustment is required in split amount
 
             AMOUNT_OWNED
--------------------------------------------------
-ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
--------------------------------------------------
-1      A               B          100      1
-2      B               A         -100      1
--------------------------------------------------
-      Below are the new entry created
--------------------------------------------------
-3      B               C          300      1
-4      C               B         -300      1
-5      A               C          300      1
-6      C               A         -300      1
--------------------------------------------------
+|------------------------------------------------- |
+| ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID|
+| -------------------------------------------------|
+| 1      A               B          100      1     |
+| 2      B               A         -100      1     |
+| -------------------------------------------------|
+|       Below are the new entry created            |
+| -------------------------------------------------|
+| 3      B               C          300      1     |
+| 4      C               B         -300      1     |
+| 5      A               C          300      1     |
+| 6      C               A         -300      1     |
+| -------------------------------------------------|
 
 API Design
 

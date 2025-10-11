@@ -22,8 +22,7 @@ public class LargestContiguousSumArrayPrint {
             if (curSum + a[i] < a[i]) {
                 curSum = a[i];
                 s = i;
-            }
-            else {
+            } else {
                 curSum += a[i];
             }
             if (maxSum < curSum) {
@@ -40,7 +39,6 @@ public class LargestContiguousSumArrayPrint {
         largestContiguousSum(a);
         int[] b = {-2, -3, 4, 1};
         largestContiguousSum(b);
-
         maxSumSubarray(a);
         maxSumSubarray(b);
     }
