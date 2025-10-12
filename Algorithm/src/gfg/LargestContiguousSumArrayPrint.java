@@ -5,13 +5,13 @@ import static util.CommonUtils.printArray;
 
 public class LargestContiguousSumArrayPrint {
 
-    private static void largestContiguousSum(int[] a) {
+    private static int largestContiguousSum(int[] a) {
         int curSum = a[0], maxSum = a[0];
-        for (int x : a) {
-            curSum = max(x,  x + curSum);
+        for (int i = 1; i < a.length; i++) {
+            curSum = max(a[i],  a[i] + curSum);
             maxSum = max(maxSum, curSum);
         }
-        System.out.println(maxSum);
+        return maxSum;
     }
 
     private static void maxSumSubarray(int[] a) {
@@ -36,10 +36,13 @@ public class LargestContiguousSumArrayPrint {
 
     public static void main(String[] args) {
         int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
-        largestContiguousSum(a);
-        int[] b = {-2, -3, 4, 1};
-        largestContiguousSum(b);
+        System.out.print(largestContiguousSum(a) + "\t");
         maxSumSubarray(a);
+        int[] b = {-2, -3, 4, 1};
+        System.out.print(largestContiguousSum(b) + "\t");
         maxSumSubarray(b);
+        int[] c = {2, 3, -1, 5, -3, 2};
+        System.out.print(largestContiguousSum(c) + "\t");
+        maxSumSubarray(c);
     }
 }
