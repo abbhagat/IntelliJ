@@ -19,19 +19,18 @@ public class InsertDeleteGetRandom<E> {
     }
 
     private Object getRandom() {
-        Random random = new Random();
         List<E> list = new ArrayList<>(set);
         int count = set.size();
-        return count > 0 ? list.get(random.nextInt(count)) : 0;
+        return count > 0 ? list.get(new Random().nextInt(count)) : null;
     }
 
     public static void main(String[] args) {
         InsertDeleteGetRandom<Integer> obj = new InsertDeleteGetRandom<>();
-        boolean param_1 = obj.insert(1);
-        boolean param_2 = obj.insert(2);
-        boolean param_3 = obj.remove(3);
-        boolean param_4 = obj.remove(4);
-        int param_5 = (int) obj.getRandom();
+        var param_1 = obj.insert(Integer.valueOf(1));
+        var param_2 = obj.insert(Integer.valueOf(2));
+        var param_3 = obj.remove(Integer.valueOf(3));
+        var param_4 = obj.remove(Integer.valueOf(4));
+        var param_5 = obj.getRandom() == null ? 0 : (int) obj.getRandom();
         System.out.println(param_1 + "\t" + param_2 + "\t" + param_3 + "\t" + param_4 + "\t" + param_5);
     }
 }
