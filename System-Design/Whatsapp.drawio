@@ -1,6 +1,6 @@
-<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2025-02-13T04:55:33.484Z" version="22.1.22" etag="3NrtbyGzgRuoPZVJP0Ik" type="embed">
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2025-10-13T04:46:21.708Z" etag="L0SzBtsLKizX5WG9URMC" version="22.1.22" type="embed">
   <diagram name="Page-1" id="WByc4Sx8p1ktMYoHcPtP">
-    <mxGraphModel dx="704" dy="519" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="1">
+    <mxGraphModel dx="1333" dy="683" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -216,6 +216,9 @@
         </mxCell>
         <mxCell id="EmcY0vaI4UG_KnFicqo--65" value="Hash" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="402" y="769.5" width="46" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="&lt;b&gt;DUPLEX&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="302" y="467" width="67" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
