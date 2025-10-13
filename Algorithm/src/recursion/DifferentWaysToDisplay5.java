@@ -27,7 +27,8 @@ public class DifferentWaysToDisplay5 {
             return;
         }
         for (int i = 1; i <= n && i <= iterations; i++) {
-            String newPrefix = prefix + (prefix == "" ? "" : "+") + i;
+            String s = prefix == "" ? "" : "+";
+            String newPrefix = prefix + s + i;
             uniqueCountWays(newPrefix, n - i, i);
         }
     }

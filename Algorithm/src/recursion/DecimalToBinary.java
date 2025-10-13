@@ -1,5 +1,6 @@
 package recursion;
 
+// Time Complexity : O(log n)
 public class DecimalToBinary {
 
     private static String decimalToBinary(int n) {
