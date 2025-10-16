@@ -21,7 +21,7 @@ public class LongestSubstringWithKDistinctCharacters {
                 }
                 start++;
             }
-            if (end - start + 1 > max) {
+            if (max   < end - start + 1) {
                 max   = end - start + 1;
                 index = start;
             }

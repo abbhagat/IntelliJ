@@ -8,9 +8,7 @@ import java.util.Map;
 public class LongestSubstringWithAtLeastKRepeatingChars {
 
     private static class Index {
-
-        int start;
-        int end;
+        int start, end;
 
         Index(int start, int end) {
             this.start = start;

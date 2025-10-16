@@ -8,7 +8,7 @@ import static util.CommonUtils.swap;
 public class ArrayRotation {
 
     private static void arrayRotate(int[] a, int rotationIndex, String rotationType) {
-        rotationIndex = rotationIndex % a.length;
+        // rotationIndex = rotationIndex % a.length;
         int n = a.length - rotationIndex;
         if (rotationType.contentEquals("left")) {
             rotate(a, 0, n - 1);
