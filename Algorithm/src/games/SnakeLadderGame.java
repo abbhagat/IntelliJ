@@ -3,7 +3,6 @@ package games;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.*;
-
 @Getter
 @AllArgsConstructor
 class Player {
@@ -33,10 +32,11 @@ class Game {
         this.snakeMap   = builder.snakeMap;
     }
 
-    public final void play() throws InterruptedException {
-        while (true) {
-            Thread.sleep(200);
+    public final void play() {
+        int round = 1;
+        while (round != 0) {
             System.out.println("-------------------");
+            System.out.println("Round : " + round++);
             for (Player player : playerList) {
                 int n = rollDice();
                 System.out.println(player.name + " rolled " + n);
@@ -107,6 +107,7 @@ public class SnakeLadderGame {
                 .addLadder(10, 98).addLadder(12, 55)
                 .addLadder(25, 76).addLadder(36, 62)
                 .addLadder(45, 89).addLadder(66, 95)
+                .addLadder(45, 100).addLadder(25, 95)
                 .addPlayer("X")
                 .addPlayer("Y")
                 .build();
