@@ -17,8 +17,8 @@ public class InsertInterval {
         }
         while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
             Interval interval = intervalList.remove(i);
-            newInterval.start = min(interval.start, newInterval.start);
-            newInterval.end   = max(interval.end, newInterval.end);
+            newInterval.start = min(newInterval.start, interval.start);
+            newInterval.end   = max(newInterval.end,   interval.end);
         }
         intervalList.add(i, newInterval);
     }
