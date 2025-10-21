@@ -2,13 +2,13 @@ package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
-/*
-As another example, if the given sequence is “BABCBCABB”, then the output should be 7 as “BABCBAB”
-is the longest palindromic subsequence in it. “BBBBB” and “BBCBB” are also palindromic subsequences
-of the given sequence, but not the longest ones.
-The naive solution for this problem is to generate all subsequences of the given sequence and find
-the longest palindromic subsequence. This solution is exponential in terms of time complexity
-*/
+/**
+ * As another example, if the given sequence is “BABCBCABB”, then the output should be 7 as “BABCBAB”
+ * is the longest palindromic subsequence in it. “BBBBB” and “BBCBB” are also palindromic subsequences
+ * of the given sequence, but not the longest ones.
+ * The naive solution for this problem is to generate all subsequences of the given sequence and find
+ * the longest palindromic subsequence. This solution is exponential in terms of time complexity
+ */
 public class LongestPalindromicSequence {
 
     private static int lps(char[] seq, int i, int j) {
