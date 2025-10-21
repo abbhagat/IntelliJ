@@ -3,30 +3,21 @@ package dynamicProgramming;
 import static util.CommonUtils.minimum;
 
 /**
-* Given two strings s1 and s2 and below operations that can performed on s1.
-* Find minimum number of edits (operations) required to convert ‘s1’ into ‘s2’.
+ * Given two strings s1 and s2 and below operations that can performed on s1.
+ * Find minimum number of edits (operations) required to convert ‘s1’ into ‘s2’.
 
-* Insert
-* Remove
-* Replace
-* All of the above operations are of equal cost.
+ * Insert Remove Replace -> All of the above operations are of equal cost.
 
-* Examples:
+ * Examples: Input:   s1 = "geek", s2 = "gesek" Output:  1
+ * We can convert s1 into s2 by inserting a 's'.
 
-* Input:   s1 = "geek", s2 = "gesek"
-* Output:  1
-* We can convert s1 into s2 by inserting a 's'.
+  * Input:   s1 = "cat", s2 = "cut" Output:  1
+  * We can convert s1 into s2 by replacing 'a' with 'u'.
 
-* Input:   s1 = "cat", s2 = "cut"
-* Output:  1
-* We can convert s1 into s2 by replacing 'a' with 'u'.
-
-* Input:   s1 = "sunday", s2 = "saturday"
-* Output:  3
-* Last three and first characters are same.  We basically need to convert "un" to "atur".
-* This can be done using below three operations.
-* Replace 'n' with 'r', insert t, insert a
-*/
+ * Input:   s1 = "sunday", s2 = "saturday" Output:  3
+ * Last three and first characters are same. We basically need to convert "un" to "atur".
+ * This can be done using below three operations. Replace 'n' with 'r', insert t, insert a
+ */
 public class EditDistanceOfString {
 
     private static int editDist(String s1, String s2) {

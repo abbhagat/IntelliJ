@@ -9,6 +9,7 @@ public class LiftingWeight {
         int[] wt = {1, 3, 5};
         int n = wt.length - 1;
         System.out.println(knapSack(W, wt, n));
+        System.out.println(cutRod(W, wt, n));
     }
 
     private static int knapSack(int W, int[] wt, int n) {
