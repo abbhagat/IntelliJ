@@ -58,7 +58,7 @@ public class DeleteOperationOnTwoStrings {
     }
 
     public static void main(String[] args) {
-        System.out.println(minDistance("cat", "")         + "\t" + minDistanceDP("cat", ""));
+        System.out.println(minDistance("cat", "")            + "\t" + minDistanceDP("cat", ""));
         System.out.println(minDistance("cat", "cut")         + "\t" + minDistanceDP("cat", "cut"));
         System.out.println(minDistance("geek", "gesek")      + "\t" + minDistanceDP("geek", "gesek"));
         System.out.println(minDistance("sunday", "saturday") + "\t" + minDistanceDP("sunday", "saturday"));
