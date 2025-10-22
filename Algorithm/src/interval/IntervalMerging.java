@@ -1,9 +1,7 @@
 package interval;
 
 import util.Interval;
-
 import java.util.*;
-
 import static java.lang.Integer.max;
 import static util.CommonUtils.printMatrix;
 
