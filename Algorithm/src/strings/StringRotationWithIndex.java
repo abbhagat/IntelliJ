@@ -18,9 +18,9 @@ public class StringRotationWithIndex {
 
     private static String rotateString(String str, int start, int end) {
         String s1 = str.substring(0, end);
-        String s2 = str.substring(start + 1);
-        String s3 = str.substring(end, start + 1);
-        return s1 + new StringBuilder(s3).reverse() + s2;
+        String s3 = str.substring(start + 1);
+        String s2 = str.substring(end, start + 1);
+        return s1 + new StringBuilder(s2).reverse() + s3;
     }
 
     public static void main(String[] args) {
