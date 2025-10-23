@@ -8,9 +8,9 @@ public class SmallestAndLargestSubstring {
     String str = s.substring(0, k);
     String min = str, max = str;
     for (int i = k; i < s.length(); i++) {
-      str = str.substring(1, k) + s.charAt(i);
-      max = max.compareTo(str) < 0 ? str : max;
-      min = min.compareTo(str) > 0 ? str : min;
+         str = str.substring(1, k) + s.charAt(i);
+         max = max.compareTo(str)  < 0 ? str : max;
+         min = min.compareTo(str)  > 0 ? str : min;
     }
     System.out.println("Smallest : " + min + "\t" + "Largest : " + max);
   }
