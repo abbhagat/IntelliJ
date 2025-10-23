@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
+import static java.lang.Integer.compare;
+import static java.lang.Integer.min;
 import static util.CommonUtils.swap;
 
 /**
@@ -81,6 +83,14 @@ public class TopKFrequentElementsInAnArrayII {
     });
   }
 
+  private static int search(int[] temp, int n) {
+    for (int i = 0; i < temp.length; i++)
+      if (temp[i] == n) {
+        return i;
+      }
+    return -1;
+  }
+
   public static void topKFreqElements(Stream<Integer> intStream, int k) {
 
     Map<Integer, Integer> map = new HashMap<>();
@@ -91,28 +101,17 @@ public class TopKFrequentElementsInAnArrayII {
       if (!list.contains(x)) {
            list.add(x);
       }
-      // Sort the list based on frequency and then number
+      // Sort the list based on frequency and then number [ Here number is the element from the Stream ]
       list.sort((a, b) -> {
         int n = map.get(b).compareTo(map.get(a));
         if (n == 0) {
-          return Integer.compare(a, b); // smaller number first if same frequency
+          return compare(a, b); // smaller number first if same frequency
         }
         return n;
       });
       // Print top K (or fewer if not enough distinct elements)
-      int limit = Math.min(k, list.size());
-      for (int i = 0; i < limit; i++) {
-        System.out.print(list.get(i) + " ");
-      }
+      IntStream.range(0, min(k, list.size())).forEach(i -> System.out.print(list.get(i) + " "));
     });
-  }
-
-  private static int search(int[] temp, int n) {
-    for (int i = 0; i < temp.length; i++)
-      if (temp[i] == n) {
-        return i;
-      }
-    return -1;
   }
 
   public static void main(String[] args) {
