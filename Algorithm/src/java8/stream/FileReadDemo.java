@@ -7,19 +7,19 @@ import java.util.stream.Stream;
 
 public class FileReadDemo {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        String fileName = "C:/Users/Admin/Desktop/IntelliJ License.txt";
-        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+    String fileName = "C:/Users/Admin/Desktop/IntelliJ License.txt";
+    try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 //            String line = stream.collect(Collectors.joining("\n"));
 //            System.out.println(line);
-            stream.forEach(line-> {
-                line += ";";
-                System.out.println(line);
-            });
+      stream.forEach(line -> {
+        line += ";";
+        System.out.println(line);
+      });
 //            stream.forEach(System.out::println);
-        } catch (IOException e) {
-            System.out.println("Exception occurred with " + e.getMessage());
-        }
+    } catch (IOException e) {
+      System.out.println("Exception occurred with " + e.getMessage());
     }
+  }
 }

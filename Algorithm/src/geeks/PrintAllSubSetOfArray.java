@@ -25,22 +25,22 @@ import java.util.LinkedList;
 // Space Complexity :- O(n)
 public class PrintAllSubSetOfArray {
 
-    public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
-        if (index == a.length) {
-            if(!list.isEmpty()) {
-                System.out.println(list);
-            }
-            return;
-        }
-        list.add(a[index]);
-        findSubSet(a, index + 1, list);
-        list.removeLast();
-        findSubSet(a, index + 1, list);
+  public static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
+    if (index == a.length) {
+      if (!list.isEmpty()) {
+        System.out.println(list);
+      }
+      return;
     }
+    list.add(a[index]);
+    findSubSet(a, index + 1, list);
+    list.removeLast();
+    findSubSet(a, index + 1, list);
+  }
 
-    public static void main(String[] args) {
-        findSubSet(new int[]{1, 2}   , 0, new LinkedList<>());
-        System.out.println("------------------");
-        findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());
-    }
+  public static void main(String[] args) {
+    findSubSet(new int[]{1, 2}, 0, new LinkedList<>());
+    System.out.println("------------------");
+    findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());
+  }
 }

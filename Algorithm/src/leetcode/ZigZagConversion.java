@@ -4,29 +4,29 @@ package leetcode;
 // Auxiliary Space: O(n)
 public class ZigZagConversion {
 
-    private static StringBuilder convert(String s, int rows) {
-        StringBuilder[] sb = new StringBuilder[rows];
-        for (int i = 0; i < rows; i++) {
-            sb[i] = new StringBuilder();
-        }
-        int i = 0;
-        while (i < s.length()) {
-            for (int j = 0; j < rows && i < s.length(); j++) {
-                sb[j].append(s.charAt(i++));
-            }
-            for (int j = rows - 2; j > 0 && i < s.length(); j--) {
-                sb[j].append(s.charAt(i++));
-            }
-        }
-        for (i = 1; i < rows; i++) {
-            sb[0].append(sb[i]);
-        }
-        return sb[0];
+  private static StringBuilder convert(String s, int rows) {
+    StringBuilder[] sb = new StringBuilder[rows];
+    for (int i = 0; i < rows; i++) {
+      sb[i] = new StringBuilder();
     }
+    int i = 0;
+    while (i < s.length()) {
+      for (int j = 0; j < rows && i < s.length(); j++) {
+        sb[j].append(s.charAt(i++));
+      }
+      for (int j = rows - 2; j > 0 && i < s.length(); j--) {
+        sb[j].append(s.charAt(i++));
+      }
+    }
+    for (i = 1; i < rows; i++) {
+      sb[0].append(sb[i]);
+    }
+    return sb[0];
+  }
 
-    public static void main(String[] args) {
-        System.out.println(convert("PAYPALISHIRING", 3));
-        System.out.println(convert("PAYPALISHIRING", 4));
-        System.out.println(convert("GEEKSFORGEEKS" , 3));
-    }
+  public static void main(String[] args) {
+    System.out.println(convert("PAYPALISHIRING", 3));
+    System.out.println(convert("PAYPALISHIRING", 4));
+    System.out.println(convert("GEEKSFORGEEKS", 3));
+  }
 }

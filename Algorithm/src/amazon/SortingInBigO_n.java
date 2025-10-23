@@ -12,20 +12,20 @@ import static util.CommonUtils.swap;
 // Time  Complexity  O(n)
 public class SortingInBigO_n {
 
-    private static void sort(int[] a) {
-        int i = 0;
-        while (i < a.length) {
-            if (i != a[i]) {
-                swap(a, i, a[i]);
-            } else {
-                i++;
-            }
-        }
+  private static void sort(int[] a) {
+    int i = 0;
+    while (i < a.length) {
+      if (i != a[i]) {
+        swap(a, i, a[i]);
+      } else {
+        i++;
+      }
     }
+  }
 
-    public static void main(String[] args) {
-        int[]  a  = {4, 3, 2, 0, 1};
-        sort(a);
-        printArray(a);
-    }
+  public static void main(String[] args) {
+    int[] a = {4, 3, 2, 0, 1};
+    sort(a);
+    printArray(a);
+  }
 }

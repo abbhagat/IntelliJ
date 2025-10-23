@@ -7,33 +7,33 @@ import static util.CommonUtils.swap;
 // Space Complexity: O(1)
 public class ArrayRotation {
 
-    private static void arrayRotate(int[] a, int rotationIndex, String rotationType) {
-        // rotationIndex = rotationIndex % a.length;
-        int n = a.length - rotationIndex;
-        if (rotationType.contentEquals("left")) {
-            rotate(a, 0, n - 1);
-            rotate(a, n, a.length - 1);
-            rotate(a, 0, a.length - 1);
-        } else {
-            rotate(a, 0, a.length - 1);
-            rotate(a,     n, a.length - 1);
-            rotate(a, 0, n - 1);
-        }
-        printArray(a);
+  private static void arrayRotate(int[] a, int rotationIndex, String rotationType) {
+    // rotationIndex = rotationIndex % a.length;
+    int n = a.length - rotationIndex;
+    if (rotationType.contentEquals("left")) {
+      rotate(a, 0, n - 1);
+      rotate(a, n, a.length - 1);
+      rotate(a, 0, a.length - 1);
+    } else {
+      rotate(a, 0, a.length - 1);
+      rotate(a, n, a.length - 1);
+      rotate(a, 0, n - 1);
     }
+    printArray(a);
+  }
 
-    private static void rotate(int[] a, int i, int j) {
-        while (i < j) {
-            swap(a, i, j);
-            i++;
-            j--;
-        }
+  private static void rotate(int[] a, int i, int j) {
+    while (i < j) {
+      swap(a, i, j);
+      i++;
+      j--;
     }
+  }
 
-    public static void main(String[] args) {
-        arrayRotate(new int[]{1, 2, 3, 4, 5},       2, "left");   //4 5 1 2 3
-        arrayRotate(new int[]{1, 2, 3, 4, 5},       2, "right"); // 3 4 5 1 2
-        arrayRotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3, "left");  // 5 6 7 1 2 3 4
-        arrayRotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3, "right"); // 4 5 6 7 1 2 3
-    }
+  public static void main(String[] args) {
+    arrayRotate(new int[]{1, 2, 3, 4, 5}, 2, "left");   //4 5 1 2 3
+    arrayRotate(new int[]{1, 2, 3, 4, 5}, 2, "right"); // 3 4 5 1 2
+    arrayRotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3, "left");  // 5 6 7 1 2 3 4
+    arrayRotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3, "right"); // 4 5 6 7 1 2 3
+  }
 }

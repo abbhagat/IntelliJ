@@ -22,38 +22,38 @@ import java.util.List;
 // Time Complexity: O(2^N) where N is the length of the string s.
 public class RestoreIPAddress {
 
-    private static List<String> restoreIPAddress(String s) {
-        List<String> list = new ArrayList<>();
-        if (s.length() > 12) {    // In IPV4 address is of 12 digit max excluding '.'
-            return list;
-        }
-        restoreIP(s, 3, list, "");
-        return list;
+  private static List<String> restoreIPAddress(String s) {
+    List<String> list = new ArrayList<>();
+    if (s.length() > 12) {    // In IPV4 address is of 12 digit max excluding '.'
+      return list;
     }
+    restoreIP(s, 3, list, "");
+    return list;
+  }
 
-    private static void restoreIP(String s, int dot, List<String> list, String ip) {
-        if (dot == 0 && isValid(s)) {
-            ip += s;
-            list.add(ip);
-            return;
-        }
-        for (int i = 1; i <= 3 && i < s.length(); i++) {
-            String address = s.substring(0, i);
-            if (isValid(address)) {
-                restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
-            }
-        }
+  private static void restoreIP(String s, int dot, List<String> list, String ip) {
+    if (dot == 0 && isValid(s)) {
+      ip += s;
+      list.add(ip);
+      return;
     }
+    for (int i = 1; i <= 3 && i < s.length(); i++) {
+      String address = s.substring(0, i);
+      if (isValid(address)) {
+        restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
+      }
+    }
+  }
 
-    private static boolean isValid(String s) {
-        if (s.charAt(0) == '0' && s.length() > 1) {
-            return false;
-        }
-        return Integer.parseInt(s) <= 255;
+  private static boolean isValid(String s) {
+    if (s.charAt(0) == '0' && s.length() > 1) {
+      return false;
     }
+    return Integer.parseInt(s) <= 255;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(restoreIPAddress("25525511135"));
-        System.out.println(restoreIPAddress("25525511115"));
-    }
+  public static void main(String[] args) {
+    System.out.println(restoreIPAddress("25525511135"));
+    System.out.println(restoreIPAddress("25525511115"));
+  }
 }

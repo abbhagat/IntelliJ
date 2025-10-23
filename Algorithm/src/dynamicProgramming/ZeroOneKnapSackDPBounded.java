@@ -57,27 +57,27 @@ import static java.lang.Math.max;
  */
 public class ZeroOneKnapSackDPBounded {
 
-    private static int knapSack(int W, int[] wt, int[] val, int n) {
-        int[][] DP = new int[n + 1][W + 1];
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= W; j++) {
-                if (i == 0 || j == 0) {
-                    DP[i][j] = 0;
-                } else if (wt[i - 1] <= j) {
-                    DP[i][j] = max(val[i - 1] + DP[i - 1][j - wt[i - 1]], DP[i - 1][j]);
-                } else {
-                    DP[i][j] = DP[i - 1][j];
-                }
-            }
+  private static int knapSack(int W, int[] wt, int[] val, int n) {
+    int[][] DP = new int[n + 1][W + 1];
+    for (int i = 0; i <= n; i++) {
+      for (int j = 0; j <= W; j++) {
+        if (i == 0 || j == 0) {
+          DP[i][j] = 0;
+        } else if (wt[i - 1] <= j) {
+          DP[i][j] = max(val[i - 1] + DP[i - 1][j - wt[i - 1]], DP[i - 1][j]);
+        } else {
+          DP[i][j] = DP[i - 1][j];
         }
-        return DP[n][W];
+      }
     }
+    return DP[n][W];
+  }
 
-    public static void main(String args[]) {
-        int[] val = new int[]{10, 15, 40};
-        int[] wt = new int[]{1, 2, 3};
-        int W = 6;
-        int n = val.length;
-        System.out.println(knapSack(W, wt, val, n));
-    }
+  public static void main(String args[]) {
+    int[] val = new int[]{10, 15, 40};
+    int[] wt = new int[]{1, 2, 3};
+    int W = 6;
+    int n = val.length;
+    System.out.println(knapSack(W, wt, val, n));
+  }
 }

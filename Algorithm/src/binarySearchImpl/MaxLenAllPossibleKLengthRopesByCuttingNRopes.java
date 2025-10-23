@@ -28,26 +28,26 @@ import java.util.Arrays;
 //  Space Complexity : O(1)
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
-    private static int maximumSize(int[] a, int k) {
-        int low = 0, high = Arrays.stream(a).max().getAsInt(), result = 0;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            int count = 0;
-            for (int x : a) {
-                count += x / mid;
-            }
-            if (count >= k) {
-                result = mid;
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return result;
+  private static int maximumSize(int[] a, int k) {
+    int low = 0, high = Arrays.stream(a).max().getAsInt(), result = 0;
+    while (low <= high) {
+      int mid = (low + high) / 2;
+      int count = 0;
+      for (int x : a) {
+        count += x / mid;
+      }
+      if (count >= k) {
+        result = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
     }
+    return result;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(maximumSize(new int[]{1, 2, 3, 4, 9}, 6));
-        System.out.println(maximumSize(new int[]{5, 2, 7, 4, 9}, 5));
-    }
+  public static void main(String[] args) {
+    System.out.println(maximumSize(new int[]{1, 2, 3, 4, 9}, 6));
+    System.out.println(maximumSize(new int[]{5, 2, 7, 4, 9}, 5));
+  }
 }

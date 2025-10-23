@@ -1,6 +1,6 @@
 package stack;
 
 public class Node {
-    char num;
-    Node next;
+  char num;
+  Node next;
 }

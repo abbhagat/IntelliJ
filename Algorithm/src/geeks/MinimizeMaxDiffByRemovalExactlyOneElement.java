@@ -29,13 +29,13 @@ import static java.lang.Integer.min;
  */
 public class MinimizeMaxDiffByRemovalExactlyOneElement {
 
-    private static int findMinDifference(int[] a) {
-        Arrays.sort(a);
-        return min(a[a.length - 2] - a[0], a[a.length - 1] - a[1]);
-    }
+  private static int findMinDifference(int[] a) {
+    Arrays.sort(a);
+    return min(a[a.length - 2] - a[0], a[a.length - 1] - a[1]);
+  }
 
-    public static void main(String[] args) {
-        System.out.println(findMinDifference(new int[]{-1, 3, 4, 7}));
-    }
+  public static void main(String[] args) {
+    System.out.println(findMinDifference(new int[]{-1, 3, 4, 7}));
+  }
 
 }

@@ -7,82 +7,82 @@ import java.util.Queue;
 // remove() throws an exception if the queue is empty whereas poll() returns null is the queue is empty
 class BlockingQueue<K extends Number> {
 
-    private final Queue<K> q;
-    private final int maxSize;
+  private final Queue<K> q;
+  private final int maxSize;
 
-    public BlockingQueue(int maxSize) {
-        q = new LinkedList<>();
-        this.maxSize = maxSize;
-    }
+  public BlockingQueue(int maxSize) {
+    q = new LinkedList<>();
+    this.maxSize = maxSize;
+  }
 
-    public synchronized void put(K k) throws InterruptedException {
-        if (q.size() == maxSize) {
-            wait();
-        }
-        q.add(k);
-        notifyAll();
+  public synchronized void put(K k) throws InterruptedException {
+    if (q.size() == maxSize) {
+      wait();
     }
+    q.add(k);
+    notifyAll();
+  }
 
-    public synchronized K get() throws InterruptedException {
-        if (q.isEmpty()) {
-            wait();
-        }
-        notifyAll();
-        return q.poll();
+  public synchronized K get() throws InterruptedException {
+    if (q.isEmpty()) {
+      wait();
     }
+    notifyAll();
+    return q.poll();
+  }
 }
 
 class Producer<K extends Number> implements Runnable {
 
-    private final BlockingQueue<K> q;
+  private final BlockingQueue<K> q;
 
-    public Producer(BlockingQueue<K> q) {
-        this.q = q;
-        new Thread(this, "Producer").start();
-    }
+  public Producer(BlockingQueue<K> q) {
+    this.q = q;
+    new Thread(this, "Producer").start();
+  }
 
-    @Override
-    public void run() {
-        int n = 0;
-        while (true) {
-            try {
-                System.out.println("Put : " + ++n) ;
-                q.put((K)Integer.valueOf(n));
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+  @Override
+  public void run() {
+    int n = 0;
+    while (true) {
+      try {
+        System.out.println("Put : " + ++n);
+        q.put((K) Integer.valueOf(n));
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
     }
+  }
 }
 
 class Consumer<K extends Number> implements Runnable {
 
-    private final BlockingQueue<K> q;
+  private final BlockingQueue<K> q;
 
-    public Consumer(BlockingQueue<K> q) {
-        this.q = q;
-        new Thread(this, "Consumer").start();
-    }
+  public Consumer(BlockingQueue<K> q) {
+    this.q = q;
+    new Thread(this, "Consumer").start();
+  }
 
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                System.out.println("Get : " + q.get());
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+  @Override
+  public void run() {
+    while (true) {
+      try {
+        System.out.println("Get : " + q.get());
+        Thread.sleep(100);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
     }
+  }
 }
 
 public class CustomBlockingQueue {
 
-    public static void main(String[] args) throws InterruptedException {
-        BlockingQueue<Integer> q = new BlockingQueue<>(5);
-        new Producer<>(q);
-        new Consumer<>(q);
-    }
+  public static void main(String[] args) throws InterruptedException {
+    BlockingQueue<Integer> q = new BlockingQueue<>(5);
+    new Producer<>(q);
+    new Consumer<>(q);
+  }
 }

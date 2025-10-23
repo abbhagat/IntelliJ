@@ -24,29 +24,29 @@ import java.util.Set;
 // Space Complexity: O(m + n)
 public class WordBreakII {
 
-    public static List<String> wordBreak(String str, List<String> wordDict) {
-        List<String> list = new ArrayList<>();
-        wordBreak(0, str, new StringBuilder(), new HashSet<>(wordDict), list);
-        return list;
-    }
+  public static List<String> wordBreak(String str, List<String> wordDict) {
+    List<String> list = new ArrayList<>();
+    wordBreak(0, str, new StringBuilder(), new HashSet<>(wordDict), list);
+    return list;
+  }
 
-    private static void wordBreak(int index, String str, StringBuilder sb, Set<String> wordSet, List<String> list) {
-        if (index == str.length()) {
-            list.add(sb.toString().trim());
-            return;
-        }
-        for (int i = index + 1; i <= str.length(); i++) {
-            String s = str.substring(index, i);
-            if (wordSet.contains(s)) {
-                int len = sb.length();
-                sb.append(s).append(" ");
-                wordBreak(i, str, sb, wordSet, list);
-                sb.setLength(len);
-            }
-        }
+  private static void wordBreak(int index, String str, StringBuilder sb, Set<String> wordSet, List<String> list) {
+    if (index == str.length()) {
+      list.add(sb.toString().trim());
+      return;
     }
+    for (int i = index + 1; i <= str.length(); i++) {
+      String s = str.substring(index, i);
+      if (wordSet.contains(s)) {
+        int len = sb.length();
+        sb.append(s).append(" ");
+        wordBreak(i, str, sb, wordSet, list);
+        sb.setLength(len);
+      }
+    }
+  }
 
-    public static void main(String[] args) {
-        System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
-    }
+  public static void main(String[] args) {
+    System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
+  }
 }

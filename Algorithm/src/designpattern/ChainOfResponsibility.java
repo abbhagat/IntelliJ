@@ -7,49 +7,49 @@ import lombok.Setter;
 @Setter
 abstract class AbstractLogger {
 
-    private AbstractLogger nextLogger;
+  private AbstractLogger nextLogger;
 
-    public void logMessage(String message) {
-        write(message);
-        if (nextLogger != null) {
-            nextLogger.logMessage(message);
-        }
+  public void logMessage(String message) {
+    write(message);
+    if (nextLogger != null) {
+      nextLogger.logMessage(message);
     }
+  }
 
-    abstract public void write(String message);
+  abstract public void write(String message);
 }
 
 class ConsoleLogger extends AbstractLogger {
-    public void write(String message) {
-        System.out.println("Console Logger");
-    }
+  public void write(String message) {
+    System.out.println("Console Logger");
+  }
 }
 
 class ErrorLogger extends AbstractLogger {
-    public void write(String message) {
-        System.out.println("Error Logger");
-    }
+  public void write(String message) {
+    System.out.println("Error Logger");
+  }
 }
 
 class DebugLogger extends AbstractLogger {
-    public void write(String message) {
-        System.out.println("Debug Logger");
-    }
+  public void write(String message) {
+    System.out.println("Debug Logger");
+  }
 }
 
 public class ChainOfResponsibility {
 
-    private static AbstractLogger getChainOfLoggers() {
-        AbstractLogger consoleLogger = new ConsoleLogger();
-        AbstractLogger debugLogger   = new DebugLogger();
-        AbstractLogger errorLogger   = new ErrorLogger();
-        errorLogger.setNextLogger(debugLogger);
-        debugLogger.setNextLogger(consoleLogger);
-        return errorLogger;
-    }
+  private static AbstractLogger getChainOfLoggers() {
+    AbstractLogger consoleLogger = new ConsoleLogger();
+    AbstractLogger debugLogger = new DebugLogger();
+    AbstractLogger errorLogger = new ErrorLogger();
+    errorLogger.setNextLogger(debugLogger);
+    debugLogger.setNextLogger(consoleLogger);
+    return errorLogger;
+  }
 
-    public static void main(String[] args) {
-        AbstractLogger loggerChain = getChainOfLoggers();
-        loggerChain.logMessage("This is an information.");
-    }
+  public static void main(String[] args) {
+    AbstractLogger loggerChain = getChainOfLoggers();
+    loggerChain.logMessage("This is an information.");
+  }
 }

@@ -12,24 +12,24 @@ package geeks;
 // Space Complexity: O(1)
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
-    private static void findLength(String s) {
-        String maxString = "";
-        for(int k = 0; k < s.length(); k++) {
-            int leftSum = 0, rightSum = 0;
-            for(int i = k, j = k + 1; i >= 0 && j < s.length(); i--, j++) {
-                leftSum  += s.charAt(i) - '0';
-                rightSum += s.charAt(j) - '0';
-                if(leftSum == rightSum) {
-                    String str = s.substring(i, j + 1);
-                    maxString = maxString.length() < str.length() ? str : maxString;
-                }
-            }
+  private static void findLength(String s) {
+    String maxString = "";
+    for (int k = 0; k < s.length(); k++) {
+      int leftSum = 0, rightSum = 0;
+      for (int i = k, j = k + 1; i >= 0 && j < s.length(); i--, j++) {
+        leftSum += s.charAt(i) - '0';
+        rightSum += s.charAt(j) - '0';
+        if (leftSum == rightSum) {
+          String str = s.substring(i, j + 1);
+          maxString = maxString.length() < str.length() ? str : maxString;
         }
-        System.out.println(maxString + "\t" + maxString.length());
+      }
     }
+    System.out.println(maxString + "\t" + maxString.length());
+  }
 
-    public static void main(String[] args) {
-        findLength("1538023");
-        findLength("152380231");
-    }
+  public static void main(String[] args) {
+    findLength("1538023");
+    findLength("152380231");
+  }
 }

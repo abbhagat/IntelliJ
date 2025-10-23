@@ -11,34 +11,34 @@ import static util.CommonUtils.printMatrix;
 // Space Complexity O(M*N)
 public class BooleanMatrix {
 
-    private static void modifyMatrix(int[][] M) {
-        int R = M.length, C = M[0].length;
-        int[] row = new int[R];
-        int[] col = new int[C];
-        for (int i = 0; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                if (M[i][j] == 1) {
-                    row[i] = col[j] = 1;
-                }
-            }
+  private static void modifyMatrix(int[][] M) {
+    int R = M.length, C = M[0].length;
+    int[] row = new int[R];
+    int[] col = new int[C];
+    for (int i = 0; i < R; i++) {
+      for (int j = 0; j < C; j++) {
+        if (M[i][j] == 1) {
+          row[i] = col[j] = 1;
         }
-        for (int i = 0; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                if (row[i] == 1 || col[j] == 1) {
-                    M[i][j] = 1;
-                }
-            }
-        }
+      }
     }
+    for (int i = 0; i < R; i++) {
+      for (int j = 0; j < C; j++) {
+        if (row[i] == 1 || col[j] == 1) {
+          M[i][j] = 1;
+        }
+      }
+    }
+  }
 
-    public static void main(String[] args) {
-        int[][] M = {
-                        {1, 0, 0, 1},
-                        {0, 0, 1, 0},
-                        {0, 0, 0, 0}
-                      };
-        printMatrix(M);
-        modifyMatrix(M);
-        printMatrix(M);
-    }
+  public static void main(String[] args) {
+    int[][] M = {
+        {1, 0, 0, 1},
+        {0, 0, 1, 0},
+        {0, 0, 0, 0}
+    };
+    printMatrix(M);
+    modifyMatrix(M);
+    printMatrix(M);
+  }
 }
