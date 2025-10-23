@@ -1,22 +1,22 @@
 package jpmorgan;
 
 /**
-Given two strings str1 and str2, write a function that prints all interleaving of the given two strings.
-You may assume that all characters in both strings are different.
----------------------------------------------------------------------------------------------------
-Example:
-Input: str1 = "AB",  str2 = "CD"            | Input: str1 = "AB",  str2 = "C"
-Output:                                     | Output:
-        ABCD                                |           ABC
-        ACBD                                |           ACB
-        ACDB                                |           CAB
-        CABD                                |
-        CADB                                |
-        CDAB                                |
----------------------------------------------------------------------------------------------------
-An interleaved string of given two strings preserves the order of characters in individual strings.
-Ex: in all the interleaving of above first example, ‘A’ comes before ‘B’ and ‘C’ comes before ‘D’
-*/
+ * Given two strings str1 and str2, write a function that prints all interleaving of the given two strings.
+ * You may assume that all characters in both strings are different.
+ * ---------------------------------------------------------------------------------------------------
+ * Example:
+ * Input: str1 = "AB",  str2 = "CD"            | Input: str1 = "AB",  str2 = "C"
+ * Output:                                     | Output:
+ *         ABCD                                |           ABC
+ *         ACBD                                |           ACB
+ *         ACDB                                |           CAB
+ *         CABD                                |
+ *         CADB                                |
+ *         CDAB                                |
+ * ---------------------------------------------------------------------------------------------------
+ * An interleaved string of given two strings preserves the order of characters in individual strings.
+ * Ex: in all the interleaving of above first example, ‘A’ comes before ‘B’ and ‘C’ comes before ‘D’
+ */
 
 // Time Complexity: O(2^(m+n))
 // Auxiliary Space: O(1)
@@ -37,6 +37,7 @@ public class InterleavingStringPrint {
 
     public static void main(String[] args) {
         printInterLeaving("AB", "C",  "", 0, 0);
+        System.out.println();
         printInterLeaving("AB", "CD", "", 0, 0);
     }
 }

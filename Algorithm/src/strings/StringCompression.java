@@ -1,4 +1,4 @@
-package jpmorgan;
+package strings;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -49,5 +49,6 @@ public class InterleavingString {
         System.out.println(isInterleaved("XXY", "XXZ", "XXZXXXY"));
         System.out.println(isInterleave("aabcc", "dbbca", "aadbbbaccc"));
         System.out.println(isInterleaved("aabcc", "dbbca", "aadbbbaccc"));
+        System.out.println(isInterleaved("AB", "CD", "ABCD"));
     }
 }

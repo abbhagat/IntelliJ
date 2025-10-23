@@ -1,4 +1,4 @@
-package jpmorgan;
+package strings;
 
 public class StringRotationWithIndex {
 
