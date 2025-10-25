@@ -6,13 +6,13 @@ public class PrintAllNodesAtKDistanceFromRoot {
 
   private static void printNodes(Node root, int level) {
     if (root == null) {
-      return;
+        return;
     }
     if (level == 0) {
       System.out.print(root.num + " ");
       return;
     }
-    printNodes(root.left, level - 1);
+    printNodes(root.left,  level - 1);
     printNodes(root.right, level - 1);
   }
 

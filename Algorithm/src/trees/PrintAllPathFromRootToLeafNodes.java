@@ -1,7 +1,6 @@
 package trees;
 
 import java.util.LinkedList;
-
 import static trees.CreateBST.createBST;
 
 public class PrintAllPathFromRootToLeafNodes {

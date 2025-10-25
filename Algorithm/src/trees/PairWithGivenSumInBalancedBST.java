@@ -1,9 +1,6 @@
 package trees;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static trees.CreateBST.createBST;
 
@@ -37,12 +34,13 @@ public class PairWithGivenSumInBalancedBST {
   }
 
   public static void main(String[] args) {
-    int[] a = {15, 10, 20, 8, 12, 16, 25};
+    int[] a = {15, 10, 20, 8, 12, 5, 16, 25, 13, 23};
     Node root = null;
     for (int x : a) {
       root = createBST(root, x);
     }
     isPairPresent(root, 33);
+    System.out.println();
     isPairPresent(root, 25);
   }
 }
