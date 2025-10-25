@@ -14,16 +14,16 @@ public class PrintRightViewOfABinaryTree {
       max_level = level;
     }
     printRightView(root.right, level + 1);
-    printRightView(root.left, level + 1);
+    printRightView(root.left,  level + 1);
   }
 
   public static void main(String[] args) {
-    Node root = new Node(1);
-    root.right = new Node(2);
-    root.right.right = new Node(3);
-    root.right.right.right = new Node(4);
+    Node root                    = new Node(1);
+    root.right                   = new Node(2);
+    root.right.right             = new Node(3);
+    root.right.right.right       = new Node(4);
     root.right.right.right.right = new Node(5);
-    root.left = new Node(6);
+    root.left                    = new Node(6);
     printRightView(root, 1);
   }
 }
