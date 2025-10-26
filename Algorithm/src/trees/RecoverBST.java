@@ -65,8 +65,8 @@ public class RecoverBST {
 
                 10 and 2 are swapped
 */
-    Node root = new Node(1);
-    root.left = new Node(2);
+    Node root  = new Node(1);
+    root.left  = new Node(2);
     root.right = new Node(3);
     System.out.println("Original Tree");
     inorder(root);
