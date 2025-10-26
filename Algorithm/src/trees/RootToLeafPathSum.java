@@ -11,18 +11,18 @@ public class RootToLeafPathSum {
       System.out.println(sum);
       return;
     }
-    rootToLeafPathSum(root.left, sum);
+    rootToLeafPathSum(root.left,  sum);
     rootToLeafPathSum(root.right, sum);
   }
 
   public static void main(String[] args) {
-         /*
-                       4
-                      / \
-                     2   6
-                    / \  /\
-                   1  3  5 7
-         */
+    /*
+                  4
+                 / \
+                2   6
+               / \  /\
+              1  3  5 7
+    */
     Node root        = new Node(4);
     root.left        = new Node(2);
     root.right       = new Node(6);
