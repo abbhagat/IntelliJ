@@ -17,13 +17,13 @@ public class LongestSubstringWithKDistinctCharacters {
         char y = s.charAt(start);
         map.put(y, map.get(y) - 1);
         if (map.get(y) == 0) {
-          map.remove(y);
+            map.remove(y);
         }
         start++;
       }
       if (max < end - start + 1) {
-        max = end - start + 1;
-        index = start;
+          max = end - start + 1;
+          index = start;
       }
     }
     System.out.println(s.substring(index, index + max) + "\t" + max);
@@ -31,8 +31,8 @@ public class LongestSubstringWithKDistinctCharacters {
 
   public static void main(String[] args) {
     longestSubstring("aabacbebebe", 3);
-    longestSubstring("aabbcc", 1);
-    longestSubstring("aabbcc", 2);
-    longestSubstring("aabbcc", 3);
+    longestSubstring("aabbcc",      1);
+    longestSubstring("aabbcc",      2);
+    longestSubstring("aabbcc",      3);
   }
 }

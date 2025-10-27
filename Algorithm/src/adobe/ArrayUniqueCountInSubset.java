@@ -23,7 +23,7 @@ public class ArrayUniqueCountInSubset {
   // Time  Complexity: O(n * k)
   //  Space Complexity: O(k)
   public static int[] distinctNumbers1(int[] nums, int k) {
-    int n = nums.length - k + 1;
+    int n   = nums.length - k + 1;
     int[] a = new int[n];
     Set<Integer> set = new HashSet<>();
     for (int i = 0; i < n; i++) {
@@ -39,7 +39,7 @@ public class ArrayUniqueCountInSubset {
   // Time  Complexity: O(n)
   //  Space Complexity: O(k)
   public static int[] distinctNumbers2(int[] a, int k) {
-    int n = a.length - k + 1;
+    int n     = a.length - k + 1;
     int[] res = new int[n];
     Map<Integer, Integer> map = new HashMap<>();
     IntStream.range(0, k).forEach(i -> map.put(a[i], map.getOrDefault(a[i], 0) + 1));
