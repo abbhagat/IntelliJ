@@ -15,8 +15,8 @@ public class MaxDiffBtwTwoElementSuchThatLargerElementAppearsAfterSmallerNumber 
     int prevDiff = a[1] - a[0], maxDiff = prevDiff;
     for (int i = 1; i + 1 < a.length; i++) {
       int currDiff = a[i + 1] - a[i];
-      prevDiff = prevDiff > 0 ? prevDiff + currDiff : currDiff;
-      maxDiff = max(maxDiff, prevDiff);
+      prevDiff     = prevDiff > 0 ? prevDiff + currDiff : currDiff;
+      maxDiff      = max(maxDiff, prevDiff);
     }
     return maxDiff;
   }
