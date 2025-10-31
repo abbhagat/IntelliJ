@@ -13,7 +13,6 @@ public class ConnectionPool {
   private final String password;
 
   private static final Vector<Connection> connectionPool = new Vector<>();
-
   private static final int MAX_POOL_SIZE = 10;
 
   public ConnectionPool() {

@@ -20,7 +20,7 @@ class OddEvenThreadPrinter {
             monitor.wait();
           } else {
             System.out.println(n++ + " " + Thread.currentThread().getName());
-            threadIDToRun = threadID.contentEquals("EVEN") ? "ODD" : "EVEN";
+            threadIDToRun = threadID.equals("EVEN") ? "ODD" : "EVEN";
             monitor.notifyAll();
           }
         }

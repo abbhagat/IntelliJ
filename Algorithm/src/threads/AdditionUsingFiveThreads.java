@@ -18,7 +18,7 @@ public class AdditionUsingFiveThreads {
   }
 
   public static void main(String[] args) throws InterruptedException, ExecutionException {
-    ExecutorService service = Executors.newFixedThreadPool(10);
+    ExecutorService service = Executors.newFixedThreadPool(3);
     WorkerThread[] workerThreads = new WorkerThread[5];
     workerThreads[0] = new WorkerThread(10, 20);
     workerThreads[1] = new WorkerThread(21, 30);
@@ -27,7 +27,7 @@ public class AdditionUsingFiveThreads {
     workerThreads[4] = new WorkerThread(51, 60);
     for (WorkerThread workerThread : workerThreads) {
       Future<Integer> future = service.submit(workerThread);
-      System.out.println(future.get());  // future.get() is a synchronous call it blocks the current thread
+      System.out.println("Return Val of call() " + future.get());  // future.get() is a synchronous call it blocks the current thread
       Thread.sleep(500);
     }
     service.shutdown();
