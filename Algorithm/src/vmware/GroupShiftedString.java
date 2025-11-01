@@ -11,13 +11,13 @@ public class GroupShiftedString {
     Map<String, List<String>> map = new HashMap<>();
     stringList.forEach(s -> {
       int offset = s.charAt(0) - 'a';
-      String key = "";
+      StringBuilder key = new StringBuilder();
       for (char x : s.toCharArray()) {
         char c = (char) (x - offset);
         c += (char) (c < 'a' ? 26 : 0);
-        key += c;
+        key.append(c);
       }
-      map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+      map.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(s);
     });
     System.out.println(map.values());
   }
