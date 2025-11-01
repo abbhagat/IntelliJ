@@ -1,7 +1,6 @@
 package interval;
 
 import util.Interval;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class MeetingRoomsII {
     int n = 1;
     for (Interval interval : intervalList) {
       if (mergeInterval.isEmpty() || mergeInterval.getLast().start < interval.start || mergeInterval.getLast().end <= interval.start) {
-        mergeInterval.add(interval);
+          mergeInterval.add(interval);
       } else {
         n++;
       }
@@ -33,7 +32,7 @@ public class MeetingRoomsII {
     int n = 1;
     for (int i = 1; i < a.length; i++) {
       if (mergeInterval.getLast()[0] < a[i][0] || mergeInterval.getLast()[1] <= a[i][0]) {
-        mergeInterval.add(a[i]);
+          mergeInterval.add(a[i]);
       } else {
         n++;
       }
