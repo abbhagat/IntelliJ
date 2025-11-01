@@ -3,7 +3,7 @@ package vmware;
 public class NumberOfStringSegments {
 
   private static int findNoOfSegments(String str) {
-    return str.isEmpty() ? 0 : str.trim().split(" ").length;
+    return str.isEmpty() ? 0 : str.trim().split(" ", -1).length;
   }
 
   public static void main(String[] args) {

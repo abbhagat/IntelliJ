@@ -9,29 +9,29 @@ public class HitCounter {
   private final int time;
 
   public HitCounter(int timeInSecs, int time) {
-    this.hits = new int[timeInSecs];
+    this.hits  = new int[timeInSecs];
     this.times = new int[timeInSecs];
-    this.time = time;
+    this.time  = time;
   }
 
   public void hit(int timestamp) {
     int i = timestamp % time;
     if (times[i] != timestamp) {
-      times[i] = timestamp;
-      hits[i] = 1;
+        times[i]  = timestamp;
+        hits[i]   = 1;
     } else {
       hits[i]++;
     }
   }
 
   public int getHits(int timestamp) {
-    int hits = 0;
+    int count = 0;
     for (int i = 0; i < time; i++) {
       if (timestamp - times[i] < time) {
-        hits += this.hits[i];
+          count += hits[i];
       }
     }
-    return hits;
+    return count;
   }
 
   public static void main(String[] args) {
