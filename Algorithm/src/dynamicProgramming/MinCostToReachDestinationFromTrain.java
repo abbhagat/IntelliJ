@@ -1,8 +1,6 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
-
-import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class MinCostToReachDestinationFromTrain {
@@ -26,9 +24,7 @@ public class MinCostToReachDestinationFromTrain {
     dp[0] = 0;
     for (int i = 0; i < n; i++) {
       for (int j = i + 1; j < n; j++) {
-        if (dp[j] > dp[i] + cost[i][j]) {
-            dp[j] = dp[i] + cost[i][j];
-        }
+           dp[j] = min(dp[j], dp[i] + cost[i][j]);
       }
     }
     return dp[n - 1];
