@@ -16,7 +16,7 @@ public class MaxProfitByBuyAndSellStocks {
   private static int maxProfit(int[] a) {
     int buy = Integer.MAX_VALUE, profit = 0;
     for (int x : a) {
-      buy = min(buy, x);
+      buy    = min(buy, x);
       profit = max(profit, x - buy);
     }
     return profit;

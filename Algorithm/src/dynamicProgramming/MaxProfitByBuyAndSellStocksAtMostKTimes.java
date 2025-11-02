@@ -5,7 +5,7 @@ import static java.lang.Integer.max;
 public class MaxProfitByBuyAndSellStocksAtMostKTimes {
 
   private static int maxProfit(int[] price, final int k) {
-    int n = price.length - 1;
+    int      n = price.length - 1;
     int[][] dp = new int[k + 1][n + 1];
     for (int i = 0; i <= k; i++) {    // For day 0, you can't earn money irrespective of how many times you trade
       dp[i][0] = 0;
