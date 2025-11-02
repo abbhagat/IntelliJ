@@ -27,7 +27,7 @@ public class HuffmanCoding {
       list.forEach(result::append);
       return;
     }
-    findPath(root.left, c, list, '0');
+    findPath(root.left,  c, list, '0');
     findPath(root.right, c, list, '1');
     list.removeLast();
   }
