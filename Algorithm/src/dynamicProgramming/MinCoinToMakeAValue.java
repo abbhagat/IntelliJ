@@ -31,18 +31,16 @@ public class MinCoinToMakeAValue {
     for (int i = 1; i <= V; i++) {
       for (int coin : coins)
         if (coin <= i) {
-          int result = dp[i - coin];
-          if (result != Integer.MAX_VALUE && dp[i] > result + 1) {
-            dp[i] = result + 1;
-          }
+          int result = 1 + dp[i - coin];
+          dp[i] = min(dp[i], result);
         }
     }
-    return dp[V] == Integer.MAX_VALUE ? -1 : dp[V];
+    return dp[V];
   }
 
   public static void main(String[] args) {
     System.out.println(minCoins(new int[]{9, 6, 5, 1}, 11) + "\t" + minCoinsDP(new int[]{9, 6, 5, 1}, 11));
-    System.out.println(minCoins(new int[]{25, 10, 5}, 30) + "\t" + minCoinsDP(new int[]{25, 10, 5}, 30));
+    System.out.println(minCoins(new int[]{25, 10, 5}, 30)  + "\t" + minCoinsDP(new int[]{25, 10, 5},  30));
     System.out.println(minCoins(new int[]{9, 6, 5, 1}, 21) + "\t" + minCoinsDP(new int[]{9, 6, 5, 1}, 21));
   }
 }
