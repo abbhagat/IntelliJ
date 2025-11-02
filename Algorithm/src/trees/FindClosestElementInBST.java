@@ -1,18 +1,18 @@
 package trees;
 
 /*
-Input:
-            10
-          /   \
-         2    11
-       /  \
-      1    5
-          /  \
-         3    6
-          \
-           4
-K = 13 Output: 2
-Explanation: K=13. The node that has value nearest to K is 11. so the answer is 2
+ * Input:
+ *             10
+ *           /   \
+ *          2    11
+ *        /  \
+ *       1    5
+ *           /  \
+ *          3    6
+ *           \
+ *            4
+ * K = 13 Output: 2
+ * Explanation: K=13. The node that has value nearest to K is 11. so the answer is 2
 */
 
 import static java.lang.Math.abs;
@@ -32,7 +32,7 @@ public class FindClosestElementInBST {
       closest = diff;
       closetNode.node = root;
     }
-    findClosest(root.left, k, closest, closetNode);
+    findClosest(root.left,  k, closest, closetNode);
     findClosest(root.right, k, closest, closetNode);
   }
 

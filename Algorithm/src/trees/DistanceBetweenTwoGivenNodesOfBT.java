@@ -12,7 +12,7 @@ public class DistanceBetweenTwoGivenNodesOfBT {
     if (root == target) {
       return level;
     }
-    int distance = findLevel(root.left, target, level + 1);
+    int distance    =      findLevel(root.left,  target, level + 1);
     return distance == 0 ? findLevel(root.right, target, level + 1) : distance;
   }
 
