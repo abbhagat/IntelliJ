@@ -4,7 +4,7 @@ import static trees.TreeTraversal.postorder;
 
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
 
-  static class PostIndex {
+  public static class PostIndex {
     int index;
   }
 
@@ -16,9 +16,9 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
     if (start == end) {
       return root;
     }
-    int idx = search(inorder, root.num, start, end);
+    int idx    = search(inorder, root.num, start, end);
     root.right = buildTree(inorder, postOrder, idx + 1, end, postIndex);
-    root.left = buildTree(inorder, postOrder, start, idx - 1, postIndex);
+    root.left  = buildTree(inorder, postOrder, start, idx - 1, postIndex);
     return root;
   }
 
