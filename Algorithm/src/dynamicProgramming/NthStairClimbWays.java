@@ -19,21 +19,18 @@ public class NthStairClimbWays {
     dp[1] = 1;
     dp[2] = 2;
     for (int i = 3; i <= n; i++) {
-      dp[i] = dp[i - 1] + dp[i - 2];
+         dp[i] = dp[i - 1] + dp[i - 2];
     }
     return dp[n];
   }
 
-  // Time  Complexity: O(2^n)
+   // Time  Complexity: O(2^n)
   // Space Complexity: O(1)
   private static int stairCount(int n) {
     switch (n) {
-      case 1:
-        return 1;
-      case 2:
-        return 2;
-      default:
-        return stairCount(n - 1) + stairCount(n - 2);
+      case 1:  return 1;
+      case 2:  return 2;
+      default: return stairCount(n - 1) + stairCount(n - 2);
     }
   }
 
