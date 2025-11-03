@@ -35,12 +35,12 @@ public class NthStairClimbWays {
   }
 
   private static int climbStairs(int n) {
-    int s1 = 1, s2 = 2;
+    int s1 = 1, s2 = 2, t;
     for (int i = 2; i < n; i++) {
       s1 += s2;
-      int t = s1;  // swap(s1,s2);
-      s1 = s2;
-      s2 = t;
+       t  = s1;  // swap(s1,s2);
+      s1  = s2;
+      s2  = t;
     }
     return n >= 2 ? s2 : s1;
   }
