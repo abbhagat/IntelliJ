@@ -1,11 +1,9 @@
 package util;
 
 import doublylinkedlist.Node;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
-
 import static java.lang.Integer.min;
 
 public class CommonUtils {
@@ -60,7 +58,7 @@ public class CommonUtils {
   }
 
   public static int minimum(int x, int y, int z) {
-    return Integer.min(x, Integer.min(y, z));
+    return min(x, min(y, z));
   }
 
   public static int maximum(int x, int y, int z) {
