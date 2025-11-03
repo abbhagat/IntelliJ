@@ -4,16 +4,9 @@ import static java.lang.Integer.max;
 
 /**
  * Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.
- * Example 1:
- * <p>
- * Input: word1 = "sea", word2 = "eat"
- * Output: 2
+ * Example 1: Input: word1 = "sea", word2 = "eat" Output: 2
  * Explanation: You need one step to make "sea" to "ea" and another step to make "eat" to "ea".
- * Example 2:
- * <p>
- * Input: word1 = "leetcode", word2 = "etco"
- * Output: 4
- * <p>
+ * Example 2: Input: word1 = "leetcode", word2 = "etco" Output: 4
  * The intuition behind this is to find the LCS (The Longest Common Subsequence) between the two strings.
  * The characters that are not part of the LCS need to be deleted to make the two strings equal.
  * By subtracting the LCS count from the total length of the strings, we can determine the characters that need to be deleted.
@@ -58,13 +51,13 @@ public class DeleteOperationOnTwoStrings {
   }
 
   public static void main(String[] args) {
-    System.out.println(minDistance("cat", "") + "\t" + minDistanceDP("cat", ""));
-    System.out.println(minDistance("cat", "cut") + "\t" + minDistanceDP("cat", "cut"));
-    System.out.println(minDistance("geek", "gesek") + "\t" + minDistanceDP("geek", "gesek"));
-    System.out.println(minDistance("sunday", "saturday") + "\t" + minDistanceDP("sunday", "saturday"));
-    System.out.println(minDistance("ros", "horse") + "\t" + minDistanceDP("ros", "horse"));
-    System.out.println(minDistance("sea", "eat") + "\t" + minDistanceDP("sea", "eat"));
-    System.out.println(minDistance("etco", "leetcode") + "\t" + minDistanceDP("etco", "leetcode"));
-    System.out.println(minDistance("ace", "abcde") + "\t" + minDistanceDP("abcde", "ace"));
+    System.out.println(minDistance("cat", "")             + "\t" + minDistanceDP("cat", ""));
+    System.out.println(minDistance("cat", "cut")          + "\t" + minDistanceDP("cat", "cut"));
+    System.out.println(minDistance("geek", "gesek")       + "\t" + minDistanceDP("geek", "gesek"));
+    System.out.println(minDistance("sunday", "saturday")  + "\t" + minDistanceDP("sunday", "saturday"));
+    System.out.println(minDistance("ros", "horse")        + "\t" + minDistanceDP("ros", "horse"));
+    System.out.println(minDistance("sea", "eat")          + "\t" + minDistanceDP("sea", "eat"));
+    System.out.println(minDistance("etco", "leetcode")    + "\t" + minDistanceDP("etco", "leetcode"));
+    System.out.println(minDistance("ace", "abcde")        + "\t" + minDistanceDP("abcde", "ace"));
   }
 }

@@ -13,11 +13,11 @@ public class CuttingRodProblemKnapsackSoln {
       wt[i] = i + 1;
     }
     int W = wt.length;
-    int maxVal = cuttingRodSoln(W, wt, price, price.length - 1);
+    int maxVal = cutRod(W, wt, price, price.length - 1);
     System.out.println(maxVal);
   }
 
-  private static int cuttingRodSoln(int W, int[] wt, int[] price, int n) {
+  private static int cutRod(int W, int[] wt, int[] price, int n) {
     int[] dp = new int[W + 1];
     for (int i = 0; i <= W; i++) {
       for (int j = 0; j <= n; j++) {
