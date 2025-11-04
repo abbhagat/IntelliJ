@@ -11,9 +11,9 @@ public class MedianOfTwoArrays {
     for (int i = 0, j = 0, k = 0; k <= l / 2; k++) {
       prevMedian = median;
       if (i < a.length && j < b.length) {
-        median = a[i] < b[j] ? a[i++] : b[j++];
+        median = a[i] < b[j]    ? a[i++] : b[j++];
       } else {
-        median = i < a.length ? a[i++] : b[j++];
+        median =   i < a.length ? a[i++] : b[j++];
       }
     }
     return l % 2 == 0 ? (median + prevMedian) / 2 : median;

@@ -27,6 +27,7 @@ public class CreateMapFromList {
     Map<String, List<Integer>> deptToIdsMap = employeeList.stream()
                                                           .collect(groupingBy(Employee::deptName, mapping(Employee::id, toList())));
     System.out.println(deptToIdsMap);
+
     Map<String, List<Integer>> map = new LinkedHashMap<>();
     employeeList.forEach(emp -> {
       String deptName = emp.deptName();
@@ -35,5 +36,12 @@ public class CreateMapFromList {
       map.put(deptName, list);
     });
     System.out.println(map);
+
+    Map<String, List<Integer>> deptListMap = new LinkedHashMap<>();
+    employeeList.forEach(emp -> {
+      String deptName = emp.deptName();
+      deptListMap.computeIfAbsent(deptName, k -> new ArrayList<>()).add(emp.id());
+    });
+    System.out.println(deptListMap);
   }
 }
