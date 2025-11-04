@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 
 public class CreateMapFromList {
 
-  private record Employee(int id, String deptName) {
-  }
+  private record Employee(int id, String deptName) {}
 
   public static void main(String[] args) {
 
@@ -21,9 +20,8 @@ public class CreateMapFromList {
     Employee emp6 = new Employee(6, "D8");
 
     List<Employee> employeeList = List.of(emp1, emp2, emp3, emp4, emp5, emp6);
-    Map<Integer, String> result = employeeList
-        .stream()
-        .collect(Collectors.toMap(Employee::id, Employee::deptName));
+    Map<Integer, String> result = employeeList.stream()
+                                              .collect(Collectors.toMap(Employee::id, Employee::deptName));
     System.out.println(result);
     Map<String, List<Integer>> deptToIdsMap = employeeList
         .stream()
