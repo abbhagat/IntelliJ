@@ -7,9 +7,9 @@ public class LocalDateDemo {
 
   public static void main(String[] args) {
     LocalDate today = LocalDate.now();
-    int year = today.getYear();
+    int year  = today.getYear();
     int month = today.getMonthValue();
-    int day = today.getDayOfMonth();
+    int day   = today.getDayOfMonth();
     System.out.printf("Year : %d  Month : %d  day : %d \t %n", year, month, day);
     System.out.println("Today's Local date : " + today);
     LocalDate dateOfBirth = LocalDate.of(1986, 10, 7);

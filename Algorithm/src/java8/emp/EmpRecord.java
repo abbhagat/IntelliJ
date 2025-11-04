@@ -33,6 +33,7 @@ public record EmpRecord(String name, int id) {
     System.out.println(emp1);
     System.out.println(emp2);
     System.out.println(emp1.equals(emp2));
+    System.out.println(emp1.hashCode() + "\t" + emp2.hashCode());
     System.out.println(emp1.hashCode() == emp2.hashCode());
   }
 }
