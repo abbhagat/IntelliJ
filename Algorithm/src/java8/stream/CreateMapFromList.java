@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
 
 public class CreateMapFromList {
 
@@ -23,17 +24,15 @@ public class CreateMapFromList {
     Map<Integer, String> result = employeeList.stream()
                                               .collect(Collectors.toMap(Employee::id, Employee::deptName));
     System.out.println(result);
-    Map<String, List<Integer>> deptToIdsMap = employeeList
-        .stream()
-        .collect(
-            Collectors.groupingBy(Employee::deptName, Collectors.mapping(Employee::id, Collectors.toList()))
-        );
+    Map<String, List<Integer>> deptToIdsMap = employeeList.stream()
+                                                          .collect(groupingBy(Employee::deptName, mapping(Employee::id, toList())));
     System.out.println(deptToIdsMap);
     Map<String, List<Integer>> map = new LinkedHashMap<>();
     employeeList.forEach(emp -> {
-      List<Integer> list = map.containsKey(emp.deptName()) ? map.get(emp.deptName()) : new ArrayList<>();
+      String deptName = emp.deptName();
+      List<Integer> list = map.containsKey(deptName) ? map.get(deptName) : new ArrayList<>();
       list.add(emp.id());
-      map.put(emp.deptName(), list);
+      map.put(deptName, list);
     });
     System.out.println(map);
   }
