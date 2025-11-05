@@ -2,7 +2,7 @@ package threads;
 
 class Q {
 
-  private boolean flag;
+  private volatile boolean flag;
   private volatile int n = 1;
 
   public synchronized void printODD() {
@@ -42,7 +42,7 @@ class Even {
   }
 
   Runnable runnable = () -> {
-    for (int i = 2; i <= 10; i += 2) {
+    for (int i = 1; i <= 5; i++) {
       q.printEven();
     }
   };
@@ -58,7 +58,7 @@ class Odd {
   }
 
   Runnable runnable = () -> {
-    for (int i = 1; i <= 10; i += 2) {
+    for (int i = 1; i <= 5; i++) {
       q.printODD();
     }
   };

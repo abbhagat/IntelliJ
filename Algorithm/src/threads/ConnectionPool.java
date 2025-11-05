@@ -58,11 +58,12 @@ public class ConnectionPool {
     connectionPool.add(connection);
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws SQLException {
     ConnectionPool connectionPool = new ConnectionPool();
     Connection connection = connectionPool.getConnectionFromPool();
     System.out.println("Got connection: " + connection);
     connectionPool.returnConnectionToPool(connection);
     System.out.println("Returned connection to pool.");
+    connection.close();
   }
 }
