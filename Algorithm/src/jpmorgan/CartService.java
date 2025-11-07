@@ -10,11 +10,12 @@ class TotalCartQty {
 
 class ItemCart {
 
-  private static final Map<String, Integer> itemQtyMap = new ConcurrentHashMap<>();
-  private static final Map<String, String> categoryMap = new ConcurrentHashMap<>();
+  private static final Map<String, Integer> itemQtyMap     = new ConcurrentHashMap<>();
+  private static final Map<String, String> categoryMap     = new ConcurrentHashMap<>();
   private static final Map<String, Integer> categoryQtyMap = new ConcurrentHashMap<>();
+
   @Getter
-  private final Map<String, Map<String, Integer>> cartMap = new ConcurrentHashMap<>();  // put(category,put(item,qty))
+  private final Map<String, Map<String, Integer>> cartMap  = new ConcurrentHashMap<>();  // put(category,put(item,qty))
 
   static {
     itemQtyMap.put("Apple", 10);             // Map<String,Integer> itemQtyMap     =    APPLE, 10  validation
