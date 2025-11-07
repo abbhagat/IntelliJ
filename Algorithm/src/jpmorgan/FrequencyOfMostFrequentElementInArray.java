@@ -17,9 +17,9 @@ import static java.lang.Integer.max;
  * Input: a = [1,4,8,13], k = 5
  * Output: 2
  * Explanation: There are multiple optimal solutions:
- * - Increment the first  element three times to make a = [4,4,8,13].   4 has a frequency of 2.
- * - Increment the second element four  times to make a = [1,8,8,13].   8 has a frequency of 2.
- * - Increment the third  element five  times to make a = [1,4,13,13]. 13 has a frequency of 2.
+ * - Increment the first  element three times to make a = [4,4,8,13]   4 has a frequency of 2.
+ * - Increment the second element four  times to make a = [1,8,8,13]   8 has a frequency of 2.
+ * - Increment the third  element five  times to make a = [1,4,13,13] 13 has a frequency of 2.
  * Example 3:
  * Input: a = [3,9,6], k = 2
  * Output: 1
@@ -34,7 +34,7 @@ public class FrequencyOfMostFrequentElementInArray {
     for (int i = 0, j = 0; i < a.length; i++) {
       sum += a[i];                               // Add the current element to the sum
       while (a[i] * (i - j + 1) > sum + k) {    //  Adjust the left pointer to maintain the frequency constraint
-        sum -= a[j];                         //   Subtract the leftmost element from the sum
+        sum -= a[j];                           //   Subtract the leftmost element from the sum
         j++;
       }
       max = max(max, i - j + 1);          // Update the maximum frequency

@@ -19,7 +19,7 @@ public class MajorityElement {
 
   private static int majorityElement(int[] a) {
     Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(n -> map.merge(n, 1, Integer::sum));
+    Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
     return Arrays.stream(a).filter(n -> map.get(n) > a.length / 2).findFirst().orElse(-1);
   }
 
