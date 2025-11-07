@@ -34,8 +34,8 @@ public class CommonUtils {
 
   public static void swap(Node x, Node y) {
     int temp = x.num;
-    x.num = y.num;
-    y.num = temp;
+    x.num    = y.num;
+    y.num    = temp;
   }
 
   public static boolean isPalindrome(String str, int i, int j) {
