@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: kafka-stream-order-app
+  profiles:
+    active: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  kafka:
+    streams:
+      application-id:

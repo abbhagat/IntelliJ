@@ -12,7 +12,7 @@ public class ArraySplitInChunks {
   private static List<int[]> splitArray(int[] a, int splitSize) {
     int n = a.length;
     int remainingSize = n % splitSize;
-    List<int[]> list = new ArrayList<>();
+    List<int[]> list  = new ArrayList<>();
     int i;
     for (i = 0; i < a.length - remainingSize; i += splitSize) {
       int[] t = new int[splitSize];

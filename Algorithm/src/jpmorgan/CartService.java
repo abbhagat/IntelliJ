@@ -1,12 +1,8 @@
 package jpmorgan;
 
 import lombok.Getter;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-// Map<String,Integer> itemQtyMap     =    APPLE, 10  validation
-// Map<String,Integer> categoryQtyMap =    FRUIT, 20  validation
 
 class TotalCartQty {
   int totalQtyInCart;
@@ -15,48 +11,52 @@ class TotalCartQty {
 class ItemCart {
 
   private static final Map<String, Integer> itemQtyMap = new ConcurrentHashMap<>();
-  private static final Map<String, String> itemcategoryMap = new ConcurrentHashMap<>();
+  private static final Map<String, String> categoryMap = new ConcurrentHashMap<>();
   private static final Map<String, Integer> categoryQtyMap = new ConcurrentHashMap<>();
   @Getter
   private final Map<String, Map<String, Integer>> cartMap = new ConcurrentHashMap<>();  // put(category,put(item,qty))
 
   static {
-    itemQtyMap.put("Apple", 10);
-    itemQtyMap.put("Banana", 5);
+    itemQtyMap.put("Apple", 10);             // Map<String,Integer> itemQtyMap     =    APPLE, 10  validation
+    itemQtyMap.put("Banana", 5);            // Map<String,Integer> categoryQtyMap  =    FRUIT, 20  validation
     itemQtyMap.put("Orange", 8);
     itemQtyMap.put("Mango", 12);
     itemQtyMap.put("Guava", 12);
 
-    itemcategoryMap.put("Apple", "Fruit");
-    itemcategoryMap.put("Banana", "Fruit");
-    itemcategoryMap.put("Orange", "Fruit");
-    itemcategoryMap.put("Mango", "Fruit");
-    itemcategoryMap.put("Guava", "Fruit");
-    itemcategoryMap.put("Pen", "Stationery");
-    itemcategoryMap.put("Pencil", "Stationery");
+    categoryMap.put("Apple", "Fruit");
+    categoryMap.put("Banana", "Fruit");
+    categoryMap.put("Orange", "Fruit");
+    categoryMap.put("Mango", "Fruit");
+    categoryMap.put("Guava", "Fruit");
+    categoryMap.put("Pen", "Stationery");
+    categoryMap.put("Pencil", "Stationery");
+    categoryMap.put("Eraser", "Stationery");
 
     categoryQtyMap.put("Fruit", 20);
     categoryQtyMap.put("Stationery", 15);
   }
 
   public void addItemToCart(String item, int qty, TotalCartQty totalCartQty) {
-    String category = !itemcategoryMap.isEmpty() && itemcategoryMap.containsKey(item) ? itemcategoryMap.get(item) : null;
-    if (category != null && cartMap.containsKey(category)) {
-      int sumOfCategoryCount = cartMap.get(category).values().stream().reduce(0, Integer::sum);
-      int count = cartMap.get(category).getOrDefault(item, 0);
-      if (count < itemQtyMap.get(item) && sumOfCategoryCount < categoryQtyMap.get(category) && totalCartQty.totalQtyInCart < 100) {
-        Map<String, Integer> tempMap = cartMap.get(category);
-        totalCartQty.totalQtyInCart += qty;
-        tempMap.put(item, qty);
-        cartMap.put(category, tempMap);
-      } else {
-        System.out.println("Item or category limit exceeded for item: " + item + " in category: " + category);
-      }
-    } else {
-      Map<String, Integer> tempMap = new ConcurrentHashMap<>();
+
+    String category = categoryMap.get(item);
+
+    cartMap.putIfAbsent(category, new ConcurrentHashMap<>());
+    Map<String, Integer> categoryItems = cartMap.get(category);
+
+    var itemLimit            = itemQtyMap.getOrDefault(item, Integer.MAX_VALUE);
+    var categoryLimit        = categoryQtyMap.getOrDefault(category, Integer.MAX_VALUE);
+    var currentCategoryTotal = categoryItems.values().stream().reduce(0, Integer::sum);
+    var currentItemCount     = categoryItems.getOrDefault(item, 0);
+
+    var withinItemLimit      = currentItemCount + qty <= itemLimit;
+    var withinCategoryLimit  = currentCategoryTotal + qty <= categoryLimit;
+    var withinCartLimit      = totalCartQty.totalQtyInCart + qty <= 100;
+
+    if (withinItemLimit && withinCategoryLimit && withinCartLimit) {
+      categoryItems.put(item, currentItemCount + qty);
       totalCartQty.totalQtyInCart += qty;
-      tempMap.put(item, qty);
-      cartMap.put(category, tempMap);
+    } else {
+      System.out.printf("Item or category limit exceeded for item: %s in category: %s%n", item, category);
     }
   }
 }
@@ -71,7 +71,7 @@ public class CartService {
     itemCart.addItemToCart("Orange", 2, totalCartQty);
     itemCart.addItemToCart("Mango", 10, totalCartQty);
     itemCart.addItemToCart("Guava", 12, totalCartQty);
-    System.out.println(itemCart.getCartMap());
+    itemCart.getCartMap().forEach((category, items) -> items.forEach((item, quantity) -> System.out.println(category + "\t" + item + "\t" + quantity)));
     System.out.println("Total quantity in cart: " + totalCartQty.totalQtyInCart);
   }
 }
