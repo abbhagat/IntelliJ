@@ -13,7 +13,7 @@ public class CalculateSizeOfObject {
     public static void main(String[] args) throws Exception {
         Employee emp = new Employee(1, "Abhinaw", LocalDate.of(1986, 10, 7));
         System.out.println(emp);
-        FileOutputStream fos = new FileOutputStream("Employee.txt");
+        FileOutputStream  fos = new FileOutputStream("Employee.txt");
         ObjectOutputStream os = new ObjectOutputStream(fos);
         os.writeObject(emp);
         File file = new File("Employee.txt");
