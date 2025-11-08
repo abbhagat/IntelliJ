@@ -16,16 +16,16 @@ package adobe;
 // Time Complexity : O(n) n = length of the largest string
 public class DeleteOperationOnThreeStrings {
 
-  private static int findMinimumOperations(String s1, String s2, String s3) {
-    int i = 0;
-    while (i < s1.length() && i < s2.length() && i < s3.length() && s1.charAt(i) == s2.charAt(i) && s2.charAt(i) == s3.charAt(i)) {
-      i++;
+    private static int findMinimumOperations(String s1, String s2, String s3) {
+        int i = 0;
+        while (i < s1.length() && i < s2.length() && i < s3.length() && s1.charAt(i) == s2.charAt(i) && s2.charAt(i) == s3.charAt(i)) {
+            i++;
+        }
+        return i == 0 || i > s1.length() || i > s2.length() || i > s3.length() ? -1 : s1.length() - i + s2.length() - i + s3.length() - i;
     }
-    return i == 0 || i > s1.length() || i > s2.length() || i > s3.length() ? -1 : s1.length() - i + s2.length() - i + s3.length() - i;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(findMinimumOperations("abc", "abb", "ab"));
-    System.out.println(findMinimumOperations("dac", "bac", "cac"));
-  }
+    public static void main(String[] args) {
+        System.out.println(findMinimumOperations("abc", "abb", "ab"));
+        System.out.println(findMinimumOperations("dac", "bac", "cac"));
+    }
 }

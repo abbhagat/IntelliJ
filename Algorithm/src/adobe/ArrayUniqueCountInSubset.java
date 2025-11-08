@@ -1,6 +1,9 @@
 package adobe;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import static util.CommonUtils.printArray;
@@ -20,46 +23,46 @@ import static util.CommonUtils.printArray;
  */
 
 public class ArrayUniqueCountInSubset {
-  // Time  Complexity: O(n * k)
-  //  Space Complexity: O(k)
-  public static int[] distinctNumbers1(int[] nums, int k) {
-    int n   = nums.length - k + 1;
-    int[] a = new int[n];
-    Set<Integer> set = new HashSet<>();
-    for (int i = 0; i < n; i++) {
-      for (int j = i; j < nums.length && j < k + i; j++) {
-        set.add(nums[j]);
-      }
-      a[i] = set.size();
-      set.clear();
+    // Time  Complexity: O(n * k)
+    //  Space Complexity: O(k)
+    public static int[] distinctNumbers1(int[] nums, int k) {
+        int n = nums.length - k + 1;
+        int[] a = new int[n];
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < nums.length && j < k + i; j++) {
+                set.add(nums[j]);
+            }
+            a[i] = set.size();
+            set.clear();
+        }
+        return a;
     }
-    return a;
-  }
 
-  // Time  Complexity: O(n)
-  //  Space Complexity: O(k)
-  public static int[] distinctNumbers2(int[] a, int k) {
-    int n     = a.length - k + 1;
-    int[] res = new int[n];
-    Map<Integer, Integer> map = new HashMap<>();
-    IntStream.range(0, k).forEach(i -> map.put(a[i], map.getOrDefault(a[i], 0) + 1));
-    res[0] = map.size();
-    // Slide the window
-    for (int i = 1; i < n; i++) {
-      int x = a[i - 1];         // Remove the element going out of the window
-      map.put(x, map.get(x) - 1);
-      if (map.get(x) == 0) {
-        map.remove(x);
-      }
-      int y = a[i + k - 1];   // Add the new element coming into the window
-      map.put(y, map.getOrDefault(y, 0) + 1);
-      res[i] = map.size();  // Store the size of the map as the count of distinct elements
+    // Time  Complexity: O(n)
+    //  Space Complexity: O(k)
+    public static int[] distinctNumbers2(int[] a, int k) {
+        int n = a.length - k + 1;
+        int[] res = new int[n];
+        Map<Integer, Integer> map = new HashMap<>();
+        IntStream.range(0, k).forEach(i -> map.put(a[i], map.getOrDefault(a[i], 0) + 1));
+        res[0] = map.size();
+        // Slide the window
+        for (int i = 1; i < n; i++) {
+            int x = a[i - 1];         // Remove the element going out of the window
+            map.put(x, map.get(x) - 1);
+            if (map.get(x) == 0) {
+                map.remove(x);
+            }
+            int y = a[i + k - 1];   // Add the new element coming into the window
+            map.put(y, map.getOrDefault(y, 0) + 1);
+            res[i] = map.size();  // Store the size of the map as the count of distinct elements
+        }
+        return res;
     }
-    return res;
-  }
 
-  public static void main(String[] args) {
-    printArray(distinctNumbers1(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
-    printArray(distinctNumbers2(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
-  }
+    public static void main(String[] args) {
+        printArray(distinctNumbers1(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
+        printArray(distinctNumbers2(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
+    }
 }

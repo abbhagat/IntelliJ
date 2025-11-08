@@ -20,29 +20,29 @@ import java.util.Arrays;
 
 public class MaxLengthChainPairs {
 
-  private static int maxChainLength(Pair[] pair) {
-    int n = pair.length;
-    int[] mcl = new int[n];
-    Arrays.fill(mcl, 1);
-    for (int i = 1; i < n; i++) {
-      for (int j = 0; j < i; j++) {
-        if (pair[i].x > pair[j].y && mcl[i] < mcl[j] + 1) {
-          mcl[i] = mcl[j] + 1;
+    private static int maxChainLength(Pair[] pair) {
+        int n = pair.length;
+        int[] mcl = new int[n];
+        Arrays.fill(mcl, 1);
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (pair[i].x > pair[j].y && mcl[i] < mcl[j] + 1) {
+                    mcl[i] = mcl[j] + 1;
+                }
+            }
         }
-      }
+        // mcl[i] now stores the maximum chain length ending with pair i Pick maximum of all MCL values
+        return Arrays.stream(mcl).max().getAsInt();
     }
-    // mcl[i] now stores the maximum chain length ending with pair i Pick maximum of all MCL values
-    return Arrays.stream(mcl).max().getAsInt();
-  }
 
-  public static void main(String[] args) {
-    Pair[] pair = new Pair[]
-        {
-            new Pair(5, 24),
-            new Pair(15, 25),
-            new Pair(27, 40),
-            new Pair(50, 60)
-        };
-    System.out.println("Maximum Chain Size = " + maxChainLength(pair));
-  }
+    public static void main(String[] args) {
+        Pair[] pair = new Pair[]
+                {
+                        new Pair(5, 24),
+                        new Pair(15, 25),
+                        new Pair(27, 40),
+                        new Pair(50, 60)
+                };
+        System.out.println("Maximum Chain Size = " + maxChainLength(pair));
+    }
 }

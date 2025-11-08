@@ -24,22 +24,22 @@ import static trees.TreeTraversal.inorder;
 // Time Complexity: O(n)
 public class ConvertGivenTreeToSumTree {
 
-  private static int convert(Node root) {
-    if (root == null) {
-      return 0;
+    private static int convert(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int oldVal = root.num;
+        int leftSum = convert(root.left);
+        int rightSum = convert(root.right);
+        root.num = leftSum + rightSum;
+        return root.num + oldVal;
     }
-    int oldVal = root.num;
-    int leftSum = convert(root.left);
-    int rightSum = convert(root.right);
-    root.num = leftSum + rightSum;
-    return root.num + oldVal;
-  }
 
-  public static void main(String[] args) {
-    Node root = new Node(2);
-    root.left = new Node(1);
-    root.right = new Node(3);
-    convert(root);
-    inorder(root);
-  }
+    public static void main(String[] args) {
+        Node root = new Node(2);
+        root.left = new Node(1);
+        root.right = new Node(3);
+        convert(root);
+        inorder(root);
+    }
 }

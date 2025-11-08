@@ -13,24 +13,24 @@ import java.util.Map;
  */
 public class IsomorphicWordPattern {
 
-  public static boolean isIsomorphicPattern(String s1, String s2) {
-    String[] word = s2.split(" ");
-    if (s1.length() == word.length) {
-      Map<Character, String> map = new HashMap<>();
-      char[] c = s1.toCharArray();
-      for (int i = 0; i < c.length; i++) {
-        if (map.containsKey(c[i]) && !map.get(c[i]).equals(word[i])) {
-          return false;
+    public static boolean isIsomorphicPattern(String s1, String s2) {
+        String[] word = s2.split(" ");
+        if (s1.length() == word.length) {
+            Map<Character, String> map = new HashMap<>();
+            char[] c = s1.toCharArray();
+            for (int i = 0; i < c.length; i++) {
+                if (map.containsKey(c[i]) && !map.get(c[i]).equals(word[i])) {
+                    return false;
+                }
+                map.put(c[i], word[i]);
+            }
+            return true;
         }
-        map.put(c[i], word[i]);
-      }
-      return true;
+        return false;
     }
-    return false;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(isIsomorphicPattern("abaa", "dog cat dog dog"));
-    System.out.println(isIsomorphicPattern("abaa", "dog cat cat dog"));
-  }
+    public static void main(String[] args) {
+        System.out.println(isIsomorphicPattern("abaa", "dog cat dog dog"));
+        System.out.println(isIsomorphicPattern("abaa", "dog cat cat dog"));
+    }
 }

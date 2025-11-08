@@ -25,45 +25,45 @@ Therefore,Total ways = (consonantCount! / duplicateConsonant!) * C(consonantCoun
 
 public class StringPermutationWithNoTwoAdjacentVowels {
 
-  private static int factorial(int n) {
-    return n == 0 ? 1 : n * factorial(n - 1);
-  }
+    private static int factorial(int n) {
+        return n == 0 ? 1 : n * factorial(n - 1);
+    }
 
-  private static int ncr(int n, int r) {  // Function to find c(n, r)
-    return factorial(n) / (factorial(r) * factorial(n - r));
-  }
+    private static int ncr(int n, int r) {  // Function to find c(n, r)
+        return factorial(n) / (factorial(r) * factorial(n - r));
+    }
 
-  private static int countWays(char[] c) {
-    int[] temp = new int[26];
-    for (char x : c) {
-      temp[x - 'a']++;
+    private static int countWays(char[] c) {
+        int[] temp = new int[26];
+        for (char x : c) {
+            temp[x - 'a']++;
+        }
+        int countVowels = 0, countConsonants = 0;
+        for (int i = 0; i < 26; i++) {
+            if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20) {
+                countVowels += temp[i];
+            } else {
+                countConsonants += temp[i];
+            }
+        }
+        int vplaces, cways, vways;
+        vplaces = countConsonants + 1;  // finding places for the vowels
+        cways = factorial(countConsonants);  // ways to fill consonants 6! / 2!
+        for (int i = 0; i < 26; i++) {
+            if (i != 0 && i != 4 && i != 8 && i != 14 && i != 20 && temp[i] > 1) {
+                cways = cways / factorial(temp[i]);
+            }
+        }
+        vways = ncr(vplaces, countVowels) * factorial(countVowels);  // ways to put vowels 7C5 x 5!
+        for (int i = 0; i < 26; i++) {
+            if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20 && temp[i] > 1) {
+                vways = vways / factorial(temp[i]);
+            }
+        }
+        return cways * vways;
     }
-    int countVowels = 0, countConsonants = 0;
-    for (int i = 0; i < 26; i++) {
-      if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20) {
-        countVowels += temp[i];
-      } else {
-        countConsonants += temp[i];
-      }
-    }
-    int vplaces, cways, vways;
-    vplaces = countConsonants + 1;  // finding places for the vowels
-    cways = factorial(countConsonants);  // ways to fill consonants 6! / 2!
-    for (int i = 0; i < 26; i++) {
-      if (i != 0 && i != 4 && i != 8 && i != 14 && i != 20 && temp[i] > 1) {
-        cways = cways / factorial(temp[i]);
-      }
-    }
-    vways = ncr(vplaces, countVowels) * factorial(countVowels);  // ways to put vowels 7C5 x 5!
-    for (int i = 0; i < 26; i++) {
-      if (i == 0 || i == 4 || i == 8 || i == 14 || i == 20 && temp[i] > 1) {
-        vways = vways / factorial(temp[i]);
-      }
-    }
-    return cways * vways;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(countWays("permutation".toCharArray()));
-  }
+    public static void main(String[] args) {
+        System.out.println(countWays("permutation".toCharArray()));
+    }
 }

@@ -16,21 +16,21 @@ package geeksforgeeks;
 
 public class MinSwitchNeedToTurnOnAllBulb {
 
-  private static int solve(int[] a) {
-    int state = 0, count = 0;
-    for (int x : a) {
-      if (x == state) {
-        state ^= 1;
-        count++;
-      }
+    private static int solve(int[] a) {
+        int state = 0, count = 0;
+        for (int x : a) {
+            if (x == state) {
+                state ^= 1;
+                count++;
+            }
+        }
+        return count;
     }
-    return count;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(solve(new int[]{0, 1, 0, 1}));
-    System.out.println(solve(new int[]{1, 0, 0, 0}));
-    System.out.println(solve(new int[]{1, 1, 1, 1}));
-    System.out.println(solve(new int[]{1, 1, 1, 0}));
-  }
+    public static void main(String[] args) {
+        System.out.println(solve(new int[]{0, 1, 0, 1}));
+        System.out.println(solve(new int[]{1, 0, 0, 0}));
+        System.out.println(solve(new int[]{1, 1, 1, 1}));
+        System.out.println(solve(new int[]{1, 1, 1, 0}));
+    }
 }

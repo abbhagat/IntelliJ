@@ -20,30 +20,30 @@ package geeks;
 // Space Complexity: O(1)
 public class TrappingRainWater {
 
-  private static int findWater(int[] a) {
-    int waterTrapped = 0, maxLeft = 0, maxRight = 0, low = 0, high = a.length - 1;
-    while (low <= high) {
-      if (a[low] < a[high]) {
-        if (maxLeft < a[low]) {
-          maxLeft = a[low];
-        } else {
-          waterTrapped += maxLeft - a[low];
+    private static int findWater(int[] a) {
+        int waterTrapped = 0, maxLeft = 0, maxRight = 0, low = 0, high = a.length - 1;
+        while (low <= high) {
+            if (a[low] < a[high]) {
+                if (maxLeft < a[low]) {
+                    maxLeft = a[low];
+                } else {
+                    waterTrapped += maxLeft - a[low];
+                }
+                low++;
+            } else {
+                if (maxRight < a[high]) {
+                    maxRight = a[high];
+                } else {
+                    waterTrapped += maxRight - a[high];
+                }
+                high--;
+            }
         }
-        low++;
-      } else {
-        if (maxRight < a[high]) {
-          maxRight = a[high];
-        } else {
-          waterTrapped += maxRight - a[high];
-        }
-        high--;
-      }
+        return waterTrapped;
     }
-    return waterTrapped;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(findWater(new int[]{4, 2, 0, 3, 2, 5}));
-    System.out.println(findWater(new int[]{3, 0, 2, 0, 4}));
-  }
+    public static void main(String[] args) {
+        System.out.println(findWater(new int[]{4, 2, 0, 3, 2, 5}));
+        System.out.println(findWater(new int[]{3, 0, 2, 0, 4}));
+    }
 }

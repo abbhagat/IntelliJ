@@ -8,21 +8,21 @@ import java.util.Date;
 
 public class TimeStampFromString {
 
-  private static Timestamp getTimeStampFromString(String strDate, String format) throws Exception {
-    Timestamp timeStampDate;
-    try {
-      DateFormat formatter = new SimpleDateFormat(format);
-      Date date = formatter.parse(strDate);
-      timeStampDate = new Timestamp(date.getTime());
-    } catch (ParseException e) {
-      throw e;
+    private static Timestamp getTimeStampFromString(String strDate, String format) throws Exception {
+        Timestamp timeStampDate;
+        try {
+            DateFormat formatter = new SimpleDateFormat(format);
+            Date date = formatter.parse(strDate);
+            timeStampDate = new Timestamp(date.getTime());
+        } catch (ParseException e) {
+            throw e;
+        }
+        return timeStampDate;
+
     }
-    return timeStampDate;
 
-  }
-
-  public static void main(String[] args) throws Exception {
-    System.out.println(getTimeStampFromString("09/30/2016 11:30:20", "MM/dd/yyyy"));
-    //System.out.println(getTimeStampFromString("09/30/2016","yyyy-MM-dd"));
-  }
+    public static void main(String[] args) throws Exception {
+        System.out.println(getTimeStampFromString("09/30/2016 11:30:20", "MM/dd/yyyy"));
+        //System.out.println(getTimeStampFromString("09/30/2016","yyyy-MM-dd"));
+    }
 }

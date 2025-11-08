@@ -8,28 +8,28 @@ import java.util.Map;
 // Space Complexity: O(n)
 public class FindPairsInArrayWhoseProductIsGivenNumber {
 
-  private static void findPairs(int[] a, int target) {
-    Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
-    for (int x : a) {
-      int y = target / x;
-      if (map.containsKey(y)) {
-        if (x == y && map.get(y) == 1) {
-          continue;
+    private static void findPairs(int[] a, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
+        for (int x : a) {
+            int y = target / x;
+            if (map.containsKey(y)) {
+                if (x == y && map.get(y) == 1) {
+                    continue;
+                }
+                System.out.println("(" + x + "," + y + ")");
+                map.remove(x);
+                map.remove(y);
+            }
         }
-        System.out.println("(" + x + "," + y + ")");
-        map.remove(x);
-        map.remove(y);
-      }
     }
-  }
 
-  public static void main(String[] args) {
-    int[] a = new int[]{12, 3, 6, 2, 12, 8, 3, 4, 144, 1};
-    findPairs(a, 12);
-    System.out.println();
-    findPairs(a, 24);
-    System.out.println();
-    findPairs(a, 144);
-  }
+    public static void main(String[] args) {
+        int[] a = new int[]{12, 3, 6, 2, 12, 8, 3, 4, 144, 1};
+        findPairs(a, 12);
+        System.out.println();
+        findPairs(a, 24);
+        System.out.println();
+        findPairs(a, 144);
+    }
 }

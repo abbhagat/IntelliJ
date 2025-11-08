@@ -7,20 +7,20 @@ import java.util.LinkedList;
 
 public class PrintAllSubsetOfString {
 
-  private static void findSubSet(char[] a, int index, LinkedList<Character> list) {
-    if (index == a.length) {
-      if (!list.isEmpty()) {
-        System.out.println(list);
-      }
-      return;
+    private static void findSubSet(char[] a, int index, LinkedList<Character> list) {
+        if (index == a.length) {
+            if (!list.isEmpty()) {
+                System.out.println(list);
+            }
+            return;
+        }
+        list.add(a[index]);
+        findSubSet(a, index + 1, list);
+        list.removeLast();
+        findSubSet(a, index + 1, list);
     }
-    list.add(a[index]);
-    findSubSet(a, index + 1, list);
-    list.removeLast();
-    findSubSet(a, index + 1, list);
-  }
 
-  public static void main(String[] args) {
-    findSubSet("abc".toCharArray(), 0, new LinkedList<>());
-  }
+    public static void main(String[] args) {
+        findSubSet("abc".toCharArray(), 0, new LinkedList<>());
+    }
 }

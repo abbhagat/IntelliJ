@@ -10,22 +10,22 @@ package gfg;
  */
 public class KthSmallestOddLengthPalindrome {
 
-  private static int reverse(int n) {
-    int rev = 0;
-    while (n != 0) {
-      int k = n % 10;
-      rev = rev * 10 + k;
-      n /= 10;
+    private static int reverse(int n) {
+        int rev = 0;
+        while (n != 0) {
+            int k = n % 10;
+            rev = rev * 10 + k;
+            n /= 10;
+        }
+        return rev;
     }
-    return rev;
-  }
 
-  private static String findKthSmallestOddLengthPalindrome(int n) {
-    return n + "" + reverse(n) % 10;
-  }
+    private static String findKthSmallestOddLengthPalindrome(int n) {
+        return n + "" + reverse(n) % 10;
+    }
 
-  public static void main(String[] args) {
-    System.out.println(findKthSmallestOddLengthPalindrome(10));
-    System.out.println(findKthSmallestOddLengthPalindrome(11));
-  }
+    public static void main(String[] args) {
+        System.out.println(findKthSmallestOddLengthPalindrome(10));
+        System.out.println(findKthSmallestOddLengthPalindrome(11));
+    }
 }

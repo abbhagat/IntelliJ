@@ -12,15 +12,15 @@ import static java.lang.Integer.max;
 
 public class LCMSumFrom1toN {
 
-  private static int lcm(int x, int y, int lcm) {
-    return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + y);
-  }
-
-  public static void main(String[] args) {
-    int n = 5, sum = 0;
-    for (int i = 1; i <= n; i++) {
-      sum += lcm(i, n, max(i, n));
+    private static int lcm(int x, int y, int lcm) {
+        return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + y);
     }
-    System.out.println(sum);
-  }
+
+    public static void main(String[] args) {
+        int n = 5, sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += lcm(i, n, max(i, n));
+        }
+        System.out.println(sum);
+    }
 }

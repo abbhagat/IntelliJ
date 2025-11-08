@@ -9,32 +9,32 @@ import java.util.Set;
  */
 public class ContainsDuplicateII {
 
-  private static boolean containsNearbyDuplicate(int[] a, int k) {
-    Set<Integer> set = new HashSet<>();
-    for (int i = 0; i < a.length; i++) {
-      if (!set.add(a[i])) {
-        return true;
-      }
-      if (i >= k) {
-        set.remove(a[i - k]);
-      }
+    private static boolean containsNearbyDuplicate(int[] a, int k) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < a.length; i++) {
+            if (!set.add(a[i])) {
+                return true;
+            }
+            if (i >= k) {
+                set.remove(a[i - k]);
+            }
+        }
+        return false;
     }
-    return false;
-  }
 
-  private static boolean containsDuplicate(int[] a) {
-    Set<Integer> set = new HashSet<>();
-    for (int x : a) {
-      if (!set.add(x)) {
-        return true;
-      }
+    private static boolean containsDuplicate(int[] a) {
+        Set<Integer> set = new HashSet<>();
+        for (int x : a) {
+            if (!set.add(x)) {
+                return true;
+            }
+        }
+        return false;
     }
-    return false;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3));
-    System.out.println(containsNearbyDuplicate(new int[]{1, 0, 1, 1}, 1));
-    System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1, 2, 3}, 2));
-  }
+    public static void main(String[] args) {
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3));
+        System.out.println(containsNearbyDuplicate(new int[]{1, 0, 1, 1}, 1));
+        System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1, 2, 3}, 2));
+    }
 }

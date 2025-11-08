@@ -7,25 +7,25 @@ import static util.CommonUtils.swap;
 // Space Complexity : O(1)
 public class ReArrangeArrayToOddEvenPlace {
 
-  private static void reArrangeArrayToOddEvenPlace(int[] a) {
-    int i = 0, j = 1;
-    while (i < a.length && j < a.length) {
-      if (a[i] % 2 == 1) {
-        i += 2;
-      } else if (a[j] % 2 == 0) {
-        j += 2;
-      } else {
-        swap(a, i, j);
-        j = i + 1;
-        i += 2;
-      }
+    private static void reArrangeArrayToOddEvenPlace(int[] a) {
+        int i = 0, j = 1;
+        while (i < a.length && j < a.length) {
+            if (a[i] % 2 == 1) {
+                i += 2;
+            } else if (a[j] % 2 == 0) {
+                j += 2;
+            } else {
+                swap(a, i, j);
+                j = i + 1;
+                i += 2;
+            }
+        }
+        printArray(a);
     }
-    printArray(a);
-  }
 
-  public static void main(String[] args) {
-    reArrangeArrayToOddEvenPlace(new int[]{2, 1, 3, 4, 7, 9, 24, 98});
-    System.out.println();
-    reArrangeArrayToOddEvenPlace(new int[]{2, 1, 5, 6});
-  }
+    public static void main(String[] args) {
+        reArrangeArrayToOddEvenPlace(new int[]{2, 1, 3, 4, 7, 9, 24, 98});
+        System.out.println();
+        reArrangeArrayToOddEvenPlace(new int[]{2, 1, 5, 6});
+    }
 }

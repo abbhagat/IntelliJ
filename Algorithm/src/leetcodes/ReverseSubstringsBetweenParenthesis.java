@@ -15,25 +15,25 @@ import java.util.Stack;
 // Space Complexity: O(n)
 public class ReverseSubstringsBetweenParenthesis {
 
-  private static StringBuilder reverseParentheses(String str) {
-    Stack<StringBuilder> stack = new Stack<>();
-    StringBuilder sb = new StringBuilder();
-    for (char c : str.toCharArray()) {
-      if (c == '(') {
-        stack.push(sb);
-        sb = new StringBuilder();
-      } else if (c == ')') {
-        sb.reverse();
-        sb = stack.pop().append(sb);
-      } else {
-        sb.append(c);
-      }
+    private static StringBuilder reverseParentheses(String str) {
+        Stack<StringBuilder> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        for (char c : str.toCharArray()) {
+            if (c == '(') {
+                stack.push(sb);
+                sb = new StringBuilder();
+            } else if (c == ')') {
+                sb.reverse();
+                sb = stack.pop().append(sb);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb;
     }
-    return sb;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(reverseParentheses("((ng)ipm(ca))"));
-    System.out.println(reverseParentheses("(skeeg(for)skeeg)"));
-  }
+    public static void main(String[] args) {
+        System.out.println(reverseParentheses("((ng)ipm(ca))"));
+        System.out.println(reverseParentheses("(skeeg(for)skeeg)"));
+    }
 }

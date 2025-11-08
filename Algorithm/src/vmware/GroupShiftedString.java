@@ -7,23 +7,23 @@ import java.util.Map;
 
 public class GroupShiftedString {
 
-  private static void groupStrings(List<String> stringList) {
-    Map<String, List<String>> map = new HashMap<>();
-    stringList.forEach(s -> {
-      int offset = s.charAt(0) - 'a';
-      StringBuilder key = new StringBuilder();
-      for (char x : s.toCharArray()) {
-        char c = (char) (x - offset);
-        c += (char) (c < 'a' ? 26 : 0);
-        key.append(c);
-      }
-      map.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(s);
-    });
-    System.out.println(map.values());
-  }
+    private static void groupStrings(List<String> stringList) {
+        Map<String, List<String>> map = new HashMap<>();
+        stringList.forEach(s -> {
+            int offset = s.charAt(0) - 'a';
+            StringBuilder key = new StringBuilder();
+            for (char x : s.toCharArray()) {
+                char c = (char) (x - offset);
+                c += (char) (c < 'a' ? 26 : 0);
+                key.append(c);
+            }
+            map.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(s);
+        });
+        System.out.println(map.values());
+    }
 
-  public static void main(String[] args) {
-    List<String> stringList = List.of("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z");
-    groupStrings(stringList);
-  }
+    public static void main(String[] args) {
+        List<String> stringList = List.of("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z");
+        groupStrings(stringList);
+    }
 }

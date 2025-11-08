@@ -12,29 +12,29 @@ import java.util.Date;
  */
 public class PalindromeDate {
 
-  private static String nextPalindromeDate(String inputDate, String format) {
-    Calendar cal = Calendar.getInstance();
-    int year = Integer.parseInt(inputDate.substring(0, 4));
-    int month = Integer.parseInt(inputDate.substring(4, 6));
-    int day = Integer.parseInt(inputDate.substring(6));
-    cal.set(year, month, day);
-    SimpleDateFormat sdf = new SimpleDateFormat(format);
-    Date date = cal.getTime();
-    String dateStr;
-    StringBuilder palindromeDate = new StringBuilder();
-    while (true) {
-      dateStr = sdf.format(date);
-      palindromeDate.replace(0, dateStr.length(), dateStr);
-      if (dateStr.contentEquals(palindromeDate.reverse())) {
-        break;
-      }
-      cal.add(Calendar.DATE, 1);
-      date = cal.getTime();
+    private static String nextPalindromeDate(String inputDate, String format) {
+        Calendar cal = Calendar.getInstance();
+        int year = Integer.parseInt(inputDate.substring(0, 4));
+        int month = Integer.parseInt(inputDate.substring(4, 6));
+        int day = Integer.parseInt(inputDate.substring(6));
+        cal.set(year, month, day);
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date date = cal.getTime();
+        String dateStr;
+        StringBuilder palindromeDate = new StringBuilder();
+        while (true) {
+            dateStr = sdf.format(date);
+            palindromeDate.replace(0, dateStr.length(), dateStr);
+            if (dateStr.contentEquals(palindromeDate.reverse())) {
+                break;
+            }
+            cal.add(Calendar.DATE, 1);
+            date = cal.getTime();
+        }
+        return dateStr;
     }
-    return dateStr;
-  }
 
-  public static void main(String[] args) {
-    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404", "yyyyMMdd"));
-  }
+    public static void main(String[] args) {
+        System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404", "yyyyMMdd"));
+    }
 }

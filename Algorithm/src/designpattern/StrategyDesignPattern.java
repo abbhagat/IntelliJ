@@ -8,52 +8,52 @@ package designpattern;
  */
 
 interface Strategy {
-  int execute(int x, int y);
+    int execute(int x, int y);
 }
 
 class Add implements Strategy {
-  public int execute(int x, int y) {
-    return x + y;
-  }
+    public int execute(int x, int y) {
+        return x + y;
+    }
 }
 
 class Sub implements Strategy {
-  public int execute(int x, int y) {
-    return x - y;
-  }
+    public int execute(int x, int y) {
+        return x - y;
+    }
 }
 
 class Mul implements Strategy {
-  public int execute(int x, int y) {
-    return x * y;
-  }
+    public int execute(int x, int y) {
+        return x * y;
+    }
 }
 
 class Div implements Strategy {
-  public int execute(int x, int y) {
-    return x / y;
-  }
+    public int execute(int x, int y) {
+        return x / y;
+    }
 }
 
 class Context {
 
-  private final Strategy strategy;
+    private final Strategy strategy;
 
-  public Context(Strategy strategy) {
-    this.strategy = strategy;
-  }
+    public Context(Strategy strategy) {
+        this.strategy = strategy;
+    }
 
-  public int executeStrategy(int x, int y) {
-    return strategy.execute(x, y);
-  }
+    public int executeStrategy(int x, int y) {
+        return strategy.execute(x, y);
+    }
 }
 
 public class StrategyDesignPattern {
 
-  public static void main(String[] args) {
-    System.out.println(new Context(new Add()).executeStrategy(10, 5));
-    System.out.println(new Context(new Sub()).executeStrategy(10, 5));
-    System.out.println(new Context(new Mul()).executeStrategy(10, 5));
-    System.out.println(new Context(new Div()).executeStrategy(10, 5));
-  }
+    public static void main(String[] args) {
+        System.out.println(new Context(new Add()).executeStrategy(10, 5));
+        System.out.println(new Context(new Sub()).executeStrategy(10, 5));
+        System.out.println(new Context(new Mul()).executeStrategy(10, 5));
+        System.out.println(new Context(new Div()).executeStrategy(10, 5));
+    }
 }

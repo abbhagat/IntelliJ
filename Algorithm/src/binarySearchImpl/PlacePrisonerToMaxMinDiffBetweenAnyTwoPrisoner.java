@@ -25,37 +25,37 @@ import java.util.Arrays;
 // Time Complexity: O(n * log n)
 public class PlacePrisonerToMaxMinDiffBetweenAnyTwoPrisoner {
 
-  private static boolean canPlace(int[] a, int n, int mid) {
-    int prisoner_placed = a[0], numOfPrisonerPlaced = 1;
-    for (int i = 1; i < a.length; i++) {
-      if (a[i] - prisoner_placed >= mid) {
-        numOfPrisonerPlaced++;
-        prisoner_placed = a[i];
-        if (numOfPrisonerPlaced == n) {
-          return true;
+    private static boolean canPlace(int[] a, int n, int mid) {
+        int prisoner_placed = a[0], numOfPrisonerPlaced = 1;
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] - prisoner_placed >= mid) {
+                numOfPrisonerPlaced++;
+                prisoner_placed = a[i];
+                if (numOfPrisonerPlaced == n) {
+                    return true;
+                }
+            }
         }
-      }
+        return false;
     }
-    return false;
-  }
 
-  private static int maxDistance(int[] a, int n) {
-    Arrays.sort(a);
-    int low = 0, high = a[a.length - 1] - a[0], result = 0;
-    while (low <= high) {
-      int mid = (low + high) / 2;
-      if (canPlace(a, n, mid)) {
-        result = mid;
-        low = mid + 1;
-      } else {
-        high = mid - 1;
-      }
+    private static int maxDistance(int[] a, int n) {
+        Arrays.sort(a);
+        int low = 0, high = a[a.length - 1] - a[0], result = 0;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (canPlace(a, n, mid)) {
+                result = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return result;
     }
-    return result;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(maxDistance(new int[]{1, 2, 8, 4, 9}, 3));
-    System.out.println(maxDistance(new int[]{10, 12, 18}, 2));
-  }
+    public static void main(String[] args) {
+        System.out.println(maxDistance(new int[]{1, 2, 8, 4, 9}, 3));
+        System.out.println(maxDistance(new int[]{10, 12, 18}, 2));
+    }
 }

@@ -33,49 +33,49 @@ Similarly, b[i] represents binary strings for input length i+1.
  */
 public class CountBinaryStringWithoutConsecutiveOneAndZero {
 
-  private static void permutation(String s, int itr, List<String> list) {
-    if (itr == 0) {
-      list.add(s);
-    } else {
-      permutation(s + "0", itr - 1, list);
-      permutation(s + "1", itr - 1, list);
+    private static void permutation(String s, int itr, List<String> list) {
+        if (itr == 0) {
+            list.add(s);
+        } else {
+            permutation(s + "0", itr - 1, list);
+            permutation(s + "1", itr - 1, list);
+        }
     }
-  }
 
-  private static int countStrings(int n) {
-    int[] a = new int[n];
-    int[] b = new int[n];
-    a[0] = b[0] = 1;
-    for (int i = 1; i < n; i++) {
-      a[i] = a[i - 1] + b[i - 1];
-      b[i] = a[i - 1];
+    private static int countStrings(int n) {
+        int[] a = new int[n];
+        int[] b = new int[n];
+        a[0] = b[0] = 1;
+        for (int i = 1; i < n; i++) {
+            a[i] = a[i - 1] + b[i - 1];
+            b[i] = a[i - 1];
+        }
+        return a[n - 1] + b[n - 1];
     }
-    return a[n - 1] + b[n - 1];
-  }
 
-  private static int countStringsZero(int n) {
-    int[] a = new int[n];
-    int[] b = new int[n];
-    a[0] = b[0] = 1;
-    for (int i = 1; i < n; i++) {
-      a[i] = b[i - 1];
-      b[i] = a[i - 1] + b[i - 1];
+    private static int countStringsZero(int n) {
+        int[] a = new int[n];
+        int[] b = new int[n];
+        a[0] = b[0] = 1;
+        for (int i = 1; i < n; i++) {
+            a[i] = b[i - 1];
+            b[i] = a[i - 1] + b[i - 1];
+        }
+        return a[n - 1] + b[n - 1];
     }
-    return a[n - 1] + b[n - 1];
-  }
 
-  public static void main(String[] args) {
-    System.out.println(countStrings(3));
-    System.out.println(countStringsZero(3));
-    List<String> list = new ArrayList<>();
-    permutation("", 3, list);
-    int count = 0;
-    for (String s : list) {
-      if (!s.contains("11")) {
-        System.out.println(s);
-        count++;
-      }
+    public static void main(String[] args) {
+        System.out.println(countStrings(3));
+        System.out.println(countStringsZero(3));
+        List<String> list = new ArrayList<>();
+        permutation("", 3, list);
+        int count = 0;
+        for (String s : list) {
+            if (!s.contains("11")) {
+                System.out.println(s);
+                count++;
+            }
+        }
+        System.out.println(count);
     }
-    System.out.println(count);
-  }
 }

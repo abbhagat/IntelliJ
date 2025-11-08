@@ -19,23 +19,23 @@ The array will keep alternating between 1, 2 and 2, 1 regardless of how many mov
 
 public class MinOpsToMakeAllArrayElementsSameIII {
 
-  private static int countMinimumMoves(int[] a, int k) {
-    int n = a[k - 1];
-    for (int i = k - 1; i < a.length; i++) {
-      if (a[i] != n) {
-        return -1;
-      }
+    private static int countMinimumMoves(int[] a, int k) {
+        int n = a[k - 1];
+        for (int i = k - 1; i < a.length; i++) {
+            if (a[i] != n) {
+                return -1;
+            }
+        }
+        for (int i = k - 1; i >= 0; i--) {
+            if (a[i] != n) {
+                return i + 1;
+            }
+        }
+        return 0;
     }
-    for (int i = k - 1; i >= 0; i--) {
-      if (a[i] != n) {
-        return i + 1;
-      }
-    }
-    return 0;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(countMinimumMoves(new int[]{1, 2, 3, 4}, 4));
-    System.out.println(countMinimumMoves(new int[]{2, 1}, 1));
-  }
+    public static void main(String[] args) {
+        System.out.println(countMinimumMoves(new int[]{1, 2, 3, 4}, 4));
+        System.out.println(countMinimumMoves(new int[]{2, 1}, 1));
+    }
 }

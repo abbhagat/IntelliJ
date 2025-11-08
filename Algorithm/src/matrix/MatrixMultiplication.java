@@ -6,38 +6,38 @@ import static util.CommonUtils.printMatrix;
 // Space Complexity: O(M*N), as we are using extra space.
 public class MatrixMultiplication {
 
-  private static int[][] matrixMultiply(int[][] a, int[][] b) {
-    int R1 = a.length, C1 = a[0].length;
-    int R2 = b.length, C2 = b[0].length;
-    if (C1 == R2) {
-      int[][] M = new int[R1][C2];
-      for (int i = 0; i < R1; i++) {
-        for (int j = 0; j < C2; j++) {
-          M[i][j] = 0;
-          for (int k = 0; k < R2; k++) {
-            M[i][j] += a[i][k] * b[k][j];
-          }
+    private static int[][] matrixMultiply(int[][] a, int[][] b) {
+        int R1 = a.length, C1 = a[0].length;
+        int R2 = b.length, C2 = b[0].length;
+        if (C1 == R2) {
+            int[][] M = new int[R1][C2];
+            for (int i = 0; i < R1; i++) {
+                for (int j = 0; j < C2; j++) {
+                    M[i][j] = 0;
+                    for (int k = 0; k < R2; k++) {
+                        M[i][j] += a[i][k] * b[k][j];
+                    }
+                }
+            }
+            return M;
         }
-      }
-      return M;
+        return null;
     }
-    return null;
-  }
 
-  public static void main(String[] args) {
-    int[][] a = {
-        {1, 1, 1},
-        {2, 2, 2},
-        {3, 3, 3},
-        {4, 4, 4}
-    };
+    public static void main(String[] args) {
+        int[][] a = {
+                {1, 1, 1},
+                {2, 2, 2},
+                {3, 3, 3},
+                {4, 4, 4}
+        };
 
-    int[][] b = {
-        {1, 1, 1, 1},
-        {2, 2, 2, 2},
-        {3, 3, 3, 3}
-    };
-    int[][] M = matrixMultiply(a, b);
-    printMatrix(M);
-  }
+        int[][] b = {
+                {1, 1, 1, 1},
+                {2, 2, 2, 2},
+                {3, 3, 3, 3}
+        };
+        int[][] M = matrixMultiply(a, b);
+        printMatrix(M);
+    }
 }

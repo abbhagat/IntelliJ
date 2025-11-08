@@ -14,38 +14,38 @@ package jpmorgan;
 
 public class PrimePalindrome {
 
-  private static boolean isPalindrome(int n) {
-    String s = String.valueOf(n);
-    return new StringBuilder(s).reverse().toString().equals(s);
-  }
-
-  public static boolean isPrime(int n) {
-    if (n <= 1) {
-      return false;
+    private static boolean isPalindrome(int n) {
+        String s = String.valueOf(n);
+        return new StringBuilder(s).reverse().toString().equals(s);
     }
-    for (int i = 2; i <= n / 2; i++) {
-      if (n % i == 0) {
-        return false;
-      }
-    }
-    return true;
-  }
 
-  private static int primePalindrome(int n) {
-    while (true) {
-      if (isPalindrome(n) && isPrime(n)) {
-        return n;
-      }
-      n++;
-      if (n > 10_000_000 && n < 100_000_000) {  // Code added to pass in HackerRank
-        n = 100_000_001;
-      }
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
-  }
 
-  public static void main(String[] args) {
-    System.out.println(primePalindrome(6));
-    System.out.println(primePalindrome(8));
-    System.out.println(primePalindrome(13));
-  }
+    private static int primePalindrome(int n) {
+        while (true) {
+            if (isPalindrome(n) && isPrime(n)) {
+                return n;
+            }
+            n++;
+            if (n > 10_000_000 && n < 100_000_000) {  // Code added to pass in HackerRank
+                n = 100_000_001;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(primePalindrome(6));
+        System.out.println(primePalindrome(8));
+        System.out.println(primePalindrome(13));
+    }
 }

@@ -32,23 +32,23 @@ import static java.lang.Integer.min;
  */
 public class MaxProfitBuyAndSellSharesTwice {
 
-  private static int maxProfit(int[] price) {
-    int buy1 = Integer.MAX_VALUE, buy2 = Integer.MAX_VALUE, profit1 = 0, profit2 = 0;
-    for (int x : price) {
-      buy1    = min(buy1, x);
-      profit1 = max(profit1, x - buy1);
-      buy2    = min(buy2,    x - profit1);
-      profit2 = max(profit2, x - buy2);
+    private static int maxProfit(int[] price) {
+        int buy1 = Integer.MAX_VALUE, buy2 = Integer.MAX_VALUE, profit1 = 0, profit2 = 0;
+        for (int x : price) {
+            buy1 = min(buy1, x);
+            profit1 = max(profit1, x - buy1);
+            buy2 = min(buy2, x - profit1);
+            profit2 = max(profit2, x - buy2);
+        }
+        return profit2;
     }
-    return profit2;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(maxProfit(new int[]{10, 22, 5, 75, 65, 80}));
-    System.out.println(maxProfit(new int[]{100, 30, 15, 10, 8, 25, 80}));
-    System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}));
-    System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}));
-    System.out.println(maxProfit(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
-    System.out.println(maxProfit(new int[]{1, 2, 3, 4, 5}));
-  }
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{10, 22, 5, 75, 65, 80}));
+        System.out.println(maxProfit(new int[]{100, 30, 15, 10, 8, 25, 80}));
+        System.out.println(maxProfit(new int[]{2, 30, 15, 10, 8, 25, 80}));
+        System.out.println(maxProfit(new int[]{90, 80, 70, 60, 50}));
+        System.out.println(maxProfit(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
+        System.out.println(maxProfit(new int[]{1, 2, 3, 4, 5}));
+    }
 }

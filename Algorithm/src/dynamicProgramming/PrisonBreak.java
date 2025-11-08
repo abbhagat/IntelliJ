@@ -27,37 +27,37 @@ import static java.lang.Integer.max;
 
 public class PrisonBreak {
 
-  public static long prison(int m, int n, List<Integer> h, List<Integer> v) {
-    boolean[] x = new boolean[m + 1];
-    boolean[] y = new boolean[n + 1];
-    int cx = 0, cy = 0, max_X = Integer.MIN_VALUE, max_Y = Integer.MIN_VALUE;
-    for (int k : h) {
-      x[k] = true;
+    public static long prison(int m, int n, List<Integer> h, List<Integer> v) {
+        boolean[] x = new boolean[m + 1];
+        boolean[] y = new boolean[n + 1];
+        int cx = 0, cy = 0, max_X = Integer.MIN_VALUE, max_Y = Integer.MIN_VALUE;
+        for (int k : h) {
+            x[k] = true;
+        }
+        for (int k : v) {
+            y[k] = true;
+        }
+        for (boolean b : x) {
+            if (b) {
+                cx++;
+                max_X = max(max_X, cx);
+            } else {
+                cx = 0;
+            }
+        }
+        for (boolean b : y) {
+            if (b) {
+                cy++;
+                max_Y = max(max_Y, cy);
+            } else {
+                cy = 0;
+            }
+        }
+        return (long) (max_X + 1) * (max_Y + 1);
     }
-    for (int k : v) {
-      y[k] = true;
-    }
-    for (boolean b : x) {
-      if (b) {
-        cx++;
-        max_X = max(max_X, cx);
-      } else {
-        cx = 0;
-      }
-    }
-    for (boolean b : y) {
-      if (b) {
-        cy++;
-        max_Y = max(max_Y, cy);
-      } else {
-        cy = 0;
-      }
-    }
-    return (long) (max_X + 1) * (max_Y + 1);
-  }
 
-  public static void main(String[] args) {
-    System.out.println(prison(3, 3, List.of(2), List.of(2)));
-    System.out.println(prison(3, 2, Arrays.asList(1, 2, 3), Arrays.asList(1, 2)));
-  }
+    public static void main(String[] args) {
+        System.out.println(prison(3, 3, List.of(2), List.of(2)));
+        System.out.println(prison(3, 2, Arrays.asList(1, 2, 3), Arrays.asList(1, 2)));
+    }
 }

@@ -27,42 +27,42 @@ import static java.lang.Integer.min;
 
 public class MinTimeToFinishAllJobs {
 
-  private static int findMinTime(int K, int T, int[] job) {
-    // Set start and end for the binary search end provides an upper limit on time
-    int start = 0, end = Arrays.stream(job).sum();
-    int min = end;
-    int job_max = Arrays.stream(job).max().getAsInt();
-    while (start <= end) {
-      int mid = (start + end) / 2;
-      if (mid >= job_max && isPossible(mid, K, job)) {
-        min = min(min, mid);
-        end = mid - 1;
-      } else
-        start = mid + 1;
+    private static int findMinTime(int K, int T, int[] job) {
+        // Set start and end for the binary search end provides an upper limit on time
+        int start = 0, end = Arrays.stream(job).sum();
+        int min = end;
+        int job_max = Arrays.stream(job).max().getAsInt();
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (mid >= job_max && isPossible(mid, K, job)) {
+                min = min(min, mid);
+                end = mid - 1;
+            } else
+                start = mid + 1;
+        }
+        return min * T;
     }
-    return min * T;
-  }
 
-  static boolean isPossible(int time, int K, int[] job) {
-    int cnt = 1, curr_time = 0, i = 0;
-    while (i < job.length) {
-      // If time assigned to the current assignee exceeds max, increment count of assignees.
-      if (curr_time + job[i] > time) {
-        curr_time = 0;
-        cnt++;
-      }
-      // Else add time of a job to current time and move to the next job.
-      else {
-        curr_time += job[i];
-        i++;
-      }
+    static boolean isPossible(int time, int K, int[] job) {
+        int cnt = 1, curr_time = 0, i = 0;
+        while (i < job.length) {
+            // If time assigned to the current assignee exceeds max, increment count of assignees.
+            if (curr_time + job[i] > time) {
+                curr_time = 0;
+                cnt++;
+            }
+            // Else add time of a job to current time and move to the next job.
+            else {
+                curr_time += job[i];
+                i++;
+            }
+        }
+        return cnt <= K;
     }
-    return cnt <= K;
-  }
 
-  public static void main(String[] args) {
-    int[] job = {10, 7, 8, 12, 6, 8};
-    int k = 4, T = 5;
-    System.out.println(findMinTime(k, T, job));
-  }
+    public static void main(String[] args) {
+        int[] job = {10, 7, 8, 12, 6, 8};
+        int k = 4, T = 5;
+        System.out.println(findMinTime(k, T, job));
+    }
 }

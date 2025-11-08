@@ -7,9 +7,9 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class StringToDateDemo {
 
-  public static void main(String[] args) {
-    System.out.println(Instant.parse("2007-12-03T10:15:30.00Z"));
-    LocalDate localDate = LocalDate.parse("16-Aug-2016", ofPattern("dd-MMM-yyyy"));
-    System.out.println(localDate);
-  }
+    public static void main(String[] args) {
+        System.out.println(Instant.parse("2007-12-03T10:15:30.00Z"));
+        LocalDate localDate = LocalDate.parse("16-Aug-2016", ofPattern("dd-MMM-yyyy"));
+        System.out.println(localDate);
+    }
 }

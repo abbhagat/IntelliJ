@@ -5,56 +5,56 @@ package designpattern;
  */
 
 interface Shape {
-  void draw();
+    void draw();
 }
 
 class Circle implements Shape {
 
-  public void draw() {
-    System.out.println("Inside Circle::draw() method.");
-  }
+    public void draw() {
+        System.out.println("Inside Circle::draw() method.");
+    }
 }
 
 class Rectangle implements Shape {
 
-  public void draw() {
-    System.out.println("Inside Rectangle::draw() method.");
-  }
+    public void draw() {
+        System.out.println("Inside Rectangle::draw() method.");
+    }
 }
 
 class Square implements Shape {
 
-  public void draw() {
-    System.out.println("Inside Square::draw() method.");
-  }
+    public void draw() {
+        System.out.println("Inside Square::draw() method.");
+    }
 }
 
 class ShapeFactory {
 
-  public Shape getShape(String shape) {
-    switch (shape.toLowerCase()) {
-      case "circle":
-        return new Circle();
-      case "square":
-        return new Square();
-      case "rectangle":
-        return new Rectangle();
-      default:
-        return null;
+    public Shape getShape(String shape) {
+        switch (shape.toLowerCase()) {
+            case "circle":
+                return new Circle();
+            case "square":
+                return new Square();
+            case "rectangle":
+                return new Rectangle();
+            default:
+                return null;
+        }
     }
-  }
 }
 
 public class FactoryPattern {
 
-  public static void main(String[] args) {
-    ShapeFactory shapeFactory = new ShapeFactory();
-    Shape s;
-    s = shapeFactory.getShape("CIRCLE");
-    s.draw();
-    s = shapeFactory.getShape("RECTANGLE");
-    s.draw();
-    s = shapeFactory.getShape("SQUARE");
-    s.draw();
-  }
+    public static void main(String[] args) {
+        ShapeFactory shapeFactory = new ShapeFactory();
+        Shape s;
+        s = shapeFactory.getShape("CIRCLE");
+        s.draw();
+        s = shapeFactory.getShape("RECTANGLE");
+        s.draw();
+        s = shapeFactory.getShape("SQUARE");
+        s.draw();
+    }
 }

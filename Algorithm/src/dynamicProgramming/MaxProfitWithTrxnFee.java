@@ -22,18 +22,18 @@ import static java.lang.Integer.min;
 
 public class MaxProfitWithTrxnFee {
 
-  public static int maxProfit(int[] a, int fee) {
-    int buy = Integer.MAX_VALUE, profit = 0;
-    for (int x : a) {
-      buy    = min(buy,    x - profit);
-      profit = max(profit, x - buy - fee);
+    public static int maxProfit(int[] a, int fee) {
+        int buy = Integer.MAX_VALUE, profit = 0;
+        for (int x : a) {
+            buy = min(buy, x - profit);
+            profit = max(profit, x - buy - fee);
+        }
+        return profit;
     }
-    return profit;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4}, 2));
-    System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
-    System.out.println(maxProfit(new int[]{1, 3, 7, 5, 10, 3}, 3));
-  }
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{6, 1, 7, 2, 8, 4}, 2));
+        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
+        System.out.println(maxProfit(new int[]{1, 3, 7, 5, 10, 3}, 3));
+    }
 }

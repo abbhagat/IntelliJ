@@ -7,27 +7,27 @@ import java.util.Map;
 // Space Complexity : O(n)
 public class CountSubArray01 {
 
-  public static int getSubArrayWithEqual01(int[] a) {
-    Map<Integer, Integer> map = new HashMap<>();
-    int sum = 0, count = 0;
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == 0) {
-        a[i] = -1;
-      }
-      sum += a[i];
-      if (sum == 0) {
-        count++;
-      }
-      if (map.containsKey(sum)) {
-        count += map.get(sum);
-      }
-      map.put(sum, map.getOrDefault(sum, 0) + 1);
+    public static int getSubArrayWithEqual01(int[] a) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0, count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 0) {
+                a[i] = -1;
+            }
+            sum += a[i];
+            if (sum == 0) {
+                count++;
+            }
+            if (map.containsKey(sum)) {
+                count += map.get(sum);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
     }
-    return count;
-  }
 
-  public static void main(String[] args) {
-    int count = getSubArrayWithEqual01(new int[]{0, 0, 1, 1, 0});
-    System.out.println("Sub-arrays with equal 0's and 1's count is: " + count);
-  }
+    public static void main(String[] args) {
+        int count = getSubArrayWithEqual01(new int[]{0, 0, 1, 1, 0});
+        System.out.println("Sub-arrays with equal 0's and 1's count is: " + count);
+    }
 }

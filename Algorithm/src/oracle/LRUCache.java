@@ -14,51 +14,53 @@ package oracle;
  * 2. If the cache is full, remove the last node of the linked q and move the new page to the start of the q.
  */
 
-import java.util.*;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class LRUCache<K, V> {
 
-  private final Deque<K> q;
-  private final Map<K, V> map;
-  private final int cacheSize;
+    private final Deque<K> q;
+    private final Map<K, V> map;
+    private final int cacheSize;
 
-  public LRUCache(int cacheSize) {
-    this.q = new LinkedList<>();
-    this.map = new HashMap<>();
-    this.cacheSize = cacheSize;
-  }
-
-  public synchronized V get(K key) {
-    V value = null;
-    if (map.containsKey(key)) {
-      value = map.get(key);
-      q.remove(key);
-      q.addFirst(key);
+    public LRUCache(int cacheSize) {
+        this.q = new LinkedList<>();
+        this.map = new HashMap<>();
+        this.cacheSize = cacheSize;
     }
-    return value;
-  }
 
-  public synchronized void put(K key, V value) {
-    if (map.containsKey(key)) {
-      q.remove(key);
-    } else if (map.size() >= cacheSize) {
-      K lruKey = q.removeLast();
-      map.remove(lruKey);
+    public static void main(String[] args) {
+        LRUCache<Integer, Integer> cache = new LRUCache<>(4);
+        cache.put(1, 100);
+        cache.put(2, 200);
+        cache.put(3, 300);
+        cache.put(4, 400);
+        System.out.println(cache.get(1));
+        cache.put(1, 1000);
+        cache.put(5, 500);
+        System.out.println(cache.get(1));
     }
-    map.put(key, value);
-    q.addFirst(key);
-  }
 
-  public static void main(String[] args) {
-    LRUCache<Integer, Integer> cache = new LRUCache<>(4);
-    cache.put(1, 100);
-    cache.put(2, 200);
-    cache.put(3, 300);
-    cache.put(4, 400);
-    System.out.println(cache.get(1));
-    cache.put(1, 1000);
-    cache.put(5, 500);
-    System.out.println(cache.get(1));
-  }
+    public synchronized V get(K key) {
+        V value = null;
+        if (map.containsKey(key)) {
+            value = map.get(key);
+            q.remove(key);
+            q.addFirst(key);
+        }
+        return value;
+    }
+
+    public synchronized void put(K key, V value) {
+        if (map.containsKey(key)) {
+            q.remove(key);
+        } else if (map.size() >= cacheSize) {
+            K lruKey = q.removeLast();
+            map.remove(lruKey);
+        }
+        map.put(key, value);
+        q.addFirst(key);
+    }
 }

@@ -1,9 +1,7 @@
 package vmware;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Given two strings s and p, return an array of all the start indices of p's anagrams in s.
@@ -23,43 +21,43 @@ import java.util.stream.IntStream;
 
 public class FindAllAnagramsInAString {
 
-  private static List<Integer> findAnagrams(String s, String p) {
-    List<Integer> list = new ArrayList<>();
-    if (s.length() < p.length()) {
-      return list;
+    private static List<Integer> findAnagrams(String s, String p) {
+        List<Integer> list = new ArrayList<>();
+        if (s.length() < p.length()) {
+            return list;
+        }
+        int[] sData = new int[128];
+        int[] pData = new int[128];
+        for (int i = 0; i < p.length(); i++) {
+            sData[s.charAt(i)]++;
+            pData[p.charAt(i)]++;
+        }
+        for (int i = 0; i <= s.length() - p.length(); i++) {
+            if (i > 0) {
+                sData[s.charAt(i - 1)]--;
+                sData[s.charAt(i - 1 + p.length())]++;
+            }
+            if (matches(sData, pData)) {
+                list.add(i);
+            }
+        }
+        return list;
     }
-    int[] sData = new int[128];
-    int[] pData = new int[128];
-    for (int i = 0; i < p.length(); i++) {
-      sData[s.charAt(i)]++;
-      pData[p.charAt(i)]++;
-    }
-    for (int i = 0; i <= s.length() - p.length(); i++) {
-      if (i > 0) {
-        sData[s.charAt(i - 1)]--;
-        sData[s.charAt(i - 1 + p.length())]++;
-      }
-      if (matches(sData, pData)) {
-        list.add(i);
-      }
-    }
-    return list;
-  }
 
-  private static boolean matches(int[] sData, int[] pData) {
-    for (int i = 0; i < 128; i++) {
-      if (sData[i] != pData[i]) {
-        return false;
-      }
+    private static boolean matches(int[] sData, int[] pData) {
+        for (int i = 0; i < 128; i++) {
+            if (sData[i] != pData[i]) {
+                return false;
+            }
+        }
+        return true;
     }
-    return true;
-  }
 
-  public static void main(String[] args) {
-    System.out.println(findAnagrams("abab", "ab"));
-    System.out.println(findAnagrams("abab", "gfh"));
-    System.out.println(findAnagrams("ab", "gfh"));
-    System.out.println(findAnagrams("cbaebabacd", "abc"));
-    System.out.println(findAnagrams("retract", "cat"));
-  }
+    public static void main(String[] args) {
+        System.out.println(findAnagrams("abab", "ab"));
+        System.out.println(findAnagrams("abab", "gfh"));
+        System.out.println(findAnagrams("ab", "gfh"));
+        System.out.println(findAnagrams("cbaebabacd", "abc"));
+        System.out.println(findAnagrams("retract", "cat"));
+    }
 }
