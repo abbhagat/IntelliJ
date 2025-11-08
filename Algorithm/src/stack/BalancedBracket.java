@@ -2,20 +2,21 @@ package stack;
 
 import java.util.Stack;
 
-// Time Complexity - O(n)
+// Time  Complexity - O(n)
+// Space Complexity - O(n)
 public class BalancedBracket {
 
-    private static boolean areParenthesisBalanced(char[] exp) {
-        Stack<Character> s = new Stack<>();
-        for (char c : exp) {
+    private static boolean isBalanced(String exp) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : exp.toCharArray()) {
             if (c == '{' || c == '(' || c == '[') {
-                s.push(c);
+                stack.push(c);
             }
-            if ((c == '}' || c == ')' || c == ']') && (s.isEmpty() || !isMatchingPair(s.pop(), c))) {
+            if ((c == '}' || c == ')' || c == ']') && (stack.isEmpty() || !isMatchingPair(stack.pop(), c))) {
                 return false;
             }
         }
-        return s.isEmpty();
+        return stack.isEmpty();
     }
 
     private static boolean isMatchingPair(char x, char y) {
@@ -23,10 +24,10 @@ public class BalancedBracket {
     }
 
     public static void main(String[] args) {
-        System.out.println(areParenthesisBalanced("]".toCharArray()) ? "Balanced" : "Not Balanced");
-        System.out.println(areParenthesisBalanced("[]".toCharArray()) ? "Balanced" : "Not Balanced");
-        System.out.println(areParenthesisBalanced("(())".toCharArray()) ? "Balanced" : "Not Balanced");
-        System.out.println(areParenthesisBalanced("{()}".toCharArray()) ? "Balanced" : "Not Balanced");
+        System.out.println(isBalanced("]"));
+        System.out.println(isBalanced("[]"));
+        System.out.println(isBalanced("(())"));
+        System.out.println(isBalanced("{()}"));
     }
 
 }
