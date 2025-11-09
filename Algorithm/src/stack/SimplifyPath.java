@@ -7,7 +7,7 @@ public class SimplifyPath {
 
     private static String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
-        for (String s : path.split("/")) {
+        for (String s : path.split("/", -1)) {
             if (s.isEmpty() || s.equals(".")) {
                 continue;
             }
@@ -19,12 +19,12 @@ public class SimplifyPath {
                 stack.push(s);
             }
         }
-        StringBuilder result = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         while (!stack.isEmpty()) {
-            result.insert(0, stack.pop())
-                    .insert(0, "/");
+            sb.insert(0, stack.pop())
+              .insert(0, "/");
         }
-        return result.length() == 0 ? "/" : result.toString();
+        return sb.length() == 0 ? "/" : sb.toString();
     }
 
     public static void main(String[] args) {
