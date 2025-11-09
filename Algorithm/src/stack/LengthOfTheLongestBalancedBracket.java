@@ -9,7 +9,7 @@ import static java.lang.Math.abs;
 // Space Complexity - O(n)
 public class LengthOfTheLongestBalancedBracket {
 
-    private static int findLength(String bracket) {
+    private static int longestBalancedBracketLength(String bracket) {
         int max = 0;
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
@@ -28,8 +28,8 @@ public class LengthOfTheLongestBalancedBracket {
     }
 
     public static void main(String[] args) {
-        System.out.println(findLength("{}}"));
-        System.out.println(findLength("{{}}"));
-        System.out.println(findLength("{}}{{}}"));
+        System.out.println(longestBalancedBracketLength("{}}"));
+        System.out.println(longestBalancedBracketLength("{{}}"));
+        System.out.println(longestBalancedBracketLength("{}}{{}}"));
     }
 }

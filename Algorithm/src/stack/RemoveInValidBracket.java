@@ -9,7 +9,7 @@ import java.util.Stack;
 public class RemoveInValidBracket {
 
     private static void removeInvalidParenthesis(String str) {
-        Set<String> set = new HashSet<>();  // set to ignore already visited string
+        Set<String>     set = new HashSet<>();  // set to ignore already visited string
         Stack<String> stack = new Stack<>();
         stack.push(str);
         set.add(str);
@@ -21,7 +21,7 @@ public class RemoveInValidBracket {
                 for (int i = 0; i < str.length(); i++) {
                     if (str.charAt(i) == '(' || str.charAt(i) == ')') {
                         String s = str.substring(0, i) + str.substring(i + 1);  // Removing parenthesis from str
-                        if (!set.contains(s)) {  //  Pushing into stack if not visited already
+                        if (!set.contains(s)) {                                             //  Pushing into stack if not visited already
                             stack.push(s);
                             set.add(s);
                         }

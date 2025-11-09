@@ -16,8 +16,10 @@ public class MinBracketRemovalToMakeBracketBalanced {
         for (char c : exp) {
             if (c == '{') {
                 open++;
+            } else if (c == '}' && open > 0) {
+                open--;
             } else {
-                int k = open == 0 ? close++ : open--;
+                close++;
             }
         }
         return (int) (Math.ceil((0.0 + open) / 2) + Math.ceil((0.0 + close) / 2));
