@@ -6,7 +6,6 @@ package stack;
  * as we parse through the string: '(' has 1 left bracket, '((' has 2, '(()' has 1, and so on.
  * This means that after parsing the first i symbols, (which may include asterisks,)
  * we only need to keep track of what the balance could be.
- * <p>
  * For example, if we have string '(***)', then as we parse each symbol,
  * the set of possible values for the balance is
  * [1] for '(';
@@ -14,11 +13,9 @@ package stack;
  * [0, 1, 2, 3] for '(**';
  * [0, 1, 2, 3, 4] for '(***';
  * [0, 1, 2, 3] for '(***)'.
- * <p>
  * Furthermore, we can prove these states always form a contiguous interval.
  * Thus, we only need to know the left and right bounds of this interval.
  * That is, we would keep those intermediate states described above as [lo, hi] = [1, 1], [0, 2], [0, 3], [0, 4], [0, 3].
- * <p>
  * Algorithm
  * Let low, high respectively be the smallest and largest possible number of open left brackets after processing the current character in the string.
  * If we encounter a left bracket (c == '('), then low++, otherwise we could write a right bracket, so low--.
@@ -41,25 +38,26 @@ public class CheckValidString {
     }
 
     public static boolean checkValid(String exp) {
-        int x = 0, y = 0;
+        int open = 0, close = 0;
         for (char c : exp.toCharArray()) {
-            switch (c) {
-                case '(' -> x++;
-                case '*' -> y++;
-                case ')' -> {
-                    if (x <= 0) return false;
-                    x--;
-                }
+            if (c == '(') {
+                open++;
+            } else if (c == '*') {
+                close++;
+            } else if (c == ')' && open > 0) {
+                open--;
+            } else if (c == ')') {
+                return false;
             }
         }
-        return x <= y;
+        return open <= close;
     }
 
     public static void main(String[] args) {
-        System.out.println(checkValidString(")(") + "\t" + checkValid(")("));
-        System.out.println(checkValidString("(*") + "\t" + checkValid("(*"));
+        System.out.println(checkValidString(")(")     + "\t" + checkValid(")("));
+        System.out.println(checkValidString("(*")     + "\t" + checkValid("(*"));
         System.out.println(checkValidString("(()())") + "\t" + checkValid("(()())"));
-        System.out.println(checkValidString("(***)") + "\t" + checkValid("(***)"));
-        System.out.println(checkValidString("())()") + "\t" + checkValid("())()"));
+        System.out.println(checkValidString("(***)")  + "\t" + checkValid("(***)"));
+        System.out.println(checkValidString("())()")  + "\t" + checkValid("())()"));
     }
 }

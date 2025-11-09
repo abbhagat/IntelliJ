@@ -5,7 +5,7 @@ import java.util.Stack;
 public class DecodeString {
 
     private static String decodeString(String s) {
-        Stack<String> stack = new Stack<>();
+        Stack<String>  stack = new Stack<>();
         Stack<Integer> count = new Stack<>();
         int n = 0;
         String decode = "";
@@ -20,7 +20,8 @@ public class DecodeString {
             } else if (c == ']') {
                 String temp = decode;
                 decode = stack.pop();
-                for (int i = count.pop(); i > 0; i--) {
+                int k  = count.pop();
+                for (int i = k; i > 0; i--) {
                     decode += temp;
                 }
             } else {
