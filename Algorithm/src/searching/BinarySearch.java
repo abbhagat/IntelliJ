@@ -10,9 +10,10 @@ public class BinarySearch {
         Arrays.sort(a);
         boolean isPresent = binarySearch(a, 0, a.length - 1, 35);
         System.out.println(isPresent ? "Present" : "Not Present");
+        System.out.println(Arrays.binarySearch(a, 0, a.length - 1, 35));
     }
 
-    private static boolean binarySearch(int[] a, int low, int high, int n) {
+    public static boolean binarySearch(int[] a, int low, int high, int n) {
         if (low <= high) {
             int mid = (low + high) / 2;
             if (n == a[mid]) {
