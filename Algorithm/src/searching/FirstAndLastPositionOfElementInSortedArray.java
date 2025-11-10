@@ -12,7 +12,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
                 break;
             }
         }
-        if (a[0] == -1) {
+        if (result[0] == -1) {
             return result;
         }
         for (int j = a.length - 1; j > i; j--) {

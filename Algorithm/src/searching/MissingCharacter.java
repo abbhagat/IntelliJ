@@ -2,7 +2,8 @@ package searching;
 
 public class MissingCharacter {
 
-    private static char findMissingCharacter(char[] c) {
+    private static char findMissingCharacter(String str) {
+        char[] c = str.toLowerCase().toCharArray();
         char min = c[0], max = c[0];
         int sum1 = 0, sum2 = 0;
         for (char x : c) {
@@ -17,6 +18,7 @@ public class MissingCharacter {
     }
 
     public static void main(String[] args) {
-        System.out.println("Missing character : " + findMissingCharacter("ecAfD".toLowerCase().toCharArray()));
+        System.out.println("Missing character : " + findMissingCharacter("ecAfD"));
+        System.out.println("Missing character : " + findMissingCharacter("ebAfD"));
     }
 }

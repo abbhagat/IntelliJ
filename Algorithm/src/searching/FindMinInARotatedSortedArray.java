@@ -4,9 +4,9 @@ package searching;
 public class FindMinInARotatedSortedArray {
 
     private static int findMinimum(int[] a) {
-        int low = 0, high = a.length - 1;
+        int low = 0, mid = 0, high = a.length - 1;
         while (low < high) {
-            int mid = (low + high) / 2;
+            mid = (low + high) / 2;
             if (a[mid] == a[high]) {
                 high--;
             } else if (a[mid] > a[high]) {
