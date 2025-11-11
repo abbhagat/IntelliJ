@@ -49,12 +49,8 @@ class MediaAdapter implements MediaPlayer {
 
     public void play(String fileName, String fileType) {
         switch (fileType) {
-            case "VLC":
-                advancedMediaPlayer.playVLC(fileName);
-                break;
-            case "MP4":
-                advancedMediaPlayer.playMP4(fileName);
-                break;
+            case "VLC" -> advancedMediaPlayer.playVLC(fileName);
+            case "MP4" -> advancedMediaPlayer.playMP4(fileName);
         }
     }
 }
@@ -62,18 +58,13 @@ class MediaAdapter implements MediaPlayer {
 class AudioPlayer implements MediaPlayer {
 
     public void play(String fileName, String fileType) {
-
         switch (fileType) {
-            case "MP3":
-                System.out.println("Playing MP3 file : " + fileName);
-                break;
-            case "MP4":
-            case "VLC":
+            case "MP3" -> System.out.println("Playing MP3 file : " + fileName);
+            case "MP4", "VLC" -> {
                 MediaAdapter mediaAdapter = new MediaAdapter(fileType);
                 mediaAdapter.play(fileName, fileType);
-                break;
-            default:
-                System.out.println("File format not supported");
+            }
+            default -> System.out.println("File format not supported");
         }
     }
 }
