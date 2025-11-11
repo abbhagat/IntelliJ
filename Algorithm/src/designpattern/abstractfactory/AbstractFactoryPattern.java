@@ -62,16 +62,12 @@ abstract class AbstractFactory {
 class ShapeFactory extends AbstractFactory {
 
     public Shape getShape(String shape) {
-        switch (shape.toLowerCase()) {
-            case "circle":
-                return new Circle();
-            case "square":
-                return new Square();
-            case "rectangle":
-                return new Rectangle();
-            default:
-                return null;
-        }
+        return switch (shape.toLowerCase()) {
+            case "circle"    -> new Circle();
+            case "square"    -> new Square();
+            case "rectangle" -> new Rectangle();
+            default          -> null;
+        };
     }
 
     public Color getColor(String color) {
@@ -82,16 +78,12 @@ class ShapeFactory extends AbstractFactory {
 class ColorFactory extends AbstractFactory {
 
     Color getColor(String color) {
-        switch (color.toLowerCase()) {
-            case "red":
-                return new Red();
-            case "green":
-                return new Green();
-            case "blue":
-                return new Blue();
-            default:
-                return null;
-        }
+        return switch (color.toLowerCase()) {
+            case "red"   -> new Red();
+            case "green" -> new Green();
+            case "blue"  -> new Blue();
+            default      -> null;
+        };
     }
 
     public Shape getShape(String shapeType) {
