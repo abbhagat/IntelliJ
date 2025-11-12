@@ -1,19 +1,16 @@
 package trees;
 
 import lombok.Getter;
-
 import java.util.Stack;
-
-interface Iterator {
-    boolean hasNext();
-
-    Node curr();
-
-    Node next();
-}
 
 interface Iterable {
     Iterator iterator();
+}
+
+interface Iterator {
+    boolean hasNext();
+    Node curr();
+    Node next();
 }
 
 @Getter
@@ -54,8 +51,8 @@ class TreeIterator implements Iterable {
 public class BinaryTreeIterator {
 
     public static void main(String[] args) {
-        Node root = new Node(2);
-        root.left = new Node(1);
+        Node root  = new Node(2);
+        root.left  = new Node(1);
         root.right = new Node(3);
         TreeIterator treeIterator = new TreeIterator();
         Stack<Node> stack = treeIterator.getStack();

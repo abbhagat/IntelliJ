@@ -3,16 +3,14 @@ package designpattern;
 import java.util.Arrays;
 import java.util.List;
 
-interface Iterator<E> {
-    boolean hasNext();
-
-    E curr();
-
-    E next();
-}
-
 interface Iterable<E> {
     Iterator<E> iterator();
+}
+
+interface Iterator<E> {
+    boolean hasNext();
+    E curr();
+    E next();
 }
 
 class NameRepository implements Iterable<String> {
