@@ -10,8 +10,8 @@ public class ConvertSortedArrayToBalancedTree {
             return null;
         }
         int mid = (start + end) / 2;
-        Node root = new Node(a[mid]);
-        root.left = sortedArrayToBST(a, start, mid - 1);
+        Node root  = new Node(a[mid]);
+        root.left  = sortedArrayToBST(a, start, mid - 1);
         root.right = sortedArrayToBST(a, mid + 1, end);
         return root;
     }
