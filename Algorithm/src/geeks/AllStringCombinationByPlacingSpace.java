@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Given a string, you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
- * <p>
  * Input : "ABC"
  * Output: ABC
  * AB C
@@ -23,15 +22,14 @@ public class AllStringCombinationByPlacingSpace {
             return al;
         }
         List<String> list = spaceString(str.substring(1));
-        list.forEach(s -> {
+        for (String s : list) {
             al.add(str.charAt(0) + s);
             al.add(str.charAt(0) + " " + s);
-        });
+        }
         return al;
     }
 
     public static void main(String[] args) {
-        List<String> list = spaceString("ABC");
-        System.out.println(list);
+        System.out.println(spaceString("ABC"));
     }
 }

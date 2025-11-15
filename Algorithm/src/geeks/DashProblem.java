@@ -8,11 +8,8 @@ package geeks;
 public class DashProblem {
 
     private static StringBuilder dashProblem(String str) {
-        int[] a = new int[str.length()];
-        for (int i = 0; i < str.length(); i++) {
-            a[i] = str.charAt(i) - '0';
-        }
-        boolean prev_odd = false;
+        int[] a = str.chars().map(c -> c - '0').toArray();
+        boolean prev_odd  = false;
         boolean prev_even = false;
         if (a[0] % 2 == 0) {
             prev_even = true;
@@ -26,13 +23,14 @@ public class DashProblem {
             if (a[i] == 0) {
                 continue;
             }
-            if (a[i] % 2 == 0 && prev_even) {
+            var isEven = a[i] % 2 == 0;
+            if (isEven && prev_even) {
                 sb.append("*");
             }
-            if (a[i] % 2 != 0 && prev_odd) {
+            if (!isEven && prev_odd) {
                 sb.append("-");
             }
-            if (a[i] % 2 == 0) {
+            if (isEven) {
                 prev_even = true;
                 prev_odd = false;
             } else {

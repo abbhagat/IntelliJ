@@ -8,16 +8,16 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
     private static boolean canFormPalindrome(String s) {
         int[] temp = new int[128];
         for (char c : s.toCharArray()) {
-            temp[c]++;
+             temp[c]++;
         }
         int count = 0;
         for (int n : temp) {
-            if (n % 2 == 1) {
-                count++;
-            }
-            if (count > 1) {
-                return false;
-            }
+             if (n % 2 == 1) {
+                 count++;
+             }
+             if (count > 1) {
+                 return false;
+             }
         }
         return true;
     }
@@ -38,9 +38,11 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
     }
 
     public static void main(String[] args) {
-        System.out.println((canFormPalindrome("geeksforgeeks") ? "Can" : "Cannot") + " Form Palindrome");
-        System.out.println((canFormPalindrome("geeksogeeks") ? "Can" : "Cannot") + " Form Palindrome");
-        System.out.println((canFormPalindromeUsingMap("geeksforgeeks") ? "Can" : "Cannot") + " Form Palindrome");
-        System.out.println((canFormPalindromeUsingMap("geeksogeeks") ? "Can" : "Cannot") + " Form Palindrome");
+        System.out.println(canFormPalindrome        ("geeksforgeeks"));
+        System.out.println(canFormPalindrome        ("geeksogeeks"));
+        System.out.println(canFormPalindromeUsingMap("geeksforgeeks"));
+        System.out.println(canFormPalindromeUsingMap("geeksogeeks"));
+        System.out.println(canFormPalindromeUsingMap("eeekkk"));
+        System.out.println(canFormPalindromeUsingMap("ekekeke"));
     }
 }
