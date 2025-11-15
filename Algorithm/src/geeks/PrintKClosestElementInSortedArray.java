@@ -1,5 +1,7 @@
 package geeks;
 
+import java.util.stream.IntStream;
+
 import static java.lang.Math.abs;
 import static util.CommonUtils.printArray;
 
@@ -18,7 +20,7 @@ public class PrintKClosestElementInSortedArray {
         while (j - i >= k) {
             int x = abs(a[i] - n) > abs(a[j] - n) ? i++ : j--;
         }
-        printArray(a, i, j + 1); // Print array from i to j
+        IntStream.range(i, j + 1).forEach(l -> System.out.print(a[l] + " "));
     }
 
     public static void main(String[] args) {
