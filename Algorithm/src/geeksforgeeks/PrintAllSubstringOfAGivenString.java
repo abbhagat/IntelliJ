@@ -6,7 +6,7 @@ import java.util.Set;
 /*
 Given a string as an input. We need to write a program that will print all non-empty substrings of that given string.
 Input :  abcd
-Output:  a
+Output:   a
           b
           c
           d
@@ -24,7 +24,7 @@ Input :  abc
           ab
           bc
           abc
- */
+*/
 
 // Time  Complexity: O(n^2)
 // Space Complexity: O(n^2)
@@ -53,12 +53,11 @@ public class PrintAllSubstringOfAGivenString {
         Set<String> set = printAllSubstring("abc");
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
         System.out.println();
+        printAllSubstrings("abc");
+        System.out.println();
         set = printAllSubstring("abcd");
         set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
         System.out.println();
-        set = printAllSubstring("LEETCODE");
-        set.stream().filter(s -> !s.isEmpty()).forEach(System.out::println);
-
-        printAllSubstrings("abc");
+        printAllSubstrings("abcd");
     }
 }
