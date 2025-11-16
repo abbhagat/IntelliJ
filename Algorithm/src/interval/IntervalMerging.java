@@ -1,12 +1,10 @@
 package interval;
 
 import util.Interval;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-
 import static java.lang.Integer.max;
 import static util.CommonUtils.printMatrix;
 
@@ -29,16 +27,16 @@ public class IntervalMerging {
 
     private static int[][] mergeInterval(int[][] a) {
         Arrays.sort(a, (x, y) -> x[0] - y[0]); // Arrays.sort(Comparator.comparingInt(x -> x[0]));
-        LinkedList<int[]> interval = new LinkedList<>();
-        interval.add(a[0]);
+        LinkedList<int[]> mergedInterval = new LinkedList<>();
+        mergedInterval.add(a[0]);
         for (int i = 1; i < a.length; i++) {
-            if (interval.getLast()[1] < a[i][0]) {
-                interval.add(a[i]);
+            if (mergedInterval.getLast()[1] < a[i][0]) {
+                mergedInterval.add(a[i]);
             } else {
-                interval.getLast()[1] = max(interval.getLast()[1], a[i][1]);
+                mergedInterval.getLast()[1] = max(mergedInterval.getLast()[1], a[i][1]);
             }
         }
-        return interval.toArray(new int[interval.size()][2]);
+        return mergedInterval.toArray(new int[mergedInterval.size()][2]);
     }
 
     public static void main(String[] args) {
