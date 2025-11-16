@@ -36,23 +36,3 @@ public class FinalAccountBalSolutionAMEX {
         System.out.println(solution(new int[]{100, 100, -10, -20, -30}, new String[]{"2020-01-01", "2020-02-01", "2020-02-11", "2020-02-05", "2020-02-08"}));
     }
 }
-
-/*
-        AtomicInteger waiver = new AtomicInteger();
-        AtomicInteger balance = new AtomicInteger();
-        Set<Map.Entry<String, List<Integer>>> set = map.entrySet();
-        map.forEach((k,v) ->{
-            int cardPaymentInAMonth = 0, totalAmtPaidThroughCard = 0;
-            for (int bal : v) {
-                balance.addAndGet(bal);
-                if (bal < 0) {
-                    totalAmtPaidThroughCard += Math.abs(bal);
-                    cardPaymentInAMonth++;
-                }
-            }
-            if (cardPaymentInAMonth >= 3 && totalAmtPaidThroughCard >= 100) {
-                waiver.getAndIncrement();
-            }
-        });
-        return balance.get() - (12 - waiver.get()) * 5;
- */

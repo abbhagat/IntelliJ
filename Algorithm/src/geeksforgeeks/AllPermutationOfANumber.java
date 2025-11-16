@@ -20,9 +20,8 @@ public class AllPermutationOfANumber {
 
     private static int[] convert(int n) {
         String s = String.valueOf(n);
-        int l = s.length();
-        int[] a = new int[l];
-        for (int i = 0; i < l; i++) {
+        int[] a  = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
             a[i] = Character.getNumericValue(s.charAt(i));
         }
         return a;

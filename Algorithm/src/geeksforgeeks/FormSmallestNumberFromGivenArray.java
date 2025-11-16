@@ -19,7 +19,7 @@ public class FormSmallestNumberFromGivenArray {
         }
         list.sort((x, y) -> (x + y).compareTo(y + x));
         StringBuilder result = new StringBuilder();
-        list.forEach(result::append);  // list.forEach(s -> result.append(s));
+        list.forEach(result::append);
         return result.toString();
     }
 
