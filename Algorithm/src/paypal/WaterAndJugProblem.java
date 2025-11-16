@@ -38,5 +38,7 @@ public class WaterAndJugProblem {
     public static void main(String[] args) {
         System.out.println(canMeasure(3, 5, 4) ? min(minSteps(3, 5, 4), minSteps(5, 3, 4)) : -1);
         System.out.println(canMeasure(5, 3, 3) ? min(minSteps(3, 5, 3), minSteps(5, 3, 3)) : -1);
+        System.out.println(canMeasure(5, 3, 5) ? min(minSteps(3, 5, 5), minSteps(5, 3, 5)) : -1);
+        System.out.println(canMeasure(5, 3, 15) ? min(minSteps(3, 5, 15), minSteps(5, 3, 15)) : -1);
     }
 }
