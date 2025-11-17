@@ -3,7 +3,7 @@ package geeksforgeeks;
 public class Implement_strStr {
 
     public static int strStr(String s1, String s2) {
-        if (s2.isEmpty() || s2.contentEquals(s1)) {
+        if (s2.isEmpty() || s2.equals(s1)) {
             return 0;
         }
         if (s2.length() > s1.length()) {
@@ -16,14 +16,14 @@ public class Implement_strStr {
                 index = index == -1 ? i : index;
                 s += s1.charAt(i);
                 j++;
-                if (s.contentEquals(s2)) {
+                if (s.equals(s2)) {
                     return index;
                 }
             } else {
                 i = index != -1 ? index : i;
+                s = "";
                 index = -1;
                 j = 0;
-                s = "";
             }
         }
         return -1;
