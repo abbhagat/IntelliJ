@@ -3,11 +3,10 @@ package gfg;
 public class AddTwoNumWithoutAnyOperator {
 
     private static int sum(int x, int y) {
-        int carry;
         while (y != 0) {
-            carry = (x & y) << 1;
-            x = x ^ y;
-            y = carry;
+            int t = (x & y) << 1;
+                x = x ^ y;
+                y = t;
         }
         return x;
     }

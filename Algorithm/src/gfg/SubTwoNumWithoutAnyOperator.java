@@ -4,9 +4,9 @@ public class SubTwoNumWithoutAnyOperator {
 
     private static int sub(int x, int y) {
         while (y != 0) {
-            int carry = (~x & y) << 1;
-            x = x ^ y;
-            y = carry;
+            int t = (~x & y) << 1;
+                x = x ^ y;
+                y = t;
         }
         return x;
     }
