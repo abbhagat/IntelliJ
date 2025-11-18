@@ -1,12 +1,10 @@
 package interval;
 
 import util.Interval;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-
 import static java.lang.Integer.max;
 import static util.CommonUtils.printMatrix;
 

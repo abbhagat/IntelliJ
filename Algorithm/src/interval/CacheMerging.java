@@ -1,10 +1,8 @@
 package interval;
 
 import util.Interval;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -19,7 +17,7 @@ public class CacheMerging {
     while (i < intervalList.size() && intervalList.get(i).start <= newInterval.start + newInterval.end) {
       Interval interval = intervalList.remove(i);
       newInterval.start = min(interval.start, newInterval.start);
-      int end = max(interval.end, newInterval.end);
+      int end           = max(interval.end, newInterval.end);
       if (newInterval.start + newInterval.end <= interval.start + interval.end) {
         newInterval.end = interval.start + interval.end;
       } else {
