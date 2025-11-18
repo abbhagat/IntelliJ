@@ -8,28 +8,24 @@ public class LargestContiguousSumArrayPrint {
     private static int largestContiguousSum(int[] a) {
         int curSum = a[0], maxSum = a[0];
         for (int i = 1; i < a.length; i++) {
-            curSum = max(a[i], a[i] + curSum);
+            curSum = max(a[i], curSum + a[i]);
             maxSum = max(maxSum, curSum);
         }
         return maxSum;
     }
 
     private static void maxSumSubarray(int[] a) {
-        int curSum, maxSum, start, end, s;
-        curSum = maxSum = a[0];
-        start = 0;
-        end = 0;
-        s = 0;
+        int curSum = a[0], maxSum = a[0], start = 0, end = 0, index = 0;
         for (int i = 1; i < a.length; i++) {
             if (curSum + a[i] < a[i]) {
                 curSum = a[i];
-                s = i;
+                index  = i;
             } else {
                 curSum += a[i];
             }
             if (maxSum < curSum) {
                 maxSum = curSum;
-                start = s;
+                start  = index;
                 end = i;
             }
         }

@@ -1,9 +1,6 @@
 package gfg;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class SentenceProblem {
 
@@ -15,12 +12,11 @@ public class SentenceProblem {
                 if (s.contains(".")) {
                     s = s.replace(".", "");
                 }
-                List<String> list = map.containsKey(s.length()) ? map.get(s.length()) : new LinkedList<>();
-                list.add(s);
-                map.put(s.length(), list);
+                map.computeIfAbsent(s.length(), k -> new LinkedList<>()).add(s);
             }
         }
         StringBuilder sb = new StringBuilder();
+//        map.values().stream().flatMap(Collection::stream).forEach(s -> sb.append(s).append(" "));
         map.forEach((k, v) -> {
             for (String s : v) {
                 sb.append(s).append(" ");
