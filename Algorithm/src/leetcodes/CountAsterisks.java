@@ -16,24 +16,24 @@ package leetcodes;
  */
 public class CountAsterisks {
 
-    private static int countAsterisks(String s) {
-        boolean insidePipe = false;
-        int count = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '|') {
-                insidePipe = !insidePipe;
-            }
-            if (c == '*' && !insidePipe) {
-                count++;
-            }
-        }
-        return count;
+  private static int countAsterisks(String s) {
+    boolean insidePipe = false;
+    int count = 0;
+    for (char c : s.toCharArray()) {
+      if (c == '|') {
+        insidePipe = !insidePipe;
+      }
+      if (c == '*' && !insidePipe) {
+        count++;
+      }
     }
+    return count;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(countAsterisks("l|*e**et|c**o|*de|"));
-        System.out.println(countAsterisks("l|*e**et|c**o|*de|*"));
-        System.out.println(countAsterisks("iamprogrammer"));
-        System.out.println(countAsterisks("yo|uar|e**|b|e***au|tifu|l"));
-    }
+  public static void main(String[] args) {
+    System.out.println(countAsterisks("l|*e**et|c**o|*de|"));
+    System.out.println(countAsterisks("l|*e**et|c**o|*de|*"));
+    System.out.println(countAsterisks("iamprogrammer"));
+    System.out.println(countAsterisks("yo|uar|e**|b|e***au|tifu|l"));
+  }
 }

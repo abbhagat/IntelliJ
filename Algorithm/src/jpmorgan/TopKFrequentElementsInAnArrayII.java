@@ -55,77 +55,77 @@ import static util.CommonUtils.swap;
 // Space Complexity: O(n)     To store the elements in HashMap O(n) space is required.
 public class TopKFrequentElementsInAnArrayII {
 
-    private static void topKFrequent(Stream<Integer> intStream, int k) {
-        int[] temp = new int[k + 1];
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i <= k; i++) {
-            map.put(i, 0);
+  private static void topKFrequent(Stream<Integer> intStream, int k) {
+    int[] temp = new int[k + 1];
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i <= k; i++) {
+      map.put(i, 0);
+    }
+    intStream.forEach(n -> {
+      map.put(n, map.getOrDefault(n, 0) + 1);
+      temp[k] = n;
+      for (int i = search(temp, n) - 1; i >= 0; i--) {
+        int x = map.get(temp[i]);
+        int y = map.get(temp[i + 1]);
+        if (x < y || (x == y && temp[i] > temp[i + 1])) {
+          swap(temp, i, i + 1);
+        } else {
+          break;
         }
-        intStream.forEach(n -> {
-            map.put(n, map.getOrDefault(n, 0) + 1);
-            temp[k] = n;
-            for (int i = search(temp, n) - 1; i >= 0; i--) {
-                int x = map.get(temp[i]);
-                int y = map.get(temp[i + 1]);
-                if (x < y || (x == y && temp[i] > temp[i + 1])) {
-                    swap(temp, i, i + 1);
-                } else {
-                    break;
-                }
-            }
+      }
 /*    Replace the below for loop with this for k = 1
             if (temp[0] != 0) {
                 System.out.print(temp[0] + " ");
             }
 */
-            for (int i = 0; i < k && temp[i] != 0; i++) {  // for(int i = temp.length - 2; i >= k - 1; i--) {
-                System.out.print(temp[i] + " ");
-            }
-        });
-    }
+      for (int i = 0; i < k && temp[i] != 0; i++) {  // for(int i = temp.length - 2; i >= k - 1; i--) {
+        System.out.print(temp[i] + " ");
+      }
+    });
+  }
 
-    private static int search(int[] temp, int n) {
-        for (int i = 0; i < temp.length; i++)
-            if (temp[i] == n) {
-                return i;
-            }
-        return -1;
-    }
+  private static int search(int[] temp, int n) {
+    for (int i = 0; i < temp.length; i++)
+      if (temp[i] == n) {
+        return i;
+      }
+    return -1;
+  }
 
-    public static void topKFreqElements(Stream<Integer> intStream, int k) {
+  public static void topKFreqElements(Stream<Integer> intStream, int k) {
 
-        Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> list = new ArrayList<>();
+    Map<Integer, Integer> map = new HashMap<>();
+    List<Integer> list = new ArrayList<>();
 
-        intStream.forEach(x -> {
-            map.put(x, map.getOrDefault(x, 0) + 1);
-            if (!list.contains(x)) {
-                list.add(x);
-            }
-            // Sort the list based on frequency and then number [ Here number is the element from the Stream ]
-            list.sort((a, b) -> {
-                int n = map.get(b).compareTo(map.get(a));
-                if (n == 0) {
-                    return compare(a, b); // smaller number first if same frequency
-                }
-                return n;
-            });
-            // Print top K (or fewer if not enough distinct elements)
-            IntStream.range(0, min(k, list.size())).forEach(i -> System.out.print(list.get(i) + " "));
-        });
-    }
+    intStream.forEach(x -> {
+      map.put(x, map.getOrDefault(x, 0) + 1);
+      if (!list.contains(x)) {
+        list.add(x);
+      }
+      // Sort the list based on frequency and then number [ Here number is the element from the Stream ]
+      list.sort((a, b) -> {
+        int n = map.get(b).compareTo(map.get(a));
+        if (n == 0) {
+          return compare(a, b); // smaller number first if same frequency
+        }
+        return n;
+      });
+      // Print top K (or fewer if not enough distinct elements)
+      IntStream.range(0, min(k, list.size())).forEach(i -> System.out.print(list.get(i) + " "));
+    });
+  }
 
-    public static void main(String[] args) {
-        topKFrequent(Stream.of(5, 2, 1, 3, 2), 2);
-        System.out.println();
-        topKFrequent(Stream.of(5, 2, 1, 3, 4), 4);
-        System.out.println();
-        topKFrequent(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
-        System.out.println();
-        topKFreqElements(Stream.of(5, 2, 1, 3, 2), 2);
-        System.out.println();
-        topKFreqElements(Stream.of(5, 2, 1, 3, 4), 4);
-        System.out.println();
-        topKFreqElements(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
-    }
+  public static void main(String[] args) {
+    topKFrequent(Stream.of(5, 2, 1, 3, 2), 2);
+    System.out.println();
+    topKFrequent(Stream.of(5, 2, 1, 3, 4), 4);
+    System.out.println();
+    topKFrequent(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
+    System.out.println();
+    topKFreqElements(Stream.of(5, 2, 1, 3, 2), 2);
+    System.out.println();
+    topKFreqElements(Stream.of(5, 2, 1, 3, 4), 4);
+    System.out.println();
+    topKFreqElements(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
+  }
 }

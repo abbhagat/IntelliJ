@@ -10,36 +10,36 @@ import java.util.stream.IntStream;
  */
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
-    private static void slidingWindow(int[] a, int k) {
-        int wL = 0, wR = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
-        while (wR < a.length) {
-            if (zeroCount <= k) {
-                zeroCount += a[wR] == 0 ? 1 : 0;
-                wR++;
-            }
-            if (zeroCount > k) {
-                zeroCount -= a[wL] == 0 ? 1 : 0;
-                wL++;
-            }
-            if (wR - wL > bestWindow && zeroCount <= k) {
-                bestWindow = wR - wL;
-                startIndex = wL;
-            }
-        }
-        System.out.print("Index Flipped ");
-        IntStream.range(startIndex, startIndex + bestWindow).forEach(i -> {
-            if (a[i] == 0) {
-                a[i] = 1;
-                System.out.print(i + " ");
-            }
-        });
-        System.out.println("\nChanged Array After Flip " + Arrays.toString(a));
-        System.out.println("Max Consecutive 1's: " + bestWindow);
+  private static void slidingWindow(int[] a, int k) {
+    int wL = 0, wR = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
+    while (wR < a.length) {
+      if (zeroCount <= k) {
+        zeroCount += a[wR] == 0 ? 1 : 0;
+        wR++;
+      }
+      if (zeroCount > k) {
+        zeroCount -= a[wL] == 0 ? 1 : 0;
+        wL++;
+      }
+      if (wR - wL > bestWindow && zeroCount <= k) {
+        bestWindow = wR - wL;
+        startIndex = wL;
+      }
     }
+    System.out.print("Index Flipped ");
+    IntStream.range(startIndex, startIndex + bestWindow).forEach(i -> {
+      if (a[i] == 0) {
+        a[i] = 1;
+        System.out.print(i + " ");
+      }
+    });
+    System.out.println("\nChanged Array After Flip " + Arrays.toString(a));
+    System.out.println("Max Consecutive 1's: " + bestWindow);
+  }
 
-    public static void main(String[] args) {
-        slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2);
-        slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2);
-        slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
-    }
+  public static void main(String[] args) {
+    slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2);
+    slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2);
+    slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
+  }
 }

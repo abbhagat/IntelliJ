@@ -24,21 +24,21 @@ import static java.lang.Math.max;
  */
 public class ZeroOneKnapSackRecursionBounded {
 
-    private static int knapSack(int W, int[] wt, int[] val, int n) {
-        if (n == 0 || W == 0) {
-            return 0;
-        }
-        if (wt[n] > W) {
-            return knapSack(W, wt, val, n - 1);
-        }
-        return max(val[n] + knapSack(W - wt[n], wt, val, n - 1), knapSack(W, wt, val, n - 1));
+  private static int knapSack(int W, int[] wt, int[] val, int n) {
+    if (n == 0 || W == 0) {
+      return 0;
     }
+    if (wt[n] > W) {
+      return knapSack(W, wt, val, n - 1);
+    }
+    return max(val[n] + knapSack(W - wt[n], wt, val, n - 1), knapSack(W, wt, val, n - 1));
+  }
 
-    public static void main(String args[]) {
-        int W = 8;
-        int[] val = {10, 40, 50, 70};
-        int[] wt = {1, 3, 4, 5};
-        int n = val.length - 1;
-        System.out.println(knapSack(W, wt, val, n));
-    }
+  public static void main(String args[]) {
+    int W = 8;
+    int[] val = {10, 40, 50, 70};
+    int[] wt = {1, 3, 4, 5};
+    int n = val.length - 1;
+    System.out.println(knapSack(W, wt, val, n));
+  }
 }

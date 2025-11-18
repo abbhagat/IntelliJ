@@ -13,20 +13,20 @@ import static java.lang.Integer.min;
 
 public class LCMSumFrom1toN {
 
-    private static int lcm(int x, int y, int lcm) {
-        return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + y);
-    }
+  private static int lcm(int x, int y, int lcm) {
+    return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + y);
+  }
 
-    private static int findSum(int n) {
-        int sum = 0;
-        for (int i = 1; i <= n; i++) {
-            sum += lcm(min(i, n), max(i, n), max(i, n));
-        }
-        return sum;
+  private static int findSum(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+      sum += lcm(min(i, n), max(i, n), max(i, n));
     }
+    return sum;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(findSum(3));
-        System.out.println(findSum(5));
-    }
+  public static void main(String[] args) {
+    System.out.println(findSum(3));
+    System.out.println(findSum(5));
+  }
 }

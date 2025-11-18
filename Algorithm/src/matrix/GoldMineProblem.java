@@ -37,32 +37,32 @@ import static util.CommonUtils.maximum;
  */
 public class GoldMineProblem {
 
-    // Returns maximum amount of gold that can be collected when a journey started from the first column and moves allowed are right, right-up and right-down
-    private static int getMaxGold(int[][] gold) {
-        int ROW = gold.length, COL = gold[0].length;
-        int[][] goldTable = new int[ROW][COL];
-        for (int col = COL - 1; col >= 0; col--) {
-            for (int row = 0; row < ROW; row++) {
-                int right = col == COL - 1 ? 0 : goldTable[row][col + 1];    // Gold collected on going to the cell on the right
-                int right_up = row == 0 || col == COL - 1 ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
-                int right_down = row == ROW - 1 || col == COL - 1 ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
-                goldTable[row][col] = gold[row][col] + maximum(right, right_up, right_down);              // Max gold collected from taking either of the above 3 paths
-            }
-        }
-        int max = goldTable[0][0];
-        for (int[] a : goldTable) {
-            max = max(max, a[0]);   // The max amount of gold collected will be the max value in the first column of all rows
-        }
-        return max;
+  // Returns maximum amount of gold that can be collected when a journey started from the first column and moves allowed are right, right-up and right-down
+  private static int getMaxGold(int[][] gold) {
+    int ROW = gold.length, COL = gold[0].length;
+    int[][] goldTable = new int[ROW][COL];
+    for (int col = COL - 1; col >= 0; col--) {
+      for (int row = 0; row < ROW; row++) {
+        int right = col == COL - 1 ? 0 : goldTable[row][col + 1];    // Gold collected on going to the cell on the right
+        int right_up = row == 0 || col == COL - 1 ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
+        int right_down = row == ROW - 1 || col == COL - 1 ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
+        goldTable[row][col] = gold[row][col] + maximum(right, right_up, right_down);              // Max gold collected from taking either of the above 3 paths
+      }
     }
+    int max = goldTable[0][0];
+    for (int[] a : goldTable) {
+      max = max(max, a[0]);   // The max amount of gold collected will be the max value in the first column of all rows
+    }
+    return max;
+  }
 
-    public static void main(String[] arg) {
-        int[][] gold = {
-                {1, 3, 1, 5},
-                {2, 2, 4, 1},
-                {5, 0, 2, 3},
-                {0, 6, 1, 2}
-        };
-        System.out.println(getMaxGold(gold));
-    }
+  public static void main(String[] arg) {
+    int[][] gold = {
+        {1, 3, 1, 5},
+        {2, 2, 4, 1},
+        {5, 0, 2, 3},
+        {0, 6, 1, 2}
+    };
+    System.out.println(getMaxGold(gold));
+  }
 }

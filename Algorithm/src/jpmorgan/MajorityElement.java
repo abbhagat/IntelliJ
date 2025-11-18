@@ -17,15 +17,15 @@ import java.util.Map;
 // Auxiliary Space: O(1)
 public class MajorityElement {
 
-    private static int majorityElement(int[] a) {
-        Map<Integer, Integer> map = new HashMap<>();
-        Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
-        return Arrays.stream(a).filter(n -> map.get(n) > a.length / 2).findFirst().orElse(-1);
-    }
+  private static int majorityElement(int[] a) {
+    Map<Integer, Integer> map = new HashMap<>();
+    Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
+    return Arrays.stream(a).filter(n -> map.get(n) > a.length / 2).findFirst().orElse(-1);
+  }
 
-    public static void main(String[] args) {
-        System.out.println(majorityElement(new int[]{1, 2, 3}));
-        System.out.println(majorityElement(new int[]{3, 1, 3, 3, 2}));
-        System.out.println(majorityElement(new int[]{3, 1, 3, 2, 2, 2, 2, 2, 2, 4}));
-    }
+  public static void main(String[] args) {
+    System.out.println(majorityElement(new int[]{1, 2, 3}));
+    System.out.println(majorityElement(new int[]{3, 1, 3, 3, 2}));
+    System.out.println(majorityElement(new int[]{3, 1, 3, 2, 2, 2, 2, 2, 2, 4}));
+  }
 }

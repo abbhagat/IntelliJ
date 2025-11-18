@@ -15,21 +15,21 @@ import java.util.List;
 // Space Complexity: O(n*(2^n))
 public class AllStringCombinationByPlacingSpace {
 
-    private static List<String> spaceString(String str) {
-        List<String> al = new ArrayList<>();
-        if (str.length() == 1) {
-            al.add(str);
-            return al;
-        }
-        List<String> list = spaceString(str.substring(1));
-        for (String s : list) {
-            al.add(str.charAt(0) + s);
-            al.add(str.charAt(0) + " " + s);
-        }
-        return al;
+  private static List<String> spaceString(String str) {
+    List<String> al = new ArrayList<>();
+    if (str.length() == 1) {
+      al.add(str);
+      return al;
     }
+    List<String> list = spaceString(str.substring(1));
+    for (String s : list) {
+      al.add(str.charAt(0) + s);
+      al.add(str.charAt(0) + " " + s);
+    }
+    return al;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(spaceString("ABC"));
-    }
+  public static void main(String[] args) {
+    System.out.println(spaceString("ABC"));
+  }
 }

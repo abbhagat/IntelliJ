@@ -27,38 +27,38 @@ package binarySearchImpl;
 // Auxiliary Space: O(1)
 public class MaxMango {
 
-    private static boolean check(int W, int C, int X, int Y, int mid) {
-        if (mid > W) {      // If watermelons needed are greater than given watermelons
-            return false;
-        }
-        int remainingWaterMelon = W - mid;
-        int coinsEarned = remainingWaterMelon * Y;
-        C += coinsEarned;
-        int mangoes = C / X;
-        return mangoes >= mid;
+  private static boolean check(int W, int C, int X, int Y, int mid) {
+    if (mid > W) {      // If watermelons needed are greater than given watermelons
+      return false;
     }
+    int remainingWaterMelon = W - mid;
+    int coinsEarned = remainingWaterMelon * Y;
+    C += coinsEarned;
+    int mangoes = C / X;
+    return mangoes >= mid;
+  }
 
-    private static int maximizeMangoes(int W, int C, int X, int Y) {
-        int low = 0, high = W, result = 0;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (check(W, C, X, Y, mid)) {      // Check if it is possible to buy mid-number of mangoes
-                result = mid;
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return result;
+  private static int maximizeMangoes(int W, int C, int X, int Y) {
+    int low = 0, high = W, result = 0;
+    while (low <= high) {
+      int mid = (low + high) / 2;
+      if (check(W, C, X, Y, mid)) {      // Check if it is possible to buy mid-number of mangoes
+        result = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
     }
+    return result;
+  }
 
-    public static void main(String[] args) {
-        int W = 4, C = 8, X = 4, Y = 4;
-        System.out.println(maximizeMangoes(W, C, X, Y));
-        W = 10;
-        C = 10;
-        X = 1;
-        Y = 1;
-        System.out.println(maximizeMangoes(W, C, X, Y));
-    }
+  public static void main(String[] args) {
+    int W = 4, C = 8, X = 4, Y = 4;
+    System.out.println(maximizeMangoes(W, C, X, Y));
+    W = 10;
+    C = 10;
+    X = 1;
+    Y = 1;
+    System.out.println(maximizeMangoes(W, C, X, Y));
+  }
 }

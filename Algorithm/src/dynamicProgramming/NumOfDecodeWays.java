@@ -23,34 +23,34 @@ package dynamicProgramming;
 
 public class NumOfDecodeWays {
 
-    private static int decodeWays(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
-        char[] c = s.toCharArray();
-        if (c[0] == '0') {   // for base condition "01123" should return 0
-            return 0;
-        }
-        int n = c.length;
-        int[] dp = new int[n + 1];
-        dp[0] = dp[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            dp[i] = 0;
-            if (c[i - 1] > '0') {     // If the last digit is not 0, then the last digit must add to the number of words
-                dp[i] = dp[i - 1];
-            }
-            // If the second last digit is smaller than 2 and the last digit is smaller than 7, then the last two form a valid character
-            if (c[i - 2] == '1' || (c[i - 2] == '2' && c[i - 1] < '7')) {
-                dp[i] += dp[i - 2];
-            }
-        }
-        return dp[n];
+  private static int decodeWays(String s) {
+    if (s == null || s.isEmpty()) {
+      return 0;
     }
+    char[] c = s.toCharArray();
+    if (c[0] == '0') {   // for base condition "01123" should return 0
+      return 0;
+    }
+    int n = c.length;
+    int[] dp = new int[n + 1];
+    dp[0] = dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+      dp[i] = 0;
+      if (c[i - 1] > '0') {     // If the last digit is not 0, then the last digit must add to the number of words
+        dp[i] = dp[i - 1];
+      }
+      // If the second last digit is smaller than 2 and the last digit is smaller than 7, then the last two form a valid character
+      if (c[i - 2] == '1' || (c[i - 2] == '2' && c[i - 1] < '7')) {
+        dp[i] += dp[i - 2];
+      }
+    }
+    return dp[n];
+  }
 
-    public static void main(String[] args) {
-        System.out.println(decodeWays("12"));
-        System.out.println(decodeWays("226"));
-        System.out.println(decodeWays("121"));
-        System.out.println(decodeWays("1234"));
-    }
+  public static void main(String[] args) {
+    System.out.println(decodeWays("12"));
+    System.out.println(decodeWays("226"));
+    System.out.println(decodeWays("121"));
+    System.out.println(decodeWays("1234"));
+  }
 }

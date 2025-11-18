@@ -23,17 +23,17 @@ import java.util.Arrays;
 
 public class MinOpsToMakeAllArrayElementsSameII {
 
-    private static int printMinOp(int[] a) {
-        int sum = Arrays.stream(a).sum();
-        int min = Arrays.stream(a).min().getAsInt();
-        return sum - a.length * min;
-    }
+  private static int printMinOp(int[] a) {
+    int sum = Arrays.stream(a).sum();
+    int min = Arrays.stream(a).min().getAsInt();
+    return sum - a.length * min;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(printMinOp(new int[]{1, 2, 3}));
-        System.out.println(printMinOp(new int[]{1, 2, 3, 4}));
-        System.out.println(printMinOp(new int[]{4, 3, 4}));
-        System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
-        System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
-    }
+  public static void main(String[] args) {
+    System.out.println(printMinOp(new int[]{1, 2, 3}));
+    System.out.println(printMinOp(new int[]{1, 2, 3, 4}));
+    System.out.println(printMinOp(new int[]{4, 3, 4}));
+    System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
+    System.out.println(printMinOp(new int[]{5, 6, 2, 4, 3}));
+  }
 }

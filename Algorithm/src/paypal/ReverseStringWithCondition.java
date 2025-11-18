@@ -10,21 +10,21 @@ import static util.CommonUtils.swap;
  */
 public class ReverseStringWithCondition {
 
-    private static char[] reverse(char[] c) {
-        for (int i = 0, j = c.length - 1; i < j; i++, j--) {
-            if (c[i] == '-') {
-                i++;
-            }
-            if (c[j] == '-') {
-                j--;
-            }
-            swap(c, i, j);
-        }
-        return c;
+  private static char[] reverse(char[] c) {
+    for (int i = 0, j = c.length - 1; i < j; i++, j--) {
+      if (c[i] == '-') {
+        i++;
+      }
+      if (c[j] == '-') {
+        j--;
+      }
+      swap(c, i, j);
     }
+    return c;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(reverse("ab-cd".toCharArray()));
-        System.out.println(reverse("a-bC-dEf-ghIj".toCharArray()));
-    }
+  public static void main(String[] args) {
+    System.out.println(reverse("ab-cd".toCharArray()));
+    System.out.println(reverse("a-bC-dEf-ghIj".toCharArray()));
+  }
 }

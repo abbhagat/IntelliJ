@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class FilteringNullFromList {
 
-    public static void main(String[] args) {
-        List<String> language = Arrays.asList("English", null, "Hindi", null);
-        List<String> result = language.stream().filter(Objects::nonNull).toList();
-        result.forEach(System.out::println);
-    }
+  public static void main(String[] args) {
+    List<String> language = Arrays.asList("English", null, "Hindi", null);
+    List<String> result = language.stream().filter(Objects::nonNull).toList();
+    result.forEach(System.out::println);
+  }
 }

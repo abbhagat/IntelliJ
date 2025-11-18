@@ -13,24 +13,24 @@ import static java.lang.Integer.max;
 // Space Complexity: O(2^h)
 public class BinaryTreeDiameter {
 
-    private static int diameter = Integer.MIN_VALUE;
+  private static int diameter = Integer.MIN_VALUE;
 
-    private static int treeHeight(Node root) {
-        if (root == null) {
-            return 0;
-        }
-        int lH = treeHeight(root.left);
-        int rH = treeHeight(root.right);
-        diameter = max(diameter, lH + rH);
-        return max(lH, rH) + 1;
+  private static int treeHeight(Node root) {
+    if (root == null) {
+      return 0;
     }
+    int lH = treeHeight(root.left);
+    int rH = treeHeight(root.right);
+    diameter = max(diameter, lH + rH);
+    return max(lH, rH) + 1;
+  }
 
-    public static void main(String[] args) {
-        Node root       = new Node(1);
-        root.left       = new Node(2);
-        root.right      = new Node(3);
-        root.left.left  = new Node(4);
-        root.left.right = new Node(5);
-        System.out.println("Diameter : " + (treeHeight(root)));
-    }
+  public static void main(String[] args) {
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.left.right = new Node(5);
+    System.out.println("Diameter : " + (treeHeight(root)));
+  }
 }

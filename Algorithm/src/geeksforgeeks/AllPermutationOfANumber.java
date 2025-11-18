@@ -6,32 +6,32 @@ import static util.CommonUtils.swap;
 // Time Complexity :- O(n * n!)
 public class AllPermutationOfANumber {
 
-    private static void permutation(int[] a, int start, int end) {
-        if (start == end) {
-            printArray(a);
-            return;
-        }
-        for (int i = start; i <= end; i++) {
-            swap(a, i, start);
-            permutation(a, start + 1, end);
-            swap(a, i, start);
-        }
+  private static void permutation(int[] a, int start, int end) {
+    if (start == end) {
+      printArray(a);
+      return;
     }
+    for (int i = start; i <= end; i++) {
+      swap(a, i, start);
+      permutation(a, start + 1, end);
+      swap(a, i, start);
+    }
+  }
 
-    private static int[] convert(int n) {
-        String s = String.valueOf(n);
-        int[] a  = new int[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            a[i] = Character.getNumericValue(s.charAt(i));
-        }
-        return a;
+  private static int[] convert(int n) {
+    String s = String.valueOf(n);
+    int[] a = new int[s.length()];
+    for (int i = 0; i < s.length(); i++) {
+      a[i] = Character.getNumericValue(s.charAt(i));
     }
+    return a;
+  }
 
-    public static void main(String[] args) {
-        int[] a = convert(123);
-        permutation(a, 0, a.length - 1);
-        System.out.println();
-        a = convert(102);
-        permutation(a, 0, a.length - 1);
-    }
+  public static void main(String[] args) {
+    int[] a = convert(123);
+    permutation(a, 0, a.length - 1);
+    System.out.println();
+    a = convert(102);
+    permutation(a, 0, a.length - 1);
+  }
 }

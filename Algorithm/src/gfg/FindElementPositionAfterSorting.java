@@ -8,22 +8,22 @@ package gfg;
 // Time Complexity: O(n)
 public class FindElementPositionAfterSorting {
 
-    private static int findElementPositionAfterSorting(int[] a, int index) {
-        int count = 0, n = a[index];
-        for (int i = 0; i < a.length; i++) {
-            if (i == index) {
-                continue;
-            }
-            if (a[i] <= n) {  // Find the count of elements in the array which are <= n
-                count++;
-            }
-        }
-        return count;
+  private static int findElementPositionAfterSorting(int[] a, int index) {
+    int count = 0, n = a[index];
+    for (int i = 0; i < a.length; i++) {
+      if (i == index) {
+        continue;
+      }
+      if (a[i] <= n) {  // Find the count of elements in the array which are <= n
+        count++;
+      }
     }
+    return count;
+  }
 
-    public static void main(String[] args) {
-        int[] a = {3, 5, 1, 2, 4};
-        System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 3));
-        System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 4));
-    }
+  public static void main(String[] args) {
+    int[] a = {3, 5, 1, 2, 4};
+    System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 3));
+    System.out.println("Position After Sorting " + findElementPositionAfterSorting(a, 4));
+  }
 }

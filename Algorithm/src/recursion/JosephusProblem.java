@@ -24,21 +24,21 @@ package recursion;
  */
 public class JosephusProblem {
 
-    private static int josephus(int n, int k) {
-        return n == 1 ? 1 : (josephus(n - 1, k) + k - 1) % n + 1;
-    }
+  private static int josephus(int n, int k) {
+    return n == 1 ? 1 : (josephus(n - 1, k) + k - 1) % n + 1;
+  }
 
-    private static int josephusItr(int n, int k) {
-        int res = 0;
-        for (int i = 1; i <= n; i++) {
-            res = (res + k) % i;
-        }
-        return res + 1;
+  private static int josephusItr(int n, int k) {
+    int res = 0;
+    for (int i = 1; i <= n; i++) {
+      res = (res + k) % i;
     }
+    return res + 1;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(josephus(5, 2) + "\t" + josephusItr(5, 2));
-        System.out.println(josephus(6, 3) + "\t" + josephusItr(6, 3));
-        System.out.println(josephus(14, 2) + "\t" + josephusItr(14, 2));
-    }
+  public static void main(String[] args) {
+    System.out.println(josephus(5, 2) + "\t" + josephusItr(5, 2));
+    System.out.println(josephus(6, 3) + "\t" + josephusItr(6, 3));
+    System.out.println(josephus(14, 2) + "\t" + josephusItr(14, 2));
+  }
 }

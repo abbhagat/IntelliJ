@@ -15,20 +15,20 @@ import static util.CommonUtils.printArray;
 // Space Complexity: O(1)
 public class PrintKClosestElementInSortedArray {
 
-    private static void printKClosestElementInSortedArray(int[] a, int n, int k) {
-        int i = 0, j = a.length - 1;
-        while (j - i >= k) {
-            int x = abs(a[i] - n) > abs(a[j] - n) ? i++ : j--;
-        }
-        IntStream.range(i, j + 1).forEach(l -> System.out.print(a[l] + " "));
+  private static void printKClosestElementInSortedArray(int[] a, int n, int k) {
+    int i = 0, j = a.length - 1;
+    while (j - i >= k) {
+      int x = abs(a[i] - n) > abs(a[j] - n) ? i++ : j--;
     }
+    IntStream.range(i, j + 1).forEach(l -> System.out.print(a[l] + " "));
+  }
 
-    public static void main(String[] args) {
-        int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
-        printKClosestElementInSortedArray(a, 35, 4);
-        System.out.println();
-        printKClosestElementInSortedArray(a, 22, 2);
-        System.out.println();
-        printKClosestElementInSortedArray(a, 35, 3);
-    }
+  public static void main(String[] args) {
+    int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
+    printKClosestElementInSortedArray(a, 35, 4);
+    System.out.println();
+    printKClosestElementInSortedArray(a, 22, 2);
+    System.out.println();
+    printKClosestElementInSortedArray(a, 35, 3);
+  }
 }
