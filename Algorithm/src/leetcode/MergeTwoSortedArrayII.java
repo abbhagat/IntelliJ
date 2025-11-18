@@ -12,12 +12,12 @@ public class MergeTwoSortedArrayII {
     int i = 0, j = 0;
     while (i < a.length && j < b.length) {
       if (a[i] > b[j]) {
-        int t = a[i];
-        a[i] = b[j];
-        b[j] = t;
-        if (j + 1 < b.length && b[j] > b[j + 1]) {
-          j++;
-        }
+          int t = a[i];
+          a[i]  = b[j];
+          b[j]  = t;
+          if (j + 1 < b.length && b[j] > b[j + 1]) {
+            j++;
+          }
       }
       i++;
     }
