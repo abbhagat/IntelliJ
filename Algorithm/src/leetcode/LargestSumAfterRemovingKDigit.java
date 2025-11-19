@@ -22,7 +22,7 @@ public class LargestSumAfterRemovingKDigit {
     for (int j = 1; j <= k; j++) {
       int max = Integer.MIN_VALUE;
       for (int i = 1; n / i != 0; i *= 10) {        // Remove the last digit after every iteration
-        int result = n / (i * 10) * i + n % i;     // Store the numbers formed after removing every digit once
+        int result = n / (i * 10) * i + (n % i);   // Store the numbers formed after removing every digit once
         max = max(max, result);
       }
       n = max;
@@ -31,6 +31,7 @@ public class LargestSumAfterRemovingKDigit {
   }
 
   public static void main(String[] args) {
+    System.out.println(maxNumber(635, 3));
     System.out.println(maxNumber(6358, 1));
     System.out.println(maxNumber(2589, 2));
     System.out.println(maxNumber(10200, 1));

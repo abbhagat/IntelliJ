@@ -41,6 +41,7 @@ public class VersionComparison {
     System.out.println(compareVersion(null, null));
     System.out.println(compareVersion("1.0.1", "1"));
     System.out.println(compareVersion("7.5.2.4", "7.5.3"));
+    System.out.println(compareVersion("7.5.3", "7.5.2.4"));
     System.out.println(compareVersion("7.5.2.4", "7.5.2.4"));
   }
 }
