@@ -3,14 +3,13 @@ package leetcode;
 public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
 
   public static boolean sameFrequencyCharactersInString(String str) {
-    int n = str.length();
-    int k = n % 2 == 0 ? (n / 2) - 1 : n / 2;
+    int mid = str.length() / 2;
     int count = 0;
-    for (int i = k; i >= 0; i--) {
+    for (int i = mid; i >= 0; i--) {
       count++;
 
     }
-    for (int i = k; i < n; i++) {
+    for (int i = mid; i < str.length(); i++) {
       count--;
 
     }
