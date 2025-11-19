@@ -10,29 +10,25 @@ public class NextPalindromeNumber {
   private static String findNextPalindrome(long n) {
     String s = String.valueOf(n);
     switch (s.length()) {
-      case 1:
-        s = (n >= 0 && n <= 8) ? String.valueOf(n + 1) : "11";
-        break;
-      case 2:
-        int c0 = s.charAt(0) - '0';
-        int c1 = s.charAt(1) - '0';
-        s = String.valueOf(c0 <= c1 ? c0 + 1 : c0);
-        s += s.charAt(0);
-        break;
-      case 3:
-        s = s.substring(0, 2);
-        s = String.valueOf((Long.parseLong(s) + 1));
-        s += s.charAt(0);
-        break;
-      default:
-        String str = s;
-        int mid = (s.length() - 1) / 2;
-        s = s.substring(0, mid + 1);
-        String rev = str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
-        if (s.charAt(mid) == '9' || Long.parseLong(s + rev) < n) {
-          s = String.valueOf(Long.parseLong(s) + 1);
-        }
-        s += str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
+      case 1:   s = (n >= 0 && n <= 8) ? String.valueOf(n + 1) : "11";
+                break;
+      case 2:   int c0 = s.charAt(0) - '0';
+                int c1 = s.charAt(1) - '0';
+                s = String.valueOf(c0 <= c1 ? c0 + 1 : c0);
+                s += s.charAt(0);
+                break;
+      case 3:   s = s.substring(0, 2);
+                s = String.valueOf((Long.parseLong(s) + 1));
+                s += s.charAt(0);
+                break;
+      default:  String str = s;
+                int mid = (s.length() - 1) / 2;
+                s = s.substring(0, mid + 1);
+                String rev = str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
+                if (s.charAt(mid) == '9' || Long.parseLong(s + rev) < n) {
+                  s = String.valueOf(Long.parseLong(s) + 1);
+                }
+                s += str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
     }
     return s;
   }
