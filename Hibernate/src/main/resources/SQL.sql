@@ -26,7 +26,7 @@ INSERT INTO DEPARTMENT VALUES (10 ,'Redwing','Mumbai');
 
 CREATE TABLE EMPLOYEE
 (
-    EMP_ID             NUMBER(18,0) PRIMARY KEY
+      EMP_ID             NUMBER(18,0) PRIMARY KEY
     , EMP_NAME           VARCHAR2(30)
     , SALARY             NUMBER(10,2)
     , ADDRESS            VARCHAR2(50)
