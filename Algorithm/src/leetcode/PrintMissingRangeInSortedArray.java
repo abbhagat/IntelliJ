@@ -7,16 +7,10 @@ public class PrintMissingRangeInSortedArray {
     for (int i = 1; i < a.length; i++) {
       int n = a[i] - a[i - 1];
       switch (n) {
-        case 1:
-          continue;
-        case 2:
-          System.out.println(a[i - 1] + 1);
-          break;
-        case 3:
-          System.out.println(a[i - 1] + 1 + " " + (a[i] - 1));
-          break;
-        default:
-          System.out.println(a[i - 1] + 1 + "-" + (a[i] - 1));
+        case 1:  continue;
+        case 2:  System.out.println(a[i - 1] + 1); break;
+        case 3:  System.out.println(a[i - 1] + 1 + " " + (a[i] - 1)); break;
+        default: System.out.println(a[i - 1] + 1 + "-" + (a[i] - 1));
       }
     }
     System.out.println();
