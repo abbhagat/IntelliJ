@@ -37,13 +37,13 @@ public class NextPalindromeNumber {
     System.out.println(findNextPalindrome(9));            // 11
     System.out.println(findNextPalindrome(10));           // 11
     System.out.println(findNextPalindrome(3));            // 4
-    System.out.println(findNextPalindrome(33));            // 4
+    System.out.println(findNextPalindrome(33));           // 4
     System.out.println(findNextPalindrome(13));           // 22
     System.out.println(findNextPalindrome(43));           // 44
     System.out.println(findNextPalindrome(47));           // 55
     System.out.println(findNextPalindrome(55));           // 66
-    System.out.println(findNextPalindrome(99));           // 99
-    System.out.println(findNextPalindrome(93));           // 101
+    System.out.println(findNextPalindrome(99));           // 101
+    System.out.println(findNextPalindrome(93));           // 99
     System.out.println(findNextPalindrome(101));          // 111
     System.out.println(findNextPalindrome(191));          // 202
     System.out.println(findNextPalindrome(199));          // 202
@@ -55,6 +55,6 @@ public class NextPalindromeNumber {
     System.out.println(findNextPalindrome(12345));        // 12421
     System.out.println(findNextPalindrome(12945));        // 13031
     System.out.println(findNextPalindrome(171152));       // 171171
-    System.out.println(findNextPalindrome(9999999999L));   // 100000000001
+    System.out.println(findNextPalindrome(9999999999L));  // 100000000001
   }
 }
