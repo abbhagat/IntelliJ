@@ -13,7 +13,7 @@ public class CheckIfAnArrayRepresentsMaxHeap {
     if (n <= 2 * (i + 1)) {
       return true;
     }
-    int left = 2 * i + 1;
+    int left  = 2 * i + 1;
     int right = 2 * i + 2;
     return a[i] >= a[left] && a[i] >= a[right] && isMaxHeap(a, left, n) && isMaxHeap(a, right, n);
   }
