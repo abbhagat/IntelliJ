@@ -20,7 +20,7 @@ public class LongestCommonSuffix {
   }
 
   private static String longestCommonSuffix(String left, String right) {
-    left = reverse(left);
+    left  = reverse(left);
     right = reverse(right);
     int min = min(left.length(), right.length());
     for (int i = 0; i < min; i++) {
@@ -33,9 +33,9 @@ public class LongestCommonSuffix {
 
   public static void main(String[] args) {
     String[][] str = {
-        {"ABCDEBUILD", "QOUCTBUILD"},
-        {"ABCDEBUILD", "ABCDEBUILD"}
-    };
+                         {"ABCDEBUILD", "QOUCTBUILD"},
+                         {"ABCDEBUILD", "ABCDEBUILD"}
+                     };
     for (String[] s : str) {
       System.out.println(longestCommonSuffix(s, 0, s.length - 1));
     }

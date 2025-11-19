@@ -13,8 +13,8 @@ public class LeadersInArray {
     System.out.print(leader + " ");
     for (int i = a.length - 2; i >= 0; i--) {
       if (leader < a[i]) {
-        leader = a[i];
-        System.out.print(leader + " ");
+          leader = a[i];
+          System.out.print(leader + " ");
       }
     }
   }
