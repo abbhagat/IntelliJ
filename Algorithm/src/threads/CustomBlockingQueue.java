@@ -46,8 +46,8 @@ class Producer<K> implements Runnable {
   public void run() {
     for(int i = 1; i <= 10; i++) {
       try {
-        System.out.println("Put : " + i);
-        q.put((K) Integer.valueOf(i));
+        System.out.println("Put : Message " + i);
+        q.put((K) ("Message " + i));
         Thread.sleep(10);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
@@ -81,7 +81,7 @@ class Consumer<K> implements Runnable {
 public class CustomBlockingQueue {
 
   public static void main(String[] args) throws InterruptedException {
-    BlockingQueue<Integer> q = new BlockingQueue<>(5);
+    BlockingQueue<String> q = new BlockingQueue<>(5);
     new Producer<>(q);
     new Consumer<>(q);
   }
