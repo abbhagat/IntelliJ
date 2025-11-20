@@ -6,7 +6,7 @@ import static trees.TreeTraversal.inorder;
  *  Input:  root1 = [1], root2 = [1,2]
  *  Output: [2,2]
  */
-// Time Complexity = O(n + m)
+// Time  Complexity = O(n + m)
 // Space Complexity = O(N)
 public class MergeTwoBST {
 

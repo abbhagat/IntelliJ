@@ -1,11 +1,9 @@
 package trees;
 
-// Time Complexity = O(n + m)
-// Space Complexity = O(H1 + H2), H1 is the height of the first tree and H2 is the height of the second tree
-
-
 import java.util.Stack;
 
+// Time Complexity = O(n + m)
+// Space Complexity = O(H1 + H2), H1 is the height of the first tree and H2 is the height of the second tree
 public class MergeTwoBSTGFG {
 
   public static void mergeBST(Node root1, Node root2) {
@@ -33,11 +31,11 @@ public class MergeTwoBSTGFG {
   }
 
   public static void main(String[] args) {
-    Node root1 = new Node(3);
-    root1.left = new Node(1);
+    Node root1  = new Node(3);
+    root1.left  = new Node(1);
     root1.right = new Node(5);
-    Node root2 = new Node(4);
-    root2.left = new Node(2);
+    Node root2  = new Node(4);
+    root2.left  = new Node(2);
     root2.right = new Node(6);
     mergeBST(root1, root2);
   }
