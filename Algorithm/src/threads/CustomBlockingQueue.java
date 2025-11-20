@@ -5,7 +5,7 @@ import java.util.Queue;
 
 // peek() retrieves head of the queue element and returns null if the queue is empty
 // remove() throws an exception if the queue is empty whereas poll() returns null is the queue is empty
-class BlockingQueue<K> {
+class BlockingQueue<K extends String> {
 
   private final Queue<K> q;
   private final int maxSize;
@@ -33,7 +33,7 @@ class BlockingQueue<K> {
   }
 }
 
-class Producer<K> implements Runnable {
+class Producer<K extends String> implements Runnable {
 
   private final BlockingQueue<K> q;
 
@@ -56,7 +56,7 @@ class Producer<K> implements Runnable {
   }
 }
 
-class Consumer<K> implements Runnable {
+class Consumer<K extends String> implements Runnable {
 
   private final BlockingQueue<K> q;
 
