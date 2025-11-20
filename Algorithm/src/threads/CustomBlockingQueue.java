@@ -5,7 +5,7 @@ import java.util.Queue;
 
 // peek() retrieves head of the queue element and returns null if the queue is empty
 // remove() throws an exception if the queue is empty whereas poll() returns null is the queue is empty
-class BlockingQueue<K extends Number> {
+class BlockingQueue<K> {
 
   private final Queue<K> q;
   private final int maxSize;
@@ -27,12 +27,13 @@ class BlockingQueue<K extends Number> {
     if (q.isEmpty()) {
       wait();
     }
+    K k = q.poll();
     notifyAll();
-    return q.poll();
+    return k;
   }
 }
 
-class Producer<K extends Number> implements Runnable {
+class Producer<K> implements Runnable {
 
   private final BlockingQueue<K> q;
 
@@ -43,12 +44,11 @@ class Producer<K extends Number> implements Runnable {
 
   @Override
   public void run() {
-    int n = 0;
-    while (true) {
+    for(int i = 1; i <= 10; i++) {
       try {
-        System.out.println("Put : " + ++n);
-        q.put((K) Integer.valueOf(n));
-        Thread.sleep(1000);
+        System.out.println("Put : " + i);
+        q.put((K) Integer.valueOf(i));
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
@@ -56,7 +56,7 @@ class Producer<K extends Number> implements Runnable {
   }
 }
 
-class Consumer<K extends Number> implements Runnable {
+class Consumer<K> implements Runnable {
 
   private final BlockingQueue<K> q;
 
@@ -67,10 +67,10 @@ class Consumer<K extends Number> implements Runnable {
 
   @Override
   public void run() {
-    while (true) {
+    for(int i = 1; i <= 10; i++) {
       try {
         System.out.println("Get : " + q.get());
-        Thread.sleep(100);
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
