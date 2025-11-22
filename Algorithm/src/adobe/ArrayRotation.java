@@ -10,7 +10,7 @@ public class ArrayRotation {
   private static void arrayRotate(int[] a, int rotationIndex, String rotationType) {
     rotationIndex = rotationIndex % a.length;
     int n = a.length - rotationIndex;
-    if (rotationType.contentEquals("left")) {
+    if (rotationType.equals("left")) {
       rotate(a, 0, n - 1);
       rotate(a, n, a.length - 1);
       rotate(a, 0, a.length - 1);
