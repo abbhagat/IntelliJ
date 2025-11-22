@@ -18,7 +18,7 @@ public class LongestCommonSubsequence {
 
   // Time  Complexity : O(m*n)
   // Space Complexity : O(m*n)
-  private static int lcsDP(String s1, String s2) {
+  private static int lcs(String s1, String s2) {
     int m = s1.length(), n = s2.length();
     int[][] dp = new int[m + 1][n + 1];
     for (int i = 1; i <= m; i++) {
@@ -30,12 +30,12 @@ public class LongestCommonSubsequence {
   }
 
   public static void main(String[] args) {
-    System.out.println(lcs("cat", "cut", 3, 3)         + "\t" + lcsDP("cat", "cut"));
-    System.out.println(lcs("geek", "gesek", 4, 5)      + "\t" + lcsDP("geek", "gesek"));
-    System.out.println(lcs("sunday", "saturday", 6, 8) + "\t" + lcsDP("sunday", "saturday"));
-    System.out.println(lcs("ros", "horse", 3, 5)       + "\t" + lcsDP("ros", "horse"));
-    System.out.println(lcs("sea", "eat", 3, 3)         + "\t" + lcsDP("sea", "eat"));
-    System.out.println(lcs("AGGTAB", "GXTXAYB", 6, 7)  + "\t" + lcsDP("AGGTAB", "GXTXAYB"));
-    System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcsDP("ace", "abcde"));
+    System.out.println(lcs("cat", "cut", 3, 3)         + "\t" + lcs("cat", "cut"));
+    System.out.println(lcs("geek", "gesek", 4, 5)      + "\t" + lcs("geek", "gesek"));
+    System.out.println(lcs("sunday", "saturday", 6, 8) + "\t" + lcs("sunday", "saturday"));
+    System.out.println(lcs("ros", "horse", 3, 5)       + "\t" + lcs("ros", "horse"));
+    System.out.println(lcs("sea", "eat", 3, 3)         + "\t" + lcs("sea", "eat"));
+    System.out.println(lcs("AGGTAB", "GXTXAYB", 6, 7)  + "\t" + lcs("AGGTAB", "GXTXAYB"));
+    System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcs("ace", "abcde"));
   }
 }

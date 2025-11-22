@@ -35,17 +35,17 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
   public static void main(String[] args) {
     System.out.println(longestSubString("ababbc", 0, "ababbc".length(), 2));
-    System.out.println(longestSubString("aaabb", 0, "aaabb".length(), 2));
+    System.out.println(longestSubString("aaabb",  0, "aaabb".length(),  2));
     System.out.println(longestSubString("aaabbb", 0, "aaabbb".length(), 2));
     System.out.println(longestSubString("ababbc", 0, "ababbc".length(), 3));
-    System.out.println(longestSubString("aaabb", 0, "aaabb".length(), 3));
+    System.out.println(longestSubString("aaabb",  0, "aaabb".length(),  3));
     System.out.println(longestSubString("aaabbb", 0, "aaabbb".length(), 3));
     System.out.println();
     System.out.println(smallestSubString("ababbc", 0, "ababbc".length(), 2));
-    System.out.println(smallestSubString("aaabb", 0, "aaabb".length(), 2));
+    System.out.println(smallestSubString("aaabb",  0, "aaabb".length(),  2));
     System.out.println(smallestSubString("aaabbb", 0, "aaabbb".length(), 2));
     System.out.println(smallestSubString("ababbc", 0, "ababbc".length(), 3));
-    System.out.println(smallestSubString("aaabb", 0, "aaabb".length(), 3));
+    System.out.println(smallestSubString("aaabb",  0, "aaabb".length(),  3));
     System.out.println(smallestSubString("aaabbb", 0, "aaabbb".length(), 3));
   }
 }
