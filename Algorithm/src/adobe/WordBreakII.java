@@ -26,11 +26,11 @@ public class WordBreakII {
 
   public static List<String> wordBreak(String str, List<String> wordDict) {
     List<String> list = new ArrayList<>();
-    wordBreak(0, str, new StringBuilder(), new HashSet<>(wordDict), list);
+    wordBreak(0, str, new StringBuilder(), wordDict, list);
     return list;
   }
 
-  private static void wordBreak(int index, String str, StringBuilder sb, Set<String> wordSet, List<String> list) {
+  private static void wordBreak(int index, String str, StringBuilder sb, List<String> wordSet, List<String> list) {
     if (index == str.length()) {
       list.add(sb.toString().trim());
       return;
@@ -48,5 +48,7 @@ public class WordBreakII {
 
   public static void main(String[] args) {
     System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
+    System.out.println((wordBreak("catsandog", List.of("cats","dog","sand","and","cat"))));
+    System.out.println((wordBreak("pineapplepenapple", List.of("apple","pen","applepen","pine","pineapple"))));
   }
 }

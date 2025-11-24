@@ -32,7 +32,7 @@ public class WordBreak {
   }
 
   // Time  Complexity: O(n^2) n = Length of given String AND m = no of words in the dictionary
-  //  Space Complexity: O(n)
+  // Space Complexity: O(n)
   public static boolean wordBreak(String str, List<String> list) {
     int n = str.length();
     boolean[] dp = new boolean[n + 1];  // To keep track of the words, whether a substring of str can be segmented into words from the dictionary

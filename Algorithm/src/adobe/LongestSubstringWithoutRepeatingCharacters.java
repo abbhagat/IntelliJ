@@ -19,8 +19,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
       }
       set.add(s.charAt(end));
       String str = set.stream()
-          .map(String::valueOf)
-          .collect(Collectors.joining());
+                      .map(String::valueOf)
+                      .collect(Collectors.joining());
       if (max < end - start + 1) {
         max = end - start + 1;
         maxString = str;
