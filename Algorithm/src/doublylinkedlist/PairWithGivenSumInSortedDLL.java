@@ -24,7 +24,7 @@ public class PairWithGivenSumInSortedDLL {
 
   public static void main(String[] args) {
     Node head = null;
-    int[] a = {1, 2, 3, 4, 5, 6, 8, 9, 10};
+    int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     for (int x : a) {
       head = createList(x, null);
     }
@@ -32,5 +32,7 @@ public class PairWithGivenSumInSortedDLL {
     pairSum(head, CreateList.last, 5);
     System.out.println();
     pairSum(head, CreateList.last, 7);
+    System.out.println();
+    pairSum(head, CreateList.last, 9);
   }
 }

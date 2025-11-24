@@ -40,6 +40,13 @@ public class CommonUtils {
     y.num = temp;
   }
 
+  public static Node swap(Node node) {
+    Node temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+    return temp;
+  }
+
   public static boolean isPalindrome(String str, int i, int j) {
     while (i < j) {
       if (str.charAt(i++) != str.charAt(j--)) {

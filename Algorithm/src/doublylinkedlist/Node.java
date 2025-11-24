@@ -7,6 +7,5 @@ public class Node {
 
   public Node(int num) {
     this.num = num;
-    this.left = this.right = null;
   }
 }

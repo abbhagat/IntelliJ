@@ -2,6 +2,7 @@ package doublylinkedlist;
 
 import static doublylinkedlist.CreateList.createList;
 import static doublylinkedlist.TraverseList.traverseList;
+import static util.CommonUtils.swap;
 
 // Time Complexity : O(N), where N denotes the number of nodes in the doubly linked list.
 // Auxiliary Space : O(1)
@@ -28,13 +29,6 @@ public class ReverseList {
       return node;
     }
     return reverse(node.left);
-  }
-
-  private static Node swap(Node node) {
-    Node temp = node.left;
-    node.left = node.right;
-    node.right = temp;
-    return temp;
   }
 
   public static void main(String[] args) {
