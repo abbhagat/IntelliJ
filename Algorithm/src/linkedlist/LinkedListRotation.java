@@ -12,10 +12,11 @@ public class LinkedListRotation {
     if (first == null || first.next == null || k <= 0) {
       return first;
     }
-    Node temp = first, last = first;
+    Node last = first;
     while (last.next != null) {
       last = last.next;
     }
+    Node temp = first;
     for (int i = 1; i < k; i++) {
       temp = temp.next;
     }
