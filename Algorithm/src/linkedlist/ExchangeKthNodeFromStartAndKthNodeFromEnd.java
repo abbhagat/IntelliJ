@@ -10,8 +10,7 @@ import static linkedlist.TraverseList.traverseList;
  */
 public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
 
-  private static Node nthNodeFromEnd(Node first, int n) {
-    Node head = new Node(-1, first);
+  private static Node nthNodeFromEnd(Node head, int n) {
     Node slow = head, fast = head;
     for (int i = 0; i <= n; i++) {
       slow = slow.next;
@@ -23,16 +22,12 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
     return fast;
   }
 
-  public static void main(String[] args) {
-    Node first = null;
-    for (int x : new int[]{1, 2, 3, 4, 5, 6, 7}) {
-      first = add(first, x);
-    }
-    traverseList(first);
-    Node temp = first, prev = null;
-    final int n = 2;
-    for (int i = 1; temp != null && i < n; i++, temp = temp.next) {
+  private static Node exchangeKthNode(Node first, final int n) {
+    Node head = new Node(-1, first);
+    Node temp = head, prev = head;
+    for (int i = 1; i <= n; i++) {
       prev = temp;
+      temp = temp.next;
     }
     Node prev_nthNode = nthNodeFromEnd(first, n);
     Node nthNode = prev_nthNode.next;
@@ -41,6 +36,19 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
     nthNode.next = temp.next;
     prev_nthNode.next = temp;
     temp.next = temp2;
+    return head.next;
+  }
+
+  public static void main(String[] args) {
+    Node first = null;
+    for (int x : new int[]{1, 2, 3, 4, 5, 6, 7}) {
+      first = add(first, x);
+    }
+    first = exchangeKthNode(first, 1);
+    traverseList(first);
+    first = exchangeKthNode(first, 2);
+    traverseList(first);
+    first = exchangeKthNode(first, 3);
     traverseList(first);
   }
 }
