@@ -24,7 +24,7 @@ public class QuickSort {
       Node pivot = partition(low, high);
       Node temp = low;
       while (temp.next != pivot) {
-        temp = temp.next;
+        temp = temp.next;          // temp will point to the prev node of pivot node
       }
       quickSort(low, temp);
       quickSort(pivot.next, high);

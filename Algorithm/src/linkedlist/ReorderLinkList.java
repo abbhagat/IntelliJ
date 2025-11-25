@@ -12,22 +12,22 @@ public class ReorderLinkList {
     if (head == null || head.next == null) {
       return;
     }
-    Node mid = findMid(head);
+    Node mid   = findMid(head);
     Node head2 = mid.next;
-    mid.next = null;
+    mid.next   = null;
     while (head2 != null) {
-      Node next = head2.next;
+      Node next  = head2.next;
       head2.next = mid.next;
-      mid.next = head2;
-      head2 = next;
+      mid.next   = head2;
+      head2      = next;
     }
     Node left = head, right = mid.next;
     while (left != null && right != null) {
-      mid.next = right.next;
+      mid.next   = right.next;
       right.next = left.next;
-      left.next = right;
-      left = right.next;
-      right = mid.next;
+      left.next  = right;
+      left       = right.next;
+      right      = mid.next;
     }
   }
 
