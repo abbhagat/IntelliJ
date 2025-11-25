@@ -2,8 +2,8 @@ package linkedlist;
 
 import static linkedlist.TraverseList.traverseList;
 
-// Time Complexity : O(n)
-// Space Complexity: O(1)
+ // Time Complexity : O(n)
+// Space Complexity : O(1)
 public class ReverseList {
 
   private static Node reverse(Node head) {
