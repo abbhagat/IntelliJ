@@ -31,11 +31,11 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
     }
     Node prev_nthNode = nthNodeFromEnd(first, n);
     Node nthNode = prev_nthNode.next;
-    Node temp2 = nthNode.next;
+    Node nthNode_next = nthNode.next;
     prev.next = nthNode;
     nthNode.next = temp.next;
     prev_nthNode.next = temp;
-    temp.next = temp2;
+    temp.next = nthNode_next;
     return head.next;
   }
 
