@@ -5,7 +5,8 @@ import java.util.Set;
 
 import static linkedlist.LinkList.add;
 
-// Time complexity : O(m + n)
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class IntersectionPointOfTwoLinkedList {
 
   private static Node findIntersectionPoint(Node head1, Node head2) {

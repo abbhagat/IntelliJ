@@ -10,7 +10,7 @@ public class InsertNodeInSortedLinkedList {
     if (null == first || num < first.num) {
       return new Node(num, first);
     }
-    Node prev = null;
+    Node prev = first;
     for (Node temp = first; temp != null && temp.num < num; temp = temp.next) {
       prev = temp;
     }
