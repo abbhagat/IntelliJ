@@ -20,7 +20,7 @@ public class SplitCircularLinkedListIntoTwoHalf {
     }
     head1 = head;
     head2 = slow.next;
-    slow.next = head1;   // Making the first  list circular
+    slow.next = head1;    // Making the first list circular
     fast.next = head2;   // Making the second list circular
   }
 
