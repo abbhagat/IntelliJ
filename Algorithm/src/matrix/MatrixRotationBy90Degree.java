@@ -29,7 +29,8 @@ public class MatrixRotationBy90Degree {
   public static void rotate90AntiClockwise(int[][] M) {
     findTranspose(M);
     final int ROW = M.length, COL = M[0].length;
-    for (int i = 0; i < ROW; i++) {               // Reverse Each Column
+    for (int i = 0; i < ROW; i++) {
+      // Reverse Each Column
       for (int j = 0, k = COL - 1; j < k; j++, k--) {
         int t = M[j][i];
         M[j][i] = M[k][i];

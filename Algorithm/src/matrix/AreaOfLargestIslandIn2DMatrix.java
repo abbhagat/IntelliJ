@@ -6,19 +6,19 @@ import static java.lang.Integer.max;
 public class AreaOfLargestIslandIn2DMatrix {
 
   private static final int[][] M = new int[][]{
-      {1, 1, 0, 0, 0},
-      {1, 1, 0, 1, 1},
-      {0, 0, 0, 1, 1},
-      {1, 0, 1, 0, 1},
-      {1, 0, 1, 0, 1}
-  };
+                                                {1, 1, 0, 0, 0},
+                                                {1, 1, 0, 1, 1},
+                                                {0, 0, 0, 1, 1},
+                                                {1, 0, 1, 0, 1},
+                                                {1, 0, 1, 0, 1}
+                                              };
 
   private static final int ROW = M.length;
   private static final int COL = M[0].length;
   private static final boolean[][] visited = new boolean[ROW][COL];
   private static final int[] rowIdx = {-1, -1, -1, 0, 0, 1, 1, 1};
   private static final int[] colIdx = {-1, 0, 1, -1, 1, -1, 0, 1};
-  private static int area = 1;
+  private static int area;
 
   private static boolean isSafe(int row, int col) {
     return row >= 0 && row < ROW && col >= 0 && col < COL && M[row][col] == 1 && !visited[row][col];

@@ -1,9 +1,9 @@
 package matrix;
 
 /*
-  Given a boolean matrix mat[M][N] of size M X N, modify it such that if a matrix cell mat[i][j] is 1 (or true)
-  then make all the cells of ith row and jth column as 1.
-*/
+ * Given a boolean matrix M[M][N] of size M X N, modify it such that if a matrix cell M[i][j] is 1 (or true)
+ * then make all the cells of ith row and jth column as 1.
+ */
 
 import static util.CommonUtils.printMatrix;
 
