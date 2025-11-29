@@ -1,15 +1,15 @@
 package matrix;
 
-import util.CommonUtils;
+import static util.CommonUtils.printMatrix;
 
 // Time Complexity O(M*N)
 public class SpiralMatrixPatternWithOandX {
 
-  private static void printMatrix(final int m, final int n) {
-    char[][] M = new char[m][n];
+  private static void printSpiralMatrix(final int ROW, final int COL) {
+    char[][] M = new char[ROW][COL];
     char c = 'X';
-    int R1 = 0, R2 = m - 1;
-    int C1 = 0, C2 = n - 1;
+    int R1 = 0, R2 = ROW - 1;
+    int C1 = 0, C2 = COL - 1;
     while (R1 <= R2 && C1 <= C2) {
       for (int i = C1; i <= C2; i++) {
         M[R1][i] = c;
@@ -29,11 +29,11 @@ public class SpiralMatrixPatternWithOandX {
       C2--;
       c = c == 'X' ? 'O' : 'X';
     }
-    CommonUtils.printMatrix(M);
+    printMatrix(M);
   }
 
   public static void main(String[] args) {
-    printMatrix(5, 5);
-    printMatrix(7, 7);
+    printSpiralMatrix(5, 5);
+    printSpiralMatrix(7, 7);
   }
 }
