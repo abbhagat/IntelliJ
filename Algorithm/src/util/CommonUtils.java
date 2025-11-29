@@ -12,37 +12,37 @@ public class CommonUtils {
 
   public static void swap(int[] a, int i, int j) {
     int t = a[i];
-    a[i] = a[j];
-    a[j] = t;
+     a[i] = a[j];
+     a[j] = t;
   }
 
   public static void swap(int[][] a, int i, int j) {
-    int t = a[i][j];
+    int t   = a[i][j];
     a[i][j] = a[j][i];
     a[j][i] = t;
   }
 
   public static void swap(char[] a, int i, int j) {
     char t = a[i];
-    a[i] = a[j];
-    a[j] = t;
+      a[i] = a[j];
+      a[j] = t;
   }
 
   public static void swap(String[] a, int i, int j) {
     String t = a[i];
-    a[i] = a[j];
-    a[j] = t;
+        a[i] = a[j];
+        a[j] = t;
   }
 
   public static void swap(Node x, Node y) {
     int temp = x.num;
-    x.num = y.num;
-    y.num = temp;
+    x.num    = y.num;
+    y.num    = temp;
   }
 
   public static Node swap(Node node) {
-    Node temp = node.left;
-    node.left = node.right;
+    Node temp  = node.left;
+    node.left  = node.right;
     node.right = temp;
     return temp;
   }
