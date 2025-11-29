@@ -21,26 +21,11 @@ import static util.CommonUtils.printArray;
  * nums[4:6] = [2,1,3] so ans[4] = 3
  */
 
+// Time  Complexity: O(n)
+// Space Complexity: O(k)
 public class ArrayUniqueCountInSubset {
-  // Time  Complexity: O(n * k)
-  // Space Complexity: O(k)
-  public static int[] distinctNumbers1(int[] nums, int k) {
-    int n = nums.length - k + 1;
-    int[] a = new int[n];
-    Set<Integer> set = new HashSet<>();
-    for (int i = 0; i < n; i++) {
-      for (int j = i; j < nums.length && j <= i + k - 1; j++) {
-        set.add(nums[j]);
-      }
-      a[i] = set.size();
-      set.clear();
-    }
-    return a;
-  }
 
-  // Time  Complexity: O(n)
-  // Space Complexity: O(k)
-  public static int[] distinctNumbers2(int[] a, int k) {
+  public static int[] distinctNumbers(int[] a, int k) {
     int n = a.length - k + 1;
     int[] res = new int[n];
     Map<Integer, Integer> map = new HashMap<>();
@@ -61,7 +46,6 @@ public class ArrayUniqueCountInSubset {
   }
 
   public static void main(String[] args) {
-    printArray(distinctNumbers1(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
-    printArray(distinctNumbers2(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
+    printArray(distinctNumbers(new int[]{1, 2, 3, 2, 2, 1, 3}, 3));
   }
 }
