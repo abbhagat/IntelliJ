@@ -29,7 +29,7 @@ import java.util.Arrays;
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 
   private static int maximumSize(int[] a, int k) {
-    int low = 0, high = Arrays.stream(a).max().getAsInt(), result = 0;
+    int low = 0, high = Arrays.stream(a).max().orElse(0), result = 0;
     while (low <= high) {
       int mid = (low + high) / 2;
       int count = 0;

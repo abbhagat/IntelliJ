@@ -1,25 +1,26 @@
 package doublylinkedlist;
 
 import static doublylinkedlist.CreateList.createList;
-import static doublylinkedlist.TraverseList.traverseList;
+import static doublylinkedlist.CreateList.last;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(1)
 public class PairWithGivenSumInSortedDLL {
 
-  private static void pairSum(Node low, Node high, int key) {
+  private static void pairSum(Node low, Node high, int givenSum) {
     while (low != high && low != high.right) {
-      int n = low.num + high.num;
-      if (n == key) {
-        System.out.println("(" + low.num + ", " + high.num + ")");
-        low = low.right;
+      int sum = low.num + high.num;
+      if (sum == givenSum) {
+        System.out.print("(" + low.num + ", " + high.num + ")" + "\t");
+        low  = low.right;
         high = high.left;
-      } else if (n < key) {
+      } else if (sum < givenSum) {
         low = low.right;
       } else {
         high = high.left;
       }
     }
+    System.out.println();
   }
 
   public static void main(String[] args) {
@@ -28,11 +29,8 @@ public class PairWithGivenSumInSortedDLL {
     for (int x : a) {
       head = createList(x, null);
     }
-    traverseList(head);
-    pairSum(head, CreateList.last, 5);
-    System.out.println();
-    pairSum(head, CreateList.last, 7);
-    System.out.println();
-    pairSum(head, CreateList.last, 9);
+    pairSum(head, last, 5);
+    pairSum(head, last, 7);
+    pairSum(head, last, 9);
   }
 }
