@@ -13,14 +13,12 @@ public class LongestSubstringWithoutRepeatingCharacters {
     int start = 0, max = 0;
     String maxString = "";
     for (int end = 0; end < s.length(); end++) {
-      while (set.contains(s.charAt(end))) {
+      if (set.contains(s.charAt(end))) {
         set.remove(s.charAt(start));
         start++;
       }
       set.add(s.charAt(end));
-      String str = set.stream()
-                      .map(String::valueOf)
-                      .collect(Collectors.joining());
+      String str = set.stream().map(String::valueOf).collect(Collectors.joining());
       if (max < end - start + 1) {
         max = end - start + 1;
         maxString = str;

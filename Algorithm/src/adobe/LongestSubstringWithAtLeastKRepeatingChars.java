@@ -23,7 +23,7 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
     for (int i = start; i < end; i++) {
       if (map.get(s.charAt(i)) < k) {
         int max;
-        int left = longestSubString(s, start, i, k, index);
+        int left  = longestSubString(s, start, i, k, index);
         int right = longestSubString(s, i + 1, end, k, index);
         if (left >= right) {
           max = left;
