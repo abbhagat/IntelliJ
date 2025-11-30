@@ -27,7 +27,6 @@ public class CountSubArray01 {
   }
 
   public static void main(String[] args) {
-    int count = getSubArrayWithEqual01(new int[]{0, 0, 1, 1, 0});
-    System.out.println("Sub-arrays with equal 0's and 1's count is: " + count);
+    System.out.println("Sub-arrays with equal 0's and 1's count is: " + getSubArrayWithEqual01(new int[]{0, 0, 1, 1, 0}));
   }
 }

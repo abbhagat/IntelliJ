@@ -4,10 +4,12 @@ package amazon;
 public class ReturnWithComma {
 
   public static String returnWithCommas(String s, final int k) {
-    for (int i = s.length() - 1, j = 1; i > 0; i--, j++) {
+    int j = 1;
+    for (int i = s.length() - 1; i > 0; i--) {
       if (j % k == 0) {
         s = s.substring(0, i) + "," + s.substring(i);
       }
+      j++;
     }
     return s;
   }

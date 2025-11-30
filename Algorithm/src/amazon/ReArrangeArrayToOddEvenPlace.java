@@ -25,7 +25,6 @@ public class ReArrangeArrayToOddEvenPlace {
 
   public static void main(String[] args) {
     reArrangeArrayToOddEvenPlace(new int[]{2, 1, 3, 4, 7, 9, 24, 98});
-    System.out.println();
     reArrangeArrayToOddEvenPlace(new int[]{2, 1, 5, 6});
   }
 }

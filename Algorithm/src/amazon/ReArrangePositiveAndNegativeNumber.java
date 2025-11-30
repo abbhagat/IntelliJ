@@ -25,9 +25,7 @@ public class ReArrangePositiveAndNegativeNumber {
 
   public static void main(String[] args) {
     reArrangePositiveAndNegativeNumber(new int[]{1, 2, 3, -4, -1, 4});
-    System.out.println();
     reArrangePositiveAndNegativeNumber(new int[]{-5, -7, 9, 11, 12, -15, 17});
-    System.out.println();
     reArrangePositiveAndNegativeNumber(new int[]{-5, -2, 5, 2, 4, 7, 1, 8, 0, -8});
   }
 }
