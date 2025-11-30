@@ -53,12 +53,7 @@ public class MaxMango {
   }
 
   public static void main(String[] args) {
-    int W = 4, C = 8, X = 4, Y = 4;
-    System.out.println(maximizeMangoes(W, C, X, Y));
-    W = 10;
-    C = 10;
-    X = 1;
-    Y = 1;
-    System.out.println(maximizeMangoes(W, C, X, Y));
+    System.out.println(maximizeMangoes(4,  8,  4, 4));
+    System.out.println(maximizeMangoes(10, 10, 1, 1));
   }
 }
