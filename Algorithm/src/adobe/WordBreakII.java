@@ -1,9 +1,7 @@
 package adobe;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word.
@@ -30,25 +28,25 @@ public class WordBreakII {
     return list;
   }
 
-  private static void wordBreak(int index, String str, StringBuilder sb, List<String> wordSet, List<String> list) {
+  private static void wordBreak(int index, String str, StringBuilder sb, List<String> wordDict, List<String> list) {
     if (index == str.length()) {
       list.add(sb.toString().trim());
       return;
     }
     for (int i = index + 1; i <= str.length(); i++) {
       String s = str.substring(index, i);
-      if (wordSet.contains(s)) {
+      if (wordDict.contains(s)) {
         int len = sb.length();
         sb.append(s).append(" ");
-        wordBreak(i, str, sb, wordSet, list);
+        wordBreak(i, str, sb, wordDict, list);
         sb.setLength(len);
       }
     }
   }
 
   public static void main(String[] args) {
-    System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
-    System.out.println((wordBreak("catsandog", List.of("cats","dog","sand","and","cat"))));
+    System.out.println((wordBreak("catsanddog",        List.of("cat", "cats", "and", "sand", "dog"))));
+    System.out.println((wordBreak("catsandog",         List.of("cats","dog","sand","and","cat"))));
     System.out.println((wordBreak("pineapplepenapple", List.of("apple","pen","applepen","pine","pineapple"))));
   }
 }
