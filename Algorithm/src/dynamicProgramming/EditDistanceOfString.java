@@ -48,13 +48,13 @@ public class EditDistanceOfString {
   }
 
   public static void main(String[] args) {
-    System.out.println(editDist("cat", "cut") + "\t" + editDist("cat", "cut", 3, 3));
-    System.out.println(editDist("geek", "gesek") + "\t" + editDist("geek", "gesek", 4, 5));
+    System.out.println(editDist("cat", "cut")         + "\t" + editDist("cat", "cut", 3, 3));
+    System.out.println(editDist("geek", "gesek")      + "\t" + editDist("geek", "gesek", 4, 5));
     System.out.println(editDist("sunday", "saturday") + "\t" + editDist("sunday", "saturday", 6, 8));
-    System.out.println(editDist("ros", "horse") + "\t" + editDist("ros", "horse", 3, 5));
-    System.out.println(editDist("sea", "eat") + "\t" + editDist("sea", "eat", 3, 3));
-    System.out.println(editDist("leetcode", "etco") + "\t" + editDist("leetcode", "etco", 8, 4));
-    System.out.println(editDist("bbcd", "bcd") + "\t" + editDist("bbcd", "bcd", 4, 3));
-    System.out.println(editDist("abc", "abcd") + "\t" + editDist("abc", "abcd", 3, 4));
+    System.out.println(editDist("ros", "horse")       + "\t" + editDist("ros", "horse", 3, 5));
+    System.out.println(editDist("sea", "eat")         + "\t" + editDist("sea", "eat", 3, 3));
+    System.out.println(editDist("leetcode", "etco")   + "\t" + editDist("leetcode", "etco", 8, 4));
+    System.out.println(editDist("bbcd", "bcd")        + "\t" + editDist("bbcd", "bcd", 4, 3));
+    System.out.println(editDist("abc", "abcd")        + "\t" + editDist("abc", "abcd", 3, 4));
   }
 }

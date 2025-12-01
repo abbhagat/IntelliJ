@@ -13,7 +13,7 @@ import static java.lang.Integer.max;
  * This approach allows us to calculate the total number of deletions required to achieve string equality.
  */
 
-public class DeleteOperationOnTwoStrings {
+public class MinStepsToMakeTwoStringSame {
 
   public static int minDistance(String s1, String s2) {
     int lcs = lcs(s1, s2, s1.length(), s2.length());

@@ -25,6 +25,7 @@ public class OneEditDistance {
   }
 
   public static void main(String[] args) {
+    System.out.println(isOneEditDistance("ab", "bb"));
     System.out.println(isOneEditDistance("ab", "acb"));
     System.out.println(isOneEditDistance("ad", "cab"));
     System.out.println(isOneEditDistance("1203", "1213"));
