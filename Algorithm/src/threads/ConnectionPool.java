@@ -9,6 +9,7 @@ public class ConnectionPool {
 
   private static final Vector<Connection> connectionPool = new Vector<>();
   private static final int MAX_POOL_SIZE = 10;
+
   private final String driverName;
   private final String url;
   private final String username;
@@ -28,15 +29,6 @@ public class ConnectionPool {
     this.username = username;
     this.password = password;
     initializeConnectionPool();
-  }
-
-  public static void main(String[] args) throws SQLException {
-    ConnectionPool connectionPool = new ConnectionPool();
-    Connection connection = connectionPool.getConnectionFromPool();
-    System.out.println("Got connection: " + connection);
-    connectionPool.returnConnectionToPool(connection);
-    System.out.println("Returned connection to pool.");
-    connection.close();
   }
 
   private void initializeConnectionPool() {
@@ -64,5 +56,14 @@ public class ConnectionPool {
 
   public synchronized void returnConnectionToPool(Connection connection) {
     connectionPool.add(connection);
+  }
+
+  public static void main(String[] args) throws SQLException {
+    ConnectionPool connectionPool = new ConnectionPool();
+    Connection connection = connectionPool.getConnectionFromPool();
+    System.out.println("Got connection: " + connection);
+    connectionPool.returnConnectionToPool(connection);
+    System.out.println("Returned connection to pool.");
+    connection.close();
   }
 }
