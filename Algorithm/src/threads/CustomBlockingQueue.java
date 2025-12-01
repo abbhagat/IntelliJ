@@ -5,39 +5,39 @@ import java.util.Queue;
 
 // peek() retrieves head of the queue element and returns null if the queue is empty
 // remove() throws an exception if the queue is empty whereas poll() returns null is the queue is empty
-class BlockingQueue<K extends String> {
+class BlockingQueue<E> {
 
-  private final Queue<K> q;
+  private final Queue<E> q;
   private final int maxSize;
 
   public BlockingQueue(int maxSize) {
-    q = new LinkedList<>();
+    this.q = new LinkedList<>();
     this.maxSize = maxSize;
   }
 
-  public synchronized void put(K k) throws InterruptedException {
-    if (q.size() == maxSize) {
+  public synchronized void put(E e) throws InterruptedException {
+    while (q.size() == maxSize) {
       wait();
     }
-    q.add(k);
+    q.add(e);
     notifyAll();
   }
 
-  public synchronized K get() throws InterruptedException {
-    if (q.isEmpty()) {
+  public synchronized E get() throws InterruptedException {
+    while (q.isEmpty()) {
       wait();
     }
-    K k = q.poll();
+    E e = q.poll();
     notifyAll();
-    return k;
+    return e;
   }
 }
 
-class Producer<K extends String> implements Runnable {
+class Producer<E> implements Runnable {
 
-  private final BlockingQueue<K> q;
+  private final BlockingQueue<E> q;
 
-  public Producer(BlockingQueue<K> q) {
+  public Producer(BlockingQueue<E> q) {
     this.q = q;
     new Thread(this, "Producer").start();
   }
@@ -47,8 +47,8 @@ class Producer<K extends String> implements Runnable {
     for(int i = 1; i <= 10; i++) {
       try {
         System.out.println("Put : Message " + i);
-        q.put((K) ("Message " + i));
-        Thread.sleep(10);
+        q.put((E) ("Message " + i));
+         Thread.sleep(100);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
@@ -56,11 +56,11 @@ class Producer<K extends String> implements Runnable {
   }
 }
 
-class Consumer<K extends String> implements Runnable {
+class Consumer<E extends String> implements Runnable {
 
-  private final BlockingQueue<K> q;
+  private final BlockingQueue<E> q;
 
-  public Consumer(BlockingQueue<K> q) {
+  public Consumer(BlockingQueue<E> q) {
     this.q = q;
     new Thread(this, "Consumer").start();
   }
@@ -70,7 +70,7 @@ class Consumer<K extends String> implements Runnable {
     for(int i = 1; i <= 10; i++) {
       try {
         System.out.println("Get : " + q.get());
-        Thread.sleep(10);
+        Thread.sleep(100);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
