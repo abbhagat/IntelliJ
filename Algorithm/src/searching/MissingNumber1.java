@@ -2,7 +2,7 @@ package searching;
 
 // Time  Complexity O(n)
 // Space Complexity O(n)
-public class FindFirstMissingPositiveNumber {
+public class MissingNumber1 {
 
   private static int firstMissingPositive(int[] a) {
     int n = a.length;
