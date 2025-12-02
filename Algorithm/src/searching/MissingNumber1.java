@@ -4,7 +4,7 @@ package searching;
 // Space Complexity O(n)
 public class MissingNumber1 {
 
-  private static int firstMissingPositive(int[] a) {
+  private static void firstMissingPositive(int[] a) {
     int n = a.length + 1;
     boolean[] isPresent = new boolean[n + 1];
     for (int x : a) {
@@ -14,17 +14,17 @@ public class MissingNumber1 {
     }
     for (int i = 1; i <= n; i++) {
       if (!isPresent[i]) {
-        return i;
+        System.out.println(i);
+        break;
       }
     }
-    return n + 1;
   }
 
   public static void main(String[] args) {
-    System.out.println(firstMissingPositive(new int[]{1, 3}));
-    System.out.println(firstMissingPositive(new int[]{1, 2}));
-    System.out.println(firstMissingPositive(new int[]{1, 3, 4}));
-    System.out.println(firstMissingPositive(new int[]{1, 2, 3, 4}));
-    System.out.println(firstMissingPositive(new int[]{2, 3, -7, 6, 8, 1, -10, 15}));
+    firstMissingPositive(new int[]{1, 3});
+    firstMissingPositive(new int[]{1, 2});
+    firstMissingPositive(new int[]{1, 3, 4});
+    firstMissingPositive(new int[]{1, 2, 3, 4});
+    firstMissingPositive(new int[]{2, 3, -7, 6, 8, 1, -10, 15});
   }
 }

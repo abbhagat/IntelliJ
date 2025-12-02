@@ -15,22 +15,23 @@ public class MissingNumber2 {
         isPresent[x] = true;
       }
     }
-    boolean flag = true;
+    int count = 0;
     for (int i = 1; i <= n; i++) {
       if (!isPresent[i]) {
         System.out.print(i + "\t");
-        flag = false;
+        count++;
+        if (count == 2) {
+          break;
+        }
       }
-    }
-    if(flag) {
-      System.out.println((n + 1) + "\t" + (n + 2));
     }
     System.out.println();
   }
 
   public static void main(String[] args) {
-    findMissing(new int[]{1, 4, 3, 6});
+    findMissing(new int[]{1, 4, 3, 5, 6});
     findMissing(new int[]{1, 3, 6, 7, 5, 8});
     findMissing(new int[]{1, 2, 3, 4, 5});
+    findMissing(new int[]{2, 3, -7, 6, 8, 1, -10, 15});
   }
 }

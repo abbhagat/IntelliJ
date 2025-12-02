@@ -24,6 +24,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
     return result;
   }
 
+  // Time Complexity O(log n)
   private static int binarySearchStartIndex(int[] a, int low, int high, int n) {
     if (low <= high) {
       int mid = (low + high) / 2;
@@ -35,6 +36,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
     return -1;
   }
 
+  // Time Complexity O(log n)
   private static int binarySearchEndIndex(int[] a, int low, int high, int n) {
     if (low <= high) {
       int mid = (low + high) / 2;

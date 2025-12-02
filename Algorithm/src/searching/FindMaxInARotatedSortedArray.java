@@ -4,7 +4,7 @@ package searching;
 public class FindMaxInARotatedSortedArray {
 
   private static int findMax(int[] a) {
-    int low = 0, mid = 0, high = a.length - 1;
+    int low = 0, high = a.length - 1, mid = 0;
     while (low <= high) {
       mid = (low + high) / 2;
       if (a[mid] == a[high]) {
