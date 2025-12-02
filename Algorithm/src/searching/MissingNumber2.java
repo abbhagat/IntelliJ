@@ -16,7 +16,7 @@ public class MissingNumber2 {
       }
     }
     boolean flag = true;
-    for (int i = 1; i < n + 1; i++) {
+    for (int i = 1; i <= n; i++) {
       if (!isPresent[i]) {
         System.out.print(i + "\t");
         flag = false;
