@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Arrays;
+
 import static util.CommonUtils.printArray;
 
 public class MergeTwoSortedArray {
@@ -21,7 +23,7 @@ public class MergeTwoSortedArray {
     while (j < b.length) {
       c[k++] = b[j++];
     }
-    printArray(c, 0, k);
+    System.out.println(Arrays.toString(c));
   }
 
   public static void main(String[] args) {

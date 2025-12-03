@@ -16,7 +16,7 @@ import static java.lang.Integer.max;
  */
 
 // Time complexity is O(k * log n)
-public class LargestSumAfterRemovingKDigit {
+public class LargestNumberAfterRemovingKDigit {
 
   private static int maxNumber(int n, int k) {
     for (int j = 1; j <= k; j++) {
