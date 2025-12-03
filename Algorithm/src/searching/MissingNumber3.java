@@ -29,5 +29,7 @@ public class MissingNumber3 {
     findMissing(new int[]{1, 3, 2, 2, 8, 2, 3, 1});
     findMissing(new int[]{1, 1});
     findMissing(new int[]{1, 2, 3});
+    findMissing(new int[]{1, 2, 3, 3, 5});
+    findMissing(new int[]{1, 2, 3, 5});
   }
 }
