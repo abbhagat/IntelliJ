@@ -1,15 +1,12 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
-// Time Complexity  O(2^n)
-// Space Complexity O(n)
+// Time  Complexity : O(2^n)
+// Space Complexity : O(n)
 public class _3Sum {
 
-  private static Set<LinkedList<Integer>> combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list, Set<LinkedList<Integer>> set) {
+  private static Set<List<Integer>> combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list, Set<List<Integer>> set) {
     if (curSum == givenSum && list.size() == 3) {
       set.add(new LinkedList<>(list));
     }
@@ -26,7 +23,7 @@ public class _3Sum {
   public static void main(String[] args) {
     int[] a = {-1, 0, 1, 2, -1, -4};
     Arrays.sort(a);
-    System.out.println(combinationForSum(0, 0, 0, a, new LinkedList<>(), new HashSet<>()));
+    System.out.println(combinationForSum(0, 0,  0, a, new LinkedList<>(), new HashSet<>()));
     System.out.println(combinationForSum(0, 0, -1, a, new LinkedList<>(), new HashSet<>()));
   }
 }
