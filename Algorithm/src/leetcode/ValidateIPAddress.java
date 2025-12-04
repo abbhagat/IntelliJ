@@ -1,7 +1,7 @@
 package leetcode;
 
-// Time complexity : O(1)
-// Space Complexity: O(1)
+// Time  Complexity : O(1)
+// Space Complexity : O(1)
 public class ValidateIPAddress {
 
   private static boolean isValidIPv4(String ipAddress) {
