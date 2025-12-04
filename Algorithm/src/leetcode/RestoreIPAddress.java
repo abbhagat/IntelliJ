@@ -19,7 +19,7 @@ public class RestoreIPAddress {
 
   private static List<String> restoreIPAddress(String s) {
     List<String> list = new ArrayList<>();
-    if (s.length() > 12) {    // In IPV4 address is of 12 digit max excluding '.'
+    if (s.length() > 12) {    // In IPV4 format address is of 12 digit max excluding '.'
       return list;
     }
     restoreIP(s, 3, list, "");
@@ -30,13 +30,12 @@ public class RestoreIPAddress {
     if (dot == 0 && isValid(s)) {
       ip += s;
       list.add(ip);
-    } else {
-      for (int i = 1; i <= 3 && i < s.length(); i++) {
-        String address = s.substring(0, i);
-        if (isValid(address)) {
-          restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
-
-        }
+      return;
+    }
+    for (int i = 1; i <= 3 && i < s.length(); i++) {
+      String address = s.substring(0, i);
+      if (isValid(address)) {
+        restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
       }
     }
   }

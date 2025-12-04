@@ -19,12 +19,6 @@ public class TinyUrl {
     URL = "http://www.tinyurl.com/";
   }
 
-  public static void main(String[] args) {
-    TinyUrl tinyUrl = new TinyUrl();
-    System.out.println(tinyUrl.encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
-    System.out.println(tinyUrl.decode("http://tinyurl.com/0000001"));
-  }
-
   private String encode(String longURL) {
     if (!urlToIndex.containsKey(longURL)) {
       urlToIndex.put(longURL, counter);
@@ -55,5 +49,15 @@ public class TinyUrl {
       index = index * 62 + BASE_62.indexOf(x);
     }
     return indexToUrl.get(index);
+  }
+
+  public static void main(String[] args) {
+    TinyUrl tinyUrl = new TinyUrl();
+    var url = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
+    var shortURL = tinyUrl.encode(url);
+    var longURL  = tinyUrl.decode("http://tinyurl.com/0000001");
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
   }
 }
