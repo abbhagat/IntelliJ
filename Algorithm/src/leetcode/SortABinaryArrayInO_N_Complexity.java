@@ -1,4 +1,4 @@
-package leetcodes;
+package leetcode;
 
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;

@@ -1,4 +1,4 @@
-package leetcodes;
+package leetcode;
 
 /**
  * You are given a string s, where every two consecutive vertical bars '|' are grouped into a pair.
