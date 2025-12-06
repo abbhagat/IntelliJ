@@ -10,7 +10,7 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
 
   private static void findPairs(int[] a, int target) {
     Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
+    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     for (int x : a) {
       int y = target / x;
       if (map.containsKey(y)) {

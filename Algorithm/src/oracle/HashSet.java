@@ -18,21 +18,6 @@ public class HashSet<E> implements Cloneable, Serializable {
     map = new HashMap<>();
   }
 
-  public static void main(String[] args) {
-    HashSet<Integer> set = new HashSet<>();
-    set.add(1);
-    set.add(1);
-    set.add(2);
-    set.add(3);
-    Iterator<Integer> itr = set.iterator();
-    while (itr.hasNext()) {
-      System.out.println(itr.next());
-    }
-    System.out.println(set.contains(2));
-    set.clear();
-    System.out.println(set.isEmpty());
-  }
-
   public boolean add(E e) {
     return map.put(e, PRESENT) == null;
   }
@@ -69,5 +54,20 @@ public class HashSet<E> implements Cloneable, Serializable {
     } catch (CloneNotSupportedException e) {
       throw new InternalError(e);
     }
+  }
+
+  public static void main(String[] args) {
+    HashSet<Integer> set = new HashSet<>();
+    set.add(1);
+    set.add(1);
+    set.add(2);
+    set.add(3);
+    Iterator<Integer> itr = set.iterator();
+    while (itr.hasNext()) {
+      System.out.println(itr.next());
+    }
+    System.out.println(set.contains(2));
+    set.clear();
+    System.out.println(set.isEmpty());
   }
 }
