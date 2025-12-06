@@ -21,14 +21,13 @@ public class PrintKClosestElementInSortedArray {
       int x = abs(a[i] - n) > abs(a[j] - n) ? i++ : j--;
     }
     IntStream.range(i, j + 1).forEach(l -> System.out.print(a[l] + " "));
+    System.out.println();
   }
 
   public static void main(String[] args) {
     int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
     printKClosestElementInSortedArray(a, 35, 4);
-    System.out.println();
     printKClosestElementInSortedArray(a, 22, 2);
-    System.out.println();
     printKClosestElementInSortedArray(a, 35, 3);
   }
 }

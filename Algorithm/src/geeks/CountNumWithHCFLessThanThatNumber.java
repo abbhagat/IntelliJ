@@ -43,9 +43,9 @@ public class CountNumWithHCFLessThanThatNumber {
       }
     }
     System.out.println(count);
-    System.out.println(findHCF(0, 5) + "\t" + findGCD(0, 5));
-    System.out.println(findHCF(5, 0) + "\t" + findGCD(5, 0));
-    System.out.println(findHCF(5, 10) + "\t" + findGCD(5, 10));
+    System.out.println(findHCF(0, 5)  + "\t" + findGCD(0,  5));
+    System.out.println(findHCF(5, 0)  + "\t" + findGCD(5,  0));
+    System.out.println(findHCF(5, 10) + "\t" + findGCD(5,  10));
     System.out.println(findHCF(10, 5) + "\t" + findGCD(10, 5));
   }
 }

@@ -9,12 +9,12 @@ public class DashProblem {
 
   private static StringBuilder dashProblem(String str) {
     int[] a = str.chars().map(c -> c - '0').toArray();
-    boolean prev_odd = false;
-    boolean prev_even = false;
+    boolean prevOdd  = false;
+    boolean prevEven = false;
     if (a[0] % 2 == 0) {
-      prev_even = true;
+      prevEven = true;
     } else {
-      prev_odd = true;
+      prevOdd = true;
     }
     int i;
     StringBuilder sb = new StringBuilder();
@@ -24,18 +24,18 @@ public class DashProblem {
         continue;
       }
       var isEven = a[i] % 2 == 0;
-      if (isEven && prev_even) {
+      if (isEven && prevEven) {
         sb.append("*");
       }
-      if (!isEven && prev_odd) {
+      if (!isEven && prevOdd) {
         sb.append("-");
       }
       if (isEven) {
-        prev_even = true;
-        prev_odd = false;
+        prevEven = true;
+        prevOdd = false;
       } else {
-        prev_odd = true;
-        prev_even = false;
+        prevOdd = true;
+        prevEven = false;
       }
     }
     sb.append(a[i - 1]);
