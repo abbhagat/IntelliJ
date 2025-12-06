@@ -36,7 +36,7 @@ TABLE :- JOB
 Default timeout interval for a job is 5 minutes to force stop the job.
 
 Table :- JOB_EXEC_HISTORY
-                           |------------------------------------------------|                                                                           |
+                           |------------------------------------------------|
                            |  ID    JOB_ID     STATUS   EXECUTION_DATE_TIME |
                            |------------------------------------------------|
                            |  1       1        SUCCESS      SYSDATE         |

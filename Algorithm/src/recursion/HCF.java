@@ -13,7 +13,7 @@ public class HCF {
   // Time Complexity: O(min(x,y))
   // Space Complexity: O(1)
   private static int findGCD(int x, int y) {
-    int hcf = 0;
+    int hcf = 1;
     for (int i = 1; i <= min(x, y); i++) {
       if (x % i == 0 && y % i == 0)
         hcf = i;
