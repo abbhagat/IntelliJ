@@ -9,9 +9,7 @@ interface Iterable<E> {
 
 interface Iterator<E> {
   boolean hasNext();
-
   E curr();
-
   E next();
 }
 

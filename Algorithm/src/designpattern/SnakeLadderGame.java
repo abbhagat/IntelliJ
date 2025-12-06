@@ -9,7 +9,7 @@ import java.util.*;
 @AllArgsConstructor
 class Player {
   String name;
-  int index;
+  int   index;
 }
 
 @AllArgsConstructor
@@ -30,8 +30,8 @@ class Game {
 
   private Game(Builder builder) {
     this.playerList = builder.playerList;
-    this.ladderMap = builder.ladderMap;
-    this.snakeMap = builder.snakeMap;
+    this.ladderMap  = builder.ladderMap;
+    this.snakeMap   = builder.snakeMap;
   }
 
   public final void play() {
@@ -66,9 +66,9 @@ class Game {
 
   public static class Builder {
 
-    private final List<Player> playerList = new ArrayList<>();
+    private final List<Player> playerList         = new ArrayList<>();
     private final Map<Integer, Integer> ladderMap = new HashMap<>();
-    private final Map<Integer, Integer> snakeMap = new HashMap<>();
+    private final Map<Integer, Integer> snakeMap  = new HashMap<>();
 
     Game build() {
       return new Game(this);
@@ -96,15 +96,15 @@ public class SnakeLadderGame {
 
   public static void main(String[] args) {
     Game g = new Game.Builder()
-        .addSnake(99, 10).addSnake(52, 5)
-        .addSnake(35, 12).addSnake(68, 3)
-        .addSnake(75, 28).addSnake(86, 37)
-        .addLadder(10, 98).addLadder(12, 55)
-        .addLadder(25, 76).addLadder(36, 62)
-        .addLadder(45, 89).addLadder(66, 95)
-        .addPlayer("X")
-        .addPlayer("Y")
-        .build();
+                     .addSnake(99, 10).addSnake(52, 5)
+                     .addSnake(35, 12).addSnake(68, 3)
+                     .addSnake(75, 28).addSnake(86, 37)
+                     .addLadder(10, 98).addLadder(12, 55)
+                     .addLadder(25, 76).addLadder(36, 62)
+                     .addLadder(45, 89).addLadder(66, 95)
+                     .addPlayer("X")
+                     .addPlayer("Y")
+                     .build();
     g.play();
   }
 }

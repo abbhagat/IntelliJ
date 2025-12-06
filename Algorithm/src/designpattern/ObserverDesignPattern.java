@@ -7,7 +7,8 @@ import java.util.List;
 
 class Subject {
 
-  private final List<Observer> observers = new ArrayList<>();
+  private final List<Observer> observerList = new ArrayList<>();
+
   @Getter
   private int state;
 
@@ -17,15 +18,16 @@ class Subject {
   }
 
   public void addObserver(Observer observer) {
-    this.observers.add(observer);
+    observerList.add(observer);
   }
 
   private void notifyAllObservers() {
-    this.observers.forEach(observer -> observer.notify(observer));
+    observerList.forEach(observer -> observer.notify(observer));
   }
 }
 
 abstract class Observer {
+
   protected Subject subject;
 
   public abstract void notify(Observer observer);
