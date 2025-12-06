@@ -1,6 +1,6 @@
 package geeksforgeeks;
 
-import static util.CommonUtils.printArray;
+import java.util.Arrays;
 import static util.CommonUtils.swap;
 
 // Time Complexity :- O(n * n!)
@@ -8,7 +8,7 @@ public class AllPermutationOfANumber {
 
   private static void permutation(int[] a, int start, int end) {
     if (start == end) {
-      printArray(a);
+      System.out.println(Arrays.toString(a));
       return;
     }
     for (int i = start; i <= end; i++) {
@@ -20,11 +20,7 @@ public class AllPermutationOfANumber {
 
   private static int[] convert(int n) {
     String s = String.valueOf(n);
-    int[] a = new int[s.length()];
-    for (int i = 0; i < s.length(); i++) {
-      a[i] = Character.getNumericValue(s.charAt(i));
-    }
-    return a;
+    return s.chars().map(c -> c - '0').toArray();
   }
 
   public static void main(String[] args) {

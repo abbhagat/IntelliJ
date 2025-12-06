@@ -11,26 +11,26 @@ import java.util.stream.IntStream;
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
   private static void slidingWindow(int[] a, int k) {
-    int wL = 0, wR = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
-    while (wR < a.length) {
+    int j = 0, i = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
+    while (i < a.length) {
       if (zeroCount <= k) {
-        zeroCount += a[wR] == 0 ? 1 : 0;
-        wR++;
+        zeroCount += a[i] == 0 ? 1 : 0;
+        i++;
       }
       if (zeroCount > k) {
-        zeroCount -= a[wL] == 0 ? 1 : 0;
-        wL++;
+        zeroCount -= a[j] == 0 ? 1 : 0;
+        j++;
       }
-      if (wR - wL > bestWindow && zeroCount <= k) {
-        bestWindow = wR - wL;
-        startIndex = wL;
+      if (i - j > bestWindow && zeroCount <= k) {
+        bestWindow = i - j;
+        startIndex = j;
       }
     }
     System.out.print("Index Flipped ");
-    IntStream.range(startIndex, startIndex + bestWindow).forEach(i -> {
-      if (a[i] == 0) {
-        a[i] = 1;
-        System.out.print(i + " ");
+    IntStream.range(startIndex, startIndex + bestWindow).forEach(l -> {
+      if (a[l] == 0) {
+        a[l] = 1;
+        System.out.print(l + " ");
       }
     });
     System.out.println("\nChanged Array After Flip " + Arrays.toString(a));
