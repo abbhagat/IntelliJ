@@ -28,12 +28,12 @@ class Computer {
     private boolean isGraphicsCardEnabled;
     private boolean isBluetoothEnabled;
 
-    public Builder setHDD(String HDD) {
+    public Builder addHDD(String HDD) {
       this.HDD = HDD;
       return this;
     }
 
-    public Builder setRAM(String RAM) {
+    public Builder addRAM(String RAM) {
       this.RAM = RAM;
       return this;
     }
@@ -58,10 +58,10 @@ public class BuilderDesignPattern {
 
   public static void main(String[] args) {
     Computer.Builder builder = new Computer.Builder()
-        .setHDD("500 GB")
-        .setRAM("2 GB")
-        .setBluetoothEnabled(true)
-        .setGraphicsCardEnabled(true);
+                                           .addHDD("500GB")
+                                           .addRAM("2GB")
+                                           .setBluetoothEnabled(true)
+                                           .setGraphicsCardEnabled(true);
     Computer computer = builder.build();
     System.out.println(computer);
   }

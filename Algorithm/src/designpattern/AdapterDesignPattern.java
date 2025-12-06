@@ -14,8 +14,8 @@ interface MediaPlayer {
 }
 
 interface AdvancedMediaPlayer {
-  void playVLC(String fileName);
 
+  void playVLC(String fileName);
   void playMP4(String fileName);
 }
 
@@ -25,14 +25,12 @@ class VLC implements AdvancedMediaPlayer {
     System.out.println("Playing VLC file : " + fileName);
   }
 
-  public void playMP4(String fileName) {
-  }
+  public void playMP4(String fileName) {}
 }
 
 class MP4 implements AdvancedMediaPlayer {
 
-  public void playVLC(String fileName) {
-  }
+  public void playVLC(String fileName) {}
 
   public void playMP4(String fileName) {
     System.out.println("Playing MP4 file : " + fileName);
@@ -61,9 +59,9 @@ class AudioPlayer implements MediaPlayer {
     switch (fileType) {
       case "MP3" -> System.out.println("Playing MP3 file : " + fileName);
       case "MP4", "VLC" -> {
-        MediaAdapter mediaAdapter = new MediaAdapter(fileType);
-        mediaAdapter.play(fileName, fileType);
-      }
+                              MediaAdapter mediaAdapter = new MediaAdapter(fileType);
+                              mediaAdapter.play(fileName, fileType);
+                           }
       default -> System.out.println("File format not supported");
     }
   }

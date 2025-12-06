@@ -1,6 +1,5 @@
 package designpattern;
 
-import java.util.Arrays;
 import java.util.List;
 
 interface Iterable<E> {
@@ -15,7 +14,7 @@ interface Iterator<E> {
 
 class NameRepository implements Iterable<String> {
 
-  private final List<String> nameList = Arrays.asList("V705417", "W987622", "V987678", "Q123121");
+  private final List<String> nameList = List.of("A", "B ", "C", "D", "E");
 
   @Override
   public Iterator<String> iterator() {

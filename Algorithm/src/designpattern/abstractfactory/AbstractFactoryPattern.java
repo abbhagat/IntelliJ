@@ -55,7 +55,6 @@ class Green implements Color {
 
 abstract class AbstractFactory {
   abstract Color getColor(String color);
-
   abstract Shape getShape(String shape);
 }
 
@@ -100,6 +99,7 @@ class FactoryProducer {
 public class AbstractFactoryPattern {
 
   public static void main(String[] args) {
+
     AbstractFactory shapeFactory = FactoryProducer.getFactory("shape");
     Shape circle = shapeFactory.getShape("circle");
     circle.draw();
@@ -107,6 +107,7 @@ public class AbstractFactoryPattern {
     rectangle.draw();
     Shape square = shapeFactory.getShape("square");
     square.draw();
+
     AbstractFactory colorFactory = FactoryProducer.getFactory("color");
     Color red = colorFactory.getColor("red");
     red.fill();
