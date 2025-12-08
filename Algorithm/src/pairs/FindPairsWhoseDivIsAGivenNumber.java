@@ -17,10 +17,10 @@ public class FindPairsWhoseDivIsAGivenNumber {
       }
     } else {
       for (int x : a) {
-        if (x % k == 0 && set.contains(x / k)) {
+        if (set.contains(x / k)) {
           result.add(List.of(x, x / k));
         }
-        if (x != 0 && set.contains(x * k)) {
+        if (set.contains(x * k)) {
           result.add(List.of(x, x * k));
         }
         set.add(x);
