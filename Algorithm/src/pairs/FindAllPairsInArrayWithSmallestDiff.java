@@ -1,7 +1,6 @@
 package pairs;
 
 import java.util.Arrays;
-
 import static java.lang.Integer.min;
 
 // Time  Complexity : O(n log n)

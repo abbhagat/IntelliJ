@@ -31,7 +31,7 @@ public class FindPairCountWithSumDivisibleByK {
     int count = 0;
     for (int x : a) {
       int y = x % k;
-      int z = (k - y) % k;  // complement
+      int z = (k - y) % k;  // Complement
       count += map.getOrDefault(z, 0);
       map.put(y, map.getOrDefault(y, 0) + 1);   // map.merge(y, 1, Integer::sum);
     }
