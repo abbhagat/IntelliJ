@@ -1,12 +1,7 @@
 package pairs;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
+import java.util.*;
+import static java.lang.Integer.*;
 
 // Time  Complexity : O(n + k)
 // Space Complexity : O(k)
@@ -68,5 +63,9 @@ public class FindPairCountWithSumDivisibleByK {
 
     int[] c = {2, 3, 5, 10};
     System.out.println(findPairs(c, 5) + "\t" + countPairs(c, 5) + "\t" + findPairCount(c, 5));
+    System.out.println("------------------------");
+
+    c = new int[]{74, 66, 48, 11};
+    System.out.println(findPairs(c, 13) + "\t" + countPairs(c, 13) + "\t" + findPairCount(c, 13));
   }
 }
