@@ -28,7 +28,7 @@ public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
       }
       map.put(a[i], i);
     }
-    return a;
+    return null;
   }
 
   public static void main(String[] args) {
