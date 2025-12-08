@@ -9,22 +9,22 @@ public class FindPairsInArrayWithSmallestSum {
       System.out.println("k pairs don't exist");
       return;
     }
-    int[] temp = new int[a.length];
+    int[] c = new int[a.length];
     while (k != 0) {
-      int i = getMinIndex(a, b, temp);
-      System.out.print("(" + a[i] + ", " + b[temp[i]] + ") ");
-      temp[i]++;
+      int i = getMinIndex(a, b, c);
+      System.out.print("(" + a[i] + ", " + b[c[i]] + ") ");
+      c[i]++;
       k--;
     }
     System.out.println();
   }
 
-  private static int getMinIndex(int[] a, int[] b, int[] temp) {
+  private static int getMinIndex(int[] a, int[] b, int[] c) {
     int index = 0, minSum = Integer.MAX_VALUE;
     for (int i = 0; i < a.length; i++) {
-      if (temp[i] < b.length && a[i] + b[temp[i]] < minSum) {
+      if (c[i] < b.length && a[i] + b[c[i]] < minSum) {
         index = i;
-        minSum = a[i] + b[temp[i]];
+        minSum = a[i] + b[c[i]];
       }
     }
     return index;
