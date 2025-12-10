@@ -11,15 +11,15 @@ public class SortArrayHavingZeroOneAndTwo {
     while (mid <= high) {
       switch (a[mid]) {
         case 0 -> {
-          swap(a, low, mid);
-          low++;
-          mid++;
-        }
+                    swap(a, low, mid);
+                    low++;
+                    mid++;
+                  }
         case 1 -> mid++;
         case 2 -> {
-          swap(a, mid, high);
-          high--;
-        }
+                    swap(a, mid, high);
+                    high--;
+                  }
       }
     }
     printArray(a);

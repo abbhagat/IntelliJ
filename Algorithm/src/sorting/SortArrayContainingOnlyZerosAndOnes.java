@@ -6,7 +6,8 @@ import static util.CommonUtils.swap;
 public class SortArrayContainingOnlyZerosAndOnes {
 
   private static void sortBinaryArrayAscOrder(int[] a) {
-    for (int i = 0, j = 0; i < a.length; i++) {
+    int j = 0;
+    for (int i = 0; i < a.length; i++) {
       if (a[i] == 0) {
         swap(a, i, j);
         j++;
@@ -16,7 +17,8 @@ public class SortArrayContainingOnlyZerosAndOnes {
   }
 
   private static void sortBinaryArrayDescOrder(int[] a) {
-    for (int i = 0, j = 0; i < a.length; i++) {
+    int j = 0;
+    for (int i = 0; i < a.length; i++) {
       if (a[i] == 1) {
         swap(a, i, j);
         j++;

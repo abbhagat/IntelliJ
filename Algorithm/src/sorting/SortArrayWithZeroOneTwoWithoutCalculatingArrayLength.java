@@ -9,15 +9,9 @@ public class SortArrayWithZeroOneTwoWithoutCalculatingArrayLength {
     for (int i = 0; true; i++) {
       try {
         switch (a[i]) {
-          case 0:
-            c0++;
-            break;
-          case 1:
-            c1++;
-            break;
-          case 2:
-            c2++;
-            break;
+          case 0 -> c0++;
+          case 1 -> c1++;
+          case 2 -> c2++;
         }
       } catch (ArrayIndexOutOfBoundsException e) {
         break;

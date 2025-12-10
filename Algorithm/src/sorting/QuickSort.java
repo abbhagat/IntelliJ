@@ -7,8 +7,7 @@ import static util.CommonUtils.swap;
 public class QuickSort {
 
   private static void quickSort(int[] a, int low, int high) {
-    int i = low;
-    int j = high;
+    int i = low, j = high;
     int mid = (low + high) / 2;
     int key = a[mid];
     while (a[i] < key) {

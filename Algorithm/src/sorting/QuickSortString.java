@@ -12,7 +12,7 @@ public class QuickSortString {
     int i = low;
     int j = high;
     int mid = (low + high) / 2;
-    var key = a[mid];
+    String key = a[mid];
     while (a[i].compareTo(key) > 0) {
       i++;
     }

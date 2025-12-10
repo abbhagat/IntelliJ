@@ -6,7 +6,8 @@ import static util.CommonUtils.swap;
 public class SortArrayWithZeroAndOneWithoutCalculatingArrayLength {
 
   private static void sort(int[] a) {
-    for (int i = 0, j = 0; true; i++) {
+    int j = 0;
+    for (int i = 0; true; i++) {
       try {
         if (a[i] == 0) {
           swap(a, i, j);
