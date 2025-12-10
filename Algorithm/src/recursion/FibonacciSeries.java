@@ -11,8 +11,8 @@ public class FibonacciSeries {
   }
 
   public static void main(String[] args) {
-    int f = 0, s = 1;
+    int f = 0, s = 1, n = 10;
     System.out.print(f + " " + s);
-    printFibonacci(f, s, 8);
+    printFibonacci(f, s, n - 2);
   }
 }

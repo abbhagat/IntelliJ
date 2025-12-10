@@ -40,6 +40,6 @@ public class DifferentWaysToDisplay5 {
     System.out.println();
     count = 0;
     uniqueCountWays("", 5, 5);
-    System.out.println("Count : " + count);
+    System.out.println("Unique Count : " + count);
   }
 }

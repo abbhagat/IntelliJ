@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-// Time Complexity: O(n * sqrt(sum))   [ O(n) + O(√sum) + O(n * m) ]
+// Time  Complexity: O(n * sqrt(sum))   [ O(n) + O(√sum) + O(n * m) ]
 // Space Complexity: O(√sum) + O(n)
 public class FindPairsWithPerfectSquareSum {
 
@@ -19,16 +19,16 @@ public class FindPairsWithPerfectSquareSum {
   }
 
   public static int maxPairSum(int[] a) {
-    int max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
+    int max = Integer.MIN_VALUE, _2ndMax = Integer.MIN_VALUE;
     for (int x : a) {
       if (max < x) {
-        secondMax = max;
+        _2ndMax = max;
         max = x;
-      } else if (secondMax < x) {
-        secondMax = x;
+      } else if (_2ndMax < x) {
+        _2ndMax = x;
       }
     }
-    return max + secondMax;
+    return max + _2ndMax;
   }
 
   public static int countPairs(int x, List<Integer> list, Set<Integer> set) {
@@ -47,7 +47,7 @@ public class FindPairsWithPerfectSquareSum {
     int[] a = {2, 3, 6, 9, 10, 20};
     int sum = maxPairSum(a);
     List<Integer> list = getPerfectSquares(sum);
-    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
+    Set<Integer> set   = Arrays.stream(a).boxed().collect(Collectors.toSet());
     int count = 0;
     for (int x : a) {
       count += countPairs(x, list, set);
