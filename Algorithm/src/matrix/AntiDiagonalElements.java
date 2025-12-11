@@ -52,10 +52,10 @@ public class AntiDiagonalElements {
 
   public static void main(String[] args) {
     int[][] M = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
+                    {1, 2, 3},
+                    {4, 5, 6},
+                    {7, 8, 9}
+                };
     System.out.println("Right Diagonal");
     rightDiagonal(M);
     System.out.println("Left Diagonal");
