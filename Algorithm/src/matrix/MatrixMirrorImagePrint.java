@@ -5,20 +5,12 @@ import static util.CommonUtils.swap;
 
 public class MatrixMirrorImagePrint {
 
-  private static void mirrorImages(int[][] M) {
-    for (int i = 0; i < M.length; i++) {
-      for (int j = 0, k = M[i].length - 1; j < k; j++, k--) {
-        int t = M[i][j];
-        M[i][j] = M[i][k];
-        M[i][k] = t;
-      }
-    }
-  }
-
   private static void mirrorImage(int[][] M) {
     for (int[] a : M) {
-      for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+      int j = a.length - 1;
+      for (int i = 0; i < j; i++) {
         swap(a, i, j);
+        j--;
       }
     }
   }

@@ -40,9 +40,9 @@ public class GoldMineProblem {
     int[][] goldTable = new int[ROW][COL];
     for (int col = COL - 1; col >= 0; col--) {
       for (int row = 0; row < ROW; row++) {
-        int right = col == COL - 1 ? 0 : goldTable[row][col + 1];    // Gold collected on going to the cell on the right
-        int right_up = row == 0 || col == COL - 1 ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
-        int right_down = row == ROW - 1 || col == COL - 1 ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
+        int right           = col == COL - 1                   ? 0 : goldTable[row][col + 1];        // Gold collected on going to the cell on the right
+        int right_up        = row == 0 || col == COL - 1       ? 0 : goldTable[row - 1][col + 1];   // Gold collected on going to the cell to right up
+        int right_down      = row == ROW - 1 || col == COL - 1 ? 0 : goldTable[row + 1][col + 1];  // Gold collected on going to the cell to right down
         goldTable[row][col] = gold[row][col] + maximum(right, right_up, right_down);              // Max gold collected from taking either of the above 3 paths
       }
     }
