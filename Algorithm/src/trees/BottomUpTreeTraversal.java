@@ -2,6 +2,7 @@ package trees;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static java.lang.Integer.max;
 
 /**
@@ -13,24 +14,23 @@ import static java.lang.Integer.max;
  * O/P :- [[4, 5, 6, 7], [2, 3], [1]]
  */
 
-public class CollectAndRemoveAllLeafNodesOfABinaryTree {
+public class BottomUpTreeTraversal {
 
-  // Traverse the tree bottom-up recursively
   private static int treeHeight(Node root, List<List<Integer>> list) {
-    if (root == null) {
+    if(root == null) {
       return -1;
     }
-    int lH = treeHeight(root.left, list);
+    int lH = treeHeight(root.left,  list);
     int rH = treeHeight(root.right, list);
     int height = max(lH, rH) + 1;
-    if (list.size() <= height) {
+    if(list.size() <= height) {
       list.add(new ArrayList<>());
     }
     list.get(height).add(root.num);
     return height;
   }
 
-  public static List<List<Integer>> findLeaves(Node root) {
+  public static List<List<Integer>> bottomUpTraversal(Node root) {
     List<List<Integer>> list = new ArrayList<>();
     treeHeight(root, list);
     return list;
@@ -44,6 +44,6 @@ public class CollectAndRemoveAllLeafNodesOfABinaryTree {
     root.left.right   = new Node(5);
     root.right.left   = new Node(6);
     root.right.right  = new Node(7);
-    System.out.println(findLeaves(root));
+    System.out.println(bottomUpTraversal(root));
   }
 }

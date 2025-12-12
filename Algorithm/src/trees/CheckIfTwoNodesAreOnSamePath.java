@@ -29,10 +29,10 @@ public class CheckIfTwoNodesAreOnSamePath {
                    / \
                   4   5
          */
-    Node root = new Node(1);
-    root.left = new Node(2);
-    root.right = new Node(3);
-    root.left.left = new Node(4);
+    Node root       = new Node(1);
+    root.left       = new Node(2);
+    root.right      = new Node(3);
+    root.left.left  = new Node(4);
     root.left.right = new Node(5);
     LinkedList<Integer> list;
     list = new LinkedList<>();
@@ -43,5 +43,7 @@ public class CheckIfTwoNodesAreOnSamePath {
     System.out.println(isOnSamePath(root, 1, 4, list) + "\t" + list);
     list = new LinkedList<>();
     System.out.println(isOnSamePath(root, 4, 5, list) + "\t" + list);
+    list = new LinkedList<>();
+    System.out.println(isOnSamePath(root, 4, 3, list) + "\t" + list);
   }
 }
