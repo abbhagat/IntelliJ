@@ -10,9 +10,7 @@ interface Iterable {
 
 interface Iterator {
   boolean hasNext();
-
   Node curr();
-
   Node next();
 }
 
