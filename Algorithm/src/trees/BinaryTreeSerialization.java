@@ -2,7 +2,6 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import static trees.TreeTraversal.inorder;
 
 public class BinaryTreeSerialization {
@@ -12,8 +11,8 @@ public class BinaryTreeSerialization {
       s += "null" + ",";
     } else {
       s += root.num + ",";
-      s = serialize(root.left, s);
-      s = serialize(root.right, s);
+      s  = serialize(root.left, s);
+      s  = serialize(root.right, s);
     }
     return s;
   }
@@ -27,7 +26,7 @@ public class BinaryTreeSerialization {
     int num = Integer.parseInt(s);
     Node root = new Node(num);
     list.removeFirst();
-    root.left = deserialize(list);
+    root.left  = deserialize(list);
     root.right = deserialize(list);
     return root;
   }

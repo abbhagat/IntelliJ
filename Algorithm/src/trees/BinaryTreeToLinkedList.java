@@ -17,15 +17,15 @@ public class BinaryTreeToLinkedList {
       head = root;
     } else {
       temp.right = root;
-      root.left = null;
+      root.left  = null;
     }
     temp = root;
     treeToLinkedList(root.right);
   }
 
   public static void main(String[] args) {
-    Node root = new Node(2);
-    root.left = new Node(1);
+    Node root  = new Node(2);
+    root.left  = new Node(1);
     root.right = new Node(3);
     inorder(root);
     treeToLinkedList(root);
