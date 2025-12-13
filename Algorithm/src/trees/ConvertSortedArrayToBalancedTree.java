@@ -5,14 +5,14 @@ import static trees.TreeTraversal.inorder;
 // Time Complexity: O(n)
 public class ConvertSortedArrayToBalancedTree {
 
-  private static Node sortedArrayToBST(int[] a, int start, int end) {
-    if (start > end) {
+  private static Node sortedArrayToBST(int[] a, int low, int high) {
+    if (low > high) {
       return null;
     }
-    int mid = (start + end) / 2;
-    Node root = new Node(a[mid]);
-    root.left = sortedArrayToBST(a, start, mid - 1);
-    root.right = sortedArrayToBST(a, mid + 1, end);
+    int mid = (low + high) / 2;
+    Node root  = new Node(a[mid]);
+    root.left  = sortedArrayToBST(a, low, mid - 1);
+    root.right = sortedArrayToBST(a, mid + 1, high);
     return root;
   }
 
