@@ -23,8 +23,8 @@ public class DeleteNodeFromBST {
       if (root.right == null) {
         return root.left;
       }
-      Node temp = minValueNode(root.right);
-      root.num = temp.num;
+      Node temp  = minValueNode(root.right);
+      root.num   = temp.num;
       root.right = deleteNodeFromBST(root.right, temp.num);
     }
     return root;
@@ -38,8 +38,8 @@ public class DeleteNodeFromBST {
   }
 
   public static void main(String... args) {
-    Node root = new Node(2);
-    root.left = new Node(1);
+    Node root  = new Node(2);
+    root.left  = new Node(1);
     root.right = new Node(3);
     inorder(root);
     System.out.println();

@@ -50,19 +50,11 @@ public class DiagonalSumOfBT {
   }
 
   public static void main(String[] args) {
-    Node root = new Node(1);
-    root.left = new Node(2);
+    Node root  = new Node(1);
+    root.left  = new Node(2);
     root.right = new Node(3);
     rightDiagonalSumOfBT(root);
     leftDiagonalSumOfBT(root);
   }
 
-  private static class Node {
-    int num, vd = Integer.MAX_VALUE;
-    Node left, right;
-
-    public Node(int num) {
-      this.num = num;
-    }
-  }
 }
