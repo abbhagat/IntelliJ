@@ -1,7 +1,6 @@
 package geeks;
 
 import java.util.Arrays;
-
 import static java.lang.Math.abs;
 
 /*
@@ -20,11 +19,11 @@ public class PrintKClosestElementInSortedArray {
       System.out.print(l + " ");
       count++;
     }
-    while (i >= 0 && j >= a.length && count < k) {
+    while (i >= 0 && j >= a.length - 1 && count < k) {
       System.out.print(a[i--] + " ");
       count++;
     }
-    while (i <= 0 && j < a.length && count < k) {
+    while (i < 0 && j < a.length && count < k) {
       System.out.print(a[j++] + " ");
       count++;
     }
