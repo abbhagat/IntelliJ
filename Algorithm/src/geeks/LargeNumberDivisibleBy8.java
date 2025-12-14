@@ -8,9 +8,9 @@ public class LargeNumberDivisibleBy8 {
   }
 
   public static void main(String[] args) {
-    System.out.println(isDivisibleBy8("64") ? "Divisible" : "Not Divisible");
-    System.out.println(isDivisibleBy8("952") ? "Divisible" : "Not Divisible");
-    System.out.println(isDivisibleBy8("1952") ? "Divisible" : "Not Divisible");
-    System.out.println(isDivisibleBy8("1752") ? "Divisible" : "Not Divisible");
+    System.out.println(isDivisibleBy8("64"));
+    System.out.println(isDivisibleBy8("952"));
+    System.out.println(isDivisibleBy8("1952"));
+    System.out.println(isDivisibleBy8("1752"));
   }
 }
