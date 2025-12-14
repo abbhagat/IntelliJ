@@ -1,9 +1,21 @@
 package geeks;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ArrayUnionIntersection {
+
+  private void unionIntersection(int[] a, int[] b) {
+    Map<Integer,Integer> map = new LinkedHashMap<>();
+    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+    Arrays.stream(b).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+    System.out.print("Intersection : ");
+    map.forEach((k,v) -> {
+      if(v > 1) {
+        System.out.print(k + " ");
+      }
+    });
+    System.out.println("\nUnion        : " + map.keySet());
+  }
 
   public static void main(String[] args) {
     Set<Integer> set = new HashSet<>();
