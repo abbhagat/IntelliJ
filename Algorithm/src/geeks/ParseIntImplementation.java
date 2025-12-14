@@ -3,9 +3,9 @@ package geeks;
 public class ParseIntImplementation {
 
   public static int parseInt(String s) {
-    int n = 0, k = 0;
+    int n = 0, j = 0;
     for (int i = s.length() - 1; i >= 0; i--) {
-      n += (int) ((s.charAt(i) - '0') * Math.pow(10, k++));
+      n += Character.getNumericValue(s.charAt(i)) * Math.pow(10, j++);
     }
     return n;
   }

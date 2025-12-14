@@ -1,7 +1,6 @@
 package geeks;
 
 /**
- * Problem:
  * Given a string of digits, find the longest even-length substring such that the sum of the first half equals the sum of the second half.
  * The output should be the length of this substring.
  * Input: str = "123123"  Output: 6 (the entire string is valid)

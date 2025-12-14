@@ -1,33 +1,41 @@
 package geeks;
 
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 import static java.lang.Math.abs;
-import static util.CommonUtils.printArray;
 
-/**
- * Given a sorted array A[] and a value X, find the K closest elements to X in A[]
- * Input: K = 4, X = 35 and A[] = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}
- * Output: 30 39 42 45
- * Note that if the element is present in array, then it should not be in output, only the other closest elements are required.
- */
-// Time  Complexity: O(n)
-// Space Complexity: O(1)
+/*
+Given a sorted array arr[] and a value X, find the k closest elements to X in arr[]
+Input: K = 4, X = 35 and arr[] = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}
+Output: 30 39 42 45
+Note that if the element is present in array, then it should not be in output, only the other closest elements are required.
+*/
 public class PrintKClosestElementInSortedArray {
 
-  private static void printKClosestElementInSortedArray(int[] a, int n, int k) {
-    int i = 0, j = a.length - 1;
-    while (j - i >= k) {
-      int x = abs(a[i] - n) > abs(a[j] - n) ? i++ : j--;
+  private static void printKClosestElementInAnArray(int[] a, int n, int k) {
+    int index = Arrays.binarySearch(a, n);
+    int count = 0, i = index - 1, j = index + 1;
+    while (i >= 0 && j < a.length && count < k) {
+      int l = abs(n - a[i]) < abs(n - a[j]) ? a[i--] : a[j++];
+      System.out.print(l + " ");
+      count++;
     }
-    IntStream.range(i, j + 1).forEach(l -> System.out.print(a[l] + " "));
+    while (i >= 0 && j >= a.length && count < k) {
+      System.out.print(a[i--] + " ");
+      count++;
+    }
+    while (i <= 0 && j < a.length && count < k) {
+      System.out.print(a[j++] + " ");
+      count++;
+    }
     System.out.println();
   }
 
   public static void main(String[] args) {
     int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
-    printKClosestElementInSortedArray(a, 35, 4);
-    printKClosestElementInSortedArray(a, 22, 2);
-    printKClosestElementInSortedArray(a, 35, 3);
+    printKClosestElementInAnArray(a, 35, 4);
+    printKClosestElementInAnArray(a, 35, 2);
+    printKClosestElementInAnArray(a, 12, 3);
+    printKClosestElementInAnArray(a, 56, 3);
   }
 }
