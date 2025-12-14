@@ -6,7 +6,7 @@ import java.util.TreeMap;
 public class StringSplitProblem {
 
   private static String solve(String s1, String s2, String s3) {
-    StringBuilder result = new StringBuilder();
+    StringBuilder sb = new StringBuilder();
     String[] str = s1.split(s3);
     boolean flag = true;
     for (String s : str) {
@@ -24,10 +24,10 @@ public class StringSplitProblem {
         }
       }
       if (flag) {
-        result.append(s).append(" ");
+        sb.append(s).append(" ");
       }
     }
-    return result.toString().trim();
+    return sb.toString().trim();
   }
 
   public static void main(String[] args) {

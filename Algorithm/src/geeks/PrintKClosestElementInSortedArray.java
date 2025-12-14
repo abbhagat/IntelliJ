@@ -36,5 +36,7 @@ public class PrintKClosestElementInSortedArray {
     printKClosestElementInAnArray(a, 35, 2);
     printKClosestElementInAnArray(a, 12, 3);
     printKClosestElementInAnArray(a, 56, 3);
+    printKClosestElementInAnArray(a, 16, 3);
+    printKClosestElementInAnArray(a, 55, 3);
   }
 }
