@@ -8,28 +8,28 @@ public class StringPermutation {
     if (c1.length > c2.length) {
       return false;
     }
-    int[] c1Data = new int[128];
-    int[] c2Data = new int[128];
-    for (int i = 0; i < c1.length; i++) {
-      c1Data[c1[i]]++;
-      c2Data[c2[i]]++;
+    int[] temp1 = new int[128];
+    int[] temp2 = new int[128];
+    for (char c : c1) {
+      temp1[c]++;
+      temp2[c]++;
     }
-    if (matches(c1Data, c2Data)) {
+    if (matches(temp1, temp2)) {
       return true;
     }
     for (int i = 0, j = c1.length; j < c2.length; i++, j++) {
-      c2Data[c2[j]]++;
-      c2Data[c2[i]]--;
-      if (matches(c1Data, c2Data)) {
+      temp2[c2[j]]++;
+      temp2[c2[i]]--;
+      if (matches(temp1, temp2)) {
         return true;
       }
     }
-    return matches(c1Data, c2Data);
+    return matches(temp1, temp2);
   }
 
-  public static boolean matches(int[] c1Data, int[] c2Data) {
+  public static boolean matches(int[] temp1, int[] temp2) {
     for (int i = 0; i < 128; i++) {
-      if (c1Data[i] != c2Data[i]) {
+      if (temp1[i] != temp2[i]) {
         return false;
       }
     }

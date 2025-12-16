@@ -1,6 +1,5 @@
 package geeksforgeeks;
 
-import java.util.stream.IntStream;
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
@@ -20,7 +19,6 @@ public class MoveZeroesToEnd {
         j--;
       }
     }
-    IntStream.range(0, j + 1).forEach(i -> a[i] = 0);
     printArray(a);
   }
 
