@@ -2,6 +2,7 @@ package geeksforgeeks;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
+import static util.CommonUtils.swap;
 
 public class RemoveAGivenRepeatedElementFromArray {
 
@@ -9,7 +10,7 @@ public class RemoveAGivenRepeatedElementFromArray {
     int j = 0;
     for (int i = 0; i < a.length; i++) {
       if (a[i] != n) {
-        a[j] = a[i];
+        swap(a, i, j);
         j++;
       }
     }

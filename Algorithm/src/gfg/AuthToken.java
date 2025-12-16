@@ -27,4 +27,8 @@ public class AuthToken {
     int lastTime = commands.get(commands.size() - 1).get(2);
     return (int) map.values().stream().filter(tokenTime -> tokenTime >= lastTime).count();
   }
+
+  public static void main(String[] args) {
+
+  }
 }

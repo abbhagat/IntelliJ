@@ -34,6 +34,7 @@ public class CountProperFraction {
   public static void main(String[] args) {
     System.out.println(countProperFractions(8));
     System.out.println(findGCD(0, 5));
+    System.out.println(findGCD(0, 0));
     System.out.println(findGCD(5, 0));
   }
 }
