@@ -10,7 +10,7 @@ import static java.lang.Integer.min;
  * Input: N = 2589, K = 2
  * Output: 25
  */
-public class SmallestSumAfterRemovingKDigit {
+public class SmallestNumberAfterRemovingKDigit {
   private static int minNumber(int n, int k) {
     if (String.valueOf(n).length() == k) {
       return 0;
@@ -29,8 +29,10 @@ public class SmallestSumAfterRemovingKDigit {
   public static void main(String[] args) {
     System.out.println(minNumber(10, 2));
     System.out.println(minNumber(6358, 1));
+    System.out.println(minNumber(6358, 4));
     System.out.println(minNumber(2589, 2));
     System.out.println(minNumber(10200, 1));
     System.out.println(minNumber(1432219, 3));
+    System.out.println(minNumber(1432219, 7));
   }
 }

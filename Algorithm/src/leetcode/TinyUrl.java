@@ -45,19 +45,19 @@ public class TinyUrl {
   }
 
   private String decode(String shortURL) {
-    int index = 0;
-    String url = shortURL.substring(shortURL.lastIndexOf("/") + 1);
-    for (char x : url.toCharArray()) {
-      index = index * 62 + BASE_62.indexOf(x);
+    int counter = 0;
+    String base62EncodedCounterVal = shortURL.substring(shortURL.lastIndexOf("/") + 1);
+    for (char x : base62EncodedCounterVal.toCharArray()) {
+      counter = counter * 62 + BASE_62.indexOf(x);
     }
-    return indexToUrl.get(index);
+    return indexToUrl.get(counter);
   }
 
   public static void main(String[] args) {
     TinyUrl tinyUrl = new TinyUrl();
-    var url = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
-    var shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    var longURL  = tinyUrl.decode(shortURL);
+    String url      = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
+    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    String longURL  = tinyUrl.decode(shortURL);
     System.out.println(shortURL);
     System.out.println(longURL);
     System.out.println(url.equals(longURL));

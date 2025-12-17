@@ -19,6 +19,9 @@ import static java.lang.Integer.max;
 public class LargestNumberAfterRemovingKDigit {
 
   private static int maxNumber(int n, int k) {
+    if (String.valueOf(n).length() == k) {
+      return 0;
+    }
     for (int j = 1; j <= k; j++) {
       int max = Integer.MIN_VALUE;
       for (int i = 1; n / i != 0; i *= 10) {        // Remove the last digit after every iteration

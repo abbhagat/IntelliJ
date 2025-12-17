@@ -32,12 +32,7 @@ public class LongestCommonSuffix {
   }
 
   public static void main(String[] args) {
-    String[][] str = {
-                         {"ABCDEBUILD", "QOUCTBUILD"},
-                         {"ABCDEBUILD", "ABCDEBUILD"}
-                     };
-    for (String[] s : str) {
-      System.out.println(longestCommonSuffix(s, 0, s.length - 1));
-    }
+    System.out.println(longestCommonSuffix(new String[] {"ABCDEBUILD", "QOUCTBUILD"}, 0, 1));
+    System.out.println(longestCommonSuffix(new String[] {"ABCDEBUILD", "ABCDEBUILD"}, 0, 1));
   }
 }
