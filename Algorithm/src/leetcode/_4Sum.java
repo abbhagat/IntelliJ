@@ -11,9 +11,6 @@ public class _4Sum {
     if (curSum == givenSum && list.size() == 4) {
       System.out.println(list);
     }
-    if (curSum > givenSum) {
-      return;
-    }
     for (int i = index; i < a.length; i++) {
       curSum += a[i];
       list.add(a[i]);
@@ -26,6 +23,6 @@ public class _4Sum {
   public static void main(String[] args) {
     int[] a = {1, 0, -1, 0, -2, 2};
     Arrays.sort(a);
-    combinationForSum(0, 0, 0, a, new LinkedList<>());
+    combinationForSum(0, 0, -1, a, new LinkedList<>());
   }
 }

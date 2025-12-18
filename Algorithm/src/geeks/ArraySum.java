@@ -11,9 +11,6 @@ public class ArraySum {
       System.out.println(list);
       return;
     }
-    if (currSum > givenSum) {
-      return;
-    }
     for (int i = index; i < a.length; i++) {
       currSum += a[i];
       list.add(a[i]);

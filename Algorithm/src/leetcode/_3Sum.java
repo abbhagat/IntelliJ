@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-// Time  Complexity : O(2^n)
+// Time  Complexity : O(n*2^n) + O(nlog(n))
 // Space Complexity : O(n)
 public class _3Sum {
 
@@ -38,9 +38,10 @@ public class _3Sum {
   public static void main(String[] args) {
     int[] a = {-1, 0, 1, 2, -1, -4};
     Arrays.sort(a);
-    System.out.println(combinationForSum(0, 0,  0, a, new LinkedList<>(), new HashSet<>()));
+    System.out.println(combinationForSum(0, 0, 0,  a, new LinkedList<>(), new HashSet<>()));
     System.out.println(combinationForSum(0, 0, -1, a, new LinkedList<>(), new HashSet<>()));
     System.out.println("--------------");
-    combinationForSum(a, 0, 0, 0, new LinkedList<>());
+    combinationForSum(a, 0, 0, 0,  new LinkedList<>());
+    combinationForSum(a, 0, 0, -1, new LinkedList<>());
   }
 }
