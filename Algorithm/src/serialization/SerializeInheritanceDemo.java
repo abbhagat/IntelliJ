@@ -1,6 +1,5 @@
 package serialization;
 
-
 import java.io.*;
 
 class XYZ implements Serializable {
