@@ -27,13 +27,13 @@ public class TopKFrequentElementsInAnArray {
     Map<String, Integer> map = new LinkedHashMap<>();
     list.forEach(s -> map.put(s, map.getOrDefault(s, 0) + 1));
     List<Map.Entry<String, Integer>> sortedList = map.entrySet()
-        .stream()
-        .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-        .toList();
+                                                     .stream()
+                                                     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                                                     .toList();
     List<Map.Entry<String, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
     return topKList.stream()
-        .map(Map.Entry::getKey)
-        .toArray(String[]::new);
+                   .map(Map.Entry::getKey)
+                   .toArray(String[]::new);
   }
 
   public static void main(String[] args) {

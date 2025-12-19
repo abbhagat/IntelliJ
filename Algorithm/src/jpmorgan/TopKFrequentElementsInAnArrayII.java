@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 import static java.lang.Integer.compare;
 import static java.lang.Integer.min;
+import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
 /**
@@ -56,18 +57,16 @@ public class TopKFrequentElementsInAnArrayII {
   public static void topKFrequent(int[] a, int k) {
     Map<Integer, Integer> map = new HashMap<>();
     Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
-    Map<Integer, Integer> sortedMap = map.entrySet()
-                                         .stream()
-                                         .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-                                         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
-    int count = min(k, sortedMap.size());
-    for (int x : sortedMap.keySet()) {
-      System.out.print(x + " ");
-      count--;
-      if (count == 0) {
-        break;
-      }
-    }
+    List<Map.Entry<Integer, Integer>> list = map.entrySet()
+                                                .stream()
+                                                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                                                .toList();
+    int[] result = list.subList(0, min(k, list.size()))
+                       .stream()
+                       .map(Map.Entry::getKey)
+                       .mapToInt(x -> x)
+                       .toArray();
+    printArray(result);
   }
 
   public static void topKFreqElements(Stream<Integer> intStream, int k) {
@@ -87,22 +86,19 @@ public class TopKFrequentElementsInAnArrayII {
         return n;
       });
       // Print top K (or fewer if not enough distinct elements)
-      IntStream.range(0, min(k, list.size())).forEach(i -> System.out.print(list.get(i) + " "));
-      System.out.println();
+      System.out.println(list.subList(0, min(k, list.size())));
     });
   }
 
   public static void main(String[] args) {
     topKFrequent(new int[]{5, 2, 1, 3, 2}, 2);
-    System.out.println();
     topKFrequent(new int[]{5, 2, 1, 3, 4}, 4);
-    System.out.println();
     topKFrequent(new int[]{5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5}, 1);
-    System.out.println("\n------------------");
+    System.out.println("------------------");
     topKFreqElements(Stream.of(5, 2, 1, 3, 2), 2);
-    System.out.println();
+    System.out.println("------------------");
     topKFreqElements(Stream.of(5, 2, 1, 3, 4), 4);
-    System.out.println();
+    System.out.println("------------------");
     topKFreqElements(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
   }
 }
