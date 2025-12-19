@@ -4,10 +4,8 @@ import java.io.*;
 
 /**
  * Serialization Rule
- * <p>
  * During serialization process, if any instance variable is inherited from non-serializable parent class,
  * then JVM will ignore the normal value instead it will store the default value for that variable.
- * <p>
  * Deserialization Rule
  * During deserialization process, if we have any non-serializable parent class,
  * then JVM will perform following things for that non-serializable parent class.
@@ -71,9 +69,11 @@ public class SerializableDemo {
     FileInputStream fileInputStream = new FileInputStream("son.txt");
     ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
     son = (Son) inputStream.readObject();
-    System.out.println(son.parent + " " + son.s + " " + son.x);
-    System.out.println(son.child);
-    System.out.println(son.k);
-    System.out.println(Son.y);
+    System.out.println("son.parent : " + son.parent);
+    System.out.println("son.s " + son.s);
+    System.out.println("son.x " + son.x);
+    System.out.println("son.child " + son.child);
+    System.out.println("son.k " + son.k);
+    System.out.println("Son.y " + Son.y);
   }
 }

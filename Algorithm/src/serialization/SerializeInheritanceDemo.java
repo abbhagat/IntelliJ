@@ -5,6 +5,7 @@ import java.io.*;
 
 class XYZ implements Serializable {
 
+  @Serial
   private static final long serialVersionUID = 1L;
   static int z = 30;
   int x = 10;
@@ -12,6 +13,8 @@ class XYZ implements Serializable {
 }
 
 class PQR extends XYZ implements Serializable {
+
+  @Serial
   private static final long serialVersionUID = 1L;
   static int z = 300;
   int x = 100;
