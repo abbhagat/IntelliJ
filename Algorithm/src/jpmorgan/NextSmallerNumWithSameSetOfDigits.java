@@ -1,13 +1,15 @@
 package jpmorgan;
 
-import static util.CommonUtils.printArray;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import static util.CommonUtils.swap;
 
 public class NextSmallerNumWithSameSetOfDigits {
 
-  private static int[] nextPermutation(int[] a) {
+  private static int nextPermutation(int n) {
+    int[] a = String.valueOf(n).chars().map(c -> c - '0').toArray();
     if (a.length == 1) {
-      return a;
+      return n;
     }
     int i;
     for (i = a.length - 1; i > 0; i--) {
@@ -21,18 +23,24 @@ public class NextSmallerNumWithSameSetOfDigits {
           break;
         }
       }
+      int k = a.length - 1;
+      int[] b = new int[a.length];
+      System.arraycopy(a, 0, b, 0, i);
+      for (int j = i; j < b.length; j++) {
+        b[j] = a[k];
+        k--;
+      }
+      return Integer.parseInt(Arrays.stream(b)
+          .mapToObj(String::valueOf)
+          .collect(Collectors.joining()));
     }
-    int k = a.length - 1;
-    int[] b = new int[a.length];
-    System.arraycopy(a, 0, b, 0, i);
-    for (int j = i; j < b.length; j++) {
-      b[j] = a[k];
-      k--;
-    }
-    return b;
+    return n;
   }
 
   public static void main(String[] args) {
-    printArray(nextPermutation(new int[]{3, 1, 2}));
+    System.out.println(nextPermutation(123));
+    System.out.println(nextPermutation(213));
+    System.out.println(nextPermutation(312));
+    System.out.println(nextPermutation(321));
   }
 }
