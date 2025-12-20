@@ -24,10 +24,10 @@ public class AngleBetweenHourAndMinHand {
   }
 
   public static void main(String[] args) {
-    System.out.println(calcAngle(8, 60) + " degree");
-    System.out.println(calcAngle(9, 60) + " degree");
-    System.out.println(calcAngle(3, 30) + " degree");
-    System.out.println(calcAngle(3, 0) + " degree");
+    System.out.println(calcAngle(8,  60) + " degree");
+    System.out.println(calcAngle(9,  60) + " degree");
+    System.out.println(calcAngle(3,  30) + " degree");
+    System.out.println(calcAngle(3,  0)  + " degree");
     System.out.println(calcAngle(12, 30) + " degree");
     System.out.println(calcAngle(12, 60) + " degree");
   }

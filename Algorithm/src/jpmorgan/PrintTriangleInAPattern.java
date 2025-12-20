@@ -26,5 +26,7 @@ public class PrintTriangleInAPattern {
     printPattern(6);
     System.out.println();
     printPattern(7);
+    System.out.println();
+    printPattern(10);
   }
 }

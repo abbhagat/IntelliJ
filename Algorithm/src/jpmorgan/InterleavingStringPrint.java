@@ -36,7 +36,7 @@ public class InterleavingStringPrint {
   }
 
   public static void main(String[] args) {
-    printInterLeaving("AB", "C", "", 0, 0);
+    printInterLeaving("AB", "C" , "", 0, 0);
     System.out.println();
     printInterLeaving("AB", "CD", "", 0, 0);
   }

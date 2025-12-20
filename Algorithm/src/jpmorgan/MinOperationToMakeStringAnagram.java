@@ -3,8 +3,8 @@ package jpmorgan;
 public class MinOperationToMakeStringAnagram {
 
   public static int minOpsToMakeStringAnagram(String s) {
-    int count = 0, l = s.length();
-    for (int i = 0, j = l - 1; i < l / 2; i++, j--) {
+    int count = 0,  l = s.length() - 1;
+    for (int i = 0, j = l; i <= l / 2; i++, j--) {
       if (s.charAt(i) != s.charAt(j)) {
         count++;
       }

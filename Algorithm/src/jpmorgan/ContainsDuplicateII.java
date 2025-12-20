@@ -24,8 +24,8 @@ public class ContainsDuplicateII {
 
   private static boolean containsDuplicate(int[] a) {
     Set<Integer> set = new HashSet<>();
-    for (int x : a) {
-      if (!set.add(x)) {
+    for (int i = 0; i < a.length; i++) {
+      if (!set.add(a[i])) {
         return true;
       }
     }

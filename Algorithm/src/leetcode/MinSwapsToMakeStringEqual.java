@@ -14,7 +14,7 @@ public class MinSwapsToMakeStringEqual {
       if ((x1 + x2) % 2 == 1 || (y1 + y2) % 2 == 1) {
         return -1;
       }
-      return x1 / 2 + y1 / 2 + (x1 % 2) * 2;
+      return x1 / 2 + y1 / 2 + (x1 % 2) * 2;  // OR return x1 / 2 + y1 / 2 + (y2 % 2) * 2;
     }
     return -1;
   }
