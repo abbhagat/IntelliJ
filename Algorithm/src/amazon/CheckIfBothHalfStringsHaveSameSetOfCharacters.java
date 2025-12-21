@@ -5,9 +5,10 @@ public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
 
   private static boolean hasSameSetOfChars(char[] a) {
     int[] temp = new int[128];
-    for (int i = 0, j = a.length - 1; i < j; i++, j--) {
-      temp[a[i]]++;
-      temp[a[j]]--;
+    int i = 0, j = a.length - 1;
+    while (i <= j) {
+      temp[a[i++]]++;
+      temp[a[j--]]--;
     }
     for (int x : temp) {
       if (x != 0) {

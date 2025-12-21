@@ -1,5 +1,6 @@
 package amazon;
 
+import static java.lang.Character.getNumericValue;
 import static java.lang.Integer.max;
 
 // Time Complexity : O(n)
@@ -7,10 +8,10 @@ public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
 
   private static String add(String num1, String num2, int base) {
     StringBuilder result = new StringBuilder();
-    int carry = 0, l1 = num1.length(), l2 = num2.length();
-    for (int i = 0; i < max(l1, l2); i++) {
-      int x = i < l1 ? Character.getNumericValue(num1.charAt(l1 - i - 1)) : 0;
-      int y = i < l2 ? Character.getNumericValue(num2.charAt(l2 - i - 1)) : 0;
+    int carry = 0, l1 = num1.length() - 1, l2 = num2.length() - 1;
+    for (int i = 0; i <= max(l1, l2); i++) {
+      int x = i <= l1 ? getNumericValue(num1.charAt(l1 - i)) : 0;
+      int y = i <= l2 ? getNumericValue(num2.charAt(l2 - i)) : 0;
       int sum = x + y + carry;
       carry = sum / base;
       result.insert(0, sum % base);
