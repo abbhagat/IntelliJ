@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
+// Time  Complexity : log n
+// Space Complexity : O(n)
 public class MedianOfStreamOfNumbers {
 
   private static final PriorityQueue<Float> left = new PriorityQueue<>(Collections.reverseOrder()); // Max heap
