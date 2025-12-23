@@ -18,13 +18,13 @@ public class WordBreak {
 
   // Time  Complexity: O(2^n)
   // Space Complexity: O(n)
-  private static boolean wordBreak(String str, List<String> list, int index) {
+  private static boolean wordBreak(int index, String str, List<String> list) {
     if (index == str.length()) {
       return true;
     }
     for (int i = index + 1; i <= str.length(); i++) {
       String s = str.substring(index, i);
-      if (list.contains(s) && wordBreak(str, list, i)) {
+      if (list.contains(s) && wordBreak(i, str, list)) {
         return true;
       }
     }
@@ -50,13 +50,19 @@ public class WordBreak {
   }
 
   public static void main(String[] args) {
-    System.out.println(wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog")));
-    System.out.println(wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"), 0));
-    System.out.println(wordBreak("catsandog", List.of("cats", "dog", "sand", "and", "cat")));
-    System.out.println(wordBreak("catsandog", List.of("cats", "dog", "sand", "and", "cat"), 0));
-    System.out.println(wordBreak("applepenapple", List.of("apple", "pen")));
-    System.out.println(wordBreak("applepenapple", List.of("apple", "pen"), 0));
-    System.out.println(wordBreak("leetcode", List.of("leet", "code")));
-    System.out.println(wordBreak("leetcode", List.of("leet", "code"), 0));
+    List<String> list;
+    String str;
+
+    str  = "catsanddog"; list = List.of("cat", "cats", "and", "sand", "dog");
+    System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
+
+    str  = "catsandog"; list = List.of("cats", "dog", "sand", "and", "cat");
+    System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
+
+    str  = "applepenapple"; list = List.of("apple", "pen");
+    System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
+
+    str  = "leetcode"; list = List.of("leet", "code");
+    System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
   }
 }
