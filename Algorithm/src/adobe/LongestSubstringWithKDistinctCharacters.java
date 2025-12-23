@@ -9,24 +9,21 @@ public class LongestSubstringWithKDistinctCharacters {
 
   public static void longestSubstring(String s, int k) {
     Map<Character, Integer> map = new HashMap<>();
-    int start = 0, index = 0, max = 0;
-    for (int end = 0; end < s.length(); end++) {
-      char c = s.charAt(end);
+    int j = 0, i;
+    for (i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
       map.put(c, map.getOrDefault(c, 0) + 1);
       while (map.size() > k) {
-        char y = s.charAt(start);
+        char y = s.charAt(j);
         map.put(y, map.get(y) - 1);
         if (map.get(y) == 0) {
           map.remove(y);
         }
-        start++;
-      }
-      if (max < end - start + 1) {
-        max = end - start + 1;
-        index = start;
+        j++;
       }
     }
-    System.out.println(s.substring(index, index + max) + "\t" + max);
+    String str = s.substring(j, i);
+    System.out.println(str + "\t" + str.length());
   }
 
   public static void main(String[] args) {
@@ -34,5 +31,6 @@ public class LongestSubstringWithKDistinctCharacters {
     longestSubstring("aabbcc", 1);
     longestSubstring("aabbcc", 2);
     longestSubstring("aabbcc", 3);
+    longestSubstring("abcabc", 3);
   }
 }

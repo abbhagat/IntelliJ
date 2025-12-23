@@ -19,6 +19,6 @@ public class JewelAndStones {
 
   public static void main(String[] args) {
     System.out.println(numJewelsInStones("aA", "aAAbbbb"));
-    System.out.println(numJewelsInStones("z", "ZZ"));
+    System.out.println(numJewelsInStones("z",  "ZZ"));
   }
 }

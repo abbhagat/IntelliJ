@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 
 import static java.lang.Integer.max;
 
-// Time Complexity : O(n)
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class LongestConsecutiveSequence {
 
   private static int longestConsecutiveSequence(int[] a) {

@@ -3,7 +3,7 @@ package geeksforgeeks;
 import java.text.DecimalFormat;
 
 // Time Complexity : O(log n + log m)
-public class MedianOfTwoArrays {
+public class MedianOfTwoSortedArrays {
 
   private static float findMedian(int[] a, int[] b) {
     float median = 0, prevMedian = 0;
