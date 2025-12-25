@@ -46,8 +46,9 @@ class Producer<E> implements Runnable {
   public void run() {
     for(int i = 1; i <= 10; i++) {
       try {
-        System.out.println("Put : Message " + i);
-        q.put((E) ("Message " + i));
+        String message = "Put : Message " + i;
+        System.out.println(message);
+        q.put((E) message);
          Thread.sleep(100);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);

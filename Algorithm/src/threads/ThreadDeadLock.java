@@ -1,5 +1,26 @@
 package threads;
 
+class ThreadDeadlock {
+
+  public void method1() {
+    synchronized (Integer.class) {
+      System.out.println(Thread.currentThread().getName() + " Lock On Integer class");
+      synchronized (String.class) {
+        System.out.println(Thread.currentThread().getName() + "Lock On String class");
+      }
+    }
+  }
+
+  public void method2() {
+    synchronized (String.class) {
+      System.out.println(Thread.currentThread().getName() + "Lock On String class");
+      synchronized (Integer.class) {
+        System.out.println(Thread.currentThread().getName() + "Lock On Integer class");
+      }
+    }
+  }
+}
+
 class Thread1 implements Runnable {
 
   private final ThreadDeadlock threadDeadlock;
@@ -32,29 +53,11 @@ class Thread2 implements Runnable {
   }
 }
 
-public class ThreadDeadlock {
+public class ThreadDeadLock {
 
   public static void main(String[] args) {
     ThreadDeadlock threadDeadlock = new ThreadDeadlock();
     new Thread1(threadDeadlock, "Thread-1");
     new Thread2(threadDeadlock, "Thread-2");
-  }
-
-  public void method1() {
-    synchronized (Integer.class) {
-      System.out.println(Thread.currentThread().getName() + " Lock On Integer class");
-      synchronized (String.class) {
-        System.out.println(Thread.currentThread().getName() + "Lock On String class");
-      }
-    }
-  }
-
-  public void method2() {
-    synchronized (String.class) {
-      System.out.println(Thread.currentThread().getName() + "Lock On String class");
-      synchronized (Integer.class) {
-        System.out.println(Thread.currentThread().getName() + "Lock On Integer class");
-      }
-    }
   }
 }
