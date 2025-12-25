@@ -9,20 +9,21 @@ import java.util.concurrent.ArrayBlockingQueue;
 interface IConnectionPool {
   Connection getConnection() throws InterruptedException;
   void releaseConnection(Connection connection);
-  void shutdown();
+  void shutdown() throws SQLException;
 }
 
 public class ConnectionPool implements IConnectionPool {
 
   private final BlockingQueue<Connection> connectionPool;
-  private int poolSize = 10;
+  private int poolSize;
   private volatile boolean isShutdown = false;
   private final String driverName;
   private final String url;
   private final String username;
   private final String password;
 
-  public ConnectionPool() {
+  public ConnectionPool(int poolSize) {
+    this.poolSize = poolSize;
     this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     this.driverName = "oracle.jdbc.driver.OracleDriver";
     this.url = "jdbc:oracle:thin:@localhost:1521:XE";
@@ -42,7 +43,7 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   private void initializeConnectionPool() {
-    while (connectionPool.size() < poolSize) {
+    for (int i = 0; i < this.poolSize; i++) {
       connectionPool.offer(createNewConnection());
     }
   }
@@ -66,6 +67,7 @@ public class ConnectionPool implements IConnectionPool {
     return connectionPool.take();
   }
 
+  @Override
   public void releaseConnection(Connection connection) {
     if (connection != null && !isShutdown) {
       connectionPool.offer(connection);
@@ -73,23 +75,19 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public void shutdown() {
+  public void shutdown() throws SQLException {
     isShutdown = true;
-    connectionPool.forEach(connection -> {
-      try {
-        connection.close();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    });
+    for (Connection connection : connectionPool) {
+      connection.close();
+    }
   }
 
   public static void main(String[] args) throws SQLException, InterruptedException {
-    IConnectionPool connectionPool = new ConnectionPool();
+    IConnectionPool connectionPool = new ConnectionPool(10);
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
     connectionPool.releaseConnection(connection);
     System.out.println("Returned connection to pool.");
-    connection.close();
+    connectionPool.shutdown();
   }
 }
