@@ -1,10 +1,9 @@
 package interval;
 
 import util.Interval;
-
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Stream;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -12,27 +11,25 @@ import static java.lang.Integer.min;
 // Space Complexity : O(1)
 public class InsertInterval {
 
-  private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
+  private static void insertInterval(List<Interval> list, Interval interval) {
     int i = 0;
-    while (i < intervalList.size() && intervalList.get(i).end < newInterval.start) {
+    while (i < list.size() && list.get(i).end < interval.start) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
-      Interval interval = intervalList.remove(i);
-      newInterval.start = min(newInterval.start, interval.start);
-      newInterval.end   = max(newInterval.end, interval.end);
+    while (i < list.size() && list.get(i).start <= interval.end) {
+      Interval newInterval = list.remove(i);
+      interval.start = min(interval.start, newInterval.start);
+      interval.end   = max(interval.end,   newInterval.end);
     }
-    intervalList.add(i, newInterval);
+    list.add(i, interval);
   }
 
   public static void main(String[] args) {
-    List<Interval> intervalList = new ArrayList<>();
-    insertInterval(intervalList, new Interval(8, 10));
-    insertInterval(intervalList, new Interval(8, 12));
-    insertInterval(intervalList, new Interval(16, 18));
-    insertInterval(intervalList, new Interval(7, 9));
-    insertInterval(intervalList, new Interval(0, 3));
-    insertInterval(intervalList, new Interval(15, 19));
-    System.out.println(intervalList);
+    List<Interval> list = new ArrayList<>();
+    Stream<Interval> intervalList = Stream.of(new Interval(8, 10), new Interval(8, 12), new Interval(16, 18), new Interval(7, 9), new Interval(0, 3));
+    intervalList.forEach(newInterval -> {
+      insertInterval(list, newInterval);
+      System.out.println(list);
+    });
   }
 }

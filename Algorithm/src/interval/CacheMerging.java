@@ -9,37 +9,28 @@ import static java.lang.Integer.min;
 // Time complexity O(n), where n is the number of intervals in the intervalList.
 public class CacheMerging {
 
-  private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
+  private static void insertInterval(List<Interval> list, Interval interval) {
     int i = 0;
-    while (i < intervalList.size() && (intervalList.get(i).start + intervalList.get(i).end) < newInterval.start) {
+    while (i < list.size() && (list.get(i).start + list.get(i).end) < interval.start) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i).start <= newInterval.start + newInterval.end) {
-      Interval interval = intervalList.remove(i);
-      newInterval.start = min(interval.start, newInterval.start);
-      int end           = max(interval.end, newInterval.end);
-      if (newInterval.start + newInterval.end <= interval.start + interval.end) {
-        newInterval.end = interval.start + interval.end;
-      } else {
-        newInterval.end = end;
-      }
+    while (i < list.size() && list.get(i).start <= interval.start + interval.end) {
+      Interval newInterval = list.remove(i);
+      interval.start = min(newInterval.start, interval.start);
+      int end        = max(newInterval.end, interval.end);
+      interval.end   = interval.start + interval.end <= newInterval.start + newInterval.end
+                         ? newInterval.start + newInterval.end
+                         : end;
     }
-    intervalList.add(i, newInterval);
+    list.add(i, interval);
   }
 
   public static void main(String[] args) {
-    List<Interval> intervalList = new ArrayList<>();
-    insertInterval(intervalList, new Interval(50, 2));
-    System.out.println(intervalList);
-    insertInterval(intervalList, new Interval(60, 5));
-    System.out.println(intervalList);
-    insertInterval(intervalList, new Interval(51, 7));
-    System.out.println(intervalList);
-    insertInterval(intervalList, new Interval(61, 10));
-    System.out.println(intervalList);
-    insertInterval(intervalList, new Interval(1, 60));
-    System.out.println(intervalList);
-    insertInterval(intervalList, new Interval(-1, 70));
-    System.out.println(intervalList);
+    List<Interval> list = new ArrayList<>();
+    List<Interval> intervalList = List.of(new Interval(50, 2), new Interval(60, 5), new Interval(51, 7), new Interval(61, 10), new Interval(1, 60), new Interval(-1, 70));
+    intervalList.forEach(interval -> {
+      insertInterval(list, interval);
+      System.out.println(list);
+    });
   }
 }
