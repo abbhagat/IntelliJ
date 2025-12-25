@@ -16,11 +16,11 @@ public class ConnectionPool implements IConnectionPool {
 
   private final BlockingQueue<Connection> connectionPool;
   private final int poolSize;
-  private volatile boolean isShutdown = false;
   private final String driverName;
   private final String url;
   private final String username;
   private final String password;
+  private volatile boolean isShutdown = false;
 
   public ConnectionPool(int poolSize) {
     this.poolSize = poolSize;
