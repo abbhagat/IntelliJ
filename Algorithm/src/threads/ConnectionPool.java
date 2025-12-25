@@ -9,7 +9,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 interface IConnectionPool {
   Connection getConnection() throws InterruptedException;
   void returnConnection(Connection connection);
-  void shutdown() throws SQLException;
+  void stop() throws SQLException;
 }
 
 public class ConnectionPool implements IConnectionPool {
@@ -20,7 +20,7 @@ public class ConnectionPool implements IConnectionPool {
   private final String url;
   private final String username;
   private final String password;
-  private volatile boolean isShutdown = false;
+  private volatile boolean isStopped = false;
 
   public ConnectionPool(int poolSize) {
     this.poolSize = poolSize;
@@ -42,9 +42,13 @@ public class ConnectionPool implements IConnectionPool {
     initializeConnectionPool();
   }
 
+  public BlockingQueue<Connection> getConnectionPool() {
+    return connectionPool;
+  }
+
   private void initializeConnectionPool() {
     for (int i = 0; i < this.poolSize; i++) {
-      connectionPool.offer(createNewConnection());
+      connectionPool.add(createNewConnection());
     }
   }
 
@@ -61,7 +65,7 @@ public class ConnectionPool implements IConnectionPool {
 
   @Override
   public Connection getConnection() throws InterruptedException {
-    if (isShutdown) {
+    if (isStopped) {
       throw new IllegalStateException("Connection pool is shutdown");
     }
     return connectionPool.take();
@@ -69,25 +73,26 @@ public class ConnectionPool implements IConnectionPool {
 
   @Override
   public void returnConnection(Connection connection) {
-    if (connection != null && !isShutdown) {
-      connectionPool.offer(connection);
+    if (connection != null && !isStopped) {
+      connectionPool.add(connection);
     }
   }
 
   @Override
-  public void shutdown() throws SQLException {
-    isShutdown = true;
+  public void stop() throws SQLException {
+    isStopped = true;
     for (Connection connection : connectionPool) {
       connection.close();
     }
   }
 
   public static void main(String[] args) throws SQLException, InterruptedException {
-    IConnectionPool connectionPool = new ConnectionPool(10);
+    ConnectionPool connectionPool = new ConnectionPool(10);
+    connectionPool.getConnectionPool().forEach(System.out::println);
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
     connectionPool.returnConnection(connection);
     System.out.println("Returned connection to pool.");
-    connectionPool.shutdown();
+    connectionPool.stop();
   }
 }
