@@ -15,7 +15,7 @@ interface IConnectionPool {
 public class ConnectionPool implements IConnectionPool {
 
   private final BlockingQueue<Connection> connectionPool;
-  private int poolSize;
+  private final int poolSize;
   private volatile boolean isShutdown = false;
   private final String driverName;
   private final String url;
