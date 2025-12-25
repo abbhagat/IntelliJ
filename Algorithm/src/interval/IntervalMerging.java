@@ -47,8 +47,8 @@ public class IntervalMerging {
     mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
     System.out.println();
     printMatrix(mergeInterval(new int[][]{{1, 3},
-        {6, 9},
-        {2, 5}
-    }));
+                                          {6, 9},
+                                          {2, 5}
+                                      }));
   }
 }

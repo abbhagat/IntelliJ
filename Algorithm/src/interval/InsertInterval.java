@@ -26,7 +26,7 @@ public class InsertInterval {
 
   public static void main(String[] args) {
     List<Interval> list = new ArrayList<>();
-    Stream<Interval> intervalList = Stream.of(new Interval(8, 10), new Interval(8, 12), new Interval(16, 18), new Interval(7, 9), new Interval(0, 3));
+    Stream<Interval> intervalList = Stream.of(new Interval(1, 3), new Interval(6, 9), new Interval(2, 5));
     intervalList.forEach(newInterval -> {
       insertInterval(list, newInterval);
       System.out.println(list);
