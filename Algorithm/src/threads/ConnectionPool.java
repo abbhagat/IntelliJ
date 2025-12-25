@@ -8,7 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 interface IConnectionPool {
   Connection getConnection() throws InterruptedException;
-  void releaseConnection(Connection connection);
+  void returnConnection(Connection connection);
   void shutdown() throws SQLException;
 }
 
@@ -68,7 +68,7 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public void releaseConnection(Connection connection) {
+  public void returnConnection(Connection connection) {
     if (connection != null && !isShutdown) {
       connectionPool.offer(connection);
     }
@@ -86,7 +86,7 @@ public class ConnectionPool implements IConnectionPool {
     IConnectionPool connectionPool = new ConnectionPool(10);
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
-    connectionPool.releaseConnection(connection);
+    connectionPool.returnConnection(connection);
     System.out.println("Returned connection to pool.");
     connectionPool.shutdown();
   }
