@@ -3,19 +3,27 @@ package threads;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Vector;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ArrayBlockingQueue;
 
-public class ConnectionPool {
+interface IConnectionPool {
+  Connection getConnection() throws InterruptedException;
+  void releaseConnection(Connection connection);
+  void shutdown();
+}
 
-  private static final Vector<Connection> connectionPool = new Vector<>();
-  private static final int MAX_POOL_SIZE = 10;
+public class ConnectionPool implements IConnectionPool {
 
+  private final BlockingQueue<Connection> connectionPool;
+  private int poolSize = 10;
+  private volatile boolean isShutdown = false;
   private final String driverName;
   private final String url;
   private final String username;
   private final String password;
 
   public ConnectionPool() {
+    this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     this.driverName = "oracle.jdbc.driver.OracleDriver";
     this.url = "jdbc:oracle:thin:@localhost:1521:XE";
     this.username = "system";
@@ -23,7 +31,9 @@ public class ConnectionPool {
     initializeConnectionPool();
   }
 
-  public ConnectionPool(String driverName, String url, String username, String password) {
+  public ConnectionPool(String driverName, String url, String username, String password, int poolSize) {
+    this.poolSize = poolSize;
+    this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     this.driverName = driverName;
     this.url = url;
     this.username = username;
@@ -32,12 +42,12 @@ public class ConnectionPool {
   }
 
   private void initializeConnectionPool() {
-    while (connectionPool.size() < MAX_POOL_SIZE) {
-      connectionPool.add(getConnection());
+    while (connectionPool.size() < poolSize) {
+      connectionPool.offer(createNewConnection());
     }
   }
 
-  private Connection getConnection() {
+  public Connection createNewConnection() {
     Connection connection = null;
     try {
       Class.forName(this.driverName);
@@ -48,21 +58,37 @@ public class ConnectionPool {
     return connection;
   }
 
-  public synchronized Connection getConnectionFromPool() {
-    Connection connection = connectionPool.firstElement();
-    connectionPool.removeElementAt(0);
-    return connection;
+  @Override
+  public Connection getConnection() throws InterruptedException {
+    if (isShutdown) {
+      throw new IllegalStateException("Connection pool is shutdown");
+    }
+    return connectionPool.take();
   }
 
-  public synchronized void returnConnectionToPool(Connection connection) {
-    connectionPool.add(connection);
+  public void releaseConnection(Connection connection) {
+    if (connection != null && !isShutdown) {
+      connectionPool.offer(connection);
+    }
   }
 
-  public static void main(String[] args) throws SQLException {
-    ConnectionPool connectionPool = new ConnectionPool();
-    Connection connection = connectionPool.getConnectionFromPool();
+  @Override
+  public void shutdown() {
+    isShutdown = true;
+    connectionPool.forEach(connection -> {
+      try {
+        connection.close();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    });
+  }
+
+  public static void main(String[] args) throws SQLException, InterruptedException {
+    IConnectionPool connectionPool = new ConnectionPool();
+    Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
-    connectionPool.returnConnectionToPool(connection);
+    connectionPool.releaseConnection(connection);
     System.out.println("Returned connection to pool.");
     connection.close();
   }
