@@ -36,11 +36,11 @@ public class BasicCalculatorII {
   }
 
   public static void main(String[] args) {
-    System.out.println("3 + 2 * 2 = " + calculate("3+2*2" , new int[0]));
-    System.out.println("3/2  = " + calculate("3/2" , new int[0]));
-    System.out.println("3 + 5/2 = " + calculate(" 3 +5 / 2" , new int[0]));
-    System.out.println("1 + 1 = " + calculate("1 + 1" , new int[0]));
-    System.out.println("2 - 1 + 2 = "+ calculate("2 - 1 + 2" , new int[0]));
+    System.out.println("3 + 2 * 2 = "                     + calculate("3+2*2" ,     new int[0]));
+    System.out.println("3/2  = "                          + calculate("3/2" ,       new int[0]));
+    System.out.println("3 + 5/2 = "                       + calculate(" 3 +5 / 2" , new int[0]));
+    System.out.println("1 + 1 = "                         + calculate("1 + 1" ,     new int[0]));
+    System.out.println("2 - 1 + 2 = "                     + calculate("2 - 1 + 2" , new int[0]));
     System.out.println("1 + (4 + 5 + 2) - 3 + (6 + 8) = " + calculate("1 + (4 + 5 + 2) - 3 + (6 + 8)" , new int[0]));
   }
 }
