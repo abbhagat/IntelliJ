@@ -22,7 +22,7 @@ public class SimplifyPath {
     StringBuilder sb = new StringBuilder();
     while (!stack.isEmpty()) {
       sb.insert(0, stack.pop())
-          .insert(0, "/");
+        .insert(0, "/");
     }
     return sb.length() == 0 ? "/" : sb.toString();
   }
