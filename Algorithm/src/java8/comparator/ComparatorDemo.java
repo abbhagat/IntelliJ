@@ -1,7 +1,6 @@
 package java8.comparator;
 
 import java8.emp.Employee;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,7 +26,7 @@ public class ComparatorDemo {
     mainList.add(new Employee("Bhagat", 1));
 
     Comparator<Employee> byName = (e1, e2) -> e1.getName().compareTo(e2.getName()); // Comparator.comparing(Employee::getName);
-    Comparator<Employee> byId = (e1, e2) -> e1.getId().compareTo(e2.getId());    // Comparator.comparingInt(Employee::getId);
+    Comparator<Employee> byId   = (e1, e2) -> e1.getId().compareTo(e2.getId());    // Comparator.comparingInt(Employee::getId);
 
     mainList.sort(byId);
     System.out.println(mainList);
