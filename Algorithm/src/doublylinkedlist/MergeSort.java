@@ -1,28 +1,20 @@
 package doublylinkedlist;
 
 import static doublylinkedlist.CreateList.createList;
+import static doublylinkedlist.MidPointOfDoublyLinkedList.findMid;
 import static doublylinkedlist.TraverseList.traverseList;
 
 // Time  Complexity: O(n log n)
 // Space Complexity: O(1)
 public class MergeSort {
 
-  private static Node findMid(Node head) {
-    Node slow = head, fast = head.right;
-    while (fast != null && fast.right != null) {
-      slow = slow.right;
-      fast = fast.right.right;
-    }
-    return slow;
-  }
-
   private static Node mergeSort(Node head) {
     if (head == null || head.right == null) {
       return head;
     }
-    Node mid = findMid(head);
+    Node mid   = findMid(head);
     Node head2 = mid.right;
-    mid.right = null;
+    mid.right  = null;
     Node a = mergeSort(head);
     Node b = mergeSort(head2);
     return merge(a, b);

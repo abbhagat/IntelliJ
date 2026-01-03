@@ -21,11 +21,11 @@ public class CovertDLLToBST {
     return root;                                    // The number of nodes in right subtree  is total nodes - nodes in left subtree - 1 (for root)
   }
 
-  private static void preOrder(Node node) {
-    if (node != null) {
-      System.out.print(node.num + " ");
-      preOrder(node.left);
-      preOrder(node.right);
+  private static void preOrder(Node root) {
+    if (root != null) {
+      System.out.print(root.num + " ");
+      preOrder(root.left);
+      preOrder(root.right);
     }
   }
 
