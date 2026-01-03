@@ -8,9 +8,9 @@ public class CuttingRodProblemKnapsackSoln {
 
   public static void main(String[] args) {
     int[] price = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
-    int[] wt = new int[price.length];
+    int[] wt = new int[price.length];       // int[] wt = IntStream.rangeClosed(1, price.length).toArray();
     for (int i = 0; i < wt.length; i++) {
-      wt[i] = i + 1;
+      wt[i] = i + 1;                      // Arrays.setAll(wt, i -> i + 1);
     }
     int W = wt.length;
     int maxVal = cutRod(W, wt, price, price.length - 1);
