@@ -1,7 +1,6 @@
 package java8.flatMap;
 
 import java.util.*;
-
 import static util.CommonUtils.printArray;
 
 // Collection::stream = list -> list.stream(), x = List<String> means it is a Collection

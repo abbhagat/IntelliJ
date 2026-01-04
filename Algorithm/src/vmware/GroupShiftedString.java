@@ -1,13 +1,10 @@
 package vmware;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GroupShiftedString {
 
-  private static void groupStrings(List<String> stringList) {
+  private static Collection<List<String>> groupStrings(List<String> stringList) {
     Map<String, List<String>> map = new HashMap<>();
     stringList.forEach(s -> {
       int offset = s.charAt(0) - 'a';
@@ -19,11 +16,10 @@ public class GroupShiftedString {
       }
       map.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(s);
     });
-    System.out.println(map.values());
+    return map.values();
   }
 
   public static void main(String[] args) {
-    List<String> stringList = List.of("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z");
-    groupStrings(stringList);
+    System.out.println(groupStrings(List.of("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z")));
   }
 }

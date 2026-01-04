@@ -7,11 +7,11 @@ import java.util.*;
 public class DNASequence {
 
   private static List<String> findRepeatedDNASeq(String str) {
+    List<String> list = new ArrayList<>();
     if (str == null || str.length() < 10) {
-      return Collections.emptyList();
+      return list;
     }
     Set<String> set = new HashSet<>();
-    List<String> list = new ArrayList<>();
     for (int i = 0; i + 10 < str.length(); i++) {
       String s = str.substring(i, i + 10);
       if (set.contains(s)) {
@@ -19,6 +19,7 @@ public class DNASequence {
       }
       set.add(s);
     }
+    System.out.println(set);
     return list;
   }
 

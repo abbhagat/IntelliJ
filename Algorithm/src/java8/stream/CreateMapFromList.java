@@ -9,6 +9,8 @@ import static java.util.stream.Collectors.*;
 
 public class CreateMapFromList {
 
+  private record Employee(int id, String deptName) {}
+
   public static void main(String[] args) {
 
     Employee emp1 = new Employee(1, "D1");
@@ -40,6 +42,4 @@ public class CreateMapFromList {
     System.out.println(deptListMap);
   }
 
-  private record Employee(int id, String deptName) {
-  }
 }
