@@ -4,11 +4,11 @@ import java.util.*;
 
 public class GroupShiftedString {
 
-  private static Collection<List<String>> groupStrings(List<String> stringList) {
+  private static Collection<List<String>> groupStrings(List<String> list) {
     Map<String, List<String>> map = new HashMap<>();
-    stringList.forEach(s -> {
+    list.forEach(s -> {
       int offset = s.charAt(0) - 'a';
-      StringBuilder key = new StringBuilder();
+      StringBuilder key = new StringBuilder(s.length());
       for (char x : s.toCharArray()) {
         char c = (char) (x - offset);
         c += (char) (c < 'a' ? 26 : 0);
