@@ -14,19 +14,6 @@ public class HitCounter {
     this.time = time;
   }
 
-  public static void main(String[] args) {
-    HitCounter counter = new HitCounter(10, 10);
-    counter.hit(1);
-    counter.hit(2);
-    counter.hit(2);
-    counter.hit(3);
-    counter.hit(3);
-    System.out.println(counter.getHits(4));
-    counter.hit(10);
-    System.out.println(counter.getHits(10));
-    System.out.println(counter.getHits(11));
-  }
-
   public void hit(int timestamp) {
     int i = timestamp % time;
     if (times[i] != timestamp) {
@@ -45,5 +32,18 @@ public class HitCounter {
       }
     }
     return count;
+  }
+
+  public static void main(String[] args) {
+    HitCounter counter = new HitCounter(10, 10);
+    counter.hit(1);
+    counter.hit(2);
+    counter.hit(2);
+    counter.hit(3);
+    counter.hit(3);
+    System.out.println(counter.getHits(4));
+    counter.hit(10);
+    System.out.println(counter.getHits(10));
+    System.out.println(counter.getHits(11));
   }
 }
