@@ -27,10 +27,11 @@ public class IsGivenNumPowerOfK {
   }
 
   public static void main(String[] args) {
-    System.out.println(isPowerOfK(4, 2) + "\t" + isPowerOfTwo(4));
-    System.out.println(isPowerOfK(81, 3) + "\t" + isPowerOfThree(81));
-    System.out.println(isPowerOfK(9, 3) + "\t" + isPowerOfThree(9));
-    System.out.println(isPowerOfK(16, 4) + "\t" + isPowerOfFour(16));
-    System.out.println(isPowerOfK(256, 4) + "\t" + isPowerOfFour(256));
+    System.out.println(isPowerOfK(4,   2)  + "\t" + isPowerOfTwo(4));
+    System.out.println(isPowerOfK(16,  2)  + "\t" + isPowerOfTwo(16));
+    System.out.println(isPowerOfK(81,  3)  + "\t" + isPowerOfThree(81));
+    System.out.println(isPowerOfK(9,   3)  + "\t" + isPowerOfThree(9));
+    System.out.println(isPowerOfK(16,  4)  + "\t" + isPowerOfFour(16));
+    System.out.println(isPowerOfK(256, 4)  + "\t" + isPowerOfFour(256));
   }
 }

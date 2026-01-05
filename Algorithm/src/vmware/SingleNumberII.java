@@ -1,9 +1,7 @@
 package vmware;
 
 // Given a non-empty array of integers, every element appears 3 times except for one which appears exactly once find that number.
-
 // Time Complexity O(n)
-
 public class SingleNumberII {
 
   private static int singleNumberII(int[] a) {
