@@ -20,7 +20,7 @@ public class ConnectionPool implements IConnectionPool {
   private final String url;
   private final String username;
   private final String password;
-  private volatile boolean isStopped = false;
+  private volatile boolean isPoolClosed = false;
 
   public ConnectionPool(int poolSize) {
     this.poolSize = poolSize;
@@ -65,22 +65,22 @@ public class ConnectionPool implements IConnectionPool {
 
   @Override
   public Connection getConnection() throws InterruptedException {
-    if (isStopped) {
-      throw new IllegalStateException("Connection pool is shutdown");
+    if (isPoolClosed) {
+      throw new IllegalStateException("Connection pool is closed");
     }
     return connectionPool.take();
   }
 
   @Override
   public void returnConnection(Connection connection) {
-    if (connection != null && !isStopped) {
+    if (connection != null && !isPoolClosed) {
       connectionPool.add(connection);
     }
   }
 
   @Override
   public void stop() throws SQLException {
-    isStopped = true;
+    isPoolClosed = true;
     for (Connection connection : connectionPool) {
       connection.close();
     }

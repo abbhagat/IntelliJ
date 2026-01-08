@@ -33,7 +33,7 @@ class BlockingQueue<E> {
   }
 }
 
-class Producer<E> implements Runnable {
+class Producer<E extends String> implements Runnable {
 
   private final BlockingQueue<E> q;
 
@@ -46,8 +46,8 @@ class Producer<E> implements Runnable {
   public void run() {
     for(int i = 1; i <= 10; i++) {
       try {
-        String message = "Put : Message " + i;
-        System.out.println(message);
+        String message = "Message " + i;
+        System.out.println("Put : " + message);
         q.put((E) message);
          Thread.sleep(100);
       } catch (InterruptedException e) {
