@@ -1,28 +1,34 @@
 package threads;
 
-public class ThreadStarvation extends Thread {
+public class ThreadStarvation {
 
-  public ThreadStarvation(String name) {
-    super(name);
-  }
+  private static final Object monitor = new Object();
 
-  public static void main(String[] args) throws InterruptedException {
-    System.out.println("Main thread execution starts");
-    ThreadStarvation[] thread = new ThreadStarvation[5];
-    for (int i = 0; i < thread.length; i++) {
-      thread[i] = new ThreadStarvation("Thread-" + i);
-      if (i == 4) {
-        thread[i].setPriority(1);       // Set the last thread to low priority
-      } else {
-        thread[i].setPriority(10 - i); // Set other threads to high priority
-      }
-      thread[i].start();
+  public static void main(String[] args) {
+
+    // High-priority threads
+    for (int i = 0; i < 5; i++) {
+      Thread high = new Thread(() -> {
+        while (true) {
+          synchronized (monitor) {
+            System.out.println(Thread.currentThread().getName() + " acquired lock");
+          }
+        }
+      }, "High-Priority-" + i);
+      high.setPriority(Thread.MAX_PRIORITY);
+      high.start();
     }
-    System.out.println("Main thread execution completes");
-  }
 
-  @Override
-  public void run() {
-    System.out.println(Thread.currentThread().getName() + " Thread execution starts");
+    // Low-priority thread (starved)
+    Thread low = new Thread(() -> {
+      while (true) {
+        synchronized (monitor) {
+          System.out.println("LOW PRIORITY thread acquired lock");
+        }
+      }
+    }, "Low-Priority");
+    low.setPriority(Thread.MIN_PRIORITY);
+    low.start();
   }
 }
+
