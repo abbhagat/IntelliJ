@@ -9,26 +9,26 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Point implements Shape {
 
-    private int X;
-    private int Y;
+  private int X;
+  private int Y;
 
-    public int getX() {
-        return X;
-    }
+  public int getX() {
+    return X;
+  }
 
-    public void setX(int x) {
-        X = x;
-    }
+  public void setX(int x) {
+    X = x;
+  }
 
-    public int getY() {
-        return Y;
-    }
+  public int getY() {
+    return Y;
+  }
 
-    public void setY(int y) {
-        Y = y;
-    }
+  public void setY(int y) {
+    Y = y;
+  }
 
-    public void draw() {
-        System.out.println("Point (" + getX() + "," + getY() + ")");
-    }
+  public void draw() {
+    System.out.println("Point (" + getX() + "," + getY() + ")");
+  }
 }

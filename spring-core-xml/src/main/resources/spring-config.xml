@@ -27,7 +27,7 @@
                 <value>message</value>
             </list>
         </property>
-        <property name="concurrentRefresh" value="true"></property>
+        <property name="concurrentRefresh" value="true"/>
     </bean>
 
     <bean id="pointA" class="shape.Point" name="pointA">
@@ -62,7 +62,7 @@
         <property name="addressName" value="Bengaluru"/>
     </bean>
 
-    <bean id="employee" class="shape.Employee" scope="singleton">
+    <bean id="employee" class="shape.Employee">
         <constructor-arg name="empID" value="1"/>
         <constructor-arg name="address" ref="address"/>
     </bean>

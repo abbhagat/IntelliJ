@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeanFactoryPostProcessorExample implements BeanFactoryPostProcessor {
 
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-        System.out.println("BeanFactoryPostProcessor");
-    }
+  @Override
+  public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
+    System.out.println("BeanFactoryPostProcessor");
+  }
 }

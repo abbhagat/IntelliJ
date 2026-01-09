@@ -11,5 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Address {
 
-    private String addressName;
+  private String addressName;
 }

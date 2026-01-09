@@ -9,13 +9,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Rectangle {
 
-    private Point[] pointArray;
+  private Point[] pointArray;
 
-    public Point[] getPointArray() {
-        return pointArray;
-    }
+  public Point[] getPointArray() {
+    return pointArray;
+  }
 
-    public void setPointArray(Point[] pointArray) {
-        this.pointArray = pointArray;
-    }
+  public void setPointArray(Point[] pointArray) {
+    this.pointArray = pointArray;
+  }
 }

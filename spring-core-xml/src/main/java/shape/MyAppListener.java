@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MyAppListener implements ApplicationListener {
-    @Override
-    public void onApplicationEvent(ApplicationEvent event) {
-        System.out.println(event);
-    }
+  @Override
+  public void onApplicationEvent(ApplicationEvent event) {
+    System.out.println(event);
+  }
 }
