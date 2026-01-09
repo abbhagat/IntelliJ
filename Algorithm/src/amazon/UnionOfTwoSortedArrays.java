@@ -3,7 +3,7 @@ package amazon;
 import java.util.Arrays;
 
 // Time Complexity O(m+n)
-public class UnionOfTwoArrays {
+public class UnionOfTwoSortedArrays {
 
   public static void main(String[] args) {
     int[] a = {2, 4, 6, 7, 1, 8, 9, 5, 10};
