@@ -1,13 +1,10 @@
 package shape;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.*;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
@@ -32,7 +29,7 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
 
   @Override
   public void setBeanName(String beanName) {
-    System.out.println("BeanNameAware");
+    System.out.println("BeanNameAware " + beanName);
   }
 
   @Override
