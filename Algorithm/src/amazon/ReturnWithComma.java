@@ -3,15 +3,18 @@ package amazon;
 // Time  Complexity : O(n)
 public class ReturnWithComma {
 
-  public static String returnWithCommas(String s, int k) {
-    int j = 1;
-    for (int i = s.length() - 1; i > 0; i--) {
-      if (j % k == 0) {
-        s = s.substring(0, i) + "," + s.substring(i);
+  public static StringBuilder returnWithCommas(String s, int k) {
+    StringBuilder sb = new StringBuilder();
+    int count = 0;
+    for (int i = s.length() - 1; i >= 0; i--) {
+      if (count == k) {
+        sb.append(',');
+        count = 0;
       }
-      j++;
+      sb.append(s.charAt(i));
+      count++;
     }
-    return s;
+    return sb.reverse();
   }
 
   public static void main(String[] args) {
