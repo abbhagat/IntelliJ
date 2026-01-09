@@ -1,5 +1,7 @@
 package amazon;
 
+import java.util.Arrays;
+
 // Time  Complexity : O(n)
 public class CheckIfTwoStringsAreSimilar {
 
@@ -10,18 +12,13 @@ public class CheckIfTwoStringsAreSimilar {
         temp[s1.charAt(i)]++;
         temp[s2.charAt(i)]--;
       }
-      for (int x : temp) {
-        if (x != 0) {
-          return false;
-        }
-      }
-      return true;
+      return Arrays.stream(temp).allMatch(x -> x == 0);
     }
     return false;
   }
 
   public static void main(String... args) {
-    System.out.println(isSimilar("xyz", "yxz") ? "Similar" : "Not Similar");
-    System.out.println(isSimilar("abc", "cab") ? "Similar" : "Not Similar");
+    System.out.println(isSimilar("xyz", "yxz"));
+    System.out.println(isSimilar("abc", "cab"));
   }
 }

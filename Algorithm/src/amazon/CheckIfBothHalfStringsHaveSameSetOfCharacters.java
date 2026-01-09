@@ -1,5 +1,7 @@
 package amazon;
 
+import java.util.Arrays;
+
 // Time  Complexity : O(n)
 public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
 
@@ -10,12 +12,7 @@ public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
       temp[a[i++]]++;
       temp[a[j--]]--;
     }
-    for (int x : temp) {
-      if (x != 0) {
-        return false;
-      }
-    }
-    return true;
+    return Arrays.stream(temp).allMatch(x -> x == 0);
   }
 
   public static void main(String[] args) {
