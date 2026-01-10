@@ -1,6 +1,7 @@
 package jpmorgan;
 
 import static util.CommonUtils.swap;
+import static util.CommonUtils.reverse;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(n)
@@ -22,12 +23,6 @@ public class NextGreaterNumWithSameSetOfDigits {
     swap(a, i, j);
     reverse(a, i + 1, a.length - 1);
     return Integer.parseInt(new String(a));
-  }
-
-  private static void reverse(char[] a, int l, int r) {
-    while (l < r) {
-      swap(a, l++, r--);
-    }
   }
 
   public static void main(String[] args) {

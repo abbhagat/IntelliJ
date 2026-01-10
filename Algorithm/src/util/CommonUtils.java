@@ -47,6 +47,14 @@ public class CommonUtils {
     return temp;
   }
 
+  public static void reverse(char[] a, int low, int high) {
+    while (low < high) {
+      swap(a, low, high);
+      low++;
+      high--;
+    }
+  }
+
   public static boolean isPalindrome(String str, int i, int j) {
     while (i < j) {
       if (str.charAt(i++) != str.charAt(j--)) {
