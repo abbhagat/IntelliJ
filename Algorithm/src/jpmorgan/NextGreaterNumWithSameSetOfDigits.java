@@ -1,7 +1,5 @@
 package jpmorgan;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
 import static util.CommonUtils.swap;
 
 // Time  Complexity : O(n)
@@ -9,37 +7,31 @@ import static util.CommonUtils.swap;
 public class NextGreaterNumWithSameSetOfDigits {
 
   private static int nextPermutation(int n) {
-    int[] a = String.valueOf(n).chars().map(c -> c - '0').toArray();
-    if (a.length == 1) {
+    char[] a = String.valueOf(n).toCharArray();
+    int i = a.length - 2;
+    while (i >= 0 && a[i] >= a[i + 1]) {
+      i--;
+    }
+    if (i < 0) {
       return n;
     }
-    int i;
-    for (i = a.length - 1; i > 0; i--) {
-      if (a[i] > a[i - 1])
-        break;
+    int j = a.length - 1;
+    while (a[j] <= a[i]) {
+      j--;
     }
-    if (i != 0) {
-      for (int j = a.length - 1; j >= i; j--) {
-        if (a[j] > a[i - 1]) {
-          swap(a, j, i - 1);
-          break;
-        }
-      }
-      int k = a.length - 1;
-      int[] b = new int[a.length];
-      System.arraycopy(a, 0, b, 0, i);
-      for (int j = i; j < b.length; j++) {
-        b[j] = a[k];
-        k--;
-      }
-      return Integer.parseInt(Arrays.stream(b)
-                                    .mapToObj(String::valueOf)
-                                    .collect(Collectors.joining()));
+    swap(a, i, j);
+    reverse(a, i + 1, a.length - 1);
+    return Integer.parseInt(new String(a));
+  }
+
+  private static void reverse(char[] a, int l, int r) {
+    while (l < r) {
+      swap(a, l++, r--);
     }
-    return n;
   }
 
   public static void main(String[] args) {
+    System.out.println(nextPermutation(123));
     System.out.println(nextPermutation(213));
     System.out.println(nextPermutation(312));
     System.out.println(nextPermutation(321));

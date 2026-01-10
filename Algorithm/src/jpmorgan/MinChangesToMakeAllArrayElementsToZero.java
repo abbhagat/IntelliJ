@@ -4,13 +4,10 @@ public class MinChangesToMakeAllArrayElementsToZero {
 
   private static int minimumChangesToMakeAllArrayElementsToZero(int[] a) {
     int change = 0;
-    for (int i = 0; i + 1 < a.length; i++) {
-      if (a[i] == 1 && a[i + 1] == 0) {
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] == 1 && (a[i + 1] == 0 || i == a.length - 1)) {
         change++;
       }
-    }
-    if (a[a.length - 1] == 1) {
-      change++;
     }
     return change;
   }

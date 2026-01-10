@@ -5,8 +5,8 @@ package jpmorgan;
  * You may assume that all characters in both strings are different.
  * ---------------------------------------------------------------------------------------------------
  * Example:
- * Input: str1 = "AB",  str2 = "CD"            | Input: str1 = "AB",  str2 = "C"
- * Output:                                     | Output:
+ * Input: str1 = "AB",  str2 = "CD"    | Input: str1 = "AB",  str2 = "C"
+ * Output:                             | Output:
  * ABCD                                |           ABC
  * ACBD                                |           ACB
  * ACDB                                |           CAB

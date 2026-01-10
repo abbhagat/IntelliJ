@@ -1,7 +1,6 @@
 package jpmorgan;
 
 import java.util.Arrays;
-
 import static java.lang.Integer.max;
 
 /**

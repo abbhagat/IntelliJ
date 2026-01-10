@@ -13,14 +13,14 @@ import java.util.Map;
  * Explanation: Since, 3 is present more than N/2 times, so it is the majority element.
  */
 
-// Time Complexity: O(n)
-// Auxiliary Space: O(1)
+// Time  Complexity: O(n)
+// Space Complexity: O(1)
 public class MajorityElement {
 
   private static int majorityElement(int[] a) {
     Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
-    return Arrays.stream(a).filter(n -> map.get(n) > a.length / 2).findFirst().orElse(-1);
+    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+    return Arrays.stream(a).filter(x -> map.get(x) > a.length / 2).findFirst().orElse(-1);
   }
 
   public static void main(String[] args) {
