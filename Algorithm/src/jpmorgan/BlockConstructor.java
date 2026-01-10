@@ -39,7 +39,16 @@ public class BlockConstructor {
     System.out.println(s);
   }
 
+  {
+    System.out.println("Inside the Non static block of Main class");
+  }
+
+  private BlockConstructor() {
+    System.out.println("Inside the Constructor of Main class");
+  }
+
   public static void main(String[] args) {
+    BlockConstructor blockConstructor = new BlockConstructor();
     new Sub();
     new Sub();
     new Super();

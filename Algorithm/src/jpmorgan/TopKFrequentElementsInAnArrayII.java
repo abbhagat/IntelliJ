@@ -1,14 +1,9 @@
 package jpmorgan;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import static java.lang.Integer.compare;
 import static java.lang.Integer.min;
 import static util.CommonUtils.printArray;
-import static util.CommonUtils.swap;
 
 /**
  * Given an array of n numbers. Your task is to read numbers from the array and keep at-most K numbers at the top
@@ -81,7 +76,7 @@ public class TopKFrequentElementsInAnArrayII {
       list.sort((a, b) -> {
         int n = map.get(b).compareTo(map.get(a));
         if (n == 0) {
-          return compare(a, b); // smaller number first if same frequency
+          return a.compareTo(b); // smaller number first if same frequency
         }
         return n;
       });
@@ -100,5 +95,6 @@ public class TopKFrequentElementsInAnArrayII {
     topKFreqElements(Stream.of(5, 2, 1, 3, 4), 4);
     System.out.println("------------------");
     topKFreqElements(Stream.of(5, 2, 5, 5, 2, 2, 2, 4, 2, 3, 5, 5, 2, 5, 5, 2, 3, 5, 2, 5), 1);
+    topKFreqElements(Stream.of(5, 2, 5, 5, 2, 6, 2, 4, 2, 3, 5, 5, 6, 5, 5, 2, 3, 5, 2, 5), 5);
   }
 }

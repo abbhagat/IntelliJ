@@ -2,7 +2,6 @@ package jpmorgan;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static util.CommonUtils.printArray;
 
 // Time  Complexity: O(n)
@@ -29,7 +28,10 @@ public class ArraySplitInChunks {
 
   public static void main(String[] args) {
     int[] a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    printArray(splitArray(a, 1));
     printArray(splitArray(a, 2));
     printArray(splitArray(a, 3));
+    printArray(splitArray(a, 4));
+    printArray(splitArray(a, 5));
   }
 }

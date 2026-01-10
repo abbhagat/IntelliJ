@@ -76,7 +76,7 @@ public class CommonUtils {
 
   public static void printArray(int[] a, int start, int end) {
     IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
-    System.out.println();
+    System.out.println("------------------------------------");
   }
 
   public static void printArray(int[] a) {
@@ -95,21 +95,21 @@ public class CommonUtils {
     for (int[] a : M) {
       System.out.println(Arrays.toString(a));
     }
-    System.out.println();
+    System.out.println("------------------------------------");
   }
 
   public static void printMatrix(char[][] M) {
     for (char[] c : M) {
       System.out.println(Arrays.toString(c));
     }
-    System.out.println();
+    System.out.println("------------------------------------");
   }
 
   public static void printArray(List<int[]> M) {
     for (int[] a : M) {
       System.out.println(Arrays.toString(a));
     }
-    System.out.println();
+    System.out.println("------------------------------------");
   }
 
   public static int gcd(int x, int y) {

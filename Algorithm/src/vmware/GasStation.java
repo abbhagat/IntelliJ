@@ -40,7 +40,7 @@ public class GasStation {
         start = i + 1;
       }
     }
-    return prev + restGas >= 0 ? start : -1;
+    return prev + restGas < 0 ? -1 : start;
   }
 
   public static void main(String[] args) {
