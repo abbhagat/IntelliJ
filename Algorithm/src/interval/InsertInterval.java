@@ -3,7 +3,6 @@ package interval;
 import util.Interval;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -11,22 +10,22 @@ import static java.lang.Integer.min;
 // Space Complexity : O(1)
 public class InsertInterval {
 
-  private static void insertInterval(List<Interval> list, Interval interval) {
+  private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
     int i = 0;
-    while (i < list.size() && list.get(i).end < interval.start) {
+    while (i < intervalList.size() && intervalList.get(i).end < newInterval.start) {
       i++;
     }
-    while (i < list.size() && list.get(i).start <= interval.end) {
-      Interval newInterval = list.remove(i);
-      interval.start = min(interval.start, newInterval.start);
-      interval.end   = max(interval.end,   newInterval.end);
+    while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
+      Interval interval = intervalList.remove(i);
+      newInterval.start = min(newInterval.start, interval.start);
+      newInterval.end   = max(newInterval.end, interval.end);
     }
-    list.add(i, interval);
+    intervalList.add(i, newInterval);
   }
 
   public static void main(String[] args) {
     List<Interval> list = new ArrayList<>();
-    Stream<Interval> intervalList = Stream.of(new Interval(1, 3), new Interval(6, 9), new Interval(2, 5));
+    List<Interval> intervalList = List.of(new Interval(1, 5), new Interval(6, 10), new Interval(6, 15));
     intervalList.forEach(newInterval -> {
       insertInterval(list, newInterval);
       System.out.println(list);
