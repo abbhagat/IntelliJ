@@ -20,7 +20,6 @@ public class PairWithGivenSumInSortedDLL {
         high = high.left;
       }
     }
-    System.out.println();
   }
 
   public static void main(String[] args) {
@@ -30,7 +29,9 @@ public class PairWithGivenSumInSortedDLL {
       head = createList(x, null);
     }
     pairSum(head, last, 5);
+    System.out.println();
     pairSum(head, last, 7);
+    System.out.println();
     pairSum(head, last, 9);
   }
 }
