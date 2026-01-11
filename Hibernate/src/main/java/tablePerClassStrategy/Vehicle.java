@@ -1,6 +1,7 @@
 package tablePerClassStrategy;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,10 +10,10 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vehicle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
+  private String name;
 }
 
 /*

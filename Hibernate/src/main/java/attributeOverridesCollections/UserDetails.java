@@ -20,18 +20,18 @@ import java.util.Collection;
 @Table(name = "USER_DETAILS")
 public class UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private int userID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "USER_ID")
+  private int userID;
 
-    @Column(name = "USER_NAME")
-    private String userName;
+  @Column(name = "USER_NAME")
+  private String userName;
 
-    @GenericGenerator(name = "native-gen", strategy = "native")
-    @CollectionId(generator = "native-gen", type = @Type(type = "long"), columns = {@Column(name = "ADDRESS_ID")})
-    @ElementCollection
-    @JoinTable(name = "USER_ADDRESS", joinColumns = @JoinColumn(name = "USER_ID"))
-    private Collection<Address> addressCollection = new ArrayList<>();
+  @GenericGenerator(name = "native-gen", strategy = "native")
+  @CollectionId(generator = "native-gen", type = @Type(type = "long"), columns = {@Column(name = "ADDRESS_ID")})
+  @ElementCollection
+  @JoinTable(name = "USER_ADDRESS", joinColumns = @JoinColumn(name = "USER_ID"))
+  private Collection<Address> addressCollection = new ArrayList<>();
 
 }

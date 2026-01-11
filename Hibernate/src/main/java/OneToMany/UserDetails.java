@@ -19,17 +19,17 @@ import java.util.List;
 @Table(name = "USER_DETAILS")
 public class UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private int userID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "USER_ID")
+  private int userID;
 
-    @Column(name = "USER_NAME", nullable = false)
-    private String userName;
+  @Column(name = "USER_NAME", nullable = false)
+  private String userName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userDetails", fetch = FetchType.EAGER)
-    @Fetch(FetchMode.SUBSELECT)
-    private List<Vehicles> vehicles = new ArrayList<>();
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "userDetails", fetch = FetchType.EAGER)
+  @Fetch(FetchMode.SUBSELECT)
+  private List<Vehicles> vehicles = new ArrayList<>();
 
 //    @OneToMany
 //    @JoinTable(name = "USER_VEHICLE",joinColumns = @JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))

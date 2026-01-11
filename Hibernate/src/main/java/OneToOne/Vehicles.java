@@ -15,12 +15,12 @@ import javax.persistence.*;
 @Table(name = "VEHICLES")
 public class Vehicles {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "VEHICLE_ID")
-    private int vehicleID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "VEHICLE_ID")
+  private int vehicleID;
 
-    @Column(name = "VEHICLE_NAME", nullable = false)
-    private String vehicleName;
+  @Column(name = "VEHICLE_NAME", nullable = false)
+  private String vehicleName;
 
 }

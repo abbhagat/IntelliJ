@@ -15,12 +15,12 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 public class Address {
 
-    @Column(name = "STREET_NAME")
-    String street;
-    @Column(name = "CITY_NAME")
-    private String city;
-    @Column(name = "STATE_NAME")
-    private String state;
-    @Column(name = "PIN_CODE")
-    private String pinCode;
+  @Column(name = "STREET_NAME")
+  String street;
+  @Column(name = "CITY_NAME")
+  private String city;
+  @Column(name = "STATE_NAME")
+  private String state;
+  @Column(name = "PIN_CODE")
+  private String pinCode;
 }

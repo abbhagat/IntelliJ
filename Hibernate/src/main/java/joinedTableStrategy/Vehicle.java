@@ -1,6 +1,7 @@
 package joinedTableStrategy;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,10 +10,10 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Vehicle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
+  private String name;
 }
 
 /*   Table Generated

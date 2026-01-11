@@ -17,16 +17,16 @@ import java.util.List;
 @Table(name = "USER_DETAILS")
 public class UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private int userID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "USER_ID")
+  private int userID;
 
-    @Column(name = "USER_NAME", nullable = false)
-    private String userName;
+  @Column(name = "USER_NAME", nullable = false)
+  private String userName;
 
-    @ManyToMany
-    @JoinTable(name = "USER_VEHICLES", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
-    private List<Vehicles> vehicles = new ArrayList<>();
+  @ManyToMany
+  @JoinTable(name = "USER_VEHICLES", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+  private List<Vehicles> vehicles = new ArrayList<>();
 
 }

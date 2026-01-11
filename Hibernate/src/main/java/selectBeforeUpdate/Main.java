@@ -6,20 +6,20 @@ import static util.Util.sessionFactory;
 
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        UserDetails user = session.get(UserDetails.class, 1);
-        session.getTransaction().commit();
-        session.close();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    UserDetails user = session.get(UserDetails.class, 1);
+    session.getTransaction().commit();
+    session.close();
 
-        user.setUserName("Updated User Name");
+    user.setUserName("Updated User Name");
 
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(user);
-        session.getTransaction().commit();
-        session.close();
-    }
+    session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.update(user);
+    session.getTransaction().commit();
+    session.close();
+  }
 }

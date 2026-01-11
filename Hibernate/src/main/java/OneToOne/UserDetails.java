@@ -15,16 +15,16 @@ import javax.persistence.*;
 @Table(name = "USER_DETAILS")
 public class UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private int userID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "USER_ID")
+  private int userID;
 
-    @Column(name = "USER_NAME", nullable = false)
-    private String userName;
+  @Column(name = "USER_NAME", nullable = false)
+  private String userName;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "VEHICLE_ID")
-    private Vehicles vehicles;
+  @OneToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "VEHICLE_ID")
+  private Vehicles vehicles;
 
 }

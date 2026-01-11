@@ -17,15 +17,15 @@ import java.util.List;
 @Table(name = "VEHICLES")
 public class Vehicles {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "VEHICLE_ID")
-    private int vehicleID;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "VEHICLE_ID")
+  private int vehicleID;
 
-    @Column(name = "VEHICLE_NAME", nullable = false)
-    private String vehicleName;
+  @Column(name = "VEHICLE_NAME", nullable = false)
+  private String vehicleName;
 
-    @ManyToMany(mappedBy = "vehicles")
-    private List<UserDetails> userDetails = new ArrayList<>();
+  @ManyToMany(mappedBy = "vehicles")
+  private List<UserDetails> userDetails = new ArrayList<>();
 
 }

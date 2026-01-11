@@ -16,10 +16,10 @@ import javax.persistence.*;
 @DiscriminatorValue("Vehicle")
 public class Vehicle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
+  private String name;
 }
 
 /*

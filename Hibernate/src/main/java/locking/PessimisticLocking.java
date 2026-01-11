@@ -10,13 +10,13 @@ import static util.Util.sessionFactory;
 
 public class PessimisticLocking {
 
-    public static void main(String[] args) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.get(UserDetails.class, 1);
-        Query query = session.createQuery("from UserDetails", UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
-        query.getResultList();
-        session.getTransaction().commit();
-        session.close();
-    }
+  public static void main(String[] args) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.get(UserDetails.class, 1);
+    Query query = session.createQuery("from UserDetails", UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
+    query.getResultList();
+    session.getTransaction().commit();
+    session.close();
+  }
 }

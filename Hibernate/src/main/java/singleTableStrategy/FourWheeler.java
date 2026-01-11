@@ -2,6 +2,7 @@ package singleTableStrategy;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -10,5 +11,5 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Car")
 @EqualsAndHashCode(callSuper = true)
 public class FourWheeler extends Vehicle {
-    private String steeringWheel;
+  private String steeringWheel;
 }

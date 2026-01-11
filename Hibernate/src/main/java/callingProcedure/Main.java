@@ -12,30 +12,30 @@ import static util.Util.sessionFactory;
 
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        StoredProcedureQuery spQuery = sessionFactory.createEntityManager().createNamedStoredProcedureQuery("sp_user_details");
-        spQuery.setParameter("userName", "User1");
-        spQuery.getResultList();
+    StoredProcedureQuery spQuery = sessionFactory.createEntityManager().createNamedStoredProcedureQuery("sp_user_details");
+    spQuery.setParameter("userName", "User1");
+    spQuery.getResultList();
 
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Query query;
+    Session session = sessionFactory.openSession();
+    Transaction transaction = session.beginTransaction();
+    Query query;
 
-        query = session.getNamedNativeQuery("userDetailsProcedure").setLockMode(LockModeType.PESSIMISTIC_WRITE);
-        query.setParameter("userID", 1);
-        query.setParameter("userName", "V705417");
-        List<UserDetails> userDetailsList = query.list();
+    query = session.getNamedNativeQuery("userDetailsProcedure").setLockMode(LockModeType.PESSIMISTIC_WRITE);
+    query.setParameter("userID", 1);
+    query.setParameter("userName", "V705417");
+    List<UserDetails> userDetailsList = query.list();
 
-        query = session.createSQLQuery("CALL sp_user_details(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
-        query.setParameter("userID", 1);
-        query.setParameter("userName", "V705417");
-        List<UserDetails> userDetailLists = query.list();
+    query = session.createSQLQuery("CALL sp_user_details(:userID,:userName)").addEntity(UserDetails.class).setLockMode(LockModeType.PESSIMISTIC_WRITE);
+    query.setParameter("userID", 1);
+    query.setParameter("userName", "V705417");
+    List<UserDetails> userDetailLists = query.list();
 
-        transaction.commit();
-        session.close();
+    transaction.commit();
+    session.close();
 
-        userDetailsList.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
-        userDetailLists.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
-    }
+    userDetailsList.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
+    userDetailLists.forEach(userDetails -> System.out.println(userDetails.getUserID() + "\t" + userDetails.getUserName()));
+  }
 }
