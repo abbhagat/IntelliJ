@@ -1,30 +1,29 @@
 package adobe;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import static java.lang.Integer.max;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(k) k = Size of the character set
 public class LongestSubstringWithoutRepeatingCharacters {
 
   public static void longestSubstring(String s) {
-    Set<Character> set = new LinkedHashSet<>();
-    int j = 0, max = 0;
-    String maxString = "";
-    for (int i = 0; i < s.length(); i++) {
-      if (set.contains(s.charAt(i))) {
-        set.remove(s.charAt(j));
-        j++;
+    Map<Character, Integer> map = new HashMap<>();
+    int start = 0, maxLen = 0, index = 0;
+    for (int end = 0; end < s.length(); end++) {
+      char c = s.charAt(end);
+      if (map.containsKey(c)) {
+        start = max(start, map.get(c) + 1);
       }
-      set.add(s.charAt(i));
-      String str = set.stream().map(String::valueOf).collect(Collectors.joining());
-      if (max < i - j + 1) {
-        max = i - j + 1;
-        maxString = str;
+      map.put(c, end);
+      if (end - start + 1 > maxLen) {
+        maxLen = end - start + 1;
+        index = start;
       }
     }
-    System.out.println(maxString + "\t" + max);
+    String maxString = s.substring(index, index + maxLen);
+    System.out.println(maxString + "\t" + maxLen);
   }
 
   public static void main(String[] args) {
