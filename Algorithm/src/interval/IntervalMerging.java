@@ -41,14 +41,14 @@ public class IntervalMerging {
 
   public static void main(String[] args) {
     List<Interval> intervalList = new ArrayList<>();
-    intervalList.add(new Interval(1, 3));
-    intervalList.add(new Interval(6, 9));
-    intervalList.add(new Interval(2, 5));
+    intervalList.add(new Interval(1, 5));
+    intervalList.add(new Interval(6, 10));
+    intervalList.add(new Interval(6, 15));
     mergeInterval(intervalList).forEach(interval -> System.out.println(interval.start + "," + interval.end));
     System.out.println();
-    printMatrix(mergeInterval(new int[][]{{1, 3},
-                                          {6, 9},
-                                          {2, 5}
+    printMatrix(mergeInterval(new int[][]{{1, 5},
+                                          {6, 10},
+                                          {6, 15}
                                       }));
   }
 }
