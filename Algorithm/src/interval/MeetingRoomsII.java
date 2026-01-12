@@ -1,6 +1,7 @@
 package interval;
 
 import util.Interval;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,10 +30,10 @@ public class MeetingRoomsII {
     Arrays.sort(a, (x, y) -> x[1] - y[1]); //  Comparator.comparingInt(x -> x[1])
     LinkedList<int[]> mergeInterval = new LinkedList<>();
     int n = 1;
-    for(int[] b : a) {
-      if(mergeInterval.isEmpty() || mergeInterval.getLast()[0] < b[0] || mergeInterval.getLast()[1] <= b[0]) {
+    for (int[] b : a) {
+      if (mergeInterval.isEmpty() || mergeInterval.getLast()[0] < b[0] || mergeInterval.getLast()[1] <= b[0]) {
         mergeInterval.add(b);
-      }else{
+      } else {
         n++;
       }
     }
