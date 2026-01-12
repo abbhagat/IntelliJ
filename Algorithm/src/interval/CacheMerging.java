@@ -18,16 +18,14 @@ public class CacheMerging {
       Interval interval = intervalList.remove(i);
       newInterval.start = min(interval.start, newInterval.start);
       int end           = max(interval.end, newInterval.end);
-      newInterval.end   = newInterval.start + newInterval.end <= interval.start + interval.end
-                         ? interval.start + interval.end
-                         : end;
+      newInterval.end   = interval.start + interval.end <= newInterval.start + newInterval.end ? end : interval.start + interval.end;
     }
     intervalList.add(i, newInterval);
   }
 
   public static void main(String[] args) {
     List<Interval> list = new ArrayList<>();
-    List<Interval> intervalList = List.of(new Interval(50, 2), new Interval(60, 5), new Interval(51, 7), new Interval(61, 10), new Interval(1, 60), new Interval(-1, 70));
+    List<Interval> intervalList = List.of(new Interval(1, 4), new Interval(6, 4), new Interval(6, 9));
     intervalList.forEach(interval -> {
       insertInterval(list, interval);
       System.out.println(list);
