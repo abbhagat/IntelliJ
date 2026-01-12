@@ -50,7 +50,8 @@ class ThreadPool {
 
   public void waitUntilAllTasksFinished() {
     while (!this.queue.isEmpty()) {
-      Thread.yield();
+      Thread.yield();   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
+                       // The scheduler is free to ignore this hint.
     }
   }
 
