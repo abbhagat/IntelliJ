@@ -9,7 +9,7 @@ public class LongestSubstringWithKDistinctCharacters {
 
   public static void longestSubstring(String str, int k) {
     Map<Character, Integer> map = new HashMap<>();
-    int start = 0, end = 0;
+    int start = 0, end;
     for (end = 0; end < str.length(); end++) {
       char c = str.charAt(end);
       map.put(c, map.getOrDefault(c, 0) + 1);

@@ -1,29 +1,27 @@
 package adobe;
 
-import java.util.HashMap;
-import java.util.Map;
-import static java.lang.Integer.max;
+import java.util.Set;
+import java.util.HashSet;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(k) k = Size of the character set
 public class LongestSubstringWithoutRepeatingCharacters {
 
   public static void longestSubstring(String s) {
-    Map<Character, Integer> map = new HashMap<>();
+    Set<Character> set = new HashSet<>();
     int start = 0, maxLen = 0, index = 0;
     for (int end = 0; end < s.length(); end++) {
-      char c = s.charAt(end);
-      if (map.containsKey(c)) {
-        start = max(start, map.get(c) + 1);
+      while (set.contains(s.charAt(end))) {
+        set.remove(s.charAt(start));
+        start++;
       }
-      map.put(c, end);
-      if (end - start + 1 > maxLen) {
+      set.add(s.charAt(end));
+      if (maxLen < end - start + 1) {
         maxLen = end - start + 1;
-        index = start;
+        index  = start;
       }
     }
-    String maxString = s.substring(index, index + maxLen);
-    System.out.println(maxString + "\t" + maxLen);
+    System.out.println(s.substring(index, index + maxLen) + "\t" + maxLen);
   }
 
   public static void main(String[] args) {
