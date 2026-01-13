@@ -2,6 +2,7 @@ package searching;
 
 import java.util.Arrays;
 
+// Time Complexity : log(n)
 public class IterativeBinarySearch {
 
   private static int binarySearch(int[] a, int n) {
