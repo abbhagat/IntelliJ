@@ -1,20 +1,20 @@
 package adobe;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class SortCharacterByFreqInString {
 
   private static String sortCharByFreq(String str) {
-    Map<Character, Integer> map = new TreeMap<>();
+    Map<Character, Integer> map = new HashMap<>();
     StringBuilder sb = new StringBuilder();
     str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
-    List<Map.Entry<Character, Integer>> list = map.entrySet()
-                                                  .stream()
-                                                  .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed()).toList();
-    list.forEach(entry -> IntStream.range(0, entry.getValue()).forEach(i -> sb.append(entry.getKey())));
+    Map<Character, Integer> finalMap = new LinkedHashMap<>();
+    map.entrySet()
+       .stream()
+       .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+       .forEachOrdered(e-> finalMap.put(e.getKey(), e.getValue()));
+    finalMap.forEach((k,v) -> IntStream.range(0, v).forEach(i -> sb.append(k)));
     return sb.toString();
   }
 
