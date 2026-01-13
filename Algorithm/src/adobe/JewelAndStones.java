@@ -1,13 +1,14 @@
 package adobe;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class JewelAndStones {
 
   private static int numJewelsInStones(String jewels, String stones) {
-    Set<Character> set = new HashSet<>();
-    jewels.chars().forEach(c -> set.add((char) c));
+    Set<Character> set = jewels.chars()
+                               .mapToObj(c -> (char) c)
+                               .collect(Collectors.toSet());
     int count = 0;
     for (char c : stones.toCharArray()) {
       if (set.contains(c)) {

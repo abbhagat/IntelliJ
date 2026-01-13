@@ -3,6 +3,9 @@
                                   .mapToObj(c -> (char) c)
                                   .collect(Collectors.toSet());
 
+    Set<String> set = charArray.chars()
+                               .mapToObj(c -> String.valueOf((char) c))
+                               .collect(Collectors.toSet());
 2.  Convert Set to char[]
     char[] charArray = set.stream()
                           .map(String::valueOf)

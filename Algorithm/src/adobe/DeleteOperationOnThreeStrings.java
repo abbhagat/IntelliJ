@@ -13,7 +13,7 @@ package adobe;
  * Explanation: Because the leftmost letters of s1 and s2 are not equal, they could not be equal after any number of operations. So the answer is -1.
  */
 
-// Time Complexity : O(n) n = length of the largest string
+// Time Complexity : O(n) n = length of the smallest string
 public class DeleteOperationOnThreeStrings {
 
   private static int findMinimumOperations(String s1, String s2, String s3) {
