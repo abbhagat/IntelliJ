@@ -4,8 +4,8 @@ import java.util.Arrays;
 import static java.lang.Math.abs;
 
 /*
-Given a sorted array arr[] and a value X, find the k closest elements to X in arr[]
-Input: K = 4, X = 35 and arr[] = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}
+Given a sorted array a[] and a value X, find the k closest elements to X in a[]
+Input: K = 4, X = 35 and a[] = {12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56}
 Output: 30 39 42 45
 Note that if the element is present in array, then it should not be in output, only the other closest elements are required.
 */
@@ -13,19 +13,17 @@ public class PrintKClosestElementInSortedArray {
 
   private static void printKClosestElementInAnArray(int[] a, int n, int k) {
     int index = Arrays.binarySearch(a, n);
-    int count = 0, i = index - 1, j = index + 1;
-    while (i >= 0 && j < a.length && count < k) {
-      int l = abs(n - a[i]) < abs(n - a[j]) ? a[i--] : a[j++];
-      System.out.print(l + " ");
-      count++;
-    }
-    while (i >= 0 && j >= a.length - 1 && count < k) {
-      System.out.print(a[i--] + " ");
-      count++;
-    }
-    while (i < 0 && j < a.length && count < k) {
-      System.out.print(a[j++] + " ");
-      count++;
+    int i = index - 1, j = index + 1;
+    for (int count = 1; count <= k; count++) {
+      if (i < 0) {
+        System.out.print(a[j++] + " ");
+      } else if (j >= a.length) {
+        System.out.print(a[i--] + " ");
+      } else if (abs(n - a[i]) <= abs(n - a[j])) {
+        System.out.print(a[i--] + " ");
+      } else {
+        System.out.print(a[j++] + " ");
+      }
     }
     System.out.println();
   }
