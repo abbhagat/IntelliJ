@@ -6,7 +6,7 @@ import java.util.List;
 
 // "^0+(?!$)" Remove leading zeros but keep one zero if the entire string is zeros
 // 0+ → One or more zeros
-// (?!$) → Negative lookahead
+// (?!$) → Negative lookahead “Do NOT match if what follows at the end of the string” In simple words: Do not remove zeros if they are the entire string
 
 public class FormSmallestNumberFromGivenArray {
 
