@@ -1,18 +1,18 @@
 package geeksforgeeks;
 
 import java.text.DecimalFormat;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 // Time  Complexity : O(log n)
 // Space Complexity : O(n)
 public class MedianOfStreamOfNumbers {
 
-  private static final PriorityQueue<Integer> left  = new PriorityQueue<>(Collections.reverseOrder()); // Max heap
+  private static final PriorityQueue<Integer> left  = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
   private static final PriorityQueue<Integer> right = new PriorityQueue<>(); // Min heap
 
-  public static float findMedian(int num) {
-    left.offer(num);                     // Step 1: Add to max heap
+  public static float findMedian(int n) {
+    left.offer(n);                       // Step 1: Add to max heap
     right.offer(left.poll());           //  Step 2: Balance order
     if (right.size() > left.size()) {  //   Step 3: Balance size
       left.offer(right.poll());
