@@ -18,16 +18,11 @@ public class AllPermutationOfANumber {
     }
   }
 
-  private static int[] convert(int n) {
-    String s = String.valueOf(n);
-    return s.chars().map(Character::getNumericValue).toArray();
-  }
-
   public static void main(String[] args) {
-    int[] a = convert(123);
+    int[] a = String.valueOf(123).chars().map(c -> c - '0').toArray();
     permutation(a, 0, a.length - 1);
     System.out.println();
-    a = convert(102);
-    permutation(a, 0, a.length - 1);
+    int[] b = String.valueOf(102).chars().map(Character::getNumericValue).toArray();
+    permutation(b, 0, b.length - 1);
   }
 }
