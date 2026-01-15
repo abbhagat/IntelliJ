@@ -24,10 +24,11 @@ public class DashProblem {
         continue;
       }
       var isEven = a[i] % 2 == 0;
+      var isOdd  = a[i] % 2 != 0;
       if (isEven && prevEven) {
         sb.append("*");
       }
-      if (!isEven && prevOdd) {
+      if (isOdd && prevOdd) {
         sb.append("-");
       }
       if (isEven) {

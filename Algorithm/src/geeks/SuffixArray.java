@@ -22,6 +22,6 @@ public class SuffixArray {
     for (int i = 0; i < str.length(); i++) {
       map.put(str.substring(i), i);
     }
-    map.forEach((k, v) -> System.out.println(k + " " + v));
+    System.out.println(map);
   }
 }

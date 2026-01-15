@@ -1,7 +1,6 @@
 package geeks;
 
 import static java.lang.Integer.max;
-import static java.lang.Integer.min;
 
 /**
  * Given an integer n, the task is to find the sum:
@@ -14,13 +13,13 @@ import static java.lang.Integer.min;
 public class LCMSumFrom1toN {
 
   private static int lcm(int x, int y, int lcm) {
-    return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + y);
+    return lcm % x == 0 && lcm % y == 0 ? lcm : lcm(x, y, lcm + max(x, y));
   }
 
   private static int findSum(int n) {
     int sum = 0;
     for (int i = 1; i <= n; i++) {
-      sum += lcm(min(i, n), max(i, n), max(i, n));
+      sum += lcm(i, n, max(i, n));
     }
     return sum;
   }

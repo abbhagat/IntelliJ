@@ -7,7 +7,7 @@ public class Max_2nd_Max {
     for (int x : a) {
       if (max < x) {
         _2ndMax = max;
-        max = x;
+            max = x;
       } else if (_2ndMax < x) {
         _2ndMax = x;
       }
