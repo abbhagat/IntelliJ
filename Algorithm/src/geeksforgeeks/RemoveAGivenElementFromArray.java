@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 import static util.CommonUtils.swap;
 
-public class RemoveAGivenRepeatedElementFromArray {
+public class RemoveAGivenElementFromArray {
 
-  private static void removeAGivenRepeatedElementFromArray(int[] a, int n) {
+  private static void removeElementFromArray(int[] a, int n) {
     int j = 0;
     for (int i = 0; i < a.length; i++) {
       if (a[i] != n) {
@@ -19,8 +19,8 @@ public class RemoveAGivenRepeatedElementFromArray {
   }
 
   public static void main(String[] args) {
-    removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 4, 2}, 2);
-    removeAGivenRepeatedElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 3, 2}, 3);
-    removeAGivenRepeatedElementFromArray(new int[]{3, 2, 2, 3}, 3);
+    removeElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 4, 2}, 2);
+    removeElementFromArray(new int[]{0, 1, 2, 2, 3, 2, 3, 2}, 3);
+    removeElementFromArray(new int[]{3, 2, 2, 3}, 3);
   }
 }
