@@ -7,7 +7,9 @@ public class ClosestNumberInAnArray {
   private static int closestNumber(int[] a, int k) {
     int closest = a[0];
     for (int i = 1; i < a.length; i++) {
-      closest = abs(a[i] - k) <= abs(closest - k) ? a[i] : closest;
+      if (abs(a[i] - k) <= abs(closest - k)) {
+        closest = a[i];
+      }
     }
     return closest;
   }

@@ -29,6 +29,7 @@ public class LargestContiguousSumArrayPrint {
         end = i;
       }
     }
+    System.out.print("SubArray : ");
     printArray(a, start, end + 1);
   }
 
@@ -42,5 +43,8 @@ public class LargestContiguousSumArrayPrint {
     int[] c = {2, 3, -1, 5, -3, 2};
     System.out.print(largestContiguousSum(c) + "\t");
     maxSumSubarray(c);
+    int[] d = new int[]{-1, 2, -3, 4, -5};
+    System.out.print(largestContiguousSum(d) + "\t");
+    maxSumSubarray(d);
   }
 }

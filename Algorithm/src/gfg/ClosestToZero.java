@@ -8,7 +8,9 @@ public class ClosestToZero {
     int[] a = {1, 7, 9, 4, 2, -1};
     int closest = a[0];
     for (int i = 1; i < a.length; i++) {
-      closest = abs(a[i]) <= abs(closest) ? a[i] : closest;
+      if (abs(a[i]) <= abs(closest)) {
+        closest = a[i];
+      }
     }
     System.out.println(closest);
   }
