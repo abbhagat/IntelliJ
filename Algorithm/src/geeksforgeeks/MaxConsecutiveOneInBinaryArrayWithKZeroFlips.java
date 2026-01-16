@@ -1,7 +1,6 @@
 package geeksforgeeks;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 /**
  * Given a binary array a and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
@@ -27,19 +26,20 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
       }
     }
     System.out.print("Index Flipped ");
-    IntStream.range(startIndex, startIndex + bestWindow).forEach(l -> {
-      if (a[l] == 0) {
-        a[l] = 1;
-        System.out.print(l + " ");
+    for (i = startIndex; i < startIndex + bestWindow; i++) {
+      if (a[i] == 0) {
+        a[i] = 1;
+        System.out.print(i + " ");
       }
-    });
-    System.out.println("\nChanged Array After Flip " + Arrays.toString(a));
-    System.out.println("Max Consecutive 1's: " + bestWindow);
+    }
+    System.out.println("\tChanged Array After Flip " + Arrays.toString(a) + "\tMax Consecutive 1's: " + bestWindow);
   }
 
   public static void main(String[] args) {
+    slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 6);
     slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2);
     slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2);
+    slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
     slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
   }
 }

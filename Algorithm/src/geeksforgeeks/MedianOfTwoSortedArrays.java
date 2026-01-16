@@ -23,6 +23,7 @@ public class MedianOfTwoSortedArrays {
     DecimalFormat df = new DecimalFormat("#.##");
     System.out.println(df.format(findMedian(new int[]{1, 2}, new int[]{3})));
     System.out.println(df.format(findMedian(new int[]{1, 2}, new int[]{3, 4})));
+    System.out.println(df.format(findMedian(new int[]{1, 3}, new int[]{2, 4})));
     System.out.println(df.format(findMedian(new int[]{10, 20}, new int[]{30, 40})));
     System.out.println(df.format(findMedian(new int[]{10, 20, 25}, new int[]{30, 40})));
     System.out.println(df.format(findMedian(new int[]{10, 20}, new int[]{30, 40, 50})));
