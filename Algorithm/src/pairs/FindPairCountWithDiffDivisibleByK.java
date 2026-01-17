@@ -13,8 +13,8 @@ public class FindPairCountWithDiffDivisibleByK {
     for (int i = 0; i < a.length; i++) {
       for (int j = i + 1; j < a.length; j++) {
         if ((a[i] - a[j]) % k == 0) {
-          int min = min(a[i], a[j]);
-          int max = max(a[i], a[j]);
+          int min  = min(a[i], a[j]);
+          int max  = max(a[i], a[j]);
           var pair = min + "," + max;
           if (set.add(pair)) {
             System.out.println("(" + min + "," + max + ")");
