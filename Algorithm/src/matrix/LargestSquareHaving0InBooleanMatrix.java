@@ -1,34 +1,44 @@
 package matrix;
 
-import static java.lang.Integer.min;
-
 public class LargestSquareHaving0InBooleanMatrix {
 
   private static void findMatrix(int[][] M) {
-    int R = M.length, C = M[0].length;
-    int[][] S = new int[R][C];
-    for (int i = 1; i < R; i++) {
-      for (int j = 1; j < C; j++) {
-        S[i][j] = M[i][j] == 0 ? 1 + min(S[i][j - 1], min(S[i - 1][j], S[i - 1][j - 1])) : 0;
+    int rows = M.length;
+    int cols = M[0].length;
+
+    int[][] dp = new int[rows][cols];
+    int maxSize = 0;
+
+    // First row
+    for (int j = 0; j < cols; j++) {
+      if (M[0][j] == 0) {
+        dp[0][j] = 1;
+        maxSize = 1;
       }
     }
-    int max = S[0][0], row = 0, col = 0;
-    for (int i = 1; i < R; i++) {
-      for (int j = 1; j < C; j++) {
-        if (max < S[i][j]) {
-          max = S[i][j];
-          row = i;
-          col = j;
+
+    // First column
+    for (int i = 0; i < rows; i++) {
+      if (M[i][0] == 0) {
+        dp[i][0] = 1;
+        maxSize = 1;
+      }
+    }
+
+    // Fill dp table
+    for (int i = 1; i < rows; i++) {
+      for (int j = 1; j < cols; j++) {
+        if (M[i][j] == 0) {
+          dp[i][j] = 1 + Math.min(
+              Math.min(dp[i - 1][j], dp[i][j - 1]),
+              dp[i - 1][j - 1]
+          );
+          maxSize = Math.max(maxSize, dp[i][j]);
         }
       }
     }
-    for (int i = row; i > row - max; i--) {
-      for (int j = col; j > col - max; j--) {
-        System.out.print(M[i][j] + " ");
-      }
-      System.out.println();
-    }
-    System.out.println();
+
+    System.out.println(maxSize);
   }
 
   public static void main(String[] args) {
