@@ -21,16 +21,14 @@ public class MatrixRotationBy90Degree {
 
   public static void rotate90AntiClockwiseForSquareMatrix(int[][] M) {
     findTranspose(M);
-    final int ROW = M.length, COL = M[0].length;
-    for (int i = 0; i < ROW; i++) {
-      // Reverse Each Column
-      int j = 0, k = COL - 1;
-      while ( j < k) {
-        int t   = M[j][i];
-        M[j][i] = M[k][i];
-        M[k][i] = t;
-        j++;
-        k--;
+    for (int col = 0; col < M.length; col++) {                // Reverse Each Column
+      int i = 0, j = M[0].length - 1;
+      while (i < j) {
+        int t = M[i][col];
+        M[i][col] = M[j][col];
+        M[j][col] = t;
+        i++;
+        j--;
       }
     }
     printMatrix(M);
@@ -62,16 +60,16 @@ public class MatrixRotationBy90Degree {
 
   public static void main(String[] args) {
     final int[][] M = {
-                          {1, 2, 3},
-                          {4, 5, 6},
-                          {7, 8, 9}
-                      };
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
     rotateBy90ClockwiseForSquareMatrix(M);
     final int[][] N = {
-                          {1, 2, 3},
-                          {4, 5, 6},
-                          {7, 8, 9}
-                      };
-    rotateBy90ClockwiseForNonSquareMatrix(N);
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    rotate90AntiClockwiseForSquareMatrix(N);
   }
 }
