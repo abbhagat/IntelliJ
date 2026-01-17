@@ -8,21 +8,21 @@ import static util.CommonUtils.reverse;
 public class NextGreaterNumWithSameSetOfDigits {
 
   private static int nextPermutation(int n) {
-    char[] a = String.valueOf(n).toCharArray();
-    int i = a.length - 2;
-    while (i >= 0 && a[i] >= a[i + 1]) {
+    char[] c = String.valueOf(n).toCharArray();
+    int i = c.length - 2;
+    while (i >= 0 && c[i] >= c[i + 1]) {
       i--;
     }
     if (i < 0) {
       return n;
     }
-    int j = a.length - 1;
-    while (a[j] <= a[i]) {
+    int j = c.length - 1;
+    while (c[j] <= c[i]) {
       j--;
     }
-    swap(a, i, j);
-    reverse(a, i + 1, a.length - 1);
-    return Integer.parseInt(new String(a));
+    swap(c, i, j);
+    reverse(c, i + 1, c.length - 1);
+    return Integer.parseInt(new String(c));
   }
 
   public static void main(String[] args) {
@@ -30,5 +30,6 @@ public class NextGreaterNumWithSameSetOfDigits {
     System.out.println(nextPermutation(213));
     System.out.println(nextPermutation(312));
     System.out.println(nextPermutation(321));
+    System.out.println(nextPermutation(987));
   }
 }

@@ -21,7 +21,7 @@ public class LargestContiguousSumArrayPrint {
         curSum = a[i];
         index = i;
       } else {
-        curSum += a[i];
+        curSum = curSum + a[i];
       }
       if (maxSum < curSum) {
         maxSum = curSum;

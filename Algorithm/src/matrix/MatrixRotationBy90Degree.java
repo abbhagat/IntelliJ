@@ -19,8 +19,11 @@ public class MatrixRotationBy90Degree {
     final int COL = M[0].length;
     // Reverse each row
     for (int[] a : M) {
-      for (int i = 0, j = COL - 1; i < j; i++, j--) {
+      int i = 0, j = COL - 1;
+      while ( i < j) {
         swap(a, i, j);
+        i++;
+        j--;
       }
     }
     printMatrix(M);
@@ -31,10 +34,13 @@ public class MatrixRotationBy90Degree {
     final int ROW = M.length, COL = M[0].length;
     for (int i = 0; i < ROW; i++) {
       // Reverse Each Column
-      for (int j = 0, k = COL - 1; j < k; j++, k--) {
-        int t = M[j][i];
+      int j = 0, k = COL - 1;
+      while ( j < k) {
+        int t   = M[j][i];
         M[j][i] = M[k][i];
         M[k][i] = t;
+        j++;
+        k--;
       }
     }
     printMatrix(M);

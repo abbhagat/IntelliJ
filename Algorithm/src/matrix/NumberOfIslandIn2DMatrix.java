@@ -46,10 +46,10 @@ public class NumberOfIslandIn2DMatrix {
 
   private static int countIslands() {
     int count = 0;
-    for (int i = 0; i < ROW; i++)
-      for (int j = 0; j < COL; j++)
-        if (M[i][j] == 1 && !visited[i][j]) {
-          DFS(i, j);
+    for (int row= 0; row < ROW; row++)
+      for (int col = 0; col < COL; col++)
+        if (M[row][col] == 1 && !visited[row][col]) {
+          DFS(row, col);
           count++;
         }
     return count;
