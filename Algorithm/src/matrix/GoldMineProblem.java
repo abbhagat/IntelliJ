@@ -4,13 +4,14 @@ import static java.lang.Integer.max;
 import static util.CommonUtils.maximum;
 
 /**
- * Given a gold mine of ROW*COL dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
+ * Given a gold mine of ROW * COL dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
  * Initially, the miner is at first column but can be at any row. He can move only (right,right up,right down)
  * that is from a given cell, the miner can move to the cell diagonally up towards the right or diagonally down towards the right.
  * Find out the maximum amount of gold he can collect.
  * Input: M[][] =    {{1, 3, 3},
- * {2, 1, 4},
- * {0, 6, 4}};
+ *                    {2, 1, 4},
+ *                    {0, 6, 4}
+ *                   };
  * Output: 12 {(1,0)->(2,1)->(1,2)}
  * Input: M[][] =  {  {1, 3, 1, 5},
  * {2, 2, 4, 1},

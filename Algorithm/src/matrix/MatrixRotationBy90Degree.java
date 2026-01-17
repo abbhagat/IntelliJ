@@ -40,7 +40,7 @@ public class MatrixRotationBy90Degree {
     int[][] RM = new int[C][R];
     for (int i = 0; i < R; i++) {
       for (int j = 0; j < C; j++) {
-        RM[j][R - 1 - i] = M[i][j];
+        RM[j][R - i - 1] = M[i][j];   // RM[C - j - 1][i] = M[i][j]; Anticlockwise
       }
     }
     printMatrix(RM);
@@ -52,7 +52,7 @@ public class MatrixRotationBy90Degree {
     int[][] RM = new int[C][R];
     for (int i = 0; i < R; i++) {
       for (int j = 0; j < C; j++) {
-        RM[C - 1 - j][i] = M[i][j];
+        RM[C - j - 1][i] = M[i][j];
       }
     }
     printMatrix(RM);
