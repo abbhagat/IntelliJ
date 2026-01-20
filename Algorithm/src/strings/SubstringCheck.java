@@ -15,7 +15,7 @@ public class SubstringCheck {
     int index = -1, count = 0, j = 0;
     for (int i = 0; i < s1.length() && j < s2.length(); i++) {
       if (s1.charAt(i) == s2.charAt(j)) {
-        index = index == -1 ? i : index;
+        index = (index == -1) ? i : index;
         s += s1.charAt(i);
         j++;
         if (s.contentEquals(s2)) {
@@ -26,7 +26,7 @@ public class SubstringCheck {
           s = "";
         }
       } else {
-        i = index == -1 ? i : index;
+        i = (index == -1) ? i : index;
         index = -1;
         j = 0;
         s = "";
