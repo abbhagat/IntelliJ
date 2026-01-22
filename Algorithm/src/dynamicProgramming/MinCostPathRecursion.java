@@ -58,8 +58,7 @@ public class MinCostPathRecursion {
         {4, 8, 2},
         {1, 5, 3}
     };
-    int ROW = cost.length - 1;
-    int COL = cost[0].length - 1;
+    int ROW = cost.length - 1, COL = cost[0].length - 1;
     System.out.println(minCost(cost, ROW, COL) + "\t" + minCostDP(cost) + "\t" + minCost(cost, 0, 0, ROW, COL));
   }
 }

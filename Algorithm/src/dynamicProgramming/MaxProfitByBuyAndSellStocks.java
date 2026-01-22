@@ -9,8 +9,8 @@ import static java.lang.Integer.min;
  * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
  */
 
-// Time complexity:  O(n)
-// Space complexity: O(1)
+// Time  Complexity: O(n)
+// Space Complexity: O(1)
 public class MaxProfitByBuyAndSellStocks {
 
   private static int maxProfit(int[] a) {

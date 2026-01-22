@@ -24,5 +24,6 @@ public class ArrayMulOtherThanOwnPosition {
     printArray(productExceptSelf(new int[]{1, 2, 0}));
     printArray(productExceptSelf(new int[]{1, 2, 3}));
     printArray(productExceptSelf(new int[]{1, 2, 0, 3}));
+    printArray(productExceptSelf(new int[]{1, 2, 0, 3, 0 , 1, 3}));
   }
 }

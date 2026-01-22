@@ -27,31 +27,19 @@ public class NthStairClimbWays {
   // Time  Complexity: O(2^n)
   // Space Complexity: O(1)
   private static int stairCount(int n) {
-    switch (n) {
-      case 1:
-        return 1;
-      case 2:
-        return 2;
-      default:
-        return stairCount(n - 1) + stairCount(n - 2);
-    }
-  }
-
-  private static int climbStairs(int n) {
-    int s1 = 1, s2 = 2, t;
-    for (int i = 2; i < n; i++) {
-      s1 += s2;
-      t = s1;  // swap(s1,s2);
-      s1 = s2;
-      s2 = t;
-    }
-    return n >= 2 ? s2 : s1;
+    return switch (n) {
+      case 0 -> 0;
+      case 1 -> 1;
+      case 2 -> 2;
+      default -> stairCount(n - 1) + stairCount(n - 2);
+    };
   }
 
   public static void main(String[] args) {
-    System.out.println(stairCount(4) + "\t" + stairCountDP(4) + "\t" + climbStairs(4));
-    System.out.println(stairCount(5) + "\t" + stairCountDP(5) + "\t" + climbStairs(5));
-    System.out.println(stairCount(6) + "\t" + stairCountDP(6) + "\t" + climbStairs(6));
+    System.out.println(stairCount(0) + "\t" + stairCountDP(0));
+    System.out.println(stairCount(4) + "\t" + stairCountDP(4));
+    System.out.println(stairCount(5) + "\t" + stairCountDP(5));
+    System.out.println(stairCount(6) + "\t" + stairCountDP(6));
   }
 
 }

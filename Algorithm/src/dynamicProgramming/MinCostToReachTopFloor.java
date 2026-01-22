@@ -30,14 +30,11 @@ public class MinCostToReachTopFloor {
   }
 
   private static int minCost(int[] a, int n) {
-    switch (n) {
-      case 1:
-        return a[0];
-      case 2:
-        return a[1];
-      default:
-        return a[n - 1] + min(minCost(a, n - 1), minCost(a, n - 2));
-    }
+    return switch (n) {
+      case 1 -> a[0];
+      case 2 -> a[1];
+      default -> a[n - 1] + min(minCost(a, n - 1), minCost(a, n - 2));
+    };
   }
 
   public static void main(String[] args) {

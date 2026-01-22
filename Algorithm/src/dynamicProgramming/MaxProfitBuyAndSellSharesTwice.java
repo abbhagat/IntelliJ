@@ -35,9 +35,9 @@ public class MaxProfitBuyAndSellSharesTwice {
   private static int maxProfit(int[] price) {
     int buy1 = Integer.MAX_VALUE, buy2 = Integer.MAX_VALUE, profit1 = 0, profit2 = 0;
     for (int x : price) {
-      buy1 = min(buy1, x);
+      buy1    = min(buy1, x);
       profit1 = max(profit1, x - buy1);
-      buy2 = min(buy2, x - profit1);
+      buy2    = min(buy2,    x - profit1);
       profit2 = max(profit2, x - buy2);
     }
     return profit2;

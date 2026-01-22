@@ -1,10 +1,10 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
-
 import static java.lang.Integer.min;
 
 public class MinCostToReachDestinationFromTrain {
+
   private static final int M = Integer.MAX_VALUE;
 
   private static int minCost(int[][] cost, int s, int d) {
