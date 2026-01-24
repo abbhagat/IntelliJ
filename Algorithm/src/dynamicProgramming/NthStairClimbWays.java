@@ -25,7 +25,7 @@ public class NthStairClimbWays {
   }
 
   // Time  Complexity: O(2^n)
-  // Space Complexity: O(1)
+  // Space Complexity: O(n)
   private static int stairCount(int n) {
     return switch (n) {
       case 0 -> 0;

@@ -15,6 +15,8 @@ import static java.lang.Integer.min;
  */
 public class MinCostToReachTopFloor {
 
+  // Time  Complexity : O(n)
+  // Space Complexity : O(n)
   private static int minCost(int[] a) {
     int n = a.length;
     int[] dp = new int[n];
@@ -29,6 +31,8 @@ public class MinCostToReachTopFloor {
     return min(dp[n - 1], dp[n - 2]);
   }
 
+  // Time  Complexity : O(2^n)
+  // Space Complexity : O(n)
   private static int minCost(int[] a, int n) {
     return switch (n) {
       case 1 -> a[0];
