@@ -22,7 +22,6 @@ Explanation 0 Bar counts are h = [2] and v = [2]. This means that Sam removes ho
 
 import java.util.Arrays;
 import java.util.List;
-
 import static java.lang.Integer.max;
 
 public class PrisonBreak {
