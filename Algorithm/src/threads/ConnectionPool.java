@@ -20,7 +20,7 @@ public class ConnectionPool implements IConnectionPool {
   private final String url;
   private final String username;
   private final String password;
-  private volatile boolean isPoolClosed = false;
+  private volatile boolean isPoolClosed;
 
   public ConnectionPool(int poolSize) {
     this.poolSize = poolSize;
@@ -84,11 +84,12 @@ public class ConnectionPool implements IConnectionPool {
     for (Connection connection : connectionPool) {
       connection.close();
     }
+    System.out.println("Connection Pool is Stopped");
   }
 
   public static void main(String[] args) throws SQLException, InterruptedException {
-    ConnectionPool connectionPool = new ConnectionPool(10);
-    connectionPool.getConnectionPool().forEach(System.out::println);
+    IConnectionPool connectionPool = new ConnectionPool(10);
+    ((ConnectionPool)connectionPool).getConnectionPool().forEach(System.out::println);
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
     connectionPool.returnConnection(connection);

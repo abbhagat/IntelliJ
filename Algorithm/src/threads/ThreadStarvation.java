@@ -5,7 +5,6 @@ public class ThreadStarvation {
   private static final Object monitor = new Object();
 
   public static void main(String[] args) {
-
     // High-priority threads
     for (int i = 0; i < 5; i++) {
       Thread high = new Thread(() -> {

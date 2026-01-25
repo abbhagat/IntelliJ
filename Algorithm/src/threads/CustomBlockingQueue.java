@@ -51,7 +51,7 @@ class Producer<E extends String> implements Runnable {
         q.put((E) message);
          Thread.sleep(100);
       } catch (InterruptedException e) {
-        throw new RuntimeException(e);
+        e.printStackTrace();
       }
     }
   }
@@ -73,7 +73,7 @@ class Consumer<E extends String> implements Runnable {
         System.out.println("Get : " + q.get());
         Thread.sleep(100);
       } catch (InterruptedException e) {
-        throw new RuntimeException(e);
+        e.printStackTrace();
       }
     }
   }
