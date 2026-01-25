@@ -10,7 +10,7 @@ import static java.lang.Integer.max;
 // Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBracket {
 
-  private static void balancedString(String exp) {
+  private static StringBuilder balancedString(String exp) {
     StringBuilder sb = new StringBuilder();
     int open = 0;
     for (char c : exp.toCharArray()) {
@@ -24,14 +24,13 @@ public class BalanceStringAfterRemovingExtraBracket {
         sb.append(c);
       }
     }
-    sb.append(")".repeat(max(0, open)));
-    System.out.println(sb);
+    return sb.append(")".repeat(max(0, open)));
   }
 
   public static void main(String[] args) {
-    balancedString("abh)ina)w(ku(mar(bhagat))");
-    balancedString("1+5)+5+)6+(5+9)*9");
-    balancedString("lee(t(c)o)de)");
-    balancedString("ab(c)d");
+    System.out.println(balancedString("abh)ina)w(ku(mar(bhagat))"));
+    System.out.println(balancedString("1+5)+5+)6+(5+9)*9"));
+    System.out.println(balancedString("lee(t(c)o)de)"));
+    System.out.println(balancedString("ab(c)d"));
   }
 }

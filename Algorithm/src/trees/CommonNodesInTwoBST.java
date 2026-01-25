@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class CommonNodesInTwoBST {
 
-  private static void commonNodes(Node root1, Node root2) {
+  private static void printCommonNodes(Node root1, Node root2) {
     Stack<Node> s1 = new Stack<>();
     Stack<Node> s2 = new Stack<>();
     while (true) {
@@ -42,12 +42,12 @@ public class CommonNodesInTwoBST {
   }
 
   public static void main(String[] args) {
-    Node root1 = new Node(2);
-    root1.left = new Node(1);
+    Node root1  = new Node(2);
+    root1.left  = new Node(1);
     root1.right = new Node(3);
-    Node root2 = new Node(2);
-    root2.left = new Node(1);
+    Node root2  = new Node(2);
+    root2.left  = new Node(1);
     root2.right = new Node(3);
-    commonNodes(root1, root2);
+    printCommonNodes(root1, root2);
   }
 }

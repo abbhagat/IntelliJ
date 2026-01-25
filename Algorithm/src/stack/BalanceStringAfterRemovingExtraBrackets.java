@@ -3,7 +3,7 @@ package stack;
 // Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBrackets {
 
-  public static String minRemoveToMakeValid(String str) {
+  public static StringBuilder minRemoveToMakeValid(String str) {
     StringBuilder sb = new StringBuilder();
     int open = 0;
     for (char c : str.toCharArray()) {
@@ -26,7 +26,7 @@ public class BalanceStringAfterRemovingExtraBrackets {
         result.append(c);
       }
     }
-    return result.reverse().toString();
+    return result.reverse();
   }
 
   public static void main(String[] args) {
