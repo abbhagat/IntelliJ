@@ -1,7 +1,7 @@
 package strings;
 
-// Time  Complexity log(n)
-// Space Complexity log(n)
+// Time  Complexity : log(n)
+// Space Complexity : log(n)
 public class NewTypePalindromeString {
 
   private static boolean isNewTypePalindrome(String s) {
@@ -23,12 +23,12 @@ public class NewTypePalindromeString {
   }
 
   public static void main(String[] args) {
-    System.out.println(isNewTypePalindrome("") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("A") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("ABXAB") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("ABXCDYYDCXBA") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("ABCEDABXYXABCEDAB") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("ABCDXYYXCDAB") ? "Palindrome" : "Not Palindrome");
-    System.out.println(isNewTypePalindrome("ABCDXYXDDAB") ? "Palindrome" : "Not Palindrome");
+    System.out.println(isNewTypePalindrome(""));
+    System.out.println(isNewTypePalindrome("A"));
+    System.out.println(isNewTypePalindrome("ABXAB"));
+    System.out.println(isNewTypePalindrome("ABXCDYYDCXBA"));
+    System.out.println(isNewTypePalindrome("ABCEDABXYXABCEDAB"));
+    System.out.println(isNewTypePalindrome("ABCDXYYXCDAB"));
+    System.out.println(isNewTypePalindrome("ABCDXYXDDAB"));
   }
 }
