@@ -22,7 +22,7 @@ public class MinBracketRemovalToMakeBracketBalanced {
         close++;
       }
     }
-    return (int) (Math.ceil((0.0 + open) / 2) + Math.ceil((0.0 + close) / 2));
+    return (open + 1) / 2 + (close + 1) / 2;
   }
 
   public static void main(String[] args) {
