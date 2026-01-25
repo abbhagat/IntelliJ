@@ -2,8 +2,8 @@ package stack;
 
 import java.util.Stack;
 
-// Time Complexity  - O(n)
-// Space Complexity - O(n)
+// Time Complexity  : O(n)
+// Space Complexity : O(n)
 public class FindTheLongestBalancedBracketAndItsLength {
 
   private static void longestBalancedBracketLength(String exp) {

@@ -20,7 +20,6 @@ public class DecodeString {
       } else if (c == ']') {
         String temp = decode;
         decode = stack.pop();
-        int k  = count.pop();
         for (int i = 1; i <= count.pop(); i++) {
           decode += temp;
         }
