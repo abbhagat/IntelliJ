@@ -23,6 +23,13 @@ public class StringRotationWithIndex {
     return s1 + new StringBuilder(s2).reverse() + s3;
   }
 
+  private static StringBuilder rotateStr(String s, int start, int end) {
+    return new StringBuilder()
+        .append(s, 0, end)
+        .append(new StringBuilder(s.substring(end, start + 1)).reverse())
+        .append(s.substring(start + 1));
+  }
+
   public static void main(String[] args) {
     String s = "abcde";
     System.out.println(rotate(s, 3, 1) + "\t" + rotateString(s, 3, 1));
