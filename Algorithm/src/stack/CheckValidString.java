@@ -27,17 +27,6 @@ package stack;
 public class CheckValidString {
 
   public static boolean checkValidString(String exp) {
-    int low = 0, high = 0;
-    for (char c : exp.toCharArray()) {
-      low += c == '(' ? 1 : -1;
-      high += c != ')' ? 1 : -1;
-      if (high < 0) break;
-      low = Math.max(low, 0);
-    }
-    return low == 0;
-  }
-
-  public static boolean checkValid(String exp) {
     int open = 0, close = 0;
     for (char c : exp.toCharArray()) {
       if (c == '(') {
@@ -54,10 +43,10 @@ public class CheckValidString {
   }
 
   public static void main(String[] args) {
-    System.out.println(checkValidString(")(") + "\t" + checkValid(")("));
-    System.out.println(checkValidString("(*") + "\t" + checkValid("(*"));
-    System.out.println(checkValidString("(()())") + "\t" + checkValid("(()())"));
-    System.out.println(checkValidString("(***)") + "\t" + checkValid("(***)"));
-    System.out.println(checkValidString("())()") + "\t" + checkValid("())()"));
+    System.out.println(checkValidString(")("));
+    System.out.println(checkValidString("(*"));
+    System.out.println(checkValidString("(()())"));
+    System.out.println(checkValidString("(***)"));
+    System.out.println(checkValidString("())()"));
   }
 }

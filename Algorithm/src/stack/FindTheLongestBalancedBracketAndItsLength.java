@@ -27,7 +27,7 @@ public class FindTheLongestBalancedBracketAndItsLength {
       }
     }
     String s = maxLength > 0 ? exp.substring(endIndex - maxLength + 1, endIndex + 1) : "";
-    System.out.println(s + "\t " + s.length());
+    System.out.println(s + ".length() = " + s.length());
   }
 
   public static void main(String[] args) {

@@ -16,8 +16,7 @@ public class BasicCalculator {
         n = n * 10 + (c - '0');
       }
       if (c == '(') {
-        i++;                      // skip '('
-        n = calculate(exp, i);   // evaluate inside parentheses
+        n = calculate(exp, ++i);   // skip '(' so ++i and then evaluate inside parentheses
       }
       if (!Character.isDigit(c) && c != ' ' || i == exp.length() - 1) {
         switch (sign) {
