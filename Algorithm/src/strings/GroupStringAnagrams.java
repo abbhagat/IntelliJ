@@ -14,8 +14,8 @@ public class GroupStringAnagrams {
     Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
     list.forEach(str -> {
       Map<Character, Integer> freqMap = new HashMap<>();
-      str.chars().forEach(c -> freqMap.merge((char) c, 1, Integer::sum));
-      map.computeIfAbsent(freqMap, k -> new ArrayList<>()).add(str);
+      str.chars().forEach(c -> freqMap.put((char) c, freqMap.getOrDefault((char) c , 0) + 1));
+      map.computeIfAbsent(freqMap, v -> new ArrayList<>()).add(str);
     });
     return map.values();
   }

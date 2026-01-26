@@ -22,10 +22,10 @@ public class Isomorphic {
   }
 
   public static void main(String[] args) {
-    System.out.println(isIsomorphic("egg".toCharArray(), "add".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
-    System.out.println(isIsomorphic("eeg".toCharArray(), "add".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
-    System.out.println(isIsomorphic("aab".toCharArray(), "baa".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
-    System.out.println(isIsomorphic("aab".toCharArray(), "xxy".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
-    System.out.println(isIsomorphic("ACA".toCharArray(), "XCX".toCharArray()) ? "Isomorphic" : "Not Isomorphic");
+    System.out.println(isIsomorphic("egg".toCharArray(), "add".toCharArray()));
+    System.out.println(isIsomorphic("eeg".toCharArray(), "add".toCharArray()));
+    System.out.println(isIsomorphic("aab".toCharArray(), "baa".toCharArray()));
+    System.out.println(isIsomorphic("aab".toCharArray(), "xxy".toCharArray()));
+    System.out.println(isIsomorphic("ACA".toCharArray(), "XCX".toCharArray()));
   }
 }
