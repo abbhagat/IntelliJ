@@ -26,7 +26,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
     // adjust the random pointers of the newly added nodes
     while (temp != null) {
       if (temp.next != null) {
-        temp.next.random = temp.random == null ? temp.random : temp.random.next;
+        temp.next.random = temp.random == null ? null : temp.random.next;
       }
       temp = temp.next.next; // move to the next newly added node by skipping an original node
     }
