@@ -38,7 +38,7 @@ public class CreateMapFromList {
     System.out.println(map);
 
     Map<String, List<Integer>> deptListMap = new LinkedHashMap<>();
-    employeeList.forEach(emp -> deptListMap.computeIfAbsent(emp.deptName(), k -> new ArrayList<>()).add(emp.id()));
+    employeeList.forEach(emp -> deptListMap.computeIfAbsent(emp.deptName(), value -> new ArrayList<>()).add(emp.id()));
     System.out.println(deptListMap);
   }
 
