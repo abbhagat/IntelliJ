@@ -20,7 +20,8 @@ public class DecodeString {
       } else if (c == ']') {
         String temp = decode;
         decode = stack.pop();
-        for (int i = 1; i <= count.pop(); i++) {
+        int k  = count.pop();
+        for (int i = k; i > 0; i--) {
           decode += temp;
         }
       } else {
@@ -31,8 +32,8 @@ public class DecodeString {
   }
 
   public static void main(String[] args) {
-    System.out.println(decodeString("3[a]2[bc]"));
-    System.out.println(decodeString("3[a2[c]]"));
-    System.out.println(decodeString("2[abc]3[cd]ef"));
+    System.out.println(decodeString("3[a]2[bc]"));        // aaabcbc
+    System.out.println(decodeString("3[a2[c]]"));        // accaccacc
+    System.out.println(decodeString("2[abc]3[cd]ef"));  // abcabccdcdcdef
   }
 }
