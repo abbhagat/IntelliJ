@@ -1,7 +1,6 @@
 package adobe;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
@@ -11,7 +10,7 @@ import static java.lang.Integer.min;
 public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
   private static int longestSubString(String s, int start, int end, int k) {
-    Map<Character, Integer> map = new LinkedHashMap<>();
+    Map<Character, Integer> map = new HashMap<>();
     s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     for (int i = start; i < end; i++) {
       if (map.get(s.charAt(i)) < k) {

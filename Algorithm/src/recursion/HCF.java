@@ -10,7 +10,7 @@ public class HCF {
     return y == 0 ? x : findHCF(y, x % y);
   }
 
-  // Time Complexity: O(min(x,y))
+  // Time  Complexity: O(min(x,y))
   // Space Complexity: O(1)
   private static int findGCD(int x, int y) {
     int hcf = 1;
