@@ -1,12 +1,14 @@
 package vmware;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
+import static util.CommonUtils.printArray;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(1)
 public class NthMaxAndMinElementInArray {
 
-  private static Integer thirdMax(int[] a, int n) {
+  private static Integer nthMax(int[] a, int n) {
     PriorityQueue<Integer> pq = new PriorityQueue<>();
     for (int x : a) {
       pq.add(x);
@@ -17,8 +19,8 @@ public class NthMaxAndMinElementInArray {
     return pq.isEmpty() ? null : pq.peek();
   }
 
-  private static Integer thirdMin(int[] a, int n) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
+  private static Integer nthMin(int[] a, int n) {
+    PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);  // Comparator.reverseOrder()
     for (int x : a) {
       pq.add(x);
       if (pq.size() > n) {
@@ -30,9 +32,11 @@ public class NthMaxAndMinElementInArray {
 
   public static void main(String[] args) {
     int[] a = {5, 2, 8, 4, 10, 1, 7, 3, 9, 6};
-    System.out.println(thirdMax(a, 3));
-    System.out.println(thirdMin(a, 3));
-    System.out.println(thirdMax(a, 2));
-    System.out.println(thirdMin(a, 2));
+    Arrays.sort(a);
+    printArray(a);
+    System.out.println(nthMax(a, 3));
+    System.out.println(nthMin(a, 3));
+    System.out.println(nthMax(a, 2));
+    System.out.println(nthMin(a, 2));
   }
 }
