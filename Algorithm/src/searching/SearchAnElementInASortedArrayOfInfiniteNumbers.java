@@ -11,18 +11,7 @@ public class SearchAnElementInASortedArrayOfInfiniteNumbers {
       high += (high - low + 1) * 2;
       low = t;
     }
-    return binarySearch(a, low, high, n);
-  }
-
-  private static int binarySearch(int[] a, int low, int high, int n) {
-    if (low <= high) {
-      int mid = (low + high) / 2;
-      if (n == a[mid]) {
-        return mid;
-      }
-      return n < a[mid] ? binarySearch(a, low, mid - 1, n) : binarySearch(a, mid + 1, high, n);
-    }
-    return -1;
+    return BinarySearch.binarySearch(a, low, high, n);
   }
 
   public static void main(String[] args) {

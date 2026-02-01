@@ -1,5 +1,6 @@
 package searching;
 
+import static searching.BinarySearch.binarySearch;
 // Time  Complexity: O(log n)
 // Space Complexity: O(1)
 public class SearchAnElementInSortedAndRotatedArray {
@@ -33,22 +34,11 @@ public class SearchAnElementInSortedAndRotatedArray {
     return mid;
   }
 
-  private static int binarySearch(int[] a, int low, int high, int n) {
-    if (low <= high) {
-      int mid = (low + high) / 2;
-      if (n == a[mid]) {
-        return mid;
-      }
-      return n < a[mid] ? binarySearch(a, low, mid - 1, n) : binarySearch(a, mid + 1, high, n);
-    }
-    return -1;
-  }
-
   public static void main(String[] args) {
     int[] a = {4, 5, 1, 2, 3};
-    System.out.println(pivotedBinarySearch(a, 2) != -1 ? "Present" : "Not Present");
-    System.out.println(pivotedBinarySearch(a, 5) != -1 ? "Present" : "Not Present");
-    System.out.println(pivotedBinarySearch(a, 1) != -1 ? "Present" : "Not Present");
-    System.out.println(pivotedBinarySearch(a, 9) != -1 ? "Present" : "Not Present");
+    System.out.println(pivotedBinarySearch(a, 2) != -1);
+    System.out.println(pivotedBinarySearch(a, 5) != -1);
+    System.out.println(pivotedBinarySearch(a, 1) != -1);
+    System.out.println(pivotedBinarySearch(a, 9) != -1);
   }
 }

@@ -13,19 +13,18 @@ public class BinarySearch {
     System.out.println(Arrays.binarySearch(a, 0, a.length - 1, 35));
     Arrays.sort(a);
     printArray(a);
-    boolean isPresent = binarySearch(a, 0, a.length - 1, 35);
-    System.out.println(isPresent ? "Present" : "Not Present");
+    int index = binarySearch(a, 0, a.length - 1, 35);
+    System.out.println(index == -1);
   }
 
-  public static boolean binarySearch(int[] a, int low, int high, int n) {
+  public static int binarySearch(int[] a, int low, int high, int n) {
     if (low <= high) {
       int mid = (low + high) / 2;
       if (n == a[mid]) {
-        System.out.println("Present at Index :" + mid);
-        return true;
+        return mid;
       }
       return n < a[mid] ? binarySearch(a, low, mid - 1, n) : binarySearch(a, mid + 1, high, n);
     }
-    return false;
+    return -1;
   }
 }
