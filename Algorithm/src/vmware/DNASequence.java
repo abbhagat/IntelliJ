@@ -19,7 +19,6 @@ public class DNASequence {
       }
       set.add(s);
     }
-    System.out.println(set);
     return list;
   }
 
