@@ -11,7 +11,7 @@ public class MissingNumber3 {
     int n = a.length;
     boolean[] isPresent = new boolean[n + 1];
     for (int x : a) {
-      if (x <= n) {
+      if (x > 0 && x <= n) {
         isPresent[x] = true;
       }
     }

@@ -8,7 +8,7 @@ package searching;
 public class MissingNumber2 {
 
   private static void findMissing(int[] a) {
-    int n = a.length + 2;
+    int n = a.length + 2;  // + 2 because if the two elements weren't ,missing the array size would be current size + 2
     boolean[] isPresent = new boolean[n + 1];
     for (int x : a) {
       if (x > 0 && x <= n) {

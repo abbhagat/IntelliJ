@@ -5,14 +5,14 @@ import java.util.Arrays;
 public class MissingNumber {
 
   private static int findMissingNumber(int[] a) {
-    int sum = Arrays.stream(a).sum();
+    int sum2 = Arrays.stream(a).sum();
     int min = Arrays.stream(a).min().getAsInt();
     int max = Arrays.stream(a).max().getAsInt();
-    int sum2 = 0;
+    int sum1 = 0;
     for (int i = min; i <= max; i++) {
-      sum2 += i;
+      sum1 += i;
     }
-    return sum2 - sum;
+    return sum1 - sum2;
   }
 
   public static void main(String[] args) {
