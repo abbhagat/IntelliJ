@@ -30,8 +30,8 @@ class Game {
 
   private Game(Builder builder) {
     this.playerList = builder.playerList;
-    this.ladderMap = builder.ladderMap;
-    this.snakeMap = builder.snakeMap;
+    this.ladderMap  = builder.ladderMap;
+    this.snakeMap   = builder.snakeMap;
   }
 
   public final void play() {
@@ -73,9 +73,9 @@ class Game {
 
   public static class Builder {
 
-    private final List<Player> playerList = new ArrayList<>();
-    private final Map<Integer, Integer> ladderMap = new HashMap<>();
-    private final Map<Integer, Integer> snakeMap = new HashMap<>();
+    private final List<Player>          playerList = new ArrayList<>();
+    private final Map<Integer, Integer> ladderMap  = new HashMap<>();
+    private final Map<Integer, Integer> snakeMap   = new HashMap<>();
 
     Game build() {
       return new Game(this);
