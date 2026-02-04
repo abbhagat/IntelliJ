@@ -14,29 +14,28 @@ public class PalindromeDate {
 
   private static String nextPalindromeDate(String inputDate, String format) {
     Calendar cal = Calendar.getInstance();
-    int year = Integer.parseInt(inputDate.substring(0, 4));
-    int month = Integer.parseInt(inputDate.substring(4, 6));
-    int day = Integer.parseInt(inputDate.substring(6));
+    int year     = Integer.parseInt(inputDate.substring(0, 4));
+    int month    = Integer.parseInt(inputDate.substring(4, 6));
+    int day      = Integer.parseInt(inputDate.substring(6));
     if (month == 4) {
       cal.set(year, Calendar.APRIL, day);
     }
     SimpleDateFormat sdf = new SimpleDateFormat(format);
-    Date date = cal.getTime();
     String dateStr;
-    StringBuilder palindromeDate = new StringBuilder();
     while (true) {
-      dateStr = sdf.format(date);
-      palindromeDate.replace(0, dateStr.length(), dateStr);
-      if (dateStr.contentEquals(palindromeDate.reverse())) {
+      Date date = cal.getTime();
+      dateStr   = sdf.format(date);
+      StringBuilder revDateStr = new StringBuilder(dateStr).reverse();
+      if (dateStr.contentEquals(revDateStr)) {
         break;
       }
       cal.add(Calendar.DATE, 1);
-      date = cal.getTime();
     }
     return dateStr;
   }
 
   public static void main(String[] args) {
     System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404", "yyyyMMdd"));
+    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250205", "yyyyMMdd"));
   }
 }
