@@ -1,5 +1,6 @@
 package geeks;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.Date;
  */
 public class PalindromeDate {
 
-  private static String nextPalindromeDate(String inputDate, String format) {
+  private static String nextPalindromeDate(String inputDate, String format) throws ParseException {
     Calendar cal = Calendar.getInstance();
     int year     = Integer.parseInt(inputDate.substring(0, 4));
     int month    = Integer.parseInt(inputDate.substring(4, 6));
@@ -31,10 +32,11 @@ public class PalindromeDate {
       }
       cal.add(Calendar.DATE, 1);
     }
-    return dateStr;
+    Date date = sdf.parse(dateStr);
+    return new SimpleDateFormat("dd-MMM-yyyy").format(date);
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws ParseException {
     System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404", "yyyyMMdd"));
     System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250205", "yyyyMMdd"));
   }
