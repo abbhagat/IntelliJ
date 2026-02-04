@@ -1,21 +1,17 @@
 package geeks;
 
 /*
- *  1234567  --> 1234567
- *  13244670 --> 1-32*4*4*670
+ *  1234567    --> 1234567
+ *  13244670   --> 1-32*4*4*670
+ *  1223504567 --> 12*23-504567
  */
 
 public class DashProblem {
 
   private static StringBuilder dashProblem(String str) {
     int[] a = str.chars().map(c -> c - '0').toArray();
-    boolean prevOdd  = false;
-    boolean prevEven = false;
-    if (a[0] % 2 == 0) {
-      prevEven = true;
-    } else {
-      prevOdd = true;
-    }
+    boolean prevOdd  = a[0] % 2 != 0;
+    boolean prevEven = a[0] % 2 == 0;
     int i;
     StringBuilder sb = new StringBuilder();
     for (i = 1; i < a.length; i++) {
@@ -44,8 +40,8 @@ public class DashProblem {
   }
 
   public static void main(String[] args) {
-    System.out.println(dashProblem("1234567"));
-    System.out.println(dashProblem("13244670"));
-    System.out.println(dashProblem("1223504567"));
+    System.out.println(dashProblem("1234567"));     // 1234567
+    System.out.println(dashProblem("13244670"));    // 1-32*4*4*670
+    System.out.println(dashProblem("1223504567"));  // 12*23-504567
   }
 }
