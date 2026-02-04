@@ -33,6 +33,7 @@ public class DivideArrayInTwoEqualHalf {
 
   public static void main(String[] args) {
     divideArrayInTwoEqualHalf(new int[]{1, 2, 3, 2, 1});
+    divideArrayInTwoEqualHalf(new int[]{6, 3, 2, 1});
     divideArrayInTwoEqualHalf(new int[]{1, 3, 3, 2, 1, 1});
   }
 }

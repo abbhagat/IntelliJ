@@ -12,19 +12,19 @@ package geeks;
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
   private static void findLength(String s) {
-    String maxString = "";
+    String max = "";
     for (int k = 0; k < s.length(); k++) {
       int leftSum = 0, rightSum = 0;
       for (int i = k, j = k + 1; i >= 0 && j < s.length(); i--, j++) {
-        leftSum  += Character.getNumericValue(s.charAt(i));
-        rightSum += Character.getNumericValue(s.charAt(j));
+        leftSum  += s.charAt(i) - '0';
+        rightSum += s.charAt(j) - '0';
         if (leftSum == rightSum) {
           String str = s.substring(i, j + 1);
-          maxString = maxString.length() < str.length() ? str : maxString;
+          max = max.length() < str.length() ? str : max;
         }
       }
     }
-    System.out.println(maxString + "\t" + maxString.length());
+    System.out.println(max + "\t" + max.length());
   }
 
   public static void main(String[] args) {
