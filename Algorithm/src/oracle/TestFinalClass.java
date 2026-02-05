@@ -26,7 +26,7 @@ record FinalClass(String key, int value, Date date) {
     final int prime = 31;
     int hashCode = 1;
     hashCode = prime * hashCode + this.value;
-    hashCode = prime * hashCode + (this.key == null  ? 0 : this.key.hashCode());
+    hashCode = prime * hashCode + (this.key  == null ? 0 : this.key.hashCode());
     hashCode = prime * hashCode + (this.date == null ? 0 : this.date.hashCode());
     return hashCode;
   }
