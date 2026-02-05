@@ -1,14 +1,16 @@
-package threads;
+package lld;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 interface IConnectionPool {
   Connection getConnection() throws InterruptedException;
+
   void returnConnection(Connection connection);
+
   void stop() throws SQLException;
 }
 
@@ -40,6 +42,16 @@ public class ConnectionPool implements IConnectionPool {
     this.username = username;
     this.password = password;
     initializeConnectionPool();
+  }
+
+  public static void main(String[] args) throws SQLException, InterruptedException {
+    IConnectionPool connectionPool = new ConnectionPool(10);
+    ((ConnectionPool) connectionPool).getConnectionPool().forEach(System.out::println);
+    Connection connection = connectionPool.getConnection();
+    System.out.println("Got connection: " + connection);
+    connectionPool.returnConnection(connection);
+    System.out.println("Returned connection to pool.");
+    connectionPool.stop();
   }
 
   public BlockingQueue<Connection> getConnectionPool() {
@@ -85,15 +97,5 @@ public class ConnectionPool implements IConnectionPool {
       connection.close();
     }
     System.out.println("Connection Pool is Stopped");
-  }
-
-  public static void main(String[] args) throws SQLException, InterruptedException {
-    IConnectionPool connectionPool = new ConnectionPool(10);
-    ((ConnectionPool)connectionPool).getConnectionPool().forEach(System.out::println);
-    Connection connection = connectionPool.getConnection();
-    System.out.println("Got connection: " + connection);
-    connectionPool.returnConnection(connection);
-    System.out.println("Returned connection to pool.");
-    connectionPool.stop();
   }
 }

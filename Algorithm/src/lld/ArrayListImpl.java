@@ -1,4 +1,4 @@
-package oracle;
+package lld;
 
 import lombok.Getter;
 
@@ -17,44 +17,6 @@ public class ArrayListImpl<E> {
       throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
     }
     this.list = (E[]) new Object[initialCapacity];
-  }
-
-  public boolean add(E e) {
-    validateCapacity(size + 1);
-    list[size++] = e;
-    return true;
-  }
-
-  public E get(int index) {
-    validateIndex(index);
-    return list[index];
-  }
-
-  public E remove(int index) {
-    validateIndex(index);
-    E oldValue   = list[index];
-    int numMoved = size - index - 1;
-    if (numMoved > 0) {
-      System.arraycopy(list, index + 1, list, index, numMoved);
-    }
-    list[--size] = null;
-    return oldValue;
-  }
-
-  private void validateCapacity(int minCapacity) {
-    int oldCapacity = list.length;
-    if (minCapacity > oldCapacity) {
-      E[] oldData = list;
-      int newCapacity = oldCapacity * 3 / 2 + 1;
-      list = (E[]) new Object[newCapacity];
-      System.arraycopy(oldData, 0, list, 0, size);
-    }
-  }
-
-  private void validateIndex(int index) {
-    if (index < 0 || index >= size) {
-      throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
-    }
   }
 
   public static void main(String[] args) {
@@ -78,6 +40,44 @@ public class ArrayListImpl<E> {
     Object[] obj = al.getList();
     for (Object o : obj) {
       System.out.println(o);
+    }
+  }
+
+  public boolean add(E e) {
+    validateCapacity(size + 1);
+    list[size++] = e;
+    return true;
+  }
+
+  public E get(int index) {
+    validateIndex(index);
+    return list[index];
+  }
+
+  public E remove(int index) {
+    validateIndex(index);
+    E oldValue = list[index];
+    int numMoved = size - index - 1;
+    if (numMoved > 0) {
+      System.arraycopy(list, index + 1, list, index, numMoved);
+    }
+    list[--size] = null;
+    return oldValue;
+  }
+
+  private void validateCapacity(int minCapacity) {
+    int oldCapacity = list.length;
+    if (minCapacity > oldCapacity) {
+      E[] oldData = list;
+      int newCapacity = oldCapacity * 3 / 2 + 1;
+      list = (E[]) new Object[newCapacity];
+      System.arraycopy(oldData, 0, list, 0, size);
+    }
+  }
+
+  private void validateIndex(int index) {
+    if (index < 0 || index >= size) {
+      throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
     }
   }
 }

@@ -1,4 +1,4 @@
-package leetcode;
+package lld;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +17,16 @@ public class TinyUrl {
     indexToUrl = new HashMap<>();
     BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     BASE_URL = "http://www.tinyurl.com/";
+  }
+
+  public static void main(String[] args) {
+    TinyUrl tinyUrl = new TinyUrl();
+    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
+    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    String longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
   }
 
   private String encode(String longURL) {
@@ -51,15 +61,5 @@ public class TinyUrl {
       counter = counter * 62 + BASE_62.indexOf(x);
     }
     return indexToUrl.get(counter);
-  }
-
-  public static void main(String[] args) {
-    TinyUrl tinyUrl = new TinyUrl();
-    String url      = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
-    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    String longURL  = tinyUrl.decode(shortURL);
-    System.out.println(shortURL);
-    System.out.println(longURL);
-    System.out.println(url.equals(longURL));
   }
 }

@@ -1,4 +1,4 @@
-package oracle;
+package lld;
 
 /*
  * LRU cache is implemented using a Deque and HashMap.
@@ -31,6 +31,18 @@ public class LRUCache<K, V> {
     this.cacheSize = cacheSize;
   }
 
+  public static void main(String[] args) {
+    LRUCache<Integer, Integer> cache = new LRUCache<>(4);
+    cache.put(1, 100);
+    cache.put(2, 200);
+    cache.put(3, 300);
+    cache.put(4, 400);
+    System.out.println(cache.get(1));
+    cache.put(1, 1000);
+    cache.put(5, 500);
+    System.out.println(cache.get(1));
+  }
+
   public synchronized V get(K key) {
     V value = null;
     if (map.containsKey(key)) {
@@ -50,17 +62,5 @@ public class LRUCache<K, V> {
     }
     map.put(key, value);
     q.addFirst(key);
-  }
-
-  public static void main(String[] args) {
-    LRUCache<Integer, Integer> cache = new LRUCache<>(4);
-    cache.put(1, 100);
-    cache.put(2, 200);
-    cache.put(3, 300);
-    cache.put(4, 400);
-    System.out.println(cache.get(1));
-    cache.put(1, 1000);
-    cache.put(5, 500);
-    System.out.println(cache.get(1));
   }
 }

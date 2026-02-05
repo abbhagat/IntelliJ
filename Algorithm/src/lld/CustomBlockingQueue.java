@@ -1,4 +1,4 @@
-package threads;
+package lld;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -44,12 +44,12 @@ class Producer<E extends String> implements Runnable {
 
   @Override
   public void run() {
-    for(int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; i++) {
       try {
         String message = "Message " + i;
         System.out.println("Put : " + message);
         q.put((E) message);
-         Thread.sleep(100);
+        Thread.sleep(100);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -68,7 +68,7 @@ class Consumer<E extends String> implements Runnable {
 
   @Override
   public void run() {
-    for(int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; i++) {
       try {
         System.out.println("Get : " + q.get());
         Thread.sleep(100);

@@ -1,4 +1,4 @@
-package threads;
+package lld;
 
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
@@ -32,8 +32,8 @@ class ThreadPool {
   private volatile boolean isStopped;
 
   public ThreadPool(int poolSize) {
-    this.queue     = new LinkedBlockingQueue<>();
-    this.threads   = new Thread[poolSize];
+    this.queue = new LinkedBlockingQueue<>();
+    this.threads = new Thread[poolSize];
     this.isStopped = false;
     for (int i = 0; i < poolSize; i++) {
       this.threads[i] = new Worker(queue);
@@ -51,7 +51,7 @@ class ThreadPool {
   public void waitUntilAllTasksFinished() {
     while (!this.queue.isEmpty()) {
       Thread.yield();   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
-                       // The scheduler is free to ignore this hint.
+      // The scheduler is free to ignore this hint.
     }
   }
 
