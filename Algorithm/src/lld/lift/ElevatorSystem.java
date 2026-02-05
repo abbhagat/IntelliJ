@@ -24,6 +24,6 @@ public class ElevatorSystem {
   }
 
   public static void main(String[] args) {
-
+    new ElevatorSystem(4).handleRequest(new Request(2, Direction.UP));
   }
 }
