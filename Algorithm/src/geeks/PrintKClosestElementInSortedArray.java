@@ -19,10 +19,8 @@ public class PrintKClosestElementInSortedArray {
         System.out.print(a[j++] + " ");
       } else if (j >= a.length) {
         System.out.print(a[i--] + " ");
-      } else if (abs(n - a[i]) <= abs(n - a[j])) {
-        System.out.print(a[i--] + " ");
       } else {
-        System.out.print(a[j++] + " ");
+        System.out.print((abs(n - a[i]) <= abs(n - a[j])) ? a[i--] + " " : a[j++] + " ");
       }
     }
     System.out.println();

@@ -32,7 +32,7 @@ public class ArrayListImpl<E> {
 
   public E remove(int index) {
     validateIndex(index);
-    E oldValue = list[index];
+    E oldValue   = list[index];
     int numMoved = size - index - 1;
     if (numMoved > 0) {
       System.arraycopy(list, index + 1, list, index, numMoved);

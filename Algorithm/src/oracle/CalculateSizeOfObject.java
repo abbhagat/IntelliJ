@@ -2,6 +2,7 @@ package oracle;
 
 import java.io.*;
 import java.time.LocalDate;
+//import org.openjdk.jol.info.ClassLayout;
 
 record Employee(int id, String name, LocalDate dob) implements Serializable {
   @Serial
@@ -13,10 +14,11 @@ public class CalculateSizeOfObject {
   public static void main(String[] args) throws Exception {
     Employee emp = new Employee(1, "Abhinaw", LocalDate.of(1986, 10, 7));
     System.out.println(emp);
-    FileOutputStream fos = new FileOutputStream("Employee.txt");
+    FileOutputStream  fos = new FileOutputStream("Employee.txt");
     ObjectOutputStream os = new ObjectOutputStream(fos);
     os.writeObject(emp);
     File file = new File("Employee.txt");
     System.out.println(file.length() + " bytes");
+//    System.out.println(ClassLayout.parseInstance(emp).toPrintable());
   }
 }
