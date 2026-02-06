@@ -9,11 +9,11 @@ public class RetryHandler {
 
     while (attempts < MAX_RETRIES) {
       if (channel.send(notification)) {
-        notification.status = NotificationStatus.SENT;
+        notification.setStatus(NotificationStatus.SENT);
         return;
       }
       attempts++;
     }
-    notification.status = NotificationStatus.FAILED;
+    notification.setStatus(NotificationStatus.FAILED);
   }
 }
