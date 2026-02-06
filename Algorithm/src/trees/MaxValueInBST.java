@@ -5,14 +5,14 @@ import static trees.CreateBST.createBST;
 public class MaxValueInBST {
 
   public static Node maxValueInBST(Node root) {
-    while (null != root && null != root.right) {
+    while (root != null && root.right != null) {
       root = root.right;
     }
     return root;
   }
 
   public static Node maxValueBST(Node root) {
-    if (null != root && null != root.right) {
+    if (root != null && root.right != null) {
       root = maxValueBST(root.right);
     }
     return root;
