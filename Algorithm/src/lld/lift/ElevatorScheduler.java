@@ -11,7 +11,7 @@ public class ElevatorScheduler {
       if (elevator.getState() == ElevatorState.IDLE) {
         int distance = Math.abs(elevator.getCurrentFloor() - request.floor());
         if (distance < minDistance) {
-          minDistance = distance;
+          minDistance  = distance;
           bestElevator = elevator;
         }
       }
