@@ -1,13 +1,18 @@
 package lld.lift;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.PriorityQueue;
 
+@Getter
+@Setter
 public class Elevator {
 
-  int id;
-  int currentFloor;
-  Direction direction;
-  ElevatorState state;
+  private int id;
+  private int currentFloor;
+  private Direction direction;
+  private ElevatorState state;
 
   PriorityQueue<Integer> upQueue = new PriorityQueue<>();
   PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a);

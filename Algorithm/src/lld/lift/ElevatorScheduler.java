@@ -8,8 +8,8 @@ public class ElevatorScheduler {
     Elevator bestElevator = null;
     int minDistance = Integer.MAX_VALUE;
     for (Elevator elevator : elevators) {
-      if (elevator.state == ElevatorState.IDLE) {
-        int distance = Math.abs(elevator.currentFloor - request.floor);
+      if (elevator.getState() == ElevatorState.IDLE) {
+        int distance = Math.abs(elevator.getCurrentFloor() - request.floor());
         if (distance < minDistance) {
           minDistance = distance;
           bestElevator = elevator;
