@@ -12,5 +12,6 @@ public class NotificationService {
       boolean success = channel.send(notification);
       notification.setStatus(success ? NotificationStatus.SENT : NotificationStatus.FAILED);
     });
+    executor.shutdown();
   }
 }
