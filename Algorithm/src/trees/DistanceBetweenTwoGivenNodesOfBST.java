@@ -31,15 +31,15 @@ public class DistanceBetweenTwoGivenNodesOfBST {
          / \     /  \
         8  12   16  25
     */
-    Node root = new Node(15);
-    root.left = new Node(10);
-    root.right = new Node(20);
-    root.left.left = new Node(8);
-    root.left.right = new Node(12);
-    root.right.left = new Node(16);
+    Node root        = new Node(15);
+    root.left        = new Node(10);
+    root.right       = new Node(20);
+    root.left.left   = new Node(8);
+    root.left.right  = new Node(12);
+    root.right.left  = new Node(16);
     root.right.right = new Node(25);
     System.out.println(findDistance(root, 15, 12));
-    System.out.println(findDistance(root, 8, 12));
-    System.out.println(findDistance(root, 8, 25));
+    System.out.println(findDistance(root, 8,  12));
+    System.out.println(findDistance(root, 8,  25));
   }
 }
