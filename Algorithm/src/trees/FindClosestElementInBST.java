@@ -28,18 +28,18 @@ public class FindClosestElementInBST {
       closest = diff;
       closetNode.node = root;
     }
-    findClosest(root.left, k, closest, closetNode);
+    findClosest(root.left,  k, closest, closetNode);
     findClosest(root.right, k, closest, closetNode);
   }
 
   public static void main(String[] args) {
-    Node root = new Node(10);
-    root.left = new Node(2);
-    root.right = new Node(11);
-    root.left.left = new Node(1);
-    root.left.right = new Node(5);
-    root.left.right.left = new Node(3);
-    root.left.right.right = new Node(6);
+    Node root                  = new Node(10);
+    root.left                  = new Node(2);
+    root.right                 = new Node(11);
+    root.left.left             = new Node(1);
+    root.left.right            = new Node(5);
+    root.left.right.left       = new Node(3);
+    root.left.right.right      = new Node(6);
     root.left.right.left.right = new Node(4);
     NodeWrapper closetNode = new NodeWrapper();
     int k = 13;
