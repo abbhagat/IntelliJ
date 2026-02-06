@@ -5,19 +5,12 @@ import java.util.concurrent.Executors;
 
 public class NotificationService {
 
-  private final ExecutorService executor =
-      Executors.newFixedThreadPool(5);
+  private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
-  public void sendAsync(
-      Notification notification,
-      NotificationChannel channel
-  ) {
+  public void sendAsync(Notification notification, NotificationChannel channel) {
     executor.submit(() -> {
       boolean success = channel.send(notification);
-      notification.status =
-          success ? NotificationStatus.SENT
-              : NotificationStatus.FAILED;
+      notification.setStatus(success ? NotificationStatus.SENT : NotificationStatus.FAILED);
     });
   }
 }
-

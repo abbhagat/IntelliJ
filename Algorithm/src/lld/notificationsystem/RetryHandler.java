@@ -4,10 +4,7 @@ public class RetryHandler {
 
   private static final int MAX_RETRIES = 3;
 
-  public void retry(
-      Notification notification,
-      NotificationChannel channel
-  ) {
+  public void retry(Notification notification, NotificationChannel channel) {
     int attempts = 0;
 
     while (attempts < MAX_RETRIES) {
@@ -20,4 +17,3 @@ public class RetryHandler {
     notification.status = NotificationStatus.FAILED;
   }
 }
-

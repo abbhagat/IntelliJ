@@ -4,7 +4,7 @@ class SmsNotification implements NotificationChannel {
 
   @Override
   public boolean send(Notification notification) {
-    System.out.println("Sending SMS to " + notification.userId);
+    System.out.println("Sending SMS to " + notification.getUserId());
     return true;
   }
 }

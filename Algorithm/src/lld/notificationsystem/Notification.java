@@ -1,10 +1,15 @@
 package lld.notificationsystem;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 class Notification {
-  String id;
-  String userId;
-  String message;
-  NotificationStatus status;
+  private String id;
+  private String userId;
+  private String message;
+  private NotificationStatus status;
 
   public Notification(String id, String userId, String message) {
     this.id = id;

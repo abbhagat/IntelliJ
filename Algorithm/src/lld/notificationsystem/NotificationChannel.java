@@ -1,5 +1,5 @@
 package lld.notificationsystem;
 
-interface NotificationChannel {
+public interface NotificationChannel {
   boolean send(Notification notification);
 }
