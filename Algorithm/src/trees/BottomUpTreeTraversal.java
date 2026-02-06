@@ -2,7 +2,6 @@ package trees;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.lang.Integer.max;
 
 /**

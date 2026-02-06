@@ -14,8 +14,8 @@ public class Elevator {
   private Direction direction;
   private ElevatorState state;
 
-  PriorityQueue<Integer> upQueue   = new PriorityQueue<>();
-  PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a);
+  PriorityQueue<Integer> upQueue   = new PriorityQueue<>();  // serve the nearest higher floors first
+  PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a);  // serve the nearest lower floors first
 
   public Elevator(int id) {
     this.id = id;
