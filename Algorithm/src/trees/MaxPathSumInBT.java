@@ -4,6 +4,10 @@ import static java.lang.Integer.max;
 
 public class MaxPathSumInBT {
 
+  static class Result {
+    int sum = Integer.MIN_VALUE;
+  }
+
   private static int findMaxPathSum(Node root, Result result) {
     if (root == null) {
       return 0;
@@ -29,20 +33,17 @@ public class MaxPathSumInBT {
                             /  \
                             3   4
          */
-    Node root = new Node(10);
-    root.left = new Node(2);
-    root.right = new Node(10);
-    root.left.left = new Node(20);
-    root.left.right = new Node(1);
-    root.right.right = new Node(-25);
-    root.right.right.left = new Node(3);
+    Node root              = new Node(10);
+    root.left              = new Node(2);
+    root.right             = new Node(10);
+    root.left.left         = new Node(20);
+    root.left.right        = new Node(1);
+    root.right.right       = new Node(-25);
+    root.right.right.left  = new Node(3);
     root.right.right.right = new Node(4);
     Result result = new Result();
     findMaxPathSum(root, result);
     System.out.println("The maximum path sum is " + result.sum);
   }
 
-  static class Result {
-    int sum = Integer.MIN_VALUE;
-  }
 }
