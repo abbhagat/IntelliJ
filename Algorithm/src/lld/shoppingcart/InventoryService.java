@@ -7,4 +7,3 @@ public class InventoryService {
     return true; // assume available
   }
 }
-

@@ -1,11 +1,11 @@
 package lld.shoppingcart;
 
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class InMemoryCartRepository implements CartRepository {
 
-  private final ConcurrentHashMap<String, ShoppingCart> store =
-      new ConcurrentHashMap<>();
+  private final Map<String, ShoppingCart> store = new ConcurrentHashMap<>();
 
   @Override
   public ShoppingCart getCart(String userId) {
@@ -14,7 +14,6 @@ public class InMemoryCartRepository implements CartRepository {
 
   @Override
   public void saveCart(ShoppingCart cart) {
-    store.put(cart.userId, cart);
+    store.put(cart.getUserId(), cart);
   }
 }
-

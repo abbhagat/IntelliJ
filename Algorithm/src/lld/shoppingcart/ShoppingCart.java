@@ -1,19 +1,24 @@
 package lld.shoppingcart;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-class ShoppingCart {
+@Getter
+@Setter
+public class ShoppingCart {
 
   String userId;
-  private Map<String, CartItem> items = new ConcurrentHashMap<>();
+  private final Map<String, CartItem> itemMap = new ConcurrentHashMap<>();
 
   public ShoppingCart(String userId) {
     this.userId = userId;
   }
 
   public void addItem(Product product, int qty) {
-    items.compute(product.productId, (k, v) -> {
+    itemMap.compute(product.productId, (k, v) -> {
       if (v == null) return new CartItem(product, qty);
       v.quantity += qty;
       return v;
@@ -21,21 +26,17 @@ class ShoppingCart {
   }
 
   public void updateItem(String productId, int qty) {
-    if (items.containsKey(productId)) {
+    if (itemMap.containsKey(productId)) {
       if (qty <= 0) {
-        items.remove(productId);
+        itemMap.remove(productId);
       } else {
-        items.get(productId).quantity = qty;
+        itemMap.get(productId).quantity = qty;
       }
     }
   }
 
   public void removeItem(String productId) {
-    items.remove(productId);
+    itemMap.remove(productId);
   }
 
-  public Map<String, CartItem> getItems() {
-    return items;
-  }
 }
-

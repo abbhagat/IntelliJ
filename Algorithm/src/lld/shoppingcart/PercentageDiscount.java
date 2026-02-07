@@ -13,4 +13,3 @@ public class PercentageDiscount implements DiscountStrategy {
     return amount - (amount * percent / 100);
   }
 }
-
