@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 @Getter
 @Setter
-public class Elevator {
+public class Elevator implements Runnable {
 
   private int id;
   private int currentFloor;
@@ -63,5 +63,17 @@ public class Elevator {
     }
     state = ElevatorState.STOPPED;
     updateState();
+  }
+
+  @Override
+  public void run() {
+    while (true) {
+      move();
+      try {
+        Thread.sleep(1000); // simulate travel time
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
   }
 }
