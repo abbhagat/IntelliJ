@@ -1,6 +1,7 @@
 package lld.shoppingcart;
 
 public class CartItem {
+
   Product product;
   int quantity;
 
