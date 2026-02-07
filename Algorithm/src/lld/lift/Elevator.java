@@ -14,7 +14,7 @@ public class Elevator {
   private Direction direction;
   private ElevatorState state;
 
-  PriorityQueue<Integer> upQueue   = new PriorityQueue<>();  // serve the nearest higher floors first
+  PriorityQueue<Integer> upQueue = new PriorityQueue<>();                  // serve the nearest higher floors first
   PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a);  // serve the nearest lower floors first
 
   public Elevator(int id) {
@@ -24,9 +24,22 @@ public class Elevator {
     this.state = ElevatorState.IDLE;
   }
 
+  @Override
+  public String toString() {
+    return "Elevator{" +
+        "id=" + id +
+        ", currentFloor=" + currentFloor +
+        ", direction=" + direction +
+        ", state=" + state +
+        ", upQueue=" + upQueue +
+        ", downQueue=" + downQueue +
+        '}';
+  }
+
   public void addRequest(int floor) {
     var x = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
     updateState();
+    System.out.println(this);
   }
 
   private void updateState() {
