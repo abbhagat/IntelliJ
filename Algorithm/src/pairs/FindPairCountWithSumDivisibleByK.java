@@ -33,7 +33,7 @@ public class FindPairCountWithSumDivisibleByK {
       int y = x % k;
       int z = (k - y) % k;  // Complement
       count += map.getOrDefault(z, 0);
-      map.put(y, map.getOrDefault(y, 0) + 1);   // map.merge(y, 1, Integer::sum);
+      map.put(y, map.getOrDefault(y, 0) + 1);
     }
     return count;
   }

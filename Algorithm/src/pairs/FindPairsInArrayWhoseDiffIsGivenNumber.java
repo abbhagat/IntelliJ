@@ -11,17 +11,17 @@ public class FindPairsInArrayWhoseDiffIsGivenNumber {
   public static void findPairs(int[] a, int k) {
     // Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());  // when you consider (x,y) and (y,x) pairs in result
     Set<Integer> set = new HashSet<>();
-    Set<List<Integer>> result = new HashSet<>();
+    Set<List<Integer>> resultSet = new HashSet<>();
     for (int x : a) {
       if (set.contains(x - k)) {
-        result.add(List.of(x, x - k));
+        resultSet.add(List.of(x, x - k));
       }
       if (set.contains(x + k)) {
-        result.add(List.of(x, x + k));
+        resultSet.add(List.of(x, x + k));
       }
       set.add(x);
     }
-    System.out.println(result);
+    System.out.println(resultSet);
   }
 
   public static void main(String[] args) {
