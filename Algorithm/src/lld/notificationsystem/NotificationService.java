@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 
 public class NotificationService {
 
+  // Because sending notifications is a slow, I/O-bound task, and you usually don’t want it to block the main thread.
   private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
   public void sendAsync(Notification notification, NotificationChannel channel) {
