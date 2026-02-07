@@ -3,15 +3,15 @@ package trees;
 // Time Complexity: O(n) where n is the number of nodes in the given Binary Tree.
 
 /*
-                                           1
-                                         /  \
-                                       2     3
-                                      / \
-                                     4   5
-                                    / \
-                                   7   8
-                                      /
-                                    10
+                1
+              /  \
+            2     3
+           / \
+          4   5
+         / \
+        7   8
+           /
+         10
 */
 
 import java.util.LinkedList;
