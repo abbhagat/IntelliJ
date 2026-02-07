@@ -2,26 +2,28 @@ package lld.lift;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.PriorityQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Getter
 @Setter
-public class Elevator implements Runnable {
+public class Elevator {
 
   private int id;
   private int currentFloor;
   private Direction direction;
   private ElevatorState state;
-
-  PriorityQueue<Integer> upQueue = new PriorityQueue<>();                  // serve the nearest higher floors first
-  PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a);  // serve the nearest lower floors first
+  private final PriorityQueue<Integer> upQueue = new PriorityQueue<>();                  // serve the nearest higher floors first
+  private final PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a); // serve the nearest lower floors first
+  private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
   public Elevator(int id) {
     this.id = id;
     this.currentFloor = 0;
     this.direction = Direction.IDLE;
     this.state = ElevatorState.IDLE;
+    executor.submit(this::move);
   }
 
   @Override
@@ -56,24 +58,12 @@ public class Elevator implements Runnable {
   }
 
   public void move() {
-    if (direction == Direction.UP) {
+    if (direction == Direction.UP && !upQueue.isEmpty()) {
       currentFloor = upQueue.poll();
-    } else if (direction == Direction.DOWN) {
+    } else if (direction == Direction.DOWN && !downQueue.isEmpty()) {
       currentFloor = downQueue.poll();
     }
     state = ElevatorState.STOPPED;
     updateState();
-  }
-
-  @Override
-  public void run() {
-    while (true) {
-      move();
-      try {
-        Thread.sleep(1000); // simulate travel time
-      } catch (InterruptedException e) {
-        Thread.currentThread().interrupt();
-      }
-    }
   }
 }
