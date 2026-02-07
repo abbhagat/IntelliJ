@@ -52,7 +52,7 @@ public class TinyUrl {
 
   public static void main(String[] args) {
     TinyUrl tinyUrl = new TinyUrl();
-    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl/";
+    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
     String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
     String longURL = tinyUrl.decode(shortURL);
     System.out.println(shortURL);
