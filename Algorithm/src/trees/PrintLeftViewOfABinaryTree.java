@@ -14,7 +14,7 @@ public class PrintLeftViewOfABinaryTree {
       System.out.print(root.num + " ");
       max_level = level;
     }
-    printLeftView(root.left, level + 1);
+    printLeftView(root.left,  level + 1);
     printLeftView(root.right, level + 1);
   }
 
@@ -30,7 +30,6 @@ public class PrintLeftViewOfABinaryTree {
                            \
                            10
      */
-
     Node root                    = new Node(1);
     root.left                    = new Node(2);
     root.right                   = new Node(3);
