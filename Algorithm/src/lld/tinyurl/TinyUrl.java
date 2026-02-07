@@ -1,4 +1,4 @@
-package lld;
+package lld.tinyurl;
 
 import java.util.HashMap;
 import java.util.Map;
