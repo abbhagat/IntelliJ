@@ -1,5 +1,5 @@
 package lld.ratelimiter;
 
-interface RateLimiter {
+public interface RateLimiter {
   boolean allowRequest(String userId);
 }

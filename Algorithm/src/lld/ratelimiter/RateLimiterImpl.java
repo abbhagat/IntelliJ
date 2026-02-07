@@ -3,7 +3,7 @@ package lld.ratelimiter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-class RateLimiterImpl implements RateLimiter {
+public class RateLimiterImpl implements RateLimiter {
 
   private final Map<String, TokenBucket> userBucketMap = new ConcurrentHashMap<>();
   private final int capacity;
