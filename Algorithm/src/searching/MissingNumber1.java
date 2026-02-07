@@ -26,5 +26,7 @@ public class MissingNumber1 {
     firstMissingPositive(new int[]{1, 3, 4});
     firstMissingPositive(new int[]{1, 2, 3, 4});
     firstMissingPositive(new int[]{2, 3, -7, 6, 8, 1, -10, 15});
+    firstMissingPositive(new int[]{-1, 0});
+    firstMissingPositive(new int[]{-1, 1, -2});
   }
 }
