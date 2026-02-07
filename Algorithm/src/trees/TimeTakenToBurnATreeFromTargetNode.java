@@ -45,7 +45,6 @@ public class TimeTakenToBurnATreeFromTargetNode {
   private static void printQueue() {
     for (int k = q.size(); k > 0; k--) {
       Node root = q.poll();
-      assert root != null;
       if (root.left != null) {
         q.add(root.left);
       }
