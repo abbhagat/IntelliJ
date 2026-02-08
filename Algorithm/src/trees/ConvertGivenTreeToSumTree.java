@@ -31,26 +31,26 @@ import static trees.TreeTraversal.inorder;
 // Time Complexity: O(n)
 public class ConvertGivenTreeToSumTree {
 
-    private static int convert(Node root) {
-        if (root != null) {
-            int oldVal = root.num;
-            int leftSum = convert(root.left);
-            int rightSum = convert(root.right);
-            root.num = leftSum + rightSum;
-            return root.num + oldVal;
-        }
-        return 0;
+  private static int convert(Node root) {
+    if (root != null) {
+      int oldVal   = root.num;
+      int leftSum  = convert(root.left);
+      int rightSum = convert(root.right);
+      root.num = leftSum + rightSum;
+      return root.num + oldVal;
     }
+    return 0;
+  }
 
-    public static void main(String[] args) {
-        Node root        = new Node(10);
-        root.left        = new Node(-2);
-        root.right       = new Node(6);
-        root.left.left   = new Node(8);
-        root.left.right  = new Node(-4);
-        root.right.left  = new Node(7);
-        root.right.right = new Node(5);
-        convert(root);
-        inorder(root);
-    }
+  public static void main(String[] args) {
+    Node root        = new Node(10);
+    root.left        = new Node(-2);
+    root.right       = new Node(6);
+    root.left.left   = new Node(8);
+    root.left.right  = new Node(-4);
+    root.right.left  = new Node(7);
+    root.right.right = new Node(5);
+    convert(root);
+    inorder(root);
+  }
 }
