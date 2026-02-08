@@ -1,5 +1,6 @@
 package trees;
 
+@SuppressWarnings("unused")
 public class BinaryTree {
 
   public static Node createBT(int num, Node root) {
