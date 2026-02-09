@@ -17,14 +17,11 @@ public class AdditionUsingFiveThreads {
     service.shutdown();
   }
 
-  private record WorkerThread(int start, int end) implements Callable<Integer> {
+  private record WorkerThread(int x, int y) implements Callable<Integer> {
 
     @Override
     public Integer call() {
-      int sum = 0;
-      for (int i = start; i <= end; i++) {
-        sum += i;
-      }
+      int sum = x + y;
       System.out.println("Sum calculated by thread : " + Thread.currentThread().getName() + "\t" + sum);
       return sum;
     }

@@ -1,63 +1,42 @@
 package threads;
 
-class ThreadDeadlock {
-
-  public void method1() {
-    synchronized (Integer.class) {
-      System.out.println(Thread.currentThread().getName() + " Lock On Integer class");
-      synchronized (String.class) {
-        System.out.println(Thread.currentThread().getName() + "Lock On String class");
-      }
-    }
-  }
-
-  public void method2() {
-    synchronized (String.class) {
-      System.out.println(Thread.currentThread().getName() + "Lock On String class");
-      synchronized (Integer.class) {
-        System.out.println(Thread.currentThread().getName() + "Lock On Integer class");
-      }
-    }
-  }
-}
-
-class Thread1 implements Runnable {
-
-  private final ThreadDeadlock threadDeadlock;
-
-  public Thread1(ThreadDeadlock threadDeadlock, String threadName) {
-    this.threadDeadlock = threadDeadlock;
-    new Thread(this, threadName).start();
-  }
-
-  @Override
-  public void run() {
-    threadDeadlock.method1();
-    threadDeadlock.method2();
-  }
-}
-
-class Thread2 implements Runnable {
-
-  private final ThreadDeadlock threadDeadlock;
-
-  public Thread2(ThreadDeadlock threadDeadlock, String threadName) {
-    this.threadDeadlock = threadDeadlock;
-    new Thread(this, threadName).start();
-  }
-
-  @Override
-  public void run() {
-    threadDeadlock.method2();
-    threadDeadlock.method1();
-  }
-}
-
 public class ThreadDeadLock {
 
+  private static final Object LOCK_1 = new Object();
+  private static final Object LOCK_2 = new Object();
+
   public static void main(String[] args) {
-    ThreadDeadlock threadDeadlock = new ThreadDeadlock();
-    new Thread1(threadDeadlock, "Thread-1");
-    new Thread2(threadDeadlock, "Thread-2");
+
+    Thread t1 = new Thread(() -> {
+      synchronized (LOCK_1) {
+        System.out.println("Thread 1: Holding LOCK_1");
+        try {
+          Thread.sleep(100);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+        synchronized (LOCK_2) {
+          System.out.println("Thread 1: Holding LOCK_2");
+        }
+      }
+    });
+
+    Thread t2 = new Thread(() -> {
+      synchronized (LOCK_2) {
+        System.out.println("Thread 2: Holding LOCK_2");
+        try {
+          Thread.sleep(100);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+        synchronized (LOCK_1) {
+          System.out.println("Thread 2: Holding LOCK_1");
+        }
+      }
+    });
+
+    t1.start();
+    t2.start();
   }
 }
+

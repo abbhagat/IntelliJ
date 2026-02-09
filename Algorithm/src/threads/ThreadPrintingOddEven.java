@@ -1,13 +1,14 @@
 package threads;
 
-class OddEvenThreadPrinter {
+class OddEvenThreadPrinter implements Runnable {
 
   private static final Object monitor = new Object();
   private static volatile String threadIDToRun = "ODD";
   private static volatile int n = 1;
-  private String threadID;
+  private final String threadID;
 
-  Runnable runnable = () -> {
+  @Override
+  public void run() {
     while (n <= 20) {
       try {
         synchronized (monitor) {
@@ -23,11 +24,11 @@ class OddEvenThreadPrinter {
         System.out.println("Exception occurred with " + e.getMessage());
       }
     }
-  };
+  }
 
   public OddEvenThreadPrinter(String threadID) {
     this.threadID = threadID;
-    new Thread(runnable, "Thread - " + threadID).start();
+    new Thread(this, "Thread - " + threadID).start();
   }
 }
 
