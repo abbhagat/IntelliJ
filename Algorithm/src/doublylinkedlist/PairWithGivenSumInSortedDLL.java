@@ -8,7 +8,7 @@ import static doublylinkedlist.CreateList.last;
 public class PairWithGivenSumInSortedDLL {
 
   private static void pairSum(Node low, Node high, int givenSum) {
-    while (low != high && low != high.right) {
+    while (low != null && high != null && low != high && low != high.right) {
       int sum = low.num + high.num;
       if (sum == givenSum) {
         System.out.print("(" + low.num + ", " + high.num + ")" + "\t");
