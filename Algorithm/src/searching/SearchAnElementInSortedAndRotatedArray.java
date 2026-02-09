@@ -17,7 +17,7 @@ public class SearchAnElementInSortedAndRotatedArray {
     return a[low] > n ? binarySearch(a, pivot + 1, high, n) : binarySearch(a, low, pivot - 1, n);
   }
 
-  private static int findPivot(int[] a) {
+  private static int findPivot(int[] a) {  // same as finding max in a rotated sorted array
     int low = 0, high = a.length - 1, mid = 0;
     while (low <= high) {
       mid = (low + high) / 2;
@@ -36,9 +36,9 @@ public class SearchAnElementInSortedAndRotatedArray {
 
   public static void main(String[] args) {
     int[] a = {4, 5, 1, 2, 3};
-    System.out.println(pivotedBinarySearch(a, 2) != -1);
-    System.out.println(pivotedBinarySearch(a, 5) != -1);
     System.out.println(pivotedBinarySearch(a, 1) != -1);
+    System.out.println(pivotedBinarySearch(a, 5) != -1);
+    System.out.println(pivotedBinarySearch(a, 2) != -1);
     System.out.println(pivotedBinarySearch(a, 9) != -1);
   }
 }

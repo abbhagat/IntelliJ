@@ -1,5 +1,7 @@
 package searching;
 
+import static searching.BinarySearch.binarySearch;
+
 // Time  Complexity: O(log n)
 // Space Complexity: O(1)
 public class SearchAnElementInASortedArrayOfInfiniteNumbers {
@@ -11,7 +13,7 @@ public class SearchAnElementInASortedArrayOfInfiniteNumbers {
       high += (high - low + 1) * 2;
       low = t;
     }
-    return BinarySearch.binarySearch(a, low, high, n);
+    return binarySearch(a, low, high, n);
   }
 
   public static void main(String[] args) {

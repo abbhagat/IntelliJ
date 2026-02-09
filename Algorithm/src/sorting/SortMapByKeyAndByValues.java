@@ -14,7 +14,7 @@ public class SortMapByKeyAndByValues {
               .collect(Collectors.toMap(
                                         Map.Entry::getKey,     // entry -> entry.getKey()
                                         Map.Entry::getValue,  //  entry -> entry.getValue()
-                                        (e1, e2) -> e1,
+                                        (entry1, entry2) -> entry1,
                                         LinkedHashMap::new
                                        )
                       );
@@ -27,7 +27,7 @@ public class SortMapByKeyAndByValues {
         .collect(Collectors.toMap(
                 Map.Entry::getKey,     // entry -> entry.getKey()
                 Map.Entry::getValue,  //  entry -> entry.getValue()
-                (e1, e2) -> e1,
+                (entry1, entry2) -> entry1,
                 LinkedHashMap::new
             )
         );
