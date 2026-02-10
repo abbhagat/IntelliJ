@@ -18,11 +18,14 @@ public class ShoppingCart {
   }
 
   public void addItem(Product product, int qty) {
-    itemMap.compute(product.getProductId(), (k, v) -> {
-      if (v == null) return new CartItem(product, qty);
-      v.quantity += qty;
-      return v;
-    });
+    String productId = product.getProductId();
+    CartItem item = itemMap.get(productId);
+    if (item == null) {
+      item = new CartItem(product, qty);
+      itemMap.put(productId, item);
+    } else {
+      item.quantity += qty;
+    }
   }
 
   public void updateItem(String productId, int qty) {
