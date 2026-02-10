@@ -13,10 +13,10 @@ public class PaymentStrategyFactory {
     strategies.put(PaymentMethod.WALLET, new WalletPaymentStrategy());
   }
 
-  static PaymentStrategy getStrategy(PaymentMethod method) {
-    if (!strategies.containsKey(method)) {
+  static PaymentStrategy getStrategy(PaymentMethod paymentMethod) {
+    if (!strategies.containsKey(paymentMethod)) {
       throw new IllegalArgumentException("Unsupported payment method");
     }
-    return strategies.get(method);
+    return strategies.get(paymentMethod);
   }
 }
