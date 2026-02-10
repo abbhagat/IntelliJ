@@ -73,10 +73,10 @@ The input to the cron job will be the result of the below query
 4. Once the cron job completes it will populate the LAST_EXECUTION_DATE, NEXT_EXECUTION_DATE, STATUS AND RETRY COUNT
    as per below :-
 
-All the job that runs Daily   will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 1;
-All the job that runs Weekly  will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 7;
-All the job that runs Monthly will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 30;
-All the job that runs Yearly  will the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 365;
+All the job that runs Daily   the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 1;
+All the job that runs Weekly  the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 7;
+All the job that runs Monthly the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 30;
+All the job that runs Yearly  the value for NEXT_EXECUTION_DATE will be populated to SYSDATE + 365;
 
 5. Tomorrow I add a new job type BiWeekly as below
 
