@@ -60,10 +60,11 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public void returnConnection(Connection connection) {
+  public boolean returnConnection(Connection connection) {
     if (connection != null && !isPoolClosed) {
-      connectionPool.add(connection);
+      return connectionPool.add(connection);
     }
+    return false;
   }
 
   @Override
@@ -80,8 +81,7 @@ public class ConnectionPool implements IConnectionPool {
     connectionPool.getConnectionPool().forEach(System.out::println);
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
-    connectionPool.returnConnection(connection);
-    System.out.println("Returned connection to pool.");
+    System.out.println("Returned connection to pool " + connectionPool.returnConnection(connection));
     connectionPool.stop();
   }
 }
