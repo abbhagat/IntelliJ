@@ -18,7 +18,7 @@ public class ShoppingCart {
   }
 
   public void addItem(Product product, int qty) {
-    itemMap.compute(product.productId, (k, v) -> {
+    itemMap.compute(product.getProductId(), (k, v) -> {
       if (v == null) return new CartItem(product, qty);
       v.quantity += qty;
       return v;
