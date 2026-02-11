@@ -48,9 +48,9 @@ public class DestinationReachableWith2MovesAllowed {
   }
 
   public static void main(String[] args) {
-    System.out.println(isReachable(2, 10, 26, 12)     ? "Reachable" : "Not Reachable");
-    System.out.println(isReachable(2L, 10L, 26L, 12L) ? "Reachable" : "Not Reachable");
-    System.out.println(isReachable(20, 30, 6, 24)     ? "Reachable" : "Not Reachable");
-    System.out.println(isReachable(20L, 30L, 6L, 24L) ? "Reachable" : "Not Reachable");
+    System.out.println(isReachable(2,   10,  26,  12));
+    System.out.println(isReachable(2L,  10L, 26L, 12L));
+    System.out.println(isReachable(20,  30,  6,   24));
+    System.out.println(isReachable(20L, 30L, 6L,  24L));
   }
 }
