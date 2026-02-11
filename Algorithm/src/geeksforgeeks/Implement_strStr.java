@@ -3,43 +3,44 @@ package geeksforgeeks;
 /*
     strStr("hello", "ll") → 2
     strStr("aaaaa", "bba") → -1
-    strStr("abc", "") → 0      // empty string always matches at index 0
+    strStr("abc", "") → 0      // empty needle always matches at index 0
  */
 
 public class Implement_strStr {
 
-  private static int strStr(String s1, String s2) {
+  public static int strStr(String s1, String s2) {
     if (s2.isEmpty() || s2.equals(s1)) {
       return 0;
     }
     if (s2.length() > s1.length()) {
       return -1;
     }
-    for (int i = 0; i <= s1.length() - s2.length(); i++) {
-      int j = 0;
-      while (j < s2.length() && s1.charAt(i + j) == s2.charAt(j)) {
+    String s = "";
+    int index = -1, j = 0;
+    for (int i = 0; i < s1.length() && j < s2.length(); i++) {
+      if (s1.charAt(i) == s2.charAt(j)) {
+        index = index == -1 ? i : index;
+        s += s1.charAt(i);
         j++;
-      }
-      if (j == s2.length()) {
-        return i;
+        if (s.equals(s2)) {
+          return index;
+        }
+      } else {
+        i = index != -1 ? index : i;
+        s = "";
+        index = -1;
+        j = 0;
       }
     }
     return -1;
   }
 
-  private static int str_str(String s1, String s2) {
-    if (s2.isEmpty() || s2.equals(s1)) {
-      return 0;
-    }
-    return s1.indexOf(s2);
-  }
-
   public static void main(String[] args) {
     System.out.println("mississippi".indexOf(""));
-    System.out.println(strStr("mississippi", "issipi") + "\t" + str_str("mississippi", "issipi"));
-    System.out.println(strStr("mississippi", "issip")  + "\t" + str_str("mississippi", "issip"));
-    System.out.println(strStr("abc", "c")              + "\t" + str_str("abc", "c"));
-    System.out.println(strStr("ABEFGCDEFG", "EFG")     + "\t" + str_str("ABEFGCDEFG", "EFG"));
-    System.out.println(strStr("ABEFGCDEFG", "EFHG")    + "\t" + str_str("ABEFGCDEFG", "EFHG"));
+    System.out.println(strStr("mississippi", "issipi"));
+    System.out.println(strStr("mississippi", "issip"));
+    System.out.println(strStr("abc", "c"));
+    System.out.println(strStr("ABEFGCDEFG", "EFG"));
+    System.out.println(strStr("ABEFGCDEFG", "EFHG"));
   }
 }
