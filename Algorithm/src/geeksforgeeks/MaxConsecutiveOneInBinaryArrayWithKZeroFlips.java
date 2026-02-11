@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
   private static void slidingWindow(int[] a, int k) {
-    int j = 0, i = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
+    int i = 0, j = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
     while (i < a.length) {
       if (zeroCount <= k) {
         zeroCount += a[i] == 0 ? 1 : 0;
