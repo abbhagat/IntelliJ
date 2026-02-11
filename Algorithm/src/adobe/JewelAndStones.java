@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class JewelAndStones {
 
-  private static int numJewelsInStones(String jewels, String stones) {
+  private static int numOfJewelsInStones(String jewels, String stones) {
     Set<Character> set = jewels.chars()
                                .mapToObj(c -> (char) c)
                                .collect(Collectors.toSet());
@@ -19,7 +19,7 @@ public class JewelAndStones {
   }
 
   public static void main(String[] args) {
-    System.out.println(numJewelsInStones("aA", "aAAbbbb"));
-    System.out.println(numJewelsInStones("z",  "ZZ"));
+    System.out.println(numOfJewelsInStones("aA", "aAAbbbb"));
+    System.out.println(numOfJewelsInStones("z",  "ZZ"));
   }
 }

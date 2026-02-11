@@ -30,12 +30,12 @@ public class LongestCommonSubsequence {
   }
 
   public static void main(String[] args) {
-    System.out.println(lcs("cat", "cut", 3, 3)         + "\t" + lcs("cat", "cut"));
-    System.out.println(lcs("geek", "gesek", 4, 5)      + "\t" + lcs("geek", "gesek"));
-    System.out.println(lcs("sunday", "saturday", 6, 8) + "\t" + lcs("sunday", "saturday"));
-    System.out.println(lcs("ros", "horse", 3, 5)       + "\t" + lcs("ros", "horse"));
-    System.out.println(lcs("sea", "eat", 3, 3)         + "\t" + lcs("sea", "eat"));
-    System.out.println(lcs("AGGTAB", "GXTXAYB", 6, 7)  + "\t" + lcs("AGGTAB", "GXTXAYB"));
-    System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcs("ace", "abcde"));
+    System.out.println(lcs("cat", "cut",         3, 3)  + "\t" + lcs("cat", "cut"));
+    System.out.println(lcs("geek", "gesek",      4, 5)  + "\t" + lcs("geek", "gesek"));
+    System.out.println(lcs("sunday", "saturday", 6, 8)  + "\t" + lcs("sunday", "saturday"));
+    System.out.println(lcs("ros", "horse",       3, 5)  + "\t" + lcs("ros", "horse"));
+    System.out.println(lcs("sea", "eat",         3, 3)  + "\t" + lcs("sea", "eat"));
+    System.out.println(lcs("AGGTAB", "GXTXAYB",  6, 7)  + "\t" + lcs("AGGTAB", "GXTXAYB"));
+    System.out.println(lcs("ace", "abcde",       3, 5)  + "\t" + lcs("ace", "abcde"));
   }
 }

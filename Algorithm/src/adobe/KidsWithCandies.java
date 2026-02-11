@@ -7,7 +7,7 @@ import java.util.List;
 public class KidsWithCandies {
 
   private static List<Boolean> kidsWithCandies(int[] candies, int extraCandy) {
-    int maxCandy = Arrays.stream(candies).max().orElse(Integer.MIN_VALUE);
+    int maxCandy = Arrays.stream(candies).max().getAsInt();
     List<Boolean> list = new ArrayList<>();
     Arrays.stream(candies).forEach(candy -> list.add(candy + extraCandy >= maxCandy));
     return list;
