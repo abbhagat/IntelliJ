@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Router {
+
   private final Map<String, Service> routes = new HashMap<>();
 
   public void registerRoute(String path, Service service) {

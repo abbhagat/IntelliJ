@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LoadBalancer {
 
-  private List<Service> instances;
+  private final List<Service> instances;
   private int index = 0;
 
   public LoadBalancer(List<Service> instances) {

@@ -1,33 +1,33 @@
 package lld.apigateway;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class ApiGateway {
 
   private final Router router;
   private final AuthenticationManager authManager;
   private final RateLimiter rateLimiter;
 
-  public ApiGateway(Router router, AuthenticationManager authManager, RateLimiter rateLimiter) {
-    this.router = router;
-    this.authManager = authManager;
-    this.rateLimiter = rateLimiter;
-  }
-
-  public Response handleRequest(Request request) {
+  public void handleRequest(Request request) {
     // Step 1: Authenticate
     if (!authManager.authenticate(request)) {
-      return new Response(401, "Unauthorized");
+      new Response(401, "Unauthorized");
+      return;
     }
     // Step 2: Rate limit
-    String clientId = request.headers.get("client-id");
+    String clientId = request.getHeaders().get("client-id");
     if (!rateLimiter.allowRequest(clientId)) {
-      return new Response(429, "Too Many Requests");
+      new Response(429, "Too Many Requests");
+      return;
     }
     // Step 3: Route
-    Service service = router.getService(request.path);
+    Service service = router.getService(request.getPath());
     if (service == null) {
-      return new Response(404, "Not Found");
+      new Response(404, "Not Found");
+      return;
     }
     // Step 4: Forward request
-    return service.handle(request);
+    service.handle(request);
   }
 }
