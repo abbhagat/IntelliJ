@@ -16,12 +16,11 @@ public class RateLimiterImpl implements RateLimiter {
 
   @Override
   public boolean allowRequest(String userId) {
-//    TokenBucket bucket = userBucketMap.computeIfAbsent(userId, k -> new TokenBucket(capacity, refillRate));
     TokenBucket bucket = userBucketMap.get(userId);
     if (bucket == null) {
       bucket = new TokenBucket(capacity, refillRate);
       userBucketMap.put(userId, bucket);
     }
-    return bucket.tryConsume();
+    return bucket.consumeTokens();
   }
 }

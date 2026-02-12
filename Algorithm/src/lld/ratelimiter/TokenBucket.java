@@ -16,7 +16,7 @@ public class TokenBucket {
     this.lastRefillTime = System.currentTimeMillis();
   }
 
-  public synchronized boolean tryConsume() {
+  public synchronized boolean consumeTokens() {
     refill();
     if (tokens.get() > 0) {
       tokens.decrementAndGet();
