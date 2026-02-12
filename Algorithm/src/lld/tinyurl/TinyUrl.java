@@ -1,5 +1,6 @@
 package lld.tinyurl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +36,7 @@ public class TinyUrl {
       c[i] = BASE_62.charAt(index % 62);     // Base-62 encoding (in reverse)
       index /= 62;
     }
-    while (i >= 0) {
-      c[i--] = '0';      // Fill remaining positions with '0'
-    }
+    Arrays.fill(c, 0, i + 1, '0'); // Fill remaining positions with '0'
     return new String(c);
   }
 
