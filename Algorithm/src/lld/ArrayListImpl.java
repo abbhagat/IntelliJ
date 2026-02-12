@@ -19,30 +19,6 @@ public class ArrayListImpl<E> {
     this.list = (E[]) new Object[initialCapacity];
   }
 
-  public static void main(String[] args) {
-    ArrayListImpl<Integer> al = new ArrayListImpl<>();
-    al.add(1);
-    al.add(2);
-    al.add(3);
-    al.add(4);
-    al.add(5);
-    al.add(6);
-    al.add(7);
-    for (int i = 0; i < al.getSize(); i++) {
-      System.out.println(al.get(i));
-    }
-    al.remove(2);
-    System.out.println("Changed List");
-    for (int i = 0; i < al.getSize(); i++) {
-      System.out.println(al.get(i));
-    }
-    System.out.println();
-    Object[] obj = al.getList();
-    for (Object o : obj) {
-      System.out.println(o);
-    }
-  }
-
   public boolean add(E e) {
     validateCapacity(size + 1);
     list[size++] = e;
@@ -78,6 +54,30 @@ public class ArrayListImpl<E> {
   private void validateIndex(int index) {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
+    }
+  }
+
+  public static void main(String[] args) {
+    ArrayListImpl<Integer> al = new ArrayListImpl<>();
+    al.add(1);
+    al.add(2);
+    al.add(3);
+    al.add(4);
+    al.add(5);
+    al.add(6);
+    al.add(7);
+    for (int i = 0; i < al.getSize(); i++) {
+      System.out.println(al.get(i));
+    }
+    al.remove(2);
+    System.out.println("Changed List");
+    for (int i = 0; i < al.getSize(); i++) {
+      System.out.println(al.get(i));
+    }
+    System.out.println();
+    Object[] obj = al.getList();
+    for (Object o : obj) {
+      System.out.println(o);
     }
   }
 }

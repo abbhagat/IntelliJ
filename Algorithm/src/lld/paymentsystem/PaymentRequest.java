@@ -11,6 +11,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentRequest {
+
   private String transactionId;
   private double amount;
   private PaymentMethod paymentMethod;
