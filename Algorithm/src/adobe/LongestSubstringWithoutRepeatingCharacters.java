@@ -9,7 +9,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
   public static void longestSubstring(String s) {
     Set<Character> set = new HashSet<>();
-    int start = 0, maxLen = 0, index = 0;
+    int start = 0, maxLen = 0, startIndex = 0;
     for (int end = 0; end < s.length(); end++) {
       while (set.contains(s.charAt(end))) {
         set.remove(s.charAt(start));
@@ -18,10 +18,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
       set.add(s.charAt(end));
       if (maxLen < end - start + 1) {
         maxLen = end - start + 1;
-        index  = start;
+        startIndex  = start;
       }
     }
-    System.out.println(s.substring(index, index + maxLen) + "\t" + maxLen);
+    System.out.println(s.substring(startIndex, startIndex + maxLen) + "\t" + maxLen);
   }
 
   public static void main(String[] args) {
