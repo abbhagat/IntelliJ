@@ -11,6 +11,7 @@ public class ApiGatewayImpl {
   public static void main(String[] args) {
     ApiGateway apiGateway = null;
     Request request = new Request();
-    apiGateway.handleRequest(request);
+    Response response = apiGateway.handleRequest(request);
+    System.out.println(response);
   }
 }
