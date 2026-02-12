@@ -4,8 +4,10 @@ public class WordSearch {
 
   private static final char[][] M = {
                                         {'A', 'B', 'H', 'I'},
-                                        {'M', 'A', 'R', 'N'},
-                                        {'U', 'K', 'W', 'A'}
+                                        {'H', 'A', 'G', 'N'},
+                                        {'B', 'K', 'A', 'A'},
+                                        {'R', 'K', 'T', 'W'},
+                                        {'A', 'M', 'U', 'K'}
                                     };
   private static final int ROW = M.length;
   private static final int COL = M[0].length;
@@ -42,7 +44,8 @@ public class WordSearch {
   }
 
   public static void main(String[] args) {
-    System.out.println(exist("ABHINAW") ? "Present" : "Not Present");
-    System.out.println(exist("KUMAR") ? "Present" : "Not Present");
+    System.out.println(exist("ABHINAW"));
+    System.out.println(exist("KUMAR"));
+    System.out.println(exist("BHAGAT"));
   }
 }
