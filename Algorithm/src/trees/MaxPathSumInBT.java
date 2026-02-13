@@ -14,11 +14,11 @@ public class MaxPathSumInBT {
     }
     int left  = findMaxPathSum(root.left,  result);   // find maximum path sum "starting" from the left child
     int right = findMaxPathSum(root.right, result);  //  find maximum path sum "starting" from the right child
-    int max   = result.sum;                         //   Try all possible combinations to get the optimal result
-    max = max(max,     root.num);
-    max = max(max, root.num + left);
-    max = max(max, root.num + right);
-    max = max(max, root.num + left + right);
+    int max = result.sum;                           //   Try all possible combinations to get the optimal result
+        max = max(max,     root.num);
+        max = max(max, root.num + left);
+        max = max(max, root.num + right);
+        max = max(max, root.num + left + right);
     result.sum = max;
     return max(root.num, root.num + max(left, right));
   }

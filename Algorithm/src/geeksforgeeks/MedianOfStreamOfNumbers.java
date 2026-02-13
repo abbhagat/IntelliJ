@@ -12,10 +12,10 @@ public class MedianOfStreamOfNumbers {
   private static final PriorityQueue<Integer> right = new PriorityQueue<>(); // Min heap
 
   public static float findMedian(int n) {
-    left.offer(n);                       // Step 1: Add to max heap
-    right.offer(left.poll());           //  Step 2: Balance order
+    left.add(n);                         // Step 1: Add to max heap
+    right.add(left.poll());             //  Step 2: Balance order
     if (right.size() > left.size()) {  //   Step 3: Balance size
-      left.offer(right.poll());
+      left.add(right.poll());
     }
     return left.size() == right.size() ? (left.peek() + right.peek()) / 2.0f : left.peek();
   }
