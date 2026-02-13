@@ -15,7 +15,7 @@ public class KthSmallestElement {
         pq.poll();
       }
     }
-    return !pq.isEmpty() ? pq.peek() : -1;
+    return pq.peek();
   }
 
   public static void main(String[] args) {

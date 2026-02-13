@@ -12,11 +12,11 @@ import static util.CommonUtils.swap;
 public class MoveZeroesToEnd {
 
   private static void moveZeroesToStart(int[] a) {
-    int j = a.length - 1;
-    for (int i = a.length - 1; i >= 0; i--) {
-      if (a[i] != 0) {
+    int j = 0;
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] == 0) {
         swap(a, i, j);
-        j--;
+        j++;
       }
     }
     printArray(a);
