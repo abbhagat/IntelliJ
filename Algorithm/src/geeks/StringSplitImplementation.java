@@ -3,13 +3,13 @@ package geeks;
 public class StringSplitImplementation {
 
   private static void split(String s, char delimiter) {
-    StringBuilder str = new StringBuilder();
+    StringBuilder sb = new StringBuilder();
     for (char c : (s + delimiter).toCharArray()) {
       if (c != delimiter) {
-        str.append(c);
+        sb.append(c);
       } else {
-        System.out.println(str);
-        str = new StringBuilder();
+        System.out.println(sb);
+        sb.setLength(0);
       }
     }
     System.out.println();

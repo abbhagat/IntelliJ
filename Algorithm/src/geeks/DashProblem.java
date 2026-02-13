@@ -10,7 +10,7 @@ public class DashProblem {
 
   private static StringBuilder dashProblem(String str) {
     int[] a = str.chars().map(c -> c - '0').toArray();
-    boolean prevOdd  = a[0] % 2 != 0;
+    boolean prevOdd  = a[0] % 2 == 1;
     boolean prevEven = a[0] % 2 == 0;
     int i;
     StringBuilder sb = new StringBuilder();

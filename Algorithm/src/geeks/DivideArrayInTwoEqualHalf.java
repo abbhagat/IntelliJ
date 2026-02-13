@@ -6,12 +6,12 @@ import java.util.stream.IntStream;
 public class DivideArrayInTwoEqualHalf {
 
   private static void divideArrayInTwoEqualHalf(int[] a) {
-    int index = findEquilibriumPoint(a);
-    if (index != -1) {
-      System.out.println("Equilibrium Point Index is " + index);
-      IntStream.range(0, index).forEach(i -> System.out.print(a[i] + " "));
+    int equilibriumPoint = findEquilibriumPoint(a);
+    if (equilibriumPoint != -1) {
+      System.out.print("Equilibrium Point is " + equilibriumPoint + " : ");
+      IntStream.range(0, equilibriumPoint).forEach(i -> System.out.print(a[i] + " "));
       System.out.print(" and ");
-      IntStream.range(index + 1, a.length).forEach(i -> System.out.print(a[i] + " "));
+      IntStream.range(equilibriumPoint + 1, a.length).forEach(i -> System.out.print(a[i] + " "));
       System.out.println();
     } else {
       System.out.println("Equilibrium Point Does Not Exist");

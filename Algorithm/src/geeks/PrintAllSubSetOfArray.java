@@ -1,5 +1,6 @@
 package geeks;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -38,11 +39,22 @@ public class PrintAllSubSetOfArray {
     findSubSet(a, index + 1, list);
   }
 
+  private static void findSubSet(int n) {
+    String str = String.valueOf(n);
+    for(int i = 0; i < str.length(); i++) {
+      for(int j = i + 1; j <= str.length(); j++) {
+        System.out.println(str.substring(i, j));
+      }
+    }
+  }
+
   public static void main(String[] args) {
     int num = 12;
     int[] a = String.valueOf(num).chars().map(c -> c - '0').toArray();
     findSubSet(a, 0, new LinkedList<>());
     System.out.println("------------------");
     findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());
+    System.out.println("------------------");
+    findSubSet(12);
   }
 }
