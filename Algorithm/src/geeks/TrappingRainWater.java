@@ -30,7 +30,7 @@ public class TrappingRainWater {
         if (maxLeft < a[low]) {
           maxLeft = a[low];
         } else {
-          waterTrapped += maxLeft - a[low];
+          waterTrapped += maxLeft - a[low];   // waterTrapped = min(max height on left, max height on right) - current height
         }
         low++;
       } else {
@@ -48,6 +48,6 @@ public class TrappingRainWater {
   public static void main(String[] args) {
     System.out.println(findWater(new int[]{4, 2, 0, 3, 2, 5}));
     System.out.println(findWater(new int[]{3, 0, 2, 0, 4}));
-    System.out.println(findWater(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+    System.out.println(findWater(new int[]{4, 5, 1, 2, 3}));
   }
 }
