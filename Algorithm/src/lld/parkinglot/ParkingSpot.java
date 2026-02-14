@@ -12,8 +12,8 @@ public class ParkingSpot {
   private boolean isFree;
   private Vehicle parkedVehicle;
 
-  synchronized boolean park(Vehicle vehicle) {
-    if (!isFree || vehicle.getType().name().equals(type.name()) == false) {
+  public synchronized boolean park(Vehicle vehicle) {
+    if (!isFree || !vehicle.getType().name().equals(type.name())) {
       return false;
     }
     this.parkedVehicle = vehicle;
@@ -21,7 +21,7 @@ public class ParkingSpot {
     return true;
   }
 
-  synchronized void unPark() {
+  public synchronized void unPark() {
     this.parkedVehicle = null;
     this.isFree = true;
   }

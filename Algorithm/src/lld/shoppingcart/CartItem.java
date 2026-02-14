@@ -9,8 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CartItem {
 
-  Product product;
-  int quantity;
+  private Product product;
+  private int quantity;
 
   public double getTotalPrice() {
     return product.getPrice() * quantity;

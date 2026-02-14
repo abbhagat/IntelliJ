@@ -24,7 +24,7 @@ public class ShoppingCart {
       item = new CartItem(product, qty);
       itemMap.put(productId, item);
     } else {
-      item.quantity += qty;
+      item.setQuantity(item.getQuantity() + qty);
     }
   }
 
@@ -33,7 +33,7 @@ public class ShoppingCart {
       if (qty <= 0) {
         itemMap.remove(productId);
       } else {
-        itemMap.get(productId).quantity = qty;
+        itemMap.get(productId).setQuantity(qty);
       }
     }
   }

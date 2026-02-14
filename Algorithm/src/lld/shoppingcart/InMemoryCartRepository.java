@@ -9,7 +9,6 @@ public class InMemoryCartRepository implements CartRepository {
 
   @Override
   public ShoppingCart getCart(String userId) {
-//    return userToCartMap.computeIfAbsent(userId, ShoppingCart::new);
     ShoppingCart cart = userToCartMap.get(userId);
     if (cart == null) {
       cart = new ShoppingCart(userId);
