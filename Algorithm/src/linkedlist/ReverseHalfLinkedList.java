@@ -11,13 +11,13 @@ public class ReverseHalfLinkedList {
     Node mid = findMid(head);
     Node midNext = mid.next;
     mid.next = null;
-    Node node = reverseList(head);  // node.num = 3
+    Node node = reverseList(head);  // node.num = 3 and head.num = 1
     head.next = midNext;
     return node;
   }
 
   public static void main(String[] args) {
-    int[] a = {1, 2, 3, 4, 5, 6, 7, 8};
+    int[] a = {1, 2, 3, 4, 5};
     Node first = null;
     for (int x : a) {
       first = LinkList.add(first, x);
