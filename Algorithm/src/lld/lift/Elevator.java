@@ -39,7 +39,7 @@ public class Elevator {
   }
 
   public void addRequest(int floor) {
-    var x = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
+    var x = floor > currentFloor ? upQueue.add(floor) : downQueue.add(floor);
     updateState();
     System.out.println(this);
   }

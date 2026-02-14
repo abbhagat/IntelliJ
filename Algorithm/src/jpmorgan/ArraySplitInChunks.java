@@ -9,8 +9,7 @@ import static util.CommonUtils.printArray;
 public class ArraySplitInChunks {
 
   private static List<int[]> splitArray(int[] a, int splitSize) {
-    int n = a.length;
-    int remainingSize = n % splitSize;
+    int remainingSize = a.length % splitSize;
     List<int[]> list = new ArrayList<>();
     int i;
     for (i = 0; i < a.length - remainingSize; i += splitSize) {

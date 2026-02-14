@@ -11,7 +11,7 @@ public class ElevatorSystem {
   public ElevatorSystem(int numberOfElevators) {
     elevators = new ArrayList<>();
     scheduler = new ElevatorScheduler();
-    for (int i = 0; i < numberOfElevators; i++) {
+    for (int i = 1; i <= numberOfElevators; i++) {
       elevators.add(new Elevator(i));
     }
   }
@@ -24,6 +24,9 @@ public class ElevatorSystem {
   }
 
   public static void main(String[] args) {
-    new ElevatorSystem(4).handleRequest(new Request(2, Direction.UP));
+    ElevatorSystem elevatorSystem = new ElevatorSystem(4);
+    elevatorSystem.handleRequest(new Request(2, Direction.UP));
+    elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
+    elevatorSystem.handleRequest(new Request(3, Direction.UP));
   }
 }
