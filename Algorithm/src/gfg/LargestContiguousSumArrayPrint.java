@@ -25,8 +25,8 @@ public class LargestContiguousSumArrayPrint {
       }
       if (maxSum < curSum) {
         maxSum = curSum;
-        start = index;
-        end = i;
+        start  = index;
+        end    = i;
       }
     }
     System.out.print("SubArray : ");

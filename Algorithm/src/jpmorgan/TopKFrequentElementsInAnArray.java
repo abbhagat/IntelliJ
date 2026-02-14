@@ -13,14 +13,14 @@ public class TopKFrequentElementsInAnArray {
     Map<Integer, Integer> map = new HashMap<>();
     Arrays.stream(a).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
     List<Map.Entry<Integer, Integer>> sortedList = map.entrySet()
-        .stream()
-        .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-        .toList();
+                                                      .stream()
+                                                      .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                                                      .toList();
     List<Map.Entry<Integer, Integer>> topKList = sortedList.subList(0, min(k, sortedList.size()));
     return topKList.stream()
-        .map(Map.Entry::getKey)
-        .mapToInt(x -> x)
-        .toArray();
+                   .map(Map.Entry::getKey)
+                   .mapToInt(x -> x)
+                   .toArray();
   }
 
   private static String[] topKFrequentWords(List<String> list, int k) {
