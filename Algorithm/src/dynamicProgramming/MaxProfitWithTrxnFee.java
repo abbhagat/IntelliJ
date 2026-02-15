@@ -25,7 +25,7 @@ public class MaxProfitWithTrxnFee {
   public static int maxProfit(int[] a, int fee) {
     int buy = Integer.MAX_VALUE, profit = 0;
     for (int x : a) {
-      buy = min(buy, x - profit);
+      buy    = min(buy, x - profit);
       profit = max(profit, x - buy - fee);
     }
     return profit;
