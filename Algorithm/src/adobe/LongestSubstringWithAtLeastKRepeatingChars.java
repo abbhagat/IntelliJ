@@ -17,14 +17,16 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
     }
   }
 
-  private static int longestSubString(String s, int start, int end, int k, Index index) {
+  private static int longestSubString(String str, int start, int end, int k, Index index) {
     Map<Character, Integer> map = new HashMap<>();
-    s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
+    for (char c : str.toCharArray()) {
+      map.put(c, map.getOrDefault(c, 0) + 1);
+    }
     for (int i = start; i < end; i++) {
-      if (map.get(s.charAt(i)) < k) {
+      if (map.get(str.charAt(i)) < k) {
         int max;
-        int left  = longestSubString(s, start, i, k, index);
-        int right = longestSubString(s, i + 1, end, k, index);
+        int left  = longestSubString(str, start, i, k, index);
+        int right = longestSubString(str, i + 1, end, k, index);
         if (left >= right) {
           max = left;
           index.start = start;
