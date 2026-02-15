@@ -13,15 +13,15 @@ public class BeautifulNumber {
     return n == 1;
   }
 
-    private static int squareSum(int n) {
-      int sum = 0;
-      while (n != 0) {
-        int k = n % 10;
-        sum += k * k;
-        n /= 10;
-      }
-      return sum;
+  private static int squareSum(int n) {
+    int sum = 0;
+    while (n != 0) {
+      int k = n % 10;
+      sum += k * k;
+      n /= 10;
     }
+    return sum;
+  }
 
   public static void main(String[] args) {
     System.out.println(isHappyNumber(19));

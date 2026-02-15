@@ -6,7 +6,7 @@ import static util.CommonUtils.swap;
 // Time Complexity :- O(n * n!)
 public class AllPermutationOfANumber {
 
-  private static void permutation(int[] a, int start, int end) {
+  private static void permutation(char[] a, int start, int end) {
     if (start == end) {
       printArray(a);
       return;
@@ -19,10 +19,10 @@ public class AllPermutationOfANumber {
   }
 
   public static void main(String[] args) {
-    int[] a = String.valueOf(123).chars().map(c -> c - '0').toArray();
+    char[] a = String.valueOf(123).toCharArray();
     permutation(a, 0, a.length - 1);
     System.out.println();
-    int[] b = String.valueOf(102).chars().map(Character::getNumericValue).toArray();
+    char[] b = String.valueOf(102).toCharArray();
     permutation(b, 0, b.length - 1);
   }
 }
