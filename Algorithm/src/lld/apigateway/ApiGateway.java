@@ -25,6 +25,6 @@ public class ApiGateway {
       return new Response(404, "Not Found");
     }
     // Step 4: Forward request
-    return service.handle(request);
+    return service.handleRequest(request);
   }
 }
