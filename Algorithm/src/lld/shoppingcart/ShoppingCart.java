@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ShoppingCart {
 
   String userId;
-  private final Map<String, CartItem> itemMap = new ConcurrentHashMap<>();
+  private final Map<String, CartItem> cartItemMap = new ConcurrentHashMap<>();
 
   public ShoppingCart(String userId) {
     this.userId = userId;
@@ -19,27 +19,27 @@ public class ShoppingCart {
 
   public void addItem(Product product, int qty) {
     String productId = product.getProductId();
-    CartItem item = itemMap.get(productId);
-    if (item == null) {
-      item = new CartItem(product, qty);
-      itemMap.put(productId, item);
+    CartItem cartItem = cartItemMap.get(productId);
+    if (cartItem == null) {
+      cartItem = new CartItem(product, qty);
+      cartItemMap.put(productId, cartItem);
     } else {
-      item.setQuantity(item.getQuantity() + qty);
+      cartItem.setQuantity(cartItem.getQuantity() + qty);
     }
   }
 
   public void updateItem(String productId, int qty) {
-    if (itemMap.containsKey(productId)) {
+    if (cartItemMap.containsKey(productId)) {
       if (qty <= 0) {
-        itemMap.remove(productId);
+        cartItemMap.remove(productId);
       } else {
-        itemMap.get(productId).setQuantity(qty);
+        cartItemMap.get(productId).setQuantity(qty);
       }
     }
   }
 
   public void removeItem(String productId) {
-    itemMap.remove(productId);
+    cartItemMap.remove(productId);
   }
 
 }
