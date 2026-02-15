@@ -1,5 +1,7 @@
 package adobe;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -8,14 +10,15 @@ import java.util.HashSet;
 public class LongestSubstringWithoutRepeatingCharacters {
 
   public static void longestSubstring(String s) {
-    Set<Character> set = new HashSet<>();
+    Map<Character, Integer> map = new HashMap<>();
     int start = 0, maxLen = 0, startIndex = 0;
     for (int end = 0; end < s.length(); end++) {
-      while (set.contains(s.charAt(end))) {
-        set.remove(s.charAt(start));
+      char c = s.charAt(end);
+      while (map.containsKey(c)) {
+        map.remove(s.charAt(start));
         start++;
       }
-      set.add(s.charAt(end));
+      map.put(c, map.getOrDefault(c, 0) + 1);
       if (maxLen < end - start + 1) {
         maxLen = end - start + 1;
         startIndex  = start;
