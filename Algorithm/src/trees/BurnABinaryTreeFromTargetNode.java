@@ -36,8 +36,8 @@ public class BurnABinaryTreeFromTargetNode {
       return -1;
     }
     if (root.num == target) {
-      System.out.println(root.num);
       time++;
+      System.out.println(root.num);
       if (root.left != null) {
         q.add(root.left);
       }

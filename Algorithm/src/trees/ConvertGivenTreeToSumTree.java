@@ -36,7 +36,7 @@ public class ConvertGivenTreeToSumTree {
       int oldVal   = root.num;
       int leftSum  = convert(root.left);
       int rightSum = convert(root.right);
-      root.num = leftSum + rightSum;
+          root.num = leftSum + rightSum;
       return root.num + oldVal;
     }
     return 0;

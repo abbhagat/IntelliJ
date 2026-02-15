@@ -6,7 +6,10 @@ import static trees.TreeTraversal.inorder;
 public class DeleteLeafNodeInBinaryTree {
 
   private static Node deleteLeafNode(Node root) {
-    if (root == null || (root.left == null && root.right == null)) {
+    if (root == null) {
+      return null;
+    }
+    if (root.left == null && root.right == null) {
       return null;
     }
     root.left  = deleteLeafNode(root.left);
