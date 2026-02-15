@@ -9,7 +9,6 @@ public class FindPairCountWithProductDivisibleByK {
 
   private static int findPairs(int[] a, int k) {
     Set<String> set = new HashSet<>();
-    int count = 0;
     for (int i = 0; i < a.length; i++) {
       for (int j = i + 1; j < a.length; j++) {
         if ((a[i] * a[j]) % k == 0) {
@@ -18,12 +17,11 @@ public class FindPairCountWithProductDivisibleByK {
           var pair = min + "," + max;
           if (set.add(pair)) {
             System.out.println("(" + min + "," + max + ")");
-            count++;
           }
         }
       }
     }
-    return count;
+    return set.size();
   }
 
   public static void main(String[] args) {
