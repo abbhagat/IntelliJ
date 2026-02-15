@@ -58,9 +58,9 @@ public class Elevator {
   }
 
   public void move() {
-    if (direction == Direction.UP && !upQueue.isEmpty()) {
+    if (!upQueue.isEmpty() && direction == Direction.UP) {
       currentFloor = upQueue.poll();
-    } else if (direction == Direction.DOWN && !downQueue.isEmpty()) {
+    } else if (!downQueue.isEmpty() && direction == Direction.DOWN) {
       currentFloor = downQueue.poll();
     }
     state = ElevatorState.STOPPED;
