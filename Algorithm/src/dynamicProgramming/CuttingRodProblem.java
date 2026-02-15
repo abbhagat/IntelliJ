@@ -12,7 +12,8 @@ public class CuttingRodProblem {
     }
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < n; i++) {
-      max = max(max, price[i] + cutRod(price, n - i - 1));
+      int res = price[i] + cutRod(price, n - i - 1);
+      max = max(max, res);
     }
     return max;
   }
