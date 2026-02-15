@@ -4,13 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- *                                             12
- *                                            /  \
- *                                          13    10
- *                                        /   \
- *                                      14     15
- *                                    /   \   /  \
- *                                  21    24 22   23
+ *                                      12
+ *                                    /     \
+ *                                  13       10
+ *                                         /     \
+ *                                      14       15
+ *                                     /   \     /  \
+ *                                    21   24   22   23
  *                                  target node = 14
  *                                  Output :
  *                                  14
@@ -48,8 +48,8 @@ public class BurnABinaryTreeFromTargetNode {
     int leftCall = burnTree(root.left, target);
     if (leftCall == 0) {
       printQueue();
-      System.out.println(root.num);
       time++;
+      System.out.println(root.num);
       if (root.right != null) {
         q.add(root.right);
       }
@@ -58,8 +58,8 @@ public class BurnABinaryTreeFromTargetNode {
     int rightCall = burnTree(root.right, target);
     if (rightCall == 0) {
       printQueue();
-      System.out.println(root.num);
       time++;
+      System.out.println(root.num);
       if (root.left != null) {
         q.add(root.left);
       }
@@ -93,8 +93,8 @@ public class BurnABinaryTreeFromTargetNode {
     root.right.right.right = new Node(23);
     burnTree(root, 14);
     while (!q.isEmpty()) {
-      time++;
       printQueue();
+      time++;
       System.out.println();
     }
     System.out.println("Time taken to burn the tree is : " + time);
@@ -123,8 +123,8 @@ public class BurnABinaryTreeFromTargetNode {
     root.right.right.right.right = new Node(10);
     burnTree(root, 8);
     while (!q.isEmpty()) {
-      time++;
       printQueue();
+      time++;
       System.out.println();
     }
     System.out.println("Time taken to burn the tree is : " + time);

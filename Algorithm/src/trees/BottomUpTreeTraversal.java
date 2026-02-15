@@ -16,13 +16,13 @@ import static java.lang.Integer.max;
 public class BottomUpTreeTraversal {
 
   private static int treeHeight(Node root, List<List<Integer>> list) {
-    if(root == null) {
+    if (root == null) {
       return -1;
     }
-    int lH = treeHeight(root.left,  list);
+    int lH = treeHeight(root.left, list);
     int rH = treeHeight(root.right, list);
     int height = max(lH, rH) + 1;
-    if(list.size() <= height) {
+    if (list.size() <= height) {
       list.add(new ArrayList<>());
     }
     list.get(height).add(root.num);
