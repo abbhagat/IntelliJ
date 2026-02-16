@@ -46,13 +46,4 @@ public class CloneLinkedListWithNextAndRandomPointer {
     Node node = clone(new Node(10));
     System.out.println(node.num);
   }
-
-  private static class Node {
-    public int num;
-    public Node next, random;
-
-    public Node(int num) {
-      this.num = num;
-    }
-  }
 }
