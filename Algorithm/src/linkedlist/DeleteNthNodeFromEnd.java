@@ -10,7 +10,7 @@ public class DeleteNthNodeFromEnd {
     Node head = new Node(-1, first);
     Node slow = head, fast = head;
     for (int i = 0; i <= n; i++) {
-      slow = slow.next;
+      slow = slow.next;  // slow will point to the prev on Nth Node after loop completes
     }
     while (slow != null) {
       slow = slow.next;
