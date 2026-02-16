@@ -26,7 +26,7 @@ public class LargestBSTSubTreeInBT {
       bst.isBST = true;
       return bst;
     }
-    BST left = largestBSTSubtree(root.left);
+    BST left  = largestBSTSubtree(root.left);
     BST right = largestBSTSubtree(root.right);
     if (left.isBST && right.isBST && left.max < root.num && root.num < right.min) {
       bst.isBST = true;
