@@ -35,8 +35,8 @@ public class MinCostToReachTopFloor {
   // Space Complexity : O(n)
   private static int minCost(int[] a, int n) {
     return switch (n) {
-      case 1 -> a[0];
-      case 2 -> a[1];
+      case 1  -> a[0];
+      case 2  -> a[1];
       default -> a[n - 1] + min(minCost(a, n - 1), minCost(a, n - 2));
     };
   }
