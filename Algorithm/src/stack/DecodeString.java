@@ -7,8 +7,8 @@ public class DecodeString {
   private static String decodeString(String s) {
     Stack<String>  stack = new Stack<>();
     Stack<Integer> count = new Stack<>();
-    int n = 0;
     String decode = "";
+    int n = 0;
     for (char c : s.toCharArray()) {
       if (Character.isDigit(c)) {
         n = n * 10 + c - '0';
