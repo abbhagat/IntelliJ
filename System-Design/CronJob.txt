@@ -7,7 +7,7 @@ Functional requirement
 5. Jobs can also have priority. Job the with higher priority should be executed first than lower priority.
 6. Job output should be stored inside file system.
 
-Non-Functional requirement
+Non-Functional Requirement
 
 1. Highly Available — System should always be available for users to add/view the job
 2. Highly Scalable  — System should scale for millions of jobs
