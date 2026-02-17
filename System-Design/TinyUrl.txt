@@ -8,16 +8,16 @@ NFR :-
 2. High Availability
 
 Question To be asked from Interviewer :-
-1. Length of the short URL to start with 7 character.
-2. What is the scale at which the system should perform.
+1. Length of the short URL to start with 7 character. Explore Options
+2. What is the scale at which the system should perform. Traffic/How many unique URL request will be coming.
 3. Till what duration we need to persist the url ? 10 years
 4. Character Set included a-zA-Z0-9
 
 Capacity Estimation:-
 
 Character Set to be used for generating short url A-Za-z0-9 = 62 characters.
-If length of url is y = 1 we can handle 62^1 unique short urls
-If length of url is y = 2 we can handle 62^2 unique short urls
+If length of short url is y = 1 we can handle 62^1 unique short urls
+If length of short url is y = 2 we can handle 62^2 unique short urls
 
 1. URL Length
 
@@ -26,7 +26,7 @@ Total Request in 10 yrs = 1000 * 60 * 60 * 24 * 365 * 10 = 10^3 * 31536 * 10^4 =
 
 y = 4 * 10 ^ 11
 
-62^n >= y =>  n log 62 = log y => n = log62(y)
+62^n >= y =>  log y <= n log 62 => n = log(y)/(log 62)
 
 log y = n log 62
 n = log (4 * 10 ^ 11) / log 62 = let say this number comes out to be 7

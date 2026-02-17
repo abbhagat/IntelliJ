@@ -55,20 +55,20 @@ For the first time since there is no entry in the table we can make an entry in 
 
 At any point of time, this table will keep the latest snapshot of the balance.
 
-|----------------------------------------------------|
-|                   BALANCE_SHEET                     |
-|----------------------------------------------------|
-|ID FROM_USER  TO_USER AMOUNT  GROUP_ID|   IS_SETTLED|
-|--------------------------------------|-------------|
-|1    B          A       50       1    |     N       |   // Since User A has made the payment so B owns Rs 50 to A
-|2    A          B      -50       1    |     N       |  //  Since User A has made the payment so B owns Rs 50 to A
-|--------------------------------------|-------------|
+|---------------------------------------------------|
+|               BALANCE_SHEET                       |
+|---------------------------------------------------|
+|ID  FROM_USER  TO_USER AMOUNT  GROUP_ID  IS_SETTLED|
+|---------------------------------------------------|
+|1     B          A       50       1         N      |   // Since User A has made the payment so B owns Rs 50 to A
+|2     A          B      -50       1         N      |  //  Since User A has made the payment so B owns Rs 50 to A
+|---------------------------------------------------|
 
 Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
 
 Rs 200/2 = Rs 100 + Scan Table to check for due amount for Each User in the group except the payee.
 
-SELECT * FROM BALANCE_SHEET WHERE TO_USER = 'A' AND GROUP_ID = 1;
+SELECT * FROM BALANCE_SHEET WHERE TO_USER = 'A' AND GROUP_ID = 1 AND IS_SETTLED = 'N';
 
 Since User B owns Rs 50 to User A, so we update the table as below:-
 
@@ -94,11 +94,11 @@ A                 B         -150      1
 Calculate the NetAmount = Rs 250 + (-150) = Rs 100 -> Amount owned by A
 
                     BALANCE_SHEET
---------------------------------------------------
-ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
-1       B              A         -100      1          // Since User B has made the payment so A owns Rs 100 to B
-2       A              B          100      1
---------------------------------------------------
+--------------------------------------------------|
+ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID |
+1       B              A         -100      1      | // Since User B has made the payment so A owns Rs 100 to B
+2       A              B          100      1      |
+--------------------------------------------------|
 
 if ( NetAmount == 0)  -> settle the expense between the user A and User B, IS_SETTLED = 'Y' delete the entry from the table and move it to a history table
 if ( NetAmount > 0 )  -> make the reverse entry with the updated value
@@ -128,7 +128,7 @@ Current Snapshot of BALANCE_SHEET table
 |B                 A         -100      1      |
 |---------------------------------------------|
 
-Query :- SELECT * FROM BALANCE_SHEET WHERE TO_USER = 'C' AND GROUP_ID = 1;
+Query :- SELECT * FROM BALANCE_SHEET WHERE TO_USER = 'C' AND GROUP_ID = 1 AND IS_SETTLED = 'N';
 
 Results in 0 rows so no adjustment is required in split amount
 
