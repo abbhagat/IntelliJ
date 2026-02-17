@@ -22,12 +22,12 @@ public class InsertInterval {
     while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
       Interval interval = intervalList.remove(i);
       newInterval.start = min(newInterval.start, interval.start);
-      newInterval.end = max(newInterval.end, interval.end);
+      newInterval.end   = max(newInterval.end, interval.end);
     }
     intervalList.add(i, newInterval);
   }
 
-  private static List<int[]> insertInterval(List<int[]> intervalList, int[] newInterval) {
+  private static void insertInterval(List<int[]> intervalList, int[] newInterval) {
     int i = 0;
     while (i < intervalList.size() && intervalList.get(i)[1] < newInterval[0]) {
       i++;
@@ -38,7 +38,6 @@ public class InsertInterval {
       newInterval[1] = max(newInterval[1], interval[1]);
     }
     intervalList.add(i, newInterval);
-    return intervalList;
   }
 
   public static void main(String[] args) {
@@ -52,9 +51,9 @@ public class InsertInterval {
     System.out.println("----------------------");
     List<int[]> list1 = new LinkedList<>();
     int[][] intervalList1 = new int[][]{{1, 5},
-        {6, 10},
-        {6, 15}
-    };
+                                        {6, 10},
+                                        {6, 15}
+                                       };
     Arrays.stream(intervalList1).forEach(newInterval -> {
       insertInterval(list1, newInterval);
     });

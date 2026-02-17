@@ -6,4 +6,3 @@ public class UserService implements Service {
     return new Response(200, "User Service Response");
   }
 }
-

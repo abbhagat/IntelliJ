@@ -33,16 +33,16 @@ public class MinimumPlatforms {
   private static int minPlatforms(int[][] a) {
     Arrays.sort(a, (x, y) -> x[0] - y[0]);  // Comparator.comparingInt(x -> x[0])
     Arrays.sort(a, (x, y) -> x[1] - y[1]); //  Comparator.comparingInt(x -> x[1])
-    int n = 1, max = 1, i = 1, j = 0;
+    int platforms = 1, max = 1, i = 1, j = 0;
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
-        n++;
+        platforms++;
         i++;
       } else {
-        n--;
+        platforms--;
         j++;
       }
-      max = max(max, n);
+      max = max(max, platforms);
     }
     return max;
   }
