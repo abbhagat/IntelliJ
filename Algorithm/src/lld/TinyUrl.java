@@ -1,4 +1,4 @@
-package lld.tinyurl;
+package lld;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class TinyUrl {
   private String base62Encode(int index) {
     char[] c = new char[7];
     int i;
-    for (i = 6; index != 0 && i >= 0; i--) {
+    for (i = 6; i >= 0; i--) {
       c[i] = BASE_62.charAt(index % 62);     // Base-62 encoding (in reverse)
       index /= 62;
     }

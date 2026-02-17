@@ -56,62 +56,65 @@ ID                   SHORT_URL                                   LONG_URL
 base62Id      http://tinyurl.com/000001    https://leetcode.com/problems/encode-and-decode-tinyurl/
 ----------------------------------------------------------------------------------------------------
 
-package leetcode;
+package lld;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TinyUrl {
 
-    private int counter;
-    private final Map<String, Integer> urlToIndex;
-    private final Map<Integer, String> indexToUrl;
-    private final String BASE_62;
-    private final String URL;
+  private final Map<String, Integer> urlToIndex;
+  private final Map<Integer, String> indexToUrl;
+  private final String BASE_62;
+  private final String BASE_URL;
+  private int index;
 
-    public TinyUrl() {
-        counter = 1;
-        urlToIndex = new HashMap<>();
-        indexToUrl = new HashMap<>();
-        BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        URL = "http://www.tinyurl.com/";
-    }
+  public TinyUrl() {
+    index = 1;
+    urlToIndex = new HashMap<>();
+    indexToUrl = new HashMap<>();
+    BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    BASE_URL = "http://www.tinyurl.com/";
+  }
 
-    private String encode(String longURL) {
-        if (!urlToIndex.containsKey(longURL)) {
-            urlToIndex.put(longURL, counter);
-            indexToUrl.put(counter, longURL);
-            counter++;
-        }
-        return URL + base62Encode(urlToIndex.get(longURL));
+  private String encode(String longURL) {
+    if (!urlToIndex.containsKey(longURL)) {
+      urlToIndex.put(longURL, index);
+      indexToUrl.put(index, longURL);
+      index++;
     }
+    return BASE_URL + base62Encode(urlToIndex.get(longURL));
+  }
 
-    private String base62Encode(int val) {
-        StringBuilder url = new StringBuilder();
-        while (val != 0) {
-            int k = val % 62;
-            url.append(BASE_62.charAt(k));
-            val /= 62;
-        }
-        int l = 7 - url.length();
-        for (int i = 1; i <= l; i++) {
-            url.insert(0, 0);
-        }
-        return url.toString();
+  private String base62Encode(int index) {
+    char[] c = new char[7];
+    int i;
+    for (i = 6; i >= 0; i--) {
+      c[i] = BASE_62.charAt(index % 62);     // Base-62 encoding (in reverse)
+      index /= 62;
     }
+    Arrays.fill(c, 0, i + 1, '0'); // Fill remaining positions with '0'
+    return new String(c);
+  }
 
-    private String decode(String shortURL) {
-        int index = 0;
-        String url = shortURL.substring(shortURL.lastIndexOf("/") + 1);
-        for (char x : url.toCharArray()) {
-            index = index * 62 + BASE_62.indexOf(x);
-        }
-        return indexToUrl.get(index);
+  private String decode(String shortURL) {
+    int index = 0;
+    String base62EncodedCounterVal = shortURL.substring(shortURL.lastIndexOf("/") + 1);
+    for (char c : base62EncodedCounterVal.toCharArray()) {
+      index *= 62 + BASE_62.indexOf(c);
     }
+    return indexToUrl.get(index);
+  }
 
-    public static void main(String[] args) {
-        TinyUrl tinyUrl = new TinyUrl();
-        System.out.println(tinyUrl.encode("https://leetcode.com/problems/encode-and-decode-tinyurl/"));
-        System.out.println(tinyUrl.decode("http://tinyurl.com/000001"));
-    }
+  public static void main(String[] args) {
+    TinyUrl tinyUrl = new TinyUrl();
+    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
+    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    String longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
+  }
 }
+
