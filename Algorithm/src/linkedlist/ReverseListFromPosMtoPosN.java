@@ -16,7 +16,7 @@ public class ReverseListFromPosMtoPosN {
     for (int i = 1; i < m; i++) {
       prev = prev.next;
     }
-    Node temp = prev.next;
+    Node temp = prev.next;   // prev -> 2 So, temp -> 3
     for (int i = m; i < n; i++) {
       Node node = temp.next.next;
       temp.next.next = prev.next;
