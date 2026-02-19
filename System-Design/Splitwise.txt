@@ -17,7 +17,7 @@ NFR :-
 We need to create the following tables:-
 1. GROUP
 2. USER
-3. USER_TO_GROUP  Many user can belong to Many Group to @ManyToMany
+3. USER_TO_GROUP  Many user can belong to Many Group i.e. @ManyToMany
 4. EXPENSE
 5. BALANCE_SHEET
 
@@ -48,7 +48,7 @@ From the expense table it will get the GroupID and from a group id it will fetch
 
 So Rs 100 will be split as Rs 100/2 = Rs 50 if the SPLIT_TYPE is EQUAL or Rs 100/Percentage if the SPLIT_TYPE is PERCENTAGE.
 
-Before making entry to the table BALANCE_SHEET, Scan the table BALANCE_SHEET to see if any amount is due for User A to User B.
+Before making entry to the table BALANCE_SHEET, Scan the table BALANCE_SHEET to see if any amount is due for User A from User B.
 If there is any amount due, then adjust the Rs 50 with the net amount due.
 
 For the first time since there is no entry in the table we can make an entry in the below table.
@@ -76,9 +76,9 @@ Calculate the NetAmount = Rs 100 + amount
 
 BALANCE_SHEET
 ------------------------------------------------------------------------------------------------------------------
-ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID
-1       B              A          150      1          // Since User A has made the payment so B owns Rs 150 to A
-2       A              B         -150      1
+ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID  TIMESTAMP
+1       B              A          150      1        SYSDATE            // Since User A has made the payment so B owns Rs 150 to A
+2       A              B         -150      1        SYSDATE
 ------------------------------------------------------------------------------------------------------------------
 
 Now User B paid Rs 500 for Dinner with equal split
