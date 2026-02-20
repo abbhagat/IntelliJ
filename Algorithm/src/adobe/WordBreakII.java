@@ -33,12 +33,12 @@ public class WordBreakII {
       list.add(sb.toString().trim());
       return;
     }
-    for (int i = index + 1; i <= str.length(); i++) {
-      String s = str.substring(index, i);
+    for (int i = index; i < str.length(); i++) {
+      String s = str.substring(index, i + 1);
       if (wordDict.contains(s)) {
         int len = sb.length();
         sb.append(s).append(" ");
-        wordBreak(i, str, sb, wordDict, list);
+        wordBreak(i + 1, str, sb, wordDict, list);
         sb.setLength(len);
       }
     }
