@@ -22,9 +22,9 @@ public class WordBreak {
     if (index == str.length()) {
       return true;
     }
-    for (int i = index + 1; i <= str.length(); i++) {
-      String s = str.substring(index, i);
-      if (list.contains(s) && wordBreak(i, str, list)) {
+    for (int i = index; i < str.length(); i++) {
+      String s = str.substring(index, i + 1);
+      if (list.contains(s) && wordBreak(i + 1, str, list)) {
         return true;
       }
     }
