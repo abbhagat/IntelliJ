@@ -1,6 +1,6 @@
 package linkedlist;
 
-/*
+/**
 Create the copy of node 1 and insert it between node 1 & node 2 in the original Linked List,
 create a copy of 2 and insert it between 2 & 3. Continue in this fashion, add the copy of N after the Nth node
 Now copy the random link in this fashion
@@ -11,7 +11,7 @@ Now restore the original and copy linked lists in this fashion in a single loop.
 original->next = original->next->next;
 copy->next = copy->next->next;
 Ensure that original->next is NULL and return the cloned list
- */
+*/
 public class CloneLinkedListWithNextAndRandomPointer {
 
   private static Node clone(Node head) {
@@ -26,7 +26,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
     // adjust the random pointers of the newly added nodes
     while (temp != null) {
       if (temp.next != null) {
-        temp.next.random = temp.random == null ? null : temp.random.next;
+        temp.next.random = temp.random != null ? temp.random.next : null;
       }
       temp = temp.next.next; // move to the next newly added node by skipping an original node
     }
@@ -35,7 +35,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
     Node node = head.next;  // save the head of copied linked list and separate the original list and copied list
     while (temp != null) {
       temp.next = temp.next.next;
-      copy.next = (copy.next != null) ? copy.next.next : copy.next;
+      copy.next = copy.next != null ? copy.next.next : null;
       temp = temp.next;
       copy = copy.next;
     }

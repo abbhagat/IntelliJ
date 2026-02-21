@@ -29,16 +29,16 @@ public class MinTimeToFinishAllJobs {
 
   private static int findMinTime(int K, int T, int[] job) {
     // Set start and end for the binary search end provides an upper limit on time
-    int start = 0, end = Arrays.stream(job).sum();
-    int min = end;
+    int low = 0, high = Arrays.stream(job).sum();
+    int min = high;
     int job_max = Arrays.stream(job).max().getAsInt();
-    while (start <= end) {
-      int mid = (start + end) / 2;
+    while (low <= high) {
+      int mid = (low + high) / 2;
       if (mid >= job_max && isPossible(mid, K, job)) {
         min = min(min, mid);
-        end = mid - 1;
+        high = mid - 1;
       } else
-        start = mid + 1;
+        low = mid + 1;
     }
     return min * T;
   }

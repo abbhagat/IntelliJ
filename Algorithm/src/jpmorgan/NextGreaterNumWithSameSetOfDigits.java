@@ -26,7 +26,7 @@ public class NextGreaterNumWithSameSetOfDigits {
   }
 
   public static void main(String[] args) {
-    System.out.println(nextPermutation(123));
+    System.out.println(nextPermutation(231));
     System.out.println(nextPermutation(213));
     System.out.println(nextPermutation(312));
     System.out.println(nextPermutation(321));
