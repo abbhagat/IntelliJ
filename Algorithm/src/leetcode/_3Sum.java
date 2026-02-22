@@ -2,8 +2,8 @@ package leetcode;
 
 import java.util.*;
 
-// Time  Complexity : O(n*2^n) + O(nlog(n))
-// Space Complexity : O(n)
+// Time  Complexity	: O(2ⁿ) Since, O(2ⁿ) > O(n log n) therefore O(2ⁿ)
+// Space Complexity	: O(n)
 public class _3Sum {
 
   private static Set<List<Integer>> combinationForSum(int index, int curSum, int givenSum, int[] a, LinkedList<Integer> list, Set<List<Integer>> set) {
