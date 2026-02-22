@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-class ThreadPool {
+class ThreadPool implements IThreadPool {
 
   private final BlockingQueue<Runnable> queue;
   private final Thread[] threads;
@@ -20,6 +20,7 @@ class ThreadPool {
     }
   }
 
+  @Override
   public void addTaskToQueue(Runnable task) {
     if (this.isStopped) {
       throw new IllegalStateException("ThreadPool is stopped");
@@ -27,6 +28,7 @@ class ThreadPool {
     this.queue.add(task);
   }
 
+  @Override
   public void waitUntilAllTasksFinished() {
     while (!this.queue.isEmpty()) {
       Thread.yield();   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
@@ -34,6 +36,7 @@ class ThreadPool {
     }
   }
 
+  @Override
   public void stop() {
     this.isStopped = true;
     Arrays.stream(this.threads).forEach(Thread::interrupt);
