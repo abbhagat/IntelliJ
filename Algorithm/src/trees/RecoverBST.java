@@ -56,14 +56,12 @@ public class RecoverBST {
   }
 
   public static void main(String[] args) {
-/*                       6
-                        / \
-                       10  2
-                      / \ / \
-                     1  3 7 12
-
-                10 and 2 are swapped
-*/
+    /*            6
+                 / \
+                10  2   ---> 10 and 2 are swapped
+               / \ / \
+              1  3 7 12
+    */
     Node root  = new Node(1);
     root.left  = new Node(2);
     root.right = new Node(3);
