@@ -10,7 +10,7 @@ And then for each order: SELECT * FROM OrderItems WHERE orderId = ?
 
 In other words, you have one select for the Order, and then N additional selects, where N is the total number of Order Items.
 
-Alternatively, one could get all Order Items and perform the lookups in memory:
+Alternatively, one could get all Order Items and perform the lookup in memory:
 
 SELECT * FROM OrderItems;
 
