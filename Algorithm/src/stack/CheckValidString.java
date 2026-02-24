@@ -24,22 +24,39 @@ package stack;
  * Also, we can never have less than 0 open left brackets. At the end, we should check that we can have exactly 0 open left brackets.
  */
 
+/**
+ * Instead of counting open and * separately, we track:
+ * min → minimum possible open brackets
+ * max → maximum possible open brackets
+ * Because * can behave as: '(' or ')' or empty
+ * So we maintain a range of possible open counts.
+ * If max < 0 → too many ) → invalid immediately.
+ * At the end: If min == 0 → valid Else → invalid
+ */
 public class CheckValidString {
 
-  public static boolean checkValidString(String exp) {
-    int open = 0, close = 0;
-    for (char c : exp.toCharArray()) {
+  public static boolean checkValidString(String s) {
+    int min = 0, max = 0;
+    for (char c : s.toCharArray()) {
       if (c == '(') {
-        open++;
-      } else if (c == '*') {
-        close++;
-      } else if (c == ')' && open > 0) {
-        open--;
-      } else if (c == ')') {
-        return false;
+        min++;
+        max++;
+      }
+      else if (c == ')') {
+        if (min > 0) min--;
+        max--;
+      }
+      else { // '*'
+        if (min > 0) {
+          min--;               // treat '*' as ')'
+        }
+        max++;               // treat '*' as '('
+      }
+      if (max < 0){
+        return false;      // too many ')'
       }
     }
-    return open <= close;
+    return min == 0;
   }
 
   public static void main(String[] args) {
@@ -48,5 +65,6 @@ public class CheckValidString {
     System.out.println(checkValidString("(()())"));
     System.out.println(checkValidString("(***)"));
     System.out.println(checkValidString("())()"));
+    System.out.println(checkValidString("(*))"));
   }
 }
