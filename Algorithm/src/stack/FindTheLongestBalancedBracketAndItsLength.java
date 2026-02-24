@@ -21,7 +21,7 @@ public class FindTheLongestBalancedBracketAndItsLength {
           int length = i - stack.peek();
           if (maxLength < length) {
             maxLength = length;
-            endIndex = i;
+            endIndex  = i;
           }
         }
       }
