@@ -10,33 +10,33 @@ public class BasicCalculator {
 
   public static int calculate(String s) {
     Stack<Integer> stack = new Stack<>();
-    int num = 0;
+    int n = 0;
     char sign = '+';
     while (index < s.length()) {
       char c = s.charAt(index);
       if (Character.isDigit(c)) {
-        num = num * 10 + (c - '0');
+        n = n * 10 + (c - '0');
       }
       if (c == '(') {
         index++;                      // skip '('
-        num = calculate(s);           // evaluate inside parentheses
+        n = calculate(s);           // evaluate inside parentheses
       }
       if (!Character.isDigit(c) && c != ' ' || index == s.length() - 1) {
         switch (sign) {
-          case '+' -> stack.push(num);
-          case '-' -> stack.push(-num);
-          case '*' -> stack.push(stack.pop() * num);
-          case '/' -> stack.push(stack.pop() / num);
+          case '+' -> stack.push(n);
+          case '-' -> stack.push(-n);
+          case '*' -> stack.push(stack.pop() * n);
+          case '/' -> stack.push(stack.pop() / n);
         }
         sign = c;
-        num = 0;
+        n = 0;
       }
       if (c == ')') {
         break;  // end of this recursion level
       }
       index++;
     }
-    return stack.stream().mapToInt(Integer::intValue).sum();
+    return stack.stream().mapToInt(Integer::intValue).sum();  // return the sum of all the elements in stack
   }
 
   public static void main(String[] args) {
