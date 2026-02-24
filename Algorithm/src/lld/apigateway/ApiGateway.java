@@ -8,6 +8,7 @@ public class ApiGateway {
   private final Router router;
   private final AuthenticationManager authManager;
   private final RateLimiter rateLimiter;
+  private final LoadBalancer loadBalancer;
 
   public Response handleRequest(Request request) {
     // Step 1: Authenticate
@@ -24,7 +25,9 @@ public class ApiGateway {
     if (service == null) {
       return new Response(404, "Not Found");
     }
-    // Step 4: Forward request
+    // Step 5: Load Balance
+    service = loadBalancer.getInstance();
+    // Step 5: Forward request
     return service.handleRequest(request);
   }
 }
