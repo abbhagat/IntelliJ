@@ -21,8 +21,9 @@ public class DecodeString {
         String temp = decode;
         decode = stack.pop();
         int k  = count.pop();
-        for (int i = k; i > 0; i--) {
+        while (k > 0) {
           decode += temp;
+          k--;
         }
       } else {
         decode += c;

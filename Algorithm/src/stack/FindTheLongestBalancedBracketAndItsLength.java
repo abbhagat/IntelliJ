@@ -7,9 +7,9 @@ import java.util.Stack;
 public class FindTheLongestBalancedBracketAndItsLength {
 
   private static void longestBalancedBracketLength(String exp) {
-    int maxLength = 0, endIndex = -1;
     Stack<Integer> stack = new Stack<>();
     stack.push(-1);
+    int maxLength = 0, endIndex = -1;
     for (int i = 0; i < exp.length(); i++) {
       if (exp.charAt(i) == '{') {
         stack.push(i);
