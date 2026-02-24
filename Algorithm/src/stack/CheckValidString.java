@@ -41,18 +41,14 @@ public class CheckValidString {
       if (c == '(') {
         min++;
         max++;
-      }
-      else if (c == ')') {
-        if (min > 0) min--;
+      } else if (c == ')') {
+        min -= min > 0 ? 1 : 0;
         max--;
+      } else { // '*'
+        min -= min > 0 ? 1 : 0; // treat '*' as ')'
+        max++;                  // treat '*' as '('
       }
-      else { // '*'
-        if (min > 0) {
-          min--;               // treat '*' as ')'
-        }
-        max++;               // treat '*' as '('
-      }
-      if (max < 0){
+      if (max < 0) {
         return false;      // too many ')'
       }
     }
