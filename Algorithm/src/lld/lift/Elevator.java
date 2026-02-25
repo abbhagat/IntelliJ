@@ -2,9 +2,10 @@ package lld.lift;
 
 import lombok.Getter;
 import lombok.Setter;
-import java.util.PriorityQueue;
+
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.PriorityBlockingQueue;
 
 @Getter
 @Setter
@@ -14,8 +15,9 @@ public class Elevator {
   private int currentFloor;
   private Direction direction;
   private ElevatorState state;
-  private final PriorityQueue<Integer> upQueue = new PriorityQueue<>();                  // serve the nearest higher floors first
-  private final PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a); // serve the nearest lower floors first
+
+  private final BlockingQueue<Integer> upQueue = new PriorityBlockingQueue<>();  // serve the nearest higher floors first
+  private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, (a, b) -> b - a); // serve the nearest lower floors first
 
   public Elevator(int id, ExecutorService executorService) {
     this.id = id;
@@ -32,42 +34,42 @@ public class Elevator {
   }
 
   private void processRequests() {
-    while (!Thread.currentThread().isInterrupted()) {
-      move();
-      try {
-        Thread.sleep(500);
-      } catch (InterruptedException e) {
-        Thread.currentThread().interrupt();
+    try {
+      while (!Thread.currentThread().isInterrupted()) {
+        int nextFloor;
+        if (!upQueue.isEmpty()) {
+          direction = Direction.UP;
+          state = ElevatorState.MOVING;
+          nextFloor = upQueue.take();  // blocks if empty
+        } else if (!downQueue.isEmpty()) {
+          direction = Direction.DOWN;
+          state = ElevatorState.MOVING;
+          nextFloor = downQueue.take(); // blocks if empty
+        } else {
+          state = ElevatorState.IDLE;
+          direction = Direction.IDLE;
+          // block until ANY request arrives
+          nextFloor = upQueue.take();
+          direction = Direction.UP;
+          state = ElevatorState.MOVING;
+        }
+        moveTo(nextFloor);
       }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
   public synchronized void addRequest(int floor) {
-    var x = floor > currentFloor ? upQueue.add(floor) : downQueue.add(floor);
-    updateState();
-    System.out.println(this);
+    var x = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
+    System.out.println("Request added: " + floor);
   }
 
-  private void updateState() {
-    if (!upQueue.isEmpty()) {
-      direction = Direction.UP;
-      state = ElevatorState.MOVING;
-    } else if (!downQueue.isEmpty()) {
-      direction = Direction.DOWN;
-      state = ElevatorState.MOVING;
-    } else {
-      direction = Direction.IDLE;
-      state = ElevatorState.IDLE;
-    }
-  }
-
-  public synchronized void move() {
-    if (!upQueue.isEmpty() && direction == Direction.UP) {
-      currentFloor = upQueue.poll();
-    } else if (!downQueue.isEmpty() && direction == Direction.DOWN) {
-      currentFloor = downQueue.poll();
-    }
+  public void moveTo(int targetFloor) throws InterruptedException {
+    System.out.println("Elevator " + id + " moving from " + currentFloor + " to " + targetFloor);
+    Thread.sleep(Math.abs(targetFloor - currentFloor) * 100L);
+    currentFloor = targetFloor;
     state = ElevatorState.STOPPED;
-    updateState();
+    System.out.println("Elevator " + id + " stopped at " + currentFloor);
   }
 }
