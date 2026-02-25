@@ -14,7 +14,7 @@ public class ElevatorSystem {
   public ElevatorSystem(int numberOfElevators) {
     elevators = new ArrayList<>();
     scheduler = new ElevatorScheduler();
-    for (int i = 1; i <= numberOfElevators; i++) {
+    for (int i = 0; i < numberOfElevators; i++) {
       elevators.add(new Elevator(i, executorService));
     }
   }

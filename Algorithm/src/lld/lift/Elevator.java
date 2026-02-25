@@ -27,12 +27,6 @@ public class Elevator {
     executorService.submit(this::processRequests);
   }
 
-  @Override
-  public String toString() {
-    return "Elevator { " + "id=" + id + ", currentFloor=" + currentFloor + ", direction=" + direction +
-        ", state=" + state + ", upQueue=" + upQueue + ", downQueue=" + downQueue + '}';
-  }
-
   private void processRequests() {
     try {
       while (!Thread.currentThread().isInterrupted()) {
