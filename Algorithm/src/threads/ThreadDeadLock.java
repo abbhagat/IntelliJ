@@ -19,7 +19,7 @@ public class ThreadDeadLock {
           System.out.println("Thread 1: Holding LOCK_2");
         }
       }
-    });
+    }, "Thread-1");
 
     Thread t2 = new Thread(() -> {
       synchronized (LOCK_2) {
@@ -33,10 +33,9 @@ public class ThreadDeadLock {
           System.out.println("Thread 2: Holding LOCK_1");
         }
       }
-    });
+    }, "Thread-2");
 
     t1.start();
     t2.start();
   }
 }
-
