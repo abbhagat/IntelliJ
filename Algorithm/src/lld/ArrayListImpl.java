@@ -6,7 +6,7 @@ import lombok.Getter;
 public class ArrayListImpl<E> {
 
   private E[] list;
-  private int size;
+  private int size;  // to keep track of the current size of the list
 
   public ArrayListImpl() {
     this(10);
@@ -33,9 +33,9 @@ public class ArrayListImpl<E> {
   public E remove(int index) {
     validateIndex(index);
     E oldValue = list[index];
-    int numMoved = size - index - 1;
-    if (numMoved > 0) {
-      System.arraycopy(list, index + 1, list, index, numMoved);
+    int indexMoved = size - index - 1;
+    if (indexMoved > 0) {
+      System.arraycopy(list, index + 1, list, index, indexMoved);
     }
     list[--size] = null;
     return oldValue;

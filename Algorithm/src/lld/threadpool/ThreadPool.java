@@ -11,7 +11,7 @@ class ThreadPool implements IThreadPool {
   private volatile boolean isStopped;
 
   public ThreadPool(int poolSize) {
-    this.queue = new LinkedBlockingQueue<>();
+    this.queue   = new LinkedBlockingQueue<>();
     this.threads = new Thread[poolSize];
     this.isStopped = false;
     for (int i = 0; i < poolSize; i++) {
@@ -25,14 +25,14 @@ class ThreadPool implements IThreadPool {
     if (this.isStopped) {
       throw new IllegalStateException("ThreadPool is stopped");
     }
-    this.queue.add(task);
+    this.queue.offer(task);
   }
 
+  // A hint to the scheduler that the current thread is willing to yield its current use of a processor. The scheduler is free to ignore this hint.
   @Override
   public void waitUntilAllTasksFinished() {
     while (!this.queue.isEmpty()) {
-      Thread.yield();   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
-      // The scheduler is free to ignore this hint.
+      Thread.yield();
     }
   }
 
