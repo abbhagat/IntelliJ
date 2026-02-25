@@ -2,8 +2,9 @@ package lld.paymentsystem;
 
 public class PaymentGateway {
 
-  public PaymentResponse processPayment(PaymentRequest request) {
-    PaymentStrategy paymentStrategy = PaymentStrategyFactory.getStrategy(request.getPaymentMethod());
-    return paymentStrategy.pay(request);
+  public Response handleRequest(Request request) {
+    PaymentMethod paymentMethod = request.getPaymentMethod();
+    PaymentStrategy paymentStrategy = PaymentStrategyFactory.getStrategy(paymentMethod);
+    return paymentStrategy.handleRequest(request);
   }
 }

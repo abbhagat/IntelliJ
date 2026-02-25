@@ -2,9 +2,9 @@ package lld.paymentsystem;
 
 public class CardPaymentStrategy implements PaymentStrategy {
 
-  public PaymentResponse pay(PaymentRequest request) {
+  public Response handleRequest(Request request) {
     String cardId = request.getPaymentDetails().get("cardId");
     System.out.println("Processing Card payment for " + cardId);
-    return new PaymentResponse(true, "Card Payment Successful");
+    return new Response(true, "Card Payment Successful");
   }
 }

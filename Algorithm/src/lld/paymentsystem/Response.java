@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class PaymentResponse {
+public class Response {
   private boolean success;
   private String message;
 }

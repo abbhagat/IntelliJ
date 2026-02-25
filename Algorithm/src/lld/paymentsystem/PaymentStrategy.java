@@ -1,5 +1,5 @@
 package lld.paymentsystem;
 
 public interface PaymentStrategy {
-  PaymentResponse pay(PaymentRequest request);
+  Response handleRequest(Request request);
 }

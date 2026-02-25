@@ -10,7 +10,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentRequest {
+public class Request {
 
   private String transactionId;
   private double amount;
