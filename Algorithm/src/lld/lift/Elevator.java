@@ -16,29 +16,33 @@ public class Elevator {
   private ElevatorState state;
   private final PriorityQueue<Integer> upQueue = new PriorityQueue<>();                  // serve the nearest higher floors first
   private final PriorityQueue<Integer> downQueue = new PriorityQueue<>((a, b) -> b - a); // serve the nearest lower floors first
-  private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
-  public Elevator(int id) {
+  public Elevator(int id, ExecutorService executorService) {
     this.id = id;
     this.currentFloor = 0;
     this.direction = Direction.IDLE;
     this.state = ElevatorState.IDLE;
-    executor.submit(this::move);
+    executorService.submit(this::processRequests);
   }
 
   @Override
   public String toString() {
-    return "Elevator{" +
-        "id=" + id +
-        ", currentFloor=" + currentFloor +
-        ", direction=" + direction +
-        ", state=" + state +
-        ", upQueue=" + upQueue +
-        ", downQueue=" + downQueue +
-        '}';
+    return "Elevator { " + "id=" + id + ", currentFloor=" + currentFloor + ", direction=" + direction +
+        ", state=" + state + ", upQueue=" + upQueue + ", downQueue=" + downQueue + '}';
   }
 
-  public void addRequest(int floor) {
+  private void processRequests() {
+    while (!Thread.currentThread().isInterrupted()) {
+      move();
+      try {
+        Thread.sleep(500);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
+  }
+
+  public synchronized void addRequest(int floor) {
     var x = floor > currentFloor ? upQueue.add(floor) : downQueue.add(floor);
     updateState();
     System.out.println(this);
@@ -57,7 +61,7 @@ public class Elevator {
     }
   }
 
-  public void move() {
+  public synchronized void move() {
     if (!upQueue.isEmpty() && direction == Direction.UP) {
       currentFloor = upQueue.poll();
     } else if (!downQueue.isEmpty() && direction == Direction.DOWN) {

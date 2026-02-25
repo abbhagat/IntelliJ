@@ -2,18 +2,25 @@ package lld.lift;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ElevatorSystem {
 
   private final List<Elevator> elevators;
   private final ElevatorScheduler scheduler;
+  private final ExecutorService executorService = Executors.newFixedThreadPool(10); // shared pool
 
   public ElevatorSystem(int numberOfElevators) {
     elevators = new ArrayList<>();
     scheduler = new ElevatorScheduler();
     for (int i = 1; i <= numberOfElevators; i++) {
-      elevators.add(new Elevator(i));
+      elevators.add(new Elevator(i, executorService));
     }
+  }
+
+  public void shutdown() {
+    executorService.shutdown();
   }
 
   public void handleRequest(Request request) {
@@ -28,5 +35,6 @@ public class ElevatorSystem {
     elevatorSystem.handleRequest(new Request(2, Direction.UP));
     elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
     elevatorSystem.handleRequest(new Request(3, Direction.UP));
+    elevatorSystem.shutdown();
   }
 }

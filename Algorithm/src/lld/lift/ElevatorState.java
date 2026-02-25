@@ -5,7 +5,7 @@ public enum ElevatorState {
 }
 
 /*
- * STOPPED :- Lift is not moving but it has work to do Doors may be opening / open / closing
+ * STOPPED :- Lift is not moving, but it has work to do Doors may be opening / open / closing
  * | STOPPED              | IDLE                    |
  * | -------------------- | ----------------------- |
  * | Has pending requests | No pending requests     |
