@@ -8,4 +8,3 @@ public class UPIPaymentStrategy implements PaymentStrategy {
     return new Response(true, "UPI Payment Successful");
   }
 }
-
