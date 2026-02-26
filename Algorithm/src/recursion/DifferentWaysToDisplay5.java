@@ -21,13 +21,13 @@ public class DifferentWaysToDisplay5 {
     }
   }
 
-  private static void uniqueCountWays(String prefix, int n, int iterations, Count count) {
+  private static void uniqueCountWays(String prefix, int n, int itr, Count count) {
     if (n == 0) {
       count.count++;
       System.out.println(prefix);
       return;
     }
-    for (int i = 1; i <= n && i <= iterations; i++) {
+    for (int i = 1; i <= n && i <= itr; i++) {
       String s = prefix == "" ? "" : "+";
       String newPrefix = prefix + s + i;
       uniqueCountWays(newPrefix, n - i, i, count);
