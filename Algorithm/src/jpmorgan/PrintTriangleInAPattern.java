@@ -5,20 +5,18 @@ package jpmorgan;
 public class PrintTriangleInAPattern {
 
   private static void printPattern(int n) {
-    int low = 1, high = n, mid = n / 2;
-    while (low <= mid) {
-      for (int i = 1; i <= low; i++) {
-        System.out.print((i == 1 || i == low) ? "*" : ' ');
+    int mid = n / 2;
+    for (int i = 1; i <= mid; i++) {   // Upper half
+      for (int j = 1; j <= i; j++) {
+        System.out.print((j == 1 || j == i) ? "*" : " ");
       }
       System.out.println();
-      low++;
     }
-    while (mid <= high) {
-      for (int i = mid + 1; i <= high; i++) {
-        System.out.print((i == mid + 1 || i == high) ? "*" : ' ');
+    for (int i = mid; i >= 1; i--) {  // Lower half
+      for (int j = 1; j <= i; j++) {
+        System.out.print((j == 1 || j == i) ? "*" : " ");
       }
       System.out.println();
-      high--;
     }
   }
 

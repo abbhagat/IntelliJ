@@ -10,9 +10,10 @@ public class ArraySplitInChunks {
 
   private static List<int[]> splitArray(int[] a, int splitSize) {
     int remainingSize = a.length % splitSize;
+    int size = a.length - remainingSize;
     List<int[]> list = new ArrayList<>();
     int i;
-    for (i = 0; i < a.length - remainingSize; i += splitSize) {
+    for (i = 0; i < size; i += splitSize) {
       int[] t = new int[splitSize];
       System.arraycopy(a, i, t, 0, splitSize);
       list.add(t);

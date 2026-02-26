@@ -1,24 +1,23 @@
 package jpmorgan;
 
-// Time Complexity  :- O(n^2)
-// Space Complexity :- O(1)
+// Time Complexity  : O(n^2)
+// Space Complexity : O(1)
 public class PrintTriangleInPattern {
 
   private static void printPattern(int n) {
-    int low = 1, high = n, mid = n / 2;
-    while (low <= mid) {
-      for (int i = 1; i <= low; i++) {
+    int mid = n / 2;
+    for (int i = 1; i <= mid; i++) {    // Upper half
+      for (int j = 1; j <= i; j++) {
         System.out.print("*");
       }
       System.out.println();
-      low++;
     }
-    while (mid <= high) {
-      for (int i = mid + 1; i <= high; i++) {
+    // Lower half
+    for (int i = mid; i >= 1; i--) {  // Lower half
+      for (int j = 1; j <= i; j++) {
         System.out.print("*");
       }
       System.out.println();
-      high--;
     }
   }
 

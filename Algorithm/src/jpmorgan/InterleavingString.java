@@ -2,8 +2,8 @@ package jpmorgan;
 
 public class InterleavingString {
 
-  // Time Complexity: O(2^n), where n is the length of the given string.
-  // Space Complexity: O(1).
+  // Time Complexity  : O(2^n), where n is the length of the given string
+  // Space Complexity : O(1)
   public static boolean isInterleaved(String s1, String s2, String s3) {
     if (s1.isEmpty() && s2.isEmpty() && s3.isEmpty()) {
       return true;

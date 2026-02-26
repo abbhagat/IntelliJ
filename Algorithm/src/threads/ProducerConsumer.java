@@ -46,7 +46,7 @@ class Producer1 implements Runnable {
   @Override
   public void run() {
     int i = 1;
-    while (i <= 20) {
+    while (i <= 10) {
       this.q.put(i);
       i++;
     }
@@ -65,7 +65,7 @@ class Consumer1 implements Runnable {
   @Override
   public void run() {
     int i = 1;
-    while (i <= 20) {
+    while (i <= 10) {
       this.q.get();
       i++;
     }

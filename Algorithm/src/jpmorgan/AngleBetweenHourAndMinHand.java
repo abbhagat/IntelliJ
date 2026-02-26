@@ -17,8 +17,8 @@ public class AngleBetweenHourAndMinHand {
       min = 0;
       hr++;
     }
-    int hourAngle = (int) (0.5 * (hr * 60 + min));
-    int minsAngle = 6 * min;
+    int hourAngle = (int) (0.5 * (hr * 60 + min)); // hr hand moves by 360 degree in 12 hrs. So, in 1 min it moves by 0.5 degree
+    int minsAngle = 6 * min;   // mins hand moves by 360 degree in 60 mins So, in 1 min it moves by 6 degree
     int angle = abs(hourAngle - minsAngle);
     return min(360 - angle, angle);
   }
