@@ -7,15 +7,15 @@ import java.util.PriorityQueue;
 // Space Complexity O(k)
 public class KthSmallestElement {
 
-  private static int findKthSmallest(int[] a, int k) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
+  private static Integer findKthSmallest(int[] a, int k) {
+    PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder()); // Comparator.reverseOrder() = ((x, y) -> y - x);
     for (int x : a) {
       pq.add(x);
       if (pq.size() > k) {
         pq.poll();
       }
     }
-    return pq.peek();
+    return pq.isEmpty() ? null : pq.peek();
   }
 
   public static void main(String[] args) {

@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 // Space Complexity O(k)
 public class KthHighestElement {
 
-  private static int findKthHighest(int[] a, int k) {
+  private static Integer findKthHighest(int[] a, int k) {
     PriorityQueue<Integer> pq = new PriorityQueue<>();
     for (int x : a) {
       pq.add(x);
@@ -14,7 +14,7 @@ public class KthHighestElement {
         pq.poll();
       }
     }
-    return pq.peek();
+    return pq.isEmpty() ? null : pq.peek();
   }
 
   public static void main(String[] args) {
