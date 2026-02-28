@@ -4,9 +4,9 @@ public class ValidPalindrome {
 
   private static boolean isValidPalindrome(String s) {
     StringBuilder sb = new StringBuilder();
-    for (char x : s.toLowerCase().toCharArray()) {
-      if ((x >= 97 && x <= 122) || (x >= 48 && x <= 57)) {
-        sb.append(x);
+    for (char c : s.toLowerCase().toCharArray()) {
+      if ((c >= 97 && c <= 122) || (c >= 48 && c <= 57)) {
+        sb.append(c);
       }
     }
     for (int i = 0, j = sb.length() - 1; i <= j; i++, j--) {

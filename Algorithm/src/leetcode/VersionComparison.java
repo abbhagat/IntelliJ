@@ -13,6 +13,8 @@ public class VersionComparison {
     if (v1 == null || v2 == null) {
       return v1 == null ? -1 : 1;
     }
+    v1 = v1.trim();
+    v2 = v2.trim();
     if (v1.isEmpty() && v2.isEmpty()) {
       return 0;
     }
@@ -37,6 +39,7 @@ public class VersionComparison {
     System.out.println(compareVersion(null, "1.1"));
     System.out.println(compareVersion(null, ""));
     System.out.println(compareVersion("", ""));
+    System.out.println(compareVersion("  ", "  "));
     System.out.println(compareVersion("", "1.2"));
     System.out.println(compareVersion("", null));
     System.out.println(compareVersion(null, null));

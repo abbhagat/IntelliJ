@@ -10,15 +10,7 @@ import java.util.stream.Collectors;
 // Space Complexity: O(√sum) + O(n)
 public class FindPairsWithPerfectSquareSum {
 
-  public static List<Integer> getPerfectSquares(int sum) {
-    List<Integer> list = new ArrayList<>();
-    for (int i = 1; i * i < sum; i++) {
-      list.add(i * i);
-    }
-    return list;
-  }
-
-  public static int maxPairSum(int[] a) {
+  private static int maxPairSum(int[] a) {
     int max = Integer.MIN_VALUE, _2ndMax = Integer.MIN_VALUE;
     for (int x : a) {
       if (max < x) {
@@ -31,12 +23,20 @@ public class FindPairsWithPerfectSquareSum {
     return max + _2ndMax;
   }
 
-  public static int countPairs(int x, List<Integer> list, Set<Integer> set) {
+  private static List<Integer> getPerfectSquares(int sum) {
+    List<Integer> list = new ArrayList<>();
+    for (int i = 1; i * i < sum; i++) {
+      list.add(i * i);
+    }
+    return list;
+  }
+
+  private static int countPairs(int x, List<Integer> list, Set<Integer> set) {
     int count = 0;
     for (int target : list) {
       int y = target - x;
       if (y > x && set.contains(y)) {       // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
-        System.out.println(x + "," + y);
+        System.out.print("(" + x + "," + y + ")" + "  ");
         count++;
       }
     }
@@ -44,7 +44,7 @@ public class FindPairsWithPerfectSquareSum {
   }
 
   public static void main(String[] args) {
-    int[] a = {2, 3, 6, 9, 10, 20};
+    int[] a = {1, 2, 3, 5, 6, 9, 10, 20, 30};
     int sum = maxPairSum(a);
     List<Integer> list = getPerfectSquares(sum);
     Set<Integer> set   = Arrays.stream(a).boxed().collect(Collectors.toSet());
@@ -52,6 +52,6 @@ public class FindPairsWithPerfectSquareSum {
     for (int x : a) {
       count += countPairs(x, list, set);
     }
-    System.out.println("Count of Perfect Squares : " + count);
+    System.out.println("\nPair Count : " + count);
   }
 }

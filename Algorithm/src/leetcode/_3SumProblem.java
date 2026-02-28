@@ -8,7 +8,7 @@ public class _3SumProblem {
 
   private static void combinationForSum(int[] a, int index, int sum, int n, LinkedList<Integer> list) {
     if (index == a.length) {
-      if (sum == n && !list.isEmpty()) {
+      if (sum == n && list.size() == 3) {
         System.out.println(list);
       }
       return;
