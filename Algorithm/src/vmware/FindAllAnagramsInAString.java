@@ -19,25 +19,25 @@ import java.util.List;
 
 public class FindAllAnagramsInAString {
 
-  private static List<Integer> findAnagrams(String s, String p) {
+  private static List<Integer> findAnagrams(char[] s, char[] p) {
     List<Integer> list = new ArrayList<>();
-    if (s.length() < p.length()) {
+    if (s.length < p.length) {
       return list;
     }
     int[] sData = new int[128];
     int[] pData = new int[128];
-    for (int i = 0; i < p.length(); i++) {
-      pData[p.charAt(i)]++;
-      sData[s.charAt(i)]++;
+    for (int i = 0; i < p.length; i++) {  // small string length first
+      sData[s[i]]++;
+      pData[p[i]]++;
     }
     if (matches(sData, pData)) {
       list.add(0);
     }
-    for (int j = 0, i = p.length(); i < s.length(); j++, i++) {
-      sData[s.charAt(i)]++;
-      sData[s.charAt(j)]--;
+    for (int i = 0, j = p.length; j < s.length; i++, j++) {  // traverse the larger string "s" from index = p to s.length
+      sData[s[j]]++;
+      sData[s[i]]--;
       if (matches(sData, pData)) {
-        list.add(j + 1);
+        list.add(i + 1);
       }
     }
     return list;
@@ -53,10 +53,10 @@ public class FindAllAnagramsInAString {
   }
 
   public static void main(String[] args) {
-    System.out.println(findAnagrams("abab", "ab"));
-    System.out.println(findAnagrams("abab", "gfh"));
-    System.out.println(findAnagrams("ab", "gfh"));
-    System.out.println(findAnagrams("cbaebabacd", "abc"));
-    System.out.println(findAnagrams("retract", "cat"));
+    System.out.println(findAnagrams("abab".toCharArray(), "ab".toCharArray()));
+    System.out.println(findAnagrams("abab".toCharArray(), "gfh".toCharArray()));
+    System.out.println(findAnagrams("ab".toCharArray(), "gfh".toCharArray()));
+    System.out.println(findAnagrams("cbaebabacd".toCharArray(), "abc".toCharArray()));
+    System.out.println(findAnagrams("retract".toCharArray(), "cat".toCharArray()));
   }
 }
