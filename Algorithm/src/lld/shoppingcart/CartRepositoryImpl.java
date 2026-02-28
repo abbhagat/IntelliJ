@@ -3,7 +3,7 @@ package lld.shoppingcart;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemoryCartRepository implements CartRepository {
+public class CartRepositoryImpl implements CartRepository {
 
   private final Map<String, ShoppingCart> userToCartMap = new ConcurrentHashMap<>();
 

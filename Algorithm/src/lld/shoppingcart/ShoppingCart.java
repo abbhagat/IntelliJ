@@ -11,10 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ShoppingCart {
 
   String userId;
-  private final Map<String, CartItem> cartItemMap = new ConcurrentHashMap<>();
+  private final Map<String, CartItem> cartItemMap;
 
   public ShoppingCart(String userId) {
     this.userId = userId;
+    cartItemMap = new ConcurrentHashMap<>();
   }
 
   public void addItem(Product product, int qty) {
@@ -33,7 +34,8 @@ public class ShoppingCart {
       if (qty <= 0) {
         cartItemMap.remove(productId);
       } else {
-        cartItemMap.get(productId).setQuantity(qty);
+        CartItem cartItem = cartItemMap.get(productId);
+        cartItem.setQuantity(qty);
       }
     }
   }
