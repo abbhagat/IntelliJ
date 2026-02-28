@@ -10,14 +10,14 @@ public class StringPermutation {
     }
     int[] sData = new int[128];
     int[] pData = new int[128];
-    for (char c : p) {
+    for (char c : p) {  // small string length first
       sData[c]++;
       pData[c]++;
     }
     if (matches(sData, pData)) {
       return true;
     }
-    for (int i = 0, j = p.length; j < s.length; i++, j++) {
+    for (int i = 0, j = p.length; j < s.length; i++, j++) {  // traverse the larger string "s" from index = p to s.length
       sData[s[j]]++;
       sData[s[i]]--;
       if (matches(sData, pData)) {
