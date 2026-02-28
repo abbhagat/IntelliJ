@@ -4,32 +4,32 @@ package geeksforgeeks;
 // Space Complexity : O(1)
 public class StringPermutation {
 
-  public static boolean checkInclusion(char[] c1, char[] c2) {
-    if (c1.length > c2.length) {
+  public static boolean checkInclusion(char[] s, char[] p) {
+    if (s.length < p.length) {
       return false;
     }
-    int[] temp1 = new int[128];
-    int[] temp2 = new int[128];
-    for (char c : c1) {
-      temp1[c]++;
-      temp2[c]++;
+    int[] sData = new int[128];
+    int[] pData = new int[128];
+    for (char c : p) {
+      sData[c]++;
+      pData[c]++;
     }
-    if (matches(temp1, temp2)) {
+    if (matches(sData, pData)) {
       return true;
     }
-    for (int i = 0, j = c1.length; j < c2.length; i++, j++) {
-      temp2[c2[j]]++;
-      temp2[c2[i]]--;
-      if (matches(temp1, temp2)) {
+    for (int i = 0, j = p.length; j < s.length; i++, j++) {
+      sData[s[j]]++;
+      sData[s[i]]--;
+      if (matches(sData, pData)) {
         return true;
       }
     }
-    return matches(temp1, temp2);
+    return matches(sData, pData);
   }
 
-  public static boolean matches(int[] temp1, int[] temp2) {
+  public static boolean matches(int[] sData, int[] pData) {
     for (int i = 0; i < 128; i++) {
-      if (temp1[i] != temp2[i]) {
+      if (sData[i] != pData[i]) {
         return false;
       }
     }
@@ -37,7 +37,7 @@ public class StringPermutation {
   }
 
   public static void main(String[] args) {
-    System.out.println(checkInclusion("cat".toCharArray(), "retract".toCharArray()));
-    System.out.println(checkInclusion("cat".toCharArray(), "tacretw".toCharArray()));
+    System.out.println(checkInclusion("retract".toCharArray(), "cat".toCharArray()));
+    System.out.println(checkInclusion("tacretw".toCharArray(), "cat".toCharArray()));
   }
 }

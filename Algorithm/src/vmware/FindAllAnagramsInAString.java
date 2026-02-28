@@ -26,9 +26,9 @@ public class FindAllAnagramsInAString {
     }
     int[] sData = new int[128];
     int[] pData = new int[128];
-    for (int i = 0; i < p.length; i++) {  // small string length first
-      sData[s[i]]++;
-      pData[p[i]]++;
+    for (char c : p) {  // small string length first
+      sData[c]++;
+      pData[c]++;
     }
     if (matches(sData, pData)) {
       list.add(0);
