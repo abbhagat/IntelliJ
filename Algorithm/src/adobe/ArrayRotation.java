@@ -24,7 +24,9 @@ public class ArrayRotation {
 
   private static void rotate(int[] a, int i, int j) {
     while (i < j) {
-      swap(a, i++, j--);
+      swap(a, i, j);
+      i++;
+      j--;
     }
   }
 
