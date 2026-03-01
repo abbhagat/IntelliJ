@@ -17,6 +17,7 @@ public class ArrayDelete3rdElement {
   }
 
   public static void main(String[] args) {
+    modifyArray(new int[]{1, 2, 3, 4, 5}, 2);
     modifyArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3);
     modifyArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5);
   }
