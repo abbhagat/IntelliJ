@@ -1,0 +1,49 @@
+A notification system should:
+
+Send notifications via:
+
+1. Email
+2. SMS
+3. Push
+4. Whatsapp
+
+Support:
+
+1. Bulk notifications
+2. Real-time notifications
+3. Scheduled notifications
+4. Allow user preferences (opt-in / opt-out)
+5. Retry failed notifications
+6. Track delivery status
+
+Non-Functional Requirements
+
+1. High availability
+2. Scalability (millions of notifications/day)
+3. Low latency (real-time delivery)
+4. Fault tolerance
+5. Idempotency (no duplicate sends)
+
+Client → API Gateway → Notification Service → Queue → Workers → Channel Providers
+                                         ↓
+                                   Database
+
+Event JSON
+{
+  "userId": 101,
+  "type": "ORDER_CONFIRMED",
+  "channels": ["EMAIL", "SMS"],
+  "data": {
+    "orderId": "12345"
+  }
+}
+
+Message Queue (Async Processing) : Kafka
+
+Retry Mechanism
+
+If provider fails:
+
+1. Retry with exponential backoff
+2. Use Dead Letter Queue (DLQ)
+3. Mark as FAILED after max attempts
