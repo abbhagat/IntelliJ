@@ -26,18 +26,18 @@ public class Elevator {
     executorService.submit(this::processRequests);
   }
 
-  private void processRequests() {
+  private void processRequests() {  // Runs in separate thread
     try {
       while (!Thread.currentThread().isInterrupted()) {
         int nextFloor;
         if (!upQueue.isEmpty()) {
           direction = Direction.UP;
           state = ElevatorState.MOVING;
-          nextFloor = upQueue.take();  // blocks if empty
+          nextFloor = upQueue.take();  // blocks if Queue empty So you don’t need manual synchronization logic.
         } else if (!downQueue.isEmpty()) {
           direction = Direction.DOWN;
           state = ElevatorState.MOVING;
-          nextFloor = downQueue.take(); // blocks if empty
+          nextFloor = downQueue.take(); // blocks if empty So you don’t need manual synchronization logic.
         } else {
           state = ElevatorState.IDLE;
           direction = Direction.IDLE;
@@ -60,6 +60,7 @@ public class Elevator {
 
   public void moveTo(int targetFloor) throws InterruptedException {
     System.out.println("Elevator " + id + " moving from " + currentFloor + " to " + targetFloor);
+    // Thread.sleep is used to simulate the time taken by the elevator to move between floors.
     Thread.sleep(Math.abs(targetFloor - currentFloor) * 100L);
     currentFloor = targetFloor;
     state = ElevatorState.STOPPED;
