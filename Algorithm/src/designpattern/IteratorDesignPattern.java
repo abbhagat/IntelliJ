@@ -14,10 +14,10 @@ interface Iterator<E> {
 
 class NameRepository<E> implements Iterable<E> {
 
-  private final List<E> nameList;
+  private final List<E> list;
 
   public NameRepository(List<E> list) {
-    this.nameList = list;
+    this.list = list;
   }
 
   @Override
@@ -31,17 +31,17 @@ class NameRepository<E> implements Iterable<E> {
 
     @Override
     public boolean hasNext() {
-      return index < nameList.size();
+      return index < list.size();
     }
 
     @Override
     public E next() {
-      return nameList.get(index++);
+      return list.get(index++);
     }
 
     @Override
     public E curr() {
-      return nameList.get(index);
+      return list.get(index);
     }
   }
 }
