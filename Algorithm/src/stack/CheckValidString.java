@@ -44,9 +44,9 @@ public class CheckValidString {
       } else if (c == ')') {
         min -= min > 0 ? 1 : 0;
         max--;
-      } else { // '*'
-        min -= min > 0 ? 1 : 0; // treat '*' as ')'
-        max++;                  // treat '*' as '('
+      } else {  // '*'
+        min -= min > 0 ? 1 : 0;  // treat '*' as ')'
+        max++;                  //  treat '*' as '('
       }
       if (max < 0) {
         return false;      // too many ')'
