@@ -17,7 +17,7 @@ class Computer {
   private Computer(Builder builder) {
     this.HDD = builder.HDD;
     this.RAM = builder.RAM;
-    this.isBluetoothEnabled = builder.isBluetoothEnabled;
+    this.isBluetoothEnabled    = builder.isBluetoothEnabled;
     this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
   }
 

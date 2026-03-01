@@ -14,7 +14,6 @@ interface MediaPlayer {
 }
 
 interface AdvancedMediaPlayer {
-
   void playVLC(String fileName);
   void playMP4(String fileName);
 }
@@ -70,7 +69,7 @@ class AudioPlayer implements MediaPlayer {
 public class AdapterDesignPattern {
 
   public static void main(String[] args) {
-    AudioPlayer ap = new AudioPlayer();
+    MediaPlayer ap = new AudioPlayer();
     ap.play("Songs", "MP3");
     ap.play("Movie", "MP4");
     ap.play("Movie", "VLC");

@@ -24,7 +24,7 @@ class Ladder {
 
 class Game {
 
-  private final List<Player> playerList;
+  private final List<Player>          playerList;
   private final Map<Integer, Integer> ladderMap;
   private final Map<Integer, Integer> snakeMap;
 
