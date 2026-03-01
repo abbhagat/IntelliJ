@@ -36,7 +36,7 @@ class Game {
 
   public final void play() {
     int round = 1;
-    while (round != 0) {
+    while (true) {
       System.out.println("-------------------");
       System.out.println("Round : " + round++);
       for (Player player : playerList) {
