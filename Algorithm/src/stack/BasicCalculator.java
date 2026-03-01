@@ -6,22 +6,22 @@ import java.util.Stack;
 // Space Complexity : O(n)
 public class BasicCalculator {
 
-  private static int index = 0;
+  private static int i = 0;
 
   public static int calculate(String s) {
     Stack<Integer> stack = new Stack<>();
     int n = 0;
     char sign = '+';
-    while (index < s.length()) {
-      char c = s.charAt(index);
+    while (i < s.length()) {
+      char c = s.charAt(i);
       if (Character.isDigit(c)) {
         n = n * 10 + (c - '0');
       }
       if (c == '(') {
-        index++;                      // skip '('
-        n = calculate(s);           // evaluate inside parentheses
+        i++;                      // skip '('
+        n = calculate(s);        // evaluate inside parentheses
       }
-      if (!Character.isDigit(c) && c != ' ' || index == s.length() - 1) {
+      if (!Character.isDigit(c) && c != ' ' || i == s.length() - 1) {
         switch (sign) {
           case '+' -> stack.push(n);
           case '-' -> stack.push(-n);
@@ -34,25 +34,25 @@ public class BasicCalculator {
       if (c == ')') {
         break;  // end of this recursion level
       }
-      index++;
+      i++;
     }
     return stack.stream().mapToInt(Integer::intValue).sum();  // return the sum of all the elements in stack
   }
 
   public static void main(String[] args) {
-    index = 0;
+    i = 0;
     System.out.println(calculate("3 + 2 * 2"));
-    index = 0;
+    i = 0;
     System.out.println(calculate("35 + 24 * 20"));
-    index = 0;
+    i = 0;
     System.out.println(calculate("3/2"));
-    index = 0;
+    i = 0;
     System.out.println(calculate(" 3 + 5 / 2"));
-    index = 0;
+    i = 0;
     System.out.println(calculate("1 + 1"));
-    index = 0;
+    i = 0;
     System.out.println(calculate("2 - 1 + 2"));
-    index = 0;
+    i = 0;
     System.out.println(calculate("1 + (4 + 5 + 2) - 3 + (6 + 8)"));
   }
 }
