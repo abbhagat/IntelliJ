@@ -11,10 +11,8 @@ Support:
 
 1. Bulk notifications
 2. Real-time notifications
-3. Scheduled notifications
-4. Allow user preferences (opt-in / opt-out)
-5. Retry failed notifications
-6. Track delivery status
+3. Retry failed notifications
+4. Track delivery status
 
 Non-Functional Requirements
 
@@ -26,7 +24,7 @@ Non-Functional Requirements
 
 Client → API Gateway → Notification Service → Queue → Workers → Channel Providers
                                          ↓
-                                   Database
+                                      Database
 
 Event JSON
 {
