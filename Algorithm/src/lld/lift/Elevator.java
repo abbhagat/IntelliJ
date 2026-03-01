@@ -55,7 +55,7 @@ public class Elevator {
 
   public synchronized void addRequest(int floor) {
     var success = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
-    System.out.println("Request added: " + floor + "");
+    System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
   }
 
   public void moveTo(int targetFloor) throws InterruptedException {
