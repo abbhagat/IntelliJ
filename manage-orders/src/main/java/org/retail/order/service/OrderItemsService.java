@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class OrderItemsService {
 
-    @Autowired
-    private OrderItemsRepository orderItemsDAO;
+  @Autowired
+  private OrderItemsRepository orderItemsDAO;
 
-    public List<OrderItems> getAllOrderItemsByID(Long orderID) {
-        return orderItemsDAO.findByOrderID(orderID);
-    }
+  public List<OrderItems> getAllOrderItemsByID(Long orderID) {
+    return orderItemsDAO.findByOrderID(orderID);
+  }
 
-    public List<OrderItems> getAllOrderItems() {
-        return orderItemsDAO.findAll();
-    }
+  public List<OrderItems> getAllOrderItems() {
+    return orderItemsDAO.findAll();
+  }
 
-    public void saveOrderItems(OrderItems orderItems) {
-        orderItemsDAO.save(orderItems);
-    }
+  public void saveOrderItems(OrderItems orderItems) {
+    orderItemsDAO.save(orderItems);
+  }
 }

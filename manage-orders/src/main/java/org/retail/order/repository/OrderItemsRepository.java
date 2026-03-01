@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface OrderItemsRepository extends JpaRepository<OrderItems, Long> {
 
-    @Query(value = "from OrderItems where orderID = :orderID")
-    List<OrderItems> findByOrderID(Long orderID);
+  @Query(value = "from OrderItems where orderID = :orderID")
+  List<OrderItems> findByOrderID(Long orderID);
 }

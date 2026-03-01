@@ -13,20 +13,20 @@ import java.util.List;
 @RequestMapping(value = "/orders")
 public class OrdersController {
 
-    @Autowired
-    private OrdersService service;
+  @Autowired
+  private OrdersService service;
 
-    @Autowired
-    private OrderItemsService orderItemsService;
+  @Autowired
+  private OrderItemsService orderItemsService;
 
-    @GetMapping(value = "/getAllOrders")
-    public List<Orders> getAllOrders() {
-        return service.getAllOrders();
-    }
+  @GetMapping(value = "/getAllOrders")
+  public List<Orders> getAllOrders() {
+    return service.getAllOrders();
+  }
 
-    @PostMapping(value = "/saveOrders")
-    @ResponseStatus(HttpStatus.OK)
-    public void saveOrders(@RequestBody Orders orders) {
-        service.saveOrders(orders);
-    }
+  @PostMapping(value = "/saveOrders")
+  @ResponseStatus(HttpStatus.OK)
+  public void saveOrders(@RequestBody Orders orders) {
+    service.saveOrders(orders);
+  }
 }

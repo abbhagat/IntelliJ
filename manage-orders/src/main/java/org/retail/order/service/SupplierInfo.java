@@ -11,28 +11,28 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class SupplierInfo {
 
-    @Autowired
-    private RestTemplate restTemplate;
+  @Autowired
+  private RestTemplate restTemplate;
 
-    @HystrixCommand(
-            fallbackMethod = "getFallbackSupplier",
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
-                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
-                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
-                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
-            },
-            threadPoolKey = "supplierThreadPoolKey",
-            threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize", value = "20"),
-                    @HystrixProperty(name = "maxQueueSize", value = "10"),
-            }
-    )
-    public Supplier getSupplier(OrderItems orderItems) {
-        return restTemplate.getForObject("http://manage-supplier/supplier/getSupplierByID/" + orderItems.getSupplierID(), Supplier.class);
-    }
+  @HystrixCommand(
+      fallbackMethod = "getFallbackSupplier",
+      commandProperties = {
+          @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
+          @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+          @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),
+          @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")
+      },
+      threadPoolKey = "supplierThreadPoolKey",
+      threadPoolProperties = {
+          @HystrixProperty(name = "coreSize", value = "20"),
+          @HystrixProperty(name = "maxQueueSize", value = "10"),
+      }
+  )
+  public Supplier getSupplier(OrderItems orderItems) {
+    return restTemplate.getForObject("http://manage-supplier/supplier/getSupplierByID/" + orderItems.getSupplierID(), Supplier.class);
+  }
 
-    public Supplier getFallbackSupplier(OrderItems orderItems) {
-        return new Supplier();
-    }
+  public Supplier getFallbackSupplier(OrderItems orderItems) {
+    return new Supplier();
+  }
 }

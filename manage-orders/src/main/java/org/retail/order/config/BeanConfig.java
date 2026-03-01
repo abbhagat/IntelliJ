@@ -10,9 +10,9 @@ import static org.retail.order.util.Util.getHttpComponentsClientHttpRequestFacto
 @Configuration
 public class BeanConfig {
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate(getHttpComponentsClientHttpRequestFactory());
-    }
+  @Bean
+  @LoadBalanced
+  public RestTemplate getRestTemplate() {
+    return new RestTemplate(getHttpComponentsClientHttpRequestFactory());
+  }
 }
