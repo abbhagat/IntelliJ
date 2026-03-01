@@ -4,14 +4,6 @@ import java.util.Date;
 
 public class ImmutableObject {
 
-  public static void main(String[] args) {
-    Emp e = new Emp(new Date());
-    System.out.println(e.hashCode());
-    Date d = e.getDate();
-    d.setTime(1000);
-    System.out.println(e.hashCode());
-  }
-
   private static final class Emp {
 
     private final Date date;
@@ -26,9 +18,9 @@ public class ImmutableObject {
 
     public int hashCode() {
       final int prime = 31;
-      int result = 1;
-      result = result * prime + (date == null ? 0 : date.hashCode());
-      return result;
+      int hashCode = 1;
+      hashCode = hashCode * prime + (date == null ? 0 : date.hashCode());
+      return hashCode;
     }
 
     public boolean equals(Object obj) {
@@ -41,5 +33,13 @@ public class ImmutableObject {
       final Emp e = (Emp) obj;
       return e.getDate().compareTo(this.getDate()) == 0;
     }
+  }
+
+  public static void main(String[] args) {
+    Emp e = new Emp(new Date());
+    System.out.println(e.hashCode());
+    Date d = e.getDate();
+    d.setTime(1000);
+    System.out.println(e.hashCode());
   }
 }

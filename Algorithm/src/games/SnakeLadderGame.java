@@ -43,14 +43,12 @@ class Game {
         int n = rollDice();
         System.out.println(player.name + " rolled " + n);
         player.index += n;
-        while (player.index > 100) {
-          System.out.println(player.name + " index exceeded 100 so rolling dice again");
+        if (player.index > 100) {
+          System.out.println(player.name + " index exceeded 100");
           player.index -= n;
-          n = rollDice();
-          System.out.println(player.name + " rolled " + n);
-          player.index += n;
+        } else {
+          System.out.println(player.name + " moved to " + player.index);
         }
-        System.out.println(player.name + " moved to " + player.index);
         if (ladderMap.containsKey(player.index)) {
           player.index = ladderMap.get(player.index);
           System.out.println(player.name + " climbed ladder to " + player.index);
@@ -68,6 +66,11 @@ class Game {
   }
 
   public int rollDice() {
+    try {
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     return new Random().nextInt(6) + 1;  //  random.nextInt(6) generates a random integer from 0 to 5.
   }
 
@@ -103,16 +106,23 @@ public class SnakeLadderGame {
 
   public static void main(String[] args) throws InterruptedException {
     Game g = new Game.Builder()
-        .addSnake(99, 10).addSnake(52, 5)
-        .addSnake(35, 12).addSnake(68, 3)
-        .addSnake(75, 28).addSnake(86, 37)
-        .addLadder(10, 98).addLadder(12, 55)
-        .addLadder(25, 76).addLadder(36, 62)
-        .addLadder(45, 89).addLadder(66, 95)
-        .addLadder(45, 100).addLadder(25, 95)
-        .addPlayer("X")
-        .addPlayer("Y")
-        .build();
+                     .addSnake(99, 10)
+                     .addSnake(52, 5)
+                     .addSnake(35, 12)
+                     .addSnake(68, 3)
+                     .addSnake(75, 28)
+                     .addSnake(86, 37)
+                     .addLadder(10, 98)
+                     .addLadder(12, 55)
+                     .addLadder(25, 76)
+                     .addLadder(36, 62)
+                     .addLadder(45, 89)
+                     .addLadder(66, 95)
+                     .addLadder(45, 100)
+                     .addLadder(25, 95)
+                     .addPlayer("X")
+                     .addPlayer("Y")
+                     .build();
     g.play();
   }
 }
