@@ -12,16 +12,20 @@ interface Iterator<E> {
   E next();
 }
 
-class NameRepository implements Iterable<String> {
+class NameRepository<E> implements Iterable<E> {
 
-  private final List<String> nameList = List.of("A", "B ", "C", "D", "E");
+  private final List<E> nameList;
+
+  public NameRepository(List<E> list) {
+    this.nameList = list;
+  }
 
   @Override
-  public Iterator<String> iterator() {
+  public Iterator<E> iterator() {
     return new NameIterator();
   }
 
-  private class NameIterator implements Iterator<String> {
+  private class NameIterator implements Iterator<E> {
 
     private int index = 0;
 
@@ -31,12 +35,12 @@ class NameRepository implements Iterable<String> {
     }
 
     @Override
-    public String next() {
+    public E next() {
       return nameList.get(index++);
     }
 
     @Override
-    public String curr() {
+    public E curr() {
       return nameList.get(index);
     }
   }
@@ -45,7 +49,7 @@ class NameRepository implements Iterable<String> {
 public class IteratorDesignPattern {
 
   public static void main(String[] args) {
-    NameRepository nameRepository = new NameRepository();
+    Iterable<String> nameRepository = new NameRepository<>(List.of("A", "B ", "C", "D", "E"));
     Iterator<String> iterator = nameRepository.iterator();
     System.out.println(iterator.curr());
     while (iterator.hasNext()) {
