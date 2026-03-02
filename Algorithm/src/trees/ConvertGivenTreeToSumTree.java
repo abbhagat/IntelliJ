@@ -8,18 +8,18 @@ import static trees.TreeTraversal.inorder;
  * The values of leaf nodes are changed to 0.
  * For example, the following tree
 
- *                  10
- *                /   \
- *              -2     6
- *             / \   /  \
+ *                 10
+ *                /  \
+ *              -2    6
+ *             / \   / \
  *            8  4  7   5
  * should be changed to
 
- *                  20(4-2+12+6)
- *                /      \
- *          4(8-4)      12(7+5)
- *            /   \      /  \
- *          0      0    0    0
+ *                 20(4-2+12+6)
+ *                / \
+ *          4(8-4)  12(7+5)
+ *            /  \  / \
+ *          0    0 0   0
 
  * Inorder :- 0 4 0 20 0 12 0
  * Do a traversal of the given tree. In the traversal, store the old value of the current node,
