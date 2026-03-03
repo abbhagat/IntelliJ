@@ -15,6 +15,12 @@ import org.springframework.web.client.RestTemplate;
  *  3. Store data temporarily
  *  4. Avoid crashing system
  *
+ *  Hystrix Circuit Breaker has 3 states:
+ *
+ *  State	             Meaning
+ *  CLOSED	      Normal operation
+ *  OPEN	        Calls blocked, fallback only
+ *  HALF-OPEN	    Testing if service recovered
  */
 
 
@@ -32,10 +38,10 @@ public class OrdersInfo {
           @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"),      // If 50% of requests fail, circuit opens.
           @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "50000")  // Circuit stays OPEN for 50 seconds. No real calls are made, All requests go directly to fallback After 50 seconds: Hystrix allows 1 test request (Half-Open state) If success → circuit closes If fail → circuit opens again
       },
-      threadPoolKey = "ordersInfoThreadPoolKey",
+      threadPoolKey = "ordersInfoThreadPoolKey",  // Hystrix runs this call in a separate thread pool to prevent slow service from blocking main application threads.
       threadPoolProperties = {
-          @HystrixProperty(name = "coreSize", value = "20"),
-          @HystrixProperty(name = "maxQueueSize", value = "10"),
+          @HystrixProperty(name = "coreSize", value = "20"), // Maximum 20 threads can execute simultaneously.
+          @HystrixProperty(name = "maxQueueSize", value = "10"), // If all 20 threads busy: 10 more requests can wait in queue After that all requests are rejected
       }
   )
   public void saveSupplier(HttpEntity<Supplier> httpEntity) {
