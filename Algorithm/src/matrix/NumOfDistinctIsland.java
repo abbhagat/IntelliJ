@@ -42,6 +42,7 @@ public class NumOfDistinctIsland {
         if (M[row][col] == 1 && !visited[row][col]) {
           List<String> list = new ArrayList<>();
           DFS(row, col, row, col, list);
+          System.out.println("Island : " +  "\n" + list);  // list will contain the index of Matrix Column
           set.add(list);
         }
       }
