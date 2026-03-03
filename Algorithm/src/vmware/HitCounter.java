@@ -17,8 +17,8 @@ public class HitCounter {
   public void hit(int timestamp) {
     int i = timestamp % time;
     if (times[i] != timestamp) {
-      times[i] = timestamp;
-       hits[i] = 1;
+        times[i]  = timestamp;
+         hits[i]  = 1;
     } else {
       hits[i]++;
     }
@@ -36,19 +36,17 @@ public class HitCounter {
 
   public static void main(String[] args) {
     HitCounter counter = new HitCounter(300, 300);
-    counter.hit(1);
-    counter.hit(2);
-    counter.hit(3);
-    counter.hit(4);
-    counter.hit(300);
-    counter.hit(301);
-    System.out.println(counter.getHits(4));
-    counter.hit(10);
-    System.out.println(counter.getHits(1));
-    System.out.println(counter.getHits(2));
-    System.out.println(counter.getHits(3));
-    System.out.println(counter.getHits(4));
-    System.out.println(counter.getHits(300));
-    System.out.println(counter.getHits(301));
+    for (int i = 1; i <= 500; i++) {
+      counter.hit(i);
+      if (i == 4) {
+        System.out.println(counter.getHits(i));
+      }
+      if (i == 300) {
+        System.out.println(counter.getHits(i));
+      }
+      if (i == 301) {
+        System.out.println(counter.getHits(i));
+      }
+    }
   }
 }
