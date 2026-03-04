@@ -7,7 +7,7 @@ public class ConvertSnakeCaseStringToCamelCase {
     boolean capitalizeNext = false;
     for (int i = 0; i < str.length(); i++) {
       char c = str.charAt(i);
-      if (Character.isAlphabetic(c)) {
+      if (Character.isAlphabetic(c)) {  // Add  (|| c == '_') to include '_' in output
         if (sb.isEmpty()) {
           c = Character.toLowerCase(c);
         } else if (capitalizeNext) {
@@ -29,6 +29,6 @@ public class ConvertSnakeCaseStringToCamelCase {
     System.out.println(convert("_snake_case_to_camel_case"));         //    snakeCaseToCamelCase
     System.out.println(convert("_%$snake_case_to_camel_case"));      //     snakeCaseToCamelCase
     System.out.println(convert("_%$snake_case_%^to_camel_case"));   //      snakeCaseToCamelCase
-    System.out.println(convert("_%$Snake_case_%^to_camel_case"));   //      snakeCaseToCamelCase
+    System.out.println(convert("_%$Snake_case_%^to_camel_case"));  //       snakeCaseToCamelCase
   }
 }
