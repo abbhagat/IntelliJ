@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-// Time  Complexity : O(n*2^n) + O(nlog(n))
+// Time  Complexity : O(2^n)
 // Space Complexity : O(n)
 public class _4Sum {
 
