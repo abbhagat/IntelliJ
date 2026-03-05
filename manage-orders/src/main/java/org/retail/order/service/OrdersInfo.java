@@ -47,6 +47,6 @@ public class OrdersInfo {
   }
 
   public void saveFallbackOrders(HttpEntity<Supplier> httpEntity) {
-    System.out.println("No Orders to save");
+    System.out.println("No Orders to save" + httpEntity.toString());
   }
 }

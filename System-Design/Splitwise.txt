@@ -1,18 +1,19 @@
 Functional Requirements
 
-1. Users can add expenses.
-2. Users can edit expenses.
-3. Users can settle expenses.
-4. Users can make groups.
-5. Users can add more users to the group.
-6. Split can be either equal or percentage split.
-7. All amounts are in INR currency.
+1. Users can add/edit/settle expenses.
+2. Users can make groups.
+3. Users can add more users to the group.
+4. Split can be either equal or percentage split.
 
 NFR :-
 1. Low Latency.
 2. High Consistency.
 3. System must be reliable. The data must persist in the DB after the transaction.
 4. System must be scalable i.e. we can add more users to the group.
+5. All amounts are in INR currency.
+
+
+Database : We would go for SQL DB as we need high consistency.
 
 We need to create the following tables:-
 1. GROUP
@@ -21,21 +22,20 @@ We need to create the following tables:-
 4. EXPENSE
 5. BALANCE_SHEET
 
-|------------------------------------------------------------------------------------------|-----------------------|
-|           1. GROUP                             |       2. USER                           |   3. USER_TO_GROUP    |
-|------------------------------------------------------------------------------------------|-----------------------|
-|GROUP_ID     GROUP_NAME     GROUP_COUNT ADMIN_ID|   USER_ID  USER_NAME   EMAIL  PHONE_NUM | USER_ID   GROUP_ID    |
-|------------------------------------------------------------------------------------------|-----------------------|
-|   1           G1               2         1     |     A                                   |  A          1         |
-|   2           G2               3         1     |     B                                   |  B          1         |
-|   3           G3               4         2     |     C                                   |  B          2         |
-|   4           G4               5         5     |     D                                   |  C          2         |
-|   5           G5               7         2     |     E                                   |  E          5         |
-|------------------------------------------------------------------------------------------|-----------------------|
+|-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
+|           1. GROUP                                 |       |       2. USER                           |          |   3. USER_TO_GROUP    |
+|-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
+|GROUP_ID     GROUP_NAME     GROUP_COUNT     ADMIN_ID|       |   USER_ID  USER_NAME   EMAIL  PHONE_NUM |          | USER_ID   GROUP_ID    |
+|-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
+|   1           G1               2             A     |       |     A                                   |          |  A          1         |
+|   2           G2               3             B     |       |     B                                   |          |  B          1         |
+|   3           G3               4             C     |       |     C                                   |          |  C          1         |
+|-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
 
 Let's say A purchase Rs 100 milk and add it to the EXPENSE table as shown below.
 
-EXPENSE
+---------------------------------------------------------------------
+|                             EXPENSE                               |
 |-------------------------------------------------------------------|
 |EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
 |-------------------------------------------------------------------|
