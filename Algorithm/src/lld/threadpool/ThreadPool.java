@@ -28,7 +28,8 @@ class ThreadPool implements IThreadPool {
     this.queue.offer(task);
   }
 
-  // A hint to the scheduler that the current thread is willing to yield its current use of a processor. The scheduler is free to ignore this hint.
+  // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
+  // The scheduler is free to ignore this hint.
   @Override
   public void waitUntilAllTasksFinished() {
     while (!this.queue.isEmpty()) {
