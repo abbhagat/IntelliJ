@@ -1,6 +1,7 @@
 package lld.splitwise;
 
 public class EqualExpenseSplit implements ExpenseSplitStrategy {
+
   @Override
   public void validate(Expense expense) {
 

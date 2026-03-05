@@ -8,7 +8,6 @@ public class ExpenseService {
 
   void addExpense(Expense expense) {
     ExpenseSplitStrategy strategy = ExpenseSplitFactory.getStrategy(expense.type);
-
     strategy.validate(expense);
     strategy.splitExpense(expense);
     updateBalanceSheet(expense);

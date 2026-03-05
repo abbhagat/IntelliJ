@@ -1,4 +1,4 @@
-package vmware;
+package lld;
 
 // Design a hit counter that counts the number of hits in the past 5 mins
 
