@@ -83,6 +83,16 @@ ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID  TIMESTAMP
 
 Now User B paid Rs 500 for Dinner with equal split
 
+---------------------------------------------------------------------
+|                             EXPENSE                               |
+|-------------------------------------------------------------------|
+|EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
+|-------------------------------------------------------------------|
+|   1      A         100       1          Equal            SYSDATE  |
+|   2      A         200       1          Percentage       SYSDATE  |
+|   3      B         500       1          Equal            SYSDATE  |
+|-------------------------------------------------------------------|
+
 Rs 500/2 = Rs 250 + Scan Table to check for due amount for Each User in the group except the payee
 
 SELECT * FROM BALANCE_SHEET WHERE TO_USER = 'B' AND GROUP_ID = 1 AND IS_SETTLED = 'N';
@@ -117,6 +127,17 @@ Let's say now we added User C in the Group 1
 
 User C made a payment of Rs 900 for grocery with EQUAL_SPLIT
 
+---------------------------------------------------------------------
+|                             EXPENSE                               |
+|-------------------------------------------------------------------|
+|EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP  |
+|-------------------------------------------------------------------|
+|   1      A         100       1          Equal            SYSDATE  |
+|   2      A         200       1          Percentage       SYSDATE  |
+|   3      B         500       1          Equal            SYSDATE  |
+|   4      C         900       1          Equal            SYSDATE  |
+|-------------------------------------------------------------------|
+
 Split Amount = Rs 900/GROUP_COUNT = Rs 900/3 = Rs 300
 
 Current Snapshot of BALANCE_SHEET table
@@ -138,9 +159,9 @@ Results in 0 rows so no adjustment is required in split amount
 | -------------------------------------------------|
 | 1      A               B          100      1     |
 | 2      B               A         -100      1     |
-| -------------------------------------------------|
+|--------------------------------------------------|
 |       Below are the new entry created            |
-| -------------------------------------------------|
+|--------------------------------------------------|
 | 3      B               C          300      1     |
 | 4      C               B         -300      1     |
 | 5      A               C          300      1     |
