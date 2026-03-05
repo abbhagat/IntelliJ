@@ -18,7 +18,7 @@ public class HeapSort {
 
   private static void buildHeap() {
     for (int i = n / 2; i >= 0; i--) {
-      maxHeap(i);
+      maxHeap(i);   // heapify
     }
   }
 
