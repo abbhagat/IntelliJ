@@ -16,4 +16,5 @@ public class Request {
   private double amount;
   private PaymentMethod paymentMethod;
   private Map<String, String> paymentDetails;
+
 }
