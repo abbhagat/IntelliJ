@@ -20,8 +20,8 @@ import java.util.Map;
         4
 */
 
-
-
+// Time Complexity : O(n)
+// Space Complexity: O(n)
 public class CheckIfBinaryTreeHasDuplicateSubTree {
 
   private static final Map<String, Integer> map = new HashMap<>();
