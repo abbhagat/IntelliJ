@@ -6,15 +6,13 @@ import static trees.TreeTraversal.inorder;
 
 public class BinaryTreeSerialization {
 
-  private static String serialize(Node root, String s) {
+  private static String serialize(Node root) {
     if (root == null) {
-      s += "null" + ",";
-    } else {
-      s += root.num + ",";
-      s  = serialize(root.left, s);
-      s  = serialize(root.right, s);
+      return "null";
     }
-    return s;
+    String left  = serialize(root.left);
+    String right = serialize(root.right);
+    return root.num + "," + left + "," + right;
   }
 
   private static Node deserialize(LinkedList<String> list) {
@@ -35,9 +33,9 @@ public class BinaryTreeSerialization {
     Node root  = new Node(2);
     root.left  = new Node(1);
     root.right = new Node(3);
-    String s = serialize(root, "");
-    System.out.println(s);
+    String s = serialize(root);
     LinkedList<String> list = new LinkedList<>(List.of(s.split(",")));
+    System.out.println(list);
     root = deserialize(list);
     inorder(root);
   }
