@@ -6,27 +6,27 @@ import java.util.Map;
 
 public class TinyUrl {
 
-  private final Map<String, Integer> urlToIndex;
-  private final Map<Integer, String> indexToUrl;
+  private final Map<String, Integer> urlToIndexMap;
+  private final Map<Integer, String> indexToUrlMap;
   private final String BASE_62;
   private final String BASE_URL;
   private int index;
 
   public TinyUrl() {
     index = 1;
-    urlToIndex = new HashMap<>();
-    indexToUrl = new HashMap<>();
+    urlToIndexMap = new HashMap<>();
+    indexToUrlMap = new HashMap<>();
     BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     BASE_URL = "http://www.tinyurl.com/";
   }
 
   private String encode(String longURL) {
-    if (!urlToIndex.containsKey(longURL)) {
-      urlToIndex.put(longURL, index);
-      indexToUrl.put(index, longURL);
+    if (!urlToIndexMap.containsKey(longURL)) {
+      urlToIndexMap.put(longURL, index);
+      indexToUrlMap.put(index, longURL);
       index++;
     }
-    return BASE_URL + base62Encode(urlToIndex.get(longURL));
+    return BASE_URL + base62Encode(urlToIndexMap.get(longURL));
   }
 
   private String base62Encode(int index) {
@@ -46,7 +46,7 @@ public class TinyUrl {
     for (char c : base62EncodedCounterVal.toCharArray()) {
       index = index * 62 + BASE_62.indexOf(c);
     }
-    return indexToUrl.get(index);
+    return indexToUrlMap.get(index);
   }
 
   public static void main(String[] args) {

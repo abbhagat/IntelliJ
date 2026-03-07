@@ -2,6 +2,7 @@ package interval;
 
 import util.Interval;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class MeetingRooms {
 
   private static boolean canAttendAllMeeting(List<Interval> intervalList) {
-    intervalList.sort((interval1, interval2) -> interval1.start - interval2.start); // Comparator.comparingInt(interval -> interval.start)
+    intervalList.sort(Comparator.comparingInt(interval -> interval.start)); // (interval1, interval2) -> interval1.start - interval2.start
     LinkedList<Interval> mergedInterval = new LinkedList<>();
     for (Interval interval : intervalList) {
       if (mergedInterval.isEmpty() || mergedInterval.getLast().end < interval.start) {
@@ -23,7 +24,7 @@ public class MeetingRooms {
   }
 
   private static boolean canAttendAllMeeting(int[][] a) {
-    Arrays.sort(a, (x, y) -> x[0] - y[0]);  // Comparator.comparingInt(x -> x[0])
+    Arrays.sort(a, Comparator.comparingInt(x -> x[0]));  // (x, y) -> x[0] - y[0]
     LinkedList<int[]> mergeInterval = new LinkedList<>();
     for (int[] b : a) {
       if (mergeInterval.isEmpty() || mergeInterval.getLast()[1] < b[0]) {
