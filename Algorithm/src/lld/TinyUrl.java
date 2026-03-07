@@ -10,10 +10,10 @@ public class TinyUrl {
   private final Map<Integer, String> indexToUrlMap;
   private final String BASE_62;
   private final String BASE_URL;
-  private int index;
+  private int counter;
 
   public TinyUrl() {
-    index = 1;
+    counter = 1;
     urlToIndexMap = new HashMap<>();
     indexToUrlMap = new HashMap<>();
     BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -22,19 +22,20 @@ public class TinyUrl {
 
   private String encode(String longURL) {
     if (!urlToIndexMap.containsKey(longURL)) {
-      urlToIndexMap.put(longURL, index);
-      indexToUrlMap.put(index, longURL);
-      index++;
+      urlToIndexMap.put(longURL, counter);
+      indexToUrlMap.put(counter, longURL);
+      counter++;
     }
     return BASE_URL + base62Encode(urlToIndexMap.get(longURL));
   }
 
-  private String base62Encode(int index) {
+  private String base62Encode(int counter) {
     char[] c = new char[7];
     int i;
     for (i = 6; i >= 0; i--) {
-      c[i] = BASE_62.charAt(index % 62);     // Base-62 encoding (in reverse)
-      index /= 62;
+      int index = counter % 62;
+      c[i] = BASE_62.charAt(index);  // Base-62 encoding (in reverse)
+      counter /= 62;
     }
     Arrays.fill(c, 0, i + 1, '0'); // Fill remaining positions with '0'
     return new String(c);
