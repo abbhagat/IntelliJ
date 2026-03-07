@@ -12,7 +12,7 @@ public class MergeSort {
     if (head == null || head.next == null) {
       return head;
     }
-    Node mid = findMid(head);
+    Node mid   = findMid(head);
     Node head2 = mid.next;
     mid.next = null;
     Node a = mergeSort(head);

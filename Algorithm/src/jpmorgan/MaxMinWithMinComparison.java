@@ -28,6 +28,8 @@ public class MaxMinWithMinComparison {
   }
 
   public static void main(String[] args) {
+    findMinMax(new int[]{1});
+    findMinMax(new int[]{1, 2});
     findMinMax(new int[]{1, 2, 3, 4, 5});
     findMinMax(new int[]{10, 59, 33, 40, 21});
   }
