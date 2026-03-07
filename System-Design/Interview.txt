@@ -1,0 +1,23 @@
+1. Explain why an API works in Postman but fails in the browser.
+
+My answer: Challenge accepted, let’s go!
+
+➤ If an API works in Postman but fails in the browser, it’s usually due to environment differences like headers, CORS, auth, and cookies.
+
+➤ CORS issue (Most common) — Browser blocks cross-origin requests, Postman doesn’t. Backend must allow frontend origin.
+
+➤ Preflight (OPTIONS) not handled — Browser sends an OPTIONS request first. If the server doesn’t allow it, the request fails.
+
+➤ Missing Headers — Authorization, Content-Type, or custom headers may not be sent from the frontend properly.
+
+➤ Authentication issue — Token or cookies may not be attached in the browser request.
+
+➤ HTTPS vs HTTP (Mixed Content) — Browser blocks HTTP APIs when the frontend is running on HTTPS.
+
+➤ CSRF Protection — Backend may require a CSRF token for browser requests.
+
+➤ Cookie / SameSite policy — Browser enforces cookie security rules, Postman doesn’t.
+
+➤ Wrong API URL / Environment — Frontend may be pointing to a different environment.
+
+➤ How I debug: Open Browser DevTools → Network tab → compare request with Postman → identify difference → fix backend or frontend config

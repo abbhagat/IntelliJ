@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class RateLimiter {
 
-  private final Map<String, Integer> requestCount = new HashMap<>();
+  private final Map<String, Integer> requestMap = new HashMap<>();
 
   public boolean allowRequest(String clientId) {
-    requestCount.put(clientId, requestCount.getOrDefault(clientId, 0) + 1);
-    return requestCount.get(clientId) <= 5;
+    requestMap.put(clientId, requestMap.getOrDefault(clientId, 0) + 1);
+    return requestMap.get(clientId) <= 5;
   }
 }

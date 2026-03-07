@@ -4,16 +4,16 @@ import java.util.List;
 
 public class LoadBalancer {
 
-  private final List<Service> instances;
+  private final List<Service> serviceList;
   private int index = 0;
 
-  public LoadBalancer(List<Service> instances) {
-    this.instances = instances;
+  public LoadBalancer(List<Service> serviceList) {
+    this.serviceList = serviceList;
   }
 
   public Service getInstance() {
-    Service service = instances.get(index);
-    index = (index + 1) % instances.size();
+    Service service = serviceList.get(index);
+    index = (index + 1) % serviceList.size();
     return service;
   }
 }
