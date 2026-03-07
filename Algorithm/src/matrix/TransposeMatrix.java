@@ -16,8 +16,9 @@ public class TransposeMatrix {
   }
 
   public static void findTranspose(int[][] M) {
-    for (int i = 0; i < M.length; i++) {
-      for (int j = i; j < M.length; j++) {
+    int R = M.length, C = M[0].length;
+    for (int i = 0; i < R; i++) {
+      for (int j = i; j < C; j++) {
         swap(M, i, j);
       }
     }
