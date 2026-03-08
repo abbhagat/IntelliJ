@@ -13,24 +13,24 @@ import java.io.Serializable;
 @Table(name = "LOGIN_DETAILS")
 public class User implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+  @Serial
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private int id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID")
+  private int id;
 
-    @Column(name = "USER_NAME")
-    private String userName;
+  @Column(name = "USER_NAME")
+  private String userName;
 
-    @Column(name = "PASSWORD")
-    private String password;
+  @Column(name = "PASSWORD")
+  private String password;
 
-    @Column(name = "ACTIVE")
-    private boolean active;
+  @Column(name = "ACTIVE")
+  private boolean active;
 
-    @Column(name = "ROLES")
-    private String roles;
+  @Column(name = "ROLES")
+  private String roles;
 
 }
