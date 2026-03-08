@@ -2,8 +2,8 @@ spring:
   application:
     name: spring-boot-security
   datasource:
-    username: V705417
-    password: V705417
+    username: system
+    password: zed
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:XE
   jpa:
@@ -11,6 +11,7 @@ spring:
       hibernate:
         format_sql: true
         enable_lazy_load_no_trans: true
+        dialect: org.hibernate.dialect.Oracle12cDialect
     show-sql: true
     hibernate:
       ddl-auto: update
