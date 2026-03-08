@@ -1,4 +1,4 @@
-package oracle;
+package strings;
 
 public class ReplaceAllSpacesInAStringWithPercentage {
 

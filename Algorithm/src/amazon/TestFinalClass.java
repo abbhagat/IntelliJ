@@ -1,4 +1,4 @@
-package oracle;
+package amazon;
 
 import java.util.Date;
 

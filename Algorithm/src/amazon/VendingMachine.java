@@ -1,4 +1,4 @@
-package oracle;
+package amazon;
 
 public class VendingMachine {
 
