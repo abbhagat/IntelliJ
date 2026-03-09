@@ -7,13 +7,12 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
 
   private static boolean canFormPalindrome(String s) {
     int[] temp = new int[128];
-    for(int i = 0, j = s.length() - 1; i < j; i++, j--) {
-      temp[s.charAt(i)]++;
-      temp[s.charAt(j)]--;
+    for(char c : s.toCharArray()) {
+      temp[c]++;
     }
     int count = 0;
     for (int x : temp) {
-      if (x != 0) {
+      if (x % 2 == 1) {
         count++;
       }
       if (count > 1) {
@@ -39,6 +38,7 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
   }
 
   public static void main(String[] args) {
+    System.out.println(canFormPalindrome("aad"));
     System.out.println(canFormPalindrome("geeksforgeeks"));
     System.out.println(canFormPalindrome("geeksogeeks"));
     System.out.println(canFormPalindromeUsingMap("geeksforgeeks"));

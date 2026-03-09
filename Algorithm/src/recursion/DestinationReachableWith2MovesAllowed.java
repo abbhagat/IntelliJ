@@ -14,6 +14,7 @@ package recursion;
  * Output: false -> No such path is possible because x1 > x2 and coordinates are positive
  */
 
+// Time Complexity : O(2^k)
 public class DestinationReachableWith2MovesAllowed {
 
   private static boolean isReachable(int sx, int sy, int dx, int dy) {
@@ -26,7 +27,7 @@ public class DestinationReachableWith2MovesAllowed {
     return isReachable(sx, sx + sy, dx, dy) || isReachable(sx + sy, sy, dx, dy);
   }
 
-  // Time Complexity: O(1)
+  // Time Complexity: O(log n)
   // Auxiliary Space: O(1)
   private static boolean isReachable(long x1, long y1, long x2, long y2) {
     while (x2 > x1 && y2 > y1) {

@@ -1,7 +1,7 @@
 package searching;
 
-// Time  Complexity O(n)
-// Space Complexity O(n)
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class MissingNumber1 {
 
   private static void firstMissingPositive(int[] a) {

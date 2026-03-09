@@ -8,14 +8,15 @@ public class EfficientJanitor {
 
   private static int efficientJanitor(List<Float> weight) {
     Collections.sort(weight);
-    int low = 0, high = weight.size() - 1, trips = 0;
-    while (low <= high) {
-      if (weight.get(low) + weight.get(high) <= 3.0f) {
-        low++;
+    int i = 0, j = weight.size() - 1, trips = 0;
+    while (i < j) {
+      if (weight.get(i) + weight.get(j) <= 3.0f) {
+        i++;
       }
-      high--;
+      j--;
       trips++;
     }
+    trips += (i == j && weight.get(i) <= 3.0f) ? 1 : 0;
     return trips;
   }
 

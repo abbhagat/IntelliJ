@@ -5,12 +5,12 @@ import java.util.Arrays;
 // Time  Complexity : O(n)
 public class CheckIfBothHalfStringsHaveSameSetOfCharacters {
 
-  private static boolean hasSameSetOfChars(char[] a) {
+  private static boolean hasSameSetOfChars(char[] c) {
     int[] temp = new int[128];
-    int i = 0, j = a.length - 1;
-    while (i <= j) {
-      temp[a[i++]]++;
-      temp[a[j--]]--;
+    int i = 0, j = c.length - 1;
+    while (i < j) {
+      temp[c[i++]]++;
+      temp[c[j--]]--;
     }
     return Arrays.stream(temp).allMatch(x -> x == 0);
   }

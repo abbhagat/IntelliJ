@@ -3,7 +3,7 @@ package geeks;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-// Time Complexity: O(n*(2^n))
+// Time Complexity: O(2^n)
 public class ArraySum {
 
   public static void combinationForSum(int[] a, int index, int currSum, int givenSum, LinkedList<Integer> list) {
@@ -22,7 +22,9 @@ public class ArraySum {
 
   public static void main(String[] args) {
     int[] a = {0, 15, -2, 2, -8, 1, 7, 10, 23};
-    Arrays.sort(a);
+    Arrays.sort(a);  // If the array is sorted, we can stop exploring branches early when the sum exceeds the target.
     combinationForSum(a, 0, 0, 0, new LinkedList<>());
+    System.out.println();
+    combinationForSum(a, 0, 0, 5, new LinkedList<>());
   }
 }

@@ -10,13 +10,13 @@ public class SymmetricPairsIn2DArray {
   private static void findSymmetricPairs(int[][] M) {
     Map<Integer, Integer> map = new HashMap<>();
     for (int[] a : M) {
-      int _1stVal = a[0];
-      int _2ndVal = a[1];
-      Integer val = map.get(_2ndVal);
-      if (val != null && val == _1stVal) {
-        System.out.println("(" + _1stVal + "," + _2ndVal + ")");
+      int x = a[0];
+      int y = a[1];
+      Integer val = map.get(y);
+      if (val != null && val == x) {
+        System.out.println("(" + x + "," + y + ")");
       }
-      map.put(_1stVal, _2ndVal);
+      map.put(x, y);
     }
   }
 

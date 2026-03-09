@@ -1,7 +1,7 @@
 package searching;
 
 // Time Complexity : O(log n)
-public class FindTurningPointInAnArray {
+public class FindTurningPointOrPeakElementInAnArray {
 
   public static int findPeakAscToDesc(int[] a) {
     int low = 0, high = a.length - 1;

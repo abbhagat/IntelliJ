@@ -4,10 +4,10 @@ import static java.lang.Math.abs;
 
 public class ClosestNumberInAnArray {
 
-  private static int closestNumber(int[] a, int k) {
+  private static int closestNumber(int[] a, int n) {
     int closest = a[0];
     for (int i = 1; i < a.length; i++) {
-      if (abs(a[i] - k) <= abs(closest - k)) {
+      if (abs(a[i] - n) <= abs(closest - n)) {
         closest = a[i];
       }
     }
