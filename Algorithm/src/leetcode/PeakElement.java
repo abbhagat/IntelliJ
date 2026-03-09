@@ -9,7 +9,7 @@ public class PeakElement {
     while (low <= high) {
       int mid = (low + high) / 2;
       if (a[mid] > a[mid + 1]) {
-        high = mid - 1;
+        high = mid;
       } else {
         low  = mid + 1;
       }
