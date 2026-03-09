@@ -1,4 +1,4 @@
-package leetcode;
+package searching;
 
 // A peak element is an element that is greater than it's neighbour
 // a[i] > a[i+1] return a[i]

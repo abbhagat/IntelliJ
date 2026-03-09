@@ -1,4 +1,4 @@
-package sorting;
+package searching;
 
 // Time Complexity : O(log n)
 public class FindTurningPointInAnArray {
