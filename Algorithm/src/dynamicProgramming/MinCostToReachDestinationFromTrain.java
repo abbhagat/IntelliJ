@@ -33,11 +33,11 @@ public class MinCostToReachDestinationFromTrain {
 
   public static void main(String[] args) {
     final int[][] cost = {
-        {0, 15, 80, 90},
-        {M, 0, 40, 50},
-        {M, M, 0, 70},
-        {M, M, M, 0}
-    };
+                           {0, 15, 80, 90},
+                           {M,  0, 40, 50},
+                           {M,  M,  0, 70},
+                           {M,  M,  M,  0}
+                         };
     final int N = cost.length;
     System.out.println(minCost(cost, 0, N - 1) + "\t" + minCost(cost));
   }
