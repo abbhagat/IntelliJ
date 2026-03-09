@@ -30,7 +30,7 @@ public class LargestContiguousSumArrayPrint {
       }
     }
     System.out.print("SubArray : ");
-    printArray(a, start, end + 1);
+    printArray(a, start, end + 1);  // print the array element from i = start to i <= end
   }
 
   public static void main(String[] args) {
