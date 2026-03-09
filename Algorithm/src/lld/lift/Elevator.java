@@ -27,29 +27,29 @@ public class Elevator {
   }
 
   private void processRequests() {  // Runs in separate thread
-    try {
-      while (!Thread.currentThread().isInterrupted()) {
-        int nextFloor;
+    while (!Thread.currentThread().isInterrupted()) {
+      try {
+        int destFloor;
         if (!upQueue.isEmpty()) {
           direction = Direction.UP;
           state = ElevatorState.MOVING;
-          nextFloor = upQueue.take();  // blocks if Queue empty So you don’t need manual synchronization logic.
+          destFloor = upQueue.take();  // blocks if Queue empty So you don’t need manual synchronization logic.
         } else if (!downQueue.isEmpty()) {
           direction = Direction.DOWN;
           state = ElevatorState.MOVING;
-          nextFloor = downQueue.take(); // blocks if empty So you don’t need manual synchronization logic.
+          destFloor = downQueue.take(); // blocks if empty So you don’t need manual synchronization logic.
         } else {
           state = ElevatorState.IDLE;
           direction = Direction.IDLE;
           // block until ANY request arrives
-          nextFloor = upQueue.take();
+          destFloor = upQueue.take();
           direction = Direction.UP;
           state = ElevatorState.MOVING;
         }
-        moveTo(nextFloor);
+        moveToDestFloor(destFloor);
+      } catch (Exception e) {
+        e.printStackTrace();
       }
-    } catch (Exception e) {
-      e.printStackTrace();
     }
   }
 
@@ -58,11 +58,11 @@ public class Elevator {
     System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
   }
 
-  public void moveTo(int targetFloor) throws InterruptedException {
-    System.out.println("Elevator " + id + " moving from " + currentFloor + " to " + targetFloor);
+  public void moveToDestFloor(int destFloor) throws InterruptedException {
+    System.out.println("Elevator " + id + " moving from " + currentFloor + " to " + destFloor);
     // Thread.sleep is used to simulate the time taken by the elevator to move between floors.
-    Thread.sleep(Math.abs(targetFloor - currentFloor) * 100L);
-    currentFloor = targetFloor;
+    Thread.sleep(Math.abs(destFloor - currentFloor) * 100L);
+    currentFloor = destFloor;
     state = ElevatorState.STOPPED;
     System.out.println("Elevator " + id + " stopped at " + currentFloor);
   }
