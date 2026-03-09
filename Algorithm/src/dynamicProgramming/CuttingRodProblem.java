@@ -10,9 +10,9 @@ public class CuttingRodProblem {
     if (n == 0) {
       return 0;
     }
-    int max = Integer.MIN_VALUE;
+    int res, max = Integer.MIN_VALUE;
     for (int i = 0; i < n; i++) {
-      int res = price[i] + cutRod(price, n - i - 1);
+      res = price[i] + cutRod(price, n - i - 1);
       max = max(max, res);
     }
     return max;
