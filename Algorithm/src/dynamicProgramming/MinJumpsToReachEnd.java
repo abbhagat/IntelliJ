@@ -34,7 +34,7 @@ public class MinJumpsToReachEnd {
   }
 
   private static int minJumps(int[] a) {
-    int steps = 0, j = 0, current = 0;
+    int j = 0, current = 0, steps = 0;
     for (int i = 0; i < a.length; i++) {
       if (i > j) {
         j = current;
