@@ -34,7 +34,7 @@ public class ZeroOneKnapSackRecursionBounded {
     return max(val[n] + knapSack(W - wt[n], wt, val, n - 1), knapSack(W, wt, val, n - 1));
   }
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int W = 8;
     int[] val = {10, 40, 50, 70};
     int[] wt = {1, 3, 4, 5};

@@ -73,7 +73,7 @@ public class ZeroOneKnapSackDPBounded {
     return DP[n][W];
   }
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int[] val = new int[]{10, 15, 40};
     int[] wt = new int[]{1, 2, 3};
     int W = 6;

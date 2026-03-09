@@ -11,10 +11,10 @@ public class MinCoinToMakeAValue {
     if (V == 0) {
       return 0;
     }
-    int min = Integer.MAX_VALUE;
+    int result, min = Integer.MAX_VALUE;
     for (int coin : coins) {
       if (coin <= V) {
-        int result = 1 + minCoins(coins, V - coin);
+        result = 1 + minCoins(coins, V - coin);
         min = min(min, result);
       }
     }
