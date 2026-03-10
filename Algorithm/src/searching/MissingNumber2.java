@@ -15,13 +15,12 @@ public class MissingNumber2 {
         isPresent[x] = true;
       }
     }
-    int count = 0;
-    for (int i = 1; i <= n && count <=2; i++) {
+    for (int i = 1; i <= n; i++) {
       if (!isPresent[i]) {
         System.out.print(i + "\t");
-        count++;
       }
     }
+    System.out.println();
   }
 
   public static void main(String[] args) {
