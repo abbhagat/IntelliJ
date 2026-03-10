@@ -9,9 +9,8 @@ public class ConvertCamelCaseStringToSnakeCase {
         if (sb.length() != 0) {
           sb.append("_");
         }
-        c = Character.toLowerCase(c);
       }
-      sb.append(c);
+      sb.append(Character.toLowerCase(c));
     }
     return sb;
   }
