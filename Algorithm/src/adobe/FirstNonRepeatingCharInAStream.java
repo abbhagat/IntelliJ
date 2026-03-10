@@ -22,6 +22,5 @@ public class FirstNonRepeatingCharInAStream {
 
   public static void main(String[] args) {
     firstNonRepeatingChar(Stream.of('a', 'a', 'b', 'b', 'c', 'd'));
-
   }
 }
