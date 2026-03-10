@@ -32,13 +32,13 @@ public class CheckIfBinaryTreeHasDuplicateSubTree {
     return found;
   }
 
-  private static String serialize(Node node) {
-    if (node == null) {
+  private static String serialize(Node root) {
+    if (root == null) {
       return "null";
     }
-    String left  = serialize(node.left);
-    String right = serialize(node.right);
-    String subtree = node.num + "," + left + "," + right;
+    String left  = serialize(root.left);
+    String right = serialize(root.right);
+    String subtree = root.num + "," + left + "," + right;
     if (!left.equals("null") || !right.equals("null")) {       // Ignore leaf nodes
       int count = map.getOrDefault(subtree, 0);
       if (count == 1) {
