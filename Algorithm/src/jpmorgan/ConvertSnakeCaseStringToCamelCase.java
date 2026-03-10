@@ -5,8 +5,7 @@ public class ConvertSnakeCaseStringToCamelCase {
   private static StringBuilder convert(String str) {
     StringBuilder sb = new StringBuilder();
     boolean flag = false;
-    for (int i = 0; i < str.length(); i++) {
-      char c = str.charAt(i);
+    for (char c : str.toCharArray()) {
       if (Character.isAlphabetic(c)) {  // Add  (|| c == '_') to include '_' in output
         if (sb.isEmpty()) {
           c = Character.toLowerCase(c);

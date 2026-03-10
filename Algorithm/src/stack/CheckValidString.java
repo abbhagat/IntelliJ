@@ -42,11 +42,15 @@ public class CheckValidString {
         min++;
         max++;
       } else if (c == ')') {
-        min -= min > 0 ? 1 : 0;
+       if (min > 0) {
+         min--;
+       }
         max--;
       } else {  // '*'
-        min -= min > 0 ? 1 : 0;  // treat '*' as ')'
-        max++;                  //  treat '*' as '('
+        if (min > 0) {   // treat '*' as ')'
+          min--;
+        }
+        max++;         //  treat '*' as '('
       }
       if (max < 0) {
         return false;      // too many ')'
