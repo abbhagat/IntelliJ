@@ -11,6 +11,7 @@ class PrintThread implements Runnable {
                                         {2, 5, 8},
                                         {3, 6, 9}
                                        };
+  private final int n = a.length * a[0].length;
 
   public PrintThread(int threadId) {
     this.threadId = threadId;
@@ -19,7 +20,7 @@ class PrintThread implements Runnable {
 
   @Override
   public void run() {
-    while (i < a.length * a[0].length) {
+    while (i < n) {
       try {
         synchronized (monitor) {
           if (threadId != threadIdToRun) {

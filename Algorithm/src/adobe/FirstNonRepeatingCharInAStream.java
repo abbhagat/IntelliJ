@@ -1,6 +1,5 @@
 package adobe;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Stream;
@@ -16,7 +15,7 @@ public class FirstNonRepeatingCharInAStream {
       while (!q.isEmpty() && temp[q.peek()] > 1) {
         q.poll();
       }
-      System.out.println(q.isEmpty() ? -1 : Arrays.toString(Character.toChars(q.peek())));
+      System.out.println(q.isEmpty() ? -1 : String.valueOf(q.peek()));
     });
   }
 
