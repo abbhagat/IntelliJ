@@ -11,7 +11,6 @@ public class CheckIfAStringCanBeCutWhere1stHalfAnd2ndHalfHasSameNoOfCharacters {
     }
     for (int i = mid; i < str.length(); i++) {
       count--;
-
     }
     return count == 0;
     // return str.substring(0, mid).length() == str.substring(mid + 1).length();

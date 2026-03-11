@@ -14,7 +14,7 @@ public class LargestContiguousSumArrayPrint {
     return maxSum;
   }
 
-  private static void maxSumSubarray(int[] a) {
+  private static void maxSumSubArray(int[] a) {
     int curSum = a[0], maxSum = a[0], start = 0, end = 0, index = 0;
     for (int i = 1; i < a.length; i++) {
       if (curSum + a[i] < a[i]) {
@@ -29,22 +29,21 @@ public class LargestContiguousSumArrayPrint {
         end    = i;
       }
     }
-    System.out.print("SubArray : ");
     printArray(a, start, end + 1);  // print the array element from i = start to i <= end
   }
 
   public static void main(String[] args) {
     int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
     System.out.print(largestContiguousSum(a) + "\t");
-    maxSumSubarray(a);
+    maxSumSubArray(a);
     int[] b = {-2, -3, 4, 1};
     System.out.print(largestContiguousSum(b) + "\t");
-    maxSumSubarray(b);
+    maxSumSubArray(b);
     int[] c = {2, 3, -1, 5, -3, 2};
     System.out.print(largestContiguousSum(c) + "\t");
-    maxSumSubarray(c);
+    maxSumSubArray(c);
     int[] d = new int[]{-1, 2, -3, 4, -5};
     System.out.print(largestContiguousSum(d) + "\t");
-    maxSumSubarray(d);
+    maxSumSubArray(d);
   }
 }

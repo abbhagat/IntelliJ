@@ -11,7 +11,7 @@ public class FindElementPositionAfterSorting {
   private static void findElementPositionAfterSorting(int[] a, int pos) {
     int count = 0, n = a[pos];
     for (int x : a) {
-      if (x < n) {  // Find the count of elements in the array which are <= n
+      if (x < n) {  // Find the count of elements in the array which are < n
         count++;
       }
     }

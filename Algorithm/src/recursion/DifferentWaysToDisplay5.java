@@ -4,7 +4,7 @@ package recursion;
 // Space Complexity: O(n)
 public class DifferentWaysToDisplay5 {
 
-  static class Count {
+  private static class Count {
     int count;
   }
 

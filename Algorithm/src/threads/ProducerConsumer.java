@@ -12,9 +12,9 @@ class QQ {
         wait();
       }
       this.n = n;
+      flag = !flag;
       System.out.println(Thread.currentThread().getName() + "\t" + this.n);
       notify();
-      flag = !flag;
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
@@ -26,8 +26,8 @@ class QQ {
         wait();
       }
       System.out.println(Thread.currentThread().getName() + "\t" + this.n);
-      notify();
       flag = !flag;
+      notify();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

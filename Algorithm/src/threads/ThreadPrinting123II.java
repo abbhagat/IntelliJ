@@ -10,6 +10,7 @@ class PrinterThreads implements Runnable {
   private final int[] a = new int[]{1, 4, 7};
   private final int[] b = new int[]{2, 5, 8};
   private final int[] c = new int[]{3, 6, 9};
+  private final int n = a.length + b.length + c.length;
 
   public PrinterThreads(int threadId) {
     this.threadId = threadId;
@@ -18,7 +19,7 @@ class PrinterThreads implements Runnable {
 
   @Override
   public void run() {
-    while (i < a.length + b.length + c.length) {
+    while (i < n) {
       try {
         synchronized (monitor) {
           if (threadId != threadIdToRun) {
