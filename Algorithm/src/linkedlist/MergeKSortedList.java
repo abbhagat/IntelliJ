@@ -25,7 +25,6 @@ public class MergeKSortedList {
     return head.next;
   }
 
-
   public static void main(String[] args) {
     Node a = null, b = null, c = null;
     for (int x : new int[]{1, 3}) {
