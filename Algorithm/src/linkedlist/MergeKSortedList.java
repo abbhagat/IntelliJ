@@ -7,7 +7,7 @@ import static linkedlist.TraverseList.traverseList;
 
 public class MergeKSortedList {
 
-  private static Node mergeKLists(List<Node> nodeList) {
+  private static Node mergeKSortedList(List<Node> nodeList) {
     PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> a.num - b.num);
     for (Node node : nodeList) {
       if (node != null)
@@ -37,7 +37,7 @@ public class MergeKSortedList {
       c = add(c, x);
     }
     List<Node> nodeList = List.of(a, b, c);
-    Node head = mergeKLists(nodeList);
+    Node head = mergeKSortedList(nodeList);
     traverseList(head);
   }
 }
