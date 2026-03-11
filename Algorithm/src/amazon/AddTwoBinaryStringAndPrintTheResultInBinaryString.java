@@ -22,5 +22,6 @@ public class AddTwoBinaryStringAndPrintTheResultInBinaryString {
     System.out.println(add("1111", "1010", 2));
     System.out.println(add("15",   "20",   8));
     System.out.println(add("156",  "203",  10));
+    System.out.println(add("17",   "203",  10));
   }
 }

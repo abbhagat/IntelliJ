@@ -13,15 +13,13 @@ import java.util.Date;
  */
 public class PalindromeDate {
 
-  private static String nextPalindromeDate(String inputDate, String format) throws ParseException {
+  private static String nextPalindromeDate(String inputDate) throws ParseException {
     Calendar cal = Calendar.getInstance();
     int year     = Integer.parseInt(inputDate.substring(0, 4));
-    int month    = Integer.parseInt(inputDate.substring(4, 6));
+    int month    = Integer.parseInt(inputDate.substring(4, 6)) - 1;
     int day      = Integer.parseInt(inputDate.substring(6));
-    if (month == 4) {
-      cal.set(year, Calendar.APRIL, day);
-    }
-    SimpleDateFormat sdf = new SimpleDateFormat(format);
+    cal.set(year, month, day);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     String dateStr;
     while (true) {
       Date date = cal.getTime();
@@ -32,12 +30,11 @@ public class PalindromeDate {
       }
       cal.add(Calendar.DATE, 1);
     }
-    Date date = sdf.parse(dateStr);
-    return new SimpleDateFormat("dd-MMM-yyyy").format(date);
+    return dateStr;
   }
 
   public static void main(String[] args) throws ParseException {
-    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404", "yyyyMMdd"));
-    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250205", "yyyyMMdd"));
+    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404"));
+    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250205"));
   }
 }

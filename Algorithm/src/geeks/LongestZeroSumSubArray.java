@@ -9,7 +9,7 @@ import static java.lang.Integer.max;
 public class LongestZeroSumSubArray {
 
   private static int longestZeroSumSubArray(int[] a, int n) {
-    Map<Integer, Integer> map = new HashMap<>();  // to store key as zero-sum with the value as index
+    Map<Integer, Integer> map = new HashMap<>();  // to store key as sum and the value as index i
     int sum = 0, max = 0;
     for (int i = 0; i < a.length; i++) {
       sum += a[i];

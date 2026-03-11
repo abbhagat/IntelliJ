@@ -8,7 +8,7 @@ import java.util.Map;
 public class CountSubArray01 {
 
   public static int getSubArrayWithEqual01(int[] a) {
-    Map<Integer, Integer> map = new HashMap<>();
+    Map<Integer, Integer> map = new HashMap<>();  // to store the sum frequency
     int sum = 0, count = 0;
     for (int i = 0; i < a.length; i++) {
       if (a[i] == 0) {
