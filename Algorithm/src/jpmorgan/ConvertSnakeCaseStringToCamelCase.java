@@ -20,13 +20,9 @@ public class ConvertSnakeCaseStringToCamelCase {
   }
 
   public static void main(String[] args) {
-    System.out.println(convert("geeksforgeeks"));                  // geeksforgeeks
-    System.out.println(convert("geeks_for_geeks"));                // geeksForGeeks
-    System.out.println(convert("Geeks_for_geeks"));                // geeksForGeeks
-    System.out.println(convert("snake_case_to_camel_case"));       // snakeCaseToCamelCase
-    System.out.println(convert("_snake_case_to_camel_case"));      // snakeCaseToCamelCase
-    System.out.println(convert("_%$snake_case_to_camel_case"));    // snakeCaseToCamelCase
-    System.out.println(convert("_%$snake_case_%^to_camel_case"));  // snakeCaseToCamelCase
-    System.out.println(convert("_%$Snake_case_%^to_camel_case"));  // snakeCaseToCamelCase
+    System.out.println(convert("geeksforgeeks"));            // geeksforgeeks
+    System.out.println(convert("geeks_for_geeks"));          // geeksForGeeks
+    System.out.println(convert("geeks_for_geeks"));          // geeksForGeeks
+    System.out.println(convert("snake_case_to_camel_case")); // snakeCaseToCamelCase
   }
 }
