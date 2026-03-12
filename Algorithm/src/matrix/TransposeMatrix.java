@@ -24,4 +24,8 @@ public class TransposeMatrix {
     }
   }
 
+  public static void main(String[] args) {
+    transposeNonSquare(new int[][]{{1, 2, 3}});
+  }
+
 }

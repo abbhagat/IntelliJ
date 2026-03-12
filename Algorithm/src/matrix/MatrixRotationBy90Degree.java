@@ -8,7 +8,7 @@ public class MatrixRotationBy90Degree {
 
   public static void rotateBy90ClockwiseForSquareMatrix(int[][] M) {
     findTranspose(M);
-    for (int[] a : M) {                // Reverse Each ROW
+    for (int[] a : M) {   // Reverse Each ROW
       int i = 0, j = M[0].length - 1;
       while (i < j) {
         swap(a, i, j);
@@ -21,7 +21,7 @@ public class MatrixRotationBy90Degree {
 
   public static void rotate90AntiClockwiseForSquareMatrix(int[][] M) {
     findTranspose(M);
-    for (int col = 0; col < M.length; col++) {                // Reverse Each Column
+    for (int col = 0; col < M.length; col++) { // Reverse Each Column
       int i = 0, j = M[0].length - 1;
       while (i < j) {
         int t = M[i][col];
