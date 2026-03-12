@@ -4,18 +4,16 @@ public class ConvertSnakeCaseStringToCamelCase {
 
   private static StringBuilder convert(String str) {
     StringBuilder sb = new StringBuilder();
-    boolean flag = false;
+    boolean capitalizeNext = false;
     for (char c : str.toCharArray()) {
-      if (Character.isAlphabetic(c)) {  // Add  (|| c == '_') to include '_' in output
-        if (sb.isEmpty()) {
-          c = Character.toLowerCase(c);
-        } else if (flag) {
-          c = Character.toUpperCase(c);
-          flag = false;
-        }
+      if (c == '_') {
+        capitalizeNext = true;
+      } else if (capitalizeNext) {
+        c = Character.toUpperCase(c);
         sb.append(c);
-      } else if (!sb.isEmpty()) {
-        flag = true;
+        capitalizeNext = false;
+      } else {
+        sb.append(c);
       }
     }
     return sb;

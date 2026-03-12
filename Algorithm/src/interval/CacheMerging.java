@@ -20,7 +20,7 @@ public class CacheMerging {
       int end            = max(interval.end,   newInterval.end);
       int intervalEnd    = interval.start + interval.end;
       int newIntervalEnd = newInterval.start + newInterval.end;
-      newInterval.end    = intervalEnd <= newIntervalEnd ? end : intervalEnd;
+      newInterval.end    = intervalEnd > newIntervalEnd ? intervalEnd : end;
     }
     intervalList.add(i, newInterval);
   }

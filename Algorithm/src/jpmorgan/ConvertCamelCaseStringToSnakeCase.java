@@ -5,10 +5,8 @@ public class ConvertCamelCaseStringToSnakeCase {
   private static StringBuilder convert(String str) {
     StringBuilder sb = new StringBuilder();
     for (char c : str.toCharArray()) {
-      if (Character.isUpperCase(c)) {
-        if (sb.length() != 0) {
-          sb.append("_");
-        }
+      if (Character.isUpperCase(c) && sb.length() != 0) {
+        sb.append("_");
       }
       sb.append(Character.toLowerCase(c));
     }
