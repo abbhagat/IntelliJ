@@ -26,23 +26,23 @@ class PrintThread implements Runnable {
           if (threadId != threadIdToRun) {
             monitor.wait();
           } else {
-            int col = threadLocal.get();
+            int j = threadLocal.get();
             switch (threadId) {
               case 1 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + a[0][col]);
+                System.out.println(Thread.currentThread().getName() + " -> " + a[0][j]);
                 threadIdToRun = 3;
               }
               case 2 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + a[1][col]);
+                System.out.println(Thread.currentThread().getName() + " -> " + a[1][j]);
                 threadIdToRun = 1;
               }
               case 3 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + a[2][col]);
+                System.out.println(Thread.currentThread().getName() + " -> " + a[2][j]);
                 threadIdToRun = 2;
               }
             }
             i++;
-            threadLocal.set(col + 1);
+            threadLocal.set(j + 1);
             monitor.notifyAll();
           }
         }

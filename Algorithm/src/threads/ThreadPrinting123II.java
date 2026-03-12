@@ -25,22 +25,23 @@ class PrinterThreads implements Runnable {
           if (threadId != threadIdToRun) {
             monitor.wait();
           } else {
+            int j = threadLocal.get();
             switch (threadId) {
               case 1 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + a[threadLocal.get()]);
+                System.out.println(Thread.currentThread().getName() + " -> " + a[j]);
                 threadIdToRun = 3;
               }
               case 2 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + b[threadLocal.get()]);
+                System.out.println(Thread.currentThread().getName() + " -> " + b[j]);
                 threadIdToRun = 1;
               }
               case 3 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + c[threadLocal.get()]);
+                System.out.println(Thread.currentThread().getName() + " -> " + c[j]);
                 threadIdToRun = 2;
               }
             }
             i++;
-            threadLocal.set(threadLocal.get() + 1);
+            threadLocal.set(j + 1);
             monitor.notifyAll();
           }
         }
