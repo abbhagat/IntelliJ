@@ -14,7 +14,9 @@ public class MinimumDaysToWatchAllMovies {
       j--;
       days++;
     }
-    days += (i == j && a[i] <= 3.0f) ? 1 : 0;
+    if (i == j && a[i] <= 3.0f) {
+      days++;
+    }
     return days;
   }
 

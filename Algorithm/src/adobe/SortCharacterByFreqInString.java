@@ -5,18 +5,24 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static java.lang.Integer.max;
+
 public class SortCharacterByFreqInString {
 
   private static String sortCharByFreq(String str) {
     Map<Character, Integer> map = new HashMap<>();
     StringBuilder sb = new StringBuilder();
-    str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     Map<Character, Integer> finalMap = new LinkedHashMap<>();
+
+    str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
+
     map.entrySet()
         .stream()
         .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
         .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
-    finalMap.forEach((k, v) -> IntStream.range(0, v).forEach(i -> sb.append(k)));
+
+    finalMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(max(0, v))));
+
     return sb.toString();
   }
 
