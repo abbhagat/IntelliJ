@@ -21,7 +21,8 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
     Map<Character, Integer> map = new HashMap<>();
     s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     for (int i = start; i < end; i++) {
-      if (map.get(s.charAt(i)) < k) {
+      char c = s.charAt(i);
+      if (map.get(c) < k) {
         int max;
         int left  = longestSubString(s, start, i, k, index);
         int right = longestSubString(s, i + 1, end, k, index);
