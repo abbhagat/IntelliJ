@@ -72,7 +72,7 @@ public class TopKFrequentElementsInAnArrayII {
       if (!list.contains(x)) {
         list.add(x);
       }
-      // Sort the list based on frequency and then number [ Here number is the element from the Stream ]
+      // Sort the list based on frequency and then number [Here number is the element from the Stream]
       list.sort((a, b) -> {
         int n = map.get(b).compareTo(map.get(a));
         if (n == 0) {
@@ -80,8 +80,7 @@ public class TopKFrequentElementsInAnArrayII {
         }
         return n;
       });
-      // Print top K (or fewer if not enough distinct elements)
-      System.out.println(list.subList(0, min(k, list.size())));
+      System.out.println(list.subList(0, min(k, list.size())));  // Print top K (or fewer if not enough distinct elements)
     });
   }
 

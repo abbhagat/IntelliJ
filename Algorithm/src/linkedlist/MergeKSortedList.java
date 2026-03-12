@@ -13,7 +13,7 @@ public class MergeKSortedList {
       if (node != null)
         pq.add(node);
     }
-    Node head = new Node(0);
+    Node head = new Node(-1);
     Node temp = head;
     while (!pq.isEmpty()) {
       Node min = pq.poll();

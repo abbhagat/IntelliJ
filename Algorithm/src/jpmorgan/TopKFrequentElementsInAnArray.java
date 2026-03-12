@@ -1,7 +1,6 @@
 package jpmorgan;
 
 import java.util.*;
-
 import static java.lang.Integer.min;
 import static util.CommonUtils.printArray;
 
@@ -30,7 +29,7 @@ public class TopKFrequentElementsInAnArray {
   }
 
   private static String[] topKFrequentWords(List<String> list, int k) {
-    Map<String, Integer> map = new LinkedHashMap<>();
+    Map<String, Integer> map = new HashMap<>();
     list.forEach(s -> map.put(s, map.getOrDefault(s, 0) + 1));
     List<Map.Entry<String, Integer>> sortedList = map.entrySet()
                                                      .stream()
