@@ -19,24 +19,21 @@ public class MinCostToReachTopFloor {
   // Space Complexity : O(n)
   private static int minCost(int[] a) {
     int n = a.length;
-    int[] dp = new int[n];
-    if (n == 1) {
-      return a[0];
+    int[] dp = new int[n + 1];
+    dp[0] = 0;  // You can start either from step 0 or step 1 without paying any cost
+    dp[1] = 0;
+    for (int i = 2; i <= n; i++) {
+      dp[i] = min(dp[i - 1] + a[i - 1], dp[i - 2] + a[i - 2]);
     }
-    dp[0] = a[0];
-    dp[1] = a[1];
-    for (int i = 2; i < n; i++) {
-      dp[i] = a[i] + min(dp[i - 1], dp[i - 2]);
-    }
-    return min(dp[n - 1], dp[n - 2]);
+    return dp[n];
   }
 
   // Time  Complexity : O(2^n)
   // Space Complexity : O(n)
   private static int minCost(int[] a, int n) {
     return switch (n) {
-      case 1  -> a[0];
-      case 2  -> a[1];
+      case 1  -> a[0];  // To reach stair 1, you must step on stair 0 so cost = a[0]
+      case 2  -> a[1]; //  To reach stair 2, you can directly jump to stair 1 so cost = a[1]
       default -> a[n - 1] + min(minCost(a, n - 1), minCost(a, n - 2));
     };
   }
