@@ -13,7 +13,7 @@ public class DetectCycle {
     if (visited[v]) {
       return false;
     }
-    visited[v] = true;
+     visited[v] = true;
     recStack[v] = true;
     for (int n : g.getEdge()[v]) {
       if (hasCycleUtil(g, n, visited, recStack)) {
