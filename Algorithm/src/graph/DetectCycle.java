@@ -6,7 +6,7 @@ import static graph.CreateGraph.createGraph;
 // Space Complexity: O(V)
 public class DetectCycle {
 
-  private static boolean hasCycleUtil(Graph g, int v, boolean[] visited, boolean[] recStack) {
+  private static boolean hasCycle(Graph g, int v, boolean[] visited, boolean[] recStack) {
     if (recStack[v]) {
       return true; // cycle found
     }
@@ -16,7 +16,7 @@ public class DetectCycle {
      visited[v] = true;
     recStack[v] = true;
     for (int n : g.getEdge()[v]) {
-      if (hasCycleUtil(g, n, visited, recStack)) {
+      if (hasCycle(g, n, visited, recStack)) {
         return true;
       }
     }
@@ -28,7 +28,7 @@ public class DetectCycle {
     boolean[] visited  = new boolean[g.getV()];
     boolean[] recStack = new boolean[g.getV()];
     for (int i = 0; i < g.getV(); i++) {
-      if (hasCycleUtil(g, i, visited, recStack)) {
+      if (hasCycle(g, i, visited, recStack)) {
         return true;
       }
     }
@@ -37,6 +37,6 @@ public class DetectCycle {
 
   public static void main(String[] args) {
     Graph g = createGraph(4);
-    System.out.println(DetectCycle.hasCycle(g));
+    System.out.println(hasCycle(g));
   }
 }
