@@ -2,8 +2,8 @@ package graph;
 
 import static graph.CreateGraph.createGraph;
 
-// Time Complexity : O(V + E)
-// Space Complexity: O(V)
+// Time Complexity  : O(V + E)
+// Space Complexity : O(V)
 public class DetectCycle {
 
   private static boolean hasCycle(Graph g, int v, boolean[] visited, boolean[] recStack) {
@@ -25,9 +25,10 @@ public class DetectCycle {
   }
 
   public static boolean hasCycle(Graph g) {
-    boolean[] visited  = new boolean[g.getV()];
-    boolean[] recStack = new boolean[g.getV()];
-    for (int i = 0; i < g.getV(); i++) {
+    int v = g.getV();
+    boolean[] visited  = new boolean[v];
+    boolean[] recStack = new boolean[v];
+    for (int i = 0; i < v; i++) {
       if (hasCycle(g, i, visited, recStack)) {
         return true;
       }
