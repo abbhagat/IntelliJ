@@ -16,11 +16,11 @@ public class MergeKSortedList {
     Node head = new Node(-1);
     Node temp = head;
     while (!pq.isEmpty()) {
-      Node min = pq.poll();
-      temp.next = min;
+      Node node = pq.poll();
+      temp.next = node;
       temp = temp.next;
-      if (min.next != null)
-        pq.add(min.next);
+      if (node.next != null)
+        pq.add(node.next);
     }
     return head.next;
   }
