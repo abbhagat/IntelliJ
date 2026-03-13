@@ -2,6 +2,8 @@ package graph;
 
 import static graph.CreateGraph.createGraph;
 
+// Time Complexity : O(V + E)
+// Space Complexity: O(V)
 public class DetectCycle {
 
   private static boolean hasCycleUtil(Graph g, int v, boolean[] visited, boolean[] recStack) {
