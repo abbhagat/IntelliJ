@@ -24,7 +24,7 @@ package geeks;
 public class TrappingRainWater {
 
   private static int findWater(int[] a) {
-    int waterTrapped = 0, maxLeft = 0, maxRight = 0, low = 0, high = a.length - 1;
+    int low = 0, high = a.length - 1, maxLeft = 0, maxRight = 0, waterTrapped = 0;
     while (low <= high) {
       if (a[low] <= a[high]) {
         if (maxLeft < a[low]) {
