@@ -9,13 +9,13 @@ import static util.CommonUtils.swap;
 public class ReverseList {
 
   private static Node reverseList(Node head) {
-    Node temp = null, node = head;
-    while (node != null) {        // swap(node.left, node.right)
-      temp = swap(node);
-      node = node.left;
+    Node prev = null, temp = head;
+    while (temp != null) {        // swap(node.left, node.right)
+      prev = swap(temp);
+      temp = temp.left;
     }
-    if (temp != null) {         // Before changing head, check for the cases like empty list and list with only one node
-      head = temp.left;
+    if (prev != null) {         // Before changing head, check for the cases like empty list and list with only one node
+      head = prev.left;
     }
     return head;
   }
