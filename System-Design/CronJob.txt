@@ -4,7 +4,8 @@ Functional requirement
 2. User can list all the submitted jobs with current status.
 3. Jobs can be run once or recurring. Jobs should be executed within X threshold time after the defined scheduled time. (let x = 15 minutes)
 4. Individual job execution time is no more than X minutes. (let x = 5 minutes)
-5. Jobs can also have priority. Job the with higher priority should be executed first than lower priority.
+5. Jobs can also have priority.
+   Job the with higher priority should be executed first than lower priority. This can be achieved using PriorityQueue Max Heap
 6. Job output should be stored inside file system.
 
 Non-Functional Requirement
@@ -14,6 +15,7 @@ Non-Functional Requirement
 3. Reliability      — System must execute a job at-least once, and the same Job can not run by different processes at the same time.
 4. Durable          — System should not lose jobs information in case of any failure
 5. Latency          — System should acknowledge the user as soon as the job is accepted. User does not have to wait till job completion.
+                      Async Call with Queues
 
 Enumerations:-
 
@@ -113,7 +115,7 @@ public HttpResponse deleteJob(@PathVariable String id) {
 
 }
 
-@GetMapping("/getJobExceutionHistory")
+@GetMapping("/getJobExecutionHistory")
 public List<JobExecHistory> submitJob() {
 
 }
