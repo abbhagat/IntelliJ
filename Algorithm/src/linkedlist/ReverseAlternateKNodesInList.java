@@ -15,8 +15,8 @@ public class ReverseAlternateKNodesInList {
       temp = next;
       count++;
     }
-    if (head != null) {        // head points to the 1st node of list i.e 1. So change next of head to (k+1)th head
-      head.next = temp;
+    if (head != null) {   // head points to the 1st node i.e 1 and temp point to 4, So 4 is (k+1)th node.
+      head.next = temp;  // Change next of head to (k+1)th node
     }
     // We do not want to reverse next k nodes. So move the current pointer to skip next k nodes
     count = 1;

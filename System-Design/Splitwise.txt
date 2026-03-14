@@ -55,14 +55,14 @@ For the first time since there is no entry in the table we can make an entry in 
 
 At any point of time, this table will keep the latest snapshot of the balance.
 
-|---------------------------------------------------|
-|               BALANCE_SHEET                       |
-|---------------------------------------------------|
-|ID  FROM_USER  TO_USER AMOUNT  GROUP_ID  IS_SETTLED|
-|---------------------------------------------------|
-|1     B          A       50       1         N      |   // Since User A has made the payment so B owns Rs 50 to A
-|2     A          B      -50       1         N      |  //  Since User A has made the payment so B owns Rs 50 to A
-|---------------------------------------------------|
+|-----------------------------------------------------|
+|               BALANCE_SHEET                         |
+|---------------------------------------------------  |
+|ID  FROM_USER  TO_USER   AMOUNT  GROUP_ID  IS_SETTLED|
+|-----------------------------------------------------|
+|1     B          A         50       1         N      |   // Since User A has made the payment so B owns Rs 50 to A
+|2     A          B        -50       1         N      |  //  Since User A has made the payment so B owns Rs 50 to A
+|-----------------------------------------------------|
 
 Let's say USER A again paid Rs 200 for Pizza with Equal SPLIT
 
