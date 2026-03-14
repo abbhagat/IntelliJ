@@ -3,23 +3,50 @@ FR:-
 1. User should be able to reserve a parking spot.
 2. System should generate a ticket/receipt.
 3. 3 Types of vehicles[Compact, Regular, Large]
-4. Flat rate based on time but different rate for each vehicle type.
-5. User must not be able to book the same parking spot.
+4. Price is Flat rate based on time but different rate for each vehicle type.
+5. User must not be able to make the payment.
 6. Send Notification to user when parking spot is booked/canceled
 
 NFR :-
 
 1. Low Latency
-2. High Consistency
+2. High Consistency [User must not be able to book the same parking spot]
+3. Third Party system Like Stripe can take care of payment.
+
+10-Floor Building with 2000 parking spot/garage
 
 API Design
 
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------
-| POST    |   reserve           |  @PathVariable String garageId, @PathVariable Date startTime, @PathVariable Date endTime  Returns spotId and reservationId
-| POST    |   payment           |  @PathVariable String reservationId
-| POST    |   cancel            |  @PathVariable String reservationId
-| GET     |   calculatePayment  |  @PathVariable String reservationId
-| DELETE  |   freeSpot          |  @PathVariable String garageId, @PathVariable String vehicleType, @PathVariable String time
-| PUT     |   allocateSpot      |  @PathVariable String garageId, @PathVariable String vehicleType, @PathVariable String time
-| POST    |   create_account    |  @RequestBody User user
-|------------------------------------------------------------------------------------------------------------------------------------------------------------
+|-----------------------------------------------------------------------------------------------
+| POST    |   /reserve           |  (garageId, startTime, endTime)  => Ticket (spotId ,reservationId)
+| POST    |   /payment           |  reservationId --> Third Party system Like Stripe
+| POST    |   /cancel            |  reservationId
+| ###########    Internal EndPoints     #########################
+| GET     |   /calculatePayment  |  reservationId
+| PUT     |   /freeSpot          |  (garageId, vehicleType, time)
+| PUT     |   /allocateSpot      |  (garageId, vehicleType, time)
+| POST    |   /create_account    |  User user
+|-----------------------------------------------------------------------------------------------
+
+Database Tables
+
+|---------------------------------------------------------|  |-----------------------------------------|
+|           1. RESERVATIONS                               |  |              2. USER                    |             VEHICLE
+|---------------------------------------------------------|  |-----------------------------------------|
+|GARAGE_ID     SPOT_ID     START_TIME     END_TIME   PAID |  |   USER_ID  USER_NAME   EMAIL  PHONE_NUM |
+|---------------------------------------------------------|  |-----------------------------------------|
+|  G1           S1           900             1000     N   |  |     A                                   |
+|  G2           S2           900             1000     Y   |  |     B                                   |
+|  G3           S3           900             1000     N   |  |     C                                   |
+|---------------------------------------------------------|  |-----------------------------------------|
+
+|------------------------------------------------------------------------|  |----------------------------------------|
+|                          GARAGE                                        |  |                SPOT                    |
+|------------------------------------------------------------------------|  |----------------------------------------|
+| GARAGE_ID  | ZipCode   |  COMPACT_RATE  | REGULAR_RATE  |    LARGE_RATE|  | GARAGE_ID   VEHICLE_TYPE       STATUS  |
+|------------------------------------------------------------------------|  |----------------------------------------|
+|  G1          1         |               |                |              |  |  G1       |     1           |          |
+|  G2          1         |               |                |              |  |  G2       |     1           |          |
+|  G3          1         |               |                |              |  |  G3       |     1           |          |
+|------------------------------------------------------------------------|  |----------------------------------------|
+

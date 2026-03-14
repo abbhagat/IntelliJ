@@ -62,6 +62,6 @@ public class MergeTwoSortedList {
     traverseList(a);
     traverseList(b);
     traverseList(merge(a, b));
-//        traverseList(mergeTwoLists(a, b));
+//  traverseList(mergeTwoLists(a, b));
   }
 }
