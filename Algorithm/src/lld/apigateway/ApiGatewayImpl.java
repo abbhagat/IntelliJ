@@ -16,7 +16,7 @@ public class ApiGatewayImpl {
     Router router = new Router();
     AuthenticationManager authManager = new AuthenticationManager();
     RateLimiter rateLimiter = new RateLimiter();
-    Service userService = new UserService();
+    Service userService  = new UserService();
     Service orderService = new UserService();
     LoadBalancer loadBalancer = new LoadBalancer(List.of(userService, orderService));
     router.registerRoute("/user", userService);

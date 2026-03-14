@@ -21,3 +21,33 @@ My answer: Challenge accepted, let’s go!
 ➤ Wrong API URL / Environment — Frontend may be pointing to a different environment.
 
 ➤ How I debug: Open Browser DevTools → Network tab → compare request with Postman → identify difference → fix backend or frontend config
+
+Me: Caching looks simple on paper.
+ - If data is in cache → return it
+ - Else → fetch from DB and set cache
+
+This works… until traffic hits scale.
+At scale, databases don’t die because of bugs. They die because of cache failures.
+
+Then I explained the 3 cache killers:
+1. Cache Penetration
+ - Problem: Users keep requesting data that doesn’t exist.
+ - Example: userId = -1
+ - Cache miss → DB miss → repeat.
+ - If someone automates this, your DB is gone.
+ - Fix: Use a Bloom Filter to block invalid keys
+ - Or cache empty results for a short TTL
+
+2. Cache Breakdown (Hot Key Expiry)
+ - Problem: A celebrity profile goes viral. 1M users hit the same cache key.
+ - At 12:00:01, the key expires.
+ - Suddenly, thousands of requests hit DB together.
+ - Fix: Use a mutex lock so only one request hits DB
+ - Or use logical expiration (serve stale + refresh in background)
+
+3. Cache Avalanche
+ - Problem: Multiple keys expire at the same time (or server restarts).
+ - Boom. DB gets flooded.
+ - Fix: Add TTL jitter (Randomise expiry time so keys don’t die together)
+
+System Design isn’t about the happy path. It’s about handling what breaks at scale.

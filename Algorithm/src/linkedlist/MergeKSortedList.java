@@ -8,7 +8,7 @@ import static linkedlist.TraverseList.traverseList;
 public class MergeKSortedList {
 
   private static Node mergeKSortedList(List<Node> nodeList) {
-    PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> a.num - b.num);
+    PriorityQueue<Node> pq = new PriorityQueue<>((x, y) -> x.num - y.num);
     for (Node node : nodeList) {
       if (node != null)
         pq.add(node);
