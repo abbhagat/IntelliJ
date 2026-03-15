@@ -27,4 +27,9 @@ public class ParkingSpot {
     this.parkedVehicle = null;
     this.isFree = true;
   }
+
+  @Override
+  public String toString() {
+    return spotId + "\t" + spotType.name() + "\t" + parkedVehicle;
+  }
 }

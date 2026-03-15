@@ -28,7 +28,7 @@ public class ParkingLotImpl {
 
     // Park vehicle
     ParkingTicket ticket = parkingLot.parkVehicle(vehicle);
-    System.out.println("Vehicle parked. Ticket ID: " + ticket.getTicketId());
+    System.out.println("Vehicle parked. Ticket ID: " + ticket);
 
     // Simulate parking duration
     Thread.sleep(2000);

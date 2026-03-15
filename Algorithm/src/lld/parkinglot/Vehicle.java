@@ -11,4 +11,9 @@ public abstract class Vehicle {
 
   private String vehicleNumber;
   private VehicleType type;
+
+  @Override
+  public String toString() {
+    return vehicleNumber + "\t" + type.name();
+  }
 }
