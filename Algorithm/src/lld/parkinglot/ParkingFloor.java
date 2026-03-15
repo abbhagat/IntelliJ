@@ -20,7 +20,9 @@ public class ParkingFloor {
 
   ParkingSpot getFreeSpot(SpotType type) {
     for (ParkingSpot spot : spots.get(type)) {
-      if (spot.isFree()) return spot;
+      if (spot.isFree()) {
+        return spot;
+      }
     }
     return null;
   }
