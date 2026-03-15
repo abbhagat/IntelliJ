@@ -3,10 +3,10 @@ package jpmorgan;
 public class MinChangesToMakeAllArrayElementsToZero {
 
   private static int minimumChangesToMakeAllArrayElementsToZero(int[] a) {
-    int change = 0;
-    for (int i = 0; i < a.length; i++) {
-      if (a[i] == 1 && (a[i + 1] == 0 || i == a.length - 1)) {
-        change++;
+    int change = a[0];  // change = a[0] + Σ max(0, a[i] - a[i-1])
+    for (int i = 1; i < a.length; i++) {
+      if (a[i] > a[i - 1]) {
+        change += a[i] - a[i - 1];
       }
     }
     return change;

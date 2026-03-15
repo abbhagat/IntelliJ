@@ -23,5 +23,6 @@ public class MinOpsToMakeAllArrayElementsSame {
   public static void main(String[] args) {
     System.out.println(printMinOps(new int[]{1, 2, 3, 4}));
     System.out.println(printMinOps(new int[]{1, 2, 3, 4, 5}));
+    System.out.println(printMinOps(new int[]{5, 5, 5, 3, 2}));
   }
 }

@@ -20,8 +20,8 @@ public class InsertDeleteGetRandom<E> {
 
   private Object getRandom() {
     List<E> list = new ArrayList<>(set);
-    int count = set.size();
-    return count > 0 ? list.get(new Random().nextInt(0, count)) : null;
+    int size = set.size();
+    return size > 0 ? list.get(new Random().nextInt(0, size)) : null;
   }
 
   public static void main(String[] args) {
