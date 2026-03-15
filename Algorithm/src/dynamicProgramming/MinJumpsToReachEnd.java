@@ -36,7 +36,7 @@ public class MinJumpsToReachEnd {
   private static int minJumps(int[] a) {
     int j = 0, current = 0, steps = 0;
     for (int i = 0; i < a.length; i++) {
-      if (i > j) {
+      if (j < i) {
         j = current;
         steps++;
         if (j >= a.length) {
@@ -68,5 +68,6 @@ public class MinJumpsToReachEnd {
     System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a));
     a = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a));
+    System.out.println("IsReachable -> " + isReachable(a) + "\t Min Jumps -> " + minJumps(a, 0, a.length - 1));
   }
 }
