@@ -1,7 +1,6 @@
 package dynamicProgramming;
 
 import java.util.List;
-
 import static java.lang.Integer.max;
 
 /**
@@ -35,38 +34,21 @@ public class MaxGoldCollected {
     return a[m][n] + max(maxGoldCollected(a, m + 1, n, R, C), maxGoldCollected(a, m, n + 1, R, C));
   }
 
-  private static int maxGoldCollected(int[][] a) {
-    final int R = a.length, C = a[0].length;
-    for (int i = 1; i < R; i++) {
-      a[i][0] += a[i - 1][0];
-    }
-    for (int j = 1; j < C; j++) {
-      a[0][j] += a[0][j - 1];
-    }
-    for (int i = 1; i < R; i++) {
-      for (int j = 1; j < C; j++) {
-        a[i][j] += max(a[i - 1][j], a[i][j - 1]);
-      }
-    }
-    return a[R - 1][C - 1];
-  }
-
-  private static int maxGoldCollectedDP(int[][] cost) {
-    final int m = cost.length, n = cost[0].length;
-    int[][] tc = new int[m][n];
+  private static int maxGoldCollectedDP(int[][] cost, int m, int n) {
+    int[][] tc = new int[m + 1][n + 1];
     tc[0][0] = cost[0][0];
-    for (int i = 1; i < m; i++) {
+    for (int i = 1; i <= m; i++) {
       tc[i][0] = cost[i][0] + tc[i - 1][0];
     }
-    for (int j = 1; j < n; j++) {
+    for (int j = 1; j <= n; j++) {
       tc[0][j] = cost[0][j] + tc[0][j - 1];
     }
-    for (int i = 1; i < m; i++) {
-      for (int j = 1; j < n; j++) {
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
         tc[i][j] = cost[i][j] + max(tc[i - 1][j], tc[i][j - 1]);
       }
     }
-    return tc[m - 1][n - 1];
+    return tc[m][n];
   }
 
   public static void main(String[] args) {
@@ -77,6 +59,6 @@ public class MaxGoldCollected {
                                      .toArray()
                               )
                           .toArray(int[][]::new);
-    System.out.println(maxGoldCollected(a, 0, 0, a.length - 1, a[0].length - 1) + "\t" + maxGoldCollectedDP(a) + "\t" + maxGoldCollected(a));
+    System.out.println(maxGoldCollected(a, 0, 0, a.length - 1, a[0].length - 1) + "\t" + maxGoldCollectedDP(a, a.length - 1, a[0].length - 1));
   }
 }
