@@ -10,8 +10,8 @@ import java.util.Map;
 @Setter
 public class ParkingFloor {
 
-  int floorNumber;
-  Map<SpotType, List<ParkingSpot>> spots;
+  private int floorNumber;
+  private Map<SpotType, List<ParkingSpot>> spots;
 
   ParkingFloor(int floorNumber) {
     this.floorNumber = floorNumber;

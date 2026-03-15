@@ -31,7 +31,7 @@ public class ParkingLot {
         spot.park(vehicle);
         ParkingTicket ticket = new ParkingTicket(
             UUID.randomUUID().toString(),
-            vehicle.getLicenseNumber(),
+            vehicle.getVehicleNumber(),
             System.currentTimeMillis(),
             spot
         );

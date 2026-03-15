@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ParkingTicket {
+
   private String ticketId;
   private String vehicleNumber;
   private long entryTime;
