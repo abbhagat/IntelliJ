@@ -1,16 +1,20 @@
 package lld.parkinglot;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Getter
+@Setter
 public class ParkingLot {
 
-  private static ParkingLot instance;
-  List<ParkingFloor> floors;
-  Map<String, ParkingTicket> activeTickets;
+  private static ParkingLot parkingLot;
+  private List<ParkingFloor> floors;
+  private Map<String, ParkingTicket> activeTickets;
 
   private ParkingLot() {
     floors = new ArrayList<>();
@@ -18,13 +22,13 @@ public class ParkingLot {
   }
 
   public static synchronized ParkingLot getInstance() {
-    if (instance == null) {
-      instance = new ParkingLot();
+    if (parkingLot == null) {
+      parkingLot = new ParkingLot();
     }
-    return instance;
+    return parkingLot;
   }
 
-  ParkingTicket parkVehicle(Vehicle vehicle) {
+  public ParkingTicket parkVehicle(Vehicle vehicle) {
     for (ParkingFloor floor : floors) {
       ParkingSpot spot = floor.getFreeSpot(SpotType.valueOf(vehicle.getType().name()));
       if (spot != null) {
@@ -42,15 +46,13 @@ public class ParkingLot {
     throw new RuntimeException("Parking Full");
   }
 
-  double unParkVehicle(String ticketId) {
+  public double unParkVehicle(String ticketId) {
     ParkingTicket ticket = activeTickets.get(ticketId);
     if (ticket == null) {
       throw new RuntimeException("Invalid Ticket");
     }
-
     ticket.getSpot().unPark();
     activeTickets.remove(ticketId);
-
     long duration = System.currentTimeMillis() - ticket.getEntryTime();
     return ParkingFeeCalculator.calculateFee(duration);
   }

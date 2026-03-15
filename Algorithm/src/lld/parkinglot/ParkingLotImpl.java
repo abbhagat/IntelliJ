@@ -21,7 +21,7 @@ public class ParkingLotImpl {
     floor1.getSpots().put(SpotType.CAR, carSpots);
 
     // Add floor to parking lot
-    parkingLot.floors.add(floor1);
+    parkingLot.getFloors().add(floor1);
 
     // Create vehicle
     Vehicle vehicle = new Car("KA01AB1234", VehicleType.CAR);
