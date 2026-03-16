@@ -18,8 +18,7 @@ public class MinCostToReachDestinationFromTrain {
     return min;
   }
 
-  private static int minCost(int[][] cost) {
-    int n = cost.length - 1;
+  private static int minCostDP(int[][] cost, int n) {
     int[] dp = new int[n + 1];
     Arrays.fill(dp, Integer.MAX_VALUE);
     dp[0] = 0;
@@ -38,6 +37,6 @@ public class MinCostToReachDestinationFromTrain {
                            {M,  M,  0, 70},
                            {M,  M,  M,  0}
                          };
-    System.out.println(minCost(cost, 0, cost.length - 1) + "\t" + minCost(cost));
+    System.out.println(minCost(cost, 0, cost.length - 1) + "\t" + minCostDP(cost, cost.length - 1));
   }
 }
