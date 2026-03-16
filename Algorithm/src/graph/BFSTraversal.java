@@ -25,12 +25,15 @@ public class BFSTraversal {
 
   public static void main(String[] args) {
     Graph g = createGraph(4);
-    BFS(g, 0, new boolean[g.getV()]);     // 0 1 2 3
-    System.out.println();
-    BFS(g, 1, new boolean[g.getV()]);    // 1 2 0 3
-    System.out.println();
-    BFS(g, 2, new boolean[g.getV()]);   // 2 0 3 1
-    System.out.println();
-    BFS(g, 3, new boolean[g.getV()]);  // 3
+    int v = g.getV();
+    for(int i = 0; i < v; i++) {
+      boolean[] visited = new boolean[v];
+      BFS(g, i, visited);
+      System.out.println();
+    }
+     // 0 1 2 3
+    // 1 2 0 3
+   // 2 0 3 1
+  // 3
   }
 }
