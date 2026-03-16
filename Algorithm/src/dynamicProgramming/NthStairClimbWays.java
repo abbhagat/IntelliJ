@@ -11,9 +11,6 @@ public class NthStairClimbWays {
   // Time  Complexity: O(n)
   // Space Complexity: O(n)
   private static int countWaysDP(int n) {
-    if (n == 0) {
-      return 0;
-    }
     int[] dp = new int[n + 1];
     dp[1] = 1;
     dp[2] = 2;
@@ -27,7 +24,6 @@ public class NthStairClimbWays {
   // Space Complexity: O(n)
   private static int countWays(int n) {
     return switch (n) {
-      case 0 -> 0;
       case 1 -> 1;
       case 2 -> 2;
       default -> countWays(n - 1) + countWays(n - 2);
@@ -35,7 +31,6 @@ public class NthStairClimbWays {
   }
 
   public static void main(String[] args) {
-    System.out.println(countWays(0) + "\t" + countWaysDP(0));
     System.out.println(countWays(4) + "\t" + countWaysDP(4));
     System.out.println(countWays(5) + "\t" + countWaysDP(5));
     System.out.println(countWays(6) + "\t" + countWaysDP(6));
