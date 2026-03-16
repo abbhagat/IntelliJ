@@ -18,12 +18,16 @@ public class DFSTraversal {
 
   public static void main(String[] args) {
     Graph g = createGraph(4);
-    DFS(g, 0, new boolean[g.getV()]);   // 0 1 2 3
-    System.out.println();
-    DFS(g, 1, new boolean[g.getV()]);  //  1 2 0 3
-    System.out.println();
-    DFS(g, 2, new boolean[g.getV()]);  //  2 0 1 3
-    System.out.println();
-    DFS(g, 3, new boolean[g.getV()]);  //  3
+    int v = g.getV();
+    // DFS
+    for(int i = 0; i < v; i++) {
+      boolean[] visited = new boolean[v];
+      DFS(g, i, visited);
+      System.out.println();
+    }
+     // i = 0 => 0 1 2 3
+    //  i = 1 => 1 2 0 3
+    //  i = 2 => 2 0 1 3
+    //  i = 3 => 3
   }
 }
