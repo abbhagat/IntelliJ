@@ -5,8 +5,8 @@ import static java.lang.Integer.min;
 
 public class MinCostToReachDestinationFromTrain {
 
-  private static final int M = Integer.MAX_VALUE;
-
+  // Time  Complexity: O(2^n)
+  // Space Complexity: O(n)
   private static int minCost(int[][] cost, int s, int d) {
     if (s == d || s + 1 == d) {  // If source is same as destination or destination is next to source
       return cost[s][d];
@@ -18,6 +18,8 @@ public class MinCostToReachDestinationFromTrain {
     return min;
   }
 
+  // Time  Complexity: O(n^2)
+  // Space Complexity: O(n)
   private static int minCostDP(int[][] cost, int n) {
     int[] dp = new int[n + 1];
     Arrays.fill(dp, Integer.MAX_VALUE);
@@ -31,6 +33,7 @@ public class MinCostToReachDestinationFromTrain {
   }
 
   public static void main(String[] args) {
+    final int M = Integer.MAX_VALUE;
     final int[][] cost = {
                            {0, 15, 80, 90},
                            {M,  0, 40, 50},
