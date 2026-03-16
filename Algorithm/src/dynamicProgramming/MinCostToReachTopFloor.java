@@ -17,13 +17,12 @@ public class MinCostToReachTopFloor {
 
   // Time  Complexity : O(n)
   // Space Complexity : O(n)
-  private static int minCost(int[] a) {
-    int n = a.length;
+  private static int minCostDP(int[] a, int n) {
     int[] dp = new int[n + 1];
-    dp[0] = 0;  // You can start either from step 0 or step 1 without paying any cost
-    dp[1] = 0;
-    for (int i = 2; i <= n; i++) {
-      dp[i] = min(dp[i - 1] + a[i - 1], dp[i - 2] + a[i - 2]);
+    dp[1] = a[0];  // To reach stair 1, you must step on stair 0 so cost = a[0]
+    dp[2] = a[1]; //  To reach stair 2, you must step on stair 0 so cost = a[1]
+    for (int i = 3; i <= n; i++) {
+      dp[i] = a[i - 1] + min(dp[i - 1], dp[i - 2]);
     }
     return dp[n];
   }
@@ -41,10 +40,10 @@ public class MinCostToReachTopFloor {
   public static void main(String[] args) {
     int[] a;
     a = new int[]{16, 19, 10, 12, 18};
-    System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
+    System.out.println(minCostDP(a, a.length - 1) + "\t" + minCost(a, a.length - 1));
     a = new int[]{2, 5, 3, 1, 7, 3, 4};
-    System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
+    System.out.println(minCostDP(a, a.length - 1) + "\t" + minCost(a, a.length - 1));
     a = new int[]{1, 2, 3, 4, 5};
-    System.out.println(minCost(a) + "\t" + minCost(a, a.length - 1));
+    System.out.println(minCostDP(a, a.length - 1) + "\t" + minCost(a, a.length - 1));
   }
 }
