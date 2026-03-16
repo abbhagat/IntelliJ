@@ -9,9 +9,9 @@ public class DFSTraversal {
   private static void DFS(Graph g, int v, boolean[] visited) {
     visited[v] = true;
     System.out.print(v + " ");
-    for (int n : g.getEdge()[v]) {
-      if (!visited[n]) {
-        DFS(g, n, visited);
+    for (int i : g.getEdge()[v]) {
+      if (!visited[i]) {
+        DFS(g, i, visited);
       }
     }
   }

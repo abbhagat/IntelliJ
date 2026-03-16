@@ -27,7 +27,7 @@ public class DetectCycle {
   public static boolean hasCycle(Graph g) {
     int v = g.getV();
     boolean[] visited  = new boolean[v];   // tracks nodes that were visited anytime in the DFS
-    boolean[] recStack = new boolean[v];  // tracks nodes currently in the recursion path (DFS call stack) is used to detect a back edge during DFS, which indicates a cycle in a directed graph.
+    boolean[] recStack = new boolean[v];  //  tracks nodes currently in the recursion path (DFS call stack) is used to detect a back edge during DFS, which indicates a cycle in a directed graph.
     for (int i = 0; i < v; i++) {
       if (hasCycle(g, i, visited, recStack)) {
         return true;

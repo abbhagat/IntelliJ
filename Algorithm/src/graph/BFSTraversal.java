@@ -2,7 +2,6 @@ package graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 import static graph.CreateGraph.createGraph;
 
 public class BFSTraversal {
@@ -14,10 +13,10 @@ public class BFSTraversal {
     while (!q.isEmpty()) {
       v = q.poll();
       System.out.print(v + " ");
-      for (int n : g.getEdge()[v]) {
-        if (!visited[n]) {
-          visited[n] = true;
-          q.add(n);
+      for (int i : g.getEdge()[v]) {
+        if (!visited[i]) {
+          visited[i] = true;
+          q.add(i);
         }
       }
     }
