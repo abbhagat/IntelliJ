@@ -23,7 +23,7 @@ public class MinCostToReachDestinationFromTrain {
   private static int minCostDP(int[][] cost, int n) {
     int[] dp = new int[n + 1];
     Arrays.fill(dp, Integer.MAX_VALUE);
-    dp[0] = 0;
+    dp[0] = 0;  // dp[i] = Minimum cost required to reach station i from station 0
     for (int i = 0; i <= n; i++) {
       for (int j = i + 1; j <= n; j++) {
         dp[j] = min(dp[j], dp[i] + cost[i][j]);
