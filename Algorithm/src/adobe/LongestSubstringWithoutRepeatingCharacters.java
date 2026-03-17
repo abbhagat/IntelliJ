@@ -21,8 +21,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
       }
       map.put(c, map.getOrDefault(c, 0) + 1);
       if (maxLen < i - j + 1) {
-        maxLen = i - j + 1;
-        startIndex  = j;
+          maxLen = i - j + 1;
+          startIndex = j;
       }
     }
     System.out.println(s.substring(startIndex, startIndex + maxLen) + "\t" + maxLen);
