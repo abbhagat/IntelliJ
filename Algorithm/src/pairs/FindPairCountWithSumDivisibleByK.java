@@ -29,7 +29,7 @@ public class FindPairCountWithSumDivisibleByK {
     int count = 0;
     for (int x : a) {
       int y = x % k;
-      int z = (k - y) % k;  // Complement Remainder (a+b) % k == 0 => (a%k + b%k) %k == 0 if a%k = y then we need b%k = (k-y)%k
+      int z = (k - y) % k;  // Complement Remainder (x + y) % k == 0 => (x % k + y % k) % k == 0 if x % k = y then we need y % k = (k - y) % k
       count += map.getOrDefault(z, 0);
       map.put(y, map.getOrDefault(y, 0) + 1);
     }

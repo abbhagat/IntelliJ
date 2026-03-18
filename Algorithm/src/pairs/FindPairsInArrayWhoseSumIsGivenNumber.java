@@ -8,9 +8,9 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
 
   public static void findPairs(int[] a, int target) {
     Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(x -> map.merge(x, 1, Integer::sum));
+    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     for (int x : a) {
-      int y = target - x;
+      int y = target - x;  // x + y = target
       if (map.containsKey(y)) {
         if (x == y && map.get(y) == 1) {
           continue;

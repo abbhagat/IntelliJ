@@ -9,14 +9,8 @@ public class FindPairsInArrayWhoseDivIsGivenNumber {
   public static void findPairs(int[] a, int k) {
     Set<Integer> set = new HashSet<>();
     Set<List<Integer>> result = new HashSet<>();
-    if (k == 0) {
-      for (int x : a) {
-        if (x != 0) {
-          result.add(List.of(x, 0));
-        }
-      }
-    } else {
-      for (int x : a) {
+    for (int x : a) {
+      try {
         if (set.contains(x / k)) {
           result.add(List.of(x, x / k));
         }
@@ -24,6 +18,10 @@ public class FindPairsInArrayWhoseDivIsGivenNumber {
           result.add(List.of(x, x * k));
         }
         set.add(x);
+      } catch (ArithmeticException e) {
+        if (x != 0) {
+          result.add(List.of(x, 0));
+        }
       }
     }
     System.out.println(result);
