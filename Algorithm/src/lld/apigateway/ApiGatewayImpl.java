@@ -12,7 +12,6 @@ import java.util.Map;
 public class ApiGatewayImpl {
 
   public static void main(String[] args) {
-
     Router router = new Router();
     AuthenticationManager authManager = new AuthenticationManager();
     RateLimiter rateLimiter = new RateLimiter();
@@ -21,7 +20,7 @@ public class ApiGatewayImpl {
     LoadBalancer loadBalancer = new LoadBalancer(List.of(userService, orderService));
     router.registerRoute("/user", userService);
     router.registerRoute("/order", orderService);
-    ApiGateway apiGateway = new ApiGateway(router, authManager, rateLimiter, loadBalancer);
+    ApiGateway apiGateway = new ApiGateway(authManager, rateLimiter, router, loadBalancer);
     Request request = new Request();
     request.setHeaders(Map.of("Authorization", "valid-token", "clientId", "abhinawb"));
     request.setPath("/user");

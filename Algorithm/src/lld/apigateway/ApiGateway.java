@@ -5,9 +5,9 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ApiGateway {
 
-  private final Router router;
   private final AuthenticationManager authManager;
   private final RateLimiter rateLimiter;
+  private final Router router;
   private final LoadBalancer loadBalancer;
 
   public Response handleRequest(Request request) {
