@@ -1,10 +1,9 @@
 package amazon;
 
 /*
-  I/P :- int[] a = { 4, 3, 2, 0, 1 }; char[] c = { 'e', 'd', 'c', 'a', 'b' };
-  O/P :- int[] a = { 0, 1, 2, 3, 4 }; char[] c = { 'a', 'b', 'c', 'd', 'e' };
-  Both the array has to be sorted in O(n).
- */
+  I/P :- int[] a = { 4, 3, 2, 0, 1 };
+  O/P :- int[] a = { 0, 1, 2, 3, 4 };
+*/
 
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;

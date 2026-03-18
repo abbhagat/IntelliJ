@@ -10,19 +10,19 @@ public class LongestZeroSumSubArray {
 
   private static int longestZeroSumSubArray(int[] a, int n) {
     Map<Integer, Integer> map = new HashMap<>();  // to store key as sum and the value as index i
-    int sum = 0, max = 0;
+    int sum = 0, maxLen = 0;
     for (int i = 0; i < a.length; i++) {
       sum += a[i];
       if (sum == n) {
-        max = i + 1;
+        maxLen = i + 1;
       }
       if (map.containsKey(sum)) {
-        max = max(max, i - map.get(sum));
+        maxLen = max(maxLen, i - map.get(sum));
       } else {
         map.put(sum, i);
       }
     }
-    return max;
+    return maxLen;
   }
 
   public static void main(String[] args) {

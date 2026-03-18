@@ -18,15 +18,15 @@ public class LargestContiguousSumArrayPrint {
     int curSum = a[0], maxSum = a[0], start = 0, end = 0, index = 0;
     for (int i = 1; i < a.length; i++) {
       if (curSum + a[i] < a[i]) {
-        curSum = a[i];
-        index = i;
+          curSum = a[i];
+          index  = i;
       } else {
-        curSum = curSum + a[i];
+          curSum += a[i];
       }
       if (maxSum < curSum) {
-        maxSum = curSum;
-        start  = index;
-        end    = i;
+          maxSum = curSum;
+          start  = index;
+          end    = i;
       }
     }
     printArray(a, start, end + 1);  // print the array element from i = start to i <= end

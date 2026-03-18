@@ -41,6 +41,10 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
     System.out.println(canFormPalindrome("aad"));
     System.out.println(canFormPalindrome("geeksforgeeks"));
     System.out.println(canFormPalindrome("geeksogeeks"));
+    System.out.println(canFormPalindrome("eeekkk"));
+    System.out.println(canFormPalindrome("ekekeke"));
+    System.out.println("----------------------");
+    System.out.println(canFormPalindromeUsingMap("aad"));
     System.out.println(canFormPalindromeUsingMap("geeksforgeeks"));
     System.out.println(canFormPalindromeUsingMap("geeksogeeks"));
     System.out.println(canFormPalindromeUsingMap("eeekkk"));

@@ -3,7 +3,8 @@ package geeks;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-// Time Complexity: O(2^n)
+// Time  Complexity: O(2^n)
+// Space Complexity: O(n)
 public class ArraySum {
 
   public static void combinationForSum(int[] a, int index, int currSum, int givenSum, LinkedList<Integer> list) {

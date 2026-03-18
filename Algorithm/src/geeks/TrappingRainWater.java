@@ -28,14 +28,14 @@ public class TrappingRainWater {
     while (low <= high) {
       if (a[low] <= a[high]) {
         if (maxLeft < a[low]) {
-          maxLeft = a[low];
+            maxLeft = a[low];
         } else {
           waterTrapped += maxLeft - a[low];   // waterTrapped = min(max height on left, max height on right) - current height
         }
         low++;
       } else {
         if (maxRight < a[high]) {
-          maxRight = a[high];
+            maxRight = a[high];
         } else {
           waterTrapped += maxRight - a[high];
         }

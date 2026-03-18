@@ -101,19 +101,27 @@ public class AbstractFactoryPattern {
   public static void main(String[] args) {
 
     AbstractFactory shapeFactory = FactoryProducer.getFactory("shape");
-    Shape circle = shapeFactory.getShape("circle");
-    circle.draw();
-    Shape rectangle = shapeFactory.getShape("rectangle");
-    rectangle.draw();
-    Shape square = shapeFactory.getShape("square");
-    square.draw();
+    Shape shape;
+    shape = shapeFactory.getShape("circle");
+    System.out.println(shape instanceof Circle);
+    shape.draw();
+    shape = shapeFactory.getShape("rectangle");
+    System.out.println(shape instanceof Rectangle);
+    shape.draw();
+    shape = shapeFactory.getShape("square");
+    System.out.println(shape instanceof Square);
+    shape.draw();
 
     AbstractFactory colorFactory = FactoryProducer.getFactory("color");
-    Color red = colorFactory.getColor("red");
-    red.fill();
-    Color green = colorFactory.getColor("Green");
-    green.fill();
-    Color blue = colorFactory.getColor("BLUE");
-    blue.fill();
+    Color color;
+    color = colorFactory.getColor("red");
+    System.out.println(color instanceof Red);
+    color.fill();
+    color = colorFactory.getColor("Green");
+    System.out.println(color instanceof Green);
+    color.fill();
+    color = colorFactory.getColor("BLUE");
+    System.out.println(color instanceof Blue);
+    color.fill();
   }
 }
