@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class StringAnagram {
 
   private static boolean isAnagram(String s1, String s2) {
@@ -9,18 +11,13 @@ public class StringAnagram {
         temp[s1.charAt(i)]++;
         temp[s2.charAt(i)]--;
       }
-      for (int x : temp) {
-        if (x != 0) {
-          return false;
-        }
-      }
-      return true;
+      return Arrays.stream(temp).allMatch(x -> x == 0);
     }
     return false;
   }
 
   public static void main(String[] args) {
-    System.out.println(isAnagram("Java", "vaJa") ? "Anagram" : "Not Anagram");
-    System.out.println(isAnagram("Cat", "Cut") ? "Anagram" : "Not Anagram");
+    System.out.println(isAnagram("Java", "vaJa"));
+    System.out.println(isAnagram("Cat", "Cut"));
   }
 }
