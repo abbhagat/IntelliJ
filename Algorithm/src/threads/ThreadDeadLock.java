@@ -7,7 +7,7 @@ public class ThreadDeadLock {
 
   public static void main(String[] args) {
 
-    Thread t1 = new Thread(() -> {
+    Runnable r1 = () -> {
       synchronized (LOCK_1) {
         System.out.println("Thread 1: Holding LOCK_1");
         try {
@@ -19,9 +19,9 @@ public class ThreadDeadLock {
           System.out.println("Thread 1: Holding LOCK_2");
         }
       }
-    }, "Thread-1");
+    };
 
-    Thread t2 = new Thread(() -> {
+    Runnable r2 = () -> {
       synchronized (LOCK_2) {
         System.out.println("Thread 2: Holding LOCK_2");
         try {
@@ -33,7 +33,10 @@ public class ThreadDeadLock {
           System.out.println("Thread 2: Holding LOCK_1");
         }
       }
-    }, "Thread-2");
+    };
+
+    Thread t1 = new Thread(r1, "Thread-1");
+    Thread t2 = new Thread(r2, "Thread-2");
 
     t1.start();
     t2.start();
