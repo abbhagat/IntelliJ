@@ -30,6 +30,10 @@ public class BalanceStringAfterRemovingExtraBrackets {
   }
 
   public static void main(String[] args) {
+    System.out.println(minRemoveToMakeValid("abh)ina)w(ku(mar(bhagat))"));
+    System.out.println(minRemoveToMakeValid("1+5)+5+)6+(5+9)*9"));
+    System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
+    System.out.println(minRemoveToMakeValid("ab(c)d"));
     System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
     System.out.println(minRemoveToMakeValid("a)b(c)d"));
     System.out.println(minRemoveToMakeValid("))(("));

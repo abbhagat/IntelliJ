@@ -32,5 +32,9 @@ public class BalanceStringAfterRemovingExtraBracket {
     System.out.println(balancedString("1+5)+5+)6+(5+9)*9"));
     System.out.println(balancedString("lee(t(c)o)de)"));
     System.out.println(balancedString("ab(c)d"));
+    System.out.println(balancedString("lee(t(c)o)de)"));
+    System.out.println(balancedString("a)b(c)d"));
+    System.out.println(balancedString("))(("));
+    System.out.println(balancedString("abh)ina)w(ku(mar(bhagat))"));
   }
 }

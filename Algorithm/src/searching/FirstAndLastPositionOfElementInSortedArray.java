@@ -31,7 +31,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
       if ((mid == 0 || a[mid - 1] != n) && a[mid] == n) {
         return mid;
       }
-      return n <= a[mid] ? binarySearchStartIndex(a, low, mid - 1, n) : binarySearchStartIndex(a, mid + 1, high, n);
+      return a[mid] < n ? binarySearchStartIndex(a, mid + 1, high, n) : binarySearchStartIndex(a, low, mid - 1, n);
     }
     return -1;
   }
@@ -43,7 +43,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
       if ((mid == a.length - 1 || a[mid + 1] != n) && a[mid] == n) {
         return mid;
       }
-      return n < a[mid] ? binarySearchEndIndex(a, low, mid - 1, n) : binarySearchEndIndex(a, mid + 1, high, n);
+      return a[mid] < n ? binarySearchEndIndex(a, mid + 1, high, n) : binarySearchEndIndex(a, low, mid - 1, n);
     }
     return -1;
   }

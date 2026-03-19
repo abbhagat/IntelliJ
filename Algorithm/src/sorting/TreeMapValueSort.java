@@ -28,6 +28,7 @@ class ValueComparator<K, V extends Comparable<V>> implements Comparator<K> {
     this.map = map;
   }
 
+  @Override
   public int compare(K k1, K k2) {
     V v1 = map.get(k1);
     V v2 = map.get(k2);
