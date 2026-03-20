@@ -1,11 +1,12 @@
 package graph;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Graph {
 
   private final int v;
-  private final LinkedList<Integer>[] edge;
+  private final List<Integer>[] edge;
 
   public Graph(int v) {
     this.v = v;
@@ -19,7 +20,7 @@ public class Graph {
     this.edge[v].add(e);
   }
 
-  public LinkedList<Integer>[] getEdge() {
+  public List<Integer>[] getEdge() {
     return this.edge;
   }
 
