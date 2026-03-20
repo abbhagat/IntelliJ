@@ -26,7 +26,7 @@ public class Implement_strStr {
           return index;
         }
       } else {
-        i = index != -1 ? index : i;
+        i = index == -1 ? i : index;
         s = "";
         index = -1;
         j = 0;
