@@ -20,20 +20,23 @@ abstract class AbstractLogger {
 }
 
 class ConsoleLogger extends AbstractLogger {
+
   public void write(String message) {
-    System.out.println("Console Logger");
+    System.out.println("Console Logger " + message);
   }
 }
 
 class ErrorLogger extends AbstractLogger {
+
   public void write(String message) {
-    System.out.println("Error Logger");
+    System.out.println("Error Logger " + message);
   }
 }
 
 class DebugLogger extends AbstractLogger {
+
   public void write(String message) {
-    System.out.println("Debug Logger");
+    System.out.println("Debug Logger " + message);
   }
 }
 
