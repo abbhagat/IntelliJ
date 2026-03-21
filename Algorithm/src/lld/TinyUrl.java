@@ -29,25 +29,26 @@ public class TinyUrl {
     return BASE_URL + base62Encode(urlToIndexMap.get(longURL));
   }
 
-  private String base62Encode(int counter) {
+  private String base62Encode(int n) {
     char[] c = new char[7];
-    int i;
-    for (i = 6; i >= 0; i--) {
-      int index = counter % 62;
-      c[i] = BASE_62.charAt(index);  // Base-62 encoding (in reverse)
-      counter /= 62;
+    int i = c.length - 1;
+    while (n != 0) {
+      c[i] = BASE_62.charAt(n % 62);  // Base-62 encoding (in reverse)
+      n /= 62;
+      i--;
     }
     Arrays.fill(c, 0, i + 1, '0'); // Fill remaining positions with '0'
     return new String(c);
   }
 
   private String decode(String shortURL) {
-    int index = 0;
-    String base62EncodedCounterVal = shortURL.substring(shortURL.lastIndexOf("/") + 1);
-    for (char c : base62EncodedCounterVal.toCharArray()) {
-      index = index * 62 + BASE_62.indexOf(c);
+    int n = 0;
+    int index = shortURL.lastIndexOf("/");
+    String encodedString = shortURL.substring( index + 1);
+    for (char c : encodedString.toCharArray()) {
+      n = n * 62 + BASE_62.indexOf(c);
     }
-    return indexToUrlMap.get(index);
+    return indexToUrlMap.get(n);
   }
 
   public static void main(String[] args) {
