@@ -19,7 +19,7 @@ public class BottomUpTreeTraversal {
     if (root == null) {
       return -1;
     }
-    int lH = treeHeight(root.left, list);
+    int lH = treeHeight(root.left,  list);
     int rH = treeHeight(root.right, list);
     int height = max(lH, rH) + 1;
     if (list.size() <= height) {
