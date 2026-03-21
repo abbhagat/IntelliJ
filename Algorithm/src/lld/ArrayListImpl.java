@@ -14,7 +14,7 @@ public class ArrayListImpl<E> {
 
   public ArrayListImpl(int initialCapacity) {
     if (initialCapacity <= 0) {
-      throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
+      throw new IllegalArgumentException("Invalid Size : " + initialCapacity);
     }
     this.list = (E[]) new Object[initialCapacity];
   }
