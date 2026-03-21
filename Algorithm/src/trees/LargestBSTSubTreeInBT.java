@@ -26,13 +26,13 @@ public class LargestBSTSubTreeInBT {
       bst.isBST = true;
       return bst;
     }
-    BST left  = largestBSTSubtree(root.left);
-    BST right = largestBSTSubtree(root.right);
-    if (left.isBST && right.isBST && left.max < root.num && root.num < right.min) {
+    BST leftBST  = largestBSTSubtree(root.left);
+    BST rightBST = largestBSTSubtree(root.right);
+    if (leftBST.isBST && rightBST.isBST && leftBST.max < root.num && root.num < rightBST.min) {
       bst.isBST = true;
-      bst.min   = min(root.num, left.min);
-      bst.max   = max(root.num, right.max);
-      bst.size  = left.size + right.size + 1;
+      bst.min   = min(root.num, leftBST.min);
+      bst.max   = max(root.num, rightBST.max);
+      bst.size  = leftBST.size + rightBST.size + 1;
       maxSize   = max(maxSize, bst.size);
     }
     return bst;

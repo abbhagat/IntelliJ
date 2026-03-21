@@ -4,7 +4,7 @@ import static java.lang.Integer.max;
 
 public class MaxPathSumInBT {
 
-  static class Result {
+  private static class Result {
     int sum = Integer.MIN_VALUE;
   }
 
