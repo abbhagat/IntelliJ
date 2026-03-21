@@ -11,45 +11,46 @@ import static java.lang.Integer.max;
  */
 public class LongestPalindromicSequence {
 
-  private static int lps(char[] seq, int i, int j) {
+  // Time Complexity : O(2^ⁿ)
+  private static int lps(char[] c, int i, int j) {
+    if (i > j) {
+      return 0;
+    }
     if (i == j) {
       return 1;
     }
-    if (seq[i] == seq[j] && i + 1 == j) {
-      return 2;
+    if (c[i] == c[j]) {  // if 1st and last char are same
+      return 2 + lps(c, i + 1, j - 1);
     }
-    if (seq[i] == seq[j]) {              // if 1st and last char are same
-      return lps(seq, i + 1, j - 1) + 2;
-    }
-    return max(lps(seq, i + 1, j), lps(seq, i, j - 1)); // If the first and last characters do not match
+    return max(lps(c, i + 1, j), lps(c, i, j - 1)); // If the first and last characters do not match
   }
 
-  private static int lps(char[] seq) {
-    int n = seq.length;
-    int[][] DP = new int[n][n];   // Create a table to store results of sub problems
+  private static int lps(char[] c) {
+    int n = c.length;
+    int[][] dp = new int[n][n];   // Create a table to store results of sub problems
     for (int i = 0; i < n; i++) {
-      DP[i][i] = 1;            // Strings of length 1 are palindrome of length 1
+      dp[i][i] = 1;            // Strings of length 1 are palindrome of length 1
     }
     for (int k = 2; k <= n; k++) {
       for (int i = 0; i < n - k + 1; i++) {
         int j = i + k - 1;
-        if (seq[i] == seq[j]) {
+        if (c[i] == c[j]) {
           if (k == 2) {
-            DP[i][j] = 2;
+            dp[i][j] = 2;
           } else {
-            DP[i][j] = DP[i + 1][j - 1] + 2;
+            dp[i][j] = dp[i + 1][j - 1] + 2;
           }
         } else {
-          DP[i][j] = max(DP[i][j - 1], DP[i + 1][j]);
+          dp[i][j] = max(dp[i][j - 1], dp[i + 1][j]);
         }
       }
     }
-    return DP[0][n - 1];
+    return dp[0][n - 1];
   }
 
   public static void main(String[] args) {
-    char[] seq = "BABCBCABB".toCharArray();
-    System.out.println("The length of the LPS is " + lps(seq, 0, seq.length - 1));
-    System.out.println("The length of the LPS is " + lps(seq));
+    char[] c = "BABCBCABB".toCharArray();
+    System.out.println("The length of the LPS is " + lps(c, 0, c.length - 1));
+    System.out.println("The length of the LPS is " + lps(c));
   }
 }
