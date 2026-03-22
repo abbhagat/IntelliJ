@@ -2,7 +2,6 @@ package games;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import java.util.*;
 
 @Getter
@@ -35,10 +34,7 @@ class Game {
   }
 
   public final void play() {
-    int round = 1;
     while (true) {
-      System.out.println("-------------------");
-      System.out.println("Round : " + round++);
       for (Player player : playerList) {
         int n = rollDice();
         System.out.println(player.name + " rolled " + n);
@@ -66,11 +62,6 @@ class Game {
   }
 
   public int rollDice() {
-    try {
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
     return new Random().nextInt(6) + 1;  //  random.nextInt(6) generates a random integer from 0 to 5.
   }
 
