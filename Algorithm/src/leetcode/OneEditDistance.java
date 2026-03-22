@@ -3,12 +3,25 @@ package leetcode;
 import static java.lang.Integer.min;
 import static java.lang.Math.abs;
 
+/**
+ One Edit Distance is a string problem where you check whether two strings are exactly one edit apart.
+ ✅ Allowed edits (only ONE):
+ Insert a character
+ Delete a character
+ Replace a character
+
+ Key Idea
+ Two strings s and t are one edit distance apart if:
+ Their length difference is at most 1
+ And you can make them equal using exactly one operation
+ */
+
 // Time Complexity: O(n) n = length of the shorter string between s1 and s2.
 public class OneEditDistance {
 
   private static boolean isOneEditDistance(String s1, String s2) {
     int m = s1.length(), n = s2.length();
-    if (abs(n - m) > 1) {
+    if (abs(m - n) > 1) {
       return false;
     }
     for (int i = 0; i < min(m, n); i++) {
