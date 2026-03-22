@@ -12,17 +12,13 @@ public class SortCharacterByFreqInString {
   private static String sortCharByFreq(String str) {
     Map<Character, Integer> map = new HashMap<>();
     StringBuilder sb = new StringBuilder();
-    Map<Character, Integer> finalMap = new LinkedHashMap<>();
-
+    Map<Character, Integer> sortedMap = new LinkedHashMap<>();
     str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
-
     map.entrySet()
-        .stream()
-        .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
-        .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
-
-    finalMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(max(0, v))));
-
+       .stream()
+       .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+       .forEachOrdered(e -> sortedMap.put(e.getKey(), e.getValue()));
+    sortedMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(max(0, v))));
     return sb.toString();
   }
 
