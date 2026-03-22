@@ -26,6 +26,11 @@ public class Elevator {
     executorService.submit(this::processRequests);
   }
 
+  public synchronized void addRequest(int floor) {
+    var success = floor > currentFloor ? upQueue.add(floor) : downQueue.add(floor);
+    System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
+  }
+
   private void processRequests() {  // Runs in separate thread
     while (!Thread.currentThread().isInterrupted()) {
       try {
@@ -51,11 +56,6 @@ public class Elevator {
         e.printStackTrace();
       }
     }
-  }
-
-  public synchronized void addRequest(int floor) {
-    var success = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
-    System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
   }
 
   public void moveToDestFloor(int destFloor) throws InterruptedException {

@@ -6,6 +6,6 @@ public class BankTransferPaymentStrategy implements PaymentStrategy {
     String account = request.getPaymentDetails().get("accountNumber");
     String ifsc = request.getPaymentDetails().get("ifsc");
     System.out.println("Processing Bank Transfer to " + account);
-    return new Response(true, "Bank Transfer Successful");
+    return new Response(200, "Bank Transfer Successful");
   }
 }

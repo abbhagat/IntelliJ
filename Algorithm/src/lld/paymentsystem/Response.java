@@ -8,8 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class Response {
-
-  private boolean success;
-  private String message;
-
+  private int statusCode;
+  private String responseBody;
 }

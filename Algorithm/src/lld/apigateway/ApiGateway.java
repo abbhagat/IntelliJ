@@ -25,7 +25,7 @@ public class ApiGateway {
     if (service == null) {
       return new Response(404, "Not Found");
     }
-    // Step 5: Load Balance
+    // Step 4: Load Balance
     service = loadBalancer.getInstance();
     // Step 5: Forward request
     return service.handleRequest(request);

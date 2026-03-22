@@ -9,10 +9,11 @@ public class NotificationService {
   private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
   public void sendAsync(Notification notification, NotificationChannel channel) {
-    executor.submit(() -> {
+    Runnable notificationTask = () -> {
       boolean success = channel.send(notification);
       notification.setStatus(success ? NotificationStatus.SENT : NotificationStatus.FAILED);
-    });
+    };
+    executor.submit(notificationTask);
     executor.shutdown();
   }
 }
