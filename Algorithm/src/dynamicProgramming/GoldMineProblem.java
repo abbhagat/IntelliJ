@@ -32,6 +32,26 @@ Output : 83
  */
 public class GoldMineProblem {
 
+  // O(3^COL) (exponential ❌)
+  private static int getMaxGoldRec(int[][] gold) {
+    int ROW = gold.length, COL = gold[0].length;
+    int max = Integer.MIN_VALUE;
+    for (int row = 0; row < ROW; row++) {     // Try starting from each row in first column
+      max = max(max, dfs(gold, row, 0, ROW, COL));
+    }
+    return max;
+  }
+
+  private static int dfs(int[][] gold, int row, int col, int ROW, int COL) {
+    if (row < 0 || row >= ROW || col < 0 || col >= COL) {
+      return 0;
+    }
+    int right     = dfs(gold, row, col + 1, ROW, COL);
+    int rightUp   = dfs(gold, row - 1, col + 1, ROW, COL);
+    int rightDown = dfs(gold, row + 1, col + 1, ROW, COL);
+    return gold[row][col] + maximum(right, rightUp, rightDown);
+  }
+
   // Returns maximum amount of gold that can be collected when journey started from first column and moves allowed are right, right-up and right-down
   private static int getMaxGold(int[][] gold) {
     // The first row of goldMineTable gives the maximum gold that the miner can collect when starts that row
