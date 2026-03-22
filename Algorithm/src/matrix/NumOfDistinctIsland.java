@@ -27,7 +27,7 @@ public class NumOfDistinctIsland {
 
   private static void DFS(int row, int col, int r, int c, List<String> list) {
     visited[row][col] = true;
-    list.add((row - r) + " " + (col - c));
+    list.add((row - r) + "-" + (col - c));
     for (int k = 0; k < 4; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
         DFS(row + rowIdx[k], col + colIdx[k], r, c, list);

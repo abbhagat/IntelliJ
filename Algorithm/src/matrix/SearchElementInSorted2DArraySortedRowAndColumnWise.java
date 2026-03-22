@@ -40,10 +40,11 @@ public class SearchElementInSorted2DArraySortedRowAndColumnWise {
   public static void main(String[] args) {
     int[][] M;
     M = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-    System.out.println(search(M, 5) ? "Present" : "Not Present");
-    System.out.println(searchMatrix(M, 5) ? "Present" : "Not Present");
+    System.out.println(search(M, 5));
+    System.out.println(searchMatrix(M, 5));
+
     M = new int[][]{{1, 1}};
-    System.out.println(search(M, 2) ? "Present" : "Not Present");
-    System.out.println(searchMatrix(M, 2) ? "Present" : "Not Present");
+    System.out.println(search(M, 2));
+    System.out.println(searchMatrix(M, 2));
   }
 }
