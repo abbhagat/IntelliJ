@@ -34,16 +34,16 @@ public class MergeKSortedArrayList {
     if (list == null || list.size() == 0) {
       return new int[0];
     }
-    return mergeSort(list, 0, list.size() - 1);
+    return mergeHelper(list, 0, list.size() - 1);
   }
 
-  private static int[] mergeSort(List<int[]> list, int low, int high) {
+  private static int[] mergeHelper(List<int[]> list, int low, int high) {
     if (low == high) {
       return list.get(low);
     }
     int mid = (low + high) / 2;
-    int[] a = mergeSort(list, low, mid);
-    int[] b = mergeSort(list, mid + 1, high);
+    int[] a = mergeHelper(list, low, mid);
+    int[] b = mergeHelper(list, mid + 1, high);
     return sortList(a, b);
   }
 
