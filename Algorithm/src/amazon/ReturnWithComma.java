@@ -5,14 +5,13 @@ public class ReturnWithComma {
 
   public static StringBuilder returnWithCommas(String s, int k) {
     StringBuilder sb = new StringBuilder();
-    int count = 0;
+    int j = 1;
     for (int i = s.length() - 1; i >= 0; i--) {
-      if (count == k) {
-        sb.append(',');
-        count = 0;
-      }
       sb.append(s.charAt(i));
-      count++;
+      if (j % k == 0) {
+        sb.append(',');
+      }
+      j++;
     }
     return sb.reverse();
   }
