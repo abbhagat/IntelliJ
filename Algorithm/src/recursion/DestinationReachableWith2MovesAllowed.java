@@ -5,7 +5,6 @@ package recursion;
  * From any point (x, y) there are only two types of valid movements:
  * (x, x + y) and (x + y, y). Return a boolean true if it is possible to return false.
  * Note: All coordinates are positive.
- * <p>
  * Input: (x1, y1) = (2, 10)
  * (x2, y2) = (26, 12)
  * Output: -> (2, 10)->(2, 12)->(14, 12)->(26, 12) is a valid path.
@@ -27,7 +26,7 @@ public class DestinationReachableWith2MovesAllowed {
     return isReachable(sx, sx + sy, dx, dy) || isReachable(sx + sy, sy, dx, dy);
   }
 
-  // Time Complexity: O(log n)
+  // Time Complexity: O(log(max(x2, y2)))
   // Auxiliary Space: O(1)
   private static boolean isReachable(long x1, long y1, long x2, long y2) {
     while (x2 > x1 && y2 > y1) {
