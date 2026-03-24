@@ -1,12 +1,29 @@
-package linkedlist;
+package sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// Time  Complexity : O(N * log K)  N = total number of elements across all arrays K = number of sorted arrays (or lists)
+// Time  Complexity : O(N * log K)  N = total number of elements across all arrays and K = number of sorted arrays (or lists)
 // Space Complexity : O(N)
 public class MergeKSortedArrayList {
+
+  public static int[] mergeKLists(List<int[]> list) {
+    if (list == null || list.size() == 0) {
+      return new int[0];
+    }
+    return mergeHelper(list, 0, list.size() - 1);
+  }
+
+  private static int[] mergeHelper(List<int[]> list, int low, int high) {
+    if (low == high) {
+      return list.get(low);
+    }
+    int mid = (low + high) / 2;
+    int[] a = mergeHelper(list, low, mid);
+    int[] b = mergeHelper(list, mid + 1, high);
+    return sortList(a, b);
+  }
 
   private static int[] sortList(int[] a, int[] b) {
     int[] c = new int[a.length + b.length];
@@ -28,23 +45,6 @@ public class MergeKSortedArrayList {
       c[k++] = b[j++];
     }
     return c;
-  }
-
-  public static int[] mergeKLists(List<int[]> list) {
-    if (list == null || list.size() == 0) {
-      return new int[0];
-    }
-    return mergeHelper(list, 0, list.size() - 1);
-  }
-
-  private static int[] mergeHelper(List<int[]> list, int low, int high) {
-    if (low == high) {
-      return list.get(low);
-    }
-    int mid = (low + high) / 2;
-    int[] a = mergeHelper(list, low, mid);
-    int[] b = mergeHelper(list, mid + 1, high);
-    return sortList(a, b);
   }
 
   public static void main(String[] args) {

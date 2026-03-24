@@ -5,6 +5,8 @@ import java.util.PriorityQueue;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Time  Complexity : O(N * log K)  N = total number of elements across all arrays and K = number of linked lists
+// Space Complexity : O(K)
 public class MergeKSortedList {
 
   private static Node mergeKSortedList(List<Node> nodeList) {
