@@ -22,15 +22,16 @@ public class SortMapByKeyAndByValues {
 
   public static <K, V extends Comparable<V>> Map<K, V> sortByValues(Map<K, V> map) {
     return map.entrySet()
-        .stream()
-        .sorted(Map.Entry.<K, V>comparingByValue().reversed())
-        .collect(Collectors.toMap(
-                Map.Entry::getKey,     // entry -> entry.getKey()
-                Map.Entry::getValue,  //  entry -> entry.getValue()
-                (entry1, entry2) -> entry1,
-                LinkedHashMap::new
-            )
-        );
+              .stream()
+              .sorted(Map.Entry.<K, V>comparingByValue().reversed())
+           // .forEachOrdered(e -> sortedMap.put(e.getKey(), e.getValue()));  Map<Character, Integer> sortedMap = new LinkedHashMap<>();
+              .collect(Collectors.toMap(
+                      Map.Entry::getKey,     // entry -> entry.getKey()
+                      Map.Entry::getValue,  //  entry -> entry.getValue()
+                      (entry1, entry2) -> entry1,
+                      LinkedHashMap::new
+                  )
+              );
   }
 
   public static void main(String[] args) {

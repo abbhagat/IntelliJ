@@ -3,8 +3,6 @@ package adobe;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.IntStream;
-
 import static java.lang.Integer.max;
 
 public class SortCharacterByFreqInString {

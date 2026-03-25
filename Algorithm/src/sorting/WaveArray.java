@@ -13,7 +13,7 @@ public class WaveArray {
       if (i > 0 && a[i - 1] > a[i]) {          // swap odd and even positions
         swap(a, i - 1, i);
       }
-      if (i < a.length - 1 && a[i + 1] > a[i]) {
+      if (a[i + 1] > a[i]) {
         swap(a, i + 1, i);
       }
     }
