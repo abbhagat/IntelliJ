@@ -9,9 +9,7 @@ public class QuickSortString {
   private static final String[] a = {"Ani", "Sam", "Joe"};
 
   private static void quickSort(int low, int high) {
-    int i = low;
-    int j = high;
-    int mid = (low + high) / 2;
+    int i = low, j = high, mid = (low + high) / 2;
     String key = a[mid];
     while (a[i].compareTo(key) > 0) {
       i++;
