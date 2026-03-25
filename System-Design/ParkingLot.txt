@@ -4,8 +4,7 @@ FR:-
 2. System should generate a ticket/receipt.
 3. 3 Types of vehicles[Compact, Regular, Large]
 4. Price is Flat rate based on time but different rate for each vehicle type.
-5. User must not be able to make the payment.
-6. Send Notification to user when parking spot is booked/canceled
+5. Send Notification to user when parking spot is booked/canceled
 
 NFR :-
 
@@ -17,8 +16,8 @@ NFR :-
 
 API Design
 
-|-----------------------------------------------------------------------------------------------
-| POST    |   /reserve           |  (garageId, startTime, endTime)  => Ticket (spotId ,reservationId)
+|------------------------------------------------------------------------------------------------------
+| POST    |   /reserve           |  (garageId, startTime)  => Ticket (spotId ,reservationId)
 | POST    |   /payment           |  reservationId --> Third Party system Like Stripe
 | POST    |   /cancel            |  reservationId
 | ###########    Internal EndPoints     #########################
@@ -26,12 +25,12 @@ API Design
 | PUT     |   /freeSpot          |  (garageId, vehicleType, time)
 | PUT     |   /allocateSpot      |  (garageId, vehicleType, time)
 | POST    |   /create_account    |  User user
-|-----------------------------------------------------------------------------------------------
+|------------------------------------------------------------------------------------------------------
 
 Database Tables
 
 |---------------------------------------------------------|  |-----------------------------------------|
-|           1. RESERVATIONS                               |  |              2. USER                    |             VEHICLE
+|           1. RESERVATIONS                               |  |              2. USER                    |
 |---------------------------------------------------------|  |-----------------------------------------|
 |GARAGE_ID     SPOT_ID     START_TIME     END_TIME   PAID |  |   USER_ID  USER_NAME   EMAIL  PHONE_NUM |
 |---------------------------------------------------------|  |-----------------------------------------|
@@ -40,13 +39,23 @@ Database Tables
 |  G3           S3           900             1000     N   |  |     C                                   |
 |---------------------------------------------------------|  |-----------------------------------------|
 
-|------------------------------------------------------------------------|  |----------------------------------------|
-|                          GARAGE                                        |  |                SPOT                    |
-|------------------------------------------------------------------------|  |----------------------------------------|
-| GARAGE_ID  | ZipCode   |  COMPACT_RATE  | REGULAR_RATE  |    LARGE_RATE|  | GARAGE_ID   VEHICLE_TYPE       STATUS  |
-|------------------------------------------------------------------------|  |----------------------------------------|
-|  G1          1         |               |                |              |  |  G1       |     1           |          |
-|  G2          1         |               |                |              |  |  G2       |     1           |          |
-|  G3          1         |               |                |              |  |  G3       |     1           |          |
-|------------------------------------------------------------------------|  |----------------------------------------|
+|------------------------------------------------------------|
+|                          GARAGE                            |
+|------------------------------------------------------------|
+| GARAGE_ID  | COMPACT_RATE  | REGULAR_RATE  |    LARGE_RATE |
+|------------------------------------------------------------|
+|  G1        |               |                |              |
+|  G2        |               |                |              |
+|  G3        |               |                |              |
+|------------------------------------------------------------|
+
+|----------------------------------------|
+|                SPOT                    |
+|----------------------------------------|
+| SPOT_ID     VEHICLE_TYPE       STATUS  |
+|----------------------------------------|
+|  S1       |     1           |    N     |
+|  S1       |     2           |    N     |
+|  S1       |                 |    Y     |
+|----------------------------------------|
 

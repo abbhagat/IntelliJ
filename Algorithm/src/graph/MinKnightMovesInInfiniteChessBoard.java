@@ -27,12 +27,8 @@ public class MinKnightMovesInInfiniteChessBoard {
     }
   }
 
-  private static int minKnightMoves(int x, int y) {
-    return minMoves(x, y);
-  }
-
   public static void main(String[] args) {
-    System.out.println(minKnightMoves(2, 1)); // [0, 0] --> [2, 1]
-    System.out.println(minKnightMoves(5, 5)); // [0, 0] --> [2, 1] --> [4, 2] --> [3, 4] --> [5, 5]
+    System.out.println(minMoves(2, 1)); // [0, 0] --> [2, 1]
+    System.out.println(minMoves(5, 5)); // [0, 0] --> [2, 1] --> [4, 2] --> [3, 4] --> [5, 5]
   }
 }
