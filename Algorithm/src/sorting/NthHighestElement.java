@@ -17,8 +17,9 @@ public class NthHighestElement {
   public static void maxheap(int i) {
     int left  = 2 * i;
     int right = 2 * i + 1;
-    int largest = left  <= n && a[left]  > a[i]       ? left  : i;
-        largest = right <= n && a[right] > a[largest] ? right : largest;
+    int largest;
+    largest = left  <= n && a[left]  > a[i]       ? left  : i;
+    largest = right <= n && a[right] > a[largest] ? right : largest;
     if (largest != i) {
       swap(a, i, largest);
       maxheap(largest);

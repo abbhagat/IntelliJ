@@ -11,6 +11,9 @@ import static util.CommonUtils.swap;
  * is greater(or smaller) than the values in its two children nodes.
  * The former is called max heap, and the latter is called min-heap. The heap can be represented by a binary tree or array.
  */
+
+// Time  Complexity : O(N log N)
+// Space Complexity : O(1)
 public class HeapSort {
 
   private static final int[] a = {1, 3, 4, 2, 5};
@@ -25,8 +28,9 @@ public class HeapSort {
   private static void maxHeap(int i) {
     int left  = 2 * i;
     int right = 2 * i + 1;
-    int largest = left  <= n && a[left]  >= a[i]       ? left  : i;
-        largest = right <= n && a[right] >= a[largest] ? right : largest;
+    int largest;
+    largest = left  <= n && a[left]  >= a[i]       ? left  : i;
+    largest = right <= n && a[right] >= a[largest] ? right : largest;
     if (i != largest) {
       swap(a, i, largest);
       maxHeap(largest);
