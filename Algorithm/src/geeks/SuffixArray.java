@@ -17,10 +17,10 @@ import java.util.TreeMap;
 public class SuffixArray {
 
   public static void main(String[] args) {
-    String str = "banana";
+    String s = "banana";
     Map<String, Integer> map = new TreeMap<>();
-    for (int i = 0; i < str.length(); i++) {
-      map.put(str.substring(i), i);
+    for (int i = 0; i < s.length(); i++) {
+      map.put(s.substring(i), i);
     }
     System.out.println(map);
   }

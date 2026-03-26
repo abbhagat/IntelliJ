@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
 // Space Complexity : O(1)
 public class PrintKClosestElementOfAGivenNumberInASortedArray {
 
-  private static void printKClosestElementInAnArray(int[] a, int n, int k) {
+  private static void printKClosestNum(int[] a, int n, int k) {
     int index = Arrays.binarySearch(a, n);
     int i = index - 1, j = index + 1;
     for (int count = 1; count <= k; count++) {
@@ -31,11 +31,11 @@ public class PrintKClosestElementOfAGivenNumberInASortedArray {
 
   public static void main(String[] args) {
     int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
-    printKClosestElementInAnArray(a, 35, 4);
-    printKClosestElementInAnArray(a, 35, 2);
-    printKClosestElementInAnArray(a, 12, 3);
-    printKClosestElementInAnArray(a, 56, 3);
-    printKClosestElementInAnArray(a, 16, 3);
-    printKClosestElementInAnArray(a, 55, 3);
+    printKClosestNum(a, 35, 4);
+    printKClosestNum(a, 35, 2);
+    printKClosestNum(a, 12, 3);
+    printKClosestNum(a, 56, 3);
+    printKClosestNum(a, 16, 3);
+    printKClosestNum(a, 55, 3);
   }
 }
