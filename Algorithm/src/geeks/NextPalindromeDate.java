@@ -11,13 +11,13 @@ import java.util.Date;
  * In the worst case, this could be a large number, but it is bounded by the number of days in a year (365 or 366).
  * Space Complexity : O(1), as it uses a constant amount of extra space regardless of the input size.
  */
-public class PalindromeDate {
+public class NextPalindromeDate {
 
-  private static String nextPalindromeDate(String inputDate) throws ParseException {
+  private static String nextPalindromeDate(String inputDate) {
     Calendar cal = Calendar.getInstance();
     int year     = Integer.parseInt(inputDate.substring(0, 4));
-    int month    = Integer.parseInt(inputDate.substring(4, 6)) - 1;
-    int day      = Integer.parseInt(inputDate.substring(6));
+    int month    = Integer.parseInt(inputDate.substring(5, 7)) - 1;
+    int day      = Integer.parseInt(inputDate.substring(8));
     cal.set(year, month, day);
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     String dateStr;
@@ -34,7 +34,7 @@ public class PalindromeDate {
   }
 
   public static void main(String[] args) throws ParseException {
-    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250404"));
-    System.out.println("Next Palindrome Date :" + nextPalindromeDate("20250205"));
+    System.out.println("Next Palindrome Date :" + nextPalindromeDate("2025-04-04"));
+    System.out.println("Next Palindrome Date :" + nextPalindromeDate("2025-02-05"));
   }
 }
