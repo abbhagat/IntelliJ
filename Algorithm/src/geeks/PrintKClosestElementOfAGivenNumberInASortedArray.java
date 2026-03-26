@@ -17,7 +17,7 @@ public class PrintKClosestElementOfAGivenNumberInASortedArray {
   private static void printKClosestNum(int[] a, int n, int k) {
     int index = Arrays.binarySearch(a, n);
     int i = index - 1, j = index + 1;
-    for (int count = 1; count <= k; count++) {
+    while (k != 0) {
       if (i < 0) {
         System.out.print(a[j++] + " ");
       } else if (j >= a.length) {
@@ -25,6 +25,7 @@ public class PrintKClosestElementOfAGivenNumberInASortedArray {
       } else {
         System.out.print((abs(n - a[i]) <= abs(n - a[j])) ? a[i--] + " " : a[j++] + " ");
       }
+      k--;
     }
     System.out.println();
   }
