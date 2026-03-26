@@ -36,6 +36,9 @@ public class Implement_strStr {
   }
 
   public static void main(String[] args) {
+    System.out.println("hello".indexOf("ll"));
+    System.out.println("aaaaa".indexOf("bba"));
+    System.out.println("abc".indexOf(""));
     System.out.println("mississippi".indexOf(""));
     System.out.println(strStr("mississippi", "issipi"));
     System.out.println(strStr("mississippi", "issip"));

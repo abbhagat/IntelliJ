@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import static graph.CreateGraph.createGraph;
 
+// Time  Complexity : O(V + E), where V is the number of vertices and E is the number of edges in the graph.
+// Space Complexity : O(V), since an extra visited array of size V is required.
 public class BFSTraversal {
 
   public static void BFS(Graph g, int v, boolean[] visited) {

@@ -7,7 +7,7 @@ public class MaxAreaOrContainerWithMaxWater {
 
   public static int maxArea(int[] a) {
     int low = 0, high = a.length - 1, max = Integer.MIN_VALUE;
-    while (low < high) {
+    while (low <= high) {
       int water = min(a[low], a[high]) * (high - low);
       max = max(max, water);
       int k = a[low] < a[high] ? low++ : high--;
@@ -17,7 +17,7 @@ public class MaxAreaOrContainerWithMaxWater {
 
   public static int minArea(int[] a) {
     int low = 0, high = a.length - 1, min = Integer.MAX_VALUE;
-    while (low < high) {
+    while (low <= high) {
       int water = min(a[low], a[high]) * (high - low);
       min = min(min, water);
       int k = a[low] < a[high] ? low++ : high--;
