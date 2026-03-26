@@ -3,7 +3,8 @@ package geeks;
 import static util.CommonUtils.printArray;
 import static util.CommonUtils.swap;
 
-// Time Complexity O(n) * n!
+// Time  Complexity O(n) * n!
+// Space Complexity O(n) as Maximum recursion depth = n
 public class AllPermutationsOfString {
 
   private static int count;
