@@ -21,7 +21,7 @@ public class BasicCalculator {
         i++;                      // skip '('
         n = calculate(s);        // evaluate inside parentheses
       }
-      if ((!Character.isDigit(c) && c != ' ') || i == s.length() - 1) {
+      if (!(Character.isDigit(c) || c == ' ') || i == s.length() - 1) {
         switch (sign) {
           case '+' -> stack.push(n);
           case '-' -> stack.push(-n);
@@ -35,6 +35,10 @@ public class BasicCalculator {
         break;  // end of this recursion level
       }
       i++;
+    }
+    int sum = 0;
+    while(stack.isEmpty()) {
+      sum += stack.pop();
     }
     return stack.stream()
                 .mapToInt(Integer::intValue)

@@ -15,8 +15,8 @@ public class DecodeString {
       } else if (c == '[') {
         stack.push(decode);
         count.push(n);
-        n = 0;
         decode = "";
+        n = 0;
       } else if (c == ']') {
         String temp = decode;
         decode = stack.pop();

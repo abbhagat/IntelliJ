@@ -6,12 +6,12 @@ import java.util.Stack;
 // Space Complexity : O(n)
 public class FindTheLongestBalancedBracketAndItsLength {
 
-  private static void longestBalancedBracketLength(String exp) {
+  private static void longestBalancedBracketLength(String s) {
     Stack<Integer> stack = new Stack<>();
     stack.push(-1);
     int maxLength = 0, endIndex = -1;
-    for (int i = 0; i < exp.length(); i++) {
-      if (exp.charAt(i) == '{') {
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) == '{') {
         stack.push(i);
       } else {
         stack.pop();
@@ -26,8 +26,8 @@ public class FindTheLongestBalancedBracketAndItsLength {
         }
       }
     }
-    String s = maxLength > 0 ? exp.substring(endIndex - maxLength + 1, endIndex + 1) : "";
-    System.out.println(s + ".length() = " + s.length());
+    String str = maxLength > 0 ? s.substring(endIndex - maxLength + 1, endIndex + 1) : "";
+    System.out.println(str + ".length() = " + str.length());
   }
 
   public static void main(String[] args) {

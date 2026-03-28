@@ -8,25 +8,27 @@ package stack;
 
 public class MinBracketRemovalToMakeBracketBalanced {
 
-  private static int countMinReversals(char[] exp) {
-    if (exp.length % 2 != 0) {
+  private static int countMinReversals(String exp) {
+    if (exp.length() % 2 != 0) {
       return -1;
     }
     int open = 0, close = 0;
-    for (char c : exp) {
+    for (char c : exp.toCharArray()) {
       if (c == '{') {
         open++;
-      } else if (c == '}' && open > 0) {
-        open--;
       } else {
-        close++;
+        if (open > 0) {
+          open--;
+        } else {
+          close++;
+        }
       }
     }
     return (open + 1) / 2 + (close + 1) / 2;
   }
 
   public static void main(String[] args) {
-    System.out.println(countMinReversals("}{".toCharArray()));
-    System.out.println(countMinReversals("}{{}}{{{".toCharArray()));
+    System.out.println(countMinReversals("}{"));
+    System.out.println(countMinReversals("}{{}}{{{"));
   }
 }
