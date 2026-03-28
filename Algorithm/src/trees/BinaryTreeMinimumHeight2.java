@@ -28,9 +28,9 @@ public class BinaryTreeMinimumHeight2 {
            /
           4
        */
-    Node root = new Node(1);
-    root.left = new Node(2);
-    root.right = new Node(3);
+    Node root      = new Node(1);
+    root.left      = new Node(2);
+    root.right     = new Node(3);
     root.left.left = new Node(4);
     treeMinHeight(root, new LinkedList<>());
     System.out.println("Tree Min Depth : " + minSize);
