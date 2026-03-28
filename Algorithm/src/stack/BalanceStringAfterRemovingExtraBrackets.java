@@ -10,12 +10,13 @@ public class BalanceStringAfterRemovingExtraBrackets {
       if (c == '(') {
         open++;
       }
-      if (c == ')' && open > 0) {
-        sb.append(c);
-        open--;
-      } else if (c != ')') {
-        sb.append(c);
+      if (c == ')' && open == 0) {
+        continue;
       }
+      if (c == ')') {
+        open--;
+      }
+      sb.append(c);
     }
     StringBuilder result = new StringBuilder();
     for (int i = sb.length() - 1; i >= 0; i--) {

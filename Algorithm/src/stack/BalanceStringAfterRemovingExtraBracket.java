@@ -15,16 +15,17 @@ public class BalanceStringAfterRemovingExtraBracket {
     int open = 0;
     for (char c : exp.toCharArray()) {
       if (c == '(') {
-        sb.append(c);
         open++;
-      } else if (c == ')' && open > 0) {
-        sb.append(c);
-        open--;
-      } else if (c != ')') {
-        sb.append(c);
       }
+      if (c == ')' && open == 0) {
+        continue;
+      }
+      if (c == ')') {
+        open--;
+      }
+      sb.append(c);
     }
-    return sb.append(")".repeat(max(0, open)));
+    return sb.append(")".repeat(open));
   }
 
   public static void main(String[] args) {
