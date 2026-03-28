@@ -23,7 +23,8 @@ public class MedianOfStreamOfNumbers {
   public static void main(String[] args) {
     DecimalFormat df = new DecimalFormat("#.##");
     for (int x : new int[]{1, 2, 3, 4, 5}) {
-      System.out.println(df.format(findMedian(x)));
+      float median = findMedian(x);
+      System.out.println(df.format(median));
     }
   }
 }
