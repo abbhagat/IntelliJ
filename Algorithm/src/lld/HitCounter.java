@@ -1,6 +1,6 @@
 package lld;
 
-// Design a hit counter that counts the number of hits in the past 5 mins
+// Design a hit counter that counts the number of hits in the past 5 mins or 10 secs
 
 // Time Complexity : O(n)
 public class HitCounter {
@@ -35,18 +35,16 @@ public class HitCounter {
   }
 
   public static void main(String[] args) {
-    HitCounter counter = new HitCounter(300);  // 5 mins = 300 sec so we are passing 300 as argument
-    for (int i = 1; i <= 500; i++) {
-      counter.hit(i);
-      if (i == 4) {
-        System.out.println(counter.getHits(i));
-      }
-      if (i == 300) {
-        System.out.println(counter.getHits(i));
-      }
-      if (i == 301) {
-        System.out.println(counter.getHits(i));
-      }
-    }
+    HitCounter counter = new HitCounter(10);  // If 5 mins then we pass 300 as argument as 5 min = 300 secs
+    counter.hit(1);
+    counter.hit(2);
+    counter.hit(2);
+    counter.hit(3);
+    counter.hit(3);
+    counter.hit(4);
+    System.out.println(counter.getHits(1));
+    System.out.println(counter.getHits(2));
+    System.out.println(counter.getHits(3));
+    System.out.println(counter.getHits(4));
   }
 }
