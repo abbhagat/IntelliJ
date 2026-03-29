@@ -22,7 +22,7 @@ public class Elevator {
     this.id = id;
     this.currentFloor = 0;
     this.direction = Direction.IDLE;
-    this.state = ElevatorState.IDLE;
+    this.state     = ElevatorState.IDLE;
     executorService.submit(this::processRequests);
   }
 
@@ -37,19 +37,18 @@ public class Elevator {
         int destFloor;
         if (!upQueue.isEmpty()) {
           direction = Direction.UP;
-          state = ElevatorState.MOVING;
-          destFloor = upQueue.take();  // blocks if Queue empty So you don’t need manual synchronization logic.
+          state     = ElevatorState.MOVING;
+          destFloor = upQueue.take();        // blocks if Queue empty So you don’t need manual synchronization logic.
         } else if (!downQueue.isEmpty()) {
           direction = Direction.DOWN;
-          state = ElevatorState.MOVING;
-          destFloor = downQueue.take(); // blocks if empty So you don’t need manual synchronization logic.
+          state     = ElevatorState.MOVING;
+          destFloor = downQueue.take();    // blocks if empty So you don’t need manual synchronization logic.
         } else {
-          state = ElevatorState.IDLE;
           direction = Direction.IDLE;
-          // block until ANY request arrives
-          destFloor = upQueue.take();
+          state     = ElevatorState.IDLE;
+          destFloor = upQueue.take();    // block until ANY request arrives
           direction = Direction.UP;
-          state = ElevatorState.MOVING;
+          state     = ElevatorState.MOVING;
         }
         moveToDestFloor(destFloor);
       } catch (Exception e) {
