@@ -30,23 +30,21 @@ public class FindPairCountWithSumDivisibleByK {
     for (int x : a) {
       int y = x % k;
       int z = (k - y) % k;  // Complement Remainder (x + y) % k == 0 => (x % k + y % k) % k == 0 if x % k = y then we need y % k = (k - y) % k
-      count += map.getOrDefault(z, 0);
-      map.put(y, map.getOrDefault(y, 0) + 1);
+      count += map.getOrDefault(z, 0);  // Check how many elements we have already seen with remainder z Each of them forms a valid pair with current x
+      map.put(y, map.getOrDefault(y, 0) + 1);  // Add current remainder y to the map and Increase its frequency
     }
     return count;
   }
 
   private static int countPairs(int[] a, int k) {
     int[] freq = new int[k];
+    int count = 0;
     for (int x : a) {
       int y = x % k;
-      freq[y]++;  // keeps the count of each remainder
+      int z = (k - y) % k;  // Complement Remainder (x + y) % k == 0 => (x % k + y % k) % k == 0 if x % k = y then we need y % k = (k - y)
+      count += freq[z];    // how many numbers we have already seen whose remainder is z Each of those numbers can form a valid pair with the current number
+      freq[y]++;
     }
-    int count = freq[0] * (freq[0] - 1) / 2;  // Counting Pairs with Remainder 0
-    for (int i = 1; i <= k / 2 && i != (k - i); i++) {  // Counting Pairs with Remainders i and k-i
-      count += freq[i] * freq[k - i];
-    }
-    count += k % 2 == 0 ? freq[k / 2] * (freq[k / 2] - 1) / 2 : 0;  // Counting Pairs with Remainder k/2 if k is even
     return count;
   }
 
