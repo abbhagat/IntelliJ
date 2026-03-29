@@ -8,10 +8,10 @@ public class HitCounter {
   private final int[] hits, times;
   private final int time;
 
-  public HitCounter(int timeInSecs, int time) {
+  public HitCounter(int timeInSecs) {
     this.hits  = new int[timeInSecs];
     this.times = new int[timeInSecs];
-    this.time  = time;
+    this.time  = timeInSecs;
   }
 
   public void hit(int timestamp) {
@@ -35,7 +35,7 @@ public class HitCounter {
   }
 
   public static void main(String[] args) {
-    HitCounter counter = new HitCounter(300, 300);
+    HitCounter counter = new HitCounter(300);  // 5 mins = 300 sec so we are passing 300 as argument
     for (int i = 1; i <= 500; i++) {
       counter.hit(i);
       if (i == 4) {

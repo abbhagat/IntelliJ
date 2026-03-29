@@ -3,20 +3,20 @@ package lld;
 import lombok.Getter;
 
 @Getter
-public class ArrayListImpl<E> {
+public class ArrayList<E> {
 
   private E[] list;
   private int size;  // to keep track of the current size of the list
 
-  public ArrayListImpl() {
+  public ArrayList() {
     this(10);
   }
 
-  public ArrayListImpl(int initialCapacity) {
-    if (initialCapacity <= 0) {
-      throw new IllegalArgumentException("Invalid Size : " + initialCapacity);
+  public ArrayList(int size) {
+    if (size <= 0) {
+      throw new IllegalArgumentException("Invalid Size : " + size);
     }
-    this.list = (E[]) new Object[initialCapacity];
+    this.list = (E[]) new Object[size];
   }
 
   public boolean add(E e) {
@@ -58,7 +58,8 @@ public class ArrayListImpl<E> {
   }
 
   public static void main(String[] args) {
-    ArrayListImpl<Integer> al = new ArrayListImpl<>();
+    ArrayList<Integer> al = new ArrayList<>(10);
+    al.add(0);
     al.add(1);
     al.add(2);
     al.add(3);
@@ -66,10 +67,12 @@ public class ArrayListImpl<E> {
     al.add(5);
     al.add(6);
     al.add(7);
+    al.add(8);
+    al.add(9);
     for (int i = 0; i < al.getSize(); i++) {
       System.out.println(al.get(i));
     }
-    al.remove(2);
+    al.remove(8);
     System.out.println("Changed List");
     for (int i = 0; i < al.getSize(); i++) {
       System.out.println(al.get(i));
