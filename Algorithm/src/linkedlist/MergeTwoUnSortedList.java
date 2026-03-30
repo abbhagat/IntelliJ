@@ -3,8 +3,7 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
-// Time Complexity:  O(m+n)
-public class MergeTwoSortedList {
+public class MergeTwoUnSortedList {
 
   // Time Complexity:  O(m+n)
   public static Node merge(Node a, Node b) {
@@ -25,17 +24,18 @@ public class MergeTwoSortedList {
 
   // Time Complexity:  O(m+n)
   private static Node mergeTwoLists(Node head1, Node head2) {
-    Node head = new Node();
-    Node temp = head;
+    Node merged = new Node();
+    Node temp = merged;
     while (head1 != null && head2 != null) {
       if (head1.num < head2.num) {
         temp.next = head1;
         head1 = head1.next;
+        temp = temp.next;
       } else {
         temp.next = head2;
         head2 = head2.next;
+        temp = temp.next;
       }
-      temp = temp.next;
     }
     while (head1 != null) {
       temp.next = head1;
@@ -47,15 +47,15 @@ public class MergeTwoSortedList {
       head2 = head2.next;
       temp = temp.next;
     }
-    return head.next;
+    return merged.next;
   }
 
   public static void main(String[] args) {
     Node a = null, b = null;
-    for (int x : new int[]{1, 3}) {
+    for (int x : new int[]{1, 3, 2}) {
       a = add(a, x);
     }
-    for (int x : new int[]{2, 4}) {
+    for (int x : new int[]{2, 6, 4}) {
       b = add(b, x);
     }
     traverseList(a);
