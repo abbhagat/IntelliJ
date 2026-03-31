@@ -2,6 +2,30 @@ package graph;
 
 import static graph.CreateGraph.createGraph;
 
+/**
+ *   0 → 1 → 2 → 3
+ *       ↑       ↓
+ *       └───────┘
+ * 0 → 1
+ * 1 → 2
+ * 2 → 3
+ * 3 → 1   (this creates a cycle)
+ * Step 1: Visit 0
+ *                  visited  = [T, F, F, F]
+ *                  recStack = [T, F, F, F]
+ * Step 2: Go to 1
+ *                  visited  = [T, T, F, F]
+ *                  recStack = [T, T, F, F]
+ * Step 3: Go to 2
+ *                  visited  = [T, T, T, F]
+ *                  recStack = [T, T, T, F]
+ * Step 4: Go to 3
+ *                  visited  = [T, T, T, T]
+ *                  recStack = [T, T, T, T]
+ * Step 5: From 3 → go to 1 Now check:  if (recStack[1]) return true;
+ *
+ */
+
 // Time Complexity  : O(V + E)
 // Space Complexity : O(V)
 public class DetectCycle {
