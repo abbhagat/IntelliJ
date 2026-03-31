@@ -26,7 +26,9 @@ public class Dijkstra {
       Node current = pq.poll();
       int u = current.vertex;
 
-      if (visited[u]) continue;
+      if (visited[u]) {
+        continue;
+      }
       visited[u] = true;
 
       for (int v = 0; v < n; v++) {
