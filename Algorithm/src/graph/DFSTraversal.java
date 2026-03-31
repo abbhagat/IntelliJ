@@ -24,9 +24,9 @@ public class DFSTraversal {
       DFS(g, i, visited);
       System.out.println();
     }
-     // i = 0 => 0 1 2 3
-    //  i = 1 => 1 2 0 3
-    //  i = 2 => 2 0 1 3
-    //  i = 3 => 3
+    //  i = 0 => 0 1 2 3
+    //  i = 1 => 1 2 3
+    //  i = 2 => 2 3 1
+    //  i = 3 => 3 1 2
   }
 }

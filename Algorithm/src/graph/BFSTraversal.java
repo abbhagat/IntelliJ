@@ -32,9 +32,9 @@ public class BFSTraversal {
       BFS(g, i, visited);
       System.out.println();
     }
-     // 0 1 2 3
-    // 1 2 0 3
-   // 2 0 3 1
-  // 3
+    //  i = 0 => 0 1 2 3
+    //  i = 1 => 1 2 3
+    //  i = 2 => 2 3 1
+    //  i = 3 => 3 1 2
   }
 }
