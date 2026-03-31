@@ -1,12 +1,13 @@
 Functional requirement
 
-1. User can schedule or view the job.
+1. User can create/schedule/cancel the job.
 2. User can list all the submitted jobs with current status.
-3. Jobs can be run once or recurring. Jobs should be executed within X threshold time after the defined scheduled time. (let x = 15 minutes)
+3. Jobs can be run once or recurring. Jobs should be executed at the defined scheduled time.
 4. Individual job execution time is no more than X minutes. (let x = 5 minutes)
 5. Jobs can also have priority.
    Job the with higher priority should be executed first than lower priority. This can be achieved using PriorityQueue Max Heap
-6. Job output should be stored inside file system.
+6. Handles failures & retries.
+7. Scales to millions of jobs
 
 Non-Functional Requirement
 
@@ -47,7 +48,7 @@ Table :- JOB_EXEC_HISTORY
 
 Table :- SCHEDULER
                            |-------------------------------------------------------------------------|
-                           |JOB_ID  LAST_EXECUTION_DATE   NEXT_EXECUTION_DATE   STATUS    RETRY_COUNT|
+                           |JOB_ID  LAST_EXECUTION_TIME   NEXT_EXECUTION_TIME   STATUS    RETRY_COUNT|
                            |-------------------------------------------------------------------------|
                            | 1        SYSDATE                SYSDATE + 1        RUNNING       0      |
                            | 4        SYSDATE                SYSDATE + 1         STOP         0      |
