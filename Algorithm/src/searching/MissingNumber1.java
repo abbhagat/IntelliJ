@@ -7,9 +7,9 @@ public class MissingNumber1 {
   private static void firstMissingPositive(int[] a) {
     int n = a.length + 1;
     boolean[] isPresent = new boolean[n + 1];
-    for (int x : a) {
-      if (x > 0 && x <= n) {
-        isPresent[x] = true;
+    for (int i : a) {
+      if (i > 0 && i <= n) {
+        isPresent[i] = true;
       }
     }
     for (int i = 1; i <= n; i++) {

@@ -11,9 +11,8 @@ public class MissingCharacter {
       min = min > x ? x : min;
       sum2 += x;
     }
-    for (int i = min; i <= max; i++) {
-      sum1 += i;
-    }
+    int n = max - min + 1;
+    sum1  = n * (min + max) / 2;
     return (char) (sum1 - sum2);
   }
 
