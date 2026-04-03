@@ -36,8 +36,7 @@ public class CountNumWithHCFLessThanThatNumber {
   public static void main(String[] args) {
     int n = 15, count = 0;
     for (int i = 1; i <= n; i++) {
-      int hcf = i;
-      hcf = findGCD(hcf, n);
+      int hcf = findGCD(i, n);
       if (hcf > 1 && hcf < i) {
         count++;
       }

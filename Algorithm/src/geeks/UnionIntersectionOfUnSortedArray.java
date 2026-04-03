@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ArrayUnionIntersection {
+public class UnionIntersectionOfUnSortedArray {
 
   private static void unionIntersection(int[] a, int[] b) {
     Set<Integer> set = new HashSet<>();
