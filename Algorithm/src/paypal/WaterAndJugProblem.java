@@ -18,9 +18,9 @@ public class WaterAndJugProblem {
       } else if (to == y) {
         to = 0;                   // Empty jug y
       } else {
-        pour = min(from, y - to);
+        pour  = min(from, y - to);
         from -= pour;
-        to += pour;
+        to   += pour;
       }
       steps++;
     }

@@ -22,10 +22,10 @@ public class MergeKSortedArrays {
     int mid = (low + high) / 2;
     int[] a = merge(list, low, mid);
     int[] b = merge(list, mid + 1, high);
-    return sortList(a, b);
+    return sortArrays(a, b);
   }
 
-  private static int[] sortList(int[] a, int[] b) {
+  private static int[] sortArrays(int[] a, int[] b) {
     int[] c = new int[a.length + b.length];
     int i = 0, j = 0, k = 0;
     while (i < a.length && j < b.length) {
