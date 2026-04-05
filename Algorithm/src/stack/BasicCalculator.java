@@ -36,10 +36,6 @@ public class BasicCalculator {
       }
       i++;
     }
-    int sum = 0;
-    while(stack.isEmpty()) {
-      sum += stack.pop();
-    }
     return stack.stream()
                 .mapToInt(Integer::intValue)
                 .sum();  // return the sum of all the elements in stack  Integer::intValue = x -> x.intValue()
