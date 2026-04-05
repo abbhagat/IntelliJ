@@ -20,6 +20,6 @@ public class StringEachOtherPermutation {
   }
 
   public static void main(String[] args) {
-    System.out.println(isPermutation("ABC".toCharArray(), "CAB".toCharArray()) ? "Permutation" : "Not Permutation");
+    System.out.println(isPermutation("ABC".toCharArray(), "CAB".toCharArray()));
   }
 }

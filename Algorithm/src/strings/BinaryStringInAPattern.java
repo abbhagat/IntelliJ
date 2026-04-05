@@ -1,20 +1,20 @@
 package strings;
 
-// Time Complexity : O(2^n) For every index we have 2 choices
+// Time Complexity : O(2^n) For every i we have 2 choices
 public class BinaryStringInAPattern {
 
-  private static void printBinaryString(char[] c, int index) {
-    if (index == c.length) {
+  private static void printBinaryString(char[] c, int i) {
+    if (i == c.length) {
       System.out.println(c);
       return;
     }
-    if (c[index] == '?') {
-      c[index] = '0';
-      printBinaryString(c, index + 1);
-      c[index] = '1';
-      printBinaryString(c, index + 1);
+    if (c[i] == '?') {
+        c[i] =  '0';
+        printBinaryString(c, i + 1);
+        c[i] =  '1';
+        printBinaryString(c, i + 1);
     } else {
-      printBinaryString(c, index + 1);
+        printBinaryString(c, i + 1);
     }
   }
 
