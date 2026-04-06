@@ -15,7 +15,7 @@ public class BinaryTreeMinimumHeight2 {
     if (root.left == null && root.right == null) {
       minSize = min(minSize, list.size());
     }
-    treeMinHeight(root.left, list);
+    treeMinHeight(root.left,  list);
     treeMinHeight(root.right, list);
     list.removeLast();
   }
