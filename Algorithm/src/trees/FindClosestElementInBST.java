@@ -19,6 +19,10 @@ import static java.lang.Math.abs;
 
 public class FindClosestElementInBST {
 
+  private static class NodeWrapper {
+    Node node;
+  }
+
   private static void findClosest(Node root, int k, int closest, NodeWrapper closetNode) {
     if (root == null) {
       return;
@@ -47,7 +51,4 @@ public class FindClosestElementInBST {
     System.out.println(abs(closetNode.node.num - k));
   }
 
-  static class NodeWrapper {
-    Node node;
-  }
 }

@@ -13,7 +13,10 @@ public class DistanceBetweenTwoGivenNodesOfBT {
       return level;
     }
     int distance = findLevel(root.left, target, level + 1);
-    return distance == 0 ? findLevel(root.right, target, level + 1) : distance;
+    if (distance == 0) {
+      distance = findLevel(root.right, target, level + 1);
+    }
+    return distance;
   }
 
   private static int findDistance(Node root, Node x, Node y) {
