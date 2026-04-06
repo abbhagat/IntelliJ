@@ -6,14 +6,14 @@ import static trees.TreeTraversal.inorder;
 public class ConvertSortedArrayToBalancedTree {
 
   private static Node sortedArrayToBST(int[] a, int low, int high) {
-    if (low > high) {
-      return null;
+    if (low <= high) {
+      int mid    = (low + high) / 2;
+      Node root  = new Node(a[mid]);
+      root.left  = sortedArrayToBST(a, low, mid - 1);
+      root.right = sortedArrayToBST(a, mid + 1, high);
+      return root;
     }
-    int mid = (low + high) / 2;
-    Node root  = new Node(a[mid]);
-    root.left  = sortedArrayToBST(a, low, mid - 1);
-    root.right = sortedArrayToBST(a, mid + 1, high);
-    return root;
+    return null;
   }
 
   public static void main(String[] args) {
