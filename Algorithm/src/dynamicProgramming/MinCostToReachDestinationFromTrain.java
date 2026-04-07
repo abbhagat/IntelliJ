@@ -11,11 +11,13 @@ public class MinCostToReachDestinationFromTrain {
     if (s == d || s + 1 == d) {  // If source is same as destination or destination is next to source
       return cost[s][d];
     }
-    int min = cost[s][d];   // Initialize min cost as direct ticket from source 's' to destination 'd'.
+    int minCost = cost[s][d];   // Initialize min cost as direct ticket from source 's' to destination 'd'.
     for (int i = s + 1; i < d; i++) {
-      min = min(min, minCost(cost, s, i) + minCost(cost, i, d));
+      int cost1 = minCost(cost, s, i);
+      int cost2 = minCost(cost, i, d);
+      minCost = min(minCost, cost1 + cost2);
     }
-    return min;
+    return minCost;
   }
 
   // Time  Complexity: O(n^2)
