@@ -21,7 +21,7 @@ public class MinCoinToMakeAValue {
     return min;
   }
 
-  // Time Complexity  : O(m*V)
+  // Time Complexity  : O(n*V) where V is the value and n is the number of coin
   // Space Complexity : O(V)
   private static int minCoinsDP(int[] coins, int V) {
     int[] dp = new int[V + 1];
