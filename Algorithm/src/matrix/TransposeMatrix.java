@@ -1,5 +1,6 @@
 package matrix;
 
+import static util.CommonUtils.printMatrix;
 import static util.CommonUtils.swap;
 
 public class TransposeMatrix {
@@ -25,7 +26,16 @@ public class TransposeMatrix {
   }
 
   public static void main(String[] args) {
-    transposeNonSquare(new int[][]{{1, 2, 3}});
+    int[][] a = transposeNonSquare(new int[][]{{1, 2, 3}});
+    printMatrix(a);
+    final int[][] M = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    printMatrix(M);
+    findTranspose(M);
+    printMatrix(M);
   }
 
 }

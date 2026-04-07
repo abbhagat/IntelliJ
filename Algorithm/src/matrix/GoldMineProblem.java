@@ -40,18 +40,18 @@ public class GoldMineProblem {
     int ROW = gold.length, COL = gold[0].length;
     int max = Integer.MIN_VALUE;
     for (int row = 0; row < ROW; row++) {     // Try starting from each row in first column
-      max = max(max, dfs(gold, row, 0, ROW, COL));
+      max = max(max, maxGold(gold, row, 0, ROW, COL));
     }
     return max;
   }
 
-  private static int dfs(int[][] gold, int row, int col, int ROW, int COL) {
+  private static int maxGold(int[][] gold, int row, int col, int ROW, int COL) {
     if (row < 0 || row >= ROW || col < 0 || col >= COL) {
       return 0;
     }
-    int right     = dfs(gold, row, col + 1, ROW, COL);
-    int rightUp   = dfs(gold, row - 1, col + 1, ROW, COL);
-    int rightDown = dfs(gold, row + 1, col + 1, ROW, COL);
+    int right     = maxGold(gold, row, col + 1, ROW, COL);
+    int rightUp   = maxGold(gold, row - 1, col + 1, ROW, COL);
+    int rightDown = maxGold(gold, row + 1, col + 1, ROW, COL);
     return gold[row][col] + maximum(right, rightUp, rightDown);
   }
 
@@ -61,8 +61,8 @@ public class GoldMineProblem {
     int[][] dp = new int[ROW][COL];
     for (int col = COL - 1; col >= 0; col--) {
       for (int row = 0; row < ROW; row++) {
-        int right           = col == COL - 1                   ? 0 : dp[row]    [col + 1];    // Gold collected on going to the cell on the right
-        int right_up        = row == 0 || col == COL - 1       ? 0 : dp[row - 1][col + 1];   // Gold collected on going to the cell to right up
+        int right           =                   col == COL - 1 ? 0 : dp[row]    [col + 1];    // Gold collected on going to the cell on the right
+        int right_up        = row == 0       || col == COL - 1 ? 0 : dp[row - 1][col + 1];   // Gold collected on going to the cell to right up
         int right_down      = row == ROW - 1 || col == COL - 1 ? 0 : dp[row + 1][col + 1];  // Gold collected on going to the cell to right down
         dp[row][col] = gold[row][col] + maximum(right, right_up, right_down);              // Max gold collected from taking either of the above 3 paths
       }

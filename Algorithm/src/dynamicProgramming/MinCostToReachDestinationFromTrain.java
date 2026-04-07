@@ -15,7 +15,7 @@ public class MinCostToReachDestinationFromTrain {
     for (int i = s + 1; i < d; i++) {
       int cost1 = minCost(cost, s, i);
       int cost2 = minCost(cost, i, d);
-      minCost = min(minCost, cost1 + cost2);
+      minCost   = min(minCost, cost1 + cost2);
     }
     return minCost;
   }
