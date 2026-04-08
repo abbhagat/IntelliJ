@@ -45,17 +45,17 @@ public class SpiralOrderTreeTraversal {
   }
 
   public static void main(String[] args) {
-    /*
-                  1
-              /      \
-             2        3
-           /   \       \
-          4     5       6
-               / \      \
-              7  8       9
-                          \
-                           0
-    */
+      /*
+                 1
+               /  \
+              2    3
+            /   \   \
+           4     5   6
+                / \   \
+               7  8    9
+                        \
+                        10
+     */
     Node root                    = new Node(1);
     root.left                    = new Node(2);
     root.right                   = new Node(3);
@@ -65,7 +65,7 @@ public class SpiralOrderTreeTraversal {
     root.left.right.left         = new Node(7);
     root.left.right.right        = new Node(8);
     root.right.right.right       = new Node(9);
-    root.right.right.right.right = new Node(0);
+    root.right.right.right.right = new Node(10);
     spiralOrderTreeTraversal(root);
   }
 }
