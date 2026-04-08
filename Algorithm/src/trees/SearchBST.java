@@ -31,5 +31,6 @@ public class SearchBST {
       root = createBST(root, x);
     }
     System.out.println(searchBST(25, root));
+    System.out.println(searchBST(root, root.num));
   }
 }

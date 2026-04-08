@@ -25,6 +25,7 @@ public class HuffmanCoding {
     if (root.num == c) {
       list.removeFirst();
       list.forEach(result::append);
+      list.removeLast();
       return;
     }
     findPath(root.left,  c, list, '0');

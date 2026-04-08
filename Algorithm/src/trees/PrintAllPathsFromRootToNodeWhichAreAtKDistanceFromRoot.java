@@ -17,10 +17,10 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
     if (k == 0) {
       List<Integer> path = new ArrayList<>(list);
       lists.add(path);
+      list.removeLast();
       return lists;
     }
-    findPath(root.left, k - 1, list, lists);
-    list.removeLast();
+    findPath(root.left,  k - 1, list, lists);
     findPath(root.right, k - 1, list, lists);
     list.removeLast();
     return lists;
@@ -33,23 +33,39 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
     list.add(root.num);
     if (k == 0) {
       System.out.println(list);
+      list.removeLast();
       return;
     }
     findPath(root.left,  k - 1, list);
-    list.removeLast();
     findPath(root.right, k - 1, list);
     list.removeLast();
   }
 
   public static void main(String[] args) {
-    int[] a = {50, 25, 100, 10, 30, 90, 120};
-    Node root = null;
-    for (int x : a) {
-      root = createBST(root, x);
-    }
-    List<List<Integer>> lists = findPath(root, 2, new LinkedList<>(), new ArrayList<>());
+              /*
+                 1
+               /  \
+              2    3
+            /   \   \
+           4     5   6
+                / \   \
+               7  8    9
+                        \
+                        10
+     */
+    Node root                    = new Node(1);
+    root.left                    = new Node(2);
+    root.right                   = new Node(3);
+    root.left.left               = new Node(4);
+    root.left.right              = new Node(5);
+    root.right.right             = new Node(6);
+    root.left.right.left         = new Node(7);
+    root.left.right.right        = new Node(8);
+    root.right.right.right       = new Node(9);
+    root.right.right.right.right = new Node(10);
+    List<List<Integer>> lists = findPath(root, 4, new LinkedList<>(), new ArrayList<>());
     System.out.println(lists);
 
-    findPath(root, 2, new LinkedList<>());
+    findPath(root, 4, new LinkedList<>());
   }
 }
