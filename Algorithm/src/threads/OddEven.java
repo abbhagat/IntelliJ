@@ -35,6 +35,7 @@ class Q {
 class Even {
 
   private Q q;
+
   Runnable runnable = () -> {
     for (int i = 1; i <= 5; i++) {
       q.printEven();
@@ -50,6 +51,7 @@ class Even {
 class Odd {
 
   private Q q;
+
   Runnable runnable = () -> {
     for (int i = 1; i <= 5; i++) {
       q.printODD();
