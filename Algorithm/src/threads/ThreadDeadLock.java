@@ -5,16 +5,20 @@ public class ThreadDeadLock {
   private static final Object LOCK_1 = new Object();
   private static final Object LOCK_2 = new Object();
 
-  public static void main(String[] args) {
+  private void sleep() {
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void simulateDeadlock() {
 
     Runnable r1 = () -> {
       synchronized (LOCK_1) {
         System.out.println("Thread 1: Holding LOCK_1");
-        try {
-          Thread.sleep(100);
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
+        sleep();
         synchronized (LOCK_2) {
           System.out.println("Thread 1: Holding LOCK_2");
         }
@@ -24,11 +28,7 @@ public class ThreadDeadLock {
     Runnable r2 = () -> {
       synchronized (LOCK_2) {
         System.out.println("Thread 2: Holding LOCK_2");
-        try {
-          Thread.sleep(100);
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
+        sleep();
         synchronized (LOCK_1) {
           System.out.println("Thread 2: Holding LOCK_1");
         }
@@ -40,5 +40,9 @@ public class ThreadDeadLock {
 
     t1.start();
     t2.start();
+  }
+
+  public static void main(String[] args) {
+    new ThreadDeadLock().simulateDeadlock();
   }
 }
