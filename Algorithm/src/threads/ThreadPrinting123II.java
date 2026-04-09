@@ -6,11 +6,12 @@ class PrinterThreads implements Runnable {
   private static final ThreadLocal<Integer> threadLocal = ThreadLocal.withInitial(() -> 0);
   private static int threadIdToRun = 1;
   private static int i = 0;
+
   private final int threadId;
   private final int[] a = new int[]{1, 4, 7};
   private final int[] b = new int[]{2, 5, 8};
   private final int[] c = new int[]{3, 6, 9};
-  private final int n = a.length + b.length + c.length;
+  private final int   N = a.length + b.length + c.length;
 
   public PrinterThreads(int threadId) {
     this.threadId = threadId;
@@ -19,7 +20,7 @@ class PrinterThreads implements Runnable {
 
   @Override
   public void run() {
-    while (i < n) {
+    while (i < N) {
       try {
         synchronized (monitor) {
           if (threadId != threadIdToRun) {
