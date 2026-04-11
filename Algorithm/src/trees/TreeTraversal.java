@@ -80,7 +80,7 @@ public class TreeTraversal {
                       / \
                      2   6
                     / \  /\
-                   1  3  5 7
+                   1  3 5  7
          */
     Node root        = new Node(4);
     root.left        = new Node(2);
