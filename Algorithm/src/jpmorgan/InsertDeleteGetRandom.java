@@ -14,7 +14,7 @@ public class InsertDeleteGetRandom<E> {
     return set.add(e);
   }
 
-  private boolean remove(E e) {
+  private boolean delete(E e) {
     return set.remove(e);
   }
 
@@ -30,8 +30,8 @@ public class InsertDeleteGetRandom<E> {
     var param_2 = obj.insert(2);
     var param_3 = obj.insert(3);
     var param_4 = obj.insert(4);
-    var param_5 = obj.remove(3);
-    var param_6 = obj.remove(4);
+    var param_5 = obj.delete(3);
+    var param_6 = obj.delete(4);
     var param_7     = obj.getRandom() == null ? 0 : (int) obj.getRandom();
     System.out.println(param_1 + "\t" + param_2 + "\t" + param_3 + "\t" + param_4 + "\t" + param_5 + "\t" + param_6 + "\t" + param_7);
   }

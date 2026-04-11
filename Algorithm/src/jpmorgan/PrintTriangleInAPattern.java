@@ -12,7 +12,7 @@ public class PrintTriangleInAPattern {
       }
       System.out.println();
     }
-    for (int i = mid; i >= 1; i--) {  // Lower half
+    for (int i = mid + 1; i >= 1; i--) {  // Lower half
       for (int j = 1; j <= i; j++) {
         System.out.print((j == 1 || j == i) ? "*" : " ");
       }

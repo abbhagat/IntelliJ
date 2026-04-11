@@ -35,7 +35,7 @@ public class GasStation {
     for (int i = 0; i < gas.length; i++) {
       restGas += gas[i] - cost[i];
       if (restGas < 0) {
-        prev += restGas;
+        prev += restGas;  // accumulate the gas deficit from all failed starting attempts.
         restGas = 0;
         start = i + 1;
       }

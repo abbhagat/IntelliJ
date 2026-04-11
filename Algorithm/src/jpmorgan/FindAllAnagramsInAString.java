@@ -53,10 +53,10 @@ public class FindAllAnagramsInAString {
   }
 
   public static void main(String[] args) {
-    System.out.println(findAnagrams("abab".toCharArray(), "ab".toCharArray()));
-    System.out.println(findAnagrams("abab".toCharArray(), "gfh".toCharArray()));
-    System.out.println(findAnagrams("ab".toCharArray(), "gfh".toCharArray()));
+    System.out.println(findAnagrams("abab".toCharArray(),       "ab".toCharArray()));
+    System.out.println(findAnagrams("abab".toCharArray(),       "gfh".toCharArray()));
+    System.out.println(findAnagrams("ab".toCharArray(),         "gfh".toCharArray()));
     System.out.println(findAnagrams("cbaebabacd".toCharArray(), "abc".toCharArray()));
-    System.out.println(findAnagrams("retract".toCharArray(), "cat".toCharArray()));
+    System.out.println(findAnagrams("retract".toCharArray(),    "cat".toCharArray()));
   }
 }
