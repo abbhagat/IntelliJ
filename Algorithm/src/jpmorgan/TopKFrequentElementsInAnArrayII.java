@@ -45,8 +45,8 @@ import static util.CommonUtils.printArray;
  * print the temp k element in each traversal of the original array.
  */
 
-// Time  Complexity: O(n * k) In each traversal the temp array of size k is traversed, So the time Complexity is O(n * k).
-// Space Complexity: O(n)     To store the elements in HashMap O(n) space is required.
+// Time  Complexity: O(n * n log n) In each traversal the temp array of size k is traversed, So the time Complexity is O(n * k).
+// Space Complexity: O(n) To store the elements in HashMap O(n) space is required.
 public class TopKFrequentElementsInAnArrayII {
 
   public static void topKFrequent(int[] a, int k) {
