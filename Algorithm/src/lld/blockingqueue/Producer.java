@@ -9,6 +9,7 @@ class Producer<E> implements Runnable {
     new Thread(this, "Producer").start();
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public void run() {
     for (int i = 1; i <= 10; i++) {

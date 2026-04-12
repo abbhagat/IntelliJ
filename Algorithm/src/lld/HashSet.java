@@ -46,6 +46,7 @@ public class HashSet<E> implements Cloneable, Serializable {
     return map.isEmpty();
   }
 
+  @SuppressWarnings("unchecked")
   public Object clone() {
     try {
       HashSet<E> set = (HashSet<E>) super.clone();
