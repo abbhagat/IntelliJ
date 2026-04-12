@@ -1,6 +1,5 @@
 package adobe;
 
-
 /**
  *
  * There is a one-dimensional garden on the x-axis.

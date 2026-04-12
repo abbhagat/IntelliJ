@@ -1,8 +1,9 @@
 package lld;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TinyUrl {
 
@@ -10,21 +11,21 @@ public class TinyUrl {
   private final Map<Integer, String> indexToUrlMap;
   private final String BASE_62;
   private final String BASE_URL;
-  private int counter;
+  private final AtomicInteger counter;
 
   public TinyUrl() {
-    counter = 1;
-    urlToIndexMap = new HashMap<>();
-    indexToUrlMap = new HashMap<>();
+    counter = new AtomicInteger(1);
+    urlToIndexMap = new ConcurrentHashMap<>();
+    indexToUrlMap = new ConcurrentHashMap<>();
     BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     BASE_URL = "http://www.tinyurl.com/";
   }
 
   private String encode(String longURL) {
     if (!urlToIndexMap.containsKey(longURL)) {
-      urlToIndexMap.put(longURL, counter);
-      indexToUrlMap.put(counter, longURL);
-      counter++;
+      urlToIndexMap.put(longURL, counter.get());
+      indexToUrlMap.put(counter.get(), longURL);
+      counter.addAndGet(1);
     }
     return BASE_URL + base62Encode(urlToIndexMap.get(longURL));
   }
@@ -53,9 +54,9 @@ public class TinyUrl {
 
   public static void main(String[] args) {
     TinyUrl tinyUrl = new TinyUrl();
-    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
+    String url      = "https://leetcode.com/problems/encode-and-decode-tinyurl";
     String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    String longURL = tinyUrl.decode(shortURL);
+    String longURL  = tinyUrl.decode(shortURL);
     System.out.println(shortURL);
     System.out.println(longURL);
     System.out.println(url.equals(longURL));
