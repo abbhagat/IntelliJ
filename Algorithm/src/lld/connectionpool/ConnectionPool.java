@@ -21,12 +21,12 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   public ConnectionPool(String driverName, String url, String username, String password, int poolSize) {
-    this.poolSize = poolSize;
-    this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     this.driverName = driverName;
     this.url = url;
     this.username = username;
     this.password = password;
+    this.poolSize = poolSize;
+    this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     initializeConnectionPool();
   }
 
@@ -62,7 +62,7 @@ public class ConnectionPool implements IConnectionPool {
   @Override
   public boolean returnConnection(Connection connection) {
     if (connection != null && !isPoolClosed) {
-      return connectionPool.add(connection);
+      return connectionPool.offer(connection);
     }
     return false;
   }
