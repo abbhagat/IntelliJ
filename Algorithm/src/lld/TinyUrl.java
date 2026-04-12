@@ -14,11 +14,11 @@ public class TinyUrl {
   private final AtomicInteger counter;
 
   public TinyUrl() {
-    counter = new AtomicInteger(1);
+    counter       = new AtomicInteger(1);
     urlToIndexMap = new ConcurrentHashMap<>();
     indexToUrlMap = new ConcurrentHashMap<>();
-    BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    BASE_URL = "http://www.tinyurl.com/";
+    BASE_62       = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    BASE_URL      = "http://www.tinyurl.com/";
   }
 
   private String encode(String longURL) {
@@ -57,6 +57,12 @@ public class TinyUrl {
     String url      = "https://leetcode.com/problems/encode-and-decode-tinyurl";
     String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
     String longURL  = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
+    url      = "https://leetcode.com/problems/encode-and-decode-tinyurls";
+    shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    longURL  = tinyUrl.decode(shortURL);
     System.out.println(shortURL);
     System.out.println(longURL);
     System.out.println(url.equals(longURL));
