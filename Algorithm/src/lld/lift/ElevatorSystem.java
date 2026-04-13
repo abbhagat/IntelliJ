@@ -9,12 +9,13 @@ public class ElevatorSystem {
 
   private final List<Elevator> elevators;
   private final ElevatorScheduler scheduler;
-  private final ExecutorService executorService = Executors.newFixedThreadPool(10); // shared pool
+  private final ExecutorService executorService;
 
   public ElevatorSystem(int numberOfElevators) {
-    elevators = new ArrayList<>();
-    scheduler = new ElevatorScheduler();
-    for (int i = 0; i < numberOfElevators; i++) {
+    scheduler       = new ElevatorScheduler();
+    executorService = Executors.newFixedThreadPool(10);
+    elevators       = new ArrayList<>();
+    for (int i = 1; i <= numberOfElevators; i++) {
       elevators.add(new Elevator(i, executorService));
     }
   }
@@ -31,7 +32,7 @@ public class ElevatorSystem {
   }
 
   public static void main(String[] args) {
-    ElevatorSystem elevatorSystem = new ElevatorSystem(4);
+    ElevatorSystem elevatorSystem = new ElevatorSystem(5);
     elevatorSystem.handleRequest(new Request(2, Direction.UP));
     elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
     elevatorSystem.handleRequest(new Request(3, Direction.UP));

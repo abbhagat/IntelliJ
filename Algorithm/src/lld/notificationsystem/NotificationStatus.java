@@ -1,5 +1,5 @@
 package lld.notificationsystem;
 
-enum NotificationStatus {
+public enum NotificationStatus {
   PENDING, SENT, FAILED
 }

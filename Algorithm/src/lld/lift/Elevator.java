@@ -27,7 +27,7 @@ public class Elevator {
   }
 
   public synchronized void addRequest(int floor) {
-    var success = floor > currentFloor ? upQueue.add(floor) : downQueue.add(floor);
+    var success = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
     System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
   }
 
@@ -51,18 +51,18 @@ public class Elevator {
           state     = ElevatorState.MOVING;
         }
         moveToDestFloor(destFloor);
-      } catch (Exception e) {
+      } catch (InterruptedException e) {
         e.printStackTrace();
       }
     }
   }
 
   public void moveToDestFloor(int destFloor) throws InterruptedException {
-    System.out.println("Elevator " + id + " moving from " + currentFloor + " to " + destFloor);
+    System.out.println("Elevator " + this.id + " moving from " + this.currentFloor + " to " + destFloor);
     // Thread.sleep is used to simulate the time taken by the elevator to move between floors.
-    Thread.sleep(Math.abs(destFloor - currentFloor) * 100L);
-    currentFloor = destFloor;
-    state = ElevatorState.STOPPED;
-    System.out.println("Elevator " + id + " stopped at " + currentFloor);
+    Thread.sleep(Math.abs(destFloor - this.currentFloor) * 100L);
+    this.currentFloor = destFloor;
+    this.state = ElevatorState.STOPPED;
+    System.out.println("Elevator " + this.id + " stopped at " + this.currentFloor);
   }
 }

@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-class Notification {
+public class Notification {
 
   private String id;
   private String userId;

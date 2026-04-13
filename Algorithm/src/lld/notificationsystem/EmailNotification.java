@@ -1,6 +1,6 @@
 package lld.notificationsystem;
 
-class EmailNotification implements NotificationChannel {
+public class EmailNotification implements NotificationChannel {
 
   @Override
   public boolean send(Notification notification) {

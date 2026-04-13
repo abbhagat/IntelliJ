@@ -1,6 +1,6 @@
 package lld.notificationsystem;
 
-class WhatsAppNotification implements NotificationChannel {
+public class WhatsAppNotification implements NotificationChannel {
   @Override
   public boolean send(Notification notification) {
     return true;
