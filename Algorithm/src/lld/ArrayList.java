@@ -12,6 +12,7 @@ public class ArrayList<E> {
     this(10);
   }
 
+  @SuppressWarnings("unchecked")
   public ArrayList(int size) {
     if (size <= 0) {
       throw new IllegalArgumentException("Invalid Size : " + size);
@@ -41,6 +42,7 @@ public class ArrayList<E> {
     return oldValue;
   }
 
+  @SuppressWarnings("unchecked")
   private void validateCapacity(int minCapacity) {
     int oldCapacity = list.length;
     if (minCapacity > oldCapacity) {

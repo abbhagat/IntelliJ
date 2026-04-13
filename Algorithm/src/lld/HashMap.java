@@ -67,7 +67,7 @@ public class HashMap<K, V> {
       }
       if (null == e.getKey() || e.getKey().equals(key)) {
         prev.next = e.next;
-        break;
+        return e.getValue();
       }
     }
     return prev.getValue();
