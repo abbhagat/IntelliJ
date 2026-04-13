@@ -4,7 +4,7 @@ import static java.lang.Integer.max;
 import static util.CommonUtils.maximum;
 
 /*
-Given a gold mine of ROW * COL dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
+Given a gold mine of R * C dimensions. Each field in this mine contains a positive integer which is the amount of gold in tons.
 Initially the miner is at first column but can be at any row. He can move only (right,right up,right down)
 that is from a given cell, the miner can move to the cell diagonally up towards the right or diagonally down towards the right.
 Find out maximum amount of gold he can collect.
@@ -32,36 +32,36 @@ Output : 83
  */
 public class GoldMineProblem {
 
-  // O(3^COL) (exponential ❌)
+  // O(3^C) (exponential ❌)
   private static int getMaxGoldRec(int[][] gold) {
-    int ROW = gold.length, COL = gold[0].length;
+    int R = gold.length, C = gold[0].length;
     int max = Integer.MIN_VALUE;
-    for (int row = 0; row < ROW; row++) {     // Try starting from each row in first column
-      max = max(max, dfs(gold, row, 0, ROW, COL));
+    for (int row = 0; row < R; row++) {     // Try starting from each row in first column
+      max = max(max, dfs(gold, row, 0, R, C));
     }
     return max;
   }
 
-  private static int dfs(int[][] gold, int row, int col, int ROW, int COL) {
-    if (row < 0 || row >= ROW || col < 0 || col >= COL) {
+  private static int dfs(int[][] gold, int row, int col, int R, int C) {
+    if (row < 0 || row >= R || col < 0 || col >= C) {
       return 0;
     }
-    int right     = dfs(gold, row, col + 1, ROW, COL);
-    int rightUp   = dfs(gold, row - 1, col + 1, ROW, COL);
-    int rightDown = dfs(gold, row + 1, col + 1, ROW, COL);
+    int right     = dfs(gold, row, col + 1, R, C);
+    int rightUp   = dfs(gold, row - 1, col + 1, R, C);
+    int rightDown = dfs(gold, row + 1, col + 1, R, C);
     return gold[row][col] + maximum(right, rightUp, rightDown);
   }
 
   // Returns maximum amount of gold that can be collected when journey started from first column and moves allowed are right, right-up and right-down
   private static int getMaxGold(int[][] gold) {
     // The first row of goldMineTable gives the maximum gold that the miner can collect when starts that row
-    int ROW = gold.length, COL = gold[0].length;
-    int[][] dp = new int[ROW][COL];
-    for (int j = COL - 1; j >= 0; j--) {
-      for (int i = 0; i < ROW; i++) {
-        int right      = j == COL - 1                ? 0 : dp[i]    [j + 1];    // Gold collected on going to the cell on the right
-        int rightUp   = i == 0 || j == COL - 1       ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
-        int rightDown = i == ROW - 1 || j == COL - 1 ? 0 : dp[i + 1][j + 1];  //   Gold collected on going to the cell to right down
+    int R = gold.length, C = gold[0].length;
+    int[][] dp = new int[R][C];
+    for (int j = C - 1; j >= 0; j--) {
+      for (int i = 0; i < R; i++) {
+        int right      = j == C - 1                ? 0 : dp[i]    [j + 1];    // Gold collected on going to the cell on the right
+        int rightUp   = i == 0 || j == C - 1       ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
+        int rightDown = i == R - 1 || j == C - 1 ? 0 : dp[i + 1][j + 1];  //   Gold collected on going to the cell to right down
         dp[i][j] = gold[i][j] + maximum(right, rightUp, rightDown);          //    Max gold collected from taking either of the above 3 paths
       }
     }
