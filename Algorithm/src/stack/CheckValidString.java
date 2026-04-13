@@ -1,5 +1,7 @@
 package stack;
 
+import static java.lang.Integer.max;
+
 /**
  * When checking whether the string is valid, we only cared about the "balance": the number of extra, open left brackets as we parsed through the string.
  * For example, when checking whether '(()())' is valid, we had a balance of 1, 2, 1, 2, 1, 0
@@ -17,44 +19,24 @@ package stack;
  * Thus, we only need to know the left and right bounds of this interval.
  * That is, we would keep those intermediate states described above as [lo, hi] = [1, 1], [0, 2], [0, 3], [0, 4], [0, 3].
  * Algorithm
- * Let low, high respectively be the smallest and largest possible number of open left brackets after processing the current character in the string.
- * If we encounter a left bracket (c == '('), then low++, otherwise we could write a right bracket, so low--.
+ * Let min, max respectively be the smallest and largest possible number of open left brackets after processing the current character in the string.
+ * If we encounter a left bracket (c == '('), then min++, otherwise we could write a right bracket, so min--.
  * If we encounter what can be a left bracket (c != ')'), then hi++, otherwise we must write a right bracket, so hi--.
  * If hi < 0, then the current prefix can't be made valid no matter what our choices are.
  * Also, we can never have less than 0 open left brackets. At the end, we should check that we can have exactly 0 open left brackets.
  */
 
-/**
- * Instead of counting open and * separately, we track:
- * min → minimum possible open brackets
- * max → maximum possible open brackets
- * Because * can behave as: '(' or ')' or empty
- * So we maintain a range of possible open counts.
- * If max < 0 → too many ) → invalid immediately.
- * At the end: If min == 0 → valid Else → invalid
- */
 public class CheckValidString {
 
-  public static boolean checkValidString(String s) {
+  public static boolean checkValidString(String exp) {
     int min = 0, max = 0;
-    for (char c : s.toCharArray()) {
-      if (c == '(') {
-        min++;
-        max++;
-      } else if (c == ')') {
-       if (min > 0) {
-         min--;
-       }
-        max--;
-      } else {  // '*'
-        if (min > 0) {   // treat '*' as ')'
-          min--;
-        }
-        max++;         //  treat '*' as '('
-      }
+    for (char c : exp.toCharArray()) {
+      min += c == '(' ? 1 : -1;
+      max += c != ')' ? 1 : -1;
       if (max < 0) {
-        return false;      // too many ')'
+        break;
       }
+      min = max(0, min);
     }
     return min == 0;
   }
@@ -65,6 +47,5 @@ public class CheckValidString {
     System.out.println(checkValidString("(()())"));
     System.out.println(checkValidString("(***)"));
     System.out.println(checkValidString("())()"));
-    System.out.println(checkValidString("(*))"));
   }
 }
