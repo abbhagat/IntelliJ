@@ -2,6 +2,8 @@ package lld.notificationsystem;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import static lld.notificationsystem.NotificationStatus.FAILED;
+import static lld.notificationsystem.NotificationStatus.SENT;
 
 public class NotificationService {
 
@@ -11,7 +13,7 @@ public class NotificationService {
   public void sendAsync(Notification notification, NotificationChannel channel) {
     Runnable notificationTask = () -> {
       boolean success = channel.send(notification);
-      notification.setStatus(success ? NotificationStatus.SENT : NotificationStatus.FAILED);
+      notification.setStatus(success ? SENT : FAILED);
     };
     executor.submit(notificationTask);
     executor.shutdown();
