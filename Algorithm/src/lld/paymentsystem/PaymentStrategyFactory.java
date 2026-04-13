@@ -5,19 +5,19 @@ import java.util.Map;
 
 public class PaymentStrategyFactory {
 
-  private static final Map<PaymentMethod, PaymentStrategy> paymentStrategy = new HashMap<>();
+  private static final Map<PaymentMethod, PaymentStrategy> paymentStrategyMap = new HashMap<>();
 
   static {
-    paymentStrategy.put(PaymentMethod.UPI, new UPIPaymentStrategy());
-    paymentStrategy.put(PaymentMethod.BANK_TRANSFER, new BankTransferPaymentStrategy());
-    paymentStrategy.put(PaymentMethod.WALLET, new WalletPaymentStrategy());
-    paymentStrategy.put(PaymentMethod.CARD, new CardPaymentStrategy());
+    paymentStrategyMap.put(PaymentMethod.UPI, new UPIPaymentStrategy());
+    paymentStrategyMap.put(PaymentMethod.BANK_TRANSFER, new BankTransferPaymentStrategy());
+    paymentStrategyMap.put(PaymentMethod.WALLET, new WalletPaymentStrategy());
+    paymentStrategyMap.put(PaymentMethod.CARD, new CardPaymentStrategy());
   }
 
   static PaymentStrategy getStrategy(PaymentMethod paymentMethod) {
-    if (!paymentStrategy.containsKey(paymentMethod)) {
+    if (!paymentStrategyMap.containsKey(paymentMethod)) {
       throw new IllegalArgumentException("Unsupported payment method");
     }
-    return paymentStrategy.get(paymentMethod);
+    return paymentStrategyMap.get(paymentMethod);
   }
 }
