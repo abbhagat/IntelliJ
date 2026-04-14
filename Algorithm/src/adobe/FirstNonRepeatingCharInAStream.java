@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Stream;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class FirstNonRepeatingCharInAStream {
 
   private static void firstNonRepeatingChar(Stream<Character> stream) {
