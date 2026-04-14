@@ -16,7 +16,7 @@ public class SortCharacterByFreqInString {
        .stream()
        .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
        .forEachOrdered(e -> sortedMap.put(e.getKey(), e.getValue()));
-    sortedMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(max(0, v))));
+    sortedMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(v)));
     return sb.toString();
   }
 
