@@ -1,9 +1,9 @@
 1. Explain why an API works in Postman but fails in the browser.
 
-My answer: Challenge accepted, let’s go!
+➤ If an API works in Postman but fails in the browser, it’s usually due to environment differences like headers, CORS, authentication, and cookies.
 
-➤ If an API works in Postman but fails in the browser, it’s usually due to environment differences like headers, CORS, auth, and cookies.
-
+CORS (Cross-Origin Resource Sharing) is a security mechanism used by web browsers to control how resources (like APIs)
+                                     are requested from a different origin (domain, protocol, or port).
 ➤ CORS issue (Most common) — Browser blocks cross-origin requests, Postman doesn’t. Backend must allow frontend origin.
 
 ➤ Preflight (OPTIONS) not handled — Browser sends an OPTIONS request first. If the server doesn’t allow it, the request fails.
@@ -22,9 +22,10 @@ My answer: Challenge accepted, let’s go!
 
 ➤ How I debug: Open Browser DevTools → Network tab → compare request with Postman → identify difference → fix backend or frontend config
 
+2. Handling Cache Failures in Redis
+
 Me: Caching looks simple on paper.
- - If data is in cache → return it
- - Else → fetch from DB and set cache
+    - If data is in cache → return It Else → fetch from DB and set cache
 
 This works… until traffic hits scale.
 At scale, databases don’t die because of bugs. They die because of cache failures.
@@ -35,8 +36,7 @@ Then I explained the 3 cache killers:
  - Example: userId = -1
  - Cache miss → DB miss → repeat.
  - If someone automates this, your DB is gone.
- - Fix: Use a Bloom Filter to block invalid keys
- - Or cache empty results for a short TTL
+ - Fix: Use a Bloom Filter to block invalid keys Or store a “null/empty result” in the cache temporarily(short TTL).
 
 2. Cache Breakdown (Hot Key Expiry)
  - Problem: A celebrity profile goes viral. 1M users hit the same cache key.
@@ -51,3 +51,68 @@ Then I explained the 3 cache killers:
  - Fix: Add TTL jitter (Randomise expiry time so keys don’t die together)
 
 System Design isn’t about the happy path. It’s about handling what breaks at scale.
+
+------------------------------------------------------------------------------------------------------------------------
+
+A CDN (Content Delivery Network) distributes your content (images, videos, APIs, static files) across multiple servers worldwide so users get it faster.
+
+There are two main ways CDNs get content from your origin server:
+
+🔹 1. Pull-based CDN (Lazy loading)   👉 In this model, the CDN pulls content automatically when a user requests it.
+
+🔁 Flow:
+        User requests a file from CDN.
+        CDN checks: “Do I have this file?”
+                    ❌ If not → CDN fetches it from your origin server
+                    ✅ Stores (caches) it
+        Serves it to the user
+📌 Example
+    First user requests: image.jpg
+    CDN doesn’t have it → fetches from your server
+    Next users → served directly from CDN (faster)
+✅ Pros
+    Easy to set up (no manual uploads)
+    Automatically caches popular content
+    Good for dynamic or frequently changing content
+❌ Cons
+    First request is slower (cache miss)
+    Less control over what gets cached
+🔹 2. Push-based CDN (Preload)
+
+👉 In this model, you upload content to the CDN in advance.
+
+🔁 Flow:
+You push files to CDN servers
+CDN stores them
+Users request → CDN serves directly
+📌 Example
+You upload all images/videos to CDN
+Users always get content directly from CDN
+No need to fetch from origin
+✅ Pros
+Faster delivery (no initial delay)
+Full control over content
+Better for static assets (videos, large files)
+❌ Cons
+Manual effort to upload/update content
+Storage cost on CDN
+Not ideal for frequently changing data
+🔹 Key Differences
+Feature	Pull CDN	Push CDN
+Content loading	On-demand	Pre-uploaded
+First request	Slow (cache miss)	Fast
+Control	Low	High
+Setup	Easy	Requires management
+Best for	Dynamic content	Static content
+🔹 Simple Analogy
+Pull CDN → Like ordering food when hungry 🍔
+Push CDN → Like meal prepping in advance 🍱
+🔹 When to Use What
+Use Pull CDN when:
+Content changes frequently
+You want low maintenance
+APIs / web apps
+Use Push CDN when:
+Static assets (videos, images, downloads)
+Large files
+You want guaranteed performance
