@@ -24,8 +24,6 @@ public class RightDiagonalSumOfBT {
   }
 
   public static void main(String[] args) {
-    Node root  = createBST();
-    rightDiagonalSumOfBT(root);
+    rightDiagonalSumOfBT(createBST());
   }
-
 }
