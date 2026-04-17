@@ -17,10 +17,10 @@ public class RightDiagonalSumOfBT {
     if (node == null) {
       return;
     }
-    int prevSum = map.getOrDefault(diagonal, 0);       // Add current node value to its diagonal
-    map.put(diagonal, prevSum + node.num);
-    rightDiagonalSumOfBT(node.left, diagonal + 1, map);  // Left child → next diagonal
-    rightDiagonalSumOfBT(node.right, diagonal, map);              // Right child → same diagonal
+    int prevDiagonalSum = map.getOrDefault(diagonal, 0);  // Add current node value to its diagonal
+    map.put(diagonal, prevDiagonalSum + node.num);
+    rightDiagonalSumOfBT(node.left, diagonal + 1, map);      // Left child → next diagonal
+    rightDiagonalSumOfBT(node.right, diagonal, map);                   // Right child → same diagonal
   }
 
   public static void main(String[] args) {
