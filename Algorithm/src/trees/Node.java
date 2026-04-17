@@ -2,7 +2,7 @@ package trees;
 
 public class Node {
 
-  public int num, vd = Integer.MAX_VALUE;
+  public int num;
 
   public Node left, right;
 
