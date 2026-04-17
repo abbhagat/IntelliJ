@@ -4,7 +4,7 @@ FR:-
 2. System should generate a ticket/receipt.
 3. 3 Types of vehicles[Compact, Regular, Large]
 4. Price is Flat rate based on time but different rate for each vehicle type.
-5. Send Notification to user when parking spot is booked/canceled
+5. Send Notification to user when parking spot is allocated/free
 
 NFR :-
 
@@ -18,8 +18,8 @@ API Design
 
 |------------------------------------------------------------------------------------------------------
 | POST    |   /reserve           |  (garageId, startTime)  => Ticket (spotId ,reservationId)
-| POST    |   /payment           |  reservationId --> Third Party system Like Stripe
-| POST    |   /cancel            |  reservationId
+| POST    |   /payment           |  reservationId          => Third Party system Like Stripe
+| POST    |   /cancel            |  reservationId          => Ticket (spotId ,reservationId)
 | ###########    Internal EndPoints     #########################
 | GET     |   /calculatePayment  |  reservationId
 | PUT     |   /freeSpot          |  (garageId, vehicleType, time)
@@ -30,7 +30,7 @@ API Design
 Database Tables
 
 |---------------------------------------------------------|  |-----------------------------------------|
-|           1. RESERVATIONS                               |  |              2. USER                    |
+|                 1. RESERVATIONS                         |  |              2. USER                    |
 |---------------------------------------------------------|  |-----------------------------------------|
 |GARAGE_ID     SPOT_ID     START_TIME     END_TIME   PAID |  |   USER_ID  USER_NAME   EMAIL  PHONE_NUM |
 |---------------------------------------------------------|  |-----------------------------------------|
