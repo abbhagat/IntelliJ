@@ -3,8 +3,8 @@ package threads;
 class OddEvenThreadPrinter implements Runnable {
 
   private static final Object monitor = new Object();
-  private static volatile String threadIDToRun = "ODD";
-  private static volatile int n = 1;
+  private static String threadIDToRun = "ODD";
+  private static int n = 1;
   private final String threadID;
 
   @Override
