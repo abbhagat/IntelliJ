@@ -99,7 +99,7 @@ public class ConnectionPool implements IConnectionPool {
       });
     }
     executorService.shutdown();
-    executorService.awaitTermination(1, TimeUnit.MINUTES);
+    boolean flag = executorService.awaitTermination(1, TimeUnit.MINUTES);
     connectionPool.stop();
   }
 }
