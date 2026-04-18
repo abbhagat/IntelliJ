@@ -1,14 +1,18 @@
 package lld.connectionpool;
 
+import lombok.Getter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConnectionPool implements IConnectionPool {
 
+  @Getter
   private final BlockingQueue<Connection> connectionPool;
+
   private final int poolSize;
   private final String driverName;
   private final String url;
@@ -28,10 +32,6 @@ public class ConnectionPool implements IConnectionPool {
     this.poolSize = poolSize;
     this.connectionPool = new ArrayBlockingQueue<>(poolSize);
     initializeConnectionPool();
-  }
-
-  public BlockingQueue<Connection> getConnectionPool() {
-    return connectionPool;
   }
 
   private void initializeConnectionPool() {
@@ -68,9 +68,9 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public void stop() throws SQLException {
-    isPoolClosed = true;
-    for (Connection connection : connectionPool) {
+  public synchronized void stop() throws SQLException {
+    this.isPoolClosed = true;
+    for (Connection connection : this.connectionPool) {
       connection.close();
     }
     System.out.println("Connection Pool is Stopped");
@@ -78,7 +78,10 @@ public class ConnectionPool implements IConnectionPool {
 
   public static void main(String[] args) throws SQLException, InterruptedException {
     ConnectionPool connectionPool = new ConnectionPool(10);
-    connectionPool.getConnectionPool().forEach(System.out::println);
+    AtomicInteger atomicInteger = new AtomicInteger(1);
+    connectionPool.getConnectionPool().forEach(connection -> {
+      System.out.println("Connection " + atomicInteger.getAndIncrement() + " " + connection);
+    });
     Connection connection = connectionPool.getConnection();
     System.out.println("Got connection: " + connection);
     System.out.println("Returned connection to pool " + connectionPool.returnConnection(connection));
