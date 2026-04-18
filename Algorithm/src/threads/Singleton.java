@@ -7,16 +7,15 @@ public class Singleton implements Cloneable, Serializable {
 
   @Serial
   private static final long serialVersionUID = 1L;
-
   private static volatile Singleton singleton;
 
-  private Singleton() throws Exception {
+  private Singleton() {
     if (null != singleton) {
-      throw new Exception("Singleton is already initialized. Use getInstance() method to access the singleton instance.");
+      throw new RuntimeException("Use getInstance()");
     }
   }
 
-  public static Singleton getInstance() throws Exception {
+  public static Singleton getInstance() {
     if (null == singleton) {
       synchronized (Singleton.class) {
         if (null == singleton) {
