@@ -4,8 +4,7 @@ import lombok.Getter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConnectionPool implements IConnectionPool {
@@ -77,14 +76,30 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   public static void main(String[] args) throws SQLException, InterruptedException {
-    ConnectionPool connectionPool = new ConnectionPool(10);
+    ConnectionPool connectionPool = new ConnectionPool(5);
     AtomicInteger atomicInteger = new AtomicInteger(1);
     connectionPool.getConnectionPool().forEach(connection -> {
       System.out.println("Connection " + atomicInteger.getAndIncrement() + " " + connection);
     });
-    Connection connection = connectionPool.getConnection();
-    System.out.println("Got connection: " + connection);
-    System.out.println("Returned connection to pool " + connectionPool.returnConnection(connection));
+    ExecutorService executorService = Executors.newFixedThreadPool(10);
+    for (int i = 1; i <= 10; i++) {
+      int threadId = i;
+      executorService.submit(() -> {
+        try {
+          System.out.println("Thread-" + threadId + " trying to get connection...");
+          Connection conn = connectionPool.getConnection();  // BLOCKS if none available
+          System.out.println("Thread-" + threadId + " acquired connection: " + conn);
+          // Simulate DB work
+          Thread.sleep(3000);
+          connectionPool.returnConnection(conn);
+          System.out.println("Thread-" + threadId + " returned connection");
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      });
+    }
+    executorService.shutdown();
+    executorService.awaitTermination(1, TimeUnit.MINUTES);
     connectionPool.stop();
   }
 }
