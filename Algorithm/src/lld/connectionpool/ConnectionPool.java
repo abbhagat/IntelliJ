@@ -79,7 +79,7 @@ public class ConnectionPool implements IConnectionPool {
     ConnectionPool connectionPool = new ConnectionPool(5);
     AtomicInteger atomicInteger = new AtomicInteger(1);
     connectionPool.getConnectionPool().forEach(connection -> {
-      System.out.println("Connection " + atomicInteger.getAndIncrement() + " " + connection);
+      System.out.println("DB Connection " + atomicInteger.getAndIncrement() + " " + connection);
     });
     ExecutorService executorService = Executors.newFixedThreadPool(10);
     for (int i = 1; i <= 10; i++) {
