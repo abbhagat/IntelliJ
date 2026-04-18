@@ -45,12 +45,11 @@ class Producer1 implements Runnable {
 
   @Override
   public void run() {
-    int i = 1;
-    while (i <= 10) {
+    for (int i = 1; i <= 10; i++) {
       this.q.put(i);
-      i++;
     }
   }
+
 }
 
 class Consumer1 implements Runnable {
@@ -64,12 +63,11 @@ class Consumer1 implements Runnable {
 
   @Override
   public void run() {
-    int i = 1;
-    while (i <= 10) {
+    for (int i = 1; i <= 10; i++) {
       this.q.get();
-      i++;
     }
   }
+
 }
 
 public class ProducerConsumer {
