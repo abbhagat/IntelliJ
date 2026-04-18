@@ -29,15 +29,15 @@ class PrinterThreads implements Runnable {
             int j = threadLocal.get();
             switch (threadId) {
               case 1 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + a[j]);
+                System.out.println(Thread.currentThread().getName() + " a[" + j + "]  -> " + a[j]);
                 threadIdToRun = 3;
               }
               case 2 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + b[j]);
+                System.out.println(Thread.currentThread().getName() + " b[" + j + "]  -> " + b[j]);
                 threadIdToRun = 1;
               }
               case 3 -> {
-                System.out.println(Thread.currentThread().getName() + " -> " + c[j]);
+                System.out.println(Thread.currentThread().getName() + " c[" + j + "]  -> " + c[j]);
                 threadIdToRun = 2;
               }
             }

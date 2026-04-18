@@ -1,18 +1,16 @@
 package threads;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 class Q {
 
   private volatile boolean flag;
-  private final AtomicInteger n = new AtomicInteger(1);
+  private volatile int n = 1;
 
   public synchronized void printODD() {
     try {
       while (flag) {
         wait();
       }
-      System.out.println(n.getAndIncrement() + " -> " + Thread.currentThread().getName());
+      System.out.println(n++ + " -> " + Thread.currentThread().getName());
       flag = !flag;
       notify();
     } catch (InterruptedException e) {
@@ -25,7 +23,7 @@ class Q {
       while (!flag) {
         wait();
       }
-      System.out.println(n.getAndIncrement() + " -> " + Thread.currentThread().getName());
+      System.out.println(n++ + " -> " + Thread.currentThread().getName());
       flag = !flag;
       notify();
     } catch (InterruptedException e) {
@@ -38,32 +36,32 @@ class Even {
 
   private Q q;
 
-  public Even(Q q) {
-    this.q = q;
-    new Thread(runnable, "Even").start();
-  }
-
   Runnable runnable = () -> {
     for (int i = 1; i <= 5; i++) {
       q.printEven();
     }
   };
+
+  public Even(Q q) {
+    this.q = q;
+    new Thread(runnable, "Even").start();
+  }
 }
 
 class Odd {
 
   private Q q;
 
-  public Odd(Q q) {
-    this.q = q;
-    new Thread(runnable, "ODD").start();
-  }
-
   Runnable runnable = () -> {
     for (int i = 1; i <= 5; i++) {
       q.printODD();
     }
   };
+
+  public Odd(Q q) {
+    this.q = q;
+    new Thread(runnable, "ODD").start();
+  }
 }
 
 public class OddEven {
