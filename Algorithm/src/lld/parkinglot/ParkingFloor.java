@@ -13,12 +13,12 @@ public class ParkingFloor {
   private int floorNumber;
   private Map<SpotType, List<ParkingSpot>> spots;
 
-  ParkingFloor(int floorNumber) {
+  public ParkingFloor(int floorNumber) {
     this.floorNumber = floorNumber;
     spots = new HashMap<>();
   }
 
-  ParkingSpot getFreeSpot(SpotType type) {
+  public ParkingSpot getFreeSpot(SpotType type) {
     for (ParkingSpot spot : spots.get(type)) {
       if (spot.isFree()) {
         return spot;

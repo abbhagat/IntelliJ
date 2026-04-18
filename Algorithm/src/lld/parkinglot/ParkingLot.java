@@ -13,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ParkingLot {
 
   private static ParkingLot parkingLot;
+
   private List<ParkingFloor> floors;
   private Map<String, ParkingTicket> activeTickets;
 
@@ -29,16 +30,15 @@ public class ParkingLot {
   }
 
   public ParkingTicket parkVehicle(Vehicle vehicle) {
-    for (ParkingFloor floor : floors) {
-      ParkingSpot spot = floor.getFreeSpot(SpotType.valueOf(vehicle.getType().name()));
+    for (ParkingFloor parkingFloor : floors) {
+      ParkingSpot spot = parkingFloor.getFreeSpot(SpotType.valueOf(vehicle.getType().name()));
       if (spot != null) {
         spot.park(vehicle);
-        ParkingTicket ticket = new ParkingTicket(
-            UUID.randomUUID().toString(),
-            vehicle.getVehicleNumber(),
-            System.currentTimeMillis(),
-            spot
-        );
+        ParkingTicket ticket = new ParkingTicket(UUID.randomUUID().toString(),
+                                                 vehicle.getVehicleNumber(),
+                                                 System.currentTimeMillis(),
+                                                 spot
+                                                );
         activeTickets.put(ticket.getTicketId(), ticket);
         return ticket;
       }
@@ -46,14 +46,14 @@ public class ParkingLot {
     throw new RuntimeException("Parking Full");
   }
 
-  public double unParkVehicle(String ticketId) {
-    ParkingTicket ticket = activeTickets.get(ticketId);
+  public double unParkVehicle(ParkingTicket parkingTicket) {
+    ParkingTicket ticket = activeTickets.get(parkingTicket.getTicketId());
     if (ticket == null) {
       throw new RuntimeException("Invalid Ticket");
     }
     ticket.getSpot().unPark();
-    activeTickets.remove(ticketId);
+    activeTickets.remove(parkingTicket.getTicketId());
     long duration = System.currentTimeMillis() - ticket.getEntryTime();
-    return ParkingFeeCalculator.calculateFee(duration);
+    return ParkingFeeCalculator.calculateFee(duration, parkingTicket.getSpot().getParkedVehicle().getType().name());
   }
 }

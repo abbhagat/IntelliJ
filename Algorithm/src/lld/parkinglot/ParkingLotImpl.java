@@ -34,7 +34,7 @@ public class ParkingLotImpl {
     Thread.sleep(2000);
 
     // Unpark vehicle
-    double fee = parkingLot.unParkVehicle(ticket.getTicketId());
+    double fee = parkingLot.unParkVehicle(ticket);
 
     System.out.println("Vehicle unparked. Fee: " + fee);
   }
