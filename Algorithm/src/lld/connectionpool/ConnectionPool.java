@@ -68,8 +68,8 @@ public class ConnectionPool implements IConnectionPool {
 
   @Override
   public synchronized void stop() throws SQLException {
-    this.isPoolClosed = true;
-    for (Connection connection : this.connectionPool) {
+    isPoolClosed = true;
+    for (Connection connection : connectionPool) {
       connection.close();
     }
     System.out.println("Connection Pool is Stopped");
