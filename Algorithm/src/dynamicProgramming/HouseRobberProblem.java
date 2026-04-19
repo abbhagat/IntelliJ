@@ -26,6 +26,8 @@ import static java.lang.Integer.max;
  */
 public class HouseRobberProblem {
 
+  // Time  Complexity: O(2ⁿ)
+  // Space Complexity: O(n)
   private static int maxGoldLooted(int[] a, int n) {
     if (n <= 0) {
       return 0;
@@ -35,6 +37,8 @@ public class HouseRobberProblem {
     return max(selected, unselected);
   }
 
+  // Time  Complexity: O(n)
+  // Space Complexity: O(1)
   private static int maxGoldLooted(int[] a) {
     int incl = a[0], excl = 0;
     for (int i = 1; i < a.length; i++) {
@@ -45,6 +49,8 @@ public class HouseRobberProblem {
     return max(incl, excl);
   }
 
+  // Time  Complexity: O(n)
+  // Space Complexity: O(n)
   private static int maxGoldLootedDP(int[] a) {
     int n = a.length - 1;
     int[] dp = new int[n + 1];   // dp[i] represent the maximum value stolen so far after reaching the house 'i'

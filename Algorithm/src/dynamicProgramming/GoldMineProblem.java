@@ -59,10 +59,10 @@ public class GoldMineProblem {
     int[][] dp = new int[R][C];
     for (int j = C - 1; j >= 0; j--) {
       for (int i = 0; i < R; i++) {
-        int right      = j == C - 1                ? 0 : dp[i]    [j + 1];    // Gold collected on going to the cell on the right
-        int rightUp   = i == 0 || j == C - 1       ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
+        int right     = j == C - 1               ? 0 : dp[i]    [j + 1];    // Gold collected on going to the cell on the right
+        int rightUp   = i == 0 || j == C - 1     ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
         int rightDown = i == R - 1 || j == C - 1 ? 0 : dp[i + 1][j + 1];  //   Gold collected on going to the cell to right down
-        dp[i][j] = gold[i][j] + maximum(right, rightUp, rightDown);          //    Max gold collected from taking either of the above 3 paths
+        dp[i][j] = gold[i][j] + maximum(right, rightUp, rightDown);      //    Max gold collected from taking either of the above 3 paths
       }
     }
     int max = dp[0][0];
