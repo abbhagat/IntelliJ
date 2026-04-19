@@ -12,17 +12,17 @@ import static java.lang.Integer.max;
 public class LongestPalindromicSequence {
 
   // Time Complexity : O(2^ⁿ)
-  private static int lps(char[] c, int i, int j) {
-    if (i > j) {
+  private static int lps(char[] c, int low, int high) {
+    if (low > high) {
       return 0;
     }
-    if (i == j) {
+    if (low == high) {
       return 1;
     }
-    if (c[i] == c[j]) {  // if 1st and last char are same
-      return 2 + lps(c, i + 1, j - 1);
+    if (c[low] == c[high]) {  // if 1st and last char are same
+      return 2 + lps(c, low + 1, high - 1);
     }
-    return max(lps(c, i + 1, j), lps(c, i, j - 1)); // If the first and last characters do not match
+    return max(lps(c, low + 1, high), lps(c, low, high - 1)); // If the first and last characters do not match
   }
 
   private static int lps(char[] c) {
