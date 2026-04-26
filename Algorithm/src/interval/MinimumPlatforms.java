@@ -9,40 +9,42 @@ import static java.lang.Integer.max;
  * Output = 3
  */
 
+// Time  Complexity  : O(n log n)
+// Space Complexity  : O(1)
 public class MinimumPlatforms {
 
   public static int minPlatforms(int[] arr, int[] dep) {
     Arrays.sort(arr);
     Arrays.sort(dep);
-    int i = 1, j = 0, n = 1, max = 1;   // max = maximum platforms needed, n = current platforms needed
+    int i = 1, j = 0, n = 1, min = 1;   // min = minimum platforms needed, n = current platforms needed
     while (i < arr.length && j < dep.length) {
       if (arr[i] <= dep[j]) {
-        n++;    // new train arrives
+        min++;    // new train arrives
         i++;
       } else {
-        n--;    // train departs
+        min--;    // train departs
         j++;
       }
-      max = max(max, n);
+      n = max(n, min);
     }
-    return max;
+    return n;
   }
 
   private static int minPlatforms(int[][] a) {
     Arrays.sort(a, (x, y) -> x[0] - y[0]);  // Comparator.comparingInt(x -> x[0])
     Arrays.sort(a, (x, y) -> x[1] - y[1]); //  Comparator.comparingInt(x -> x[1])
-    int i = 1, j = 0, n = 1, max = 1;     //   max = maximum platforms needed, n = current platforms needed
+    int i = 1, j = 0, n = 1, min = 1;     //   min = minimum platforms needed, n = current platforms needed
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
-        n++;
+        min++;
         i++;
       } else {
-        n--;
+        min--;
         j++;
       }
-      max = max(max, n);
+      n = max(n, min);
     }
-    return max;
+    return n;
   }
 
   public static void main(String[] args) {
