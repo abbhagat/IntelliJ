@@ -1,8 +1,11 @@
 package graph;
 
+import lombok.Getter;
+
 import java.util.LinkedList;
 import java.util.List;
 
+@Getter
 public class Graph {
 
   private final int v;
@@ -20,11 +23,4 @@ public class Graph {
     this.edge[v].add(e);
   }
 
-  public List<Integer>[] getEdge() {
-    return this.edge;
-  }
-
-  public int getV() {
-    return this.v;
-  }
 }
