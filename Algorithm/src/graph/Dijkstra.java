@@ -23,8 +23,8 @@ public class Dijkstra {
     pq.add(new Node(source, 0));
 
     while (!pq.isEmpty()) {
-      Node current = pq.poll();
-      int u = current.vertex;
+      Node node = pq.poll();
+      int u = node.vertex;
 
       if (visited[u]) {
         continue;
