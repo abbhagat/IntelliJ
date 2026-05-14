@@ -14,9 +14,9 @@ class Producer<E> implements Runnable {
   public void run() {
     while (true) {
       try {
-        Integer n = q.getCount().getAndAdd(1);
+        int n = q.getCount().getAndAdd(1);
         System.out.println("Put : " + n + "\t" + Thread.currentThread().getName());
-        q.put((E) n);
+        q.put((E) Integer.valueOf(n));
         Thread.sleep(1000);
       } catch (InterruptedException e) {
         e.printStackTrace();
