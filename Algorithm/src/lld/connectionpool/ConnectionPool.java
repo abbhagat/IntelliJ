@@ -11,7 +11,6 @@ public class ConnectionPool implements IConnectionPool {
 
   @Getter
   private final BlockingQueue<Connection> connectionPool;
-
   private final int poolSize;
   private final String driverName;
   private final String url;
@@ -51,7 +50,7 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public Connection getConnection() throws InterruptedException {
+  public Connection get() throws InterruptedException {
     if (isPoolClosed) {
       throw new IllegalStateException("Connection pool is closed");
     }
@@ -59,7 +58,7 @@ public class ConnectionPool implements IConnectionPool {
   }
 
   @Override
-  public boolean returnConnection(Connection connection) {
+  public boolean put(Connection connection) {
     if (connection != null && !isPoolClosed) {
       return connectionPool.offer(connection);
     }
@@ -73,33 +72,5 @@ public class ConnectionPool implements IConnectionPool {
       connection.close();
     }
     System.out.println("Connection Pool is Stopped");
-  }
-
-  public static void main(String[] args) throws SQLException, InterruptedException {
-    ConnectionPool connectionPool = new ConnectionPool(5);
-    AtomicInteger atomicInteger = new AtomicInteger(1);
-    connectionPool.getConnectionPool().forEach(connection -> {
-      System.out.println("DB Connection " + atomicInteger.getAndIncrement() + " " + connection);
-    });
-    ExecutorService executorService = Executors.newFixedThreadPool(10);
-    for (int i = 1; i <= 10; i++) {
-      int threadId = i;
-      executorService.submit(() -> {
-        try {
-          System.out.println("Thread-" + threadId + " trying to get connection...");
-          Connection conn = connectionPool.getConnection();  // BLOCKS if none available
-          System.out.println("Thread-" + threadId + " acquired connection: " + conn);
-          // Simulate DB work
-          Thread.sleep(3000);
-          connectionPool.returnConnection(conn);
-          System.out.println("Thread-" + threadId + " returned connection");
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      });
-    }
-    executorService.shutdown();
-    boolean flag = executorService.awaitTermination(1, TimeUnit.MINUTES);
-    connectionPool.stop();
   }
 }
