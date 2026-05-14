@@ -14,10 +14,8 @@ package lld;
  * 2. If the cache is full, remove the last node of the linked q and move the new page to the start of the q.
  */
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
+import java.util.LinkedHashMap;
 
 public class LRUCache<K, V> {
 
@@ -27,10 +25,17 @@ public class LRUCache<K, V> {
 
   public LRUCache(int cacheSize) {
     this.q         = new LinkedList<>();
-    this.map       = new HashMap<>();
+    this.map       = new LinkedHashMap<>();
     this.cacheSize = cacheSize;
   }
-
+  /* synchronized works but better approach
+     private final ReentrantLock lock = new ReentrantLock();
+     try {
+       lock.lock();
+     } finally {
+       lock.unlock();
+      }
+  */
   public synchronized V get(K key) {
     V value = null;
     if (map.containsKey(key)) {

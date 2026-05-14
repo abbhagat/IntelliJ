@@ -3,7 +3,7 @@ package lld;
 import lombok.Getter;
 import lombok.Setter;
 
-public class HashMap<K, V> {
+class HashMap<K, V> {
 
   private final static int SIZE = 128;
   private final Entry<K, V>[] table = new Entry[SIZE];

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class HashSet<E> implements Cloneable, Serializable {
+class HashSet<E> implements Cloneable, Serializable {
 
   @Serial
   private static final long serialVersionUID = 1L;
