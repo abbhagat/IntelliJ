@@ -1,18 +1,18 @@
 package lld.apigateway;
 
+import lombok.Setter;
+
 import java.util.List;
 
 public class LoadBalancer {
 
-  private final List<Service> userServiceList;
-  private final List<Service> orderServiceList;
+  @Setter
+  private List<Service> userServiceList;
+  @Setter
+  private List<Service> orderServiceList;
+
   private int userServiceIndex = 0;
   private int orderServiceIndex = 0;
-
-  public LoadBalancer(List<Service> userServiceList, List<Service> orderServiceList) {
-    this.userServiceList = userServiceList;
-    this.orderServiceList = orderServiceList;
-  }
 
   public Service getInstance(String serviceName) {
     Service service = null;
