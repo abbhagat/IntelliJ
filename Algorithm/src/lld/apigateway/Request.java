@@ -12,8 +12,10 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Request {
+
   private String path;
   private String method;
   private Map<String, String> headers;
   private String requestBody;
+
 }
