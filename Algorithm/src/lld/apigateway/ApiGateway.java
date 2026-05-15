@@ -21,12 +21,12 @@ public class ApiGateway {
       return new Response(429, "Too Many Requests");
     }
     // Step 3: Route
-    Service service = router.getService(request.getPath());
-    if (service == null) {
+    String serviceName = router.getServiceName(request.getPath());
+    if (serviceName == null) {
       return new Response(404, "Not Found");
     }
     // Step 4: Load Balance
-    service = loadBalancer.getInstance();
+    Service service = loadBalancer.getInstance(serviceName);
     // Step 5: Forward request
     return service.handleRequest(request);
   }

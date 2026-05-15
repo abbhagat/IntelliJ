@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class Router {
 
-  private final Map<String, Service> routes = new HashMap<>();
+  private final Map<String, String> routes = new HashMap<>();
 
-  public void registerRoute(String path, Service service) {
-    routes.put(path, service);
+  public void registerRoute(String path, String serviceName) {
+    routes.put(path, serviceName);
   }
 
-  public Service getService(String path) {
+  public String getServiceName(String path) {
     return routes.get(path);
   }
 }
