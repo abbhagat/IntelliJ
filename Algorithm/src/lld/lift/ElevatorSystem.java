@@ -8,11 +8,11 @@ import java.util.concurrent.Executors;
 public class ElevatorSystem {
 
   private final List<Elevator> elevators;
-  private final ElevatorScheduler scheduler;
+  private final BestElevator bestElevator;
   private final ExecutorService executorService;
 
   public ElevatorSystem(int numberOfElevators) {
-    scheduler       = new ElevatorScheduler();
+    bestElevator       = new BestElevator();
     executorService = Executors.newFixedThreadPool(10);
     elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
@@ -25,7 +25,7 @@ public class ElevatorSystem {
   }
 
   public void handleRequest(Request request) {
-    Elevator elevator = scheduler.selectElevator(elevators, request);
+    Elevator elevator = bestElevator.selectElevator(elevators, request);
     if (elevator != null) {
       elevator.addRequest(request.floor());
     }

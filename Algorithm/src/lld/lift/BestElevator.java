@@ -2,7 +2,7 @@ package lld.lift;
 
 import java.util.List;
 
-public class ElevatorScheduler {
+public class BestElevator {
 
   public Elevator selectElevator(List<Elevator> elevators, Request request) {
     Elevator bestElevator = null;
@@ -11,8 +11,8 @@ public class ElevatorScheduler {
       if (elevator.getState() == ElevatorState.IDLE) {
         int dist = Math.abs(elevator.getCurrentFloor() - request.floor());
         if (min > dist) {
-          min = dist;
-          bestElevator = elevator;
+            min = dist;
+            bestElevator = elevator;
         }
       }
     }
