@@ -9,18 +9,21 @@ import static java.lang.Integer.min;
 // Time complexity O(n), where n is the number of intervals in the intervalList.
 public class CacheMerging {
 
+  private static int getEnd(Interval interval) {
+    return interval.start + interval.end;
+  }
+
   private static void insertInterval(List<Interval> intervalList, Interval newInterval) {
     int i = 0;
-    while (i < intervalList.size() && (intervalList.get(i).start + intervalList.get(i).end) < newInterval.start) {
+    while (i < intervalList.size() && getEnd(intervalList.get(i)) < newInterval.start) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i).start <= newInterval.start + newInterval.end) {
-      Interval interval  = intervalList.remove(i);
-      newInterval.start  = min(interval.start, newInterval.start);
-      int end            = max(interval.end,   newInterval.end);
-      int intervalEnd    = interval.start + interval.end;
-      int newIntervalEnd = newInterval.start + newInterval.end;
-      newInterval.end    = intervalEnd > newIntervalEnd ? intervalEnd : end;
+    while (i < intervalList.size() && intervalList.get(i).start <= getEnd(newInterval)) {
+      Interval interval = intervalList.remove(i);
+      int start = min(interval.start, newInterval.start);
+      int end   = max(getEnd(interval), getEnd(newInterval));
+      newInterval.start = start;
+      newInterval.end   = end - start;
     }
     intervalList.add(i, newInterval);
   }
