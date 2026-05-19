@@ -2,6 +2,7 @@ package lld.parkinglot;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,16 +35,20 @@ public class ParkingLot {
       ParkingSpot spot = parkingFloor.getFreeSpot(SpotType.valueOf(vehicle.getType().name()));
       if (spot != null) {
         spot.park(vehicle);
-        ParkingTicket ticket = new ParkingTicket(UUID.randomUUID().toString(),
-                                                 vehicle.getVehicleNumber(),
-                                                 System.currentTimeMillis(),
-                                                 spot
-                                                );
+        ParkingTicket ticket = generateParkingTicket(spot, vehicle);
         activeTickets.put(ticket.getTicketId(), ticket);
         return ticket;
       }
     }
     throw new RuntimeException("Parking Full");
+  }
+
+  private ParkingTicket generateParkingTicket(ParkingSpot spot, Vehicle vehicle) {
+    return new ParkingTicket(UUID.randomUUID().toString(),
+        vehicle.getVehicleNumber(),
+        System.currentTimeMillis(),
+        spot
+    );
   }
 
   public double unParkVehicle(ParkingTicket parkingTicket) {
