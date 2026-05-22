@@ -29,16 +29,30 @@ import static java.lang.Integer.max;
 public class CheckValidString {
 
   public static boolean checkValidString(String exp) {
-    int min = 0, max = 0;
-    for (char c : exp.toCharArray()) {
-      min += c == '(' ? 1 : -1;
-      max += c != ')' ? 1 : -1;
-      if (max < 0) {
-        break;
+    int minOpen = 0;
+    int maxOpen = 0;
+    for (char ch : exp.toCharArray()) {
+      if (ch == '(') {  // If current char is '('
+        minOpen++;
+        maxOpen++;
       }
-      min = max(0, min);
+      else if (ch == ')') {  // If current char is ')'
+        minOpen--;
+        maxOpen--;
+      }
+      // If current char is '*'
+      else {
+        minOpen--;   // '*' can act as ')'
+        maxOpen++;  // '*' can act as '('
+      }
+      if (maxOpen < 0) {   // Too many closing brackets
+        return false;
+      }
+      if (minOpen < 0) {  // minOpen should never be negative
+        minOpen = 0;
+      }
     }
-    return min == 0;
+    return minOpen == 0;  // Expression is valid only if all brackets can be balanced
   }
 
   public static void main(String[] args) {

@@ -17,11 +17,7 @@ public class MinBracketRemovalToMakeBracketBalanced {
       if (c == '{') {
         open++;
       } else {
-        if (open > 0) {
-          open--;
-        } else {
-          close++;
-        }
+        int k = (open > 0) ? open-- : close++;
       }
     }
     return (open + 1) / 2 + (close + 1) / 2;
