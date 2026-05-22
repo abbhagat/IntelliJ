@@ -30,7 +30,7 @@ public class CheckValidString {
       else if (ch == ')') {  // If current char is ')'
         min--;
         max--;
-      } else {        // If current char is '*'
+      } else {    // If current char is '*'
         min--;   // '*' can act as ')'
         max++;  // '*' can act as '('
       }

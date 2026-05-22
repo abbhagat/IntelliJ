@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.Stack;
+import static java.lang.Character.isDigit;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(n)
@@ -14,14 +15,14 @@ public class BasicCalculator {
     char sign = '+';
     while (i < s.length()) {
       char c = s.charAt(i);
-      if (Character.isDigit(c)) {
+      if (isDigit(c)) {
         n = n * 10 + (c - '0');
       }
       if (c == '(') {
         i++;                      // skip '('
         n = calculate(s);        // evaluate inside parentheses
       }
-      if (!(Character.isDigit(c) || c == ' ') || i == s.length() - 1) {
+      if ((!isDigit(c) && c != ' ') || i == s.length() - 1) {
         switch (sign) {
           case '+' -> stack.push(n);
           case '-' -> stack.push(-n);
