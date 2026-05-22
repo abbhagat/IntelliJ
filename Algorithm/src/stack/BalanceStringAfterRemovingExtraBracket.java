@@ -1,7 +1,5 @@
 package stack;
 
-import static java.lang.Integer.max;
-
 // Input: exp = "abh)ina)w(ku(mar(bhagat))" Output: abhinaw(ku(mar(bhagat)))
 // Input: exp = "1+5)+5+)6+(5+9)*9"         Output: 1+5+5+6+(5+9)*9
 // Input: exp = "lee(t(c)o)de)")"           Output: lee(t(c)o)de

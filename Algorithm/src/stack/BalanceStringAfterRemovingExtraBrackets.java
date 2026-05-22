@@ -18,16 +18,16 @@ public class BalanceStringAfterRemovingExtraBrackets {
       }
       sb.append(c);
     }
-    StringBuilder result = new StringBuilder();
-    for (int i = sb.length() - 1; i >= 0; i--) {
-      char c = sb.charAt(i);
+    str = sb.reverse().toString();
+    sb = new StringBuilder();
+    for (char c : str.toCharArray()) {
       if (c == '(' && open > 0) {
         open--;
-      } else {
-        result.append(c);
+        continue;
       }
+      sb.append(c);
     }
-    return result.reverse();
+    return sb.reverse();
   }
 
   public static void main(String[] args) {
@@ -36,8 +36,7 @@ public class BalanceStringAfterRemovingExtraBrackets {
     System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
     System.out.println(minRemoveToMakeValid("ab(c)d"));
     System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
-    System.out.println(minRemoveToMakeValid("a)b(c)d"));
     System.out.println(minRemoveToMakeValid("))(("));
-    System.out.println(minRemoveToMakeValid("abh)ina)w(ku(mar(bhagat))"));
+    System.out.println(minRemoveToMakeValid("a)b(c)d"));
   }
 }
