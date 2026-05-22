@@ -1,7 +1,5 @@
 package stack;
 
-import static java.lang.Integer.max;
-
 /**
  * When checking whether the string is valid, we only cared about the "balance": the number of extra, open left brackets as we parsed through the string.
  * For example, when checking whether '(()())' is valid, we had a balance of 1, 2, 1, 2, 1, 0
