@@ -16,32 +16,32 @@ package stack;
  */
 
 public class CheckValidString {
+  // min -> minimum number of open bracket
+  // max -> maximum number of open bracket
 
   public static boolean checkValidString(String exp) {
-    int minOpen = 0;
-    int maxOpen = 0;
+    int min = 0;
+    int max = 0;
     for (char ch : exp.toCharArray()) {
       if (ch == '(') {  // If current char is '('
-        minOpen++;
-        maxOpen++;
+        min++;
+        max++;
       }
       else if (ch == ')') {  // If current char is ')'
-        minOpen--;
-        maxOpen--;
+        min--;
+        max--;
+      } else {        // If current char is '*'
+        min--;   // '*' can act as ')'
+        max++;  // '*' can act as '('
       }
-      // If current char is '*'
-      else {
-        minOpen--;   // '*' can act as ')'
-        maxOpen++;  // '*' can act as '('
-      }
-      if (maxOpen < 0) {   // Too many closing brackets
+      if (max < 0) {   // Too many closing brackets
         return false;
       }
-      if (minOpen < 0) {  // minOpen should never be negative
-        minOpen = 0;
+      if (min < 0) {  // min should never be negative
+          min = 0;
       }
     }
-    return minOpen == 0;  // Expression is valid only if all brackets can be balanced
+    return min == 0;  // Expression is valid only if all brackets can be balanced
   }
 
   public static void main(String[] args) {
