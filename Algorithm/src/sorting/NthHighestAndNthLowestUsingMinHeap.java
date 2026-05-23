@@ -19,8 +19,8 @@ public class NthHighestAndNthLowestUsingMinHeap {
     int left  = 2 * i;
     int right = 2 * i + 1;
     int smallest;
-    smallest = left  <= n && a[left] < a[i]         ? left  : i;
-    smallest = right <= n && a[right] < a[smallest] ? right : smallest;
+    smallest = left  <= n && a[left]  <= a[i]        ? left  : i;
+    smallest = right <= n && a[right] <= a[smallest] ? right : smallest;
     if (smallest != i) {
       swap(a, i, smallest);
       minHeap(smallest);
