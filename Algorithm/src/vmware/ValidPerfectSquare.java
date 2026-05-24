@@ -3,15 +3,16 @@ package vmware;
 public class ValidPerfectSquare {
 
   private static boolean isPerfectSquare(int n) {
-    long low = 0, high = n;
+    int low = 0, high = n;
     while (low <= high) {
-      long mid = low + (high - low) / 2;
-      if (mid * mid == n) {
+      int mid = (low + high) / 2;
+      int square = mid * mid;
+      if (square == n) {
         return true;
-      } else if (mid * mid < n) {
-        low = mid + 1;
-      } else {
+      } else if (n < square) {
         high = mid - 1;
+      } else {
+        low  = mid + 1;
       }
     }
     return false;
@@ -19,5 +20,6 @@ public class ValidPerfectSquare {
 
   public static void main(String[] args) {
     System.out.println(isPerfectSquare(16));
+    System.out.println(isPerfectSquare(18));
   }
 }

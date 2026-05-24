@@ -15,7 +15,7 @@ public class FindSqrt {
         low  = mid + 1;
       }
     }
-    return high;
+    return -1;
   }
 
   public static void main(String[] args) {
@@ -24,5 +24,6 @@ public class FindSqrt {
     System.out.println(findSqrt(16));
     System.out.println(findSqrt(25));
     System.out.println(findSqrt(100));
+    System.out.println(findSqrt(101));
   }
 }
