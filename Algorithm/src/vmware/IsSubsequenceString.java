@@ -4,16 +4,16 @@ package vmware;
 // Space Complexity : O(1)
 public class IsSubsequenceString {
 
-  private static boolean isSubsequence(String s, String t) {
-    if (s.isEmpty()) {
+  private static boolean isSubsequence(String s1, String s2) {
+    if (s2.isEmpty()) {
       return true;
     }
     int j = 0;
-    for (int i = 0; i < t.length(); i++) {
-      if (t.charAt(i) == s.charAt(j)) {
+    for (int i = 0; i < s1.length(); i++) {
+      if (s1.charAt(i) == s2.charAt(j)) {
         j++;
       }
-      if (j == s.length()) {
+      if (j == s2.length()) {
         return true;
       }
     }
@@ -21,8 +21,8 @@ public class IsSubsequenceString {
   }
 
   public static void main(String[] args) {
-    System.out.println(isSubsequence("abc", "ahbgdc"));
-    System.out.println(isSubsequence("axc", "ahbgdc"));
-    System.out.println(isSubsequence("axc", "axbgdc"));
+    System.out.println(isSubsequence("ahbgdc", "abc"));
+    System.out.println(isSubsequence("ahbgdc", "axc"));
+    System.out.println(isSubsequence("axbgdc", "axc"));
   }
 }
