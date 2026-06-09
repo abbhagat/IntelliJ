@@ -2,6 +2,8 @@ package lld.arraylist;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 class ArrayList<E> {
 
@@ -17,7 +19,7 @@ class ArrayList<E> {
     if (size <= 0) {
       throw new IllegalArgumentException("Invalid Size : " + size);
     }
-    this.list = (E[]) new Object[size];
+    list = (E[]) new Object[size];
   }
 
   public boolean add(E e) {
@@ -57,5 +59,10 @@ class ArrayList<E> {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("Invalid index :" + index);
     }
+  }
+
+  @Override
+  public String toString() {
+    return Arrays.toString(list);
   }
 }
