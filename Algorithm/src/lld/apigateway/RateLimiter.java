@@ -5,7 +5,11 @@ import java.util.Map;
 
 public class RateLimiter {
 
-  private final Map<String, Integer> requestMap = new HashMap<>();
+  private final Map<String, Integer> requestMap;
+
+  public RateLimiter() {
+    requestMap = new HashMap<>();
+  }
 
   public boolean allowRequest(String clientId) {
     requestMap.put(clientId, requestMap.getOrDefault(clientId, 0) + 1);

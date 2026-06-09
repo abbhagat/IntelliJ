@@ -5,7 +5,11 @@ import java.util.Map;
 
 public class Router {
 
-  private final Map<String, String> routes = new HashMap<>();
+  private final Map<String, String> routes;
+
+  public Router() {
+    routes = new HashMap<>();
+  }
 
   public void registerRoute(String path, String serviceName) {
     routes.put(path, serviceName);

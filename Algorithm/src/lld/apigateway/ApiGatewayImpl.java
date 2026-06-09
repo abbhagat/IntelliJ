@@ -24,7 +24,7 @@ public class ApiGatewayImpl {
     loadBalancer.setUserServiceList(List.of(userService1, userService2));
     loadBalancer.setOrderServiceList(List.of(orderService1, orderService2));
 
-    router.registerRoute("/user", "userService");
+    router.registerRoute("/user",  "userService");
     router.registerRoute("/order", "orderService");
 
     ApiGateway apiGateway = new ApiGateway(authManager, rateLimiter, router, loadBalancer);

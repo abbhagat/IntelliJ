@@ -11,7 +11,7 @@ public class LoadBalancer {
   @Setter
   private List<Service> orderServiceList;
 
-  private int userServiceIndex = 0;
+  private int userServiceIndex  = 0;
   private int orderServiceIndex = 0;
 
   public Service getInstance(String serviceName) {
