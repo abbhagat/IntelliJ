@@ -11,10 +11,10 @@ public class ConnectionPoolImpl {
 
   public static void main(String[] args) throws SQLException, InterruptedException {
     ConnectionPool connectionPool = new ConnectionPool(5);
-    AtomicInteger atomicInteger = new AtomicInteger(1);
-    connectionPool.getConnectionPool().forEach(connection -> {
-      System.out.println("DB Connection " + atomicInteger.getAndIncrement() + " " + connection);
-    });
+    AtomicInteger atomicInteger = new AtomicInteger(0);
+    connectionPool
+        .getConnectionPool()
+        .forEach(connection -> System.out.println("DB Connection " + atomicInteger.getAndIncrement() + " " + connection));
     ExecutorService executorService = Executors.newFixedThreadPool(10);
     for (int i = 1; i <= 10; i++) {
       int threadId = i;

@@ -19,7 +19,7 @@ public class ArrayListImpl {
     System.out.println(al);
     Object[] obj = al.getList();
     for (Object o : obj) {
-      System.out.println(o);
+      System.out.print(o + " ");
     }
   }
 }
