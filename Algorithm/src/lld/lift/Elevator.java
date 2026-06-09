@@ -26,7 +26,8 @@ public class Elevator {
     executorService.submit(this::processRequests);
   }
 
-  public synchronized void addRequest(int floor) {
+  public synchronized void addRequest(Request request) {
+    int floor = request.floor();
     var success = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
     System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
   }

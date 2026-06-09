@@ -3,6 +3,7 @@ package lld;
 import lombok.Getter;
 import lombok.Setter;
 
+@SuppressWarnings("unchecked")
 class HashMap<K, V> {
 
   private final static int SIZE = 128;
@@ -26,7 +27,7 @@ class HashMap<K, V> {
   }
 
   public V get(K key) {
-    int hash = key == null ? 0 : key.hashCode() % SIZE;
+    int hash = (key == null) ? 0 : key.hashCode() % SIZE;
     for (Entry<K, V> e = table[hash]; e != null; e = e.next) {
       if (null == e.getKey() || e.getKey().equals(key)) {
         return e.getValue();
@@ -36,7 +37,7 @@ class HashMap<K, V> {
   }
 
   public V put(K key, V value) {
-    int hash = (null == key) ? 0 : key.hashCode() % SIZE;
+    int hash = (key == null) ? 0 : key.hashCode() % SIZE;
     if (null != table[hash]) {
       Entry<K, V> prev = null;
       for (Entry<K, V> e = table[hash]; e != null; e = e.next) {
@@ -55,7 +56,7 @@ class HashMap<K, V> {
   }
 
   public V remove(K key) {
-    int hash = (null == key) ? 0 : key.hashCode() % SIZE;
+    int hash = (key == null) ? 0 : key.hashCode() % SIZE;
     if (table[hash] == null) {
       return null;
     }

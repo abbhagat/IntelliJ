@@ -15,7 +15,7 @@ public class HitCounter {
   }
 
   public void hit(int timestamp) {
-            int i = timestamp % time;
+    int i         = timestamp % time;
     if (times[i] != timestamp) {
         times[i]  = timestamp;
          hits[i]  = 1;

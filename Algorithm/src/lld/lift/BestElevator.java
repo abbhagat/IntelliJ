@@ -10,7 +10,7 @@ public class BestElevator {
     for (Elevator elevator : elevators) {
       if (elevator.getState() == ElevatorState.IDLE) {
         int dist = Math.abs(elevator.getCurrentFloor() - request.floor());
-        if (min > dist) {
+        if (dist < min) {
             min = dist;
             bestElevator = elevator;
         }

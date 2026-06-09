@@ -14,13 +14,12 @@ public class ParkingSpot {
   private boolean isFree;
   private Vehicle parkedVehicle;
 
-  public synchronized boolean park(Vehicle vehicle) {
+  public synchronized void park(Vehicle vehicle) {
     if (!isFree || !vehicle.getType().name().equals(spotType.name())) {
-      return false;
+      return;
     }
     this.parkedVehicle = vehicle;
     this.isFree = false;
-    return true;
   }
 
   public synchronized void unPark() {

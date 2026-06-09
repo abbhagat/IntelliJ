@@ -23,8 +23,9 @@ public class TinyUrl {
 
   private String encode(String longURL) {
     if (!urlToIndexMap.containsKey(longURL)) {
-      urlToIndexMap.put(longURL, counter.get());
-      indexToUrlMap.put(counter.get(), longURL);
+      int n = counter.get();
+      urlToIndexMap.put(longURL, n);
+      indexToUrlMap.put(n, longURL);
       counter.addAndGet(1);
     }
     return BASE_URL + base62Encode(urlToIndexMap.get(longURL));

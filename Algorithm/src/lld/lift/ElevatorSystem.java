@@ -27,7 +27,7 @@ public class ElevatorSystem {
   public void handleRequest(Request request) {
     Elevator elevator = bestElevator.selectElevator(elevators, request);
     if (elevator != null) {
-      elevator.addRequest(request.floor());
+      elevator.addRequest(request);
     }
   }
 
