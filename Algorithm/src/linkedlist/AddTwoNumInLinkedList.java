@@ -1,6 +1,5 @@
 package linkedlist;
 
-import static java.lang.Integer.parseInt;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
@@ -21,22 +20,25 @@ Output: [0]
 public class AddTwoNumInLinkedList {
 
   private static Node addTwoList(Node l1, Node l2) {
-    StringBuilder num1 = new StringBuilder();
-    StringBuilder num2 = new StringBuilder();
-    for (Node temp = l1; temp != null; temp = temp.next) {
-      num1.append(temp.num);
+    Node head = new Node(0);
+    Node temp = head;
+    int carry = 0;
+    while (l1 != null || l2 != null || carry != 0) {
+      int sum = carry;
+      if (l1 != null) {
+         sum += l1.num;
+         l1   = l1.next;
+      }
+      if (l2 != null) {
+         sum += l2.num;
+         l2   = l2.next;
+      }
+      carry   = sum / 10;
+      int num = sum % 10;
+      temp.next = new Node(num);
+      temp = temp.next;
     }
-    for (Node temp = l2; temp != null; temp = temp.next) {
-      num2.append(temp.num);
-    }
-    int sum = parseInt(num1.toString()) + parseInt(num2.toString());
-    StringBuilder result = new StringBuilder(String.valueOf(sum)).reverse();
-    Node l3 = null;
-    LinkList.temp = LinkList.last = null;
-    for (char c : result.toString().toCharArray()) {
-      l3 = add(l3, c - '0');
-    }
-    return l3;
+    return head.next;
   }
 
   public static void main(String[] args) {
