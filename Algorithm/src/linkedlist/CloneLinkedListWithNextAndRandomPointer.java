@@ -41,6 +41,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
     }
     // Step 3: Separate the two lists
     temp = head;
+    Node clone = head.next;
     while (temp != null) {
       Node copy = temp.next;
       temp.next = copy.next;
@@ -49,7 +50,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
       }
       temp = temp.next;
     }
-    return head.next;
+    return clone;
   }
 
   public static void main(String[] args) {
