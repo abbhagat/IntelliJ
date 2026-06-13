@@ -14,7 +14,7 @@ public class CloneLinkedListWithNextAndRandomPointer {
       Node node = new Node(temp.num);  // insert additional node after every node of original list
       node.next = temp.next;
       temp.next = node;
-      temp      = node.next;
+      temp      = temp.next.next;
     }
     // Step 2: Set random pointers
     temp = head;
