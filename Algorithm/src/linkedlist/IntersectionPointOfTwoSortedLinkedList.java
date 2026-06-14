@@ -5,14 +5,6 @@ import static linkedlist.LinkList.add;
 // Time complexity : O(m + n)
 public class IntersectionPointOfTwoSortedLinkedList {
 
-  private static int countNodes(Node node) {
-    int count = 0;
-    for (Node temp = node; temp != null; temp = temp.next) {
-      count++;
-    }
-    return count;
-  }
-
   private static Node findIntersectionPoint(Node head1, Node head2) {
     int count1 = countNodes(head1);
     int count2 = countNodes(head2);
@@ -35,6 +27,14 @@ public class IntersectionPointOfTwoSortedLinkedList {
       head2 = head2.next;
     }
     return null;
+  }
+
+  private static int countNodes(Node node) {
+    int count = 0;
+    for (Node temp = node; temp != null; temp = temp.next) {
+      count++;
+    }
+    return count;
   }
 
   public static void main(String[] args) {

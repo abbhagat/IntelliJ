@@ -2,7 +2,6 @@ package linkedlist;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
@@ -23,11 +22,12 @@ public class DeleteRepeatedElementsInList {
   }
 
   public static void main(String[] args) {
-    int[] a = {1, 2, 1, 1, 1, 3, 4, 3, 5, 5};
+    int[] a = {1, 1, 2, 2, 3, 4, 3, 5, 5};
     Node head = null;
     for (int x : a) {
       head = add(head, x);
     }
+    traverseList(head);
     removeDuplicate(head);
     traverseList(head);
   }

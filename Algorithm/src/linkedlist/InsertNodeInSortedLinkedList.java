@@ -6,30 +6,30 @@ import static linkedlist.TraverseList.traverseList;
 // Time complexity : O(n)
 public class InsertNodeInSortedLinkedList {
 
-  public static Node insertNodeInSortedLinkedList(Node first, int num) {
-    if (null == first || num < first.num) {
-      return new Node(num, first);
+  public static Node insertNodeInSortedLinkedList(Node head, int num) {
+    if (null == head || num < head.num) {
+      return new Node(num, head);
     }
-    Node prev = first;
-    for (Node temp = first; temp != null && temp.num < num; temp = temp.next) {
+    Node prev = head;
+    for (Node temp = head; temp != null && temp.num < num; temp = temp.next) {
       prev = temp;
     }
     Node node = new Node(num, null);
     node.next = prev.next;
     prev.next = node;
-    return first;
+    return head;
   }
 
   public static void main(String[] args) {
-    Node first = null;
+    Node head = null;
     for (int x : new int[]{1, 3, 5, 8}) {
-      first = add(first, x);
+      head = add(head, x);
     }
-    first = insertNodeInSortedLinkedList(first, 0);
-    first = insertNodeInSortedLinkedList(first, 2);
-    first = insertNodeInSortedLinkedList(first, 4);
-    first = insertNodeInSortedLinkedList(first, 7);
-    first = insertNodeInSortedLinkedList(first, 9);
-    traverseList(first);
+    head = insertNodeInSortedLinkedList(head, 0);
+    head = insertNodeInSortedLinkedList(head, 2);
+    head = insertNodeInSortedLinkedList(head, 4);
+    head = insertNodeInSortedLinkedList(head, 7);
+    head = insertNodeInSortedLinkedList(head, 9);
+    traverseList(head);
   }
 }
