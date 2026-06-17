@@ -5,6 +5,18 @@ import static linkedlist.TraverseList.traverseList;
 
 public class QuickSort {
 
+  private static void quickSort(Node low, Node high) {
+    if (low != null && high != null && low != high && low != high.next) {
+      Node pivot = partition(low, high);
+      Node temp = low;
+      while (temp.next != pivot) {
+        temp = temp.next;          // temp will point to the prev node of pivot node
+      }
+      quickSort(low, temp);
+      quickSort(pivot.next, high);
+    }
+  }
+
   private static Node partition(Node low, Node high) {
     int pivot = high.num;
     Node i = null;
@@ -17,18 +29,6 @@ public class QuickSort {
     i = (i == null) ? low : i.next;
     swap(i, high);
     return i;
-  }
-
-  private static void quickSort(Node low, Node high) {
-    if (low != null && high != null && low != high && low != high.next) {
-      Node pivot = partition(low, high);
-      Node temp = low;
-      while (temp.next != pivot) {
-        temp = temp.next;          // temp will point to the prev node of pivot node
-      }
-      quickSort(low, temp);
-      quickSort(pivot.next, high);
-    }
   }
 
   private static void swap(Node x, Node y) {
