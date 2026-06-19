@@ -27,7 +27,9 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
     s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     for (int i = start; i < end; i++) {
       if (map.get(s.charAt(i)) < k) {
-        return min(smallestSubString(s, start, i, k), smallestSubString(s, i + 1, end, k));
+        int left  = longestSubString(s, start, i, k);
+        int right = longestSubString(s, i + 1, end, k);
+        return min(left, right);
       }
     }
     return end - start;
