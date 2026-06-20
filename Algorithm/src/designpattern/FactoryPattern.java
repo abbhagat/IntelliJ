@@ -15,6 +15,13 @@ class Circle implements Shape {
   }
 }
 
+class Square implements Shape {
+
+  public void draw() {
+    System.out.println("Inside Square::draw() method.");
+  }
+}
+
 class Rectangle implements Shape {
 
   public void draw() {
@@ -22,12 +29,6 @@ class Rectangle implements Shape {
   }
 }
 
-class Square implements Shape {
-
-  public void draw() {
-    System.out.println("Inside Square::draw() method.");
-  }
-}
 
 class ShapeFactory {
 

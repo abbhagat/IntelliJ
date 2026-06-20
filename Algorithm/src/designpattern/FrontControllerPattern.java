@@ -20,6 +20,7 @@ class StudentView {
 }
 
 class Dispatcher {
+
   private final StudentView studentView;
   private final HomeView homeView;
 
@@ -63,6 +64,7 @@ class FrontController {
 }
 
 public class FrontControllerPattern {
+
   public static void main(String[] args) {
     FrontController frontController = new FrontController();
     frontController.dispatchRequest("HOME");

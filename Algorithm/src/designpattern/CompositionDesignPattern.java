@@ -19,9 +19,9 @@ class Employee {
   private final List<Employee> subordinates;
 
   public Employee(String name, String dept, int salary) {
-    this.name = name;
-    this.dept = dept;
-    this.salary = salary;
+    this.name         = name;
+    this.dept         = dept;
+    this.salary       = salary;
     this.subordinates = new ArrayList<>();
   }
 

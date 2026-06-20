@@ -28,6 +28,16 @@ public class Doubleton implements Cloneable, Serializable {
     return index++ % 2 == 0 ? instance1 : instance2;
   }
 
+  @Serial
+  public Object readResolve() {
+    return getInstance();
+  }
+
+  @Override
+  public Object clone() {
+    return getInstance();
+  }
+
   public static void main(String[] args) {
     Doubleton obj1 = Doubleton.getInstance();
     Doubleton obj2 = Doubleton.getInstance();
@@ -52,13 +62,4 @@ public class Doubleton implements Cloneable, Serializable {
     System.gc();
   }
 
-  @Serial
-  public Object readResolve() {
-    return getInstance();
-  }
-
-  @Override
-  public Object clone() {
-    return getInstance();
-  }
 }
