@@ -50,9 +50,9 @@ class ShapeCache {
   }
 
   public static void loadCache() {
-    shapeMap.put("1", new Circles());
-    shapeMap.put("2", new Squares());
-    shapeMap.put("3", new Rectangles());
+    shapeMap.put("circle", new Circles());
+    shapeMap.put("square", new Squares());
+    shapeMap.put("rectangle", new Rectangles());
   }
 }
 
@@ -62,13 +62,13 @@ public class PrototypePattern {
 
     ShapeCache.loadCache();
     Shapes shapes;
-    shapes = ShapeCache.getShape("1");
+    shapes = ShapeCache.getShape("circle");
     System.out.println("Shapes : " + shapes.getType());
 
-    shapes = ShapeCache.getShape("2");
+    shapes = ShapeCache.getShape("square");
     System.out.println("Shapes : " + shapes.getType());
 
-    shapes = ShapeCache.getShape("3");
+    shapes = ShapeCache.getShape("rectangle");
     System.out.println("Shapes : " + shapes.getType());
   }
 }

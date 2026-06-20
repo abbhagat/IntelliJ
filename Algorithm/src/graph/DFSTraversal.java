@@ -18,7 +18,7 @@ public class DFSTraversal {
 
   public static void main(String[] args) {
     Graph g = createGraph(4);
-    int v = g.getV();
+    int   v = g.getV();
     for(int i = 0; i < v; i++) {
       boolean[] visited = new boolean[v];
       DFS(g, i, visited);

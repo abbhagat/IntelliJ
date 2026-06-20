@@ -11,6 +11,7 @@ public class Graph {
   private final int v;
   private final List<Integer>[] edge;
 
+  @SuppressWarnings("unchecked")
   public Graph(int v) {
     this.v = v;
     this.edge = new LinkedList[v];
