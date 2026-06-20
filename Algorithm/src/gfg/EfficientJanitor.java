@@ -6,17 +6,17 @@ import java.util.List;
 
 public class EfficientJanitor {
 
-  private static int efficientJanitor(List<Float> weight) {
-    Collections.sort(weight);
-    int i = 0, j = weight.size() - 1, trips = 0;
+  private static int efficientJanitor(List<Float> a) {
+    Collections.sort(a);
+    int i = 0, j = a.size() - 1, trips = 0;
     while (i < j) {
-      if (weight.get(i) + weight.get(j) <= 3.0f) {
+      if (a.get(i) + a.get(j) <= 3.0f) {
         i++;
       }
       j--;
       trips++;
     }
-    trips += (i == j && weight.get(i) <= 3.0f) ? 1 : 0;
+    trips += (i == j && a.get(i) <= 3.0f) ? 1 : 0;
     return trips;
   }
 

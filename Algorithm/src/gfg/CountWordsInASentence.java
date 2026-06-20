@@ -6,8 +6,8 @@ public class CountWordsInASentence {
     String[] str = sentence.split(" ");
     int count = 0;
     for (String s : str) {
-      if (!s.isEmpty()) {
-        char[] a = s.trim().toCharArray();
+      if (!s.trim().isEmpty()) {
+        char[] a = s.toCharArray();
         boolean flag = true;
         for (char c : a) {
           if (!(c >= 65 && c <= 90 || c >= 97 && c <= 122 || c == '-' || c == ',' || c == '?' || c == '.' || c == '!')) {

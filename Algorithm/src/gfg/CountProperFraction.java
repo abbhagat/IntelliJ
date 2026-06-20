@@ -5,10 +5,10 @@ import static java.lang.Integer.min;
 
 public class CountProperFraction {
 
-  public static int countProperFractions(int d) {
+  public static int countProperFractions(int n) {
     int count = 0;
-    for (int i = 1; i < d; i++) {
-      for (int j = i; j <= d; j++) {
+    for (int i = 1; i < n; i++) {
+      for (int j = i; j <= n; j++) {
         int hcf = findHCF(i, j);
         if (hcf == 1) {
           count++;
