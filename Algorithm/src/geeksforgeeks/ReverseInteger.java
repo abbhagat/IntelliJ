@@ -10,7 +10,6 @@ public class ReverseInteger {
       n /= 10;
     }
     return rev;
-
   }
 
   public static void main(String[] args) {
