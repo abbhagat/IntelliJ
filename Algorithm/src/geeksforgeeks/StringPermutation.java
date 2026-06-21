@@ -17,12 +17,14 @@ public class StringPermutation {
     if (matches(sData, pData)) {
       return true;
     }
-    for (int i = 0, j = p.length; j < s.length; i++, j++) {  // traverse the larger string "s" from index = p to s.length
-      sData[s[j]]++;
-      sData[s[i]]--;
+    int j = 0;
+    for (int i = p.length; i < s.length; i++) {  // traverse the larger string "s" from index = p to s.length
+      sData[s[i]]++;
+      sData[s[j]]--;
       if (matches(sData, pData)) {
         return true;
       }
+      j++;
     }
     return matches(sData, pData);
   }

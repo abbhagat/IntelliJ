@@ -21,8 +21,8 @@ public class DashProblem {
       if (a[i] == 0) {
         continue;
       }
-      var isEven = a[i] % 2 == 0;
-      var isOdd  = a[i] % 2 != 0;
+      boolean isEven = a[i] % 2 == 0;
+      boolean isOdd  = a[i] % 2 != 0;
       if (isEven && prevEven) {
         sb.append("*");
       }
