@@ -1,13 +1,15 @@
 package jpmorgan;
 
-public class MinOperationToMakeStringAnagram {
+public class MinOperationToMakeStringPalindrome {
 
   public static int minOpsToMakeStringAnagram(String s) {
     int count = 0,  l = s.length() - 1;
-    for (int i = 0, j = l; i <= l / 2; i++, j--) {
+    int j = l;
+    for (int i = 0; i <= l / 2; i++) {
       if (s.charAt(i) != s.charAt(j)) {
         count++;
       }
+      j--;
     }
     return count;
   }
