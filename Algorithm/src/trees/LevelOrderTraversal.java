@@ -11,23 +11,20 @@ public class LevelOrderTraversal {
   private static void printLevelOrder(Node root) {
     Queue<Node> q = new LinkedList<>();
     q.add(root);
-    q.add(null);
     while (!q.isEmpty()) {
-      Node node = q.poll();
-      if (node == null) {
-        System.out.println();
-      }
-      if (node != null) {
-        System.out.print(node.num + "\t");
-        if (node.left != null) {
-          q.add(node.left);
+      int size = q.size();
+      while (size != 0) {
+        root = q.poll();
+        System.out.print(root.num + " ");
+        if (root.left != null) {
+          q.add(root.left);
         }
-        if (node.right != null) {
-          q.add(node.right);
+        if (root.right != null) {
+          q.add(root.right);
         }
-      } else if (!q.isEmpty()) {
-        q.add(null);
+        size--;
       }
+      System.out.println();
     }
   }
 
@@ -43,15 +40,15 @@ public class LevelOrderTraversal {
                              \
                               10
        */
-    Node root                    = new Node(1);
-    root.left                    = new Node(2);
-    root.right                   = new Node(3);
-    root.left.left               = new Node(4);
-    root.left.right              = new Node(5);
-    root.right.left              = new Node(6);
-    root.right.right             = new Node(7);
-    root.right.right.left        = new Node(8);
-    root.right.right.right       = new Node(9);
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.left.right = new Node(5);
+    root.right.left = new Node(6);
+    root.right.right = new Node(7);
+    root.right.right.left = new Node(8);
+    root.right.right.right = new Node(9);
     root.right.right.right.right = new Node(10);
     printLevelOrder(root);
   }

@@ -8,25 +8,22 @@ import java.util.Queue;
 public class TreeHeightWithoutRecursion {
 
   private static int treeHeight(Node root) {
+    Queue<Node> q = new LinkedList<>();
+    q.add(root);
     int height = 0;
-    if(root != null) {
-      Queue<Node> q = new LinkedList<>();
-      q.add(root);
-      while (!q.isEmpty()) {
-        int size = q.size();
-        while (size != 0) {
-          root = q.poll();
-          // System.out.println(root.num);
-          if (root.left != null) {
-            q.add(root.left);
-          }
-          if (root.right != null) {
-            q.add(root.right);
-          }
-          size--;
+    while (!q.isEmpty()) {
+      int size = q.size();
+      while (size != 0) {
+        root = q.poll();
+        if (root.left != null) {
+          q.add(root.left);
         }
-        height++;
+        if (root.right != null) {
+          q.add(root.right);
+        }
+        size--;
       }
+      height++;
     }
     return height;
   }
