@@ -44,5 +44,6 @@ public class MinTapsToWaterGarden {
 
   public static void main(String[] args) {
     System.out.println(minTaps(new int[]{3, 4, 1, 1, 0, 0}, 5));
+    System.out.println(minTaps(new int[]{0, 0, 0, 0}, 3));
   }
 }
