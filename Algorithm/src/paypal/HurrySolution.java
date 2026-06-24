@@ -3,13 +3,12 @@ package paypal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 import static java.lang.Integer.max;
 
 public class HurrySolution {
 
   public static int maxTasksInTheGivenBudget(int[][] tasks, int t) {
-    Arrays.sort(tasks, Comparator.comparingInt(x -> x[0]));
+    Arrays.sort(tasks, Comparator.comparingInt(x -> x[0]));  // (x, y) -> x[0] - y[0]
     LinkedList<Integer> list = new LinkedList<>();
     int sum = 0, max = 0;
     for (int[] task : tasks) {
