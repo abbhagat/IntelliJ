@@ -4,12 +4,12 @@ public class EqualExpenseSplit implements ExpenseSplitStrategy {
 
   @Override
   public void validate(Expense expense) {
-
+    System.out.println("Simulating Success Validation");
   }
 
   public void splitExpense(Expense expense) {
-    double perUser = expense.amount / expense.splits.size();
-    for (Split split : expense.splits) {
+    double perUser = expense.getAmount() / expense.getSplits().size();
+    for (Split split : expense.getSplits()) {
       split.amount = perUser;
     }
   }

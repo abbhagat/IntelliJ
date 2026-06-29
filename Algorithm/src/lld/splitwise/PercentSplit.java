@@ -1,5 +1,10 @@
 package lld.splitwise;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PercentSplit extends Split {
-  double percent;
+  private double percent;
 }

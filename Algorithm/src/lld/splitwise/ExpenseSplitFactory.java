@@ -10,8 +10,8 @@ public class ExpenseSplitFactory {
   static {
     map.put(ExpenseType.EXACT, new ExactExpenseSplit());
     map.put(ExpenseType.EQUAL, new EqualExpenseSplit());
+    map.put(ExpenseType.PERCENT, new PercentExpenseSplit());
   }
-
 
   public static ExpenseSplitStrategy getStrategy(ExpenseType expenseType) {
     return map.get(expenseType);

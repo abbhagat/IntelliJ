@@ -2,9 +2,9 @@ package lld.splitwise;
 
 public class ExactExpenseSplit implements ExpenseSplitStrategy {
   public void validate(Expense expense) {
-    double total = expense.splits.stream()
+    double total = expense.getSplits().stream()
         .mapToDouble(s -> s.amount).sum();
-    if (total != expense.amount) {
+    if (total != expense.getAmount()) {
       throw new RuntimeException("Invalid Exact Split");
     }
   }

@@ -1,12 +1,17 @@
 package lld.splitwise;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 public abstract class Expense {
-  String expenseId;
-  String description;
-  double amount;
-  User paidBy;
-  List<Split> splits;
-  ExpenseType type;
+  private String expenseId;
+  private String description;
+  private double amount;
+  private User paidBy;
+  private List<Split> splits;
+  private ExpenseType type;
 }
