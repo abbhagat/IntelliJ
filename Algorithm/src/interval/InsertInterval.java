@@ -17,7 +17,7 @@ public class InsertInterval {
     while (i < intervalList.size() && intervalList.get(i).end < newInterval.start) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i).start <= newInterval.end) {
+    while (i < intervalList.size() && intervalList.get(i).end >= newInterval.start) {
       Interval interval = intervalList.remove(i);
       newInterval.start = min(newInterval.start, interval.start);
       newInterval.end   = max(newInterval.end, interval.end);
@@ -30,7 +30,7 @@ public class InsertInterval {
     while (i < intervalList.size() && intervalList.get(i)[1] < newInterval[0]) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i)[0] <= newInterval[1]) {
+    while (i < intervalList.size() && intervalList.get(i)[1] >= newInterval[0]) {
       int[] interval = intervalList.remove(i);
       newInterval[0] = min(newInterval[0], interval[0]);
       newInterval[1] = max(newInterval[1], interval[1]);

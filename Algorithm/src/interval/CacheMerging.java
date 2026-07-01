@@ -18,7 +18,7 @@ public class CacheMerging {
     while (i < intervalList.size() && getEnd(intervalList.get(i)) < newInterval.start) {
       i++;
     }
-    while (i < intervalList.size() && intervalList.get(i).start <= getEnd(newInterval)) {
+    while (i < intervalList.size() && getEnd(intervalList.get(i)) >= newInterval.start) {
       Interval interval = intervalList.remove(i);
       int start = min(interval.start, newInterval.start);
       int end   = max(getEnd(interval), getEnd(newInterval));
