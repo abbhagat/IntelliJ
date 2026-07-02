@@ -12,6 +12,6 @@ public class NotificationSystem {
     } catch (Exception e) {
       retryHandler.retry(notification, notificationChannel);
     }
-    notificationService.getExecutor().shutdown();
+    notificationService.getExecutorService().shutdown();
   }
 }

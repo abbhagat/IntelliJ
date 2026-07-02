@@ -2,7 +2,7 @@ package lld.notificationsystem;
 
 public class RetryHandler {
 
-  private static final int MAX_RETRIES = 3;
+  private static final int MAX_RETRIES = 5;
 
   public void retry(Notification notification, NotificationChannel channel) {
     int attempts = 1;

@@ -11,10 +11,10 @@ public class NotificationService {
 
   // Because sending notifications is a slow, I/O-bound task, and you usually don’t want it to block the main thread.
   @Getter
-  private final ExecutorService executor;
+  private final ExecutorService executorService;
 
   public NotificationService(int numThread) {
-    this.executor = Executors.newFixedThreadPool(numThread);
+    this.executorService = Executors.newFixedThreadPool(numThread);
   }
 
   public void sendAsync(Notification notification, NotificationChannel channel) {
@@ -22,6 +22,6 @@ public class NotificationService {
       boolean success = channel.send(notification);
       notification.setStatus(success ? SENT : FAILED);
     };
-    executor.submit(notificationTask);
+    executorService.submit(notificationTask);
   }
 }
