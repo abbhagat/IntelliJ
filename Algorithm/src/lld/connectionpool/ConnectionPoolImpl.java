@@ -33,6 +33,7 @@ public class ConnectionPoolImpl {
       });
     }
     executorService.shutdown();
+    // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first.
     executorService.awaitTermination(1, TimeUnit.MINUTES);
     connectionPool.stop();
   }
