@@ -21,6 +21,7 @@ public class ApiGatewayImpl {
     Service userService2  = new UserService();
     Service orderService1 = new OrderService();
     Service orderService2 = new OrderService();
+
     loadBalancer.setUserServiceList(List.of(userService1, userService2));
     loadBalancer.setOrderServiceList(List.of(orderService1, orderService2));
 
