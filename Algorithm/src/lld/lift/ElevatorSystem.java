@@ -12,7 +12,7 @@ public class ElevatorSystem {
   private final ExecutorService executorService;
 
   public ElevatorSystem(int numberOfElevators) {
-    bestElevator       = new BestElevator();
+    bestElevator    = new BestElevator();
     executorService = Executors.newFixedThreadPool(10);
     elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
