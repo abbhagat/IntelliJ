@@ -18,8 +18,9 @@ public class ParkingFloor {
     spots = new HashMap<>();
   }
 
-  public ParkingSpot getFreeSpot(SpotType type) {
-    for (ParkingSpot spot : spots.get(type)) {
+  public ParkingSpot getFreeSpot(SpotType spotType) {
+    List<ParkingSpot> parkingSpotList = spots.get(spotType);
+    for (ParkingSpot spot : parkingSpotList) {
       if (spot.isFree()) {
         return spot;
       }

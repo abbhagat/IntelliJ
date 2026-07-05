@@ -15,11 +15,11 @@ public class ParkingLot {
 
   private static ParkingLot parkingLot;
 
-  private List<ParkingFloor> floors;
+  private List<ParkingFloor> parkingFloors;
   private Map<String, ParkingTicket> activeTickets;
 
   private ParkingLot() {
-    floors = new ArrayList<>();
+    parkingFloors = new ArrayList<>();
     activeTickets = new ConcurrentHashMap<>();
   }
 
@@ -30,9 +30,19 @@ public class ParkingLot {
     return parkingLot;
   }
 
+  private ParkingTicket generateParkingTicket(ParkingSpot spot, Vehicle vehicle) {
+    return new ParkingTicket(UUID.randomUUID().toString(),
+        vehicle.getVehicleNumber(),
+        System.currentTimeMillis(),
+        spot
+    );
+  }
+
   public ParkingTicket parkVehicle(Vehicle vehicle) {
-    for (ParkingFloor parkingFloor : floors) {
-      ParkingSpot spot = parkingFloor.getFreeSpot(SpotType.valueOf(vehicle.getType().name()));
+    for (ParkingFloor parkingFloor : parkingFloors) {
+      String vehicleType = vehicle.getType().name();
+      SpotType spotType  = SpotType.valueOf(vehicleType);
+      ParkingSpot spot   = parkingFloor.getFreeSpot(spotType);
       if (spot != null) {
         spot.park(vehicle);
         ParkingTicket ticket = generateParkingTicket(spot, vehicle);
@@ -41,14 +51,6 @@ public class ParkingLot {
       }
     }
     throw new RuntimeException("Parking Full");
-  }
-
-  private ParkingTicket generateParkingTicket(ParkingSpot spot, Vehicle vehicle) {
-    return new ParkingTicket(UUID.randomUUID().toString(),
-        vehicle.getVehicleNumber(),
-        System.currentTimeMillis(),
-        spot
-    );
   }
 
   public double unParkVehicle(ParkingTicket parkingTicket) {
