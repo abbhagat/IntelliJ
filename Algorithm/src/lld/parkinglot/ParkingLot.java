@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static lld.parkinglot.ParkingFeeCalculator.calculateFee;
+
 @Getter
 @Setter
 public class ParkingLot {
@@ -39,7 +41,7 @@ public class ParkingLot {
 
   public ParkingTicket parkVehicle(Vehicle vehicle) {
     for (ParkingFloor parkingFloor : parkingFloors) {
-      String vehicleType = vehicle.getType().name();
+      String vehicleType = vehicle.getVehicleType().name();
       SpotType spotType  = SpotType.valueOf(vehicleType);
       ParkingSpot spot   = parkingFloor.getFreeSpot(spotType);
       if (spot != null) {
@@ -57,12 +59,12 @@ public class ParkingLot {
     if (ticket == null) {
       throw new RuntimeException("Invalid Ticket");
     }
-    ticket.getParkingSpot().unPark();
     activeTickets.remove(parkingTicket.getTicketId());
-    long duration = System.currentTimeMillis() - ticket.getEntryTime();
+    long parkDuration = System.currentTimeMillis() - ticket.getEntryTime();
     ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
     Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
-    String vehicleType = parkedVehicle.getType().name();
-    return ParkingFeeCalculator.calculateFee(duration, vehicleType);
+    String vehicleType = parkedVehicle.getVehicleType().name();
+    ticket.getParkingSpot().unPark();
+    return calculateFee(parkDuration, vehicleType);
   }
 }

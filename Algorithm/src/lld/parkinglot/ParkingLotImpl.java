@@ -15,26 +15,27 @@ public class ParkingLotImpl {
 
     // Create parking spots
     List<ParkingSpot> carSpots = new ArrayList<>();
-    carSpots.add(new ParkingSpot("C1", SpotType.CAR, true, null));
-    carSpots.add(new ParkingSpot("C2", SpotType.CAR, true, null));
+    carSpots.add(new ParkingSpot("S1", SpotType.CAR, true, null));
+    carSpots.add(new ParkingSpot("S2", SpotType.CAR, true, null));
+    carSpots.add(new ParkingSpot("S3", SpotType.CAR, true, null));
 
     floor1.getSpots().put(SpotType.CAR, carSpots);
 
     // Add floor to parking lot
-    parkingLot.getFloors().add(floor1);
+    parkingLot.getParkingFloors().add(floor1);
 
     // Create vehicle
-    Vehicle vehicle = new Car("KA01AB1234", VehicleType.CAR);
+    Vehicle vehicle = new Car("KA01MS1210", VehicleType.CAR);
 
     // Park vehicle
-    ParkingTicket ticket = parkingLot.parkVehicle(vehicle);
-    System.out.println("Vehicle parked. Ticket ID: " + ticket);
+    ParkingTicket parkingTicket = parkingLot.parkVehicle(vehicle);
+    System.out.println("Vehicle parked. Ticket ID: " + parkingTicket);
 
     // Simulate parking duration
     Thread.sleep(2000);
 
     // Unpark vehicle
-    double fee = parkingLot.unParkVehicle(ticket);
+    double fee = parkingLot.unParkVehicle(parkingTicket);
 
     System.out.println("Vehicle unparked. Fee: " + fee);
   }

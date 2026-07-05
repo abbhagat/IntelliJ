@@ -15,7 +15,7 @@ public class ParkingSpot {
   private Vehicle parkedVehicle;
 
   public synchronized void park(Vehicle vehicle) {
-    if (!isFree || !vehicle.getType().name().equals(spotType.name())) {
+    if (!isFree || !vehicle.getVehicleType().name().equals(spotType.name())) {
       return;
     }
     this.parkedVehicle = vehicle;

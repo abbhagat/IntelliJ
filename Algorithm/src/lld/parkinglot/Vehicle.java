@@ -12,10 +12,10 @@ import lombok.Setter;
 public abstract class Vehicle {
 
   private String vehicleNumber;
-  private VehicleType type;
+  private VehicleType vehicleType;
 
   @Override
   public String toString() {
-    return vehicleNumber + "\t" + type.name();
+    return vehicleNumber + "\t" + vehicleType.name();
   }
 }
