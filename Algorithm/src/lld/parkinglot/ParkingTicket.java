@@ -14,10 +14,10 @@ public class ParkingTicket {
   private String ticketId;
   private String vehicleNumber;
   private long entryTime;
-  private ParkingSpot spot;
+  private ParkingSpot parkingSpot;
 
   @Override
   public String toString() {
-    return ticketId + "\t" + vehicleNumber + "\t" + new Date(entryTime) + "\t" + spot;
+    return ticketId + "\t" + vehicleNumber + "\t" + new Date(entryTime) + "\t" + parkingSpot;
   }
 }

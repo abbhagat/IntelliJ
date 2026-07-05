@@ -30,12 +30,11 @@ public class ParkingLot {
     return parkingLot;
   }
 
-  private ParkingTicket generateParkingTicket(ParkingSpot spot, Vehicle vehicle) {
-    return new ParkingTicket(UUID.randomUUID().toString(),
-        vehicle.getVehicleNumber(),
-        System.currentTimeMillis(),
-        spot
-    );
+  private ParkingTicket generateParkingTicket(ParkingSpot parkingSpot, Vehicle vehicle) {
+    String ticketId = UUID.randomUUID().toString();
+    String vehicleNumber = vehicle.getVehicleNumber();
+    long entryTime = System.currentTimeMillis();
+    return new ParkingTicket(ticketId, vehicleNumber,entryTime, parkingSpot);
   }
 
   public ParkingTicket parkVehicle(Vehicle vehicle) {
@@ -58,9 +57,12 @@ public class ParkingLot {
     if (ticket == null) {
       throw new RuntimeException("Invalid Ticket");
     }
-    ticket.getSpot().unPark();
+    ticket.getParkingSpot().unPark();
     activeTickets.remove(parkingTicket.getTicketId());
     long duration = System.currentTimeMillis() - ticket.getEntryTime();
-    return ParkingFeeCalculator.calculateFee(duration, parkingTicket.getSpot().getParkedVehicle().getType().name());
+    ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
+    Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
+    String vehicleType = parkedVehicle.getType().name();
+    return ParkingFeeCalculator.calculateFee(duration, vehicleType);
   }
 }
