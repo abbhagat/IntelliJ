@@ -21,25 +21,22 @@ public class BinaryTreeMaxWidth {
   private static int findMaxWidth(Node root) {
     Queue<Node> q = new LinkedList<>();
     q.add(root);
-    q.add(null);
     int width = 0, maxWidth = 0;
     while (!q.isEmpty()) {
-      Node node = q.poll();
-      if (node == null) {
-        maxWidth = max(maxWidth, width);
-        width = 0;
-      }
-      if (node != null) {
-        width++;
+      int size = q.size();
+      while (size != 0) {
+        Node node = q.poll();
         if (node.left != null) {
           q.add(node.left);
         }
         if (node.right != null) {
           q.add(node.right);
         }
-      } else if (!q.isEmpty()) {
-        q.add(null);
+        width++;
+        size--;
       }
+      maxWidth = max(maxWidth, width);
+      width = 0;
     }
     return maxWidth;
   }
