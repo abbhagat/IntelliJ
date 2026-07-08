@@ -5,13 +5,14 @@ import static trees.CreateBST.createBST;
 public class PrintAllLeafNodesOfABinaryTree {
 
   private static void printLeafNodes(Node root) {
-    if (root != null) {
-      if (root.left == null && root.right == null) {
-        System.out.println(root.num);
-      }
-      printLeafNodes(root.left);
-      printLeafNodes(root.right);
+    if (root == null) {
+      return;
     }
+    if (root.left == null && root.right == null) {
+      System.out.println(root.num);
+    }
+    printLeafNodes(root.left);
+    printLeafNodes(root.right);
   }
 
   public static void main(String[] args) {

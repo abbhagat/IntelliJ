@@ -6,11 +6,11 @@ import java.util.Set;
 import static trees.CreateBST.createBST;
 
 /*
-                     15
-                  /     \
-                10      20
-               / \     /  \
-              8  12   16  25
+                    15
+                  /   \
+                10     20
+               / \    /  \
+              8  12  16  25
  */
 
 public class PairWithGivenSumInBalancedBST {

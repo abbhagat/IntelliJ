@@ -3,7 +3,6 @@ package trees;
 public class Node {
 
   public int num;
-
   public Node left, right;
 
   public Node() {}
