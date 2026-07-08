@@ -27,7 +27,7 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
   }
 
   private static void findPath(Node root, int k, LinkedList<Integer> list) {
-    if (root == null) {
+    if (root == null || k < 0) {
       return;
     }
     list.add(root.num);

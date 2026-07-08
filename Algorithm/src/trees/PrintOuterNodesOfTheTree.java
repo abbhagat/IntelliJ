@@ -3,24 +3,23 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Time Complexity: O(N)
+// Space Complexity: O(W) Where W is the maximum width of the binary tree (maximum number of nodes at any level).
 public class PrintOuterNodesOfTheTree {
 
   private static void printOuterNodes(Node root) {
-    if (root == null) {
-      return;
-    }
     Queue<Node> q = new LinkedList<>();
     q.add(root);
     boolean flag = true;
     while (!q.isEmpty()) {
       int size = q.size();
       Node first = null, last = null;
-      for (int i = 0; i < size; i++) {
+      for (int i = 1; i <= size; i++) {
         Node node = q.poll();
-        if (i == 0) {
+        if (i == 1) {
           first = node;
         }
-        if (i == size - 1) {
+        if (i == size) {
           last = node;
         }
         if (node.left != null) {
@@ -30,10 +29,10 @@ public class PrintOuterNodesOfTheTree {
           q.add(node.right);
         }
       }
-      if (first == last) {
+      if (size == 1) {
         System.out.println(first.num);
       } else {
-        System.out.println(flag  ? first.num + " " + last.num : last.num + " " + first.num);
+        System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
       }
       flag = !flag;
     }
