@@ -13,26 +13,30 @@ public class PrintOuterNodesOfTheTree {
     boolean flag = true;
     while (!q.isEmpty()) {
       int size = q.size();
-      Node first = null, last = null;
+      int first = 0, last = 0;
       for (int i = 1; i <= size; i++) {
         Node node = q.poll();
-        if (i == 1) {
-          first = node;
-        }
-        if (i == size) {
-          last = node;
-        }
-        if (node.left != null) {
-          q.add(node.left);
-        }
-        if (node.right != null){
-          q.add(node.right);
+        if (node != null) {
+          if (i == 1) {
+            first = node.num;
+          }
+          if (i == size) {
+            last = node.num;
+          }
+          if (node.left != null) {
+            q.add(node.left);
+          }
+          if (node.right != null) {
+            q.add(node.right);
+          }
         }
       }
       if (size == 1) {
-        System.out.println(first.num);
+        System.out.println(first);
+      } else if (flag) {
+        System.out.println(first + " " + last);
       } else {
-        System.out.println(flag ? first.num + " " + last.num : last.num + " " + first.num);
+        System.out.println(last + " " + first);
       }
       flag = !flag;
     }
