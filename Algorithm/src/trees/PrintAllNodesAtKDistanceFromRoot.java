@@ -4,7 +4,7 @@ package trees;
 // Space Complexity: O(H) H is the height of the binary tree.
 public class PrintAllNodesAtKDistanceFromRoot {
 
-  private static void printKDistNodes(Node root, int level) {
+  public static void printKDistanceNodes(Node root, int level) {
     if (root == null || level < 0) {
       return;
     }
@@ -12,8 +12,8 @@ public class PrintAllNodesAtKDistanceFromRoot {
       System.out.print(root.num + " ");
       return;
     }
-    printKDistNodes(root.left,  level - 1);
-    printKDistNodes(root.right, level - 1);
+    printKDistanceNodes(root.left,  level - 1);
+    printKDistanceNodes(root.right, level - 1);
   }
 
   public static void main(String[] args) {
@@ -32,12 +32,12 @@ public class PrintAllNodesAtKDistanceFromRoot {
     root.left.left      = new Node(4);
     root.left.right     = new Node(5);
     root.left.left.left = new Node(6);
-    printKDistNodes(root, 0);
+    printKDistanceNodes(root, 0);
     System.out.println();
-    printKDistNodes(root, 1);
+    printKDistanceNodes(root, 1);
     System.out.println();
-    printKDistNodes(root, 2);
+    printKDistanceNodes(root, 2);
     System.out.println();
-    printKDistNodes(root, 3);
+    printKDistanceNodes(root, 3);
   }
 }
