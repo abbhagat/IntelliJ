@@ -4,12 +4,12 @@ import static trees.CreateBST.createBST;
 
 public class SearchBST {
 
-  public static Node searchBST(Node root, int num) {
+  public static boolean searchBST(Node root, int num) {
     if (root == null) {
-      return null;
+      return false;
     }
     if (root.num == num) {
-      return root;
+      return true;
     }
     return num < root.num ? searchBST(root.left, num) : searchBST(root.right, num);
   }

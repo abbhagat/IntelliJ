@@ -9,10 +9,10 @@ public class RootToLeafLongestPath {
     if (root == null) {
       return new ArrayList<>();
     }
-    List<Integer> leftList  = longestPath(root.left);
-    List<Integer> rightList = longestPath(root.right);
-    boolean b = leftList.size() > rightList.size() ? leftList.add(root.num) : rightList.add(root.num);
-    return leftList.size() > rightList.size() ? leftList : rightList;
+    List<Integer> lL = longestPath(root.left);
+    List<Integer> rL = longestPath(root.right);
+    boolean b = lL.size() > rL.size() ? lL.add(root.num) : rL.add(root.num);
+    return      lL.size() > rL.size() ? lL : rL;
   }
 
   public static void main(String[] args) {

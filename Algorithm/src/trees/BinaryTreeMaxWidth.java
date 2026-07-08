@@ -26,14 +26,16 @@ public class BinaryTreeMaxWidth {
       int size = q.size();
       while (size != 0) {
         Node node = q.poll();
-        if (node.left != null) {
-          q.add(node.left);
+        if (node != null) {
+          if (node.left != null) {
+            q.add(node.left);
+          }
+          if (node.right != null) {
+            q.add(node.right);
+          }
+          width++;
+          size--;
         }
-        if (node.right != null) {
-          q.add(node.right);
-        }
-        width++;
-        size--;
       }
       maxWidth = max(maxWidth, width);
       width = 0;

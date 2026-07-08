@@ -23,7 +23,9 @@ public class BinaryTreeMinimumHeight {
     if (root.right == null) {
       return 1 + treeMinHeight(root.left);
     }
-    return 1 + min(treeMinHeight(root.left), treeMinHeight(root.right));
+    int lH = treeMinHeight(root.left);
+    int rH = treeMinHeight(root.right);
+    return 1 + min(lH, rH);
   }
 
   public static void main(String[] args) {

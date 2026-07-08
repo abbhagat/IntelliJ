@@ -10,7 +10,7 @@ public class RootToLeafPathSum {
     }
     sum += root.num;
     if (root.left == null && root.right == null) {
-      System.out.println(sum);
+      System.out.print(sum + " ");
       return;
     }
     rootToLeafPathSum(root.left,  sum);
@@ -23,7 +23,7 @@ public class RootToLeafPathSum {
     }
     list.add(root.num);
     if (root.left == null && root.right == null) {
-      System.out.println(list.stream().reduce(Integer::sum).get());
+      System.out.print(list.stream().reduce(Integer::sum).get() + " ");
       return;
     }
     rootToLeafPathSum(root.left,  list);
