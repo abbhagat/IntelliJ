@@ -1,6 +1,6 @@
 package trees;
 
-import static trees.PrintAllNodesAtKDistanceFromRoot.printKDistanceNodes;
+import static trees.PrintAllNodesAtKDistanceFromRoot.printKDistanceNodesFromRoot;
 
 // Time Complexity: O(n)
 public class PrintAllNodesAtKDistanceFromTarget {
@@ -10,7 +10,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
       return -1;
     }
     if (root == target) {
-      printKDistanceNodes(root, k);
+      printKDistanceNodesFromRoot(root, k);
       return 0;
     }
     int dl = printKDistanceNode(root.left, target, k);  // dl is the distance of root's left child from target
@@ -18,7 +18,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
       if (dl + 1 == k) {   // If root is at distance k from target, print root
         System.out.print(root.num);
       } else {
-        printKDistanceNodes(root.right, k - dl - 2);  // Else go to right subtree and print all k-dl-2 distant nodes Note that the right child is 2 edges away from the left child
+        printKDistanceNodesFromRoot(root.right, k - dl - 2);  // Else go to right subtree and print all k-dl-2 distant nodes Note that the right child is 2 edges away from the left child
       }
       return dl + 1;   // Add 1 to the distance and return value for parent calls
     }
@@ -28,7 +28,7 @@ public class PrintAllNodesAtKDistanceFromTarget {
       if (dr + 1 == k) {
         System.out.print(root.num);
       } else {
-        printKDistanceNodes(root.left, k - dr - 2);
+        printKDistanceNodesFromRoot(root.left, k - dr - 2);
       }
       return dr + 1;
     }
