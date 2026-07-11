@@ -19,6 +19,6 @@ public class CalculateSizeOfObject {
     os.writeObject(emp);
     File file = new File("Employee.txt");
     System.out.println(file.length() + " bytes");
-//    System.out.println(ClassLayout.parseInstance(emp).toPrintable());
+//  System.out.println(ClassLayout.parseInstance(emp).toPrintable());
   }
 }
