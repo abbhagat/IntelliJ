@@ -34,7 +34,7 @@ public class MinTapsToWaterGarden {
         }
       }
       if (max == min) {
-        return -1;       // If max is not updated in this loop, it means we can't extend the reach further. Return -1 as it's not possible.
+        return -1;     // If max is not updated in this loop, it means we can't extend the reach further. Return -1 as it's not possible.
       }
       count++;       // Increment the count of taps used.
       min = max;    // Update the minimum reach to the newly reached maximum position.

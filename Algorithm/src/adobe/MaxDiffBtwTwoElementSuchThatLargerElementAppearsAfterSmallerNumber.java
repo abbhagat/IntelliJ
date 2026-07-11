@@ -12,10 +12,11 @@ import static java.lang.Integer.max;
 public class MaxDiffBtwTwoElementSuchThatLargerElementAppearsAfterSmallerNumber {
 
   private static int maxDiff(int[] a) {
-    int prevDiff = a[1] - a[0], maxDiff = prevDiff;
+    int prevDiff = a[1] - a[0];
+    int maxDiff  = prevDiff;
     for (int i = 2; i < a.length; i++) {
       int currDiff = a[i] - a[i - 1];
-      prevDiff = prevDiff > 0 ? prevDiff + currDiff : currDiff; // prevDiff = currDiff + max(prevDiff, 0);
+      prevDiff = prevDiff > 0 ? prevDiff + currDiff : currDiff;
       maxDiff  = max(maxDiff, prevDiff);
     }
     return maxDiff;

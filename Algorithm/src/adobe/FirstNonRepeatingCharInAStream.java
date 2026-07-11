@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 // Space Complexity : O(n)
 public class FirstNonRepeatingCharInAStream {
 
-  private static void firstNoRepeatingChars(char[] a) {
+  private static void firstNonRepeatingChar(char[] a) {
     Map<Character, Integer> map = new LinkedHashMap<>();
     for (char x : a) {
       map.put(x, map.getOrDefault(x, 0) + 1);
@@ -40,6 +40,6 @@ public class FirstNonRepeatingCharInAStream {
   public static void main(String[] args) {
     firstNonRepeatingChar(Stream.of('a', 'a', 'b', 'b', 'c', 'd'));
     firstNonRepeatingChar(Stream.of('a', 'b', 'b', 'c', 'c', 'e'));
-    firstNoRepeatingChars(new char[]{'a', 'b', 'b', 'c', 'c', 'e'});
+    firstNonRepeatingChar(new char[]{'a', 'b', 'b', 'c', 'c', 'e'});
   }
 }

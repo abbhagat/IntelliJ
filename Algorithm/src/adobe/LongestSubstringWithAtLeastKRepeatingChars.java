@@ -17,7 +17,7 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
       if (map.get(c) < k) {
         Index left  = longestSubString(s, start, i, k);
         Index right = longestSubString(s, i + 1, end, k);
-        return (left.length >= right.length) ? left : right;
+        return left.length >= right.length ? left : right;
       }
     }
     return new Index(start, end, end - start);
