@@ -15,7 +15,8 @@ class PrinterThreads implements Runnable {
 
   public PrinterThreads(int threadId) {
     this.threadId = threadId;
-    new Thread(this, "Thread - " + threadId).start();
+    Thread thread = new Thread(this, "Thread - " + threadId);
+    thread.start();
   }
 
   @Override

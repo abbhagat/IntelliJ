@@ -9,7 +9,8 @@ class PrinterThreadForNaturalNumber implements Runnable {
 
   public PrinterThreadForNaturalNumber(int threadID) {
     this.threadID = threadID;
-    new Thread(this, "Thread-" + threadID).start();
+    Thread thread = new Thread(this, "Thread-" + threadID);
+    thread.start();
   }
 
   @Override

@@ -40,7 +40,8 @@ class Producer1 implements Runnable {
 
   public Producer1(QQ q) {
     this.q = q;
-    new Thread(this, "Producer").start();
+    Thread thread = new Thread(this, "Producer");
+    thread.start();
   }
 
   @Override
@@ -58,7 +59,8 @@ class Consumer1 implements Runnable {
 
   public Consumer1(QQ q) {
     this.q = q;
-    new Thread(this, "Consumer").start();
+    Thread thread = new Thread(this, "Consumer");
+    thread.start();
   }
 
   @Override
