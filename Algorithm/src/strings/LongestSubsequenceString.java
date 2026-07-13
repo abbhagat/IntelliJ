@@ -17,7 +17,8 @@ public class LongestSubsequenceString {
         s = String.valueOf(c[i]);
       }
     }
-    return max.length() < s.length() ? s : max;
+    max = max.length() < s.length() ? s : max;
+    return max;
   }
 
   public static void main(String[] args) {

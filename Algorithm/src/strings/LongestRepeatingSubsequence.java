@@ -3,7 +3,7 @@ package strings;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongestRepeatingSubsquence {
+public class LongestRepeatingSubsequence {
 
   public static Map<String, Integer> longestRepeatingSubsequence(String str) {
     char[] c = str.toCharArray();
@@ -17,7 +17,7 @@ public class LongestRepeatingSubsquence {
         if (diff == 0) {
           continue;
         }
-        map.put(s, map.getOrDefault(s, 0) + 1);  // map.merge(s, 1, Integer::sum);
+        map.put(s, map.getOrDefault(s, 0) + 1);
         s = String.valueOf(c[i]);
       }
     }
@@ -26,13 +26,13 @@ public class LongestRepeatingSubsquence {
   }
 
   public static void main(String[] args) {
-    Map<String, Integer> hm = longestRepeatingSubsequence("abcxyzabcmnoabcxyzzzzzzabczzzzzzpqrijklxyz");
+    Map<String, Integer> map = longestRepeatingSubsequence("abcxyzabcmnoabcxyzzzzzzabczzzzzzpqrijklxyz");
     String str = null;
     int max = 0;
-    for (Map.Entry<String, Integer> map : hm.entrySet()) {
-      if (max < map.getValue()) {
-        str = map.getKey();
-        max = map.getValue();
+    for (Map.Entry<String, Integer> entrySet : map.entrySet()) {
+      if (max < entrySet.getValue()) {
+          str = entrySet.getKey();
+          max = entrySet.getValue();
       }
     }
     System.out.println(str + " " + max);
