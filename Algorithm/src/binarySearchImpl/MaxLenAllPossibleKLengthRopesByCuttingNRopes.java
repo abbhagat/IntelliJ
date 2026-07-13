@@ -24,7 +24,7 @@ import java.util.Arrays;
  * Otherwise, update the value of high as (mid – 1).
  * After completing the steps, print the value of result as the result.
  */
-//  Time Complexity : O(N * log(max(arr)))
+//  Time Complexity  : O(N * log(max(arr)))
 //  Space Complexity : O(1)
 public class MaxLenAllPossibleKLengthRopesByCuttingNRopes {
 

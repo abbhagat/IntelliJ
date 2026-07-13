@@ -8,9 +8,9 @@ import static java.lang.Integer.max;
 public class SortCharacterByFreqInString {
 
   private static String sortCharByFreq(String str) {
-    Map<Character, Integer> map = new HashMap<>();
     StringBuilder sb = new StringBuilder();
     Map<Character, Integer> sortedMap = new LinkedHashMap<>();
+    Map<Character, Integer> map = new HashMap<>();
     str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     map.entrySet()
        .stream()

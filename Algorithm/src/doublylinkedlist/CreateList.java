@@ -2,8 +2,8 @@ package doublylinkedlist;
 
 public class CreateList {
 
-  static Node temp, head, last;
-  public static int size = 0;
+  static Node head, temp, last;
+  static int size = 0;
 
   public static Node createList(int num, Node node) {
     if (node == null) {

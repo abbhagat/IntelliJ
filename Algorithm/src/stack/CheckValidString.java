@@ -22,12 +22,12 @@ public class CheckValidString {
   public static boolean checkValidString(String exp) {
     int min = 0;
     int max = 0;
-    for (char ch : exp.toCharArray()) {
-      if (ch == '(') {  // If current char is '('
+    for (char c : exp.toCharArray()) {
+      if (c == '(') {  // If current char is '('
         min++;
         max++;
       }
-      else if (ch == ')') {  // If current char is ')'
+      else if (c == ')') {  // If current char is ')'
         min--;
         max--;
       } else {    // If current char is '*'
