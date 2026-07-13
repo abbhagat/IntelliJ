@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class StringEachOtherPermutation {
 
   private static boolean isPermutation(char[] c1, char[] c2) {
@@ -9,12 +11,7 @@ public class StringEachOtherPermutation {
         temp[c1[i]]++;
         temp[c2[i]]--;
       }
-      for (int x : temp) {
-        if (x != 0) {
-          return false;
-        }
-      }
-      return true;
+      return Arrays.stream(temp).allMatch(x -> x == 0);
     }
     return false;
   }

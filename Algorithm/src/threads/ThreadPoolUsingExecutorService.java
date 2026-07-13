@@ -18,7 +18,8 @@ public class ThreadPoolUsingExecutorService {
     public WorkerThread(int threadId, String message) {
       this.threadId = threadId;
       this.message = message;
-      new Thread(this, "Thread " + threadId).start();
+      Thread thread = new Thread(this, "Thread " + threadId);
+      thread.start();
     }
 
     @Override
@@ -33,7 +34,7 @@ public class ThreadPoolUsingExecutorService {
 
     @Override
     public String call() {
-      System.out.println(Thread.currentThread().getName());
+      System.out.println(Thread.currentThread().getName() + " " + this.message);
       return "Worker Thread Execution";
     }
   }*/

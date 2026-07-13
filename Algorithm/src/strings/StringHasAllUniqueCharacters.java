@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class StringHasAllUniqueCharacters {
 
   private static boolean hasAllUniqueChar(String s) {
@@ -7,12 +9,7 @@ public class StringHasAllUniqueCharacters {
     for (char c : s.toLowerCase().toCharArray()) {
       temp[c - 'a']++;
     }
-    for (int x : temp) {
-      if (x > 1) {
-        return false;
-      }
-    }
-    return true;
+    return Arrays.stream(temp).allMatch(x -> x <= 1);
   }
 
   public static void main(String[] args) {

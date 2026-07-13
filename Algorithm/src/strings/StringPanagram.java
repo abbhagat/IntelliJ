@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class StringPanagram {
 
   private static boolean isPanagram(String s) {
@@ -9,12 +11,7 @@ public class StringPanagram {
         temp[c - 'a']++;
       }
     }
-    for (int x : temp) {
-      if (x == 0) {
-        return false;
-      }
-    }
-    return true;
+    return Arrays.stream(temp).allMatch(x -> x > 0);
   }
 
   public static void main(String[] args) {
