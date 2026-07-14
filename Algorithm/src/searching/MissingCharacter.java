@@ -3,17 +3,17 @@ package searching;
 public class MissingCharacter {
 
   private static char findMissingCharacter(String str) {
-    char[] c = str.toLowerCase().toCharArray();
-    char min = c[0], max = c[0];
-    int sum1 = 0, sum2 = 0;
-    for (char x : c) {
-      max = max < x ? x : max;
-      min = min > x ? x : min;
-      sum2 += x;
+    char[] a = str.toLowerCase().toCharArray();
+    char min = a[0], max = a[0];
+    int sum1 = 0;
+    for (char c : a) {
+      max = max < c ? c : max;
+      min = min > c ? c : min;
+      sum1 += c;
     }
-    int n = max - min + 1;
-    sum1  = n * (min + max) / 2;
-    return (char) (sum1 - sum2);
+    int n = a.length + 1;
+    int sum2  = n * (min + max) / 2;
+    return (char) (sum2 - sum1);
   }
 
   public static void main(String[] args) {

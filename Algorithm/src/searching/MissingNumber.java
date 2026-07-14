@@ -8,7 +8,7 @@ public class MissingNumber {
     int sum2 = Arrays.stream(a).sum();
     int min  = Arrays.stream(a).min().getAsInt();
     int max  = Arrays.stream(a).max().getAsInt();
-    int n    = max - min + 1;
+    int n    = a.length + 1;
     int sum1 = n * (min + max) / 2;
     return (char) (sum1 - sum2);
   }
