@@ -12,6 +12,7 @@ import java.io.*;
  */
 class Emp implements Externalizable {
 
+  @Serial
   private static final long serialVersionUID = 1L;
   static long z = 300L;
   transient int x = 10;

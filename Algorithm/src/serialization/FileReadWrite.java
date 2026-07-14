@@ -8,8 +8,8 @@ import java.io.IOException;
 public class FileReadWrite {
 
   public static void main(String[] args) throws IOException {
-    FileReader fileReader = new FileReader("C:\\Users\\Admin\\Downloads\\IntelliJ.pdf");
-    FileWriter fileWriter = new FileWriter("C:\\Users\\Admin\\Downloads\\License.txt");
+    FileReader fileReader = new FileReader("C:\\Users\\Abhin\\OneDrive\\Desktop\\Form-16.pdf");
+    FileWriter fileWriter = new FileWriter("C:\\Users\\Abhin\\OneDrive\\Desktop\\Form-16-A.pdf");
     BufferedReader R = new BufferedReader(fileReader);
     StringBuilder sb = new StringBuilder();
     String s;
