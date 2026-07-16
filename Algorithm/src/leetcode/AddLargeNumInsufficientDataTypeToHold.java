@@ -2,6 +2,7 @@ package leetcode;
 
 import static java.lang.Integer.max;
 
+// Time Complexity : O(n
 public class AddLargeNumInsufficientDataTypeToHold {
 
   private static StringBuilder add(String num1, String num2) {

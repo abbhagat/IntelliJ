@@ -64,7 +64,7 @@ public class FindPairCountWithSumDivisibleByK {
     System.out.println(findPairs(c, 5) + "\t" + countPairs(c, 5) + "\t" + findPairCount(c, 5));
     System.out.println("------------------------");
 
-    c = new int[]{74, 66, 48, 11};
-    System.out.println(findPairs(c, 13) + "\t" + countPairs(c, 13) + "\t" + findPairCount(c, 13));
+    c = new int[]{1, 2, 3, 4};
+    System.out.println(findPairs(c, 2) + "\t" + countPairs(c, 2) + "\t" + findPairCount(c, 2));
   }
 }

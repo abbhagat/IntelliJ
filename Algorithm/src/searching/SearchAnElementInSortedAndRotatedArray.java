@@ -7,14 +7,14 @@ public class SearchAnElementInSortedAndRotatedArray {
 
   private static int pivotedBinarySearch(int[] a, int n) {
     int low = 0, high = a.length - 1;
-    int pivot = findPivot(a);
-    if (pivot == high) {
+    int pivotIndex = findPivot(a);
+    if (pivotIndex == high) {
       return binarySearch(a, low, high, n);
     }
-    if (a[pivot] == n) {
-      return pivot;
+    if (a[pivotIndex] == n) {
+      return pivotIndex;
     }
-    return a[low] > n ? binarySearch(a, pivot + 1, high, n) : binarySearch(a, low, pivot - 1, n);
+    return a[low] > n ? binarySearch(a, pivotIndex + 1, high, n) : binarySearch(a, low, pivotIndex - 1, n);
   }
 
   private static int findPivot(int[] a) {  // same as finding max in a rotated sorted array
