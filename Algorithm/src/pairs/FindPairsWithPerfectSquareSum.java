@@ -35,7 +35,7 @@ public class FindPairsWithPerfectSquareSum {
     int count = 0;
     for (int target : list) {
       int y = target - x;
-      if (y > x && set.contains(y)) {       // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
+      if (set.contains(y) && y > x) {       // y > x is checked so that pairs (x, y) and (y, x) don't get counted twice
         System.out.print("(" + x + "," + y + ")" + "  ");
         count++;
       }
