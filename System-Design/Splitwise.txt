@@ -22,7 +22,7 @@ We need to create the following tables:-
 5. BALANCE_SHEET
 
 |-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
-|           1. GROUP                                 |       |       2. USER                           |          |   3. USER_TO_GROUP    |
+|                   1. GROUP                         |       |                2. USER                  |          |   3. USER_TO_GROUP    |
 |-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
 |GROUP_ID     GROUP_NAME     GROUP_COUNT     ADMIN_ID|       |   USER_ID  USER_NAME   EMAIL  PHONE_NUM |          | USER_ID   GROUP_ID    |
 |-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
@@ -31,9 +31,9 @@ We need to create the following tables:-
 |   3           G3               4             C     |       |     C                                   |          |  C          1         |
 |-----------------------------------------------------       |-----------------------------------------|          |-----------------------|
 
-Let's say A purchase Rs 100 milk and add it to the EXPENSE table as shown below.
+  Let's say A purchase Rs 100 milk and add it to the EXPENSE table as shown below.
 
---------------------------------------------------------------------------------|
+|-------------------------------------------------------------------------------|
 |                             EXPENSE                                           |
 |-------------------------------------------------------------------------------|
 |EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP    COMMENTS  |
@@ -104,8 +104,8 @@ ID   FROM_USER       TO_USER     AMOUNT  GROUP_ID  TIMESTAMP
 |EXP_ID  USER_ID    AMOUNT  GROUP_ID    SPLIT_TYPE       TIMESTAMP      COMMENTS  |
 |---------------------------------------------------------------------------------|
 |   1      A         100       1          Equal            SYSDATE       Milk     |
-|   2      A         200       1          Equal            SYSDATE       Milk     |
-|   3      B         500       1          Equal            SYSDATE      Dinner    |
+|   2      A         200       1          Equal            SYSDATE       Pizza    |
+|   3      B         500       1          Equal            SYSDATE       Dinner   |
 |---------------------------------------------------------------------------------|
 
 Rs 500/2 = Rs 250 + Scan Table to check for due amount for Each User in the group except the payee

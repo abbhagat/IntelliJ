@@ -11,11 +11,11 @@ Question To be asked from Interviewer :-
 1. Length of the short URL to start with 7 character. Explore Options
 2. What is the scale at which the system should perform. Traffic/How many unique URL request will be coming.
 3. Till what duration we need to persist the url ? 10 years
-4. Character Set included a-zA-Z0-9
+4. Character Set included [a-z,A-Z,0-9]
 
 Capacity Estimation:-
 
-Character Set to be used for generating short url A-Za-z0-9 = 62 characters.
+Character Set to be used for generating short url [a-z,A-Z,0-9] = 62 characters.
 If length of short url is y = 1 we can handle 62^1 unique short urls
 If length of short url is y = 2 we can handle 62^2 unique short urls
 
