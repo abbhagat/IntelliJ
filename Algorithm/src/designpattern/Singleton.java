@@ -10,7 +10,9 @@ public class Singleton implements Cloneable, Serializable {
   private static Singleton singleton;
 
   private Singleton() {
-    throw new RuntimeException("Can't instantiate singleton twice");
+    if (null != singleton) {
+      throw new RuntimeException("Use getInstance()");
+    }
   }
 
   public static Singleton getInstance() {
@@ -32,5 +34,10 @@ public class Singleton implements Cloneable, Serializable {
   @Override
   public Object clone() {
     return getInstance();
+  }
+
+  public static void main(String[] args) {
+    Singleton singleton = Singleton.getInstance();
+    System.out.println(singleton.hashCode() + "\t" + Singleton.getInstance().hashCode());
   }
 }

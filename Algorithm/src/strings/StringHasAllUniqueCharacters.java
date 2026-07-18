@@ -6,8 +6,9 @@ public class StringHasAllUniqueCharacters {
 
   private static boolean hasAllUniqueChar(String s) {
     int[] temp = new int[26];
-    for (char c : s.toLowerCase().toCharArray()) {
-      temp[c - 'a']++;
+    char[] c = s.toLowerCase().toCharArray();
+    for (char x : c) {
+      temp[x - 'a']++;
     }
     return Arrays.stream(temp).allMatch(x -> x <= 1);
   }

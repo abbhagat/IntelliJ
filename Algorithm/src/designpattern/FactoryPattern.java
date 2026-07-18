@@ -29,7 +29,6 @@ class Rectangle implements Shape {
   }
 }
 
-
 class ShapeFactory {
 
   public Shape getShape(String shape) {

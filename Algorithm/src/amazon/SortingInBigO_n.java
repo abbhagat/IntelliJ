@@ -1,13 +1,12 @@
 package amazon;
 
+import static util.CommonUtils.printArray;
+import static util.CommonUtils.swap;
+
 /*
   I/P :- int[] a = { 4, 3, 2, 0, 1 };
   O/P :- int[] a = { 0, 1, 2, 3, 4 };
 */
-
-import static util.CommonUtils.printArray;
-import static util.CommonUtils.swap;
-
 // Time  Complexity  O(n)
 public class SortingInBigO_n {
 

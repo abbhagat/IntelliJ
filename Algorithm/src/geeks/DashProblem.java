@@ -22,7 +22,7 @@ public class DashProblem {
         continue;
       }
       boolean isEven = a[i] % 2 == 0;
-      boolean isOdd  = a[i] % 2 != 0;
+      boolean isOdd  = a[i] % 2 == 1;
       if (isEven && prevEven) {
         sb.append("*");
       }

@@ -5,23 +5,6 @@ import java.util.Map;
 
 public class CheckCharCanBeReArrangedToFormPalindrome {
 
-  private static boolean canFormPalindrome(String s) {
-    int[] temp = new int[128];
-    for(char c : s.toCharArray()) {
-      temp[c]++;
-    }
-    int count = 0;
-    for (int x : temp) {
-      if (x % 2 == 1) {
-        count++;
-      }
-      if (count > 1) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   private static boolean canFormPalindromeUsingMap(String s) {
     Map<Character, Integer> map = new LinkedHashMap<>();
     s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
@@ -38,12 +21,6 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
   }
 
   public static void main(String[] args) {
-    System.out.println(canFormPalindrome("aad"));
-    System.out.println(canFormPalindrome("geeksforgeeks"));
-    System.out.println(canFormPalindrome("geeksogeeks"));
-    System.out.println(canFormPalindrome("eeekkk"));
-    System.out.println(canFormPalindrome("ekekeke"));
-    System.out.println("----------------------");
     System.out.println(canFormPalindromeUsingMap("aad"));
     System.out.println(canFormPalindromeUsingMap("geeksforgeeks"));
     System.out.println(canFormPalindromeUsingMap("geeksogeeks"));
