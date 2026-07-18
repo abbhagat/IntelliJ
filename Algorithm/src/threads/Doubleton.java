@@ -11,7 +11,7 @@ public class Doubleton implements Serializable, Cloneable {
 
   private static volatile Doubleton instance1;
   private static volatile Doubleton instance2;
-  private static final AtomicInteger index = new AtomicInteger(0);
+  private static final AtomicInteger ai = new AtomicInteger(0);
   private static boolean initialized = false;
 
   private Doubleton() {
@@ -36,7 +36,7 @@ public class Doubleton implements Serializable, Cloneable {
         }
       }
     }
-    return (index.getAndIncrement() % 2 == 0) ? instance1 : instance2;
+    return (ai.getAndIncrement() % 2 == 0) ? instance1 : instance2;
   }
 
   @Serial

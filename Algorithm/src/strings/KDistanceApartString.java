@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class KDistanceApartString {
 
   public static void main(String[] args) {

@@ -8,13 +8,13 @@ import java.io.IOException;
 public class FileReadWrite {
 
   public static void main(String[] args) throws IOException {
-    FileReader fileReader = new FileReader("C:\\Users\\Abhin\\OneDrive\\Desktop\\Form-16.pdf");
-    FileWriter fileWriter = new FileWriter("C:\\Users\\Abhin\\OneDrive\\Desktop\\Form-16-A.pdf");
+    FileReader fileReader = new FileReader("C:\\Users\\Abhin\\OneDrive\\Desktop\\Main.txt");
+    FileWriter fileWriter = new FileWriter("C:\\Users\\Abhin\\OneDrive\\Desktop\\Main-A.txt");
     BufferedReader R = new BufferedReader(fileReader);
     StringBuilder sb = new StringBuilder();
     String s;
     while ((s = R.readLine()) != null) {
-      sb.append(s);
+      sb.append(s).append("\n");
     }
     System.out.println(sb);
     fileWriter.write(sb.toString());

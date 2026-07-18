@@ -12,6 +12,7 @@ public class ThreadLocalExample {
       value = threadLocal.get();
       System.out.println(Thread.currentThread().getName() + ": " + value);
     };
+    new Thread(runnable, "Thread-A").start();
     new Thread(runnable, "Thread-B").start();
   }
 }

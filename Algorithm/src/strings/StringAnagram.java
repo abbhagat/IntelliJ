@@ -18,6 +18,6 @@ public class StringAnagram {
 
   public static void main(String[] args) {
     System.out.println(isAnagram("Java", "vaJa"));
-    System.out.println(isAnagram("Cat", "Cut"));
+    System.out.println(isAnagram("Cat",  "Cut"));
   }
 }
