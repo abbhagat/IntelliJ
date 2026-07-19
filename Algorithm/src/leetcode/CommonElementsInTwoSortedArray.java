@@ -3,14 +3,14 @@ package leetcode;
 public class CommonElementsInTwoSortedArray {
 
   private static void commonElements(int[] a, int[] b) {
-    int i = 0, j = 0, k = 0;
+    int i = 0, j = 0;
     while (i < a.length && j < b.length) {
       if (a[i] == b[j]) {
         System.out.print(a[i] + " ");
         i++;
         j++;
       } else {
-        k = a[i] < b[j] ? i++ : j++;
+        int k = a[i] < b[j] ? i++ : j++;
       }
     }
     System.out.println();

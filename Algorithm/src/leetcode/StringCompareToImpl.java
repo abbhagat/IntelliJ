@@ -30,7 +30,7 @@ public class StringCompareToImpl {
   }
 
   public static void main(String[] args) {
-    System.out.println("Java".compareTo("Java") + "\t" + compareTo("Java", "Java"));
+    System.out.println("Java".compareTo("Java")  + "\t" + compareTo("Java", "Java"));
     System.out.println("Javaa".compareTo("Java") + "\t" + compareTo("Javaa", "Java"));
     System.out.println("Java".compareTo("Javaa") + "\t" + compareTo("Java", "Javaa"));
     System.out.println(null == null);

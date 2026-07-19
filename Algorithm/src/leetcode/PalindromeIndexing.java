@@ -20,7 +20,7 @@ public class PalindromeIndexing {
 
   public static void main(String[] args) {
     System.out.println("Palindrome Index : " + palindromeIndexing("MADAM".toCharArray()));
-    System.out.println("Palindrome Index : " + palindromeIndexing("MAXDAM".toCharArray()));
+    System.out.println("Palindrome Index : " + palindromeIndexing("MADXAM".toCharArray()));
     System.out.println("Palindrome Index : " + palindromeIndexing("MAXcghDAM".toCharArray()));
   }
 }
