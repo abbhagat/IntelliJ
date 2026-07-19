@@ -8,18 +8,25 @@ public class SummaryRanges {
 
   private static void printSummaryRanges(int[] a) {
     Arrays.sort(a);
-    int start = a[0], end = 0;
+    int start = a[0];
     for (int i = 1; i < a.length; i++) {
-      int diff = a[i] - a[i - 1];
-      if (diff == 1) {
-        end = a[i];
-      } else {
-        System.out.println(end == 0 ? start : start + "-" + end);
+      if (a[i] == a[i - 1]) {
+        continue;
+      }
+      if (a[i] != a[i - 1] + 1) {
+        if (start == a[i - 1]) {
+          System.out.println(start);
+        } else {
+          System.out.println(start + "-" + a[i - 1]);
+        }
         start = a[i];
-        end = 0;
       }
     }
-    System.out.println(end == 0 ? start : start + "-" + end);
+    if (start == a[a.length - 1]) {
+      System.out.println(start);
+    } else {
+      System.out.println(start + "-" + a[a.length - 1]);
+    }
   }
 
   public static void main(String[] args) {
