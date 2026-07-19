@@ -16,15 +16,15 @@ public class MeetingRoomsII {
     int i = 1, j = 0, n = 1, min = 1;                                      //   min = minimum rooms needed, n = current room needed
     while (i < intervalList.size() && j < intervalList.size()) {
       if (intervalList.get(i).start <= intervalList.get(j).end) {
-        min++;
+        n++;
         i++;
       } else {
-        min--;
+        n--;
         j++;
       }
-      n = max(n, min);
+      min = max(n, min);
     }
-    return n;
+    return min;
   }
 
   private static int findMinRooms(int[][] a) {
@@ -33,15 +33,15 @@ public class MeetingRoomsII {
     int i = 1, j = 0, n = 1, min = 1;       //   min = minimum rooms needed, n = current room needed
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
-        min++;
+        n++;
         i++;
       } else {
-        min--;
+        n--;
         j++;
       }
-      n = max(n, min);
+      min = max(n, min);
     }
-    return n;
+    return min;
   }
 
   public static void main(String[] args) {

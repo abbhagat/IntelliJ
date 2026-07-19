@@ -21,15 +21,15 @@ public class MinimumPlatforms {
     int i = 1, j = 0, n = 1, min = 1;   // min = minimum platforms needed, n = current platforms needed
     while (i < arr.length && j < dep.length) {
       if (arr[i] <= dep[j]) {
-        min++;    // new train arrives
+        n++;    // new train arrives
         i++;
       } else {
-        min--;    // train departs
+        n--;    // train departs
         j++;
       }
-      n = max(n, min);
+      min = max(min, n);
     }
-    return n;
+    return min;
   }
 
   private static int minPlatforms(int[][] a) {
@@ -38,15 +38,15 @@ public class MinimumPlatforms {
     int i = 1, j = 0, n = 1, min = 1;                  //   min = minimum platforms needed, n = current platforms needed
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
-        min++;
+        n++;
         i++;
       } else {
-        min--;
+        n--;
         j++;
       }
-      n = max(n, min);
+      min = max(n, min);
     }
-    return n;
+    return min;
   }
 
   public static void main(String[] args) {

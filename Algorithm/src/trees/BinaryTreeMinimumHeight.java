@@ -17,14 +17,8 @@ public class BinaryTreeMinimumHeight {
     if (root.left == null && root.right == null) {
       return 1;
     }
-    if (root.left == null) {
-      return 1 + treeMinHeight(root.right);
-    }
-    if (root.right == null) {
-      return 1 + treeMinHeight(root.left);
-    }
-    int lH = treeMinHeight(root.left);
-    int rH = treeMinHeight(root.right);
+    int lH = (root.left  == null) ? Integer.MAX_VALUE : treeMinHeight(root.left);
+    int rH = (root.right == null) ? Integer.MAX_VALUE : treeMinHeight(root.right);
     return 1 + min(lH, rH);
   }
 
