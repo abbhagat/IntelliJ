@@ -28,8 +28,8 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
     System.out.print("Index Flipped ");
     for (i = startIndex; i < startIndex + bestWindow; i++) {
       if (a[i] == 0) {
-        a[i] = 1;
-        System.out.print(i + " ");
+          a[i] = 1;
+          System.out.print(i + " ");
       }
     }
     System.out.println("\tChanged Array After Flip " + Arrays.toString(a) + "\tMax Consecutive 1's: " + bestWindow);

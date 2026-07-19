@@ -7,27 +7,6 @@ import java.util.List;
 // Space Complexity : O(N)
 public class MergeKSortedArrayList {
 
-  private static List<Integer> sortList(List<Integer> a, List<Integer> b) {
-    List<Integer> c = new ArrayList<>();
-    int i = 0, j = 0;
-    while (i < a.size() && j < b.size()) {
-      if (a.get(i) == b.get(j)) {
-        c.add(a.get(i));
-        i++;
-        j++;
-      } else {
-        c.add(a.get(i) < b.get(j) ? a.get(i++) : b.get(j++));
-      }
-    }
-    while (i < a.size()) {
-      c.add(a.get(i++));
-    }
-    while (j < b.size()) {
-      c.add(b.get(j++));
-    }
-    return c;
-  }
-
   public static List<Integer> mergeKLists(List<List<Integer>> list) {
     if (list == null || list.size() == 0) {
       return new ArrayList<>();
@@ -43,6 +22,27 @@ public class MergeKSortedArrayList {
     List<Integer> a = merge(list, low, mid);
     List<Integer> b = merge(list, mid + 1, high);
     return sortList(a, b);
+  }
+
+  private static List<Integer> sortList(List<Integer> a, List<Integer> b) {
+    List<Integer> c = new ArrayList<>();
+    int i = 0, j = 0;
+    while (i < a.size() && j < b.size()) {
+      if (a.get(i).intValue() == b.get(j).intValue()) {
+        c.add(a.get(i));
+        i++;
+        j++;
+      } else {
+        c.add(a.get(i) < b.get(j) ? a.get(i++) : b.get(j++));
+      }
+    }
+    while (i < a.size()) {
+      c.add(a.get(i++));
+    }
+    while (j < b.size()) {
+      c.add(b.get(j++));
+    }
+    return c;
   }
 
   public static void main(String[] args) {

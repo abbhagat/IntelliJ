@@ -42,6 +42,7 @@ public class RemoveOneElementToMakeArrayStrictlyIncreasing {
     System.out.println(elementToRemove(new int[]{1, 2, 3}));
     System.out.println(elementToRemove(new int[]{5, 4, 5}));
     System.out.println(elementToRemove(new int[]{1, 5, 4, 6}));
+    System.out.println(elementToRemove(new int[]{1, 5, 4, 5}));
     System.out.println(elementToRemove(new int[]{1, 2, 10, 5, 7}));
   }
 }
