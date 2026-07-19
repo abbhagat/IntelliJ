@@ -11,11 +11,15 @@ public class SummaryRanges {
     int start = a[0], i;
     for (i = 1; i < a.length; i++) {
       if (a[i] - a[i - 1] != 1) {
-        System.out.println(start == a[i - 1] ? start : (start + "-" + a[i - 1]));
+        printRange(start, a[i - 1]);
         start = a[i];
       }
     }
-    System.out.println(start == a[i - 1] ? start : (start + "-" + a[i - 1]));
+    printRange(start, a[i - 1]);
+  }
+
+  private static void printRange(int start, int end) {
+    System.out.println(start == end ? start : start + "-" + end);
   }
 
   public static void main(String[] args) {
