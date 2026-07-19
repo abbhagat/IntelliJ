@@ -14,14 +14,12 @@ public class SummaryRanges {
       if (diff == 1) {
         end = a[i];
       } else {
-        var s = end == 0 ? "" : "-";
-        System.out.println(start + s + end);
+        System.out.println(end == 0 ? start : start + "-" + end);
         start = a[i];
         end = 0;
       }
     }
-    var s = end == 0 ? "" : "-";
-    System.out.println(start + s + end);
+    System.out.println(end == 0 ? start : start + "-" + end);
   }
 
   public static void main(String[] args) {
