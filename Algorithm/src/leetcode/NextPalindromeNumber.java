@@ -3,37 +3,38 @@ package leetcode;
 // Time Complexity : O(d) d = Number of Digits in the number N
 public class NextPalindromeNumber {
 
-  private static String reverse(String s) {
-    return new StringBuilder(s).reverse().toString();
+  private static String findNextPalindrome(long n) {
+    char[] c = String.valueOf(n).toCharArray();
+    int l = c.length;
+    // Mirror i half to j half
+    mirror(c);
+    if (Long.parseLong(new String(c)) > n) {
+      return new String(c);
+    }
+    // Increment the middle and propagate carry
+    int i = (l - 1) / 2, j = l / 2;
+    while (i >= 0 && c[i] == '9') {
+      c[i] = c[j] = '0';
+      i--;
+      j++;
+    }
+    if (i < 0) {
+      // Example: 9, 99, 999...
+      return '1' + "0".repeat(l - 1) + '1';
+    }
+    c[i]++;
+    c[j] = c[i];
+    mirror(c);
+    return new String(c);
   }
 
-  private static String findNextPalindrome(long n) {
-    String s = String.valueOf(n);
-    switch (s.length()) {
-      case 1 ->   s = (n >= 0 && n <= 8) ? String.valueOf(n + 1) : "11";
-      case 2 ->   {
-                    int c0  = Character.getNumericValue(s.charAt(0));
-                    int c1  = Character.getNumericValue(s.charAt(1));
-                         s  = String.valueOf(c0 <= c1 ? c0 + 1 : c0);
-                         s += s.charAt(0);
-                  }
-      case 3 ->   {
-                    s = s.substring(0, 2);
-                    s = String.valueOf((Long.parseLong(s) + 1));
-                    s += s.charAt(0);
-                  }
-      default ->  {
-                    String str = s;
-                    int mid = (s.length() - 1) / 2;
-                    s = s.substring(0, mid + 1);
-                    String rev = str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
-                    if (s.charAt(mid) == '9' || Long.parseLong(s + rev) < n) {
-                      s = String.valueOf(Long.parseLong(s) + 1);
-                    }
-                    s += str.length() % 2 == 1 ? reverse(s.substring(0, mid)) : reverse(s);
-                  }
+  private static void mirror(char[] n) {
+    int i = 0, j = n.length - 1;
+    while (i < j) {
+      n[j] = n[i];
+      i++;
+      j--;
     }
-    return s;
   }
 
   public static void main(String[] args) {
@@ -51,6 +52,7 @@ public class NextPalindromeNumber {
     System.out.println(findNextPalindrome(191));          // 202
     System.out.println(findNextPalindrome(199));          // 202
     System.out.println(findNextPalindrome(999));          // 1001
+    System.out.println(findNextPalindrome(9999));         // 10001
     System.out.println(findNextPalindrome(141));          // 151
     System.out.println(findNextPalindrome(4531));         // 4554
     System.out.println(findNextPalindrome(1459));         // 1551
