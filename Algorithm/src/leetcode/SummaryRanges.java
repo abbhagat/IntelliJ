@@ -10,7 +10,8 @@ public class SummaryRanges {
     Arrays.sort(a);
     int start = a[0], i;
     for (i = 1; i < a.length; i++) {
-      if (a[i] - a[i - 1] != 1) {
+      int diff = a[i] - a[i - 1];
+      if (diff != 1) {
         printRange(start, a[i - 1]);
         start = a[i];
       }

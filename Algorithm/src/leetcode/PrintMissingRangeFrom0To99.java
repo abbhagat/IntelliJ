@@ -34,7 +34,8 @@ public class PrintMissingRangeFrom0To99 {
     }
     int i;
     for (i = 1; i < a.length; i++) {          // Missing between consecutive elements
-      if (a[i] - a[i - 1] != 1) {
+      int diff = a[i] - a[i - 1];
+      if (diff != 1) {
         printRange(a[i - 1] + 1, a[i] - 1);
       }
     }
