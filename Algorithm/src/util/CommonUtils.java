@@ -58,9 +58,20 @@ public class CommonUtils {
 
   public static boolean isPalindrome(String str, int i, int j) {
     while (i < j) {
-      if (str.charAt(i++) != str.charAt(j--)) {
+      if (str.charAt(i) != str.charAt(j)) {
         return false;
       }
+      i++; j--;
+    }
+    return true;
+  }
+
+  public static boolean isPalindrome(char[] c, int i, int j) {
+    while (i < j) {
+      if (c[i] != c[j]) {
+        return false;
+      }
+      i++; j--;
     }
     return true;
   }
