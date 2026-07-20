@@ -3,12 +3,12 @@ package jpmorgan;
 public class MinOperationToMakeStringPalindrome {
 
   public static int minOpsToMakeStringAnagram(String s) {
-    int count = 0,  l = s.length() - 1;
-    int j = l;
-    for (int i = 0; i <= l / 2; i++) {
+    int i= 0, j = s.length() - 1, count = 0;
+    while (i < j) {
       if (s.charAt(i) != s.charAt(j)) {
         count++;
       }
+      i++;
       j--;
     }
     return count;

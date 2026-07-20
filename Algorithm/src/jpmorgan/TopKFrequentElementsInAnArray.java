@@ -69,7 +69,7 @@ public class TopKFrequentElementsInAnArray {
   public static void main(String[] args) {
     int[] a = topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2);
     printArray(a);
-    topKFreqElements(new int[]{1, 1, 1, 2, 2, 3}, 2);
+    topKFreqElements(new int[]{5, 2, 5, 5, 2, 6, 2, 4, 2, 3, 5, 5, 6, 5, 5, 2, 3, 5, 2, 5}, 5);
     List<String> list = new ArrayList<>(List.of("Abhinaw", "Amit", "Aman", "Abhinaw", "Ankit", "Abhinaw", "Ankit"));
     list.sort(String::compareTo);
     printArray(topKFrequentWords(list, 1));
