@@ -54,16 +54,6 @@ public class MaxGoldCollected {
 
   public static void main(String[] args) {
     List<List<Integer>> listOfList = List.of(List.of(1, 4, 2, 2), List.of(6, 0, 0, 5));
-    int[][] b = new int[listOfList.size()][listOfList.get(0).size()];
-    int i = 0;
-    for (List<Integer> list : listOfList) {
-      int j = 0;
-      for (int x : list) {
-        b[i][j] = x;
-        j++;
-      }
-      i++;
-    }
     int[][] a = listOfList.stream()
                           .map(l -> l.stream()
                                      .mapToInt(Integer::intValue)

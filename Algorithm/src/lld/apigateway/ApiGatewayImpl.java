@@ -1,5 +1,6 @@
 package lld.apigateway;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,8 +14,8 @@ public class ApiGatewayImpl {
 
   public static void main(String[] args) {
     AuthenticationManager authManager = new AuthenticationManager();
-    RateLimiter rateLimiter = new RateLimiter();
-    Router router = new Router();
+    RateLimiter rateLimiter = new RateLimiter(new HashMap<>());
+    Router router = new Router(new HashMap<>());
     LoadBalancer loadBalancer = new LoadBalancer();
 
     Service userService1  = new UserService();

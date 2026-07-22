@@ -1,15 +1,13 @@
 package lld.apigateway;
 
-import java.util.HashMap;
+import lombok.AllArgsConstructor;
+
 import java.util.Map;
 
+@AllArgsConstructor
 public class Router {
 
   private final Map<String, String> routes;
-
-  public Router() {
-    routes = new HashMap<>();
-  }
 
   public void registerRoute(String path, String serviceName) {
     routes.put(path, serviceName);

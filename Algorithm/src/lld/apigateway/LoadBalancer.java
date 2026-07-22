@@ -14,7 +14,7 @@ public class LoadBalancer {
   private int userServiceIndex  = 0;
   private int orderServiceIndex = 0;
 
-  public Service getInstance(String serviceName) {
+  public Service getService(String serviceName) {
     Service service = null;
     switch (serviceName) {
       case "userService" -> {

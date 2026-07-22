@@ -1,15 +1,13 @@
 package lld.apigateway;
 
-import java.util.HashMap;
+import lombok.AllArgsConstructor;
+
 import java.util.Map;
 
+@AllArgsConstructor
 public class RateLimiter {
 
   private final Map<String, Integer> requestMap;
-
-  public RateLimiter() {
-    requestMap = new HashMap<>();
-  }
 
   public boolean allowRequest(String clientId) {
     requestMap.put(clientId, requestMap.getOrDefault(clientId, 0) + 1);
