@@ -21,11 +21,11 @@ public class ConnectionPoolImpl {
       executorService.submit(() -> {
         try {
           System.out.println("Thread-" + threadId + " trying to get connection...");
-          Connection conn = connectionPool.get();  // BLOCKS if none available
-          System.out.println("Thread-" + threadId + " acquired connection: " + conn);
+          Connection connection = connectionPool.get();  // BLOCKS if none available
+          System.out.println("Thread-" + threadId + " acquired connection: " + connection);
           // Simulate DB work
           Thread.sleep(3000);
-          connectionPool.put(conn);
+          connectionPool.put(connection);
           System.out.println("Thread-" + threadId + " returned connection");
         } catch (Exception e) {
           e.printStackTrace();

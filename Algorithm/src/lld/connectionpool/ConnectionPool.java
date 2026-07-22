@@ -9,13 +9,17 @@ import java.util.concurrent.*;
 public class ConnectionPool implements IConnectionPool {
 
   @Getter
-  private final BlockingQueue<Connection> connectionPool;
+  private final BlockingQueue<Connection> queue;
   private final int poolSize;
   private final String driverName;
   private final String url;
   private final String username;
   private final String password;
   private volatile boolean isPoolClosed;
+
+  public BlockingQueue<Connection> getConnectionPool() {
+    return this.queue;
+  }
 
   public ConnectionPool(int poolSize) {
     this("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:XE", "system", "zed", poolSize);
@@ -27,13 +31,13 @@ public class ConnectionPool implements IConnectionPool {
     this.username = username;
     this.password = password;
     this.poolSize = poolSize;
-    this.connectionPool = new ArrayBlockingQueue<>(poolSize);
+    this.queue = new ArrayBlockingQueue<>(poolSize);
     initializeConnectionPool();
   }
 
   private void initializeConnectionPool() {
     for (int i = 0; i < this.poolSize; i++) {
-      connectionPool.add(createNewConnection());
+      queue.add(createNewConnection());
     }
   }
 
@@ -53,13 +57,13 @@ public class ConnectionPool implements IConnectionPool {
     if (isPoolClosed) {
       throw new IllegalStateException("Connection pool is closed");
     }
-    return connectionPool.take();
+    return queue.take();
   }
 
   @Override
   public boolean put(Connection connection) {
     if (connection != null && !isPoolClosed) {
-      return connectionPool.offer(connection);
+      return queue.offer(connection);
     }
     return false;
   }
@@ -67,7 +71,7 @@ public class ConnectionPool implements IConnectionPool {
   @Override
   public synchronized void stop() throws SQLException {
     isPoolClosed = true;
-    for (Connection connection : connectionPool) {
+    for (Connection connection : queue) {
       connection.close();
     }
     System.out.println("Connection Pool is Stopped");
