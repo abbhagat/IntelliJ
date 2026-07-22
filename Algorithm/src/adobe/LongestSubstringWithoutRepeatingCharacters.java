@@ -11,7 +11,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
   public static void longestSubstring(String s) {
     Map<Character, Integer> map = new HashMap<>();
-    int j = 0, max = 0, startIndex = 0;
+    int j = 0, max = 0;
+    String maxStr = "";
     for (int i = 0; i < s.length(); i++) {
       char c = s.charAt(i);
       while (map.containsKey(c)) {  // check for repeating char
@@ -22,10 +23,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
       map.put(c, map.getOrDefault(c, 0) + 1);
       if (max < i - j + 1) {
           max = i - j + 1;
-          startIndex = j;
+          maxStr = s.substring(j, i + 1);
       }
     }
-    System.out.println(s.substring(startIndex, startIndex + max) + "\t" + max);
+    System.out.println(maxStr + "\t" + maxStr.length());
   }
 
   public static void main(String[] args) {
