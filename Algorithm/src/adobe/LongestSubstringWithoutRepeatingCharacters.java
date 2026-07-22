@@ -2,8 +2,6 @@ package adobe;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.HashSet;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(k) k = Size of the character set
