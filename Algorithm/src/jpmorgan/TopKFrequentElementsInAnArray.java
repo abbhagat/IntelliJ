@@ -48,20 +48,22 @@ public class TopKFrequentElementsInAnArray {
     Arrays.stream(nums).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     PriorityQueue<Integer> pq = new PriorityQueue<>(  //  Min-heap based on frequency
         (a, b) -> {
-          int n = map.get(a).compareTo(map.get(b));
+          int n = map.get(b).compareTo(map.get(a));
           if (n == 0) {
-            return b.compareTo(a); // reverse for tie (optional)
+            return a.compareTo(b); // reverse for tie (optional)
           }
           return n;
         }
     );
     for (int num : map.keySet()) {
-      pq.offer(num);
+      pq.add(num);
       if (pq.size() > k) {
         pq.poll(); // remove least frequent
       }
     }
+    System.out.println(pq);
     List<Integer> list = new ArrayList<>(pq);
+    System.out.println(list);
     list.sort((a, b) -> map.get(b) - map.get(a));
     System.out.println(list);
   }

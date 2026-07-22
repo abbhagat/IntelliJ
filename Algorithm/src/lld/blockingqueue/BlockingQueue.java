@@ -13,9 +13,9 @@ class BlockingQueue<E> {
   private final AtomicInteger count;
 
   public BlockingQueue(int maxSize) {
-    this.q = new LinkedList<>();
+    this.q       = new LinkedList<>();
     this.maxSize = maxSize;
-    this.count = new AtomicInteger(0);
+    this.count   = new AtomicInteger(0);
   }
 
   public synchronized void put(E e) throws InterruptedException {
