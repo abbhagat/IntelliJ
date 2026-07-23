@@ -15,7 +15,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
       char c = s.charAt(i);
       while (map.containsKey(c)) {  // check for repeating char
         char y = s.charAt(j);
-        map.remove(y);
+        map.put(y, map.get(y) - 1);
+        if (map.get(y) == 0) {
+          map.remove(y);
+        }
         j++;
       }
       map.put(c, map.getOrDefault(c, 0) + 1);

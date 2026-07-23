@@ -10,7 +10,9 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
   private static int longestSubString(String s, int start, int end, int k) {
     Map<Character, Integer> map = new HashMap<>();
-    s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
+    for (char c : s.toCharArray()) {
+      map.put(c, map.getOrDefault(c, 0) + 1);
+    }
     for (int i = start; i < end; i++) {
       char c = s.charAt(i);
       if (map.get(c) < k) {
