@@ -3,14 +3,11 @@ package amazon;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import static util.CommonUtils.isPalindrome;
 
 // Time  Complexity: O(n*2^n)
 // Space Complexity: O(n^2), where n is the length of the String
 public class AllPalindromicPermutationOfAString {
-
-  private static boolean isPalindrome(String s) {
-    return s.contentEquals(new StringBuilder(s).reverse());
-  }
 
   private static void findAllPalindromicPermutation(int index, String str, LinkedList<String> list) {
     if (index == str.length()) {

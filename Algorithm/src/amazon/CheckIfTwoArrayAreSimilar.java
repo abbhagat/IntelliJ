@@ -1,20 +1,18 @@
 package amazon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class CheckIfTwoArrayAreSimilar {
 
   private static boolean isSimilar(int[] a, int[] b) {
     if (a.length == b.length) {
       List<Integer> list = new ArrayList<>();
-      for (int x : a) {
-        list.add(x);
-      }
-      for (int x : b) {
-        list.remove(Integer.valueOf(x));
-      }
+      Arrays.stream(a).forEach(list::add);
+      Arrays.stream(b).forEach(x -> list.remove(Integer.valueOf(x)));
       return list.isEmpty();
     }
     return false;
