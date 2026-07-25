@@ -14,7 +14,6 @@ However, it's important to understand that Redis alone is not the source of trut
                        |
                     Database
 
-
 Suppose two users try to book at exactly the same time.
 
 Table-10 -> 7 PM - 9 PM
