@@ -14,7 +14,7 @@ public class DeleteNthNodeFromEnd {
     }
     while (temp != null) {
       temp = temp.next;
-      node = node.next;
+      node = node.next;  // node will point to the Nth Node after loop completes
     }
     System.out.println(n + "th Node from End is " + node.next.num);
     node.next = node.next.next;
