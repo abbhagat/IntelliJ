@@ -1,0 +1,38 @@
+Using Redis is a common way to prevent duplicate bookings in a distributed system where multiple application instances are running. The idea is to use a distributed lock so that only one instance can attempt to book a specific table at a time.
+
+However, it's important to understand that Redis alone is not the source of truth. The database remains the source of truth, and Redis is used to coordinate concurrent access.
+
+                Load Balancer
+                      |
+        -----------------------------
+        |             |             |
+     App-1         App-2         App-3
+        |             |             |
+        ---------------|-------------
+                       |
+                    Redis Lock
+                       |
+                    Database
+
+
+Suppose two users try to book at exactly the same time.
+
+Table-10 -> 7 PM - 9 PM
+
+Step 1: Generate Lock Key
+        Use a unique key representing the resource being booked -> lock:table:10:2026-07-25:19:00
+Step 2: Acquire Lock
+        Redis provides an atomic operation -> SET lock:table:10 UUID NX PX 30000
+        where
+        NX → Set only if key doesn't already exist
+        PX 30000 → Lock expires after 30 seconds
+        UUID → Unique owner identifier
+
+Example:-
+       Thread A -> SET lock:table:10 abc123 NX PX 30000 => Result OK   => Thread A owns the lock.
+       Thread A -> SET lock:table:10 xyz789 NX PX 30000 => Result null => Lock already exists.
+
+       Thread B can either:
+        1. Retry after a short delay
+        2. Return "Booking in progress"
+        3. Queue the request
