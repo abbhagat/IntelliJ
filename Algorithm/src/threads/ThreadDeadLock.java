@@ -41,6 +41,7 @@ public class ThreadDeadLock {
   }
 
   public static void main(String[] args) {
-    new ThreadDeadLock().simulateDeadlock();
+    ThreadDeadLock threadDeadLock = new ThreadDeadLock();
+    threadDeadLock.simulateDeadlock();
   }
 }
