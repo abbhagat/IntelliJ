@@ -8,7 +8,7 @@ import static linkedlist.TraverseList.traverseList;
 public class ReverseListFromPosMtoPosN {
 
   private static Node reverseListFromPosMtoPosN(Node first, int m, int n) {
-    if (m >= n || first == null) {
+    if (first == null || m >= n ) {
       return first;
     }
     Node head = new Node(-1, first);
@@ -28,7 +28,7 @@ public class ReverseListFromPosMtoPosN {
 
   public static void main(String[] args) {
     Node first = null;
-    for (int x : new int[]{1, 2, 3, 4, 5, 6, 7, 8}) {
+    for (int x : new int[]{1, 2, 3, 4, 5, 6, 7}) {
       first = add(first, x);
     }
     traverseList(first);

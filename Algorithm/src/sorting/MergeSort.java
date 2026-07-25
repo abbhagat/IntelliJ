@@ -1,5 +1,6 @@
 package sorting;
 
+import java.util.stream.IntStream;
 import static util.CommonUtils.printArray;
 
 // Time  Complexity O(n log n)
@@ -29,9 +30,7 @@ public class MergeSort {
     while (j <= high) {
       temp[k++] = a[j++];
     }
-    for (int l = low; l <= high; l++) {
-      a[l] = temp[l];
-    }
+    IntStream.range(low, high + 1).forEach(l -> a[l] = temp[l]);
   }
 
   public static void main(String[] args) {
