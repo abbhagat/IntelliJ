@@ -1,5 +1,7 @@
 package stack;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class BalancedBracketMinSwaps {
 
   public static int minSwaps(String s) {
