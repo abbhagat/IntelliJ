@@ -18,7 +18,7 @@ public class LinkedListRotation {
     }
     Node temp = first;
     for (int i = 1; i < k; i++) {
-      temp = temp.next;
+      temp = temp.next;         // temp points to node 3 after the loop completes
     }
     last.next = first;
     first = temp.next;

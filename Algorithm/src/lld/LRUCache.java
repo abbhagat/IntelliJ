@@ -28,14 +28,7 @@ public class LRUCache<K, V> {
     this.map       = new LinkedHashMap<>();
     this.cacheSize = cacheSize;
   }
-  /* synchronized works but better approach
-     private final ReentrantLock lock = new ReentrantLock();
-     try {
-       lock.lock();
-     } finally {
-       lock.unlock();
-      }
-  */
+
   public synchronized V get(K key) {
     V value = null;
     if (map.containsKey(key)) {

@@ -3,8 +3,8 @@ package pairs;
 import java.util.*;
 import static java.lang.Integer.*;
 
-// Time  Complexity : O(n + k)
-// Space Complexity : O(k)
+// Time  Complexity : O(n^2)
+// Space Complexity : O(n^2)
 public class FindPairCountWithSumDivisibleByK {
 
   private static int findPairs(int[] a, int k) {
