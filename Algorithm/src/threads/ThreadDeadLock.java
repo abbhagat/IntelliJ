@@ -8,7 +8,6 @@ public class ThreadDeadLock {
   Runnable r1 = () -> {
     synchronized (LOCK_1) {
       System.out.println("Thread 1: Holding LOCK_1");
-      sleep();
       synchronized (LOCK_2) {
         System.out.println("Thread 1: Holding LOCK_2");
       }
@@ -18,20 +17,11 @@ public class ThreadDeadLock {
   Runnable r2 = () -> {
     synchronized (LOCK_2) {
       System.out.println("Thread 2: Holding LOCK_2");
-      sleep();
       synchronized (LOCK_1) {
         System.out.println("Thread 2: Holding LOCK_1");
       }
     }
   };
-
-  private void sleep() {
-    try {
-      Thread.sleep(100);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
 
   private void simulateDeadlock() {
     Thread t1 = new Thread(r1, "Thread-1");
