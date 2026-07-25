@@ -2,8 +2,8 @@ package threads;
 
 public class ThreadDeadLock {
 
-  private static final Object LOCK_1 = new Object();
-  private static final Object LOCK_2 = new Object();
+  private final Object LOCK_1 = new Object();
+  private final Object LOCK_2 = new Object();
 
   Runnable r1 = () -> {
     synchronized (LOCK_1) {
