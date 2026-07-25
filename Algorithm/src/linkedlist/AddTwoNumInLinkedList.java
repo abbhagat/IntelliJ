@@ -20,11 +20,11 @@ Output: [0]
 public class AddTwoNumInLinkedList {
 
   private static Node addTwoList(Node l1, Node l2) {
-    Node head = new Node(0);
+    Node head = new Node(-1);
     Node temp = head;
     int carry = 0;
     while (l1 != null || l2 != null || carry != 0) {
-      int sum = carry;
+      int sum = 0;
       if (l1 != null) {
          sum += l1.num;
          l1   = l1.next;
@@ -33,6 +33,7 @@ public class AddTwoNumInLinkedList {
          sum += l2.num;
          l2   = l2.next;
       }
+      sum += carry;
       carry   = sum / 10;
       int num = sum % 10;
       temp.next = new Node(num);
