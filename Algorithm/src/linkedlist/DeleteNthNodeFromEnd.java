@@ -30,5 +30,7 @@ public class DeleteNthNodeFromEnd {
     System.out.println();
     first = deleteNthNode(first, 2);
     traverseList(first);
+    first = deleteNthNode(first, 1);
+    traverseList(first);
   }
 }
