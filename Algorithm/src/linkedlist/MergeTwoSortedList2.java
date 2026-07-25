@@ -3,27 +3,10 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
-public class MergeTwoUnSortedList {
+public class MergeTwoSortedList2 {
 
   // Time Complexity:  O(m+n)
-  public static Node merge(Node a, Node b) {
-    if (a == null) {
-      return b;
-    }
-    if (b == null) {
-      return a;
-    }
-    if (a.num < b.num) {
-      a.next = merge(a.next, b);
-      return a;
-    } else {
-      b.next = merge(a, b.next);
-      return b;
-    }
-  }
-
-  // Time Complexity:  O(m+n)
-  private static Node mergeTwoLists(Node head1, Node head2) {
+  private static Node merge(Node head1, Node head2) {
     Node merged = new Node();
     Node temp = merged;
     while (head1 != null && head2 != null) {
@@ -55,12 +38,11 @@ public class MergeTwoUnSortedList {
     for (int x : new int[]{1, 3, 2}) {
       a = add(a, x);
     }
-    for (int x : new int[]{2, 6, 4}) {
+    for (int x : new int[]{4, 6, 5}) {
       b = add(b, x);
     }
     traverseList(a);
     traverseList(b);
     traverseList(merge(a, b));
-//  traverseList(mergeTwoLists(a, b));
   }
 }
