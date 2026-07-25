@@ -20,5 +20,6 @@ public class BinaryStringInAPattern {
 
   public static void main(String[] args) {
     printBinaryString("1??0?10?1".toCharArray(), 0);
+    printBinaryString("1??0?00?1".toCharArray(), 0);
   }
 }

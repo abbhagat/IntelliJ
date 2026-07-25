@@ -15,7 +15,6 @@ public class KStringAnagram {
           count++;
         }
       }
-      System.out.println(count);
       return count <= k;
     }
     return false;

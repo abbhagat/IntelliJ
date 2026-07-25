@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class KDistanceApartString {
 
   public static void main(String[] args) {
-    String s1 = "Ping";
+    String s1 = "Pinz";
     String s2 = "Paging";
     int[] temp = new int[128];
     for (char c : s1.toCharArray()) {
