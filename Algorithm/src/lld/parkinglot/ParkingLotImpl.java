@@ -19,7 +19,7 @@ public class ParkingLotImpl {
     carSpots.add(new ParkingSpot("S2", SpotType.CAR, true, null));
     carSpots.add(new ParkingSpot("S3", SpotType.CAR, true, null));
 
-    floor1.getSpots().put(SpotType.CAR, carSpots);
+    floor1.getParkingSpotMap().put(SpotType.CAR, carSpots);
 
     // Add floor to parking lot
     parkingLot.getParkingFloors().add(floor1);

@@ -11,15 +11,15 @@ import java.util.Map;
 public class ParkingFloor {
 
   private int floorNumber;
-  private Map<SpotType, List<ParkingSpot>> spots;
+  private Map<SpotType, List<ParkingSpot>> parkingSpotMap;
 
   public ParkingFloor(int floorNumber) {
-    this.floorNumber = floorNumber;
-    spots = new HashMap<>();
+    this.floorNumber    = floorNumber;
+    this.parkingSpotMap = new HashMap<>();
   }
 
   public ParkingSpot getFreeSpot(SpotType spotType) {
-    List<ParkingSpot> parkingSpotList = spots.get(spotType);
+    List<ParkingSpot> parkingSpotList = parkingSpotMap.get(spotType);
     for (ParkingSpot spot : parkingSpotList) {
       if (spot.isFree()) {
         return spot;
