@@ -17,7 +17,7 @@ public class BookingService {
 
   public Reservation book(Table table, String customer, LocalDateTime start, LocalDateTime end) {
     ReentrantLock lock = locks.computeIfAbsent(table.id(), id -> new ReentrantLock());
-    lock.lock();
+    lock.lock();  // The code below this will not execute for same Table booking because lock is acquired by another Thread
     try {
       for (Reservation reservation : repository.getReservations()) {
         if (reservation.table().id() == table.id() && overlap(start, end, reservation.startTime(), reservation.endTime())) {
@@ -32,7 +32,7 @@ public class BookingService {
     }
   }
 
-  private boolean overlap(LocalDateTime s1, LocalDateTime e1, LocalDateTime s2, LocalDateTime e2) {
-    return s1.isBefore(e2) && s2.isBefore(e1);
+  private boolean overlap(LocalDateTime startTime, LocalDateTime endTime, LocalDateTime reservedStartTime, LocalDateTime reservedEndTime) {
+    return startTime.isBefore(reservedEndTime) && reservedStartTime.isBefore(endTime);
   }
 }
