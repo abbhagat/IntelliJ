@@ -35,7 +35,7 @@ public class Singleton implements Cloneable, Serializable {
 
   // To prevent from Serializable
   @Serial
-  protected Object readResolve() throws Exception {
+  protected Object readResolve() throws RuntimeException {
     return getInstance();
   }
 
