@@ -3,28 +3,43 @@ package threads;
 import java.io.Serial;
 import java.io.Serializable;
 
-public final class Doubleton implements Serializable, Cloneable {
+public class Doubleton implements Cloneable, Serializable {
 
-  private static final Doubleton INSTANCE1 = new Doubleton(0);
-  private static final Doubleton INSTANCE2 = new Doubleton(1);
-  private static int index;
-  private final int id;
+  @Serial
+  private static final long serialVersionUID = 1L;
 
-  private Doubleton(int id) {
-    this.id = id;
+  private static Doubleton instance1, instance2;
+  private static volatile int n = 1;
+
+  private Doubleton() throws Exception {
+    if (null != instance1 || null != instance2) {
+      throw new Exception("Doubleton Already Initialized");
+    }
   }
 
-  public static synchronized Doubleton getInstance() {
-    return ((index++ & 1) == 0) ? INSTANCE1 : INSTANCE2;
+  public static synchronized Doubleton getInstance() throws Exception {
+    if (null == instance1) {
+      instance1 = new Doubleton();
+      return instance1;
+    }
+    if (null == instance2) {
+      instance2 = new Doubleton();
+      return instance2;
+    }
+    return n++ % 2 == 0 ? instance1 : instance2;
   }
 
   @Serial
-  private Object readResolve() {
-    return id == 0 ? INSTANCE1 : INSTANCE2;
+  protected Object readResolve() throws Exception {
+    return getInstance();
   }
 
   @Override
-  protected Object clone() throws CloneNotSupportedException {
-    throw new CloneNotSupportedException();
+  public Doubleton clone() throws CloneNotSupportedException {
+    try {
+      return getInstance();
+    } catch (Exception e) {
+      throw new CloneNotSupportedException();
+    }
   }
 }
