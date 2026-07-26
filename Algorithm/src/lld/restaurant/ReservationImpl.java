@@ -5,12 +5,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class BookingImpl {
+public class ReservationImpl {
 
   public static void main(String[] args) throws Exception {
-    ReservationRepository repository = new ReservationRepository();
 
-    BookingService bookingService = new BookingService(repository);
+    ReservationService reservationService = new ReservationService();
+    BookingService bookingService = new BookingService(reservationService);
 
     Table table1 = new Table(1, 4, Status.AVAILABLE);
     Table table2 = new Table(2, 4, Status.AVAILABLE);
