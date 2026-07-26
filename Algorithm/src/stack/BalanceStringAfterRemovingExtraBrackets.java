@@ -10,7 +10,7 @@ public class BalanceStringAfterRemovingExtraBrackets {
       if (c == '(') {
         open++;
       }
-      if (c == ')' && open == 0) {
+      if (c == ')' && open <= 0) {
         continue;
       }
       if (c == ')') {

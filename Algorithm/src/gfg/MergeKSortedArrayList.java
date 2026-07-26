@@ -25,7 +25,7 @@ public class MergeKSortedArrayList {
   }
 
   private static List<Integer> sortList(List<Integer> a, List<Integer> b) {
-    List<Integer> c = new ArrayList<>();
+    List<Integer> c = new ArrayList<>(a.size() + b.size());
     int i = 0, j = 0;
     while (i < a.size() && j < b.size()) {
       if (a.get(i).intValue() == b.get(j).intValue()) {

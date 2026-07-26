@@ -64,7 +64,7 @@ public class GoldMineProblem {
         int right           =                   col == COL - 1 ? 0 : dp[row]    [col + 1];    // Gold collected on going to the cell on the right
         int right_up        = row == 0       || col == COL - 1 ? 0 : dp[row - 1][col + 1];   // Gold collected on going to the cell to right up
         int right_down      = row == ROW - 1 || col == COL - 1 ? 0 : dp[row + 1][col + 1];  // Gold collected on going to the cell to right down
-        dp[row][col] = gold[row][col] + maximum(right, right_up, right_down);              // Max gold collected from taking either of the above 3 paths
+        dp[row][col]        = gold[row][col] + maximum(right, right_up, right_down);       // Max gold collected from taking either of the above 3 paths
       }
     }
     int max = dp[0][0];
