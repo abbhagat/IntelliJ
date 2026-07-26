@@ -9,8 +9,8 @@ public class ReservationImpl {
 
   public static void main(String[] args) throws Exception {
 
-    ReservationService reservationService = new ReservationService();
-    BookingService bookingService = new BookingService(reservationService);
+    ReservationRepository reservationRepository = new ReservationRepository();
+    BookingService bookingService = new BookingService(reservationRepository);
 
     Table table1 = new Table(1, 4, Status.AVAILABLE);
     Table table2 = new Table(2, 4, Status.AVAILABLE);

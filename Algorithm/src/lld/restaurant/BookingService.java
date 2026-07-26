@@ -6,13 +6,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class BookingService {
 
-  private final ReservationService repository;
+  private final ReservationRepository repository;
 
   // One lock for each table
   private final ConcurrentHashMap<Integer, ReentrantLock> locks = new ConcurrentHashMap<>();
 
-  public BookingService(ReservationService reservationService) {
-    this.repository = reservationService;
+  public BookingService(ReservationRepository reservationRepository) {
+    this.repository = reservationRepository;
   }
 
   public Reservation book(Table table, String customer, LocalDateTime start, LocalDateTime end) {

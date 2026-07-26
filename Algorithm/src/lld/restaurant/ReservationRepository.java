@@ -3,7 +3,7 @@ package lld.restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationService implements IReservation {
+public class ReservationRepository implements IReservation {
 
   private final List<Reservation> reservations = new ArrayList<>();
 
