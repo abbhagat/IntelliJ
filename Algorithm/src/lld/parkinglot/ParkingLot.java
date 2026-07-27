@@ -32,13 +32,6 @@ public class ParkingLot {
     return parkingLot;
   }
 
-  private ParkingTicket generateParkingTicket(ParkingSpot parkingSpot, Vehicle vehicle) {
-    String ticketId = UUID.randomUUID().toString();
-    String vehicleNumber = vehicle.getVehicleNumber();
-    long entryTime = System.currentTimeMillis();
-    return new ParkingTicket(ticketId, vehicleNumber,entryTime, parkingSpot);
-  }
-
   public ParkingTicket parkVehicle(Vehicle vehicle) {
     for (ParkingFloor parkingFloor : parkingFloors) {
       String vehicleType = vehicle.getVehicleType().name();
@@ -66,5 +59,12 @@ public class ParkingLot {
     String vehicleType = parkedVehicle.getVehicleType().name();
     ticket.getParkingSpot().unPark();
     return calculateFee(parkDuration, vehicleType);
+  }
+
+  private ParkingTicket generateParkingTicket(ParkingSpot parkingSpot, Vehicle vehicle) {
+    String ticketId = UUID.randomUUID().toString();
+    String vehicleNumber = vehicle.getVehicleNumber();
+    long entryTime = System.currentTimeMillis();
+    return new ParkingTicket(ticketId, vehicleNumber,entryTime, parkingSpot);
   }
 }
