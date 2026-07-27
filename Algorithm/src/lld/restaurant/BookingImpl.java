@@ -12,9 +12,9 @@ public class BookingImpl {
     ReservationService reservationService = new ReservationService();
     BookingService bookingService = new BookingService(reservationService);
 
-    Table table1 = new Table(1, 4, Status.AVAILABLE);
-    Table table2 = new Table(2, 4, Status.AVAILABLE);
-    Table table3 = new Table(3, 4, Status.AVAILABLE);
+    Table table1 = new Table("1", 4, Status.AVAILABLE);
+    Table table2 = new Table("2", 4, Status.AVAILABLE);
+    Table table3 = new Table("3", 4, Status.AVAILABLE);
 
     Table[] tables = {table1, table2, table3};
 
@@ -28,9 +28,9 @@ public class BookingImpl {
       executor.submit(() -> {
         try {
           Booking booking = bookingService.book(table, "Customer-" + customerId, start, end);
-          System.out.printf("%s booked Table-%d%n", Thread.currentThread().getName(), booking.table().id());
+          System.out.println(Thread.currentThread().getName() + " booked Table " + booking.table().tableId());
         } catch (Exception e) {
-          System.out.printf("%s failed for Table-%d%n", Thread.currentThread().getName(), table.id());
+          System.out.println(Thread.currentThread().getName() + " failed for Table " + table.tableId());
         }
       });
     }
