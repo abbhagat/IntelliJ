@@ -17,7 +17,7 @@ public class BookingService {
 
   public Booking book(Table table, String customer, LocalDateTime start, LocalDateTime end) {
     String key = String.join("", table.tableId(), start.toString(), end.toString());
-    ReentrantLock lock = locks.computeIfAbsent(key, id -> new ReentrantLock());
+    ReentrantLock lock = locks.computeIfAbsent(key, value -> new ReentrantLock());
     lock.lock();  // The code below this will not execute for same Table booking because lock is acquired by another Thread
     try {
       for (Booking booking : repository.getReservations()) {
