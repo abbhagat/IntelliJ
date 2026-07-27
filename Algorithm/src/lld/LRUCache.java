@@ -14,8 +14,10 @@ package lld;
  * 2. If the cache is full, remove the last node of the linked q and move the new page to the start of the q.
  */
 
-import java.util.*;
-import java.util.LinkedHashMap;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class LRUCache<K, V> {
 
@@ -25,7 +27,7 @@ public class LRUCache<K, V> {
 
   public LRUCache(int cacheSize) {
     this.q         = new LinkedList<>();
-    this.map       = new LinkedHashMap<>();
+    this.map       = new HashMap<>();
     this.cacheSize = cacheSize;
   }
 

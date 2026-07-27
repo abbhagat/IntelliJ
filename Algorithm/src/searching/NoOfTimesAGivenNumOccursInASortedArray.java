@@ -23,16 +23,16 @@ public class NoOfTimesAGivenNumOccursInASortedArray {
       }
       return n < a[mid] ? binarySearchEndIndex(a, low, mid - 1, n) : binarySearchEndIndex(a, mid + 1, high, n);
     }
-    return a.length - 1;
+    return -1;
   }
 
   public static void main(String[] args) {
-    int[] a = {5, 7, 7, 8, 8, 10};
+    int[] a = {5, 7, 7, 8, 10};
     int n = 8, count = 0;
     int startIndex = binarySearchStartIndex(a, 0, a.length - 1, n);
     if (startIndex != -1) {
-      int endIndex = binarySearchEndIndex(a, startIndex + 1, a.length - 1, n);
-      count = endIndex == -1 ? 1 : endIndex - startIndex + 1;
+      int endIndex = binarySearchStartIndex(a, 0, a.length - 1, n);
+      count = startIndex == endIndex ? 1 : endIndex - startIndex + 1;
       System.out.println(startIndex + " " + endIndex);
     }
     System.out.println(count);
