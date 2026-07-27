@@ -5,12 +5,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class ReservationImpl {
+public class BookingImpl {
 
   public static void main(String[] args) throws Exception {
 
-    ReservationRepository reservationRepository = new ReservationRepository();
-    BookingService bookingService = new BookingService(reservationRepository);
+    ReservationService reservationService = new ReservationService();
+    BookingService bookingService = new BookingService(reservationService);
 
     Table table1 = new Table(1, 4, Status.AVAILABLE);
     Table table2 = new Table(2, 4, Status.AVAILABLE);
@@ -27,8 +27,8 @@ public class ReservationImpl {
       final Table table = tables[(i - 1) % 3];
       executor.submit(() -> {
         try {
-          Reservation reservation = bookingService.book(table, "Customer-" + customerId, start, end);
-          System.out.printf("%s booked Table-%d%n", Thread.currentThread().getName(), reservation.table().id());
+          Booking booking = bookingService.book(table, "Customer-" + customerId, start, end);
+          System.out.printf("%s booked Table-%d%n", Thread.currentThread().getName(), booking.table().id());
         } catch (Exception e) {
           System.out.printf("%s failed for Table-%d%n", Thread.currentThread().getName(), table.id());
         }

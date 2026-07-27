@@ -6,27 +6,28 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class BookingService {
 
-  private final ReservationRepository repository;
+  private final ReservationService repository;
 
   // One lock for each table
-  private final ConcurrentHashMap<Integer, ReentrantLock> locks = new ConcurrentHashMap<>();
+  private final ConcurrentHashMap<String, ReentrantLock> locks = new ConcurrentHashMap<>();
 
-  public BookingService(ReservationRepository reservationRepository) {
-    this.repository = reservationRepository;
+  public BookingService(ReservationService reservationService) {
+    this.repository = reservationService;
   }
 
-  public Reservation book(Table table, String customer, LocalDateTime start, LocalDateTime end) {
-    ReentrantLock lock = locks.computeIfAbsent(table.id(), id -> new ReentrantLock());
+  public Booking book(Table table, String customer, LocalDateTime start, LocalDateTime end) {
+    String key = String.join("", table.tableId(), start.toString(), end.toString());
+    ReentrantLock lock = locks.computeIfAbsent(table.tableId(), id -> new ReentrantLock());
     lock.lock();  // The code below this will not execute for same Table booking because lock is acquired by another Thread
     try {
-      for (Reservation reservation : repository.getReservations()) {
-        if (reservation.table().id() == table.id() && overlap(start, end, reservation.startTime(), reservation.endTime())) {
+      for (Booking booking : repository.getReservations()) {
+        if (booking.table().tableId().contentEquals(table.tableId()) && overlap(start, end, booking.startTime(), booking.endTime())) {
           throw new RuntimeException("Table already booked");
         }
       }
-      Reservation reservation = new Reservation(repository.getReservations().size() + 1, table, customer,  start, end);
-      repository.save(reservation);
-      return reservation;
+      Booking booking = new Booking(repository.getReservations().size() + 1, table, customer,  start, end);
+      repository.save(booking);
+      return booking;
     } finally {
       lock.unlock();
     }
