@@ -8,15 +8,17 @@ class PrinterThreads implements Runnable {
   private static int i = 0;
 
   private final int threadId;
+
   private final int[] a = new int[]{1, 4, 7};
   private final int[] b = new int[]{2, 5, 8};
   private final int[] c = new int[]{3, 6, 9};
-  private final int   N = a.length + b.length + c.length;
+
+  private final int N = a.length + b.length + c.length;
 
   public PrinterThreads(int threadId) {
     this.threadId = threadId;
-    Thread thread = new Thread(this, "Thread - " + threadId);
-    thread.start();
+    Thread t = new Thread(this, "Thread - " + threadId);
+    t.start();
   }
 
   @Override

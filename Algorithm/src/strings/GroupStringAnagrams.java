@@ -17,7 +17,7 @@ public class GroupStringAnagrams {
       for (char c : str.toCharArray()) {
         freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
       }
-      map.computeIfAbsent(freqMap, v -> new ArrayList<>()).add(str);
+      map.computeIfAbsent(freqMap, key -> new ArrayList<>()).add(str);
     });
     return map.values();
   }
