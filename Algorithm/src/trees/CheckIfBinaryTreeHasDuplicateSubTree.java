@@ -18,6 +18,11 @@ import java.util.Map;
           2  4 (leaf ignored usually)
          /
         4
+
+ The idea behind this algorithm is:
+ Serialize every subtree into a unique string.
+ Store each serialization in a HashMap.
+ If the same serialization appears more than once, then an identical subtree exists.
 */
 
 // Time Complexity : O(n)
