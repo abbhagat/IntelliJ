@@ -69,8 +69,10 @@ public class BurnABinaryTreeFromTargetNode {
     return -1;
   }
 
+  // Code for the Level Order Tree Traversal
   private static void printQueue() {
-    for (int k = q.size(); k > 0; k--) {
+    int size = q.size();
+    while (size != 0) {
       Node root = q.poll();
       System.out.print(root.num + " ");
       if (root.left != null) {
@@ -79,6 +81,7 @@ public class BurnABinaryTreeFromTargetNode {
       if (root.right != null) {
         q.add(root.right);
       }
+      size--;
     }
   }
 
