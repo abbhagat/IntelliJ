@@ -16,10 +16,10 @@ package leetcode;
  */
 public class CountAsterisks {
 
-  private static int countAsterisks(String s) {
+  private static int countAsterisks(String str) {
     boolean insidePipe = false;
     int count = 0;
-    for (char c : s.toCharArray()) {
+    for (char c : str.toCharArray()) {
       if (c == '|') {
         insidePipe = !insidePipe;
       }
