@@ -2,35 +2,28 @@ package geeks;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * The time and space complexity of the `nextPalindromeDate` method in the `PalindromeDate` class is as follows:
- * Time Complexity : O(D), where D is the number of days it takes to find the next palindrome date.
- * In the worst case, this could be a large number, but it is bounded by the number of days in a year (365 or 366).
- * Space Complexity : O(1), as it uses a constant amount of extra space regardless of the input size.
- */
+// Time Complexity : O(N) If the next palindrome date is N days
+// Space Complexity: O(1)
 public class NextPalindromeDate {
 
+  private static final DateTimeFormatter INPUT_FORMAT  = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+  private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd");
+
   private static String nextPalindromeDate(String inputDate) {
-    Calendar cal = Calendar.getInstance();
-    int year     = Integer.parseInt(inputDate.substring(0, 4));
-    int month    = Integer.parseInt(inputDate.substring(5, 7)) - 1;
-    int day      = Integer.parseInt(inputDate.substring(8));
-    cal.set(year, month, day);
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-    String dateStr;
+    LocalDate date = LocalDate.parse(inputDate, INPUT_FORMAT);
     while (true) {
-      Date date = cal.getTime();
-      dateStr   = sdf.format(date);
+      String dateStr = date.format(OUTPUT_FORMAT);
       StringBuilder revDateStr = new StringBuilder(dateStr).reverse();
       if (dateStr.contentEquals(revDateStr)) {
-        break;
+        return dateStr;
       }
-      cal.add(Calendar.DATE, 1);
+      date = date.plusDays(1);
     }
-    return dateStr;
   }
 
   public static void main(String[] args) throws ParseException {
