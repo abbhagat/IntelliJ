@@ -11,7 +11,9 @@ public class SortCharacterByFreqInString {
     StringBuilder sb = new StringBuilder();
     Map<Character, Integer> sortedMap = new LinkedHashMap<>();
     Map<Character, Integer> map = new HashMap<>();
-    str.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
+    str.chars()
+       .mapToObj(c -> (char) c)
+       .forEach(c -> map.put(c, map.getOrDefault(c, 0) + 1));
     map.entrySet()
        .stream()
        .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
