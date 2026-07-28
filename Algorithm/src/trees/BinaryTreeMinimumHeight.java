@@ -1,5 +1,6 @@
 package trees;
 
+import static java.lang.Integer.MAX_VALUE;
 import static java.lang.Integer.min;
 
 /**
@@ -17,9 +18,9 @@ public class BinaryTreeMinimumHeight {
     if (root.left == null && root.right == null) {
       return 1;
     }
-    int lH = (root.left  == null) ? Integer.MAX_VALUE : treeMinHeight(root.left);
-    int rH = (root.right == null) ? Integer.MAX_VALUE : treeMinHeight(root.right);
-    return 1 + min(lH, rH);
+    int lH = (root.left  == null) ? MAX_VALUE : treeMinHeight(root.left);
+    int rH = (root.right == null) ? MAX_VALUE : treeMinHeight(root.right);
+    return min(lH, rH) + 1;
   }
 
   public static void main(String[] args) {
