@@ -29,12 +29,12 @@ public class DashProblem {
       if (currIsOdd && prevOdd) {
         sb.append("-");
       }
-      if (currIsEven) {
-        prevEven = true;
-        prevOdd = false;
-      } else {
+      if (currIsOdd) {
         prevOdd = true;
         prevEven = false;
+      } else {
+        prevEven = true;
+        prevOdd = false;
       }
     }
     sb.append(a[i - 1]);

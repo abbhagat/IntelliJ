@@ -1,16 +1,18 @@
 package geeks;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class CheckCharCanBeReArrangedToFormPalindrome {
 
   private static boolean canFormPalindromeUsingMap(String s) {
-    Map<Character, Integer> map = new LinkedHashMap<>();
-    s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
+    Map<Character, Integer> map = new HashMap<>();
+    s.chars()
+     .mapToObj(c -> (char) c)
+     .forEach(c -> map.put(c, map.getOrDefault(c, 0) + 1));
     int count = 0;
-    for (int n : map.values()) {
-      if (n % 2 == 1) {
+    for (int x : map.values()) {
+      if (x % 2 == 1) {
         count++;
       }
       if (count > 1) {
