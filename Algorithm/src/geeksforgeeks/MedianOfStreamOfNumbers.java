@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-// Time  Complexity : O(log n)
+// Time  Complexity : O(n)
 // Space Complexity : O(n)
 public class MedianOfStreamOfNumbers {
 
