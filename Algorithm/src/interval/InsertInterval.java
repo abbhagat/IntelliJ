@@ -52,9 +52,7 @@ public class InsertInterval {
                                         {6, 10},
                                         {6, 15}
                                        };
-    Arrays.stream(intervalList1).forEach(newInterval -> {
-      insertInterval(list1, newInterval);
-    });
+    Arrays.stream(intervalList1).forEach(newInterval -> insertInterval(list1, newInterval));
     list1.forEach(a -> System.out.println(Arrays.toString(a)));
   }
 }
