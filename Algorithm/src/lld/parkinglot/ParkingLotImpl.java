@@ -6,38 +6,19 @@ import java.util.List;
 public class ParkingLotImpl {
 
   public static void main(String[] args) throws InterruptedException {
-
-    // Get parking lot instance
-    ParkingLot parkingLot = ParkingLot.getInstance();
-
-    // Create a parking floor
-    ParkingFloor floor1 = new ParkingFloor(1);
-
-    // Create parking spots
-    List<ParkingSpot> carSpots = new ArrayList<>();
+    ParkingLot parkingLot = new ParkingLot();                // Create parking lot instance
+    ParkingFloor parkingFloor = new ParkingFloor(1);  // Create a parking floor
+    List<ParkingSpot> carSpots = new ArrayList<>();         // Create parking spots
     carSpots.add(new ParkingSpot("S1", SpotType.CAR, true, null));
     carSpots.add(new ParkingSpot("S2", SpotType.CAR, true, null));
     carSpots.add(new ParkingSpot("S3", SpotType.CAR, true, null));
-
-    floor1.getParkingSpotMap().put(SpotType.CAR, carSpots);
-
-    // Add floor to parking lot
-    parkingLot.getParkingFloors().add(floor1);
-
-    // Create vehicle
-    Vehicle vehicle = new Car("KA01MS1210", VehicleType.CAR);
-
-    // Park vehicle
-    ParkingTicket parkingTicket = parkingLot.parkVehicle(vehicle);
+    parkingFloor.getParkingSpotMap().put(SpotType.CAR, carSpots);
+    parkingLot.getParkingFloors().add(parkingFloor);                            // Add floor to parking lot
+    Vehicle vehicle = new Car("KA01MS1210", VehicleType.CAR);  // Create vehicle
+    ParkingTicket parkingTicket = parkingLot.parkVehicle(vehicle);           // Park vehicle
     System.out.println("Vehicle parked. Ticket ID: " + parkingTicket);
-
-    // Simulate parking duration
-    Thread.sleep(2000);
-
-    // Unpark vehicle
-    double fee = parkingLot.unParkVehicle(parkingTicket);
-
-    System.out.println("Vehicle unparked. Fee: " + fee);
+    Thread.sleep(2000);                             // Simulate parking duration
+    double fee = parkingLot.unParkVehicle(parkingTicket);   // Un park vehicle
+    System.out.println("Vehicle un-parked Fee: " + fee);
   }
-
 }

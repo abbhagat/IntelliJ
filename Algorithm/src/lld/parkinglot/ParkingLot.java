@@ -20,16 +20,9 @@ public class ParkingLot {
   private List<ParkingFloor> parkingFloors;
   private Map<String, ParkingTicket> activeTickets;
 
-  private ParkingLot() {
+  public ParkingLot() {
     parkingFloors = new ArrayList<>();
     activeTickets = new ConcurrentHashMap<>();
-  }
-
-  public static synchronized ParkingLot getInstance() {
-    if (parkingLot == null) {
-      parkingLot = new ParkingLot();
-    }
-    return parkingLot;
   }
 
   public ParkingTicket parkVehicle(Vehicle vehicle) {
