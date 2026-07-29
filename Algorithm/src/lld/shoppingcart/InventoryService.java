@@ -16,12 +16,12 @@ public class InventoryService {
    * Atomically reserves inventory.
    * Returns true only if enough quantity is available.
    */
-  public boolean reserve(String productId, int qty) {
+  public boolean reserve(String productId, int requestedQty) {
     return inventory.compute(productId, (id, availableQty) -> {
-      if (availableQty == null || availableQty < qty) {
+      if (availableQty == null || availableQty < requestedQty) {
         return availableQty;
       }
-      return availableQty - qty;
+      return availableQty - requestedQty;
     }) != null && inventory.getOrDefault(productId, 0) >= 0;
   }
 
