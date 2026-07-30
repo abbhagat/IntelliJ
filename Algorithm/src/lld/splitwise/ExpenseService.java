@@ -20,16 +20,16 @@ public class ExpenseService {
   public void updateBalanceSheet(Expense expense) {
     User paidBy = expense.getPaidBy();
     for (Split split : expense.getSplits()) {
-      User user = split.user;
+      User user = split.getUser();
       if (user.getUserId().equals(paidBy.getUserId())) {
         continue;
       }
       balanceSheet.getBalanceSheet()
           .computeIfAbsent(user.getUserId(), v -> new HashMap<>())
-          .merge(paidBy.getUserId(), split.amount, Double::sum);
+          .merge(paidBy.getUserId(), split.getAmount(), Double::sum);
       balanceSheet.getBalanceSheet()
           .computeIfAbsent(paidBy.getUserId(), v -> new HashMap<>())
-          .merge(user.getUserId(), -split.amount, Double::sum);
+          .merge(user.getUserId(), -split.getAmount(), Double::sum);
     }
   }
 

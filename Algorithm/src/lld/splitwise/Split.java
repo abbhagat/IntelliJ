@@ -1,6 +1,11 @@
 package lld.splitwise;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class Split {
-  User user;
-  double amount;
+  private User user;
+  private double amount;
 }

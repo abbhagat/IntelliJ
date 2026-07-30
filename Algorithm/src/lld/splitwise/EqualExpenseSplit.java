@@ -10,7 +10,7 @@ public class EqualExpenseSplit implements ExpenseSplitStrategy {
   public void splitExpense(Expense expense) {
     double perUser = expense.getAmount() / expense.getSplits().size();
     for (Split split : expense.getSplits()) {
-      split.amount = perUser;
+      split.setAmount(perUser);
     }
   }
 }

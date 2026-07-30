@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class Expense {
+public class Expense {
   private String expenseId;
   private String description;
   private double amount;
