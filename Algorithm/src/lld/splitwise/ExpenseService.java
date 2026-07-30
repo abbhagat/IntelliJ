@@ -4,7 +4,11 @@ import java.util.HashMap;
 
 public class ExpenseService {
 
-  private BalanceSheet balanceSheet;
+  private final BalanceSheet balanceSheet;
+
+  public ExpenseService(BalanceSheet balanceSheet) {
+    this.balanceSheet = balanceSheet;
+  }
 
   public void addExpense(Expense expense) {
     ExpenseSplitStrategy strategy = ExpenseSplitFactory.getStrategy(expense.getType());
@@ -18,15 +22,15 @@ public class ExpenseService {
     for (Split split : expense.getSplits()) {
       User user = split.user;
       if (user.getUserId().equals(paidBy.getUserId())) continue;
-      balanceSheet.getBalanceMap().computeIfAbsent(user.getUserId(), k -> new HashMap<>())
+      balanceSheet.getBalanceSheet().computeIfAbsent(user.getUserId(), k -> new HashMap<>())
           .merge(paidBy.getUserId(), split.amount, Double::sum);
-      balanceSheet.getBalanceMap().computeIfAbsent(paidBy.getUserId(), k -> new HashMap<>())
+      balanceSheet.getBalanceSheet().computeIfAbsent(paidBy.getUserId(), k -> new HashMap<>())
           .merge(user.getUserId(), -split.amount, Double::sum);
     }
   }
 
   public void settleUp(User from, User to, double amount) {
-    balanceSheet.getBalanceMap().get(from.getUserId()).merge(to.getUserId(), -amount, Double::sum);
-    balanceSheet.getBalanceMap().get(to.getUserId()).merge(from.getUserId(), amount, Double::sum);
+    balanceSheet.getBalanceSheet().get(from.getUserId()).merge(to.getUserId(), -amount, Double::sum);
+    balanceSheet.getBalanceSheet().get(to.getUserId()).merge(from.getUserId(), amount, Double::sum);
   }
 }

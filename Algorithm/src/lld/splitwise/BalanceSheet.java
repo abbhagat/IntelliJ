@@ -7,5 +7,5 @@ import java.util.Map;
 @Getter
 @Setter
 public class BalanceSheet {
-  private Map<String, Map<String, Double>> balanceMap;
+  private Map<String, Map<String, Double>> balanceSheet;
 }
