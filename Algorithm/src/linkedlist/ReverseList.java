@@ -9,10 +9,10 @@ public class ReverseList {
   private static Node reverse(Node head) {
     Node temp = head, prev = null;
     while (temp != null) {
-      Node node = temp.next;
+      Node next = temp.next;
       temp.next = prev;
       prev = temp;
-      temp = node;
+      temp = next;
     }
     return prev;
   }

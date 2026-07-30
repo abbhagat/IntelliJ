@@ -2,20 +2,16 @@ package lld.parkinglot;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-
 import static lld.parkinglot.ParkingFeeCalculator.calculateFee;
 
 @Getter
 @Setter
 public class ParkingLot {
-
-  private static ParkingLot parkingLot;
 
   private List<ParkingFloor> parkingFloors;
   private Map<String, ParkingTicket> activeTickets;
@@ -29,10 +25,10 @@ public class ParkingLot {
     for (ParkingFloor parkingFloor : parkingFloors) {
       String vehicleType = vehicle.getVehicleType().name();
       SpotType spotType  = SpotType.valueOf(vehicleType);
-      ParkingSpot spot   = parkingFloor.getFreeSpot(spotType);
-      if (spot != null) {
-        spot.park(vehicle);
-        ParkingTicket ticket = generateParkingTicket(spot, vehicle);
+      ParkingSpot parkingSpot   = parkingFloor.getFreeSpot(spotType);
+      if (parkingSpot != null) {
+        parkingSpot.park(vehicle);
+        ParkingTicket ticket = generateParkingTicket(parkingSpot, vehicle);
         activeTickets.put(ticket.getTicketId(), ticket);
         return ticket;
       }
