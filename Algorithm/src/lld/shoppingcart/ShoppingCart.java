@@ -19,6 +19,14 @@ public class ShoppingCart {
   }
 
   public void addItem(Product product, int qty) {
+    CartItem cartItem = cartItemMap.computeIfAbsent(
+        product.getProductId(),
+        productId -> new CartItem(product, 0)
+    );
+    cartItem.setQuantity(cartItem.getQuantity() + qty);
+  }
+
+  public void addItems(Product product, int qty) {
     String productId = product.getProductId();
     CartItem cartItem = cartItemMap.get(productId);
     if (cartItem == null) {
@@ -29,22 +37,14 @@ public class ShoppingCart {
     }
   }
 
-  public void addItems(Product product, int qty) {
-    cartItemMap.compute(product.getProductId(), (id, item) -> {
-      if (item == null) {
+  public void addItemss(Product product, int qty) {
+    cartItemMap.compute(product.getProductId(), (productId, cartItem) -> {
+      if (cartItem == null) {
         return new CartItem(product, qty);
       }
-      item.setQuantity(item.getQuantity() + qty);
-      return item;
+      cartItem.setQuantity(cartItem.getQuantity() + qty);
+      return cartItem;
     });
-  }
-
-  public void addItemss(Product product, int qty) {
-    CartItem item = cartItemMap.computeIfAbsent(
-        product.getProductId(),
-        id -> new CartItem(product, 0)
-    );
-    item.setQuantity(item.getQuantity() + qty);
   }
 
   public void updateItem(String productId, int qty) {
