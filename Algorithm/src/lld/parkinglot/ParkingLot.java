@@ -21,7 +21,7 @@ public class ParkingLot {
     activeTickets = new ConcurrentHashMap<>();
   }
 
-  public ParkingTicket parkVehicle(Vehicle vehicle) {
+  public ParkingTicket park(Vehicle vehicle) {
     for (ParkingFloor parkingFloor : parkingFloors) {
       String vehicleType = vehicle.getVehicleType().name();
       SpotType spotType  = SpotType.valueOf(vehicleType);
@@ -36,7 +36,7 @@ public class ParkingLot {
     throw new RuntimeException("Parking Full");
   }
 
-  public double unParkVehicle(ParkingTicket parkingTicket) {
+  public double unPark(ParkingTicket parkingTicket) {
     ParkingTicket ticket = activeTickets.get(parkingTicket.getTicketId());
     if (ticket == null) {
       throw new RuntimeException("Invalid Ticket");

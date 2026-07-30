@@ -20,10 +20,10 @@ public class ParkingLotImpl {
 
     parkingLot.getParkingFloors().add(parkingFloor);                            // Add floor to parking lot
     Vehicle vehicle = new Car("KA01MS1210", VehicleType.CAR);  // Create vehicle
-    ParkingTicket parkingTicket = parkingLot.parkVehicle(vehicle);           // Park vehicle
+    ParkingTicket parkingTicket = parkingLot.park(vehicle);           // Park vehicle
     System.out.println("Vehicle parked. Ticket ID: " + parkingTicket);
-    Thread.sleep(2000);                             // Simulate parking duration
-    double fee = parkingLot.unParkVehicle(parkingTicket);   // Un park vehicle
+    Thread.sleep(2000);                      // Simulate parking duration
+    double fee = parkingLot.unPark(parkingTicket);   // Un park vehicle
     System.out.println("Vehicle un-parked Fee: " + fee);
   }
 }
