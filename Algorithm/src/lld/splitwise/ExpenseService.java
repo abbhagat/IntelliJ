@@ -21,10 +21,14 @@ public class ExpenseService {
     User paidBy = expense.getPaidBy();
     for (Split split : expense.getSplits()) {
       User user = split.user;
-      if (user.getUserId().equals(paidBy.getUserId())) continue;
-      balanceSheet.getBalanceSheet().computeIfAbsent(user.getUserId(), k -> new HashMap<>())
+      if (user.getUserId().equals(paidBy.getUserId())) {
+        continue;
+      }
+      balanceSheet.getBalanceSheet()
+          .computeIfAbsent(user.getUserId(), v -> new HashMap<>())
           .merge(paidBy.getUserId(), split.amount, Double::sum);
-      balanceSheet.getBalanceSheet().computeIfAbsent(paidBy.getUserId(), k -> new HashMap<>())
+      balanceSheet.getBalanceSheet()
+          .computeIfAbsent(paidBy.getUserId(), v -> new HashMap<>())
           .merge(user.getUserId(), -split.amount, Double::sum);
     }
   }
