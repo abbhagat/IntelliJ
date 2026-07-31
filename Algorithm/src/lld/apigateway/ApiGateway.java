@@ -16,8 +16,7 @@ public class ApiGateway {
       return new Response(401, "Unauthorized");
     }
     // Step 2: Rate limit
-    String clientId = request.getHeaders().get("client-id");
-    if (!rateLimiter.allowRequest(clientId)) {
+    if (!rateLimiter.allowRequest(request)) {
       return new Response(429, "Too Many Requests");
     }
     // Step 3: Route

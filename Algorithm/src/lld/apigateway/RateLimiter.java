@@ -7,10 +7,11 @@ import java.util.Map;
 @AllArgsConstructor
 public class RateLimiter {
 
-  private final Map<String, Integer> requestMap;
+  private final Map<String, Integer> rateLimitMap;
 
-  public boolean allowRequest(String clientId) {
-    requestMap.put(clientId, requestMap.getOrDefault(clientId, 0) + 1);
-    return requestMap.get(clientId) <= 5;
+  public boolean allowRequest(Request request) {
+    String clientId = request.getHeaders().get("client-id");
+    rateLimitMap.put(clientId, rateLimitMap.getOrDefault(clientId, 0) + 1);
+    return rateLimitMap.get(clientId) <= 5;
   }
 }
