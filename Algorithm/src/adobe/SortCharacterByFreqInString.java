@@ -8,7 +8,6 @@ import static java.lang.Integer.max;
 public class SortCharacterByFreqInString {
 
   private static String sortCharByFreq(String str) {
-    StringBuilder sb = new StringBuilder();
     Map<Character, Integer> sortedMap = new LinkedHashMap<>();
     Map<Character, Integer> map = new HashMap<>();
     str.chars()
@@ -18,6 +17,7 @@ public class SortCharacterByFreqInString {
        .stream()
        .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
        .forEachOrdered(e -> sortedMap.put(e.getKey(), e.getValue()));
+    StringBuilder sb = new StringBuilder();
     sortedMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(v)));
     return sb.toString();
   }
