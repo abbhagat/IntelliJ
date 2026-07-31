@@ -25,10 +25,10 @@ public class MeetingRooms {
 
   private static boolean canAttendAllMeeting(int[][] a) {
     Arrays.sort(a, Comparator.comparingInt(x -> x[0]));  // (x, y) -> x[0] - y[0]
-    LinkedList<int[]> mergeInterval = new LinkedList<>();
-    for (int[] b : a) {
-      if (mergeInterval.isEmpty() || mergeInterval.getLast()[1] < b[0]) {
-        mergeInterval.add(b);
+    LinkedList<int[]> mergedInterval = new LinkedList<>();
+    for (int[] interval : a) {
+      if (mergedInterval.isEmpty() || mergedInterval.getLast()[1] < interval[0]) {
+        mergedInterval.add(interval);
       } else {
         return false;
       }
