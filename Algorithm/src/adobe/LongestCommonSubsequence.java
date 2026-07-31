@@ -2,9 +2,10 @@ package adobe;
 
 import static java.lang.Integer.max;
 
+// Also called LongestSubsequenceSubstring
 public class LongestCommonSubsequence {
 
-   // Time Complexity  : O(2^(m+n))
+  // Time Complexity  : O(2^(m+n))
   //  Space Complexity : O(m+n)
   public static int lcs(String s1, String s2, int m, int n) {
     if (m == 0 || n == 0) {
@@ -30,12 +31,16 @@ public class LongestCommonSubsequence {
   }
 
   public static void main(String[] args) {
-    System.out.println(lcs("cat", "cut",         3, 3)  + "\t" + lcs("cat", "cut"));
-    System.out.println(lcs("geek", "gesek",      4, 5)  + "\t" + lcs("geek", "gesek"));
-    System.out.println(lcs("sunday", "saturday", 6, 8)  + "\t" + lcs("sunday", "saturday"));
-    System.out.println(lcs("ros", "horse",       3, 5)  + "\t" + lcs("ros", "horse"));
-    System.out.println(lcs("sea", "eat",         3, 3)  + "\t" + lcs("sea", "eat"));
-    System.out.println(lcs("AGGTAB", "GXTXAYB",  6, 7)  + "\t" + lcs("AGGTAB", "GXTXAYB"));
-    System.out.println(lcs("ace", "abcde",       3, 5)  + "\t" + lcs("ace", "abcde"));
+    System.out.println(lcs("cat", "cut", 3, 3)         + "\t" + lcs("cat", "cut"));
+    System.out.println(lcs("geek", "gesek", 4, 5)      + "\t" + lcs("geek", "gesek"));
+    System.out.println(lcs("sunday", "saturday", 6, 8) + "\t" + lcs("sunday", "saturday"));
+    System.out.println(lcs("ros", "horse", 3, 5)       + "\t" + lcs("ros", "horse"));
+    System.out.println(lcs("sea", "eat", 3, 3)         + "\t" + lcs("sea", "eat"));
+    System.out.println(lcs("AGGTAB", "GXTXAYB", 6, 7)  + "\t" + lcs("AGGTAB", "GXTXAYB"));
+    System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcs("ace", "abcde"));
+    System.out.println(lcs("ace", "abcde", 3, 5)       + "\t" + lcs("ace", "abcde"));
+    System.out.println(lcs("abcdef", "zabxy", 6, 5)    + "\t" + lcs("abcdef", "zabxy"));
+    System.out.println(lcs("abc", "xyz", 3, 3)         + "\t" + lcs("abc", "xyz"));
+    System.out.println(lcs("banana", "ananas", 6, 6)   + "\t" + lcs("banana", "ananas"));
   }
 }
