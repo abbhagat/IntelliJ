@@ -13,8 +13,8 @@ public class CreateList {
     if (head == null) {
       head = node;
     } else {
-      temp.right = node;
-      node.left = temp;
+      temp.next = node;
+      node.prev = temp;
     }
     temp = last = node;
     return head;

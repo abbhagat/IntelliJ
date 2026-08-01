@@ -42,9 +42,9 @@ public class CommonUtils {
   }
 
   public static Node swap(Node node) {
-    Node temp  = node.left;
-    node.left  = node.right;
-    node.right = temp;
+    Node temp  = node.prev;
+    node.prev = node.next;
+    node.next = temp;
     return temp;
   }
 

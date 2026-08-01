@@ -6,10 +6,10 @@ import static doublylinkedlist.TraverseList.traverseList;
 public class MidPointOfDoublyLinkedList {
 
   public static Node findMid(Node head) {
-    Node slow = head, fast = head.right;
-    while (fast != null && fast.right != null) {
-      slow = slow.right;
-      fast = fast.right.right;
+    Node slow = head, fast = head.next;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
     }
     return slow;
   }

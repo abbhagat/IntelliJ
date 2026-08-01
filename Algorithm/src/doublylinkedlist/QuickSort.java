@@ -7,26 +7,26 @@ import static util.CommonUtils.swap;
 
 public class QuickSort {
 
+  private static void quickSort(Node low, Node high) {
+    if (low != null && high != null && low != high && low != high.next) {
+      Node pivot = partition(low, high);
+      quickSort(low, pivot.prev);
+      quickSort(pivot.next, high);
+    }
+  }
+
   private static Node partition(Node low, Node high) {
     int pivot = high.num;
-    Node i = low.left;
-    for (Node j = low; j != high; j = j.right) {
+    Node i = low.prev;
+    for (Node j = low; j != high; j = j.next) {
       if (j.num <= pivot) {  // j.num > pivot to sort in descending order
-        i = (i == null) ? low : i.right;
+        i = (i == null) ? low : i.next;
         swap(i, j);
       }
     }
-    i = (i == null) ? low : i.right;
+    i = (i == null) ? low : i.next;
     swap(i, high);
     return i;
-  }
-
-  private static void quickSort(Node low, Node high) {
-    if (low != null && high != null && low != high && low != high.right) {
-      Node pivot = partition(low, high);
-      quickSort(low, pivot.left);
-      quickSort(pivot.right, high);
-    }
   }
 
   public static void main(String[] args) {

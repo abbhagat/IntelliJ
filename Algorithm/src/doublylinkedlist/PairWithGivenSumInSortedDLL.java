@@ -8,16 +8,16 @@ import static doublylinkedlist.CreateList.last;
 public class PairWithGivenSumInSortedDLL {
 
   private static void pairSum(Node low, Node high, int givenSum) {
-    while (low != null && high != null && low != high && low != high.right) {
+    while (low != null && high != null && low != high && low != high.next) {
       int sum = low.num + high.num;
       if (sum == givenSum) {
         System.out.print("(" + low.num + ", " + high.num + ")" + "\t");
-        low  = low.right;
-        high = high.left;
+        low  = low.next;
+        high = high.prev;
       } else if (sum < givenSum) {
-        low = low.right;
+        low = low.next;
       } else {
-        high = high.left;
+        high = high.prev;
       }
     }
   }

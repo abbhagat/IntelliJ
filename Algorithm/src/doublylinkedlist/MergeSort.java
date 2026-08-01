@@ -9,12 +9,12 @@ import static doublylinkedlist.TraverseList.traverseList;
 public class MergeSort {
 
   private static Node mergeSort(Node head) {
-    if (head == null || head.right == null) {
+    if (head == null || head.next == null) {
       return head;
     }
     Node mid   = findMid(head);
-    Node head2 = mid.right;
-    mid.right  = null;
+    Node head2 = mid.next;
+    mid.next = null;
     Node a = mergeSort(head);
     Node b = mergeSort(head2);
     return merge(a, b);
@@ -28,14 +28,14 @@ public class MergeSort {
       return a;
     }
     if (a.num < b.num) {
-      a.right = merge(a.right, b);
-      a.right.left = a;
-      a.left = null;
+      a.next = merge(a.next, b);
+      a.next.prev = a;
+      a.prev = null;
       return a;
     } else {
-      b.right = merge(a, b.right);
-      b.right.left = b;
-      b.left = null;
+      b.next = merge(a, b.next);
+      b.next.prev = b;
+      b.prev = null;
       return b;
     }
   }

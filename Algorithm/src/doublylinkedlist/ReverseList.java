@@ -12,10 +12,10 @@ public class ReverseList {
     Node prev = null, temp = head;
     while (temp != null) {        // swap(node.left, node.right)
       prev = swap(temp);
-      temp = temp.left;
+      temp = temp.prev;
     }
     if (prev != null) {         // Before changing head, check for the cases like empty list and list with only one node
-      head = prev.left;
+      head = prev.prev;
     }
     return head;
   }
@@ -25,10 +25,10 @@ public class ReverseList {
       return null;
     }
     swap(node);
-    if (node.left == null) {
+    if (node.prev == null) {
       return node;
     }
-    return reverse(node.left);
+    return reverse(node.prev);
   }
 
   public static void main(String[] args) {
