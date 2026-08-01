@@ -2,6 +2,8 @@ package lld.lift;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Comparator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -16,7 +18,7 @@ public class Elevator {
   private ElevatorState state;
 
   private final BlockingQueue<Integer> upQueue   = new PriorityBlockingQueue<>();  // serve the nearest higher floors first
-  private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, (a, b) -> b - a); // serve the nearest lower floors first
+  private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
 
   public Elevator(int id, ExecutorService executorService) {
     this.id = id;
@@ -47,13 +49,13 @@ public class Elevator {
         } else {
           direction = Direction.IDLE;
           state     = ElevatorState.IDLE;
-          destFloor = upQueue.take();    // block until ANY request arrives
+          destFloor = upQueue.take();    //  block until ANY request arrives
           direction = Direction.UP;
           state     = ElevatorState.MOVING;
         }
         moveToDestFloor(destFloor);
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        Thread.currentThread().interrupt();
       }
     }
   }

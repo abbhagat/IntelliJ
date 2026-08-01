@@ -17,11 +17,8 @@ public class RateLimiter implements IRateLimiter {
 
   @Override
   public boolean allowRequest(String userId) {
-    TokenBucket tokenBucket = tokenBucketMap.get(userId);
-    if (tokenBucket == null) {
-      tokenBucket = new TokenBucket(capacity, refillRate);
-      tokenBucketMap.put(userId, tokenBucket);
-    }
-    return tokenBucket.consumeTokens();
+     return tokenBucketMap
+            .computeIfAbsent(userId, value -> new TokenBucket(capacity, refillRate))
+            .consumeTokens();
   }
 }

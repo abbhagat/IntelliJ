@@ -26,9 +26,9 @@ public class ConnectionPoolImpl {
           // Simulate DB work
           Thread.sleep(3000);
           connectionPool.put(connection);
-          System.out.println("Thread-" + threadId + " returned connection");
-        } catch (Exception e) {
-          e.printStackTrace();
+          System.out.println("Thread - " + threadId + " returned connection");
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
         }
       });
     }

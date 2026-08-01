@@ -7,20 +7,20 @@ public class TokenBucket {
 
   private final int capacity;
   private final int refillRate; // tokens per second
-  private final AtomicInteger availableTokens;
+  private int availableTokens;
   private long lastRefillTime;
 
   public TokenBucket(int capacity, int refillRate) {
     this.capacity        = capacity;
     this.refillRate      = refillRate;
-    this.availableTokens = new AtomicInteger(capacity);  // initial full capacity token available
+    this.availableTokens = capacity;  // initial full capacity token available
     this.lastRefillTime  = System.currentTimeMillis();
   }
 
   public synchronized boolean consumeTokens() {
     refill();
-    if (availableTokens.get() > 0) {
-      availableTokens.decrementAndGet();
+    if (availableTokens > 0) {
+      availableTokens--;
       return true;
     }
     return false;
@@ -31,7 +31,7 @@ public class TokenBucket {
     long secondsPassed = (now - lastRefillTime) / 1000;
     if (secondsPassed > 0) {
       int newTokens = (int) (secondsPassed * refillRate);
-      availableTokens.set(min(capacity, availableTokens.get() + newTokens));
+      availableTokens = min(capacity, availableTokens + newTokens);
       lastRefillTime = now;
     }
   }
