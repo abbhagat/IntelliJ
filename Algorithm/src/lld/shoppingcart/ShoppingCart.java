@@ -27,18 +27,7 @@ public class ShoppingCart {
   }
 
   public void addItems(Product product, int qty) {
-    String productId = product.getProductId();
-    CartItem cartItem = cartItemMap.get(productId);
-    if (cartItem == null) {
-      cartItem = new CartItem(product, qty);
-      cartItemMap.put(productId, cartItem);
-    } else {
-      cartItem.setQuantity(cartItem.getQuantity() + qty);
-    }
-  }
-
-  public void addItemss(Product product, int qty) {
-    cartItemMap.compute(product.getProductId(), (productId, cartItem) -> {
+    CartItem cartItems = cartItemMap.compute(product.getProductId(), (productId, cartItem) -> {
       if (cartItem == null) {
         return new CartItem(product, qty);
       }
@@ -48,23 +37,12 @@ public class ShoppingCart {
   }
 
   public void updateItem(String productId, int qty) {
-    if (cartItemMap.containsKey(productId)) {
+    cartItemMap.computeIfPresent(productId, (id, cartItem) -> {
       if (qty <= 0) {
-        cartItemMap.remove(productId);
-      } else {
-        CartItem cartItem = cartItemMap.get(productId);
-        cartItem.setQuantity(qty);
+        return null; // Returning null inside computeIfPresent() tells Java to remove that entry from the map
       }
-    }
-  }
-
-  public void updateItems(String productId, int qty) {
-    cartItemMap.computeIfPresent(productId, (id, item) -> {
-      if (qty <= 0) {
-        return null; // Removes the mapping
-      }
-      item.setQuantity(qty);
-      return item;
+      cartItem.setQuantity(qty);
+      return cartItem;
     });
   }
 

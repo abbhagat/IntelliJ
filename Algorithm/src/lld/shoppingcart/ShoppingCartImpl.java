@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ShoppingCartImpl {
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws InterruptedException {
     InventoryService inventoryService = new InventoryService();
     Product iphone =  new Product("P101", "iPhone 16", 1000);
     // Only 10 items in stock
