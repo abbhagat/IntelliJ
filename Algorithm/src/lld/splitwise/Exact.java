@@ -1,9 +1,11 @@
 package lld.splitwise;
 
-public class ExactExpenseSplit implements ExpenseSplitStrategy {
+public class Exact extends Split implements IExpense {
+
   public void validate(Expense expense) {
-    double total = expense.getSplits().stream()
-        .mapToDouble(Split::getAmount).sum();
+    double total = expense.getSplits()
+                          .stream()
+                          .mapToDouble(Split::getAmount).sum();
     if (total != expense.getAmount()) {
       throw new RuntimeException("Invalid Exact Split");
     }
@@ -14,4 +16,3 @@ public class ExactExpenseSplit implements ExpenseSplitStrategy {
 
   }
 }
-

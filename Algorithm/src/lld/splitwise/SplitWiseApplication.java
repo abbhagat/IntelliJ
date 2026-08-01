@@ -21,13 +21,13 @@ public class SplitWiseApplication {
     /****************************************************
      *               EQUAL SPLIT
      ****************************************************/
-    EqualSplit equalSplit1 = new EqualSplit();
+    Equal equalSplit1 = new Equal();
     equalSplit1.setUser(alice);
 
-    EqualSplit equalSplit2 = new EqualSplit();
+    Equal equalSplit2 = new Equal();
     equalSplit2.setUser(bob);
 
-    EqualSplit equalSplit3 = new EqualSplit();
+    Equal equalSplit3 = new Equal();
     equalSplit3.setUser(charlie);
 
     Expense equalExpense = new Expense();
@@ -47,15 +47,15 @@ public class SplitWiseApplication {
      *               EXACT SPLIT
      ****************************************************/
 
-    ExactSplit e1 = new ExactSplit();
+    Exact e1 = new Exact();
     e1.setUser(alice);
     e1.setAmount(1200);
 
-    ExactSplit e2 = new ExactSplit();
+    Exact e2 = new Exact();
     e2.setUser(bob);
     e2.setAmount(1000);
 
-    ExactSplit e3 = new ExactSplit();
+    Exact e3 = new Exact();
     e3.setUser(charlie);
     e3.setAmount(800);
 

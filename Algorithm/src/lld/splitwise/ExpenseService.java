@@ -11,7 +11,7 @@ public class ExpenseService {
   }
 
   public void addExpense(Expense expense) {
-    ExpenseSplitStrategy strategy = ExpenseSplitFactory.getStrategy(expense.getType());
+    IExpense strategy = ExpenseSplitFactory.getStrategy(expense.getType());
     strategy.validate(expense);
     strategy.splitExpense(expense);
     updateBalanceSheet(expense);

@@ -1,7 +1,6 @@
 package lld.splitwise;
 
-public interface ExpenseSplitStrategy {
+public interface IExpense {
   void validate(Expense expense);
   void splitExpense(Expense expense);
 }
-

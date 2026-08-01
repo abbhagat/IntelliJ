@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class ExpenseSplitFactory {
 
-  private static final Map<ExpenseType, ExpenseSplitStrategy> map = new HashMap<>();
+  private static final Map<ExpenseType, IExpense> map = new HashMap<>();
 
   static {
-    map.put(ExpenseType.EXACT, new ExactExpenseSplit());
-    map.put(ExpenseType.EQUAL, new EqualExpenseSplit());
-    map.put(ExpenseType.PERCENT, new PercentExpenseSplit());
+    map.put(ExpenseType.EXACT, new Exact());
+    map.put(ExpenseType.EQUAL, new Equal());
+    map.put(ExpenseType.PERCENT, new Percent());
   }
 
-  public static ExpenseSplitStrategy getStrategy(ExpenseType expenseType) {
+  public static IExpense getStrategy(ExpenseType expenseType) {
     return map.get(expenseType);
   }
 }
