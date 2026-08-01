@@ -14,37 +14,37 @@ import java.util.List;
  * Input: s = "101023"      Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
  */
 
-// Time Complexity: O(2^N) where N is the length of the string s.
+// Time Complexity: O(2^n) where n is the length of the string s.
 public class RestoreIPAddress {
 
-  private static List<String> restoreIPAddress(String s) {
+  private static List<String> restoreIPAddress(String str) {
     List<String> list = new ArrayList<>();
-    if (s.length() > 12) {    // In IPV4 format address is of 12 digit max excluding '.'
+    if (str.length() > 12) {    // In IPV4 format address is of 12 digit max excluding '.'
       return list;
     }
-    restoreIP(s, 3, list, "");
+    restoreIP(str, 3, list, "");
     return list;
   }
 
   private static void restoreIP(String s, int dot, List<String> list, String ip) {
-    if (dot == 0 && isValid(s)) {
+    if (dot == 0 && isValidIP(s)) {
       ip += s;
       list.add(ip);
       return;
     }
     for (int i = 1; i <= 3 && i < s.length(); i++) {
       String address = s.substring(0, i);
-      if (isValid(address)) {
+      if (isValidIP(address)) {
         restoreIP(s.substring(i), dot - 1, list, ip + address + ".");
       }
     }
   }
 
-  private static boolean isValid(String s) {
-    if (s.charAt(0) == '0' && s.length() != 1) {
+  private static boolean isValidIP(String str) {
+    if (str.charAt(0) == '0' && str.length() != 1) {
       return false;
     }
-    return Integer.parseInt(s) <= 255;
+    return Integer.parseInt(str) <= 255;
   }
 
   public static void main(String[] args) {
