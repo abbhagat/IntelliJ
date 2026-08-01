@@ -1,5 +1,7 @@
 package lld.splitwise;
 
+import java.util.List;
+
 public class EqualSplit extends Split implements IExpense {
 
   @Override
@@ -8,8 +10,10 @@ public class EqualSplit extends Split implements IExpense {
   }
 
   public void splitExpense(Expense expense) {
-    double perUser = expense.getAmount() / expense.getSplits().size();
-    for (Split split : expense.getSplits()) {
+    List<Split> splits = expense.getSplits();
+    double amount = expense.getAmount();
+    double perUser = amount / splits.size();
+    for (Split split : splits) {
       split.setAmount(perUser);
     }
   }
