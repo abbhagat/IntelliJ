@@ -18,10 +18,10 @@ public class ReverseListFromPosMtoPosN {
     }
     Node temp = prev.next;   // prev -> 2 So, temp -> 3
     for (int i = m; i < n; i++) {
-      Node node = temp.next.next;
+      Node next = temp.next.next;
       temp.next.next = prev.next;
       prev.next = temp.next;
-      temp.next = node;
+      temp.next = next;
     }
     return head.next;
   }

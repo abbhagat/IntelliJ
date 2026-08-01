@@ -3,6 +3,8 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class ReverseAlternateKNodesInList {
 
   private static Node reverse(Node head, int k) {
