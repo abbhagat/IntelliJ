@@ -8,9 +8,9 @@ public class ExpenseSplitFactory {
   private static final Map<ExpenseType, IExpense> map = new HashMap<>();
 
   static {
-    map.put(ExpenseType.EXACT, new Exact());
-    map.put(ExpenseType.EQUAL, new Equal());
-    map.put(ExpenseType.PERCENT, new Percent());
+    map.put(ExpenseType.EXACT, new ExactSplit());
+    map.put(ExpenseType.EQUAL, new EqualSplit());
+    map.put(ExpenseType.PERCENT, new PercentSplit());
   }
 
   public static IExpense getStrategy(ExpenseType expenseType) {

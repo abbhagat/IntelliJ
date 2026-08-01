@@ -2,7 +2,7 @@ package lld.splitwise;
 
 import java.util.*;
 
-public class SplitWiseApplication {
+public class SplitWiseImpl {
 
   public static void main(String[] args) {
     //-------------------------
@@ -21,14 +21,14 @@ public class SplitWiseApplication {
     /****************************************************
      *               EQUAL SPLIT
      ****************************************************/
-    Equal equalSplit1 = new Equal();
-    equalSplit1.setUser(alice);
+    EqualSplit equalSplitSplit1 = new EqualSplit();
+    equalSplitSplit1.setUser(alice);
 
-    Equal equalSplit2 = new Equal();
-    equalSplit2.setUser(bob);
+    EqualSplit equalSplitSplit2 = new EqualSplit();
+    equalSplitSplit2.setUser(bob);
 
-    Equal equalSplit3 = new Equal();
-    equalSplit3.setUser(charlie);
+    EqualSplit equalSplitSplit3 = new EqualSplit();
+    equalSplitSplit3.setUser(charlie);
 
     Expense equalExpense = new Expense();
     equalExpense.setExpenseId("EXP-1");
@@ -36,7 +36,7 @@ public class SplitWiseApplication {
     equalExpense.setAmount(3000);
     equalExpense.setPaidBy(alice);
     equalExpense.setType(ExpenseType.EQUAL);
-    equalExpense.setSplits(Arrays.asList(equalSplit1, equalSplit2, equalSplit3));
+    equalExpense.setSplits(Arrays.asList(equalSplitSplit1, equalSplitSplit2, equalSplitSplit3));
 
     expenseService.addExpense(equalExpense);
 
@@ -47,15 +47,15 @@ public class SplitWiseApplication {
      *               EXACT SPLIT
      ****************************************************/
 
-    Exact e1 = new Exact();
+    ExactSplit e1 = new ExactSplit();
     e1.setUser(alice);
     e1.setAmount(1200);
 
-    Exact e2 = new Exact();
+    ExactSplit e2 = new ExactSplit();
     e2.setUser(bob);
     e2.setAmount(1000);
 
-    Exact e3 = new Exact();
+    ExactSplit e3 = new ExactSplit();
     e3.setUser(charlie);
     e3.setAmount(800);
 

@@ -1,6 +1,6 @@
 package lld.splitwise;
 
-public class Exact extends Split implements IExpense {
+public class ExactSplit extends Split implements IExpense {
 
   public void validate(Expense expense) {
     double total = expense.getSplits()
