@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class ElevatorSystem {
 
@@ -20,8 +21,9 @@ public class ElevatorSystem {
     }
   }
 
-  public void shutdown() {
+  public void shutdown() throws InterruptedException {
     executorService.shutdown();
+    executorService.awaitTermination(100, TimeUnit.MINUTES);
   }
 
   public void handleRequest(Request request) {
@@ -31,7 +33,7 @@ public class ElevatorSystem {
     }
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     ElevatorSystem elevatorSystem = new ElevatorSystem(5);
     elevatorSystem.handleRequest(new Request(2, Direction.UP));
     elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
