@@ -3,7 +3,7 @@ package lld.restaurant;
 import java.util.List;
 
 public interface IReservation {
-  void save(Booking booking);
+  boolean save(Booking booking);
   List<Booking> getReservations();
-  void cancel(Booking booking);
+  boolean cancel(Booking booking);
 }

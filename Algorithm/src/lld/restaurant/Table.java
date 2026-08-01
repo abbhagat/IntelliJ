@@ -1,3 +1,3 @@
 package lld.restaurant;
 
-public record Table(String tableId, int capacity, Status status) {}
+public record Table(String tableId, int capacity, TableStatus tableStatus) {}

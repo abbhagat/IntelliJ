@@ -1,6 +1,6 @@
 package lld.restaurant;
 
-public enum Status {
+public enum TableStatus {
   RESERVED,
   AVAILABLE
 }
