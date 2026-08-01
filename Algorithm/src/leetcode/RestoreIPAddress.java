@@ -44,7 +44,7 @@ public class RestoreIPAddress {
     if (str.charAt(0) == '0' && str.length() != 1) {
       return false;
     }
-    return Integer.parseInt(str) <= 255;
+    return str.chars().allMatch(Character::isDigit) && Integer.parseInt(str) <= 255;
   }
 
   public static void main(String[] args) {
