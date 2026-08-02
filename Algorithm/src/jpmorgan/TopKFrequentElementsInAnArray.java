@@ -25,9 +25,9 @@ public class TopKFrequentElementsInAnArray {
     }
     printArray(res);
     return topKList.stream()
-        .map(Map.Entry::getKey)
-        .mapToInt(x -> x)
-        .toArray();
+              .map(Map.Entry::getKey)
+              .mapToInt(x -> x)
+              .toArray();
   }
 
   private static String[] topKFrequentWords(List<String> list, int k) {

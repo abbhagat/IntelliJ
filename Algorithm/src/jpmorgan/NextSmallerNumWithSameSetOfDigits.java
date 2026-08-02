@@ -10,7 +10,7 @@ public class NextSmallerNumWithSameSetOfDigits {
   private static int nextPermutation(int n) {
     char[] c = String.valueOf(n).toCharArray();
     int i = c.length - 2;
-    while (i >= 0 && c[i] <= c[i + 1]) {    // we find the pivot element where c[i] < c[i+1]
+    while (i >= 0 && c[i] <= c[i + 1]) {    // we find the pivot element where c[i] > c[i+1]
       i--;
     }
     if (i < 0) {  // If no pivot element is found that means the num is in descending order so return n
