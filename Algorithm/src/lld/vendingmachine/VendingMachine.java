@@ -8,11 +8,8 @@ import lombok.Setter;
 public class VendingMachine {
 
   private Inventory inventory;
-
   private State currentState;
-
   private Product selectedProduct;
-
   private int balance;
 
   public VendingMachine() {
@@ -35,23 +32,21 @@ public class VendingMachine {
     currentState.cancel();
   }
 
-  // helper methods
-
   public void addBalance(int value) {
     balance += value;
   }
 
   public boolean hasEnoughMoney() {
-    return balance >= selectedProduct.getPrice();
+    return balance >= selectedProduct.price();
   }
 
   public void returnChange() {
-    int change = balance - selectedProduct.getPrice();
+    int change = balance - selectedProduct.price();
     System.out.println("Returning " + change);
   }
 
   public void dispenseProduct() {
-    System.out.println(selectedProduct.getName());
+    System.out.println(selectedProduct.name());
   }
 
   public void refund() {

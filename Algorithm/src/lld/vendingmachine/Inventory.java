@@ -13,7 +13,7 @@ public class Inventory {
   private final Map<String, Item> inventory = new HashMap<>();
 
   public void addProduct(Product product, int quantity) {
-    inventory.put(product.getName(),
+    inventory.put(product.name(),
         new Item(product, quantity));
   }
 

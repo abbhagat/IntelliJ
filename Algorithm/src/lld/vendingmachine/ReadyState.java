@@ -10,9 +10,7 @@ public class ReadyState implements State {
 
   @Override
   public void insertCoin(Coin coin) {
-
     vendingMachine.addBalance(coin.getValue());
-
     if (vendingMachine.hasEnoughMoney()) {
       vendingMachine.setState(new DispenseState(vendingMachine));
     }
