@@ -17,6 +17,7 @@ public class BalancedBracketMinSwaps {
   }
 
   public static void main(String[] args) {
+    System.out.println(minSwaps(")("));         // 1
     System.out.println(minSwaps("))(("));       // 1
     System.out.println(minSwaps("()"));         // 0
     System.out.println(minSwaps("(()())"));     // 0

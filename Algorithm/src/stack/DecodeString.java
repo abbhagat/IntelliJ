@@ -4,12 +4,12 @@ import java.util.Stack;
 
 public class DecodeString {
 
-  private static String decodeString(String s) {
+  private static String decodeString(String str) {
     Stack<String>  stack = new Stack<>();
     Stack<Integer> count = new Stack<>();
     String decode = "";
     int n = 0;
-    for (char c : s.toCharArray()) {
+    for (char c : str.toCharArray()) {
       if (Character.isDigit(c)) {
         n = n * 10 + c - '0';
       } else if (c == '[') {
@@ -18,9 +18,9 @@ public class DecodeString {
         decode = "";
         n = 0;
       } else if (c == ']') {
-        String temp = decode;
+        String s = decode;
         decode  = stack.pop();
-        decode += temp.repeat(count.pop());
+        decode += s.repeat(count.pop());
       } else {
         decode += c;
       }
