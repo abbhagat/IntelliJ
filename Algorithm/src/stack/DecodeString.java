@@ -19,11 +19,8 @@ public class DecodeString {
         n = 0;
       } else if (c == ']') {
         String temp = decode;
-        decode = stack.pop();
-        int k  = count.pop();
-        for (int i = 1; i <= k; i++) {
-          decode += temp;
-        }
+        decode  = stack.pop();
+        decode += temp.repeat(count.pop());
       } else {
         decode += c;
       }
