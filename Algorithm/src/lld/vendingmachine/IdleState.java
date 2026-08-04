@@ -2,16 +2,16 @@ package lld.vendingmachine;
 
 public class IdleState implements State {
 
-  private final VendingMachine machine;
+  private final VendingMachine vendingMachine;
 
-  public IdleState(VendingMachine machine) {
-    this.machine = machine;
+  public IdleState(VendingMachine vendingMachine) {
+    this.vendingMachine = vendingMachine;
   }
 
   @Override
   public void selectProduct(Product product) {
-    machine.setSelectedProduct(product);
-    machine.setState(new ReadyState(machine));
+    vendingMachine.setSelectedProduct(product);
+    vendingMachine.setState(new ReadyState(vendingMachine));
   }
 
   @Override

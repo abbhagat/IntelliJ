@@ -15,31 +15,31 @@ public class VendingMachineImpl {
     inventory.addProduct(pepsi, 3);
     inventory.addProduct(chips, 10);
 
-    // Create vending machine
-    VendingMachine machine = new VendingMachine();
-    machine.setInventory(inventory);
+    // Create vending vendingMachine
+    VendingMachine vendingMachine = new VendingMachine();
+    vendingMachine.setInventory(inventory);
     // Buy Coke
     System.out.println("Buying Coke...");
-    machine.selectProduct(coke);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.TEN);
-    machine.dispense();
+    vendingMachine.selectProduct(coke);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.dispense();
     System.out.println();
     // Buy Chips
     System.out.println("Buying Chips...");
-    machine.selectProduct(chips);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.FIVE);
-    machine.dispense();
+    vendingMachine.selectProduct(chips);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.FIVE);
+    vendingMachine.dispense();
     System.out.println();
     // Cancel transaction
     System.out.println("Cancel Transaction...");
-    machine.selectProduct(pepsi);
-    machine.insertCoin(Coin.TEN);
-    machine.insertCoin(Coin.TEN);
-    machine.cancel();
+    vendingMachine.selectProduct(pepsi);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.insertCoin(Coin.TEN);
+    vendingMachine.cancel();
   }
 }
