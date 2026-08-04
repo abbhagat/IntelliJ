@@ -29,7 +29,7 @@ public class CommonNodesInTwoBST {
         } else if (root1.num < root2.num) {
           s1.pop();
           root1 = root1.right;
-          root2 = null;
+          root2 = null;        // prevents the algorithm from walking down Tree's left subtree again.
         } else {
           s2.pop();
           root2 = root2.right;

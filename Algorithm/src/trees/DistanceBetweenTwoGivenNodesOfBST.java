@@ -1,5 +1,6 @@
 package trees;
 
+import static trees.BinaryTree.createBST;
 import static trees.LCA.lca;
 
 public class DistanceBetweenTwoGivenNodesOfBST {
@@ -24,22 +25,9 @@ public class DistanceBetweenTwoGivenNodesOfBST {
   }
 
   public static void main(String[] args) {
-     /*
-              15
-            /    \
-          10      20
-         / \     /  \
-        8  12   16  25
-    */
-    Node root        = new Node(15);
-    root.left        = new Node(10);
-    root.right       = new Node(20);
-    root.left.left   = new Node(8);
-    root.left.right  = new Node(12);
-    root.right.left  = new Node(16);
-    root.right.right = new Node(25);
-    System.out.println(findDistance(root, 15, 12));
-    System.out.println(findDistance(root, 8,  12));
-    System.out.println(findDistance(root, 8,  25));
+    Node root = createBST();
+    System.out.println(findDistance(root, 1, 7));
+    System.out.println(findDistance(root, 3,  6));
+    System.out.println(findDistance(root, 2,  5));
   }
 }
