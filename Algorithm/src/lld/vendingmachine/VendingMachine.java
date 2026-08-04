@@ -8,28 +8,28 @@ import lombok.Setter;
 public class VendingMachine {
 
   private Inventory inventory;
-  private State currentState;
+  private State state;
   private Product selectedProduct;
   private int balance;
 
   public VendingMachine() {
-    currentState = new IdleState(this);
+    state = new IdleState(this);
   }
 
   public void selectProduct(Product product) {
-    currentState.selectProduct(product);
+    state.selectProduct(product);
   }
 
   public void insertCoin(Coin coin) {
-    currentState.insertCoin(coin);
+    state.insertCoin(coin);
   }
 
   public void dispense() {
-    currentState.dispenseProduct();
+    state.dispenseProduct();
   }
 
   public void cancel() {
-    currentState.cancelProduct();
+    state.cancelProduct();
   }
 
   public void addBalance(int value) {
@@ -59,6 +59,6 @@ public class VendingMachine {
   }
 
   public void setState(State state) {
-    currentState = state;
+    this.state = state;
   }
 }
