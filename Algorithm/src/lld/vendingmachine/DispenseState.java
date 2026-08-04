@@ -9,7 +9,7 @@ public class DispenseState implements State {
   }
 
   @Override
-  public void dispense() {
+  public void dispenseProduct() {
     vendingMachine.dispenseProduct();
     vendingMachine.returnChange();
     vendingMachine.reset();
@@ -23,5 +23,5 @@ public class DispenseState implements State {
   public void selectProduct(Product product) {}
 
   @Override
-  public void cancel() {}
+  public void cancelProduct() {}
 }

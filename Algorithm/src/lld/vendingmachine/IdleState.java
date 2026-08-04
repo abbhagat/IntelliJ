@@ -20,9 +20,9 @@ public class IdleState implements State {
   }
 
   @Override
-  public void dispense() {}
+  public void dispenseProduct() {}
 
   @Override
-  public void cancel() {}
+  public void cancelProduct() {}
 
 }

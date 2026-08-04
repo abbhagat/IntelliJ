@@ -25,11 +25,11 @@ public class VendingMachine {
   }
 
   public void dispense() {
-    currentState.dispense();
+    currentState.dispenseProduct();
   }
 
   public void cancel() {
-    currentState.cancel();
+    currentState.cancelProduct();
   }
 
   public void addBalance(int value) {

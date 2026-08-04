@@ -21,11 +21,11 @@ public class ReadyState implements State {
   }
 
   @Override
-  public void dispense() {
+  public void dispenseProduct() {
   }
 
   @Override
-  public void cancel() {
+  public void cancelProduct() {
     vendingMachine.refund();
     vendingMachine.setState(new IdleState(vendingMachine));
   }
