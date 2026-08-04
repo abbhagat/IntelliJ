@@ -6,6 +6,17 @@ import static java.lang.Integer.min;
 /**
  * Given a binary tree, find its minimum depth.
  * The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+ * Why use Integer.MAX_VALUE?
+ * Consider this tree:
+ *     1
+ *    /
+ *   2
+ *  /
+ * 3
+ * If you simply wrote: return Math.min(treeMinHeight(root.left), treeMinHeight(root.right)) + 1;
+ * then: treeMinHeight(2) = min(0, ?) + 1
+ * Since the right child is null, it would incorrectly contribute 0. The result would become 1, which is wrong.
+ * A null child does not represent a path to a leaf, so you assign it Integer.MAX_VALUE, so it is never chosen
  */
 // Time  Complexity: O(N) (visit each node once)
 // Space Complexity: O(H) (recursion stack, H = height)
@@ -16,7 +27,7 @@ public class BinaryTreeMinimumHeight {
       return 0;
     }
     if (root.left == null && root.right == null) {
-      return 1;
+      return 0;
     }
     int lH = (root.left  == null) ? MAX_VALUE : treeMinHeight(root.left);
     int rH = (root.right == null) ? MAX_VALUE : treeMinHeight(root.right);

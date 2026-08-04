@@ -23,6 +23,8 @@ import java.util.Map;
  Serialize every subtree into a unique string.
  Store each serialization in a HashMap.
  If the same serialization appears more than once, then an identical subtree exists.
+ The serialization of each leaf 4 is: 4,null,null
+ If you didn't ignore leaf nodes, the map would contain: "4,null,null" -> 2 and your algorithm would return true
 */
 
 // Time Complexity : O(n)
@@ -44,7 +46,7 @@ public class CheckIfBinaryTreeHasDuplicateSubTree {
     String left    = serialize(root.left);
     String right   = serialize(root.right);
     String subtree = root.num + "," + left + "," + right;
-    if (!left.equals("null") || !right.equals("null")) {       // Ignore leaf nodes
+    if (!left.equals("null") || !right.equals("null")) {       // Process this subtree only if it has at least one child
       int count = map.getOrDefault(subtree, 0);
       if (count == 1) {
         found = true;

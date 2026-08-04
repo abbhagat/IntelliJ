@@ -14,7 +14,9 @@ public class CheckIfTwoNodesAreOnSamePath {
     if (list.contains(x) && list.contains(y)) {
       return true;
     }
-    if (isOnSamePath(root.left, x, y, list) || isOnSamePath(root.right, x, y, list)) {
+    boolean left  = isOnSamePath(root.left,  x, y, list);
+    boolean right = isOnSamePath(root.right, x, y, list);
+    if (left || right) {
       return true;
     }
     list.removeLast();
