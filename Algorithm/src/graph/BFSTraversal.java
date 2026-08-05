@@ -2,6 +2,7 @@ package graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
 import static graph.CreateGraph.createGraph;
 
 // Time  Complexity : O(V + E), where V is the number of vertices and E is the number of edges in the graph.
@@ -27,7 +28,7 @@ public class BFSTraversal {
   public static void main(String[] args) {
     Graph g = createGraph(4);
     int v = g.getV();
-    for(int i = 0; i < v; i++) {
+    for (int i = 0; i < v; i++) {
       boolean[] visited = new boolean[v];
       BFS(g, i, visited);
       System.out.println();
