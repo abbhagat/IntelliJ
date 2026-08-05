@@ -1,6 +1,6 @@
 package geeks;
 
-import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 /**
  * Given an integer N, the task is to count the values of K ( where 1 ≤ K≤ N ), such that 1< GCD(K, N) < K.
@@ -19,18 +19,19 @@ import static java.lang.Integer.max;
  */
 public class CountNumWithHCFLessThanThatNumber {
 
+  // Time: O(log(min(x, y)))
+  // Space: O(1)
   private static int findHCF(int x, int y) {
     return y == 0 ? x : findHCF(y, x % y);
   }
 
   private static int findGCD(int x, int y) {
-    int gcd = 0;
-    for (int i = 1; i <= max(x, y); i++) {
-      if (x % i == 0 && y % i == 0) {
-        gcd = i;
-      }
+    while (y != 0) {
+      int t = y;
+      y = x % y;
+      x = t;
     }
-    return gcd;
+    return x;
   }
 
   public static void main(String[] args) {

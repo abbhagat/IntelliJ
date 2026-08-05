@@ -1,6 +1,5 @@
 package geeks;
 
-import static java.lang.Character.getNumericValue;
 import static java.lang.Math.pow;
 
 public class ParseIntImplementation {
@@ -8,7 +7,7 @@ public class ParseIntImplementation {
   public static int parseInt(String s) {
     int n = 0, j = 0;
     for (int i = s.length() - 1; i >= 0; i--) {
-      n += getNumericValue(s.charAt(i)) * pow(10, j);
+      n += (s.charAt(i) - '0') * pow(10, j);
       j++;
     }
     return n;
