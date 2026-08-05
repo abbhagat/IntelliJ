@@ -2,7 +2,6 @@ package pairs;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import static util.CommonUtils.printArray;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(1)
@@ -24,7 +23,6 @@ public class CheckIfArrayCanBeDivInTwoSubArrayWithEqualSum {
   public static void main(String[] args) {
     int[][] M = {{6, 2, 3, 2, 1}, {6, 6}, {6, 3, 2, 1}};
     for (int[] a : M) {
-      printArray(a);
       int i = check(a);
       if (i != -1) {
         IntStream.range(0, i + 1).forEach(j -> System.out.print(a[j] + " "));

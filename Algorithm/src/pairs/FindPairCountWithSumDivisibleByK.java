@@ -14,7 +14,7 @@ public class FindPairCountWithSumDivisibleByK {
         if ((a[i] + a[j]) % k == 0) {
           int min  = min(a[i], a[j]);
           int max  = max(a[i], a[j]);
-          var pair = min + "," + max;
+          String pair = min + "," + max;
           if (set.add(pair)) {
             System.out.println("(" + min + "," + max + ")");
           }
