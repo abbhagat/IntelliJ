@@ -1,4 +1,4 @@
-package matrix;
+package graph;
 
 import static util.CommonUtils.printMatrix;
 

@@ -1,15 +1,13 @@
 package graph;
 
 import lombok.Getter;
-
 import java.util.LinkedList;
-import java.util.List;
 
 @Getter
 public class Graph {
 
   private final int v;
-  private final List<Integer>[] edge;
+  private final LinkedList<Integer>[] edge;
 
   @SuppressWarnings("unchecked")
   public Graph(int v) {
@@ -21,7 +19,11 @@ public class Graph {
   }
 
   public void addEdge(int v, int e) {
-    this.edge[v].add(e);
+    this.edge[v].addLast(e);
+  }
+
+  public void removeEdge(int v, int e) {
+    this.edge[v].remove(e);
   }
 
 }

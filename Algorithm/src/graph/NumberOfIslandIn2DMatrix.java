@@ -1,4 +1,4 @@
-package matrix;
+package graph;
 
 /*
   Input : mat[][] = {{1, 1, 0, 0, 0},
