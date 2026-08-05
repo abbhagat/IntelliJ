@@ -20,7 +20,7 @@ public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
         zeroCount -= a[j] == 0 ? 1 : 0;
         j++;
       }
-      if (i - j > bestWindow && zeroCount <= k) {
+      if (bestWindow < i - j && zeroCount <= k) {
         bestWindow = i - j;
         startIndex = j;
       }
