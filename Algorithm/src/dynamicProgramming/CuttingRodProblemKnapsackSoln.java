@@ -3,7 +3,7 @@ package dynamicProgramming;
 import java.util.Arrays;
 import static java.lang.Integer.max;
 
-// Time  Complexity: O(n * n)
+// Time  Complexity: O(n^2)
 // Space Complexity: O(n)
 public class CuttingRodProblemKnapsackSoln {
 

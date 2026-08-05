@@ -1,6 +1,5 @@
 package dynamicProgramming;
 
-
 import static java.lang.Integer.max;
 
 /**
@@ -26,15 +25,27 @@ import static java.lang.Integer.max;
  */
 public class HouseRobberProblem {
 
-  // Time  Complexity: O(2ⁿ)
+  // Time  Complexity: O(2^n)
   // Space Complexity: O(n)
   private static int maxGoldLooted(int[] a, int n) {
-    if (n <= 0) {
+    if (n < 0) {
       return 0;
     }
-    int selected   = maxGoldLooted(a, n - 2) + a[n - 1];
+    int selected   = a[n] + maxGoldLooted(a, n - 2);
     int unselected = maxGoldLooted(a, n - 1);
     return max(selected, unselected);
+  }
+
+  // Time  Complexity: O(n)
+  // Space Complexity: O(n)
+  private static int maxGoldLootedDP(int[] a, int n) {
+    int[] dp = new int[n + 1];   // dp[i] represent the maximum value stolen so far after reaching the house 'i'
+    dp[0]    = a[0];
+    dp[1]    = max(a[0], a[1]);
+    for (int i = 2; i <= n; i++) {
+      dp[i] = max(dp[i - 1], a[i] + dp[i - 2]);
+    }
+    return dp[n];
   }
 
   // Time  Complexity: O(n)
@@ -49,25 +60,12 @@ public class HouseRobberProblem {
     return max(incl, excl);
   }
 
-  // Time  Complexity: O(n)
-  // Space Complexity: O(n)
-  private static int maxGoldLootedDP(int[] a) {
-    int n = a.length - 1;
-    int[] dp = new int[n + 1];   // dp[i] represent the maximum value stolen so far after reaching the house 'i'
-    dp[0] = a[0];
-    dp[1] = max(a[0], a[1]);
-    for (int i = 2; i <= n; i++) {
-      dp[i] = max(dp[i - 1], a[i] + dp[i - 2]);
-    }
-    return dp[n];
-  }
-
   public static void main(String[] args) {
     int[] a = new int[]{6, 7, 1, 3, 8, 2, 4};
-    System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
+    System.out.println(maxGoldLooted(a, a.length - 1) + "\t" + maxGoldLootedDP(a, a.length - 1) + "\t" + maxGoldLooted(a));
     a = new int[]{5, 3, 4, 11, 2};
-    System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
+    System.out.println(maxGoldLooted(a, a.length - 1) + "\t" + maxGoldLootedDP(a, a.length - 1) + "\t" + maxGoldLooted(a));
     a = new int[]{3, 5, 7};
-    System.out.println(maxGoldLooted(a, a.length) + "\t" + maxGoldLootedDP(a) + "\t" + maxGoldLooted(a));
+    System.out.println(maxGoldLooted(a, a.length - 1) + "\t" + maxGoldLootedDP(a, a.length - 1) + "\t" + maxGoldLooted(a));
   }
 }
