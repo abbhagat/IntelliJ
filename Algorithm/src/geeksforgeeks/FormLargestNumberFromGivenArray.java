@@ -11,13 +11,13 @@ import java.util.List;
 
 public class FormLargestNumberFromGivenArray {
 
-  public static String largestNumber(int[] a) {
+  public static long largestNumber(int[] a) {
     List<String> list = new ArrayList<>();
     Arrays.stream(a).forEach(x -> list.add(String.valueOf(x)));
     list.sort((x, y) -> (y + x).compareTo(x + y));
     String s = String.join("", list);
-    s = s.replaceFirst("^0+(?!$)", "");
-    return s;
+//    s = s.replaceFirst("^0+(?!$)", "");
+    return Long.parseLong(s);
   }
 
   public static void main(String[] args) {

@@ -7,16 +7,16 @@ import java.util.List;
 // "^0+(?!$)" Remove leading zeros but keep one zero if the entire string is zeros
 // 0+ → One or more zeros
 // (?!$) → Negative lookahead “Do NOT match if what follows at the end of the string” In simple words: Do not remove zeros if they are the entire string
-
+// x = "542", y = "60" x + y = "54260" and x + y = "54260" => "54260" > "60542" So "542" should come before "60"
 public class FormSmallestNumberFromGivenArray {
 
-  public static String smallestNumber(int[] a) {
+  public static long smallestNumber(int[] a) {
     List<String> list = new ArrayList<>();
     Arrays.stream(a).forEach(x -> list.add(String.valueOf(x)));
     list.sort((x, y) -> (x + y).compareTo(y + x));
     String s = String.join("", list);
-    s = s.replaceFirst("^0+(?!$)", "");
-    return s;
+//    s = s.replaceFirst("^0+(?!$)", "");
+    return Long.parseLong(s);
   }
 
   public static void main(String[] args) {
