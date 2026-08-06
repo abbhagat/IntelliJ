@@ -16,13 +16,13 @@ import static util.CommonUtils.printArray;
 
 public class FindPairsIndexInArrayWhoseSumIsAGivenNumber {
 
-  public static int[] twoSumIndex(int[] a, int target) {
+  public static int[] twoSumIndex(int[] a, int n) {
     if (a == null || a.length < 2) {
       return null;
     }
     Map<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < a.length; i++) {
-      int y = target - a[i];
+      int y = n - a[i];
       if (map.containsKey(y)) {
         return new int[]{map.get(y), i};
       }

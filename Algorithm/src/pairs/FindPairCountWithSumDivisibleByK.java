@@ -28,8 +28,8 @@ public class FindPairCountWithSumDivisibleByK {
     Map<Integer, Integer> map = new HashMap<>();
     int count = 0;
     for (int x : a) {
-      int y = x % k;
-      int z = (k - y) % k;  // Complement Remainder (x + y) % k == 0 => (x % k + y % k) % k == 0 if x % k = y then we need y % k = (k - y) % k
+      int y  = x % k;
+      int z  = (k - y) % k;  // Complement Remainder (x + y) % k == 0 => (x % k + y % k) % k == 0 if x % k = y then we need y % k = (k - y)
       count += map.getOrDefault(z, 0);  // Check how many elements we have already seen with remainder z Each of them forms a valid pair with current x
       map.put(y, map.getOrDefault(y, 0) + 1);  // Add current remainder y to the map and Increase its frequency
     }
