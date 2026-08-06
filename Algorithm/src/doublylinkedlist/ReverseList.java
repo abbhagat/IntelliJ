@@ -31,6 +31,20 @@ public class ReverseList {
     return reverse(node.prev);
   }
 
+  private static Node reverseNode(Node node) {
+    if (node == null || node.next == null) {
+      if (node != null) {
+        node.prev = null;  // the new head's prev should be set to null.
+      }
+      return node;
+    }
+    Node head = reverseNode(node.next);
+    node.next.next = node;
+    node.prev = node.next;
+    node.next = null;
+    return head;
+  }
+
   public static void main(String[] args) {
     Node head = null;
     int[] a = {1, 2, 3, 4, 5};
