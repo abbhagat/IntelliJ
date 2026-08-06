@@ -1,7 +1,8 @@
 package pairs;
 
-import java.util.*;
-
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -19,10 +20,12 @@ public class FindPairsInArrayWhoseProductIsGivenNumber {
             result.add(List.of(min(x, y), max(x, y)));
           }
         }
-      } else if (n % x == 0) {
-        int y = n / x;
-        if (set.contains(y)) {
-          result.add(List.of(min(x, y), max(x, y)));
+      } else {
+        if (n % x == 0) {
+          int y = n / x;
+          if (set.contains(y)) {
+            result.add(List.of(min(x, y), max(x, y)));
+          }
         }
       }
       set.add(x);

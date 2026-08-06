@@ -1,15 +1,17 @@
 package pairs;
 
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class FindPairsInArrayWhoseSumIsGivenNumber {
 
   public static void findPairs(int[] a, int n) {
+
     Set<Integer> set = new HashSet<>();
     Set<List<Integer>> resultSet = new HashSet<>();
     for (int x : a) {

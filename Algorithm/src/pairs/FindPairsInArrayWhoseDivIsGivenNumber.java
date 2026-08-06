@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class FindPairsInArrayWhoseDivIsGivenNumber {
 
   public static void findPairs(int[] a, int n) {
