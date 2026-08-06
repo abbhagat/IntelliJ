@@ -5,12 +5,10 @@ package leetcode;
 public class ZigZagConversion {
 
   private static StringBuilder convert(String s, int rows) {
-
     StringBuilder[] sb = new StringBuilder[rows];
     for (int i = 0; i < rows; i++) {
       sb[i] = new StringBuilder();
     }
-
     int i = 0;
     while (i < s.length()) {
       for (int j = 0; j < rows && i < s.length(); j++) {
@@ -20,7 +18,6 @@ public class ZigZagConversion {
         sb[j].append(s.charAt(i++));
       }
     }
-
     for (i = 1; i < rows; i++) {
       sb[0].append(sb[i]);
     }
