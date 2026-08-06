@@ -1,25 +1,25 @@
 package pairs;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 public class FindPairsInArrayWhoseSumIsGivenNumber {
 
-  public static void findPairs(int[] a, int target) {
-    Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+  public static void findPairs(int[] a, int n) {
+    Set<Integer> set = new HashSet<>();
+    Set<List<Integer>> resultSet = new HashSet<>();
     for (int x : a) {
-      int y = target - x;  // x + y = target
-      if (map.containsKey(y)) {
-        if (x == y && map.get(y) == 1) {
-          continue;
-        }
-        System.out.println("(" + x + "," + y + ")");
-        map.remove(x);
-        map.remove(y);
+      int y = n - x;
+      if (set.contains(y)) {
+        resultSet.add(List.of(min(x, y), max(x, y)));
       }
+      set.add(x);
     }
+    System.out.println(resultSet);
   }
 
   public static void main(String[] args) {

@@ -8,16 +8,16 @@ import java.util.Set;
 // Space Complexity : O(n)
 public class FindPairsInArrayWhoseDiffIsGivenNumber {
 
-  public static void findPairs(int[] a, int k) {
+  public static void findPairs(int[] a, int n) {
     // Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());  // when you consider (x,y) and (y,x) pairs in result
     Set<Integer> set = new HashSet<>();
     Set<List<Integer>> resultSet = new HashSet<>();
     for (int x : a) {
-      if (set.contains(x - k)) {
-        resultSet.add(List.of(x, x - k));
+      if (set.contains(x - n)) {
+        resultSet.add(List.of(x, x - n));
       }
-      if (set.contains(x + k)) {
-        resultSet.add(List.of(x, x + k));
+      if (set.contains(x + n)) {
+        resultSet.add(List.of(x, x + n));
       }
       set.add(x);
     }

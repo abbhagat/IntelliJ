@@ -1,27 +1,33 @@
 package pairs;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 // Time  Complexity: O(n)
 // Space Complexity: O(n)
 public class FindPairsInArrayWhoseProductIsGivenNumber {
 
-  private static void findPairs(int[] a, int target) {
-    Map<Integer, Integer> map = new HashMap<>();
-    Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
+  public static void findPairs(int[] a, int n) {
+    Set<Integer> set = new HashSet<>();
+    Set<List<Integer>> result = new HashSet<>();
     for (int x : a) {
-      int y = target / x;
-      if (map.containsKey(y)) {
-        if (x == y && map.get(y) == 1) {
-          continue;
+      if (x == 0) {
+        if (n == 0) {
+          for (int y : set) {
+            result.add(List.of(min(x, y), max(x, y)));
+          }
         }
-        System.out.println("(" + x + "," + y + ")");
-        map.remove(x);
-        map.remove(y);
+      } else if (n % x == 0) {
+        int y = n / x;
+        if (set.contains(y)) {
+          result.add(List.of(min(x, y), max(x, y)));
+        }
       }
+      set.add(x);
     }
+    System.out.println(result);
   }
 
   public static void main(String[] args) {
