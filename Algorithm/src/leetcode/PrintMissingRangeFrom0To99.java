@@ -14,7 +14,7 @@ public class PrintMissingRangeFrom0To99 {
     for (i = start; i <= end; i++) {
       if (set.contains(i)) {
         if (index != -1) {
-          System.out.println(index == i - 1 ? index : index + "-" + (i - 1));
+          printRange(index, i - 1);
           index = -1;
         }
       } else {
@@ -22,7 +22,7 @@ public class PrintMissingRangeFrom0To99 {
       }
     }
     if (index != -1) {
-      System.out.println(index == i - 1 ? index : index + "-" + (i - 1));
+      printRange(index, i - 1);
     }
     System.out.println("------------------------");
   }
