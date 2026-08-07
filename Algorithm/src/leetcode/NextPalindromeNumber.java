@@ -6,21 +6,18 @@ public class NextPalindromeNumber {
   private static String findNextPalindrome(long n) {
     char[] c = String.valueOf(n).toCharArray();
     int l = c.length;
-    // Mirror i half to j half
-    mirror(c);
+    mirror(c);                                 // Mirror i half to j half
     if (Long.parseLong(new String(c)) > n) {
       return new String(c);
     }
-    // Increment the middle and propagate carry
-    int i = (l - 1) / 2, j = l / 2;
+    int i = (l - 1) / 2, j = l / 2;          // Increment the middle and propagate carry
     while (i >= 0 && c[i] == '9') {
       c[i] = c[j] = '0';
       i--;
       j++;
     }
     if (i < 0) {
-      // Example: 9, 99, 999...
-      return '1' + "0".repeat(l - 1) + '1';
+      return '1' + "0".repeat(l - 1) + '1';  // Example: 9, 99, 999...
     }
     c[i]++;
     c[j] = c[i];
@@ -28,16 +25,17 @@ public class NextPalindromeNumber {
     return new String(c);
   }
 
-  private static void mirror(char[] n) {
-    int i = 0, j = n.length - 1;
+  private static void mirror(char[] a) {
+    int i = 0, j = a.length - 1;
     while (i < j) {
-      n[j] = n[i];
+      a[j] = a[i];
       i++;
       j--;
     }
   }
 
   public static void main(String[] args) {
+    System.out.println(findNextPalindrome(12345));        // 12421
     System.out.println(findNextPalindrome(9));            // 11
     System.out.println(findNextPalindrome(10));           // 11
     System.out.println(findNextPalindrome(3));            // 4
@@ -58,7 +56,6 @@ public class NextPalindromeNumber {
     System.out.println(findNextPalindrome(1459));         // 1551
     System.out.println(findNextPalindrome(1997));         // 2002
     System.out.println(findNextPalindrome(45312));        // 45354
-    System.out.println(findNextPalindrome(12345));        // 12421
     System.out.println(findNextPalindrome(12945));        // 13031
     System.out.println(findNextPalindrome(171152));       // 171171
     System.out.println(findNextPalindrome(9999999999L));  // 100000000001
