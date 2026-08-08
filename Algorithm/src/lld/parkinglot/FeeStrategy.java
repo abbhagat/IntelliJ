@@ -1,5 +1,5 @@
 package lld.parkinglot;
 
 public interface FeeStrategy {
-  double calculate(long parkDuration);
+  long calculate(long parkDuration);
 }

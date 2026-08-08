@@ -24,8 +24,8 @@ public class ParkingLot {
   public ParkingTicket park(Vehicle vehicle) {
     for (ParkingFloor parkingFloor : parkingFloors) {
       String vehicleType = vehicle.getVehicleType().name();
-      SpotType spotType  = SpotType.valueOf(vehicleType);
-      ParkingSpot parkingSpot   = parkingFloor.getFreeSpot(spotType);
+      SpotType spotType = SpotType.valueOf(vehicleType);
+      ParkingSpot parkingSpot = parkingFloor.getFreeSpot(spotType);
       if (parkingSpot != null) {
         parkingSpot.park(vehicle);
         ParkingTicket ticket = generateParkingTicket(parkingSpot, vehicle);
@@ -54,6 +54,6 @@ public class ParkingLot {
     String ticketId = UUID.randomUUID().toString();
     String vehicleNumber = vehicle.getVehicleNumber();
     long entryTime = System.currentTimeMillis();
-    return new ParkingTicket(ticketId, vehicleNumber,entryTime, parkingSpot);
+    return new ParkingTicket(ticketId, vehicleNumber, entryTime, parkingSpot);
   }
 }
