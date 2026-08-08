@@ -9,5 +9,8 @@ public class CustomBlockingQueue {
     new Producer<>(q, "Producer-3");
     new Consumer<>(q, "Consumer-1");
     new Consumer<>(q, "Consumer-2");
+    while (true) {
+      System.out.println("Count : "  + q.getCount());
+    }
   }
 }

@@ -11,11 +11,12 @@ class Producer<E> implements Runnable {
 
   @Override
   public void run() {
+    int n = 1;
     while (true) {
       try {
-        int n = q.getCount().getAndAdd(1);
         System.out.println("Put : " + n + "\t" + Thread.currentThread().getName());
         q.put((E) Integer.valueOf(n));
+        n++;
         Thread.sleep(1000);
       } catch (InterruptedException e) {
         e.printStackTrace();

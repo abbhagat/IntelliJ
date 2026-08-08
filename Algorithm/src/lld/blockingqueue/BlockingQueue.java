@@ -23,6 +23,7 @@ class BlockingQueue<E> {
       wait();
     }
     q.add(e);
+    count.getAndAdd(1);
     notifyAll();
   }
 

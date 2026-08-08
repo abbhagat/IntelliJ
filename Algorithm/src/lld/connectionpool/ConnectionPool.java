@@ -27,11 +27,11 @@ public class ConnectionPool implements IConnectionPool {
 
   public ConnectionPool(String driverName, String url, String username, String password, int poolSize) {
     this.driverName = driverName;
-    this.url = url;
-    this.username = username;
-    this.password = password;
-    this.poolSize = poolSize;
-    this.queue = new ArrayBlockingQueue<>(poolSize);
+    this.url        = url;
+    this.username   = username;
+    this.password   = password;
+    this.poolSize   = poolSize;
+    this.queue      = new ArrayBlockingQueue<>(poolSize);
     initializeConnectionPool();
   }
 

@@ -1,7 +1,6 @@
 package lld.notificationsystem;
 
 import lombok.Getter;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import static lld.notificationsystem.NotificationStatus.FAILED;
