@@ -10,7 +10,8 @@ public class PricingService {
                                   .stream()
                                   .mapToDouble(CartItem::getTotalPrice)
                                   .sum();
-    double discounted = discountStrategy.applyDiscount(subtotal);
-    return discounted + (discounted * TAX_RATE);
+    double cost = discountStrategy.applyDiscount(subtotal);
+    double tax  = cost * TAX_RATE;
+    return cost + tax;
   }
 }

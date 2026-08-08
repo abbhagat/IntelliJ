@@ -25,7 +25,7 @@ class ThreadPool implements IThreadPool {
     if (this.isStopped) {
       throw new IllegalStateException("ThreadPool is stopped");
     }
-    this.queue.add(task);
+    this.queue.offer(task);
   }
 
   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.

@@ -2,16 +2,17 @@ package lld.paymentsystem;
 
 import java.util.HashMap;
 import java.util.Map;
+import static lld.paymentsystem.PaymentMethod.*;
 
 public class PaymentStrategyFactory {
 
   private static final Map<PaymentMethod, PaymentStrategy> paymentStrategyMap = new HashMap<>();
 
   static {
-    paymentStrategyMap.put(PaymentMethod.UPI, new UPIPaymentStrategy());
-    paymentStrategyMap.put(PaymentMethod.BANK_TRANSFER, new BankTransferPaymentStrategy());
-    paymentStrategyMap.put(PaymentMethod.WALLET, new WalletPaymentStrategy());
-    paymentStrategyMap.put(PaymentMethod.CARD, new CardPaymentStrategy());
+    paymentStrategyMap.put(UPI, new UPIPaymentStrategy());
+    paymentStrategyMap.put(BANK_TRANSFER, new BankTransferPaymentStrategy());
+    paymentStrategyMap.put(WALLET, new WalletPaymentStrategy());
+    paymentStrategyMap.put(CARD, new CardPaymentStrategy());
   }
 
   static PaymentStrategy getStrategy(PaymentMethod paymentMethod) {

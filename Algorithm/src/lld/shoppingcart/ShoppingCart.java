@@ -21,7 +21,7 @@ public class ShoppingCart {
   public void addItem(Product product, int qty) {
     CartItem cartItem = cartItemMap.computeIfAbsent(
         product.getProductId(),
-        productId -> new CartItem(product, 0)
+        value -> new CartItem(product, 0)
     );
     cartItem.setQuantity(cartItem.getQuantity() + qty);
   }
