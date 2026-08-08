@@ -10,19 +10,19 @@ import java.util.LinkedList;
 */
 public class SubsetWithSumDivByN {
 
-  private static void findSubset(int[] a, int i, int sum, int n, LinkedList<Integer> list) {
-    if (i == a.length) {
+  private static void findSubset(int[] a, int index, int sum, int n, LinkedList<Integer> list) {
+    if (index == a.length) {
       if (sum % n == 0 && !list.isEmpty()) {
         System.out.println(list);
       }
       return;
     }
-    sum += a[i];
-    list.add(a[i]);
-    findSubset(a, i + 1, sum, n, list);
-    sum -= a[i];
+    sum += a[index];
+    list.add(a[index]);
+    findSubset(a, index + 1, sum, n, list);
+    sum -= a[index];
     list.removeLast();
-    findSubset(a, i + 1, sum, n, list);
+    findSubset(a, index + 1, sum, n, list);
   }
 
   public static void main(String[] args) {

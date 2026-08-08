@@ -1,5 +1,6 @@
 package paypal;
 
+import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 import static util.CommonUtils.gcd;
 
@@ -28,7 +29,7 @@ public class WaterAndJugProblem {
   }
 
   private static boolean canMeasure(int x, int y, int z) {
-    return (z <= x || z <= y) && z % gcd(x, y) == 0;
+    return z <= max(x, y)  && z % gcd(x, y) == 0;
   }
 
   public static void main(String[] args) {
