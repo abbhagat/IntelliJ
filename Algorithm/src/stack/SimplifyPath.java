@@ -8,14 +8,16 @@ public class SimplifyPath {
 
   private static String simplifyPath(String path) {
     Deque<String> stack = new ArrayDeque<>();
-    for (String str : path.split("/")) {
-      if (str.isEmpty() || str.equals(".")) {
+    for (String s : path.split("/")) {
+      if (s.isEmpty() || s.equals(".")) {
         continue;
       }
-      if (str.equals("..") && !stack.isEmpty()) {
-        stack.pollLast();    // removes and returns the last element -> Element / null
+      if (s.equals("..")) {
+        if (!stack.isEmpty()) {
+          stack.pollLast();   // removes and returns the last element -> Element / null
+        }
       } else {
-        stack.addLast(str); // Adds str to the end -> boolean
+        stack.addLast(s);    // Adds s to the end -> boolean
       }
     }
     return "/" + String.join("/", stack);
