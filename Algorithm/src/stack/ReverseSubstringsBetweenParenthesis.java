@@ -24,11 +24,7 @@ public class ReverseSubstringsBetweenParenthesis {
                       stack.push(sb);
                       sb = new StringBuilder();
                     }
-        case ')' -> {
-                      StringBuilder s = stack.pop();
-                      sb = sb.reverse();
-                      sb = s.append(sb);
-                    }
+        case ')' ->   sb = stack.pop().append(sb.reverse());
         default ->    sb.append(c);
       }
     }
