@@ -3,6 +3,8 @@ package stack;
 import java.util.Stack;
 import static java.lang.Character.isDigit;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class BasicCalculatorII {
 
   public static int calculate(String s) {
