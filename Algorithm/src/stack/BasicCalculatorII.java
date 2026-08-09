@@ -39,4 +39,3 @@ public class BasicCalculatorII {
     System.out.println(calculate("2 - 1 + 2"));
   }
 }
-
