@@ -13,9 +13,7 @@ public class SimplifyPath {
         continue;
       }
       if (s.equals("..")) {
-        if (!stack.isEmpty()) {
-          stack.pollLast();   // removes and returns the last element -> Element / null
-        }
+        stack.pollLast();   // removes and returns the last element -> Element / null
       } else {
         stack.addLast(s);    // Adds s to the end -> boolean
       }
