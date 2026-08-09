@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.Stack;
+import static java.lang.Character.isDigit;
 
 public class DecodeString {
 
@@ -10,7 +11,7 @@ public class DecodeString {
     String decode = "";
     int n = 0;
     for (char c : str.toCharArray()) {
-      if (Character.isDigit(c)) {
+      if (isDigit(c)) {
         n = n * 10 + c - '0';
       } else if (c == '[') {
         stack.push(decode);
@@ -19,8 +20,9 @@ public class DecodeString {
         n = 0;
       } else if (c == ']') {
         String s = decode;
-        decode  = stack.pop();
-        decode += s.repeat(count.pop());
+        decode   = stack.pop();
+        int k    = count.pop();
+        decode  += s.repeat(k);
       } else {
         decode += c;
       }
