@@ -12,13 +12,13 @@ public class GroupStringAnagrams {
 
   private static Collection<List<String>> groupAnagram(List<String> list) {
     Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
-    list.forEach(str -> {
+    for (String str : list) {
       Map<Character, Integer> freqMap = new HashMap<>();
       for (char c : str.toCharArray()) {
         freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
       }
-      map.computeIfAbsent(freqMap, key -> new ArrayList<>()).add(str);
-    });
+      map.computeIfAbsent(freqMap, value -> new ArrayList<>()).add(str);
+    }
     return map.values();
   }
 
