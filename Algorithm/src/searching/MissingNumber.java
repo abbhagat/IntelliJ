@@ -10,7 +10,7 @@ public class MissingNumber {
     int max  = Arrays.stream(a).max().getAsInt();
     int n    = a.length + 1;
     int sum1 = n * (min + max) / 2;
-    return (char) (sum1 - sum2);
+    return sum1 - sum2;
   }
 
   public static void main(String[] args) {
