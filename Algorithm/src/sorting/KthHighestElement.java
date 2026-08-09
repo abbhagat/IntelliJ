@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 public class KthHighestElement {
 
   private static Integer findKthHighest(int[] a, int k) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>();
+    PriorityQueue<Integer> pq = new PriorityQueue<>();  // min heap
     for (int x : a) {
       pq.add(x);
       if (pq.size() > k) {
