@@ -19,14 +19,17 @@ public class ReverseSubstringsBetweenParenthesis {
     Stack<StringBuilder> stack = new Stack<>();
     StringBuilder sb = new StringBuilder();
     for (char c : str.toCharArray()) {
-      if (c == '(') {
-        stack.push(sb);
-        sb = new StringBuilder();
-      } else if (c == ')') {
-        sb.reverse();
-        sb = stack.pop().append(sb);
-      } else {
-        sb.append(c);
+      switch (c) {
+        case '(' -> {
+                      stack.push(sb);
+                      sb = new StringBuilder();
+                    }
+        case ')' -> {
+                      StringBuilder s = stack.pop();
+                      sb = sb.reverse();
+                      sb = s.append(sb);
+                    }
+        default ->    sb.append(c);
       }
     }
     return sb;

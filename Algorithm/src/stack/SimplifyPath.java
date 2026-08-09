@@ -1,36 +1,30 @@
 package stack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 // Time Complexity: O(n)
 public class SimplifyPath {
 
-  private static void simplifyPath(String path) {
-    Stack<String> stack = new Stack<>();
+  private static String simplifyPath(String path) {
+    Deque<String> stack = new ArrayDeque<>();
     for (String str : path.split("/")) {
       if (str.isEmpty() || str.equals(".")) {
         continue;
       }
-      if (str.equals("..")) {
-        if (!stack.isEmpty()) {
-          stack.pop();
-        }
+      if (str.equals("..") && !stack.isEmpty()) {
+        stack.pollLast();    // removes and returns the last element -> Element / null
       } else {
-        stack.push(str);
+        stack.addLast(str); // Adds str to the end -> boolean
       }
     }
-    StringBuilder sb = new StringBuilder();
-    while (!stack.isEmpty()) {
-      sb.insert(0, stack.pop())
-        .insert(0, "/");
-    }
-    System.out.println(sb.length() == 0 ? "/" : sb);
+    return "/" + String.join("/", stack);
   }
 
   public static void main(String[] args) {
-    simplifyPath("/home");
-    simplifyPath("/a/./b/../../c/");
-    simplifyPath("/a/../../b/../c//.//");
-    simplifyPath("/a//b////c/d//././/..");
+    System.out.println(simplifyPath("/home"));
+    System.out.println(simplifyPath("/a/./b/../../c/"));
+    System.out.println(simplifyPath("/a/../../b/../c//.//"));
+    System.out.println(simplifyPath("/a//b////c/d//././/.."));
   }
 }
