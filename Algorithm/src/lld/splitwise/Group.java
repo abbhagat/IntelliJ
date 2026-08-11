@@ -2,7 +2,6 @@ package lld.splitwise;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +9,13 @@ import java.util.List;
 @Setter
 public class Group {
 
-  private String groupId;
+  private String id;
   private String name;
-  private List<User> members = new ArrayList<>();
+  private List<User> users = new ArrayList<>();
   private List<Expense> expenses = new ArrayList<>();
 
   public void addMember(User user) {
-    members.add(user);
+    users.add(user);
   }
 
   public void addExpense(Expense expense) {

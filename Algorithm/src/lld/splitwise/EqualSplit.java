@@ -13,7 +13,7 @@ public class EqualSplit implements SplitStrategy {
           "Expense must belong to a group");
     }
 
-    if (expense.getGroup().getMembers().isEmpty()) {
+    if (expense.getGroup().getUsers().isEmpty()) {
       throw new RuntimeException(
           "Group has no members");
     }
@@ -21,7 +21,7 @@ public class EqualSplit implements SplitStrategy {
 
   @Override
   public void calculateSplits(Expense expense) {
-    List<User> groupMembers = expense.getGroup().getMembers();
+    List<User> groupMembers = expense.getGroup().getUsers();
     double amountPerUser = expense.getAmount() / groupMembers.size();
     List<Split> splits = new ArrayList<>();
     for (User user : groupMembers) {

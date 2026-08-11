@@ -22,7 +22,7 @@ public class SplitWiseImpl {
     // -------------------------
 
     Group trip = new Group();
-    trip.setGroupId("G1");
+    trip.setId("G1");
     trip.setName("Goa Trip");
 
     trip.addMember(alice);
