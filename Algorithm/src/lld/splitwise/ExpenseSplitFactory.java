@@ -5,27 +5,15 @@ import java.util.Map;
 
 public class ExpenseSplitFactory {
 
-  private static final Map<ExpenseType, SplitStrategy> strategies = new HashMap<>();
+  private static final Map<ExpenseType, IExpense> map = new HashMap<>();
 
   static {
-    strategies.put(
-        ExpenseType.EQUAL,
-        new EqualSplit());
-
-    strategies.put(
-        ExpenseType.EXACT,
-        new ExactSplit());
-
-    strategies.put(
-        ExpenseType.PERCENT,
-        new PercentSplit());
+    map.put(ExpenseType.EXACT, new ExactSplit());
+    map.put(ExpenseType.EQUAL, new EqualSplit());
+    map.put(ExpenseType.PERCENT, new PercentSplit());
   }
 
-  public static SplitStrategy getStrategy(ExpenseType type) {
-    SplitStrategy strategy = strategies.get(type);
-    if (strategy == null) {
-      throw new RuntimeException("Unsupported expense type: " + type);
-    }
-    return strategy;
+  public static IExpense getStrategy(ExpenseType expenseType) {
+    return map.get(expenseType);
   }
 }

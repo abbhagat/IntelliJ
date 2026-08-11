@@ -11,10 +11,16 @@ public class ExpenseService {
   }
 
   public void addExpense(Expense expense) {
-    SplitStrategy strategy = ExpenseSplitFactory.getStrategy(expense.getExpenseType());
 
+    if (expense.getGroup() == null) {
+      throw new RuntimeException("Expense must belong to a group");
+    }
+
+    IExpense strategy =
+        ExpenseSplitFactory.getStrategy(expense.getExpenseType());
+
+    strategy.splitExpense(expense);
     strategy.validateExpense(expense);
-    strategy.calculateSplits(expense);
 
     updateBalanceSheet(expense);
 
@@ -29,22 +35,22 @@ public class ExpenseService {
 
       User user = split.getUser();
 
-      if (user.getId().equals(paidBy.getId())) {
+      if (user.getUserId().equals(paidBy.getUserId())) {
         continue;
       }
 
       balanceSheet.getBalanceSheet()
-          .computeIfAbsent(user.getId(), v -> new HashMap<>())
+          .computeIfAbsent(user.getUserId(), v -> new HashMap<>())
           .merge(
-              paidBy.getId(),
+              paidBy.getUserId(),
               split.getAmount(),
               Double::sum
           );
 
       balanceSheet.getBalanceSheet()
-          .computeIfAbsent(paidBy.getId(), v -> new HashMap<>())
+          .computeIfAbsent(paidBy.getUserId(), v -> new HashMap<>())
           .merge(
-              user.getId(),
+              user.getUserId(),
               -split.getAmount(),
               Double::sum
           );
@@ -54,11 +60,11 @@ public class ExpenseService {
   public void settleUp(User from, User to, double amount) {
 
     balanceSheet.getBalanceSheet()
-        .get(from.getId())
-        .merge(to.getId(), -amount, Double::sum);
+        .get(from.getUserId())
+        .merge(to.getUserId(), -amount, Double::sum);
 
     balanceSheet.getBalanceSheet()
-        .get(to.getId())
-        .merge(from.getId(), amount, Double::sum);
+        .get(to.getUserId())
+        .merge(from.getUserId(), amount, Double::sum);
   }
 }

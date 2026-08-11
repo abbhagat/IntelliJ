@@ -9,13 +9,13 @@ import java.util.List;
 @Setter
 public class Group {
 
-  private String id;
-  private String name;
-  private List<User> users = new ArrayList<>();
+  private String groupId;
+  private String groupName;
+  private List<User> members = new ArrayList<>();
   private List<Expense> expenses = new ArrayList<>();
 
   public void addMember(User user) {
-    users.add(user);
+    members.add(user);
   }
 
   public void addExpense(Expense expense) {

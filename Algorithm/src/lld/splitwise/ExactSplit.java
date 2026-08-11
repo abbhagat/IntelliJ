@@ -1,33 +1,22 @@
 package lld.splitwise;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ExactSplit implements SplitStrategy {
-
-  private List<Split> requestedSplits;
-
-  public ExactSplit() {}
-
-  public ExactSplit(List<Split> requestedSplits) {
-    this.requestedSplits = requestedSplits;
-  }
+public class ExactSplit extends Split implements IExpense {
 
   @Override
   public void validateExpense(Expense expense) {
 
-    double total = requestedSplits.stream()
+    double total = expense.getSplits()
+        .stream()
         .mapToDouble(Split::getAmount)
         .sum();
 
     if (Double.compare(total, expense.getAmount()) != 0) {
-      throw new RuntimeException(
-          "Split amounts don't match expense amount");
+      throw new RuntimeException("Invalid Exact Split");
     }
   }
 
   @Override
-  public void calculateSplits(Expense expense) {
-    expense.setSplits(new ArrayList<>(requestedSplits));
+  public void splitExpense(Expense expense) {
+    // Amounts are already provided for exact split.
   }
 }
