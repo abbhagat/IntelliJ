@@ -8,6 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Expense {
+
   private String expenseId;
   private String description;
   private double amount;
@@ -15,4 +16,5 @@ public class Expense {
   private List<Split> splits;
   private ExpenseType expenseType;
   private Group group;
+
 }
