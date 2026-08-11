@@ -7,8 +7,8 @@ public class ReservationService implements IReservation {
 
   private final List<Booking> bookings = new CopyOnWriteArrayList<>();
 
-  public boolean save(Booking booking) {
-    return this.bookings.add(booking);
+  public void save(Booking booking) {
+    this.bookings.add(booking);
   }
 
   public List<Booking> getReservations() {

@@ -4,25 +4,25 @@ package leetcode;
 public class NextPalindromeNumber {
 
   private static String findNextPalindrome(long n) {
-    char[] c = String.valueOf(n).toCharArray();
-    int l = c.length;
-    mirror(c);                                 // Mirror i half to j half
-    if (Long.parseLong(new String(c)) > n) {
-      return new String(c);
+    char[] a = String.valueOf(n).toCharArray();
+    int l = a.length;
+    mirror(a);                                 // Mirror i half to j half
+    if (Long.parseLong(new String(a)) > n) {
+      return new String(a);
     }
     int i = (l - 1) / 2, j = l / 2;          // Increment the middle and propagate carry
-    while (i >= 0 && c[i] == '9') {
-      c[i] = c[j] = '0';
+    while (i >= 0 && a[i] == '9') {
+      a[i] = a[j] = '0';
       i--;
       j++;
     }
     if (i < 0) {
       return '1' + "0".repeat(l - 1) + '1';  // Example: 9, 99, 999...
     }
-    c[i]++;
-    c[j] = c[i];
-    mirror(c);
-    return new String(c);
+    a[i]++;
+    a[j] = a[i];
+    mirror(a);
+    return new String(a);
   }
 
   private static void mirror(char[] a) {

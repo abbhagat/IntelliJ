@@ -1,20 +1,32 @@
 package lld.splitwise;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class EqualSplit extends Split implements IExpense {
+public class EqualSplit implements SplitStrategy {
 
   @Override
-  public void validate(Expense expense) {
-    System.out.println("Simulating Success Validation");
+  public void validateExpense(Expense expense) {
+
+    if (expense.getGroup() == null) {
+      throw new RuntimeException(
+          "Expense must belong to a group");
+    }
+
+    if (expense.getGroup().getMembers().isEmpty()) {
+      throw new RuntimeException(
+          "Group has no members");
+    }
   }
 
-  public void splitExpense(Expense expense) {
-    List<Split> splits = expense.getSplits();
-    double amount = expense.getAmount();
-    double perUser = amount / splits.size();
-    for (Split split : splits) {
-      split.setAmount(perUser);
+  @Override
+  public void calculateSplits(Expense expense) {
+    List<User> groupMembers = expense.getGroup().getMembers();
+    double amountPerUser = expense.getAmount() / groupMembers.size();
+    List<Split> splits = new ArrayList<>();
+    for (User user : groupMembers) {
+      splits.add(new Split(user, amountPerUser));
     }
+    expense.setSplits(splits);
   }
 }

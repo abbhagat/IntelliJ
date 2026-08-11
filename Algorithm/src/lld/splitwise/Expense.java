@@ -13,5 +13,6 @@ public class Expense {
   private double amount;
   private User paidBy;
   private List<Split> splits;
-  private ExpenseType type;
+  private ExpenseType expenseType;
+  private Group group;
 }

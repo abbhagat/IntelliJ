@@ -24,7 +24,7 @@ public class BookingService {
     try {
       for (Booking booking : reservationService.getReservations()) {
         if (booking.table().tableId().equals(table.tableId()) && overlap(startTime, endTime, booking.startTime(), booking.endTime())) {
-          throw new RuntimeException("Table already booked");
+          System.out.println("Table already booked");
         }
       }
       int bookingId   = reservationService.getReservations().size() + 1;
