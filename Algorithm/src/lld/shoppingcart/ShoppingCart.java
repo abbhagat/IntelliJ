@@ -50,4 +50,9 @@ public class ShoppingCart {
     cartItemMap.remove(productId);
   }
 
+  public String toString() {
+    System.out.println(cartItemMap);
+    return null;
+  }
+
 }

@@ -1,42 +1,20 @@
 package lld.shoppingcart;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 public class ShoppingCartImpl {
 
-  public static void main(String[] args) throws InterruptedException {
-    InventoryService inventoryService = new InventoryService();
-    Product iphone =  new Product("P101", "iPhone 16", 1000);
-    // Only 10 items in stock
-    inventoryService.addStock("P101", 10);
-    ShoppingCart user1Cart = new ShoppingCart("USER-1");
-    ShoppingCart user2Cart = new ShoppingCart("USER-2");
-    ExecutorService executor = Executors.newFixedThreadPool(2);
-    executor.submit(() -> {
-      if (inventoryService.reserve("P101", 10)) {
-        user1Cart.addItem(iphone, 10);
-        System.out.println(
-            "USER-1 successfully added 10 items");
-      } else {
-        System.out.println("USER-1 failed. Out of stock.");
-      }
-    });
-    executor.submit(() -> {
-      if (inventoryService.reserve("P101", 10)) {
-        user2Cart.addItem(iphone, 10);
-        System.out.println("USER-2 successfully added 10 items");
-      } else {
-        System.out.println("USER-2 failed. Out of stock.");
-      }
-    });
+  public static void main(String[] args) {
 
-    executor.shutdown();
-    executor.awaitTermination(5, TimeUnit.SECONDS);
-    System.out.println("--------------------------------");
-    System.out.println("Remaining Inventory : " + inventoryService.getAvailableQty("P101"));
-    System.out.println("User1 Cart : " + user1Cart.getCartItemMap());
-    System.out.println("User2 Cart : "  + user2Cart.getCartItemMap());
+    Product iPhone = new Product("P01", "Iphone", 50000);
+    Product camera = new Product("P02", "Camera", 10000);
+
+    ShoppingCart shoppingCart = UserCart.get("User1");
+    shoppingCart.addItem(iPhone, 1);
+    shoppingCart.addItem(camera, 2);
+    shoppingCart.updateItem(iPhone.getProductId(), 2);
+    UserCart.put(shoppingCart);
+    double billAmount = PricingService.calculateTotal(shoppingCart, new PercentageDiscount(10));
+    System.out.println("Bill Details");
+    System.out.println(UserCart.get("User1"));
+    System.out.println(billAmount);
   }
 }

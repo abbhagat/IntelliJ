@@ -3,9 +3,11 @@ package lld.shoppingcart;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 public class CartItem {
 
@@ -15,4 +17,6 @@ public class CartItem {
   public double getTotalPrice() {
     return product.getPrice() * quantity;
   }
+
+
 }
