@@ -18,10 +18,10 @@ public class DetectAndRemoveLoopInLinkedList {
   }
 
   private static void removeCycle(Node head, Node meetingPoint) {
-    if (meetingPoint == head) {
-      while (meetingPoint.next != head) {
-        meetingPoint = meetingPoint.next;
-      }
+    Node slow = head;
+    while (slow.next != meetingPoint.next) {  // Find the node just before the start of the loop
+      slow = slow.next;
+      meetingPoint = meetingPoint.next;
     }
     meetingPoint.next = null;
   }
@@ -32,7 +32,7 @@ public class DetectAndRemoveLoopInLinkedList {
     for (int x : a) {
       head = add(head, x);
     }
-    head.next.next.next.next.next = head.next.next;
+    head.next.next.next = head.next.next;
     detectAndRemoveLoop(head);
     traverseList(head);
   }
