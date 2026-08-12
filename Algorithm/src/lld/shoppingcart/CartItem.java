@@ -7,7 +7,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 public class CartItem {
 
@@ -18,5 +17,8 @@ public class CartItem {
     return product.getPrice() * quantity;
   }
 
+  public String toString() {
+    return product.getName() + "\t" + quantity;
+  }
 
 }

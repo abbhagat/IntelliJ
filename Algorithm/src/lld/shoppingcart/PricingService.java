@@ -10,6 +10,7 @@ public class PricingService {
                                   .stream()
                                   .mapToDouble(CartItem::getTotalPrice)
                                   .sum();
+    System.out.println("Total Cost : " + subtotal);
     double cost = discountStrategy.applyDiscount(subtotal);
     double tax  = cost * TAX_RATE;
     return cost + tax;

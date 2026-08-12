@@ -10,6 +10,8 @@ public class PercentageDiscount implements DiscountStrategy {
 
   @Override
   public double applyDiscount(double amount) {
-    return amount - (amount * percent / 100);
+    double discount = amount * percent / 100;
+    System.out.println("Discount : " + discount);
+    return amount - discount;
   }
 }

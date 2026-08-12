@@ -1,14 +1,17 @@
 package lld.shoppingcart;
 
+import java.util.List;
+
 public class CouponDiscount implements DiscountStrategy {
+
+  private final List<Integer> coupons;
+
+  public CouponDiscount(List<Integer> coupons) {
+    this.coupons = coupons;
+  }
 
   @Override
   public double applyDiscount(double amount) {
-    return switch ((int) amount) {
-      case 50  -> Math.max(0, amount - 50);
-      case 100 -> Math.max(0, amount - 100);
-      case 200 -> Math.max(0, amount - 200);
-      default  -> Math.max(0, amount - 5000);
-    };
+    return Math.max(0, amount - coupons.stream().mapToInt(Integer::intValue).sum());
   }
 }
