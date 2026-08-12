@@ -1,5 +1,7 @@
 package lld.splitwise;
 
 public enum ExpenseType {
-  EQUAL, EXACT, PERCENT
+  EQUAL,
+  EXACT,
+  PERCENT
 }
