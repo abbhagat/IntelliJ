@@ -1,6 +1,6 @@
 package lld.splitwise;
 
-public class ExactSplit extends Split implements IExpense {
+public class ExactSplit extends Split {
 
   @Override
   public void validateExpense(Expense expense) {

@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PercentSplit extends Split implements IExpense {
+public class PercentSplit extends Split {
+
   private double percent;
 
   @Override

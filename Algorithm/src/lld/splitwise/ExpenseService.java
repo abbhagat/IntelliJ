@@ -1,6 +1,7 @@
 package lld.splitwise;
 
 import java.util.HashMap;
+import static lld.splitwise.SplitStrategy.getStrategy;
 
 public class ExpenseService {
 
@@ -11,7 +12,7 @@ public class ExpenseService {
   }
 
   public void addExpense(Expense expense) {
-    IExpense strategy = ExpenseSplitFactory.getStrategy(expense.getExpenseType());
+    Split strategy = getStrategy(expense.getExpenseType());
     strategy.splitExpense(expense);
     strategy.validateExpense(expense);
     updateBalanceSheet(expense);

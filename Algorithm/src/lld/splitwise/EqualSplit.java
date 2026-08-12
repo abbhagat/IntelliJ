@@ -3,7 +3,7 @@ package lld.splitwise;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EqualSplit extends Split implements IExpense {
+public class EqualSplit extends Split {
 
   @Override
   public void validateExpense(Expense expense) {
