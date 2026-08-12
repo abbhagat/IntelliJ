@@ -40,7 +40,7 @@ public class ReverseAlternateKNodesInList {
       first = add(first, x);
     }
     traverseList(first);
-    first = reverse(first, 3);
+    first = reverse(first, 2);
     traverseList(first);
   }
 }
