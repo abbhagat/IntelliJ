@@ -1,7 +1,5 @@
 package linkedlist;
 
-import javax.swing.tree.TreeNode;
-
 import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findPrevMidPoint;
 

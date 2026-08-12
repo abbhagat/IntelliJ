@@ -18,7 +18,7 @@ public class DeleteRepeatedElementsInSortedList {
   }
 
   public static void main(String[] args) {
-    int[] a = {1, 2, 2, 3, 3, 4, 5, 5};
+    int[] a = {1, 1, 2, 2, 3, 3, 4, 5, 5};
     Node head = null;
     for (int x : a) {
       head = add(head, x);

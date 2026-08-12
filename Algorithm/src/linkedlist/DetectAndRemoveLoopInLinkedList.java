@@ -5,43 +5,35 @@ import static linkedlist.TraverseList.traverseList;
 
 public class DetectAndRemoveLoopInLinkedList {
 
-  private static void detectAndRemoveLoop(Node first) {
-    Node slow = first, fast = first.next;
-    boolean hasCycle;
-    while (true) {
-      if (fast == null || fast.next == null) {
-        hasCycle = false;
-        break;
-      }
-      if (fast == slow || fast.next == slow) {
-        hasCycle = true;
-        break;
-      }
+  private static void detectAndRemoveLoop(Node head) {
+    Node slow = head, fast = head;
+    while (fast != null && fast.next != null) {
       slow = slow.next;
       fast = fast.next.next;
-    }
-    if (hasCycle) {
-      removeCycle(slow, fast);
+      if (slow == fast) {
+        removeCycle(head, slow);
+        return;
+      }
     }
   }
 
-  private static void removeCycle(Node slow, Node fast) {
-    if (fast == slow) {
-      while (fast.next != slow) {
-        fast = fast.next;
+  private static void removeCycle(Node head, Node meetingPoint) {
+    if (meetingPoint == head) {
+      while (meetingPoint.next != head) {
+        meetingPoint = meetingPoint.next;
       }
     }
-    fast.next = null;
+    meetingPoint.next = null;
   }
 
   public static void main(String[] args) {
     int[] a = {1, 2, 3, 4, 5};
-    Node first = null;
+    Node head = null;
     for (int x : a) {
-      first = add(first, x);
+      head = add(head, x);
     }
-    first.next.next.next.next.next = first.next.next;
-    detectAndRemoveLoop(first);
-    traverseList(first);
+    head.next.next.next.next.next = head.next.next;
+    detectAndRemoveLoop(head);
+    traverseList(head);
   }
 }

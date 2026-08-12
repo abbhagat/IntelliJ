@@ -2,13 +2,12 @@ package linkedlist;
 
 import static linkedlist.LinkList.add;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(1)
 public class MidPointOfLinkedList {
 
   public static Node findMid(Node head) {
-    if (head == null) {
-      return null;
-    }
-    Node slow = head, fast = head.next;
+    Node slow = head, fast = head;
     while (fast != null && fast.next != null) {
       slow = slow.next;
       fast = fast.next.next;
@@ -17,16 +16,13 @@ public class MidPointOfLinkedList {
   }
 
   public static Node findPrevMidPoint(Node head) {
-    if (head == null) {
-      return null;
-    }
-    Node slow = head, prev_slow = head, fast = head.next;
+    Node slow = head, prev = head, fast = head;
     while (fast != null && fast.next != null) {
-      prev_slow = slow;
+      prev = slow;
       slow = slow.next;
       fast = fast.next.next;
     }
-    return prev_slow;
+    return prev;
   }
 
   public static void main(String[] args) {

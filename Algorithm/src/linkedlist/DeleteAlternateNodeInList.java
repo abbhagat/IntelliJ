@@ -3,12 +3,15 @@ package linkedlist;
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 
-// Time complexity: O(n)
+// Time  Complexity: O(n)
+// Space Complexity: O(1)
 public class DeleteAlternateNodeInList {
 
   private static void deleteAlternateNode(Node head) {
-    for (Node temp = head; temp != null && temp.next != null; temp = temp.next) {
-      temp.next = temp.next.next;
+    Node temp = head;
+    while (temp != null && temp.next != null) {
+      temp.next  = temp.next.next;
+      temp       = temp.next;
     }
   }
 

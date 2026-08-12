@@ -8,16 +8,16 @@ public class DeleteNthNodeFromEnd {
 
   private static Node deleteNthNode(Node first, int n) {
     Node head = new Node(-1, first);
-    Node temp = head, node = head;
+    Node slow = head, fast = head;
     for (int i = 0; i <= n; i++) {
-      temp = temp.next;  // temp will point to the prev on Nth Node after loop completes
+      slow = slow.next;  // slow will point to the prev of Nth Node after loop completes
     }
-    while (temp != null) {
-      temp = temp.next;
-      node = node.next;  // node will point to the Nth Node after loop completes
+    while (slow != null) {
+      slow = slow.next;
+      fast = fast.next;  // fast will point to the Nth Node after loop completes
     }
-    System.out.println(n + "th Node from End is " + node.next.num);
-    node.next = node.next.next;
+    System.out.println(n + "th Node from End is " + fast.next.num);
+    fast.next = fast.next.next;
     return head.next;
   }
 
