@@ -2,7 +2,6 @@ package lld.shoppingcart;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,11 +9,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Setter
 public class ShoppingCart {
 
-  private String userId;
   private final Map<String, CartItem> cartItemMap;
 
-  public ShoppingCart(String userId) {
-    this.userId = userId;
+  public ShoppingCart() {
     cartItemMap = new ConcurrentHashMap<>();
   }
 
