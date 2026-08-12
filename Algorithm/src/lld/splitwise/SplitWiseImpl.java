@@ -7,13 +7,11 @@ public class SplitWiseImpl {
 
   public static void main(String[] args) {
 
-    User alice = new User("U1", "Alice", "alice@test.com", "9999999991");
-    User bob = new User("U2", "Bob", "bob@test.com", "9999999992");
+    User alice   = new User("U1", "Alice", "alice@test.com", "9999999991");
+    User bob     = new User("U2", "Bob", "bob@test.com", "9999999992");
     User charlie = new User("U3", "Charlie", "charlie@test.com", "9999999993");
 
-    Group trip = new Group();
-    trip.setGroupId("G1");
-    trip.setGroupName("Goa Trip");
+    Group trip = new Group("G1", "Goa Trip");
 
     trip.addMember(alice);
     trip.addMember(bob);
