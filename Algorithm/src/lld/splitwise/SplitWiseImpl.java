@@ -11,29 +11,27 @@ public class SplitWiseImpl {
     User bob     = new User("U2", "Bob", "bob@test.com", "9999999992");
     User charlie = new User("U3", "Charlie", "charlie@test.com", "9999999993");
 
-    Group trip = new Group("G1", "Goa Trip");
+    Group group = new Group("G1", "Goa Trip");
 
-    trip.addMember(alice);
-    trip.addMember(bob);
-    trip.addMember(charlie);
+    group.addMember(alice);
+    group.addMember(bob);
+    group.addMember(charlie);
 
     // Expense Service
-
-    BalanceSheet balanceSheet = new BalanceSheet();
-    balanceSheet.setBalanceSheet(new HashMap<>());
+    BalanceSheet balanceSheet = new BalanceSheet(new HashMap<>());
 
     ExpenseService expenseService = new ExpenseService(balanceSheet);
 
     // Equal Expense
-    Expense dinner = new Expense();
-    dinner.setExpenseId("EXP-1");
-    dinner.setDescription("Dinner");
-    dinner.setAmount(3000);
-    dinner.setPaidBy(alice);
-    dinner.setExpenseType(ExpenseType.EQUAL);
-    dinner.setGroup(trip);
+    Expense expense = new Expense();
+    expense.setExpenseId("EXP-1");
+    expense.setDescription("Dinner");
+    expense.setAmount(3000);
+    expense.setPaidBy(alice);
+    expense.setExpenseType(ExpenseType.EQUAL);
+    expense.setGroup(group);
 
-    expenseService.addExpense(dinner);
+    expenseService.addExpense(expense);
 
     printBalanceSheet(balanceSheet);
   }

@@ -27,22 +27,23 @@ public class ExpenseService {
         continue;
       }
       balanceSheet.getBalanceSheet()
-          .computeIfAbsent(user.getId(), v -> new HashMap<>())
-          .merge(paidBy.getId(), split.getAmount(), Double::sum);
+                  .computeIfAbsent(user.getId(), value -> new HashMap<>())
+                  .merge(paidBy.getId(), split.getAmount(), Double::sum);
 
       balanceSheet.getBalanceSheet()
-          .computeIfAbsent(paidBy.getId(), v -> new HashMap<>())
-          .merge(user.getId(), -split.getAmount(), Double::sum);
+                  .computeIfAbsent(paidBy.getId(), value -> new HashMap<>())
+                  .merge(user.getId(), -split.getAmount(), Double::sum);
     }
   }
 
   public void settleUp(User from, User to, double amount) {
-    balanceSheet.getBalanceSheet()
-        .get(from.getId())
-        .merge(to.getId(), -amount, Double::sum);
 
     balanceSheet.getBalanceSheet()
-        .get(to.getId())
-        .merge(from.getId(), amount, Double::sum);
+                .get(to.getId())
+                .merge(from.getId(), amount, Double::sum);
+
+    balanceSheet.getBalanceSheet()
+                .get(from.getId())
+                .merge(to.getId(), -amount, Double::sum);
   }
 }
