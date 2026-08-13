@@ -10,7 +10,7 @@ public class IdleState implements State {
 
   @Override
   public void selectProduct(Product product) {
-    vendingMachine.setSelectedProduct(product);
+    vendingMachine.setProduct(product);
     vendingMachine.setState(new ReadyState(vendingMachine));
   }
 

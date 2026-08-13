@@ -5,13 +5,13 @@ public class VendingMachineImpl {
   public static void main(String[] args) {
 
     // Create products
-    Product coke = new Product("1", "Coke", 40);
+    Product coke  = new Product("1", "Coke",  40);
     Product pepsi = new Product("2", "Pepsi", 35);
     Product chips = new Product("3", "Chips", 25);
 
     // Create inventory
     Inventory inventory = new Inventory();
-    inventory.addProduct(coke, 5);
+    inventory.addProduct(coke,  5);
     inventory.addProduct(pepsi, 3);
     inventory.addProduct(chips, 10);
 

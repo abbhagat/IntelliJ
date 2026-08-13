@@ -9,7 +9,7 @@ public class VendingMachine {
 
   private Inventory inventory;
   private State state;
-  private Product selectedProduct;
+  private Product product;
   private int balance;
 
   public VendingMachine() {
@@ -37,16 +37,16 @@ public class VendingMachine {
   }
 
   public boolean hasEnoughMoney() {
-    return balance >= selectedProduct.price();
+    return balance >= product.price();
   }
 
   public void returnChange() {
-    int change = balance - selectedProduct.price();
+    int change = balance - product.price();
     System.out.println("Returning " + change);
   }
 
   public void dispenseProduct() {
-    System.out.println(selectedProduct.name());
+    System.out.println(product.name());
   }
 
   public void refund() {
@@ -55,7 +55,7 @@ public class VendingMachine {
 
   public void reset() {
     balance = 0;
-    selectedProduct = null;
+    product = null;
   }
 
   public void setState(State state) {

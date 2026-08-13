@@ -30,18 +30,18 @@ public class MinBatchSize {
   public static int findMinBatchSize(List<Integer> list, int maxBatches) {
     int low = 1, high = Collections.max(list);
     while (low <= high) {
-      int mid = (low + high) / 2;
+      int size = (low + high) / 2;
       int batches = 0;
       for (int x : list) {
-        batches += (x + mid - 1) / mid;
+        batches += (x + size - 1) / size;
         if (batches > maxBatches) {           // No need to continue if already too many
           break;
         }
       }
       if (batches > maxBatches) {
-        low = mid + 1;
+        low  = size + 1;
       } else {
-        high = mid - 1;
+        high = size - 1;
       }
     }
     return low;
@@ -49,5 +49,6 @@ public class MinBatchSize {
 
   public static void main(String[] args) {
     System.out.println(findMinBatchSize(List.of(1, 5, 7), 8));
+    System.out.println(findMinBatchSize(List.of(2, 4, 5), 10));
   }
 }
