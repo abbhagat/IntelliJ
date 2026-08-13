@@ -17,15 +17,15 @@ public class QuickSort {
 
   private static Node partition(Node low, Node high) {
     int pivot = high.num;
-    Node i = low.prev;
-    for (Node j = low; j != high; j = j.next) {
+    Node i = low.prev, j;
+    for (j = low; j != high; j = j.next) {
       if (j.num <= pivot) {  // j.num > pivot to sort in descending order
         i = (i == null) ? low : i.next;
         swap(i, j);
       }
     }
     i = (i == null) ? low : i.next;
-    swap(i, high);
+    swap(i, j);
     return i;
   }
 
