@@ -16,12 +16,12 @@ public class ShoppingCart {
   }
 
   public void addItem(Product product, int qty) {
-    CartItem cartItem = cartItemMap.computeIfAbsent(product.getProductId(), value -> new CartItem(product, 0));
+    CartItem cartItem = cartItemMap.computeIfAbsent(product.id(), value -> new CartItem(product, 0));
     cartItem.setQuantity(cartItem.getQuantity() + qty);
   }
 
   public void addItems(Product product, int qty) {
-    CartItem cartItems = cartItemMap.compute(product.getProductId(), (productId, cartItem) -> {
+    CartItem cartItems = cartItemMap.compute(product.id(), (productId, cartItem) -> {
       if (cartItem == null) {
         return new CartItem(product, qty);
       }

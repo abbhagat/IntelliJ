@@ -14,11 +14,11 @@ public class CartItem {
   private int quantity;
 
   public double getTotalPrice() {
-    return product.getPrice() * quantity;
+    return product.price() * quantity;
   }
 
   public String toString() {
-    return product.getName() + "\t" + quantity;
+    return product.name() + "\t" + quantity;
   }
 
 }

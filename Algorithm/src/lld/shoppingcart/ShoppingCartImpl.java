@@ -13,8 +13,8 @@ public class ShoppingCartImpl {
     ShoppingCart shoppingCart = new ShoppingCart();
     shoppingCart.addItem(iPhone, 1);
     shoppingCart.addItem(camera, 2);
-    shoppingCart.updateItem(iPhone.getProductId(), 2);
-    shoppingCart.removeItem(milk.getProductId());
+    shoppingCart.updateItem(iPhone.id(), 2);
+    shoppingCart.removeItem(milk.id());
 
     System.out.println("Bill Details");
     System.out.print(shoppingCart);
