@@ -17,11 +17,11 @@ public class ParkingFloor {
     this.parkingSpotMap = parkingSpotMap;
   }
 
-  public ParkingSpot getFreeSpot(SpotType spotType) {
+  public ParkingSpot getFreeParkingSpot(SpotType spotType) {
     List<ParkingSpot> parkingSpotList = parkingSpotMap.get(spotType);
-    for (ParkingSpot spot : parkingSpotList) {
-      if (spot.isFree()) {
-        return spot;
+    for (ParkingSpot parkingSpot : parkingSpotList) {
+      if (parkingSpot.isFree()) {
+        return parkingSpot;
       }
     }
     return null;

@@ -14,7 +14,7 @@ import static lld.parkinglot.ParkingFeeCalculator.calculateFee;
 public class ParkingLot {
 
   private List<ParkingFloor> parkingFloors;
-  private Map<String, ParkingTicket> activeTickets;
+  private Map<String, ParkingTicket> activeTickets;  // Key is the Ticket ID
 
   public ParkingLot() {
     parkingFloors = new ArrayList<>();
@@ -25,7 +25,7 @@ public class ParkingLot {
     for (ParkingFloor parkingFloor : parkingFloors) {
       String vehicleType = vehicle.getVehicleType().name();
       SpotType spotType = SpotType.valueOf(vehicleType);
-      ParkingSpot parkingSpot = parkingFloor.getFreeSpot(spotType);
+      ParkingSpot parkingSpot = parkingFloor.getFreeParkingSpot(spotType);
       if (parkingSpot != null) {
         parkingSpot.park(vehicle);
         ParkingTicket ticket = generateParkingTicket(parkingSpot, vehicle);

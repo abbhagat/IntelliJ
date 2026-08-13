@@ -23,7 +23,7 @@ public class ElevatorSystem {
 
   public void shutdown() throws InterruptedException {
     executorService.shutdown();
-    executorService.awaitTermination(100, TimeUnit.MINUTES);
+    executorService.awaitTermination(10, TimeUnit.SECONDS);
   }
 
   public void handleRequest(Request request) {
