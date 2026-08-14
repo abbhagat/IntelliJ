@@ -122,6 +122,15 @@ public class SplitWiseImpl {
     // BALANCE SHEET
     System.out.println("\nBALANCE SHEET");
     printBalanceSheet(balanceSheet);
+
+    // SETTLE UP
+
+    expenseService.settleUp(bob, alice, 1000);
+    expenseService.settleUp(charlie, alice, 1000);
+
+    // AFTER SETTLEMENT
+    System.out.println("After settlement:");
+    printBalanceSheet(balanceSheet);
   }
 
 
