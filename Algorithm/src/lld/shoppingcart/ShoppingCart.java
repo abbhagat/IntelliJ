@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter
 @Setter
-public class ShoppingCart {
+public class ShoppingCart implements ICart {
 
   private final Map<String, CartItem> cartItemMap;
 
@@ -15,21 +15,13 @@ public class ShoppingCart {
     cartItemMap = new ConcurrentHashMap<>();
   }
 
+  @Override
   public void addItem(Product product, int qty) {
     CartItem cartItem = cartItemMap.computeIfAbsent(product.id(), value -> new CartItem(product, 0));
     cartItem.setQuantity(cartItem.getQuantity() + qty);
   }
 
-  public void addItems(Product product, int qty) {
-    CartItem cartItems = cartItemMap.compute(product.id(), (productId, cartItem) -> {
-      if (cartItem == null) {
-        return new CartItem(product, qty);
-      }
-      cartItem.setQuantity(cartItem.getQuantity() + qty);
-      return cartItem;
-    });
-  }
-
+  @Override
   public void updateItem(String productId, int qty) {
     cartItemMap.computeIfPresent(productId, (id, cartItem) -> {
       if (qty <= 0) {
@@ -40,6 +32,7 @@ public class ShoppingCart {
     });
   }
 
+  @Override
   public void removeItem(String productId) {
     cartItemMap.remove(productId);
   }
