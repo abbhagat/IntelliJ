@@ -2,9 +2,9 @@ package lld.shoppingcart;
 
 public class PricingService {
 
-  private static final double TAX_RATE = 0.1; // 10%
+  private static final double GST_RATE = 0.1; // 10%
 
-  public static double calculateTotal(ShoppingCart shoppingCart, DiscountStrategy discountStrategy) {
+  public static double calculateTotal(ShoppingShoppingCart shoppingCart, DiscountStrategy discountStrategy) {
     double subtotal = shoppingCart.getCartItemMap()
                                   .values()
                                   .stream()
@@ -12,7 +12,7 @@ public class PricingService {
                                   .sum();
     System.out.println("Total Cost : " + subtotal);
     double cost = discountStrategy.applyDiscount(subtotal);
-    double tax  = cost * TAX_RATE;
-    return cost + tax;
+    double gst  = cost * GST_RATE;
+    return cost + gst;
   }
 }
