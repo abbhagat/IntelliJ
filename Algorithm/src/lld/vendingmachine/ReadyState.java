@@ -17,12 +17,10 @@ public class ReadyState implements State {
   }
 
   @Override
-  public void selectProduct(Product product) {
-  }
+  public void selectProduct(Product product) {}
 
   @Override
-  public void dispenseProduct() {
-  }
+  public void dispenseProduct() {}
 
   @Override
   public void cancelProduct() {
