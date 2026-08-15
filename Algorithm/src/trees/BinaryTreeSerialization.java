@@ -12,7 +12,7 @@ public class BinaryTreeSerialization {
     }
     String left  = serialize(root.left);
     String right = serialize(root.right);
-    return root.num + "," + left + "," + right; // String.join(",", String.valueOf(root.num), left, right);
+    return root.num + "," + left + "," + right;
   }
 
   private static Node deserialize(LinkedList<String> list) {

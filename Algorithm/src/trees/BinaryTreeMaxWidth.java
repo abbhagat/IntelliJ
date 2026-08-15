@@ -3,6 +3,7 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 import static java.lang.Integer.max;
+import static trees.BinaryTree.createBST;
 
 /*
 Constructed Binary tree is:
@@ -44,15 +45,7 @@ public class BinaryTreeMaxWidth {
   }
 
   public static void main(String[] args) {
-    Node root              = new Node(1);
-    root.left              = new Node(2);
-    root.right             = new Node(3);
-    root.left.left         = new Node(4);
-    root.left.right        = new Node(5);
-    root.right.left        = new Node(6);
-    root.right.right       = new Node(7);
-    root.right.right.left  = new Node(8);
-    root.right.right.right = new Node(9);
+    Node root = createBST();
     System.out.println("Maximum Width = " + findMaxWidth(root));
   }
 }
