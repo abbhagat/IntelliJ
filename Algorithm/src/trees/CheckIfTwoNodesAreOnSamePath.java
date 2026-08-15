@@ -1,6 +1,7 @@
 package trees;
 
 import java.util.LinkedList;
+import static trees.BinaryTree.createBST;
 
 // Time  Complexity: O(n)
 // Space Complexity: O(H)
@@ -24,18 +25,7 @@ public class CheckIfTwoNodesAreOnSamePath {
   }
 
   public static void main(String[] args) {
-        /*
-                      1
-                     / \
-                    2   3
-                   / \
-                  4   5
-         */
-    Node root       = new Node(1);
-    root.left       = new Node(2);
-    root.right      = new Node(3);
-    root.left.left  = new Node(4);
-    root.left.right = new Node(5);
+    Node root = createBST();
     LinkedList<Integer> list;
     list = new LinkedList<>();
     System.out.println(isOnSamePath(root, 1, 2, list) + "\t" + list);

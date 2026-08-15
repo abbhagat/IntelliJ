@@ -3,6 +3,8 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static trees.BinaryTree.createBST;
+
 /**
  *         12
  *       /     \
@@ -103,6 +105,7 @@ public class BurnABinaryTreeFromTargetNode {
     }
     System.out.println("Time taken to burn the tree is : " + time);
     time = 0;
+    q.clear();
     System.out.println();
         /*
                        1
