@@ -23,7 +23,7 @@ public class AllPermutationsOfString {
   }
 
   public static void main(String[] args) {
-    final char[] c = {'A', 'B', 'C'};
+    char[] c = {'A', 'B', 'C'};
     permute(c, 0, c.length - 1);
     System.out.println(count);
   }

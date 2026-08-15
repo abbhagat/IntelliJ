@@ -13,7 +13,7 @@ public class MeetingRoomsII {
   private static int findMinRooms(List<Interval> intervalList) {
     intervalList.sort(Comparator.comparingInt(interval -> interval.start));  // (interval1, interval2) -> interval1.start - interval2.start
     intervalList.sort(Comparator.comparingInt(interval -> interval.end));   //  (interval1, interval2) -> interval1.end - interval2.end
-    int i = 1, j = 0, n = 1, min = 1;                                      //   min = minimum rooms needed, n = current room needed
+    int j = 0, i = 1, n = 1, min = 1;                                      //   min = minimum rooms needed, n = current room needed
     while (i < intervalList.size() && j < intervalList.size()) {
       if (intervalList.get(i).start <= intervalList.get(j).end) {
         n++;
@@ -30,7 +30,7 @@ public class MeetingRoomsII {
   private static int findMinRooms(int[][] a) {
     Arrays.sort(a, Comparator.comparingInt(x -> x[0]));  // (x, y) -> x[0] - y[0]
     Arrays.sort(a, Comparator.comparingInt(x -> x[1])); //  (x, y) -> x[1] - y[1]
-    int i = 1, j = 0, n = 1, min = 1;       //   min = minimum rooms needed, n = current room needed
+    int j = 0, i = 1, n = 1, min = 1;       //   min = minimum rooms needed, n = current room needed
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
         n++;

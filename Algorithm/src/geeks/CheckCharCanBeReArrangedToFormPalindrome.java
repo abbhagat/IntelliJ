@@ -7,9 +7,9 @@ public class CheckCharCanBeReArrangedToFormPalindrome {
 
   private static boolean canFormPalindromeUsingMap(String s) {
     Map<Character, Integer> map = new HashMap<>();
-    s.chars()
-     .mapToObj(c -> (char) c)
-     .forEach(c -> map.put(c, map.getOrDefault(c, 0) + 1));
+    for (char c : s.toCharArray()) {
+      map.put(c, map.getOrDefault(c, 0) + 1);
+    }
     int count = 0;
     for (int x : map.values()) {
       if (x % 2 == 1) {

@@ -27,11 +27,11 @@ public class IntervalMerging {
   private static int[][] mergeInterval(int[][] a) {
     Arrays.sort(a, Comparator.comparingInt(x -> x[0])); // (x, y) -> x[0] - y[0];
     LinkedList<int[]> mergedInterval = new LinkedList<>();
-    for (int[] b : a) {
-      if (mergedInterval.isEmpty() || mergedInterval.getLast()[1] < b[0]) {
-        mergedInterval.add(b);
+    for (int[] interval : a) {
+      if (mergedInterval.isEmpty() || mergedInterval.getLast()[1] < interval[0]) {
+        mergedInterval.add(interval);
       } else {
-        mergedInterval.getLast()[1] = max(mergedInterval.getLast()[1], b[1]);
+        mergedInterval.getLast()[1] = max(mergedInterval.getLast()[1], interval[1]);
       }
     }
     return mergedInterval.toArray(new int[mergedInterval.size()][2]);

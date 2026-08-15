@@ -18,7 +18,7 @@ public class MinimumPlatforms {
   public static int minPlatforms(int[] arr, int[] dep) {
     Arrays.sort(arr);
     Arrays.sort(dep);
-    int i = 1, j = 0, n = 1, min = 1;   // min = minimum platforms needed, n = current platforms needed
+    int j = 0, i = 1, n = 1, min = 1;   // min = minimum platforms needed, n = current platforms needed
     while (i < arr.length && j < dep.length) {
       if (arr[i] <= dep[j]) {
         n++;    // new train arrives
@@ -35,7 +35,7 @@ public class MinimumPlatforms {
   private static int minPlatforms(int[][] a) {
     Arrays.sort(a, Comparator.comparingInt(x -> x[0]));  // (x, y) -> x[0] - y[0]
     Arrays.sort(a, Comparator.comparingInt(x -> x[1])); //  (x, y) -> x[1] - y[1]
-    int i = 1, j = 0, n = 1, min = 1;                  //   min = minimum platforms needed, n = current platforms needed
+    int j = 0, i = 1, n = 1, min = 1;                  //   min = minimum platforms needed, n = current platforms needed
     while (i < a.length && j < a.length) {
       if (a[i][0] <= a[j][1]) {
         n++;
