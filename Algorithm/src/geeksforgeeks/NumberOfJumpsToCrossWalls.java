@@ -21,7 +21,7 @@ public class NumberOfJumpsToCrossWalls {
   private static int findJumps(int[] a, int x, int y) {
     int i = 0, jumps = 0;
     while (i < a.length) {
-      if (a[i] > x) {
+      if (x < a[i]) {
         a[i] -= x + y; // a[i] = a[i] - x + y;
       } else {
         i++;
@@ -38,7 +38,7 @@ public class NumberOfJumpsToCrossWalls {
 
     // Below code is the scenario for a single case
     int height = 11, x = 10, y = 1, jumps = 1;
-    while (height > x) {
+    while (x < height) {
       height -= x + y;
       jumps++;
     }

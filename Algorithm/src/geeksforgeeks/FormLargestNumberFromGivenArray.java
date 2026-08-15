@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// "^0+(?!$)" Remove leading zeros but keep one zero if the entire string is zeros
-// 0+ → One or more zeros
-// (?!$) → Negative lookahead “Do NOT match if what follows at the end of the string” In simple words: Do not remove zeros if they are the entire string
 // x = "542", y = "60" x + y = "54260" and y + x = "60542" => "60542" > "54260" So "60" should come before "542"
 
 public class FormLargestNumberFromGivenArray {
@@ -16,7 +13,6 @@ public class FormLargestNumberFromGivenArray {
     Arrays.stream(a).forEach(x -> list.add(String.valueOf(x)));
     list.sort((x, y) -> (y + x).compareTo(x + y));
     String s = String.join("", list);
-//    s = s.replaceFirst("^0+(?!$)", "");
     return Long.parseLong(s);
   }
 

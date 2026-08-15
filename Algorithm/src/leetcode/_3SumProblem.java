@@ -6,19 +6,19 @@ import java.util.LinkedList;
 // Space Complexity : O(n)
 public class _3SumProblem {
 
-  private static void combinationForSum(int[] a, int index, int sum, int n, LinkedList<Integer> list) {
+  private static void combinationForSum(int[] a, int index, int currSum, int givenSum, LinkedList<Integer> list) {
     if (index == a.length) {
-      if (sum == n && list.size() == 3) {
+      if (currSum == givenSum && list.size() == 3) {
         System.out.println(list);
       }
       return;
     }
-    sum += a[index];
+    currSum += a[index];
     list.add(a[index]);
-    combinationForSum(a, index + 1, sum, n, list);
-    sum -= a[index];
+    combinationForSum(a, index + 1, currSum, givenSum, list);
+    currSum -= a[index];
     list.removeLast();
-    combinationForSum(a, index + 1, sum, n,  list);
+    combinationForSum(a, index + 1, currSum, givenSum,  list);
   }
 
   public static void main(String[] args) {
