@@ -37,7 +37,7 @@ class FileSystem {
 
   public List<String> ls(String path) {
     FileSystemNode node = traverse(path, false);
-    if (node.isDirectory()) {
+    if (!node.isDirectory()) {
       return List.of(node.getName());
     }
     Directory directory = (Directory) node;
@@ -88,7 +88,7 @@ class FileSystem {
         return node;
       }
       // Intermediate component must be a directory
-      if (node.isDirectory()) {
+      if (!node.isDirectory()) {
         throw new IllegalArgumentException(part + " is a file");
       }
       current = (Directory) node;
