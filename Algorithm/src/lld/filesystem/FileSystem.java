@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class FileSystem {
+public class FileSystem {
 
   private final Directory root = new Directory("/", null);
 

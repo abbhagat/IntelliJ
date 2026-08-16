@@ -3,7 +3,7 @@ package lld.filesystem;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-abstract class FileSystemNode {
+public abstract class FileSystemNode {
 
   protected String name;
   protected Directory parent;

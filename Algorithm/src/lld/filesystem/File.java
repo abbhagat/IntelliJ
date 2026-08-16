@@ -1,6 +1,6 @@
 package lld.filesystem;
 
-class File extends FileSystemNode {
+public class File extends FileSystemNode {
 
   private final StringBuilder fileContent = new StringBuilder();
 

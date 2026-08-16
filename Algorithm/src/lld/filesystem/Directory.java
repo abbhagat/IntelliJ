@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
-class Directory extends FileSystemNode {
+public class Directory extends FileSystemNode {
 
   private final Map<String, FileSystemNode> children = new TreeMap<>();
 
