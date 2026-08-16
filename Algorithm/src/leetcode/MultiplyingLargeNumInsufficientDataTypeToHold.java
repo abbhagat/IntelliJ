@@ -1,6 +1,6 @@
 package leetcode;
 
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 public class MultiplyingLargeNumInsufficientDataTypeToHold {
 
@@ -15,18 +15,10 @@ public class MultiplyingLargeNumInsufficientDataTypeToHold {
         mul[--k] = sum % 10;
       }
       mul[--k] = carry;
-      k += y.length;
+            k += y.length;
     }
-    int start = 0;
-    for (int n : mul) {
-      if (n == 0) {
-        start++;
-      } else {
-        break;
-      }
-    }
-    IntStream.range(start, mul.length).forEach(i -> System.out.print(mul[i]));
-    System.out.println();
+    int result = Arrays.stream(mul).reduce(0, (a, b) -> a * 10 + b);
+    System.out.println(result);
   }
 
   public static void main(String[] args) {
