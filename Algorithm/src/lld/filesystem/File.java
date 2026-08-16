@@ -10,7 +10,7 @@ public class File extends FileSystemNode {
 
   @Override
   public boolean isDirectory() {
-    return true;
+    return false;
   }
 
   public String read() {
