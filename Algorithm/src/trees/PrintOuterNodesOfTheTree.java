@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Time Complexity: O(N)
-// Space Complexity: O(W) Where W is the maximum width of the binary tree (maximum number of nodes at any level).
+// Space Complexity: O(N)
 public class PrintOuterNodesOfTheTree {
 
   private static void printOuterNodes(Node root) {
@@ -12,8 +12,7 @@ public class PrintOuterNodesOfTheTree {
     q.add(root);
     boolean flag = true;
     while (!q.isEmpty()) {
-      int size = q.size();
-      int first = 0, last = 0;
+      int first = 0, last = 0, size = q.size();
       for (int i = 1; i <= size; i++) {
         Node node = q.poll();
         if (node != null) {

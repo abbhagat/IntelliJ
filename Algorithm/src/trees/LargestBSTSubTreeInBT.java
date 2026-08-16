@@ -6,7 +6,7 @@ import static java.lang.Integer.min;
 // Time Complexity O(n)
 public class LargestBSTSubTreeInBT {
 
-  private static int maxSize = Integer.MIN_VALUE;
+  private static int maxSize;
 
   private static class BST {
     boolean isBST;
