@@ -2,43 +2,43 @@ package lld.filesystem;
 
 import java.util.List;
 
+/**
+ *  create existing file
+ *  create file inside non-existing directory
+ *  read directory
+ *  delete non-empty directory
+ *  duplicate directory
+ *  invalid path
+ *  root directory "/"
+ */
+
 public class FileSystemImpl {
 
   public static void main(String[] args) {
 
     FileSystem fileSystem = new FileSystem();
 
-    // 1. Create directories
-    fileSystem.mkdir("/a/b/c");
+    fileSystem.mkdir("/a/b/c");                  // 1. Create directories
 
-    // 2. Create files
-    fileSystem.createFile("/a/b/c/file1.txt");
+    fileSystem.createFile("/a/b/c/file1.txt");   // 2. Create files
     fileSystem.createFile("/a/b/c/file2.txt");
 
-    // 3. Write content
-    fileSystem.write("/a/b/c/file1.txt", "Hello");
+    fileSystem.write("/a/b/c/file1.txt", "Hello");   //  3. Write content
 
-    // 4. Append content
-    fileSystem.append("/a/b/c/file1.txt", " World");
+    fileSystem.append("/a/b/c/file1.txt", " World");  // 4. Append content
 
-    // 5. Read file
-    String content = fileSystem.read("/a/b/c/file1.txt");
-
+    String content = fileSystem.read("/a/b/c/file1.txt");   // 5. Read file
     System.out.println("File content:");
     System.out.println(content);
 
-    // 6. List directory
-    List<String> files = fileSystem.ls("/a/b/c");
+    List<String> files = fileSystem.ls("/a/b/c");    // 6. List directory
 
     System.out.println("\nFiles in /a/b/c:");
     files.forEach(System.out::println);
 
-    // 7. Delete file
-    fileSystem.delete("/a/b/c/file2.txt");
+    fileSystem.delete("/a/b/c/file2.txt");         // 7. Delete file
 
     System.out.println("\nAfter deleting file2.txt:");
-
-    fileSystem.ls("/a/b/c")
-        .forEach(System.out::println);
+    fileSystem.ls("/a/b/c").forEach(System.out::println);
   }
 }

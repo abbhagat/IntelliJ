@@ -14,7 +14,7 @@ class Directory extends FileSystemNode {
 
   @Override
   public boolean isDirectory() {
-    return true;
+    return false;
   }
 
   public void add(FileSystemNode node) {

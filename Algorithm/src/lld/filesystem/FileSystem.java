@@ -42,7 +42,7 @@ class FileSystem {
 
     FileSystemNode node = traverse(path, false);
 
-    if (!node.isDirectory()) {
+    if (node.isDirectory()) {
       return List.of(node.getName());
     }
 
@@ -119,7 +119,7 @@ class FileSystem {
       }
 
       // Intermediate component must be a directory
-      if (!node.isDirectory()) {
+      if (node.isDirectory()) {
         throw new IllegalArgumentException(
             part + " is a file"
         );
