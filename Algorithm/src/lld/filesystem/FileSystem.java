@@ -42,7 +42,7 @@ public class FileSystem {
     }
     Directory directory = (Directory) node;
     List<String> result = new ArrayList<>();
-    for (FileSystemNode child : directory.children()) {
+    for (FileSystemNode child : directory.getAllFileSystemNodes()) {
       result.add(child.getName());
     }
     return result;

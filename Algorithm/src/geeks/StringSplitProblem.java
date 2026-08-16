@@ -1,5 +1,6 @@
 package geeks;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -7,18 +8,24 @@ public class StringSplitProblem {
 
   private static String solve(String s1, String s2, String s3) {
     StringBuilder sb = new StringBuilder();
+    Map<Character, Integer> map = new HashMap<>();
+    for (char c : s2.toCharArray()) {
+      map.put(c, map.getOrDefault(c, 0) + 1);
+    }
     String[] str = s1.split(s3);
-    boolean flag = true;
     for (String s : str) {
       if (s.length() < s2.length()) {
         continue;
       }
-      Map<Character, Integer> treeMap = new TreeMap<>();
-      s.chars().forEach(c -> treeMap.put((char) c, treeMap.getOrDefault((char) c, 0) + 1));
-      Map<Character, Integer> map = new TreeMap<>();
-      s2.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
-      for (int i = 0; i < s2.length(); i++) {
-        if (treeMap.get(s2.charAt(i)) == null || treeMap.get(s2.charAt(i)) < map.get(s2.charAt(i))) {
+      Map<Character, Integer> freqMap = new HashMap<>();
+      for (char c : s.toCharArray()) {
+        freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+      }
+      boolean flag = true;
+      for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+        char c = entry.getKey();
+        int requiredCount = entry.getValue();
+        if (freqMap.getOrDefault(c, 0) < requiredCount) {
           flag = false;
           break;
         }
