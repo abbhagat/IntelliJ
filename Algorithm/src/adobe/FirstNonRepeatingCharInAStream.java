@@ -1,8 +1,7 @@
 package adobe;
 
-import java.util.LinkedHashMap;
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Stream;
 
@@ -10,36 +9,23 @@ import java.util.stream.Stream;
 // Space Complexity : O(n)
 public class FirstNonRepeatingCharInAStream {
 
-  private static void firstNonRepeatingChar(char[] a) {
-    Map<Character, Integer> map = new LinkedHashMap<>();
-    for (char x : a) {
-      map.put(x, map.getOrDefault(x, 0) + 1);
-    }
-    for (Map.Entry<Character, Integer> entrySet : map.entrySet()) {
-      if (entrySet.getValue() == 1) {
-        System.out.print(entrySet.getKey() + "  ");
-        break;
-      }
-    }
-  }
+  private static final int[] temp = new int[128];
+  private static final Queue<Character> q = new LinkedList<>();
 
-  private static void firstNonRepeatingChar(Stream<Character> stream) {
-    int[] temp = new int[128];
-    Queue<Character> q = new LinkedList<>();
-    stream.forEach(c -> {
-      temp[c]++;
-      q.add(c);
-      while (!q.isEmpty() && temp[q.peek()] > 1) {
-        q.poll();
-      }
-      System.out.println(q.isEmpty() ? -1 : String.valueOf(q.peek()));
-    });
-    System.out.println();
+  private static void firstNonRepeatingChar(char c) {
+    temp[c]++;
+    q.add(c);
+    while (!q.isEmpty() && temp[q.peek()] > 1) {
+      q.poll();
+    }
+    System.out.println(q.isEmpty() ? -1 : String.valueOf(q.peek()));
   }
 
   public static void main(String[] args) {
-    firstNonRepeatingChar(Stream.of('a', 'a', 'b', 'b', 'c', 'd'));
-    firstNonRepeatingChar(Stream.of('a', 'b', 'b', 'c', 'c', 'e'));
-    firstNonRepeatingChar(new char[]{'a', 'b', 'b', 'c', 'c', 'e'});
+    Stream.of('a', 'a', 'b', 'b', 'c', 'd').forEach(FirstNonRepeatingCharInAStream::firstNonRepeatingChar);
+    System.out.println();
+    Arrays.fill(temp, 0);
+    q.clear();
+    Stream.of('x', 'y', 'z', 'p', 'z', 'x').forEach(FirstNonRepeatingCharInAStream::firstNonRepeatingChar);
   }
 }
