@@ -15,28 +15,24 @@ public class SpiralOrderTreeTraversal {
       if (flag) {
         while (size != 0) {
           Node node = q.pollFirst();
-          if (node != null) {
-            System.out.print(node.num + " ");
-            if (node.left != null) {
-              q.addLast(node.left);
-            }
-            if (root.right != null) {
-              q.addLast(node.right);
-            }
+          System.out.print(node.num + " ");
+          if (node.left != null) {
+            q.addLast(node.left);
+          }
+          if (root.right != null) {
+            q.addLast(node.right);
           }
           size--;
         }
       } else {
         while (size != 0) {
           Node node = q.pollLast();
-          if (node != null) {
-            System.out.print(node.num + " ");
-            if (node.right != null) {
-              q.addFirst(node.right);
-            }
-            if (node.left != null) {
-              q.addFirst(node.left);
-            }
+          System.out.print(node.num + " ");
+          if (node.right != null) {
+            q.addFirst(node.right);
+          }
+          if (node.left != null) {
+            q.addFirst(node.left);
           }
           size--;
         }
