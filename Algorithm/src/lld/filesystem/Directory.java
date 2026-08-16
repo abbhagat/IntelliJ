@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 class Directory extends FileSystemNode {
 
-  private Map<String, FileSystemNode> children = new TreeMap<>();
+  private final Map<String, FileSystemNode> children = new TreeMap<>();
 
   public Directory(String name, Directory parent) {
     super(name, parent);
@@ -14,11 +14,11 @@ class Directory extends FileSystemNode {
 
   @Override
   public boolean isDirectory() {
-    return false;
+    return true;
   }
 
-  public void add(FileSystemNode node) {
-    children.put(node.getName(), node);
+  public void add(FileSystemNode fileSystemNode) {
+    children.put(fileSystemNode.getName(), fileSystemNode);
   }
 
   public FileSystemNode get(String name) {

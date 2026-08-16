@@ -2,7 +2,7 @@ package lld.filesystem;
 
 class File extends FileSystemNode {
 
-  private StringBuilder content = new StringBuilder();
+  private final StringBuilder fileContent = new StringBuilder();
 
   public File(String name, Directory parent) {
     super(name, parent);
@@ -13,16 +13,17 @@ class File extends FileSystemNode {
     return true;
   }
 
+  public String read() {
+    return fileContent.toString();
+  }
+
   public void write(String data) {
-    content.setLength(0);
-    content.append(data);
+    fileContent.setLength(0);
+    fileContent.append(data);
   }
 
   public void append(String data) {
-    content.append(data);
+    fileContent.append(data);
   }
 
-  public String read() {
-    return content.toString();
-  }
 }
