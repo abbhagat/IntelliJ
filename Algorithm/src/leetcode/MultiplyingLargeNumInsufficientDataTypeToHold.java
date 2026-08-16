@@ -17,12 +17,12 @@ public class MultiplyingLargeNumInsufficientDataTypeToHold {
       mul[--k] = carry;
             k += y.length;
     }
-    int result = Arrays.stream(mul).reduce(0, (a, b) -> a * 10 + b);
-    System.out.println(result);
+    Arrays.stream(mul).forEach(System.out::print);
   }
 
   public static void main(String[] args) {
     multiplyArrays(new int[]{1, 2}, new int[]{1, 0});
+    System.out.println();
     multiplyArrays(new int[]{2, 5}, new int[]{2, 5});
   }
 }

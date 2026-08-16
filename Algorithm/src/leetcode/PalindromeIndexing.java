@@ -22,7 +22,7 @@ public class PalindromeIndexing {
   }
 
   public static void main(String[] args) {
-    System.out.println("Palindrome Index : " + palindromeIndex("MADAM".toCharArray()));
+//    System.out.println("Palindrome Index : " + palindromeIndex("MADAM".toCharArray()));
     System.out.println("Palindrome Index : " + palindromeIndex("MADXAM".toCharArray()));
   }
 }
