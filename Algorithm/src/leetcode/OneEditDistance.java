@@ -29,9 +29,8 @@ public class OneEditDistance {
         if (m == n) {
           return s1.substring(i + 1).equals(s2.substring(i + 1));
         }
-        if (m < n) {
-          return s1.substring(i).equals(s2.substring(i + 1));
-        }
+        return m < n ? s1.substring(i).equals(s2.substring(i + 1))
+                     : s1.substring(i + 1).equals(s2.substring(i));
       }
     }
     return m != n;
@@ -39,7 +38,9 @@ public class OneEditDistance {
 
   public static void main(String[] args) {
     System.out.println(isOneEditDistance("ab", "bb"));
+    System.out.println(isOneEditDistance("ab", "ab"));   // return m != n;
     System.out.println(isOneEditDistance("ab", "acb"));
+    System.out.println(isOneEditDistance("acb", "ab"));
     System.out.println(isOneEditDistance("ad", "cab"));
     System.out.println(isOneEditDistance("1203", "1213"));
   }
