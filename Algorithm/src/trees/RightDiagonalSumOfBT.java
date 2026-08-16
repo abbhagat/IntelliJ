@@ -1,6 +1,7 @@
 package trees;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import static trees.BinaryTree.createBST;
 
 // Time  Complexity : O(n)
@@ -8,8 +9,8 @@ import static trees.BinaryTree.createBST;
 public class RightDiagonalSumOfBT {
 
   private static void rightDiagonalSumOfBT(Node root) {
-    Map<Integer, Integer> map = new TreeMap<>();                          // use TreeMap to print diagonals in order
-    rightDiagonalSumOfBT(root, 0, map);
+    Map<Integer, Integer> map = new HashMap<>();
+    rightDiagonalSumOfBT(root, 0, map);     // diagonal tells us which diagonal the current node belongs to.
     System.out.println(map.values());
   }
 
