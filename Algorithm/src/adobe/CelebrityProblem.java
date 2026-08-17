@@ -26,8 +26,8 @@ public class CelebrityProblem {
     return candidate;
   }
 
-  private static boolean knows(int a, int b, boolean[][] M) {
-    return M[a][b];
+  private static boolean knows(int i, int j, boolean[][] M) {
+    return M[i][j];
   }
 
   public static void main(String[] args) {

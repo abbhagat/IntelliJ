@@ -11,19 +11,19 @@ public class DetectAndRemoveLoopInLinkedList {
       slow = slow.next;
       fast = fast.next.next;
       if (slow == fast) {
-        removeCycle(head, slow);
+        removeCycle(head, fast);
         return;
       }
     }
   }
 
-  private static void removeCycle(Node head, Node meetingPoint) {
+  private static void removeCycle(Node head, Node fast) {
     Node slow = head;
-    while (slow.next != meetingPoint.next) {  // Find the node just before the start of the loop
+    while (slow.next != fast.next) {  // Find the node just before the start of the loop
       slow = slow.next;
-      meetingPoint = meetingPoint.next;
+      fast = fast.next;
     }
-    meetingPoint.next = null;
+    fast.next = null;
   }
 
   public static void main(String[] args) {
