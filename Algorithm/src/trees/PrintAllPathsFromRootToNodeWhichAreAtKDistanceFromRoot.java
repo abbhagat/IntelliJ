@@ -42,7 +42,7 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
   }
 
   public static void main(String[] args) {
-              /*
+    /*
                  1
                /  \
               2    3
@@ -63,9 +63,9 @@ public class PrintAllPathsFromRootToNodeWhichAreAtKDistanceFromRoot {
     root.left.right.right        = new Node(8);
     root.right.right.right       = new Node(9);
     root.right.right.right.right = new Node(10);
-    List<List<Integer>> lists = findPath(root, 4, new LinkedList<>(), new ArrayList<>());
+    List<List<Integer>> lists = findPath(root, 3, new LinkedList<>(), new ArrayList<>());
     System.out.println(lists);
 
-    findPath(root, 4, new LinkedList<>());
+    findPath(root, 3, new LinkedList<>());
   }
 }

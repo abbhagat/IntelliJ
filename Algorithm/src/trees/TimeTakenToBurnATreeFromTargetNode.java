@@ -13,37 +13,39 @@ public class TimeTakenToBurnATreeFromTargetNode {
       return -1;
     }
     if (root.num == target) {
+      time++;
       if (root.left != null) {
         q.add(root.left);
       }
       if (root.right != null) {
         q.add(root.right);
       }
-      return 1;
+      return 0;
     }
     int leftCall = burnTree(root.left, target);
-    if (leftCall == 1) {
+    if (leftCall == 0) {
       printQueue();
+      time++;
       if (root.right != null) {
         q.add(root.right);
       }
-      time++;
-      return 1;
+      return 0;
     }
     int rightCall = burnTree(root.right, target);
-    if (rightCall == 1) {
+    if (rightCall == 0) {
       printQueue();
       if (root.left != null) {
         q.add(root.left);
       }
       time++;
-      return 1;
+      return 0;
     }
     return -1;
   }
 
   private static void printQueue() {
-    for (int k = q.size(); k > 0; k--) {
+    int size = q.size();
+    while (size != 0) {
       Node root = q.poll();
       if (root.left != null) {
         q.add(root.left);
@@ -51,36 +53,35 @@ public class TimeTakenToBurnATreeFromTargetNode {
       if (root.right != null) {
         q.add(root.right);
       }
+      size--;
     }
   }
 
   public static void main(String[] args) {
         /*
-                                1
-                            /      \
-                           2        3
-                         /   \       \
-                        4     5       6
-                             / \      \
-                            7  8       9
-                                        \
-                                        10
+                    12
+                  /   \
+                 13     10
+                       /  \
+                     14    15
+                   /  \   /  \
+                  21  24 22   23
          */
-    Node root = new Node(1);
-    root.left = new Node(2);
-    root.right = new Node(3);
-    root.left.left = new Node(4);
-    root.left.right = new Node(5);
-    root.right.right = new Node(6);
-    root.left.right.left = new Node(7);
-    root.left.right.right = new Node(8);
-    root.right.right.right = new Node(9);
-    root.right.right.right.right = new Node(10);
-    burnTree(root, 10);
+    Node root              = new Node(12);
+    root.left              = new Node(13);
+    root.right             = new Node(10);
+    root.right.left        = new Node(14);
+    root.right.right       = new Node(15);
+    root.right.left.left   = new Node(21);
+    root.right.left.right  = new Node(24);
+    root.right.right.left  = new Node(22);
+    root.right.right.right = new Node(23);
+    burnTree(root, 14);
     while (!q.isEmpty()) {
-      time++;
       printQueue();
+      time++;
+      System.out.println();
     }
-    System.out.println("Time Taken to Burn the Tree is : " + time);
+    System.out.println("Time taken to burn the tree is : " + time);
   }
 }
