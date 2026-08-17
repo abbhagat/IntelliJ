@@ -9,7 +9,7 @@ import static util.CommonUtils.isPalindrome;
 // Space Complexity: O(1)
 public class NextPalindromeDate {
 
-  private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+  private static final DateTimeFormatter INPUT_FORMAT  = DateTimeFormatter.ofPattern("yyyy-MM-dd");
   private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd");
 
   private static String nextPalindromeDate(String inputDate) {
