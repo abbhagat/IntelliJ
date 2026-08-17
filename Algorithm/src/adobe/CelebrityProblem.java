@@ -4,13 +4,11 @@ public class CelebrityProblem {
 
   public static int findCelebrity(boolean[][] M, int n) {
     int candidate = 0;
-
     for (int i = 1; i < n; i++) {      // Phase 1: Find a possible candidate
       if (knows(candidate, i, M)) {
         candidate = i;
       }
     }
-
     for (int i = 0; i < n; i++) {       // Phase 2: Verify candidate
       if (i == candidate) {
         continue;
@@ -22,7 +20,6 @@ public class CelebrityProblem {
         return -1;
       }
     }
-
     return candidate;
   }
 
