@@ -1,11 +1,11 @@
 package linkedlist;
 
+import static linkedlist.LinkList.add;
 import static linkedlist.MidPointOfLinkedList.findMid;
 import static linkedlist.ReverseList.reverseList;
 import static linkedlist.TraverseList.traverseList;
 
 public class ReverseHalfLinkedList {
-
 
   private static Node reverseHalfList(Node head) {
     Node mid = findMid(head);
@@ -20,7 +20,7 @@ public class ReverseHalfLinkedList {
     int[] a = {1, 2, 3, 4, 5};
     Node first = null;
     for (int x : a) {
-      first = LinkList.add(first, x);
+      first = add(first, x);
     }
     traverseList(first);
     first = reverseHalfList(first);
