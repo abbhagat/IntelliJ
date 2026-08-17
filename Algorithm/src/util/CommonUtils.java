@@ -95,8 +95,7 @@ public class CommonUtils {
   }
 
   public static void printArray(int[] a, int start, int end) {
-    IntStream.range(start, end).forEach(i -> System.out.print(a[i] + " "));
-    System.out.println();
+    System.out.println(Arrays.toString(Arrays.copyOfRange(a, start, end)));
   }
 
   public static void printArray(int[] a) {
