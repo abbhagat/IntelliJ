@@ -1,11 +1,8 @@
 package util;
 
 import doublylinkedlist.Node;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
-
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
