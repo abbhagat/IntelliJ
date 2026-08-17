@@ -33,7 +33,7 @@ public class AddTwoNumInLinkedList {
          sum += l2.num;
          l2   = l2.next;
       }
-      sum += carry;
+      sum    += carry;
       carry   = sum / 10;
       int num = sum % 10;
       temp.next = new Node(num);
