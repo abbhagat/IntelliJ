@@ -17,7 +17,7 @@ public class NextGreaterNumWithSameSetOfDigits {
       return n;
     }
     int j = c.length - 1;
-    while (c[j] <= c[i]) {  // Find the smallest digit greater than pivot (from right side). c[j] > c[i]
+    while (c[i] >= c[j]) {  // Find the smallest digit greater than pivot (from right side). c[i] < c[j]
       j--;
     }
     swap(c, i, j);  // Swap pivot with that next greater digit.

@@ -1,5 +1,7 @@
 package trees;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(H)
 public class LCAOfBinaryTree {
 
   private static class NodeWrapper {
