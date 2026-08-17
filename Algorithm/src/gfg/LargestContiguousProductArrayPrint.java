@@ -1,5 +1,8 @@
 package gfg;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -20,18 +23,19 @@ public class LargestContiguousProductArrayPrint {
     return maxProduct;
   }
 
-  private static int[] maxSubArrayProductPrint(int[] a) {
+  private static void maxSubArrayProductPrint(int[] a) {
     int min = a[0], max = a[0], maxProduct = Integer.MIN_VALUE;
     int minStart = 0, maxStart = 0, start = 0, end = 0;
     for (int i = 1; i < a.length; i++) {
       if (a[i] < 0) {
-        int temp = min;
+        // swap min with max
+        int t = min;
         min = max;
-        max = temp;
-
-        temp = minStart;
+        max = t;
+       // swap minStart with maxStart
+        t = minStart;
         minStart = maxStart;
-        maxStart = temp;
+        maxStart = t;
       }
       // Calculate new minimum
       if (a[i] < a[i] * min) {
@@ -55,11 +59,14 @@ public class LargestContiguousProductArrayPrint {
         end = i;
       }
     }
-    return new int[]{start, end, maxProduct};
+    System.out.println(maxProduct);
+    System.out.println(Arrays.toString(Arrays.copyOfRange(a, start, end + 1)));
   }
 
   public static void main(String[] args) {
-    System.out.println(maxSubArrayProduct(new int[]{-2, -40, 0, -2, -3}));
+    int[] a = new int[]{-2, -40, 0, -2, -3};
+    maxSubArrayProductPrint(a);
+    maxSubArrayProduct(a);
     System.out.println(maxSubArrayProduct(new int[]{-1, -2, 10, -10}));
     System.out.println(maxSubArrayProduct(new int[]{2, 3, -2, 4}));
     System.out.println(maxSubArrayProduct(new int[]{-2, 0, -1}));
