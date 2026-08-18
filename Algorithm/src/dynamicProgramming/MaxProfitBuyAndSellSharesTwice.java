@@ -33,7 +33,8 @@ import static java.lang.Integer.min;
 public class MaxProfitBuyAndSellSharesTwice {
 
   private static int maxProfit(int[] price) {
-    int buy1 = Integer.MAX_VALUE, buy2 = Integer.MAX_VALUE, profit1 = 0, profit2 = 0;
+    int buy1    = Integer.MAX_VALUE, buy2    = Integer.MAX_VALUE;
+    int profit1 = Integer.MIN_VALUE, profit2 = Integer.MIN_VALUE;
     for (int x : price) {
       buy1    = min(buy1, x);
       profit1 = max(profit1, x - buy1);

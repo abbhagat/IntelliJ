@@ -23,7 +23,8 @@ import static java.lang.Integer.min;
 public class MaxProfitWithTrxnFee {
 
   public static int maxProfit(int[] a, int fee) {
-    int buy = Integer.MAX_VALUE, profit = 0;
+    int buy    = Integer.MAX_VALUE;
+    int profit = Integer.MIN_VALUE;
     for (int x : a) {
       buy    = min(buy,    x - profit);
       profit = max(profit, x - buy - fee);
