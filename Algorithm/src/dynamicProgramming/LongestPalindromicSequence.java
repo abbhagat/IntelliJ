@@ -31,9 +31,8 @@ public class LongestPalindromicSequence {
     for (int i = 0; i < n; i++) {
       dp[i][i] = 1;            // Strings of length 1 are palindrome of length 1
     }
-    for (int k = 2; k <= n; k++) {
-      for (int i = 0; i < n - k + 1; i++) {
-        int j = i + k - 1;
+    for (int i = n - 2; i >= 0; i--) {
+      for (int j = i + 1; j < n; j++) {
         dp[i][j] = (c[i] == c[j]) ? dp[i + 1][j - 1] + 2 : max(dp[i + 1][j], dp[i][j - 1]);
       }
     }
