@@ -15,7 +15,7 @@ public class MinCoinToMakeAValue {
     for (int coin : coins) {
       if (coin <= V) {
         int result = 1 + minCoins(coins, V - coin);
-               min = min(min, result);
+        min = min(min, result);
       }
     }
     return min;
