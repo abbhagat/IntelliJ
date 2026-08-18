@@ -25,6 +25,8 @@ public class LongestPalindromicSequence {
     return max(lps(c, low + 1, high), lps(c, low, high - 1)); // If the first and last characters do not match
   }
 
+  // Time Complexity : O(n²)
+  // Time Complexity : O(n²)
   private static int lps(char[] c) {
     int n = c.length;
     int[][] dp = new int[n][n];   // Create a table to store results of sub problems
