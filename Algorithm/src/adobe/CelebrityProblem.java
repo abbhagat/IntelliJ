@@ -2,8 +2,8 @@ package adobe;
 
 public class CelebrityProblem {
 
-  public static int findCelebrity(boolean[][] M, int n) {
-    int candidate = 0;
+  public static int findCelebrity(boolean[][] M) {
+    int candidate = 0, n = M.length;
     for (int i = 1; i < n; i++) {      // Phase 1: Find a possible candidate
       if (knows(candidate, i, M)) {
         candidate = i;
@@ -33,7 +33,7 @@ public class CelebrityProblem {
                       {false, false,  true},
                       {false, false, false}
                     };
-    int celebrity = findCelebrity(M, M.length);
+    int celebrity = findCelebrity(M);
     System.out.println(celebrity == -1 ? "No celebrity found" : "Celebrity is: " + celebrity);
   }
 }
