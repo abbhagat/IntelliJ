@@ -33,7 +33,7 @@ public class PrintPathFromRootToAGivenTargetNode {
       list.removeLast();
       return;
     }
-    printPath(root.left, target, list);
+    printPath(root.left,  target, list);
     printPath(root.right, target, list);
     list.removeLast();
   }

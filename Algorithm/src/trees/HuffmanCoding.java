@@ -30,9 +30,25 @@ public class HuffmanCoding {
       list.removeLast();
       return;
     }
-    findPath(root.left, c,  list, '0');
+    findPath(root.left,  c, list, '0');
     findPath(root.right, c, list, '1');
     list.removeLast();
+  }
+
+  public static boolean findPath(Node root, char c, char x) {
+    if (root == null) {
+      return false;
+    }
+    if (root.num == c) {
+      result.append(root.num);
+    }
+    boolean left  = findPath(root.left,  c, '0');
+    boolean right = findPath(root.right, c, '1');
+    if(left || right) {
+      result.append(root.num);
+      return true;
+    }
+    return false;
   }
 
   public static void decode(StringBuilder sb) {
