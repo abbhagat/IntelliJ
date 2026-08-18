@@ -44,10 +44,6 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
     for (int x : new int[]{1, 2, 3, 4, 5, 6, 7}) {
       first = add(first, x);
     }
-    first = exchangeKthNode(first, 1);
-    traverseList(first);
-    first = exchangeKthNode(first, 2);
-    traverseList(first);
     first = exchangeKthNode(first, 3);
     traverseList(first);
   }

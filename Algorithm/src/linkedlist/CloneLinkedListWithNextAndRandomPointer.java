@@ -16,11 +16,11 @@ public class CloneLinkedListWithNextAndRandomPointer {
       temp.next = node;
       temp      = temp.next.next;
     }
-    // Step 2: Set random pointers
+    // Step 2: Set random pointers of the newly added nodes
     temp = head;
     while (temp != null) {
       if (temp.random != null) {
-        temp.next.random = temp.random.next;  // Since every copied node is immediately after its original node.
+        temp.next.random = temp.random.next;
       }
       temp = temp.next.next;
     }

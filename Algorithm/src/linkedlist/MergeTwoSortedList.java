@@ -6,7 +6,6 @@ import static linkedlist.TraverseList.traverseList;
 // Time Complexity:  O(m+n)
 public class MergeTwoSortedList {
 
-  // Time Complexity:  O(m+n)
   public static Node merge(Node a, Node b) {
     if (a == null) {
       return b;
