@@ -11,7 +11,7 @@ public class TopKFrequentElementsInAnArray {
     Arrays.stream(nums).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     PriorityQueue<Integer> pq = new PriorityQueue<>(  //  Min-heap based on frequency
         (a, b) -> {
-          int n = map.get(b).compareTo(map.get(a));
+          int n = map.get(a).compareTo(map.get(b));
           if (n == 0) {
             return a.compareTo(b); // reverse for tie (optional)
           }
@@ -28,7 +28,7 @@ public class TopKFrequentElementsInAnArray {
   }
 
   public static void main(String[] args) {
-    int[] nums = new int[]{5, 2, 5, 5, 2, 6, 2, 4, 2, 3, 5, 5, 6, 5, 5, 2, 3, 5, 2, 5};
-    topKFreqElements(nums, 5);
+    int[] nums = new int[]{5, 2, 5, 5, 2, 6, 2};
+    topKFreqElements(nums, 2);
   }
 }
