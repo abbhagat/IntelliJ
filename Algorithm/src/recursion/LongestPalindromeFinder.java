@@ -29,6 +29,7 @@ public class LongestPalindromeFinder {
     System.out.println(longestPalindromeString("geeksfskeeg"));
     System.out.println(longestPalindromeString("hackerrekcahba"));
     System.out.println(longestPalindromeString("BBABCBCAB"));
+    System.out.println(longestPalindromeString("BABCBCABB"));
     System.out.println(longestPalindromeString("AMADAMB"));
   }
 }

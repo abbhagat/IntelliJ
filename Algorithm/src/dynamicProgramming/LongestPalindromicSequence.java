@@ -34,15 +34,7 @@ public class LongestPalindromicSequence {
     for (int k = 2; k <= n; k++) {
       for (int i = 0; i < n - k + 1; i++) {
         int j = i + k - 1;
-        if (c[i] == c[j]) {
-          if (k == 2) {
-            dp[i][j] = 2;
-          } else {
-            dp[i][j] = dp[i + 1][j - 1] + 2;
-          }
-        } else {
-          dp[i][j] = max(dp[i][j - 1], dp[i + 1][j]);
-        }
+        dp[i][j] = (c[i] == c[j]) ? dp[i + 1][j - 1] + 2 : max(dp[i + 1][j], dp[i][j - 1]);
       }
     }
     return dp[0][n - 1];
