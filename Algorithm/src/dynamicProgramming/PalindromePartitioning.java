@@ -10,7 +10,7 @@ import static util.CommonUtils.isPalindrome;
  * Input: str = "aaabba"         Output: 1 Explanation: The substrings after 1 partitioning are "aa" and "abba".
  */
 
-// Time  Complexity: O(n^2)
+// Time  Complexity: O(n²)
 // Space Complexity: O(n)
 public class PalindromePartitioning {
 

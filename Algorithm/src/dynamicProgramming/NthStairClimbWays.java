@@ -24,8 +24,8 @@ public class NthStairClimbWays {
   // Space Complexity: O(n)
   private static int countWays(int n) {
     return switch (n) {
-      case 1 -> 1;
-      case 2 -> 2;
+      case 1  -> 1;
+      case 2  -> 2;
       default -> countWays(n - 1) + countWays(n - 2);
     };
   }
