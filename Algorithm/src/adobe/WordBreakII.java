@@ -22,23 +22,23 @@ import java.util.List;
 // Space Complexity: O(m + n)
 public class WordBreakII {
 
-  public static List<String> wordBreak(String str, List<String> wordDict) {
-    List<String> list = new ArrayList<>();
-    wordBreak(0, str, new StringBuilder(), wordDict, list);
-    return list;
+  public static List<String> wordBreak(String str, List<String> list) {
+    List<String> al = new ArrayList<>();
+    wordBreak(0, str, new StringBuilder(), list, al);
+    return al;
   }
 
-  private static void wordBreak(int index, String str, StringBuilder sb, List<String> wordDict, List<String> list) {
+  private static void wordBreak(int index, String str, StringBuilder sb, List<String> list, List<String> al) {
     if (index == str.length()) {
-      list.add(sb.toString().trim());
+      al.add(sb.toString().trim());
       return;
     }
     for (int i = index; i < str.length(); i++) {
       String s = str.substring(index, i + 1);
-      if (wordDict.contains(s)) {
+      if (list.contains(s)) {
         int len = sb.length();
         sb.append(s).append(" ");
-        wordBreak(i + 1, str, sb, wordDict, list);
+        wordBreak(i + 1, str, sb, list, al);
         sb.setLength(len);
       }
     }

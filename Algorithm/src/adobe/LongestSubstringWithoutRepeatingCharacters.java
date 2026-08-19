@@ -31,6 +31,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
   }
 
   public static void main(String[] args) {
+    longestSubstring("aa");
     longestSubstring("abcabcbb");
     longestSubstring("aabacbebebe");
     longestSubstring("bbbbb");
