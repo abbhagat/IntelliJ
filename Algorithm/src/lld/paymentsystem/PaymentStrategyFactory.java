@@ -15,7 +15,7 @@ public class PaymentStrategyFactory {
     paymentStrategyMap.put(CARD, new CardPaymentStrategy());
   }
 
-  static PaymentStrategy getStrategy(PaymentMethod paymentMethod) {
+  public static PaymentStrategy getStrategy(PaymentMethod paymentMethod) {
     if (!paymentStrategyMap.containsKey(paymentMethod)) {
       throw new IllegalArgumentException("Unsupported payment method");
     }

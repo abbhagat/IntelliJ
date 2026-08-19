@@ -3,7 +3,7 @@ package lld.paymentsystem;
 public class UPIPaymentStrategy implements PaymentStrategy {
 
   public Response handleRequest(Request request) {
-    String upiId = request.getPaymentDetails().get("upiId");
+    String upiId = request.paymentDetails().get("upiId");
     System.out.println("Processing UPI payment for " + upiId);
     return new Response(200, "UPI Payment Successful");
   }

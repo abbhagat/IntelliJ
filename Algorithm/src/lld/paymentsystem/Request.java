@@ -1,20 +1,5 @@
 package lld.paymentsystem;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import java.util.Map;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Request {
-
-  private String transactionId;
-  private double amount;
-  private PaymentMethod paymentMethod;
-  private Map<String, String> paymentDetails;
-
-}
+public record Request(String transId, double amount, PaymentMethod paymentMethod, Map<String, String> paymentDetails) {}

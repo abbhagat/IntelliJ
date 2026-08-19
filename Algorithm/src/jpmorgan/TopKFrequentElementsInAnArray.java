@@ -18,8 +18,8 @@ public class TopKFrequentElementsInAnArray {
           return n;
         }
     );
-    for (int num : map.keySet()) {
-      pq.add(num);
+    for (int x : map.keySet()) {
+      pq.add(x);
       if (pq.size() > k) {
         pq.poll(); // remove least frequent
       }
