@@ -22,6 +22,9 @@ package adobe;
  * Output: -1
  * Explanation: Even if you activate all the four taps you cannot water the whole garden.
  */
+
+// Time  Complexity: O(n²)
+// Space Complexity: O(1)
 public class MinTapsToWaterGarden {
 
   public static int minTaps(int[] a, int n) {
