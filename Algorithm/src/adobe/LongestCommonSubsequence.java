@@ -5,6 +5,18 @@ import static java.lang.Integer.max;
 // Also called LongestSubsequenceSubstring
 public class LongestCommonSubsequence {
 
+  private static String lcss(String s1, String s2, int m, int n) {
+    if (m == 0 || n == 0) {
+      return "";
+    }
+    if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
+      return s1.charAt(m - 1) + lcss(s1, s2, m - 1, n - 1);
+    }
+    String left  = lcss(s1, s2, m - 1, n);
+    String right = lcss(s1, s2, m, n - 1);
+    return left.length() >= right.length() ? left : right;
+  }
+
   // Time Complexity  : O(2^(m+n))
   //  Space Complexity : O(m+n)
   public static int lcs(String s1, String s2, int m, int n) {

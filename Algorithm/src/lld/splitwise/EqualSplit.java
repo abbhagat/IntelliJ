@@ -17,7 +17,8 @@ public class EqualSplit extends Split {
 
   @Override
   public void splitExpense(Expense expense) {
-    List<User> members = expense.getGroup().getMembers();
+    Group group = expense.getGroup();
+    List<User> members = group.getMembers();
     List<Split> splits = new ArrayList<>();
     double perUser = expense.getAmount() / members.size();
     for (User user : members) {
