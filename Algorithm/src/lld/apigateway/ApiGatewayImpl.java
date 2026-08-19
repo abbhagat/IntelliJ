@@ -30,11 +30,8 @@ public class ApiGatewayImpl {
 
     ApiGateway apiGateway = new ApiGateway(authManager, rateLimiter, router, loadBalancer);
 
-    Request request = new Request();
-    request.setPath("/user");
-    request.setMethod("GET");
-    request.setHeaders(Map.of("Authorization", "valid-token", "clientId", "abhinawb"));
-    request.setRequestBody("Request Body");
+    Map<String, String> headers = Map.of("Authorization","valid-token", "clientId", "abhinawb");
+    Request request = new Request("/user", "GET", headers, "Request Body");
 
     Response response = apiGateway.handleRequest(request);
     System.out.println(response);

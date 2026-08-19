@@ -20,7 +20,7 @@ public class ApiGateway {
       return new Response(429, "Too Many Requests");
     }
     // Step 3: Route
-    String serviceName = router.getServiceName(request.getPath());
+    String serviceName = router.getServiceName(request.path());
     if (serviceName == null) {
       return new Response(404, "Not Found");
     }
