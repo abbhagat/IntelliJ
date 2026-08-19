@@ -136,7 +136,7 @@ public class SplitWiseImpl {
 
   private static void printSplits(Expense expense) {
     for (Split split : expense.getSplits()) {
-      System.out.printf("%-8s : %.2f%n", split.getUser().getName(), split.getAmount()
+      System.out.printf("%-8s : %.2f%n", split.getUser().name(), split.getAmount()
       );
     }
     System.out.println();
@@ -145,7 +145,7 @@ public class SplitWiseImpl {
   private static void printBalanceSheet(
       BalanceSheet balanceSheet) {
     System.out.println("-------------------------------------");
-    for (Map.Entry<String, Map<String, Double>> user : balanceSheet.getBalanceSheet().entrySet()) {
+    for (Map.Entry<String, Map<String, Double>> user : balanceSheet.balanceSheet().entrySet()) {
       System.out.println(user.getKey());
       for (Map.Entry<String, Double> balance : user.getValue().entrySet()) {
         System.out.printf("%-5s : %.2f%n", balance.getKey(), balance.getValue()
