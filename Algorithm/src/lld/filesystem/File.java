@@ -2,10 +2,11 @@ package lld.filesystem;
 
 public class File extends FileSystemNode {
 
-  private final StringBuilder fileContent = new StringBuilder();
+  private final StringBuilder fileContent;
 
   public File(String name, Directory parent) {
     super(name, parent);
+    fileContent = new StringBuilder();
   }
 
   @Override

@@ -6,7 +6,11 @@ import java.util.List;
 
 public class FileSystem {
 
-  private final Directory root = new Directory("/", null);
+  private final Directory root;
+
+  public FileSystem() {
+    this.root = new Directory("/", null);
+  }
 
   public void mkdir(String path) {
     traverse(path, true);
@@ -63,37 +67,38 @@ public class FileSystem {
     }
     return (File) node;
   }
+
   private FileSystemNode traverse(String path, boolean createDirectories) {
     if (path.equals("/")) {
       return root;
     }
-    String[] parts = split(path);
-    Directory current = root;
-    for (int i = 0; i < parts.length; i++) {
-      String part = parts[i];
-      FileSystemNode node = current.get(part);
+    String[] dirNames = split(path);
+    Directory currDir = root;
+    for (int i = 0; i < dirNames.length; i++) {
+      String dirName = dirNames[i];
+      FileSystemNode node = currDir.get(dirName);
       // Node does not exist
       if (node == null) {
         if (!createDirectories) {
           throw new IllegalArgumentException("Path not found: " + path);
         }
         // We are creating directories, so create one
-        Directory newDir = new Directory(part, current);
-        current.add(newDir);
-        current = newDir;
+        Directory directory = new Directory(dirName, currDir);
+        currDir.add(directory);
+        currDir = directory;
         continue;
       }
       // If this is the last component, it can be either File or Directory.
-      if (i == parts.length - 1) {
+      if (i == dirNames.length - 1) {
         return node;
       }
       // Intermediate component must be a directory
       if (!node.isDirectory()) {
-        throw new IllegalArgumentException(part + " is a file");
+        throw new IllegalArgumentException(dirName + " is a file");
       }
-      current = (Directory) node;
+      currDir = (Directory) node;
     }
-    return current;
+    return currDir;
   }
 
   private FileSystemNode traverseParent(String[] parts) {

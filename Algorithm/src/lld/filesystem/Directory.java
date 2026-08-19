@@ -1,15 +1,16 @@
 package lld.filesystem;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Directory extends FileSystemNode {
 
-  private final Map<String, FileSystemNode> nodeMap = new TreeMap<>();
+  private final Map<String, FileSystemNode> map;
 
   public Directory(String name, Directory parent) {
     super(name, parent);
+    map = new HashMap<>();
   }
 
   @Override
@@ -17,19 +18,19 @@ public class Directory extends FileSystemNode {
     return true;
   }
 
-  public void add(FileSystemNode node) {
-    nodeMap.put(node.getName(), node);
+  public void add(FileSystemNode fileSystemNode) {
+    map.put(fileSystemNode.getName(), fileSystemNode);
   }
 
   public FileSystemNode get(String name) {
-    return nodeMap.get(name);
+    return map.get(name);
   }
 
   public void remove(String name) {
-    nodeMap.remove(name);
+    map.remove(name);
   }
 
   public Collection<FileSystemNode> getAllFileSystemNodes() {
-    return nodeMap.values();
+    return map.values();
   }
 }

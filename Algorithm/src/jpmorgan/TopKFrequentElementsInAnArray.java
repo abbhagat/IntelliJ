@@ -2,7 +2,7 @@ package jpmorgan;
 
 import java.util.*;
 
-// Time  Complexity: O(n + m log k)
+// Time  Complexity: O(n + n log k)
 // Space Complexity: O(n)
 public class TopKFrequentElementsInAnArray {
 
