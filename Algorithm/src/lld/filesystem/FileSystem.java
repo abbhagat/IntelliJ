@@ -25,22 +25,22 @@ public class FileSystem {
     }
   }
 
-  public void write(String path, String content) {
-    File file = getFile(path);
+  public void write(String filePath, String content) {
+    File file = getFile(filePath);
     file.write(content);
   }
 
-  public void append(String path, String content) {
-    File file = getFile(path);
+  public void append(String filePath, String content) {
+    File file = getFile(filePath);
     file.append(content);
   }
 
-  public String read(String path) {
-    return getFile(path).read();
+  public String read(String filePath) {
+    return getFile(filePath).read();
   }
 
-  public List<String> ls(String path) {
-    FileSystemNode node = traverse(path, false);
+  public List<String> ls(String filePath) {
+    FileSystemNode node = traverse(filePath, false);
     if (!node.isDirectory()) {
       return List.of(node.getName());
     }
@@ -52,16 +52,16 @@ public class FileSystem {
     return result;
   }
 
-  public void delete(String path) {
-    FileSystemNode node = traverse(path, false);
+  public void delete(String filePath) {
+    FileSystemNode node = traverse(filePath, false);
     if (node == root) {
       throw new IllegalArgumentException("Cannot delete root");
     }
     node.parent.remove(node.name);
   }
 
-  private File getFile(String path) {
-    FileSystemNode node = traverse(path, false);
+  private File getFile(String filePath) {
+    FileSystemNode node = traverse(filePath, false);
     if (!(node instanceof File)) {
       throw new IllegalArgumentException("Not a file");
     }
