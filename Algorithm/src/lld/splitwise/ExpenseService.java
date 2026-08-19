@@ -12,11 +12,13 @@ public class ExpenseService {
   }
 
   public void addExpense(Expense expense) {
-    Split strategy = getStrategy(expense.getExpenseType());
+    ExpenseType expenseType = expense.getExpenseType();
+    Split strategy = getStrategy(expenseType);
     strategy.splitExpense(expense);
     strategy.validateExpense(expense);
     updateBalanceSheet(expense);
-    expense.getGroup().addExpense(expense);
+    Group group = expense.getGroup();
+    group.addExpense(expense);
   }
 
   private void updateBalanceSheet(Expense expense) {
