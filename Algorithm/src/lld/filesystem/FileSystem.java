@@ -18,10 +18,10 @@ public class FileSystem {
 
   public void createFile(String path) {
     String[] parts = split(path);
-    Directory parent = (Directory) traverseParent(parts);
+    Directory parentDir = (Directory) traverseParent(parts);
     String fileName = parts[parts.length - 1];
-    if (parent.get(fileName) == null) {
-      parent.add(new File(fileName, parent));
+    if (parentDir.get(fileName) == null) {
+      parentDir.add(new File(fileName, parentDir));
     }
   }
 
@@ -102,15 +102,15 @@ public class FileSystem {
   }
 
   private FileSystemNode traverseParent(String[] parts) {
-    Directory current = root;
+    Directory currDir = root;
     for (int i = 0; i < parts.length - 1; i++) {
-      FileSystemNode node = current.get(parts[i]);
-      if (!(node instanceof Directory)) {
+      FileSystemNode fileSystemNode = currDir.get(parts[i]);
+      if (!(fileSystemNode instanceof Directory)) {
         throw new IllegalArgumentException("Invalid path");
       }
-      current = (Directory) node;
+      currDir = (Directory) fileSystemNode;
     }
-    return current;
+    return currDir;
   }
 
   private String[] split(String path) {
