@@ -23,27 +23,27 @@ public class ExpenseService {
     User paidBy = expense.getPaidBy();
     for (Split split : expense.getSplits()) {
       User user = split.getUser();
-      if (user.getId().equals(paidBy.getId())) {
+      if (user.id().equals(paidBy.id())) {
         continue;
       }
-      balanceSheet.getBalanceSheet()
-                  .computeIfAbsent(user.getId(), value -> new HashMap<>())
-                  .merge(paidBy.getId(), split.getAmount(), Double::sum);
+      balanceSheet.balanceSheet()
+                  .computeIfAbsent(user.id(), value -> new HashMap<>())
+                  .merge(paidBy.id(), split.getAmount(), Double::sum);
 
-      balanceSheet.getBalanceSheet()
-                  .computeIfAbsent(paidBy.getId(), value -> new HashMap<>())
-                  .merge(user.getId(), -split.getAmount(), Double::sum);
+      balanceSheet.balanceSheet()
+                  .computeIfAbsent(paidBy.id(), value -> new HashMap<>())
+                  .merge(user.id(), -split.getAmount(), Double::sum);
     }
   }
 
   public void settleUp(User from, User to, double amount) {
 
-    balanceSheet.getBalanceSheet()
-                .get(to.getId())
-                .merge(from.getId(), amount, Double::sum);
+    balanceSheet.balanceSheet()
+                .get(to.id())
+                .merge(from.id(), amount, Double::sum);
 
-    balanceSheet.getBalanceSheet()
-                .get(from.getId())
-                .merge(to.getId(), -amount, Double::sum);
+    balanceSheet.balanceSheet()
+                .get(from.id())
+                .merge(to.id(), -amount, Double::sum);
   }
 }

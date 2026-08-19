@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class SplitStrategy {
 
-  private static final Map<ExpenseType, Split> splitMap = new HashMap<>();
+  private static final Map<ExpenseType, Split> splitStrategyMap = new HashMap<>();
 
   static {
-    splitMap.put(ExpenseType.EXACT,   new ExactSplit());
-    splitMap.put(ExpenseType.EQUAL,   new EqualSplit());
-    splitMap.put(ExpenseType.PERCENT, new PercentSplit());
+    splitStrategyMap.put(ExpenseType.EXACT,   new ExactSplit());
+    splitStrategyMap.put(ExpenseType.EQUAL,   new EqualSplit());
+    splitStrategyMap.put(ExpenseType.PERCENT, new PercentSplit());
   }
 
   public static Split getStrategy(ExpenseType expenseType) {
-    return splitMap.get(expenseType);
+    return splitStrategyMap.get(expenseType);
   }
 }

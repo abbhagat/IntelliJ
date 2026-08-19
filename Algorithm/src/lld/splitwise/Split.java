@@ -11,6 +11,6 @@ public abstract class Split {
   private double amount;
 
   abstract void validateExpense(Expense expense);
-  abstract void splitExpense(Expense expense);
+  abstract void    splitExpense(Expense expense);
 
 }
