@@ -37,7 +37,7 @@ public class ConnectionPool implements IConnectionPool {
 
   private void initializeConnectionPool() {
     for (int i = 0; i < this.poolSize; i++) {
-      queue.add(createNewConnection());
+      queue.offer(createNewConnection());
     }
   }
 

@@ -14,9 +14,13 @@ public class NotificationService {
 
   public NotificationService(int numThread) {
     this.executorService = Executors.newFixedThreadPool(numThread);
+    // this.executorService = new ThreadPoolExecutor(numThreads, numThreads, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>());
   }
 
   public void sendAsync(Notification notification, NotificationChannel notificationChannel) {
+
+//    NotificationTask notificationTask = new NotificationTask(notification, notificationChannel, channelType.getPriority());
+//    NotificationChannel notificationChannel
     Runnable notificationTask = () -> {
       boolean success = notificationChannel.send(notification);
       notification.setStatus(success ? SENT : FAILED);

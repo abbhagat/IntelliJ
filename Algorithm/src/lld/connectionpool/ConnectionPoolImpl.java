@@ -11,18 +11,17 @@ public class ConnectionPoolImpl {
 
   public static void main(String[] args) throws SQLException, InterruptedException {
     ConnectionPool connectionPool = new ConnectionPool(5);
-    AtomicInteger atomicInteger = new AtomicInteger(0);
-    connectionPool
-        .getConnectionPool()
-        .forEach(connection -> System.out.println("DB Connection " + atomicInteger.getAndIncrement() + " " + connection));
+    for (Connection connection : connectionPool.getConnectionPool()) {
+      System.out.println("DB Connection " + connection);
+    }
     ExecutorService executorService = Executors.newFixedThreadPool(10);
     for (int i = 1; i <= 10; i++) {
       int threadId = i;
       executorService.submit(() -> {
         try {
-          System.out.println("Thread-" + threadId + " trying to get connection...");
+          System.out.println("Thread - " + threadId + " trying to get connection...");
           Connection connection = connectionPool.get();  // BLOCKS if none available
-          System.out.println("Thread-" + threadId + " acquired connection: " + connection);
+          System.out.println("Thread - " + threadId + " acquired connection: " + connection);
           // Simulate DB work
           Thread.sleep(3000);
           connectionPool.put(connection);
