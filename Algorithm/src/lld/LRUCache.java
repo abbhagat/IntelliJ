@@ -26,8 +26,8 @@ public class LRUCache<K, V> {
   private final int cacheSize;
 
   public LRUCache(int cacheSize) {
-    this.q         = new LinkedList<>();
-    this.map       = new HashMap<>();
+    this.q = new LinkedList<>();
+    this.map = new HashMap<>();
     this.cacheSize = cacheSize;
   }
 
@@ -43,8 +43,11 @@ public class LRUCache<K, V> {
 
   public synchronized void put(K key, V value) {
     if (map.containsKey(key)) {
+      if (map.get(key) == value) {
+        return;
+      }
       q.remove(key);
-    } else if (map.size() >= cacheSize) {
+    } else if (map.size() == cacheSize) {
       K lruKey = q.removeLast();
       map.remove(lruKey);
     }
@@ -60,6 +63,7 @@ public class LRUCache<K, V> {
     cache.put(4, 400);
     System.out.println(cache.get(1));
     cache.put(1, 1000);
+    cache.put(5, 500);
     cache.put(5, 500);
     System.out.println(cache.get(1));
   }
