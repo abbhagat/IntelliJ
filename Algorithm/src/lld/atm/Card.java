@@ -13,4 +13,5 @@ public class Card {
   public boolean validatePin(int enteredPin) {
     return pin == enteredPin;
   }
+
 }

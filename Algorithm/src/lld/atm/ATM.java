@@ -46,30 +46,26 @@ public class ATM {
 
   public void deposit(double amount) {
     validateAuthentication();
-
     account.deposit(amount);
-
     System.out.println("Deposited: " + amount);
   }
 
-  public boolean withdraw(double amount) {
+  public void withdraw(double amount) {
     validateAuthentication();
     if (!account.withdraw(amount)) {
       System.out.println("Insufficient balance");
-      return false;
+      return;
     }
-
     System.out.println("Cash dispensed: " + amount);
-    return true;
   }
 
   public void ejectCard() {
     if (state == ATMState.IDLE) {
       return;
     }
-    card = null;
+    card    = null;
     account = null;
-    state = ATMState.IDLE;
+    state   = ATMState.IDLE;
     System.out.println("Card ejected");
   }
 

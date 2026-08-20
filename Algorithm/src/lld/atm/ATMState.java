@@ -5,4 +5,3 @@ public enum ATMState {
   CARD_INSERTED,
   AUTHENTICATED
 }
-
