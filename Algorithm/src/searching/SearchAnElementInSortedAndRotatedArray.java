@@ -8,11 +8,11 @@ public class SearchAnElementInSortedAndRotatedArray {
   private static int pivotedBinarySearch(int[] a, int n) {
     int low = 0, high = a.length - 1;
     int pivot = findPivot(a);
-    if (pivot == high) {
-      return binarySearch(a, low, high, n);
-    }
     if (a[pivot] == n) {
       return pivot;
+    }
+    if (pivot == high) {
+      return binarySearch(a, low, high, n);
     }
     return a[low] > n ? binarySearch(a, pivot + 1, high, n) : binarySearch(a, low, pivot - 1, n);
   }

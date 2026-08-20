@@ -27,6 +27,10 @@ public class PrintMissingRangeFrom0To99 {
     System.out.println("------------------------");
   }
 
+  private static void printRange(int start, int end) {
+    System.out.println(start == end ? start : start + "-" + end);
+  }
+
   private static void printMissingRange(int[] a, int start, int end) {
     Arrays.sort(a);
     if (start < a[0]) {                            // Missing before the first element
@@ -42,10 +46,6 @@ public class PrintMissingRangeFrom0To99 {
       printRange(a[a.length - 1] + 1, end);
     }
     System.out.println("------------------------");
-  }
-
-  private static void printRange(int start, int end) {
-    System.out.println(start == end ? start : start + "-" + end);
   }
 
   public static void main(String[] args) {
