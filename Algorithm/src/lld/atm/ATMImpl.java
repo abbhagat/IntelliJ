@@ -1,14 +1,16 @@
 package lld.atm;
 
+
+// Insert card → Enter PIN → Select transaction → Perform transaction → Eject card
 public class ATMImpl {
 
   public static void main(String[] args) {
-    BankService bankService = new BankService();
-    Card card = new Card("1234", 1234);
+    ATMService ATMService = new ATMService();
+    ATMCard ATMCard = new ATMCard("1234", 1234);
     Account account = new Account("ACC-1", 10000);
-    bankService.addAccount(card.getCardNumber(), account);
-    ATM atm = new ATM(bankService);
-    atm.insertCard(card);
+    ATMService.addAccount(ATMCard.getCardNumber(), account);
+    ATM atm = new ATM(ATMService);
+    atm.insertCard(ATMCard);
     if (atm.enterPin(1234)) {
       System.out.println("Balance: " + atm.checkBalance());
       atm.withdraw(2000);

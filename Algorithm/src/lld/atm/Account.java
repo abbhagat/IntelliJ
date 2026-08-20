@@ -3,11 +3,11 @@ package lld.atm;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public class Account {
 
   private final String accountNumber;
-  @Getter
   private double balance;
 
   public boolean withdraw(double amount) {

@@ -4,20 +4,20 @@ public class ATM {
 
   private ATMState state = ATMState.IDLE;
 
-  private Card card;
+  private ATMCard ATMCard;
   private Account account;
 
-  private final BankService bankService;
+  private final ATMService ATMService;
 
-  public ATM(BankService bankService) {
-    this.bankService = bankService;
+  public ATM(ATMService ATMService) {
+    this.ATMService = ATMService;
   }
 
-  public void insertCard(Card card) {
+  public void insertCard(ATMCard ATMCard) {
     if (state != ATMState.IDLE) {
       throw new IllegalStateException("ATM is busy");
     }
-    this.card = card;
+    this.ATMCard = ATMCard;
     state = ATMState.CARD_INSERTED;
     System.out.println("Card inserted");
   }
@@ -26,11 +26,11 @@ public class ATM {
     if (state != ATMState.CARD_INSERTED) {
       throw new IllegalStateException("Insert card first");
     }
-    if (!card.validatePin(pin)) {
+    if (!ATMCard.validatePin(pin)) {
       System.out.println("Invalid PIN");
       return false;
     }
-    account = bankService.getAccount(card.getCardNumber());
+    account = ATMService.getAccount(ATMCard.getCardNumber());
     if (account == null) {
       System.out.println("Account not found");
       return false;
@@ -69,7 +69,7 @@ public class ATM {
       return;
     }
 
-    card = null;
+    ATMCard = null;
     account = null;
     state = ATMState.IDLE;
 
