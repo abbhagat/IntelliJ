@@ -36,7 +36,8 @@ public class FileSystem {
   }
 
   public String read(String path) {
-    return getFile(path).read();
+    File file = getFile(path);
+    return file.read();
   }
 
   public List<String> ls(String path) {
