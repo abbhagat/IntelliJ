@@ -29,18 +29,17 @@ public class PrintMissingRangeFrom0To99 {
 
   private static void printMissingRange(int[] a, int start, int end) {
     Arrays.sort(a);
-    if (start < a[0]) {                         // Missing before the first element
+    if (start < a[0]) {                            // Missing before the first element
       printRange(start, a[0] - 1);
     }
-    int i;
-    for (i = 1; i < a.length; i++) {          // Missing between consecutive elements
+    for (int i = 1; i < a.length; i++) {          // Missing between consecutive elements
       int diff = a[i] - a[i - 1];
       if (diff != 1) {
         printRange(a[i - 1] + 1, a[i] - 1);
       }
     }
-    if (a[i - 1] < end) {                   // Missing after the last element
-      printRange(a[i - 1] + 1, end);
+    if (a[a.length - 1] < end) {                 // Missing after the last element
+      printRange(a[a.length - 1] + 1, end);
     }
     System.out.println("------------------------");
   }
