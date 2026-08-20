@@ -77,23 +77,19 @@ public class FileSystem {
     for (int i = 0; i < dirNames.length; i++) {
       String dirName = dirNames[i];
       FileSystemNode node = currDir.get(dirName);
-      // Node does not exist
       if (node == null) {
         if (!createDirectories) {
           throw new IllegalArgumentException("Path not found: " + path);
         }
-        // We are creating directories, so create one
-        Directory directory = new Directory(dirName, currDir);
+        Directory directory = new Directory(dirName, currDir);  // We are creating directories, so create one
         currDir.add(directory);
         currDir = directory;
         continue;
       }
-      // If this is the last component, it can be either File or Directory.
-      if (i == dirNames.length - 1) {
+      if (i == dirNames.length - 1) {  // If this is the last component, it can be either File or Directory.
         return node;
       }
-      // Intermediate component must be a directory
-      if (!node.isDirectory()) {
+      if (!node.isDirectory()) {  // Intermediate component must be a directory
         throw new IllegalArgumentException(dirName + " is a file");
       }
       currDir = (Directory) node;
