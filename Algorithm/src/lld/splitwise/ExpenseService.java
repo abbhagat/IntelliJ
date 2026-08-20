@@ -1,6 +1,8 @@
 package lld.splitwise;
 
 import java.util.HashMap;
+import java.util.Map;
+
 import static lld.splitwise.SplitStrategy.getStrategy;
 
 public class ExpenseService {
@@ -14,8 +16,8 @@ public class ExpenseService {
   public void addExpense(Expense expense) {
     ExpenseType expenseType = expense.getExpenseType();
     Split strategy = getStrategy(expenseType);
-    strategy.splitExpense(expense);
     strategy.validateExpense(expense);
+    strategy.splitExpense(expense);
     updateBalanceSheet(expense);
     Group group = expense.getGroup();
     group.addExpense(expense);
@@ -31,7 +33,13 @@ public class ExpenseService {
       balanceSheet.balanceSheet()
                   .computeIfAbsent(user.id(), value -> new HashMap<>())
                   .merge(paidBy.id(), split.getAmount(), Double::sum);
-
+//      Map<String, Double> userBalance = balanceSheet.balanceSheet().computeIfAbsent(user.id(), value -> new HashMap<>());
+//      Double currentAmount = userBalance.get(paidBy.id());
+//      if (currentAmount == null) {
+//        userBalance.put(paidBy.id(), split.getAmount());
+//      } else {
+//        userBalance.put(paidBy.id(), currentAmount + split.getAmount());
+//      }
       balanceSheet.balanceSheet()
                   .computeIfAbsent(paidBy.id(), value -> new HashMap<>())
                   .merge(user.id(), -split.getAmount(), Double::sum);

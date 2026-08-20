@@ -16,7 +16,7 @@ public class JobScheduler {
     schedulerThread.start();
   }
 
-  public synchronized void schedule(Job job) {
+  public void schedule(Job job) {
     synchronized (queue) {
       queue.offer(job);
       queue.notifyAll();
