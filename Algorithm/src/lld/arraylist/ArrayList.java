@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.Arrays;
 
 @Getter
-public class ArrayList<E> {
+class ArrayList<E> {
 
   private E[] list;
   private int size;  // to keep track of the current size of the list
