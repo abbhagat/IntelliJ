@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public class ATMCard {
+public class Card {
 
   @Getter
   private final String cardNumber;

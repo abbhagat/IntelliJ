@@ -2,22 +2,21 @@ package lld.atm;
 
 public class ATM {
 
+  private Card card;
+  private Account account;
   private ATMState state = ATMState.IDLE;
 
-  private ATMCard ATMCard;
-  private Account account;
+  private final BankService bankService;
 
-  private final ATMService ATMService;
-
-  public ATM(ATMService ATMService) {
-    this.ATMService = ATMService;
+  public ATM(BankService bankService) {
+    this.bankService = bankService;
   }
 
-  public void insertCard(ATMCard ATMCard) {
+  public void insertCard(Card card) {
     if (state != ATMState.IDLE) {
       throw new IllegalStateException("ATM is busy");
     }
-    this.ATMCard = ATMCard;
+    this.card = card;
     state = ATMState.CARD_INSERTED;
     System.out.println("Card inserted");
   }
@@ -26,11 +25,11 @@ public class ATM {
     if (state != ATMState.CARD_INSERTED) {
       throw new IllegalStateException("Insert card first");
     }
-    if (!ATMCard.validatePin(pin)) {
+    if (!card.validatePin(pin)) {
       System.out.println("Invalid PIN");
       return false;
     }
-    account = ATMService.getAccount(ATMCard.getCardNumber());
+    account = bankService.getAccount(card.getCardNumber());
     if (account == null) {
       System.out.println("Account not found");
       return false;
@@ -68,11 +67,9 @@ public class ATM {
     if (state == ATMState.IDLE) {
       return;
     }
-
-    ATMCard = null;
+    card = null;
     account = null;
     state = ATMState.IDLE;
-
     System.out.println("Card ejected");
   }
 

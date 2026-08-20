@@ -6,17 +6,17 @@ public class ATMImpl {
 
   public static void main(String[] args) {
 
-    ATMService atmService = new ATMService();
+    BankService bankService = new BankService();
 
-    ATMCard ATMCard = new ATMCard("1234", 1234);
+    Card Card = new Card("1234", 1234);
 
     Account account = new Account("ACC-1", 10000);
 
-    atmService.addAccount(ATMCard.getCardNumber(), account);
+    bankService.addAccount(Card.getCardNumber(), account);
 
-    ATM atm = new ATM(atmService);
+    ATM atm = new ATM(bankService);
 
-    atm.insertCard(ATMCard);
+    atm.insertCard(Card);
 
     if (atm.enterPin(1234)) {
       System.out.println("Balance: " + atm.checkBalance());
