@@ -19,6 +19,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+// K = what you use to find something
+// V = the actual data stored against that key
+
 public class LRUCache<K, V> {
 
   private final Deque<K> q;
