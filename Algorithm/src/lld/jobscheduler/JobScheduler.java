@@ -45,7 +45,6 @@ public class JobScheduler {
           }
           continue;
         }
-
         queue.poll();
       }
       execute(job);
