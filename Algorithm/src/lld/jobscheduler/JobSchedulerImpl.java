@@ -6,5 +6,7 @@ public class JobSchedulerImpl {
     JobScheduler scheduler = new JobScheduler();
     scheduler.schedule(new Job("job-1", () -> System.out.println("Job 1 executed"), System.currentTimeMillis() + 3000));
     scheduler.schedule(new Job("job-2", () -> System.out.println("Job 2 executed"), System.currentTimeMillis() + 1000));
+    scheduler.schedule(new Job("job-3", () -> System.out.println("Job 3 executed"), System.currentTimeMillis() + 2000));
+    scheduler.schedule(new Job("job-4", () -> System.out.println("Job 4 executed"), System.currentTimeMillis() + 4000));
   }
 }

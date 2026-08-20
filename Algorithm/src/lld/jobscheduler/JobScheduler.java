@@ -6,11 +6,12 @@ import java.util.concurrent.Executors;
 
 public class JobScheduler {
 
-  private final PriorityQueue<Job> queue = new PriorityQueue<>((a, b) -> Long.compare(a.executeAt(), b.executeAt()));
-
-  private final ExecutorService executor = Executors.newFixedThreadPool(3);
+  private final PriorityQueue<Job> queue;
+  private final ExecutorService executorService;
 
   public JobScheduler() {
+    this.queue = new PriorityQueue<>((job1, job2) -> Long.compare(job1.executeAt(), job2.executeAt()));
+    this.executorService = Executors.newFixedThreadPool(3);
     Thread schedulerThread = new Thread(this::processJobs);
     schedulerThread.start();
   }
@@ -18,7 +19,7 @@ public class JobScheduler {
   public void schedule(Job job) {
     synchronized (queue) {
       queue.offer(job);
-      queue.notify();
+      queue.notifyAll();
     }
   }
 
@@ -52,7 +53,7 @@ public class JobScheduler {
   }
 
   private void execute(Job job) {
-    executor.submit(() -> {
+    executorService.submit(() -> {
       try {
         job.task().run();
       } catch (Exception e) {
