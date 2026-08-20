@@ -4,7 +4,7 @@ public class PricingService {
 
   private static final double GST_RATE = 0.1; // 10%
 
-  public static double calculateTotal(ShoppingShoppingCart shoppingCart, DiscountStrategy discountStrategy) {
+  public static double calculateTotal(ShoppingCart shoppingCart, DiscountStrategy discountStrategy) {
     double subtotal = shoppingCart.getCartItemMap()
                                   .values()
                                   .stream()

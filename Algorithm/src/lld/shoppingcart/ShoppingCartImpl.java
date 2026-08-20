@@ -10,7 +10,7 @@ public class ShoppingCartImpl {
     Product camera = new Product("P02", "Camera", 10000);
     Product milk   = new Product("P03", "Milk",   5000);
 
-    ShoppingShoppingCart shoppingCart = new ShoppingShoppingCart();
+    ShoppingCart shoppingCart = new ShoppingCart();
     shoppingCart.addItem(iPhone, 1);
     shoppingCart.addItem(camera, 2);
     shoppingCart.updateItem(iPhone.id(), 2);

@@ -7,11 +7,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter
 @Setter
-public class ShoppingShoppingCart implements IShoppingCart {
+public class ShoppingCart implements IShoppingCart {
 
   private final Map<String, CartItem> cartItemMap;
 
-  public ShoppingShoppingCart() {
+  public ShoppingCart() {
     cartItemMap = new ConcurrentHashMap<>();
   }
 
