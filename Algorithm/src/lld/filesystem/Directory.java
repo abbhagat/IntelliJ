@@ -18,8 +18,8 @@ public class Directory extends FileSystemNode {
     return true;
   }
 
-  public void add(FileSystemNode fileSystemNode) {
-    map.put(fileSystemNode.getName(), fileSystemNode);
+  public void add(FileSystemNode node) {
+    map.put(node.getName(), node);
   }
 
   public FileSystemNode get(String name) {

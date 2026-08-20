@@ -25,22 +25,22 @@ public class FileSystem {
     }
   }
 
-  public void write(String filePath, String content) {
-    File file = getFile(filePath);
+  public void write(String path, String content) {
+    File file = getFile(path);
     file.write(content);
   }
 
-  public void append(String filePath, String content) {
-    File file = getFile(filePath);
+  public void append(String path, String content) {
+    File file = getFile(path);
     file.append(content);
   }
 
-  public String read(String filePath) {
-    return getFile(filePath).read();
+  public String read(String path) {
+    return getFile(path).read();
   }
 
-  public List<String> ls(String filePath) {
-    FileSystemNode node = traverse(filePath, false);
+  public List<String> ls(String path) {
+    FileSystemNode node = traverse(path, false);
     if (!node.isDirectory()) {
       return List.of(node.getName());
     }
@@ -52,16 +52,16 @@ public class FileSystem {
     return result;
   }
 
-  public void delete(String filePath) {
-    FileSystemNode node = traverse(filePath, false);
+  public void delete(String path) {
+    FileSystemNode node = traverse(path, false);
     if (node == root) {
       throw new IllegalArgumentException("Cannot delete root");
     }
     node.parent.remove(node.name);
   }
 
-  private File getFile(String filePath) {
-    FileSystemNode node = traverse(filePath, false);
+  private File getFile(String path) {
+    FileSystemNode node = traverse(path, false);
     if (!(node instanceof File)) {
       throw new IllegalArgumentException("Not a file");
     }
@@ -104,11 +104,11 @@ public class FileSystem {
   private FileSystemNode traverseParent(String[] parts) {
     Directory currDir = root;
     for (int i = 0; i < parts.length - 1; i++) {
-      FileSystemNode fileSystemNode = currDir.get(parts[i]);
-      if (!(fileSystemNode instanceof Directory)) {
+      FileSystemNode node = currDir.get(parts[i]);
+      if (!(node instanceof Directory)) {
         throw new IllegalArgumentException("Invalid path");
       }
-      currDir = (Directory) fileSystemNode;
+      currDir = (Directory) node;
     }
     return currDir;
   }
