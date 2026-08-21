@@ -37,10 +37,8 @@ public class ParkingLot {
   }
 
   public double unPark(ParkingTicket parkingTicket) {
-    if (!activeTickets.containsKey(parkingTicket.getTicketId())) {
-      throw new RuntimeException("Invalid Ticket");
-    }
-    activeTickets.remove(parkingTicket.getTicketId());
+    String ticketId = parkingTicket.getTicketId();
+    activeTickets.remove(ticketId);
     long parkDuration = System.currentTimeMillis() - parkingTicket.getEntryTime();
     ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
     Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
