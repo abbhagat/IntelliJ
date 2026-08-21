@@ -17,8 +17,8 @@ public class ParkingLot {
   private Map<String, ParkingTicket> activeTickets;  // Key is the Ticket ID
 
   public ParkingLot() {
-    parkingFloors = new ArrayList<>();
-    activeTickets = new ConcurrentHashMap<>();
+    this.parkingFloors = new ArrayList<>();
+    this.activeTickets = new ConcurrentHashMap<>();
   }
 
   public ParkingTicket park(Vehicle vehicle) {
@@ -37,16 +37,15 @@ public class ParkingLot {
   }
 
   public double unPark(ParkingTicket parkingTicket) {
-    ParkingTicket ticket = activeTickets.get(parkingTicket.getTicketId());
-    if (ticket == null) {
+    if (!activeTickets.containsKey(parkingTicket.getTicketId())) {
       throw new RuntimeException("Invalid Ticket");
     }
     activeTickets.remove(parkingTicket.getTicketId());
-    long parkDuration = System.currentTimeMillis() - ticket.getEntryTime();
+    long parkDuration = System.currentTimeMillis() - parkingTicket.getEntryTime();
     ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
     Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
     String vehicleType = parkedVehicle.getVehicleType().name();
-    ticket.getParkingSpot().unPark();
+    parkingSpot.unPark();
     return calculateFee(parkDuration, vehicleType);
   }
 
