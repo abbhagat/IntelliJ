@@ -42,15 +42,15 @@ public class FileSystem {
 
   public List<String> ls(String path) {
     FileSystemNode node = traverse(path, false);
-    if (!node.isDirectory()) {
-      return List.of(node.getName());
+    if (node.isDirectory()) {
+      Directory directory = (Directory) node;
+      List<String> result = new ArrayList<>();
+      for (FileSystemNode child : directory.getAllFileSystemNodes()) {
+        result.add(child.getName());
+      }
+      return result;
     }
-    Directory directory = (Directory) node;
-    List<String> result = new ArrayList<>();
-    for (FileSystemNode child : directory.getAllFileSystemNodes()) {
-      result.add(child.getName());
-    }
-    return result;
+    return List.of(node.getName());
   }
 
   public void delete(String path) {
@@ -58,7 +58,7 @@ public class FileSystem {
     if (node == root) {
       throw new IllegalArgumentException("Cannot delete root");
     }
-    node.parent.remove(node.name);
+    node.getParent().remove(node.getName());
   }
 
   private File getFile(String path) {
@@ -99,16 +99,17 @@ public class FileSystem {
   }
 
   private Directory traverseParent(String[] parts) {
-    Directory parentDir = root;
+    Directory currDir = root;
     for (int i = 0; i < parts.length - 1; i++) {
-      FileSystemNode node = parentDir.get(parts[i]);
+      String dirName = parts[i];
+      FileSystemNode node = currDir.get(dirName);
       if (node instanceof Directory) {
-        parentDir = (Directory) node;
+        currDir = (Directory) node;
       } else {
         throw new IllegalArgumentException("Invalid path");
       }
     }
-    return parentDir;
+    return currDir;
   }
 
   private String[] split(String path) {
