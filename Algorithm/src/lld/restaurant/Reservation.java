@@ -3,7 +3,7 @@ package lld.restaurant;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ReservationService implements IReservation {
+public class Reservation implements IReservation {
 
   private final List<Booking> bookings = new CopyOnWriteArrayList<>();
 

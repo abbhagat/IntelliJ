@@ -8,13 +8,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class BookingService {
 
-  private final ReservationService reservationService;
+  private final Reservation reservation;
 
   // One lock for each table
   private final Map<String, Lock> locks = new ConcurrentHashMap<>();
 
-  public BookingService(ReservationService reservationService) {
-    this.reservationService = reservationService;
+  public BookingService(Reservation reservation) {
+    this.reservation = reservation;
   }
 
   public Booking book(Table table, String customer, LocalDateTime startTime, LocalDateTime endTime) {
@@ -22,14 +22,14 @@ public class BookingService {
     Lock lock = locks.computeIfAbsent(key, value -> new ReentrantLock());
     lock.lock();  // The code below this will not execute for same Table booking because lock is acquired by another Thread
     try {
-      for (Booking booking : reservationService.getReservations()) {
+      for (Booking booking : reservation.getReservations()) {
         if (booking.table().tableId().equals(table.tableId()) && overlap(startTime, endTime, booking.startTime(), booking.endTime())) {
           System.out.println("Table already booked");
         }
       }
-      int bookingId   = reservationService.getReservations().size() + 1;
+      int bookingId   = reservation.getReservations().size() + 1;
       Booking booking = new Booking(bookingId, table, customer,  startTime, endTime);
-      reservationService.save(booking);
+      reservation.save(booking);
       return booking;
     } finally {
       lock.unlock();
@@ -41,6 +41,6 @@ public class BookingService {
   }
 
   public boolean cancelBooking(Booking booking) {
-    return reservationService.cancel(booking);
+    return reservation.cancel(booking);
   }
 }
