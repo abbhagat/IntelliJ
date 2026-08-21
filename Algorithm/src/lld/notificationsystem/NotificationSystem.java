@@ -8,7 +8,7 @@ public class NotificationSystem {
     NotificationService notificationService = new NotificationService(5);
     RetryHandler retryHandler = new RetryHandler();
     try {
-      notificationService.sendAsync(notification, notificationChannel);
+      notificationService.sendAsync(notification, notificationChannel, NotificationChannelType.EMAIL);
     } catch (Exception e) {
       retryHandler.retry(notification, notificationChannel);
     }
