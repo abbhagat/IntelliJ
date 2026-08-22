@@ -1,0 +1,26 @@
+DigitalWallet
+│
+├── WalletManager
+│      └── Map<String, Wallet>
+│
+├── WalletService
+│      ├── deposit()
+│      ├── withdraw()
+│      └── transfer()
+│
+├── Wallet
+│      ├── balance
+│      ├── transactions
+│      └── auditHistory
+│
+├── Transaction
+│      ├── transactionId
+│      ├── idempotencyKey
+│      ├── type
+│      ├── amount
+│      └── status
+│
+└── AuditRecord
+       ├── transactionId
+       ├── message
+       └── timestamp
