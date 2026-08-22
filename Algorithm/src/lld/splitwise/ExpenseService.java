@@ -28,17 +28,17 @@ public class ExpenseService {
       if (user.id().equals(paidBy.id())) {
         continue;
       }
-      balanceSheet.balanceSheet()
+      balanceSheet.getBalanceSheet()
                   .computeIfAbsent(user.id(), value -> new HashMap<>())
                   .merge(paidBy.id(), split.getAmount(), Double::sum);
-//      Map<String, Double> userBalance = balanceSheet.balanceSheet().computeIfAbsent(user.id(), value -> new HashMap<>());
+//      Map<String, Double> userBalance = balanceSheet.getBalanceSheet().computeIfAbsent(user.id(), value -> new HashMap<>());
 //      Double currentAmount = userBalance.get(paidBy.id());
 //      if (currentAmount == null) {
 //        userBalance.put(paidBy.id(), split.getAmount());
 //      } else {
 //        userBalance.put(paidBy.id(), currentAmount + split.getAmount());
 //      }
-      balanceSheet.balanceSheet()
+      balanceSheet.getBalanceSheet()
                   .computeIfAbsent(paidBy.id(), value -> new HashMap<>())
                   .merge(user.id(), -split.getAmount(), Double::sum);
     }
@@ -46,11 +46,11 @@ public class ExpenseService {
 
   public void settleUp(User from, User to, double amount) {
 
-    balanceSheet.balanceSheet()
+    balanceSheet.getBalanceSheet()
                 .get(to.id())
                 .merge(from.id(), amount, Double::sum);
 
-    balanceSheet.balanceSheet()
+    balanceSheet.getBalanceSheet()
                 .get(from.id())
                 .merge(to.id(), -amount, Double::sum);
   }
