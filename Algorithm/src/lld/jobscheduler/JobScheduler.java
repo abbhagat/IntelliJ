@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,7 +18,7 @@ public class JobScheduler {
 
   public JobScheduler() {
     this.queue    = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
-    this.jobs     = new HashMap<>();
+    this.jobs     = new ConcurrentHashMap<>();
     this.executor = Executors.newFixedThreadPool(3);
     this.lock     = new Object();
     this.shutdown = false;
@@ -45,10 +46,12 @@ public class JobScheduler {
     synchronized (lock) {
       Job job = jobs.get(jobId);
       if (job == null || job.getStatus() != JobStatus.SCHEDULED) {
+        lock.notifyAll();
         return false;
       }
       queue.remove(job);
       job.setStatus(JobStatus.CANCELLED);
+      lock.notifyAll();
       return true;
     }
   }
@@ -58,6 +61,7 @@ public class JobScheduler {
     synchronized (lock) {
       Job job = jobs.get(jobId);
       if (job == null || job.getStatus() != JobStatus.SCHEDULED) {
+        lock.notifyAll();
         return false;
       }
       queue.remove(job);
@@ -72,6 +76,7 @@ public class JobScheduler {
   public JobStatus getStatus(String jobId) {
     synchronized (lock) {
       Job job = jobs.get(jobId);
+      lock.notifyAll();
       return job == null ? null : job.getStatus();
     }
   }
