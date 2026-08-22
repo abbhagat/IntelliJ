@@ -1,52 +1,30 @@
 package lld.jobscheduler;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Job {
 
   private final String id;
   private final Runnable task;
   private long executeAt;
-  private final int maxRetries;
+  private final int maxRetry;
   private int retryCount;
   private JobStatus status;
 
-  public Job(String id, Runnable task, long executeAt, int maxRetries) {
-    this.id = id;
-    this.task = task;
-    this.executeAt = executeAt;
-    this.maxRetries = maxRetries;
-    this.status = JobStatus.SCHEDULED;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public Runnable getTask() {
-    return task;
-  }
-
-  public long getExecuteAt() {
-    return executeAt;
-  }
-
-  public void setExecuteAt(long executeAt) {
-    this.executeAt = executeAt;
-  }
-
-  public int getRetryCount() {
-    return retryCount;
+  public Job(String id, Runnable task, long executeAt, int maxRetry) {
+    this.id         = id;
+    this.task       = task;
+    this.executeAt  = executeAt;
+    this.maxRetry   = maxRetry;
+    this.retryCount = 0;
+    this.status     = JobStatus.SCHEDULED;
   }
 
   public void incrementRetry() {
-    retryCount++;
-  }
-
-  public int getMaxRetries() {
-    return maxRetries;
-  }
-
-  public JobStatus getStatus() {
-    return status;
+    this.retryCount++;
   }
 
   public void setStatus(JobStatus status) {

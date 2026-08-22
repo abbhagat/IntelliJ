@@ -1,5 +1,6 @@
 package lld.jobscheduler;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -8,13 +9,18 @@ import java.util.concurrent.Executors;
 
 public class JobScheduler {
 
-  private final PriorityQueue<Job> queue = new PriorityQueue<>((a, b) -> Long.compare( a.getExecuteAt(), b.getExecuteAt()));
-  private final Map<String, Job> jobs = new HashMap<>();
-  private final ExecutorService executor = Executors.newFixedThreadPool(3);
-  private final Object lock = new Object();
-  private boolean shutdown = false;
+  private final PriorityQueue<Job> queue;
+  private final Map<String, Job> jobs;
+  private final ExecutorService executor;
+  private final Object lock;
+  private boolean shutdown;
 
   public JobScheduler() {
+    this.queue = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
+    this.jobs = new HashMap<>();
+    this.executor = Executors.newFixedThreadPool(3);
+    this.lock = new Object();
+    this.shutdown = false;
     new Thread(this::processJobs).start();
   }
 
@@ -122,7 +128,7 @@ public class JobScheduler {
   // Retry failed job
   private void retry(Job job) {
     synchronized (lock) {
-      if (job.getRetryCount() < job.getMaxRetries()) {
+      if (job.getRetryCount() < job.getMaxRetry()) {
         job.incrementRetry();
         job.setExecuteAt(System.currentTimeMillis() + 1000);  // Retry after 1 second
         job.setStatus(JobStatus.SCHEDULED);
