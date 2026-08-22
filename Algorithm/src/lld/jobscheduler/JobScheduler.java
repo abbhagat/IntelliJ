@@ -1,7 +1,6 @@
 package lld.jobscheduler;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -66,6 +65,7 @@ public class JobScheduler {
       }
       queue.remove(job);
       job.setExecuteAt(newExecuteAt);
+      job.setStatus(JobStatus.SCHEDULED);
       queue.offer(job);
       lock.notifyAll();
       return true;
