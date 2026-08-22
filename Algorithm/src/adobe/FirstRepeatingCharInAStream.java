@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Stream;
 
+// Time  Complexity : O(n)
+// Space Complexity : O(n)
 public class FirstRepeatingCharInAStream {
 
   private static void firstRepeatingChar(Stream<Character> stream) {
@@ -21,6 +23,7 @@ public class FirstRepeatingCharInAStream {
 
   public static void main(String[] args) {
     firstRepeatingChar(Stream.of('a', 'b', 'c', 'b', 'a', 'd'));
+    System.out.println();
     firstRepeatingChar(Stream.of('a', 'b', 'b', 'c', 'c', 'e'));
   }
 }

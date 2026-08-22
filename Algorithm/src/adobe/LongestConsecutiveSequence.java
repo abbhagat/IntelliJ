@@ -10,9 +10,7 @@ import static java.lang.Integer.max;
 public class LongestConsecutiveSequence {
 
   private static int longestConsecutiveSequence(int[] a) {
-    Set<Integer> set = Arrays.stream(a)
-                             .boxed()
-                             .collect(Collectors.toSet());
+    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
     int max = 0;
     for (int x : a) {
       int i = x - 1, j = x + 1, count = 1;
