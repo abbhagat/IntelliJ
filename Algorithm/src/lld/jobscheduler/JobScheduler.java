@@ -16,12 +16,13 @@ public class JobScheduler {
   private boolean shutdown;
 
   public JobScheduler() {
-    this.queue = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
-    this.jobs = new HashMap<>();
+    this.queue    = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
+    this.jobs     = new HashMap<>();
     this.executor = Executors.newFixedThreadPool(3);
-    this.lock = new Object();
+    this.lock     = new Object();
     this.shutdown = false;
-    new Thread(this::processJobs).start();
+    Thread thread = new Thread(this::processJobs);
+    thread.start();
   }
 
   // Schedule
