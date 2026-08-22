@@ -18,7 +18,7 @@ public class ATM {
     }
     this.card = card;
     state = ATMState.CARD_INSERTED;
-    System.out.println("Card inserted");
+    System.out.println("Card Inserted");
   }
 
   public boolean enterPin(int pin) {
