@@ -18,10 +18,10 @@ public class FileSystem {
 
   public void createFile(String path) {
     String[] parts = split(path);
-    Directory parentDir = traverseParent(parts);
+    Directory parentDir = getParentDir(parts);
     String fileName = parts[parts.length - 1];
-    if (parentDir.get(fileName) == null) {
-      parentDir.add(new File(fileName, parentDir));
+    if (parentDir.getNode(fileName) == null) {
+      parentDir.addNode(new File(fileName, parentDir));
     }
   }
 
@@ -77,13 +77,13 @@ public class FileSystem {
     Directory currDir = root;
     for (int i = 0; i < dirNames.length; i++) {
       String dirName = dirNames[i];
-      FileSystemNode node = currDir.get(dirName);
+      FileSystemNode node = currDir.getNode(dirName);
       if (node == null) {
         if (!createDirectories) {
           throw new IllegalArgumentException("Path not found: " + path);
         }
         Directory directory = new Directory(dirName, currDir);  // We are creating directories, so create one
-        currDir.add(directory);
+        currDir.addNode(directory);
         currDir = directory;
         continue;
       }
@@ -98,11 +98,11 @@ public class FileSystem {
     return currDir;
   }
 
-  private Directory traverseParent(String[] parts) {
+  private Directory getParentDir(String[] parts) {
     Directory currDir = root;
     for (int i = 0; i < parts.length - 1; i++) {
       String dirName = parts[i];
-      FileSystemNode node = currDir.get(dirName);
+      FileSystemNode node = currDir.getNode(dirName);
       if (node instanceof Directory) {
         currDir = (Directory) node;
       } else {

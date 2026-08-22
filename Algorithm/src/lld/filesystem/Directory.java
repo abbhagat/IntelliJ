@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class Directory extends FileSystemNode {
 
-  private final Map<String, FileSystemNode> map;
+  private final Map<String, FileSystemNode> nodeMap;
 
   public Directory(String name, Directory parent) {
     super(name, parent);
-    map = new HashMap<>();
+    nodeMap = new HashMap<>();
   }
 
   @Override
@@ -18,20 +18,20 @@ public class Directory extends FileSystemNode {
     return true;
   }
 
-  public void add(FileSystemNode node) {
-    map.put(node.getName(), node);
+  public void addNode(FileSystemNode node) {
+    nodeMap.put(node.getName(), node);
   }
 
-  public FileSystemNode get(String name) {
-    return map.get(name);
+  public FileSystemNode getNode(String name) {
+    return nodeMap.get(name);
   }
 
   public void remove(String name) {
-    map.remove(name);
+    nodeMap.remove(name);
   }
 
   public Collection<FileSystemNode> getAllFileSystemNodes() {
-    return map.values();
+    return nodeMap.values();
   }
 
 }
