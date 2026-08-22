@@ -86,7 +86,7 @@ public class JobScheduler {
     while (true) {
       Job job;
       synchronized (lock) {
-        while (queue.isEmpty() && !shutdown) {
+        while (!shutdown && queue.isEmpty()) {
           try {
             lock.wait();
           } catch (InterruptedException e) {

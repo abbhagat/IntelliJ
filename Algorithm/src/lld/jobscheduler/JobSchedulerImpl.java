@@ -15,7 +15,7 @@ public class JobSchedulerImpl {
 
     jobScheduler.cancel("job-3");
 
-    Thread.sleep(4000);
+    Thread.sleep(5000);
 
     System.out.println("Job 1: " + jobScheduler.getStatus("job-1"));
     System.out.println("Job 2: " + jobScheduler.getStatus("job-2"));
