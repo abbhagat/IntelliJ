@@ -7,7 +7,7 @@ import static java.lang.Integer.max;
 
 public class SortCharacterByFreqInString {
 
-  private static String sortCharByFreq(String str) {
+  private static StringBuilder sortCharByFreq(String str) {
     Map<Character, Integer> sortedMap = new LinkedHashMap<>();
     Map<Character, Integer> map = new HashMap<>();
     str.chars()
@@ -17,9 +17,9 @@ public class SortCharacterByFreqInString {
        .stream()
        .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
        .forEachOrdered(e -> sortedMap.put(e.getKey(), e.getValue()));
-    StringBuilder sb = new StringBuilder();
-    sortedMap.forEach((k, v) -> sb.append(String.valueOf(k).repeat(v)));
-    return sb.toString();
+    StringBuilder result = new StringBuilder();
+    sortedMap.forEach((k, v) -> result.append(String.valueOf(k).repeat(v)));
+    return result;
   }
 
   public static void main(String[] args) {
