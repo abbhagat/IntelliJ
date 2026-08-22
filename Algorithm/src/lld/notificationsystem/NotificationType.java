@@ -1,6 +1,6 @@
 package lld.notificationsystem;
 
-public enum NotificationChannelType {
+public enum NotificationType {
   EMAIL(1),
   SMS(2),
   PUSH(3),
@@ -8,7 +8,7 @@ public enum NotificationChannelType {
 
   private final int priority;
 
-  NotificationChannelType(int priority) {
+  NotificationType(int priority) {
     this.priority = priority;
   }
 
