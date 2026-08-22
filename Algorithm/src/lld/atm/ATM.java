@@ -29,7 +29,7 @@ public class ATM {
       System.out.println("Invalid PIN");
       return false;
     }
-    account = bankService.getAccount(card.getCardNumber());
+    account = bankService.getAccount(card.cardNumber());
     if (account == null) {
       System.out.println("Account not found");
       return false;
