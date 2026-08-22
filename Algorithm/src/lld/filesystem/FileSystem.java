@@ -13,7 +13,7 @@ public class FileSystem {
   }
 
   public void mkdir(String path) {
-    traverse(path, true);
+    traversePath(path, true);
   }
 
   public void createFile(String path) {
@@ -41,7 +41,7 @@ public class FileSystem {
   }
 
   public List<String> ls(String path) {
-    FileSystemNode node = traverse(path, false);
+    FileSystemNode node = traversePath(path, false);
     if (node.isDirectory()) {
       Directory directory = (Directory) node;
       List<String> result = new ArrayList<>();
@@ -54,7 +54,7 @@ public class FileSystem {
   }
 
   public void delete(String path) {
-    FileSystemNode node = traverse(path, false);
+    FileSystemNode node = traversePath(path, false);
     if (node == root) {
       throw new IllegalArgumentException("Cannot delete root");
     }
@@ -62,14 +62,14 @@ public class FileSystem {
   }
 
   private File getFile(String path) {
-    FileSystemNode node = traverse(path, false);
+    FileSystemNode node = traversePath(path, false);
     if (!(node instanceof File)) {
       throw new IllegalArgumentException("Not a file");
     }
     return (File) node;
   }
 
-  private FileSystemNode traverse(String path, boolean createDirectories) {
+  private FileSystemNode traversePath(String path, boolean createDirectories) {
     if (path.equals("/")) {
       return root;
     }
