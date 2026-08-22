@@ -1,43 +1,34 @@
 package lld.jobscheduler;
 
+import lombok.ToString;
+
+@ToString
 public class Job {
 
   private final String id;
   private final Runnable task;
-
-  private long executeAt;
   private final int maxRetries;
-
+  private long executeAt;
   private int retryCount;
   private volatile JobStatus status;
-
   private volatile Throwable error;
 
-  public Job(
-      String id,
-      Runnable task,
-      long executeAt,
-      int maxRetries) {
-
+  public Job(String id, Runnable task, long executeAt, int maxRetries) {
     if (id == null || id.isBlank()) {
       throw new IllegalArgumentException("Job id cannot be empty");
     }
-
     if (task == null) {
       throw new IllegalArgumentException("Task cannot be null");
     }
-
     if (maxRetries < 0) {
-      throw new IllegalArgumentException(
-          "Max retries cannot be negative");
+      throw new IllegalArgumentException("Max retries cannot be negative");
     }
-
-    this.id = id;
-    this.task = task;
-    this.executeAt = executeAt;
+    this.id         = id;
+    this.task       = task;
+    this.executeAt  = executeAt;
     this.maxRetries = maxRetries;
     this.retryCount = 0;
-    this.status = JobStatus.SCHEDULED;
+    this.status     = JobStatus.SCHEDULED;
   }
 
   public String getId() {
@@ -84,14 +75,4 @@ public class Job {
     this.error = error;
   }
 
-  @Override
-  public String toString() {
-    return "Job{" +
-        "id='" + id + '\'' +
-        ", executeAt=" + executeAt +
-        ", maxRetries=" + maxRetries +
-        ", retryCount=" + retryCount +
-        ", status=" + status +
-        '}';
-  }
 }
