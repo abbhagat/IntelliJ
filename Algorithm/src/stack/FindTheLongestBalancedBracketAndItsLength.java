@@ -20,8 +20,8 @@ public class FindTheLongestBalancedBracketAndItsLength {
         } else {
           int length = i - stack.peek();
           if (max < length) {
-            max = length;
-            end = i;
+              max = length;
+              end = i;
           }
         }
       }

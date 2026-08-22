@@ -28,8 +28,8 @@ public class BasicCalculatorII {
       }
     }
     return stack.stream()
-        .mapToInt(Integer::intValue)
-        .sum();
+                .mapToInt(x -> x)
+                .sum();
   }
 
   public static void main(String[] args) {

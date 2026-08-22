@@ -32,6 +32,7 @@ public class ReverseSubstringsBetweenParenthesis {
   }
 
   public static void main(String[] args) {
+    System.out.println(reverseParentheses("(abc)"));
     System.out.println(reverseParentheses("((ng)ipm(ca))"));
     System.out.println(reverseParentheses("(skeeg(for)skeeg)"));
   }
