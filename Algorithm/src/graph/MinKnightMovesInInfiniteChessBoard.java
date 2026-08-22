@@ -22,11 +22,11 @@ public class MinKnightMovesInInfiniteChessBoard {
     if (x + y == 2) {  // This handles tricky cases like: (1,1) (0,2) (2,0) from these coordinates we can move to origin in 2 steps
       return 2;
     }
-    int move1 = minMoves(abs(x - 1), abs(y - 2));
-    int move2 = minMoves(abs(x - 2), abs(y - 1));
-    int min   = 1 + min(move1, move2);  // Chessboard is symmetric in all quadrants, So we only solve for first quadrant
-    map.put(key, min);
-    return min;
+    int move1    = minMoves(abs(x - 1), abs(y - 2));
+    int move2    = minMoves(abs(x - 2), abs(y - 1));
+    int minMoves = 1 + min(move1, move2);  // Chessboard is symmetric in all quadrants, So we only solve for first quadrant
+    map.put(key, minMoves);
+    return minMoves;
   }
 
   public static void main(String[] args) {

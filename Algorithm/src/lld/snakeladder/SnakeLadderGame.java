@@ -1,8 +1,9 @@
-package games;
+package lld.snakeladder;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.*;
+import java.util.HashMap;
 
 @Getter
 @AllArgsConstructor
@@ -68,7 +69,7 @@ class Game {
   public static class Builder {
 
     private final List<Player>          playerList = new ArrayList<>();
-    private final Map<Integer, Integer> ladderMap  = new HashMap<>();
+    private final Map<Integer, Integer> ladderMap  = new java.util.HashMap<>();
     private final Map<Integer, Integer> snakeMap   = new HashMap<>();
 
     Game build() {
