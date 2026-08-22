@@ -1,34 +1,20 @@
 package lld.jobscheduler;
 
-import lombok.ToString;
-
-@ToString
 public class Job {
 
   private final String id;
   private final Runnable task;
-  private final int maxRetries;
   private long executeAt;
+  private final int maxRetries;
   private int retryCount;
-  private volatile JobStatus status;
-  private volatile Throwable error;
+  private JobStatus status;
 
   public Job(String id, Runnable task, long executeAt, int maxRetries) {
-    if (id == null || id.isBlank()) {
-      throw new IllegalArgumentException("Job id cannot be empty");
-    }
-    if (task == null) {
-      throw new IllegalArgumentException("Task cannot be null");
-    }
-    if (maxRetries < 0) {
-      throw new IllegalArgumentException("Max retries cannot be negative");
-    }
-    this.id         = id;
-    this.task       = task;
-    this.executeAt  = executeAt;
+    this.id = id;
+    this.task = task;
+    this.executeAt = executeAt;
     this.maxRetries = maxRetries;
-    this.retryCount = 0;
-    this.status     = JobStatus.SCHEDULED;
+    this.status = JobStatus.SCHEDULED;
   }
 
   public String getId() {
@@ -39,24 +25,24 @@ public class Job {
     return task;
   }
 
-  public synchronized long getExecuteAt() {
+  public long getExecuteAt() {
     return executeAt;
   }
 
-  public synchronized void setExecuteAt(long executeAt) {
+  public void setExecuteAt(long executeAt) {
     this.executeAt = executeAt;
+  }
+
+  public int getRetryCount() {
+    return retryCount;
+  }
+
+  public void incrementRetry() {
+    retryCount++;
   }
 
   public int getMaxRetries() {
     return maxRetries;
-  }
-
-  public synchronized int getRetryCount() {
-    return retryCount;
-  }
-
-  public synchronized void incrementRetryCount() {
-    retryCount++;
   }
 
   public JobStatus getStatus() {
@@ -66,13 +52,4 @@ public class Job {
   public void setStatus(JobStatus status) {
     this.status = status;
   }
-
-  public Throwable getError() {
-    return error;
-  }
-
-  public void setError(Throwable error) {
-    this.error = error;
-  }
-
 }
