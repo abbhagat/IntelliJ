@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Getter
 public class Wallet {
@@ -15,8 +16,8 @@ public class Wallet {
 
   public Wallet(String id) {
     this.id = id;
-    this.transactions = new ArrayList<>();
-    this.auditHistory = new ArrayList<>();
+    this.transactions = new CopyOnWriteArrayList<>();
+    this.auditHistory = new CopyOnWriteArrayList<>();
   }
 
   public synchronized double getBalance() {
@@ -40,11 +41,11 @@ public class Wallet {
   }
 
   // Called while WalletService owns the lock.
-  public void depositInternal(double amount) {
+  public void depositAmount(double amount) {
     balance += amount;
   }
 
-  public void withdrawInternal(double amount) {
+  public void withdrawAmount(double amount) {
     if (balance < amount) {
       throw new IllegalStateException("Insufficient balance");
     }

@@ -9,7 +9,7 @@ import java.util.UUID;
 @ToString
 public class Transaction {
 
-  private final String transactionId;
+  private final String transId;
   private final String idempotencyKey;
   private final TransactionType type;
   private final double amount;
@@ -17,7 +17,7 @@ public class Transaction {
   private final long timestamp;
 
   public Transaction(String idempotencyKey, TransactionType type, double amount) {
-    this.transactionId = UUID.randomUUID().toString();
+    this.transId = UUID.randomUUID().toString();
     this.idempotencyKey = idempotencyKey;
     this.type = type;
     this.amount = amount;

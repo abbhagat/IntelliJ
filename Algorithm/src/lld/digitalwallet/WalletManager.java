@@ -5,22 +5,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class WalletManager {
 
-  private final Map<String, Wallet> wallets;
+  private final Map<String, Wallet> walletMap;
 
   public WalletManager() {
-    this.wallets = new ConcurrentHashMap<>();
+    this.walletMap = new ConcurrentHashMap<>();
   }
 
   public Wallet createWallet(String id) {
-    Wallet wallet = new Wallet(id);
-    if (wallets.putIfAbsent(id, wallet) != null) {
+    if (walletMap.containsKey(id)) {
       throw new IllegalArgumentException("Wallet already exists");
     }
+    Wallet wallet = new Wallet(id);
+    walletMap.put(id, wallet);
     return wallet;
   }
 
   public Wallet getWallet(String id) {
-    Wallet wallet = wallets.get(id);
+    Wallet wallet = walletMap.get(id);
     if (wallet == null) {
       throw new IllegalArgumentException("Wallet not found");
     }

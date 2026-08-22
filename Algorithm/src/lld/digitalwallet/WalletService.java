@@ -19,20 +19,22 @@ public class WalletService {
       if (existing != null) {
         return existing;
       }
+      AuditRecord auditRecord;
+      TransactionStatus status;
       Transaction transaction = new Transaction(idempotencyKey, TransactionType.DEPOSIT, amount);
       try {
-        wallet.depositInternal(amount);
-        transaction.setStatus(TransactionStatus.SUCCESS);
-        wallet.addTransaction(transaction);
-        wallet.addAudit(new AuditRecord(transaction.getTransactionId(), "Deposited " + amount));
-        processedTransactions.put(idempotencyKey, transaction);
-        return transaction;
+        wallet.depositAmount(amount);
+        status      = TransactionStatus.SUCCESS;
+        auditRecord = new AuditRecord(transaction.getTransId(), "Deposited " + amount);
       } catch (Exception e) {
-        wallet.addTransaction(transaction);
-        wallet.addAudit(new AuditRecord(transaction.getTransactionId(),"Deposit failed"));
-        processedTransactions.put(idempotencyKey, transaction);
-        throw e;
+        status      = TransactionStatus.FAILED;
+        auditRecord = new AuditRecord(transaction.getTransId(), "Deposit failed");
       }
+      transaction.setStatus(status);
+      wallet.addTransaction(transaction);
+      wallet.addAudit(auditRecord);
+      processedTransactions.put(idempotencyKey, transaction);
+      return transaction;
     }
   }
 
@@ -47,20 +49,22 @@ public class WalletService {
       if (existing != null) {
         return existing;
       }
+      AuditRecord auditRecord;
+      TransactionStatus status;
       Transaction transaction = new Transaction(idempotencyKey, TransactionType.WITHDRAW, amount);
       try {
-        wallet.withdrawInternal(amount);
-        transaction.setStatus(TransactionStatus.SUCCESS);
-        wallet.addTransaction(transaction);
-        wallet.addAudit(new AuditRecord(transaction.getTransactionId(),"Withdrawn " + amount));
-        processedTransactions.put(idempotencyKey, transaction);
-        return transaction;
+        wallet.withdrawAmount(amount);
+        status      = TransactionStatus.SUCCESS;
+        auditRecord = new AuditRecord(transaction.getTransId(), "Withdrawn " + amount);
       } catch (Exception e) {
-        wallet.addTransaction(transaction);
-        wallet.addAudit(new AuditRecord(transaction.getTransactionId(), "Withdrawal failed"));
-        processedTransactions.put(idempotencyKey, transaction);
-        throw e;
+        status      = TransactionStatus.FAILED;
+        auditRecord = new AuditRecord(transaction.getTransId(), "Withdrawal failed");
       }
+      transaction.setStatus(status);
+      wallet.addAudit(auditRecord);
+      wallet.addTransaction(transaction);
+      processedTransactions.put(idempotencyKey, transaction);
+      return transaction;
     }
   }
 
@@ -73,33 +77,31 @@ public class WalletService {
     if (existing != null) {
       return existing;
     }
-   // Lock wallets in deterministic order to prevent deadlock.
     Wallet first = from, second = to;
-    if (from.getId().compareTo(to.getId()) > 0) {
-      first = to;
+    if (from.getId().compareTo(to.getId()) > 0) {   // Lock wallets in deterministic order to prevent deadlock.
+      first  = to;
       second = from;
     }
     synchronized (first) {
       synchronized (second) {
-        // Check again after locking
-        existing = processedTransactions.get(idempotencyKey);
+        existing = processedTransactions.get(idempotencyKey);  // Check again after locking
         if (existing != null) {
           return existing;
         }
         Transaction transaction = new Transaction(idempotencyKey, TransactionType.TRANSFER, amount);
         try {
-          from.withdrawInternal(amount);
-          to.depositInternal(amount);
+          from.withdrawAmount(amount);
+          to.depositAmount(amount);
           transaction.setStatus(TransactionStatus.SUCCESS);
           from.addTransaction(transaction);
           to.addTransaction(transaction);
-          from.addAudit(new AuditRecord(transaction.getTransactionId(), "Transferred " + amount  + " to "                      + to.getId()));
-          to.addAudit(new AuditRecord(transaction.getTransactionId(), "Received " + amount + " from " + from.getId()));
+          from.addAudit(new AuditRecord(transaction.getTransId(), "Transferred " + amount + " to " + to.getId()));
+          to.addAudit(new AuditRecord(transaction.getTransId(), "Received " + amount + " from " + from.getId()));
           processedTransactions.put(idempotencyKey, transaction);
           return transaction;
         } catch (Exception e) {
           from.addTransaction(transaction);
-          from.addAudit(new AuditRecord(transaction.getTransactionId(), "Transfer failed"));
+          from.addAudit(new AuditRecord(transaction.getTransId(), "Transfer failed"));
           processedTransactions.put(idempotencyKey, transaction);
           throw e;
         }

@@ -26,7 +26,7 @@ public class DigitalWalletImpl {
     System.out.println("W2 Balance: " + w2.getBalance());
     // Same transfer request again
     Transaction t5 = service.transfer(w1, w2, 300,   "transfer-001");
-    System.out.println("Duplicate request returned: " + t5.getTransactionId());
+    System.out.println("Duplicate request returned: " + t5.getTransId());
     System.out.println("\nW1 Audit:");
     for (AuditRecord record : w1.getAuditHistory()) {
       System.out.println(record);
