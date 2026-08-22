@@ -17,7 +17,7 @@ public class FileSystem {
   }
 
   public void createFile(String path) {
-    String[] parts = split(path);
+    String[] parts = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
     Directory parentDir = getParentDir(parts);
     String fileName = parts[parts.length - 1];
     if (parentDir.getNode(fileName) == null) {
@@ -73,7 +73,7 @@ public class FileSystem {
     if (path.equals("/")) {
       return root;
     }
-    String[] dirNames = split(path);
+    String[] dirNames = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
     Directory currDir = root;
     for (int i = 0; i < dirNames.length; i++) {
       String dirName = dirNames[i];
@@ -112,9 +112,4 @@ public class FileSystem {
     return currDir;
   }
 
-  private String[] split(String path) {
-    return Arrays.stream(path.split("/"))
-                 .filter(s -> !s.isEmpty())
-                 .toArray(String[]::new);
-  }
 }
