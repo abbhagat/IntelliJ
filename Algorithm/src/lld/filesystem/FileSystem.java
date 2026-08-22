@@ -44,11 +44,11 @@ public class FileSystem {
     FileSystemNode node = traversePath(path, false);
     if (node.isDirectory()) {
       Directory directory = (Directory) node;
-      List<String> result = new ArrayList<>();
+      List<String> list = new ArrayList<>();
       for (FileSystemNode child : directory.getAllFileSystemNodes()) {
-        result.add(child.getName());
+        list.add(child.getName());
       }
-      return result;
+      return list;
     }
     return List.of(node.getName());
   }
