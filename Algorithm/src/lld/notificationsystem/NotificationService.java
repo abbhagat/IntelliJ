@@ -11,7 +11,7 @@ public class NotificationService {
   private final ExecutorService executorService;
 
   public NotificationService(int numThreads) {
-     this.executorService = new ThreadPoolExecutor(numThreads, numThreads, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>());
+     this.executorService = new ThreadPoolExecutor(numThreads, numThreads, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>()); // min heap
   }
 
   public void sendAsync(Notification notification, NotificationChannel notificationChannel, NotificationType channelType) {
