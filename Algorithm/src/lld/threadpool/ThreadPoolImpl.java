@@ -7,9 +7,9 @@ public class ThreadPoolImpl {
     for (int i = 1; i <= 10; i++) {
       final int task = i;
       Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + task);
-      threadPool.addTaskToQueue(runnable);
+      threadPool.submitTask(runnable);
     }
-    threadPool.waitUntilAllTasksFinished();
+    threadPool.awaitCompletion();
     threadPool.stop();
   }
 }
