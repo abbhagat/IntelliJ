@@ -13,7 +13,7 @@ public class JobScheduler {
   private final Map<String, Job> jobs;
   private final ExecutorService executor;
   private final Object lock;
-  private boolean shutdown;
+  private       boolean shutdown;
 
   public JobScheduler() {
     this.queue    = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.

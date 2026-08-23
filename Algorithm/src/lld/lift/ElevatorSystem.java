@@ -10,20 +10,13 @@ public class ElevatorSystem {
 
   private final List<Elevator> elevators;
   private final BestElevator bestElevator;
-  private final ExecutorService executorService;
 
   public ElevatorSystem(int numberOfElevators) {
     bestElevator    = new BestElevator();
-    executorService = Executors.newFixedThreadPool(10);
     elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
-      elevators.add(new Elevator(i, executorService));
+      elevators.add(new Elevator(i));
     }
-  }
-
-  public void shutdown() throws InterruptedException {
-    executorService.shutdown();
-    executorService.awaitTermination(10, TimeUnit.SECONDS);
   }
 
   public void handleRequest(Request request) {
@@ -38,6 +31,5 @@ public class ElevatorSystem {
     elevatorSystem.handleRequest(new Request(2, Direction.UP));
     elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
     elevatorSystem.handleRequest(new Request(3, Direction.UP));
-    elevatorSystem.shutdown();
   }
 }

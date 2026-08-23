@@ -20,12 +20,13 @@ public class Elevator {
   private final BlockingQueue<Integer> upQueue   = new PriorityBlockingQueue<>();  // serve the nearest higher floors first
   private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
 
-  public Elevator(int id, ExecutorService executorService) {
+  public Elevator(int id) {
     this.id = id;
     this.currentFloor = 0;
     this.direction = Direction.IDLE;
     this.state     = ElevatorState.IDLE;
-    executorService.submit(this::processRequests);
+    Thread thread = new Thread(this::processRequests);
+    thread.start();
   }
 
   public synchronized void addRequest(Request request) {
