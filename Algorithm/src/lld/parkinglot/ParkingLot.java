@@ -38,10 +38,10 @@ public class ParkingLot {
 
   public double unPark(ParkingTicket parkingTicket) {
     activeTickets.remove(parkingTicket.getTicketId());
-    long parkDuration = System.currentTimeMillis() - parkingTicket.getEntryTime();
+    long parkDuration       = System.currentTimeMillis() - parkingTicket.getEntryTime();
     ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
-    Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
-    String vehicleType = parkedVehicle.getVehicleType().name();
+    Vehicle parkedVehicle   = parkingSpot.getParkedVehicle();
+    String vehicleType      = parkedVehicle.getVehicleType().name();
     parkingSpot.unPark();
     return calculateFee(parkDuration, vehicleType);
   }
