@@ -3,7 +3,7 @@ package lld.jobscheduler;
 public class JobSchedulerImpl {
 
   public static void main(String[] args) throws InterruptedException {
-    Job job       = new Job("job-1",()  ->   System.out.println("Executing Job 1"), System.currentTimeMillis() + 3000,0);
+    Job job       = new Job("job-1", () ->   System.out.println("Executing Job 1"), System.currentTimeMillis() + 3000,0);
     Job retryJob  = new Job("job-2", () -> {
       System.out.println("Executing Job 2");
       throw new RuntimeException("Job failed");
@@ -17,7 +17,7 @@ public class JobSchedulerImpl {
     jobScheduler.schedule(cancelJob);
 
     jobScheduler.cancel("job-3");
-
+    jobScheduler.reschedule(cancelJob.getId(), System.currentTimeMillis());
     Thread.sleep(5000);
 
     System.out.println("Job 1: " + jobScheduler.getStatus("job-1"));
