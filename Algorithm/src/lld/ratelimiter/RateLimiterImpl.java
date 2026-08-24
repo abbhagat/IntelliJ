@@ -10,5 +10,15 @@ public class RateLimiterImpl {
       }
       System.out.println("Request " + i + " allowed: " + rateLimiter.allowRequest("user1"));
     }
+
+    IRateLimiter limiter = new SlidingWindow(5, 10_000);
+    String clientId = "user-123";
+    for (int i = 1; i <= 7; i++) {
+      if (limiter.allowRequest(clientId)) {
+        System.out.println("Request " + i + " allowed");
+      } else {
+        System.out.println("Request " + i + " rejected");
+      }
+    }
   }
 }
