@@ -15,9 +15,9 @@ public class Notification {
   private NotificationStatus status;
 
   public Notification(String id, String userId, String message) {
-    this.id = id;
-    this.userId = userId;
+    this.id      = id;
+    this.userId  = userId;
     this.message = message;
-    this.status = NotificationStatus.PENDING;
+    this.status  = NotificationStatus.PENDING;
   }
 }
