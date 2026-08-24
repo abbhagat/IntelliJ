@@ -27,7 +27,4 @@ public class Job {
     this.retryCount++;
   }
 
-  public void setStatus(JobStatus status) {
-    this.status = status;
-  }
 }
