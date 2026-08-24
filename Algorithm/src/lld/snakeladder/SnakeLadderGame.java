@@ -63,13 +63,13 @@ class Game {
   }
 
   public int rollDice() {
-    return new Random().nextInt(6) + 1;  //  random.nextInt(6) generates a random integer from 0 to 5.
+    return new Random().nextInt(7);  //  random.nextInt(6) generates a random integer from 0 to 5.
   }
 
   public static class Builder {
 
     private final List<Player>          playerList = new ArrayList<>();
-    private final Map<Integer, Integer> ladderMap  = new java.util.HashMap<>();
+    private final Map<Integer, Integer> ladderMap  = new HashMap<>();
     private final Map<Integer, Integer> snakeMap   = new HashMap<>();
 
     Game build() {
