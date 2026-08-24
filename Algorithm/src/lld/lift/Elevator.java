@@ -19,11 +19,11 @@ public class Elevator {
   private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
 
   public Elevator(int id) {
-    this.id = id;
+    this.id           = id;
     this.currentFloor = 0;
-    this.direction = Direction.IDLE;
-    this.state     = ElevatorState.IDLE;
-    Thread thread = new Thread(this::processRequests);
+    this.direction    = Direction.IDLE;
+    this.state        = ElevatorState.IDLE;
+    Thread thread     = new Thread(this::processRequests);
     thread.start();
   }
 
