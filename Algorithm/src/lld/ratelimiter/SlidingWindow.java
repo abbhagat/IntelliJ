@@ -7,13 +7,13 @@ import java.util.Map;
 
 class SlidingWindow implements IRateLimiter {
 
-  private final int maxRequests;
+  private final int maxRequest;
   private final long windowMillis;
   private final Map<String, Deque<Long>> requestTimestamps;
 
-  public SlidingWindow(int maxRequests, long windowMillis) {
-    this.maxRequests = maxRequests;
-    this.windowMillis = windowMillis;
+  public SlidingWindow(int maxRequest, long windowMillis) {
+    this.maxRequest        = maxRequest;
+    this.windowMillis      = windowMillis;
     this.requestTimestamps = new HashMap<>();
   }
 
@@ -25,7 +25,7 @@ class SlidingWindow implements IRateLimiter {
     while (!timestamps.isEmpty() && timestamps.peekFirst() <= now - windowMillis) {
       timestamps.pollFirst();
     }
-    if (timestamps.size() >= maxRequests) {   // Limit reached
+    if (timestamps.size() >= maxRequest) {   // Limit reached
       return false;
     }
     timestamps.offerLast(now);   // Add current request
