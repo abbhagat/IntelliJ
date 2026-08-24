@@ -18,9 +18,9 @@ class SlidingWindow implements IRateLimiter {
   }
 
   @Override
-  public synchronized boolean allowRequest(String clientId) {
+  public synchronized boolean allowRequest(String userId) {
     long now = System.currentTimeMillis();
-    Deque<Long> timestamps = requestTimestamps.computeIfAbsent(clientId, key -> new ArrayDeque<>());
+    Deque<Long> timestamps = requestTimestamps.computeIfAbsent(userId, key -> new ArrayDeque<>());
     // Remove requests outside the sliding window
     while (!timestamps.isEmpty() && timestamps.peekFirst() <= now - windowMillis) {
       timestamps.pollFirst();
