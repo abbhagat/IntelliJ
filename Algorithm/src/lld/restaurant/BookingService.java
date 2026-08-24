@@ -2,6 +2,7 @@ package lld.restaurant;
 
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -27,7 +28,7 @@ public class BookingService {
           System.out.println("Table already booked");
         }
       }
-      int bookingId   = reservation.getReservations().size() + 1;
+      String bookingId   = UUID.randomUUID().toString();
       Booking booking = new Booking(bookingId, table, customer,  startTime, endTime);
       reservation.save(booking);
       return booking;
@@ -37,7 +38,7 @@ public class BookingService {
   }
 
   private boolean overlap(LocalDateTime startTime, LocalDateTime endTime, LocalDateTime reservedStartTime, LocalDateTime reservedEndTime) {
-    return startTime.isBefore(reservedEndTime) && reservedStartTime.isBefore(endTime);
+    return startTime.isBefore(reservedEndTime) && endTime.isAfter(reservedStartTime);
   }
 
   public boolean cancelBooking(Booking booking) {
