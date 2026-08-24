@@ -9,6 +9,7 @@ class Consumer<E> implements Runnable {
     new Thread(this, name).start();
   }
 
+  @SuppressWarnings({"BusyWait", "InfiniteLoopStatement"})
   @Override
   public void run() {
     while (true) {

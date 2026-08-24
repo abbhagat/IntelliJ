@@ -12,6 +12,7 @@ class Producer<E> implements Runnable {
     new Thread(this, name).start();
   }
 
+  @SuppressWarnings({"BusyWait", "InfiniteLoopStatement", "unchecked"})
   @Override
   public void run() {
     while (true) {
