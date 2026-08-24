@@ -11,25 +11,10 @@ public class ConnectionPoolImpl {
 
   public static void main(String[] args) throws SQLException, InterruptedException {
     ConnectionPool connectionPool = new ConnectionPool(5);
-    for (Connection connection : connectionPool.getConnectionPool()) {
-      System.out.println("DB Connection " + connection);
-    }
     ExecutorService executorService = Executors.newFixedThreadPool(10);
     for (int i = 1; i <= 10; i++) {
-      int threadId = i;
-      executorService.submit(() -> {
-        try {
-          System.out.println("Thread - " + threadId + " trying to get connection...");
-          Connection connection = connectionPool.get();  // BLOCKS if none available
-          System.out.println("Thread - " + threadId + " acquired connection: " + connection);
-          // Simulate DB work
-          Thread.sleep(3000);
-          connectionPool.put(connection);
-          System.out.println("Thread - " + threadId + " returned connection");
-        } catch (InterruptedException e) {
-          Thread.currentThread().interrupt();
-        }
-      });
+      Runnable task = new Worker(connectionPool, i);
+      executorService.submit(task);
     }
     executorService.shutdown();
     // Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first.
