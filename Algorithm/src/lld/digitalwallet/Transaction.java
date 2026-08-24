@@ -11,10 +11,10 @@ public class Transaction {
 
   private final String transId;
   private final String idempotencyKey;
-  private final TransactionType type;
   private final double amount;
-  private TransactionStatus status;
   private final long timestamp;
+  private final TransactionType type;
+  private       TransactionStatus status;
 
   public Transaction(String idempotencyKey, TransactionType type, double amount) {
     this.transId = UUID.randomUUID().toString();

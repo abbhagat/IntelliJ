@@ -7,6 +7,7 @@ public class WalletService {
 
   private final Map<String, Transaction> processedTransactions = new ConcurrentHashMap<>();
 
+  @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
   public Transaction deposit(Wallet wallet, double amount, String idempotencyKey) {
     validateAmount(amount);
     Transaction existing = processedTransactions.get(idempotencyKey);  // Idempotency check
@@ -38,6 +39,7 @@ public class WalletService {
     }
   }
 
+  @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
   public Transaction withdraw(Wallet wallet, double amount, String idempotencyKey) {
     validateAmount(amount);
     Transaction existing = processedTransactions.get(idempotencyKey);
@@ -68,6 +70,7 @@ public class WalletService {
     }
   }
 
+  @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
   public Transaction transfer(Wallet from, Wallet to, double amount, String idempotencyKey) {
     validateAmount(amount);
     if (from == to) {

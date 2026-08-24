@@ -20,23 +20,23 @@ public class Wallet {
     this.auditHistory = new CopyOnWriteArrayList<>();
   }
 
-  public synchronized double getBalance() {
+  public synchronized double getBalance() {  // read-modify-write operations.
     return balance;
   }
 
-  public synchronized void addTransaction(Transaction transaction) {
+  public void addTransaction(Transaction transaction) {
     transactions.add(transaction);
   }
 
-  public synchronized void addAudit(AuditRecord auditRecord) {
+  public void addAudit(AuditRecord auditRecord) {
     auditHistory.add(auditRecord);
   }
 
-  public synchronized List<Transaction> getTransactions() {
+  public List<Transaction> getTransactions() {
     return new ArrayList<>(transactions);
   }
 
-  public synchronized List<AuditRecord> getAuditHistory() {
+  public List<AuditRecord> getAuditHistory() {
     return new ArrayList<>(auditHistory);
   }
 
