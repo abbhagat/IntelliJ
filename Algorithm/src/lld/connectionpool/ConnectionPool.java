@@ -1,6 +1,5 @@
 package lld.connectionpool;
 
-import lombok.Getter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +7,6 @@ import java.util.concurrent.*;
 
 public class ConnectionPool implements IConnectionPool {
 
-  @Getter
   private final BlockingQueue<Connection> queue;
   private final int poolSize;
   private final String driverName;
@@ -16,10 +14,6 @@ public class ConnectionPool implements IConnectionPool {
   private final String username;
   private final String password;
   private volatile boolean isPoolClosed;
-
-  public BlockingQueue<Connection> getConnectionPool() {
-    return this.queue;
-  }
 
   public ConnectionPool(int poolSize) {
     this("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:XE", "system", "zed", poolSize);
@@ -35,6 +29,7 @@ public class ConnectionPool implements IConnectionPool {
     initializeConnectionPool();
   }
 
+  @SuppressWarnings("ResultOfMethodCallIgnored")
   private void initializeConnectionPool() {
     for (int i = 0; i < this.poolSize; i++) {
       queue.offer(createNewConnection());

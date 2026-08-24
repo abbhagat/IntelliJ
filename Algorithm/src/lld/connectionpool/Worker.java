@@ -15,9 +15,9 @@ public class Worker implements Runnable {
   @Override
   public void run() {
     try {
-      System.out.println("Thread - " + threadId + " trying to get connection...");
-      Connection connection = connectionPool.get();  // BLOCKS if none available
-      System.out.println("Thread - " + threadId + " acquired connection: " + connection);
+      System.out.println(Thread.currentThread().getName() + " trying to get connection...");
+      Connection connection = connectionPool.get();  // blocks if none available
+      System.out.println(Thread.currentThread().getName() + " acquired connection: " + connection);
       // Simulate DB work
       Thread.sleep(3000);
       connectionPool.put(connection);
