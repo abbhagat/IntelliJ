@@ -1,8 +1,8 @@
 package lld.filesystem;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FileSystem {
 
@@ -26,17 +26,17 @@ public class FileSystem {
   }
 
   public void write(String path, String content) {
-    File file = getFile(path);
+    File file = (File) traversePath(path, false);
     file.write(content);
   }
 
   public void append(String path, String content) {
-    File file = getFile(path);
+    File file = (File) traversePath(path, false);
     file.append(content);
   }
 
   public String read(String path) {
-    File file = getFile(path);
+    File file = (File) traversePath(path, false);
     return file.read();
   }
 
@@ -44,11 +44,10 @@ public class FileSystem {
     FileSystemNode node = traversePath(path, false);
     if (node.isDirectory()) {
       Directory directory = (Directory) node;
-      List<String> list = new ArrayList<>();
-      for (FileSystemNode child : directory.getAllFileSystemNodes()) {
-        list.add(child.getName());
-      }
-      return list;
+      return directory.getAllFileSystemNodes()
+                      .stream()
+                      .map(FileSystemNode::getName)
+                      .collect(Collectors.toList());
     }
     return List.of(node.getName());
   }
