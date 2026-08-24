@@ -100,14 +100,12 @@ public class WalletService {
           to.addTransaction(transaction);
           from.addAudit(new AuditRecord(transaction.getTransId(), "Transferred " + amount + " to " + to.getId()));
           to.addAudit(new AuditRecord(transaction.getTransId(), "Received " + amount + " from " + from.getId()));
-          processedTransactions.put(idempotencyKey, transaction);
-          return transaction;
         } catch (Exception e) {
           from.addTransaction(transaction);
           from.addAudit(new AuditRecord(transaction.getTransId(), "Transfer failed"));
-          processedTransactions.put(idempotencyKey, transaction);
-          throw e;
         }
+        processedTransactions.put(idempotencyKey, transaction);
+        return transaction;
       }
     }
   }
