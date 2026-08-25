@@ -20,8 +20,8 @@ public class EqualSplit extends Split {
   public void splitExpense(Expense expense) {
     Group group = expense.getGroup();
     List<User> members = group.getMembers();
-    List<Split> splits = new ArrayList<>();
     double perUser = expense.getAmount() / members.size();
+    List<Split> splits = new ArrayList<>();
     for (User user : members) {
       Split split = new EqualSplit();
       split.setUser(user);

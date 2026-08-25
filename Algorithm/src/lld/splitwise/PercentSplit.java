@@ -3,6 +3,8 @@ package lld.splitwise;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class PercentSplit extends Split {
@@ -25,7 +27,8 @@ public class PercentSplit extends Split {
 
   @Override
   public void splitExpense(Expense expense) {
-    for (Split split : expense.getSplits()) {
+    List<Split> splits = expense.getSplits();
+    for (Split split : splits) {
       PercentSplit percentSplit = (PercentSplit) split;
       double amount = expense.getAmount() * percentSplit.getPercent() / 100;
       percentSplit.setAmount(amount);
