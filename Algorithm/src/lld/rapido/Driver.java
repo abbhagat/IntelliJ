@@ -4,7 +4,6 @@ public class Driver {
 
   private final String id;
   private final Vehicle vehicle;
-
   private DriverStatus status;
   private Location location;
 
@@ -19,7 +18,6 @@ public class Driver {
     if (status != DriverStatus.AVAILABLE) {
       return false;
     }
-
     status = DriverStatus.BUSY;
     return true;
   }
