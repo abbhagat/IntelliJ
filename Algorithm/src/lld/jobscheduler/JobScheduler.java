@@ -115,7 +115,8 @@ public class JobScheduler {
   private void execute(Job job) {
     executor.submit(() -> {
       try {
-        job.getTask().run();
+        Runnable task = job.getTask();
+        task.run();
         synchronized (lock) {
           job.setStatus(JobStatus.COMPLETED);
         }
@@ -133,7 +134,6 @@ public class JobScheduler {
         job.setExecuteAt(System.currentTimeMillis() + 1000);  // Retry after 1 second
         job.setStatus(JobStatus.SCHEDULED);
         queue.offer(job);
-        lock.notifyAll();
       } else {
         job.setStatus(JobStatus.FAILED);
       }

@@ -32,14 +32,6 @@ public class Wallet {
     auditHistory.add(auditRecord);
   }
 
-  public List<Transaction> getTransactions() {
-    return new ArrayList<>(transactions);
-  }
-
-  public List<AuditRecord> getAuditHistory() {
-    return new ArrayList<>(auditHistory);
-  }
-
   // Called while WalletService owns the lock.
   public void depositAmount(double amount) {
     balance += amount;

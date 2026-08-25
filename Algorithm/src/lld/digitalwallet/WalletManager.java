@@ -12,12 +12,7 @@ public class WalletManager {
   }
 
   public Wallet createWallet(String id) {
-    if (walletMap.containsKey(id)) {
-      throw new IllegalArgumentException("Wallet already exists");
-    }
-    Wallet wallet = new Wallet(id);
-    walletMap.put(id, wallet);
-    return wallet;
+    return walletMap.computeIfAbsent(id, value -> new Wallet(id));
   }
 
   public Wallet getWallet(String id) {
