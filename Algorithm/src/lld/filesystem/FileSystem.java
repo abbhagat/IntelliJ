@@ -17,11 +17,13 @@ public class FileSystem {
   }
 
   public void createFile(String path) {
-    String[] parts = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
+    String[] parts      = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
     Directory parentDir = getParentDir(parts);
-    String fileName = parts[parts.length - 1];
-    if (parentDir.getNode(fileName) == null) {
-      parentDir.addNode(new File(fileName, parentDir));
+    String fileName     = parts[parts.length - 1];
+    FileSystemNode node = parentDir.getNode(fileName);
+    if (node == null) {
+      File file = new File(fileName, parentDir);
+      parentDir.addNode(file);
     }
   }
 

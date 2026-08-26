@@ -19,7 +19,7 @@ class BlockingQueue<E> {
     while (q.size() == maxSize) {
       wait();
     }
-    q.add(e);
+    q.offer(e);
     notifyAll();
   }
 
