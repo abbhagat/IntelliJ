@@ -4,9 +4,9 @@ public class RetryHandler {
 
   private static final int MAX_RETRIES = 5;
 
-  public void retry(Notification notification, NotificationChannel channel) {
+  public void retry(Notification notification, NotificationChannel notificationChannel) {
     for (int i = 0; i < MAX_RETRIES; i++) {
-      if (channel.send(notification)) {
+      if (notificationChannel.send(notification)) {
         notification.setStatus(NotificationStatus.SENT);
         return;
       }
