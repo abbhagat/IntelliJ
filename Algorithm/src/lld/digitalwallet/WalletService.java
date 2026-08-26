@@ -15,8 +15,7 @@ public class WalletService {
       return existing;
     }
     synchronized (wallet) {
-      // Check again after acquiring lock.
-      existing = processedTransactions.get(idempotencyKey);
+      existing = processedTransactions.get(idempotencyKey);  // Check again after acquiring lock.
       if (existing != null) {
         return existing;
       }
