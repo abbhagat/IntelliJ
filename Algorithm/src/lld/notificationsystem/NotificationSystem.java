@@ -8,7 +8,7 @@ public class NotificationSystem {
     NotificationChannel smsChannel          = new SmsNotification();
     NotificationChannel pushChannel         = new PushNotification();
     NotificationChannel whatsAppChannel     = new WhatsAppNotification();
-    NotificationService notificationService = new NotificationService(1);
+    NotificationService notificationService = new NotificationService(5);
     RetryHandler retryHandler               = new RetryHandler();
     try {
       notificationService.sendAsync(notification, whatsAppChannel, NotificationType.WHATSAPP);
