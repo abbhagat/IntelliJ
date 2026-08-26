@@ -8,9 +8,9 @@ import lombok.Setter;
 public class VendingMachine {
 
   private Inventory inventory;
-  private State state;
-  private Product product;
-  private int balance;
+  private State     state;
+  private Product   product;
+  private int       balance;
 
   public VendingMachine() {
     state = new IdleState(this);
