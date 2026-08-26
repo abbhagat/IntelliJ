@@ -27,7 +27,7 @@ public class Elevator {
     thread.start();
   }
 
-  public synchronized void addRequest(Request request) {
+  public void addRequest(Request request) {
     int floor = request.floor();
     boolean success = floor > currentFloor ? upQueue.offer(floor) : downQueue.offer(floor);
     System.out.println("Request added for floor : " + floor + (success ? " success" : "fail"));
