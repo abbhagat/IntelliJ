@@ -54,26 +54,6 @@ public class SplitWiseImpl {
     exactExpense.setExpenseType(ExpenseType.EXACT);
     exactExpense.setGroup(group);
 
-    List<Split> exactSplits = new ArrayList<>();
-
-    ExactSplit aliceExact = new ExactSplit();
-    aliceExact.setUser(alice);
-    aliceExact.setAmount(2000);
-
-    ExactSplit bobExact = new ExactSplit();
-    bobExact.setUser(bob);
-    bobExact.setAmount(2000);
-
-    ExactSplit charlieExact = new ExactSplit();
-    charlieExact.setUser(charlie);
-    charlieExact.setAmount(2000);
-
-    exactSplits.add(aliceExact);
-    exactSplits.add(bobExact);
-    exactSplits.add(charlieExact);
-
-    exactExpense.setSplits(exactSplits);
-
     expenseService.addExpense(exactExpense);
 
     System.out.println("EXACT SPLIT");
