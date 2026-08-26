@@ -11,11 +11,11 @@ public class NotificationService {
   private final ExecutorService executorService;
 
   public NotificationService(int numThreads) {
-     this.executorService = new ThreadPoolExecutor(numThreads, numThreads, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>()); // min heap
+     this.executorService = new ThreadPoolExecutor(0, numThreads, 60L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue<>()); // min heap
   }
 
   public void sendAsync(Notification notification, NotificationChannel notificationChannel, NotificationType notificationType) {
     NotificationTask notificationTask = new NotificationTask(notification, notificationChannel, notificationType.getPriority());
-    executorService.submit(notificationTask);
+    executorService.execute(notificationTask);
   }
 }
