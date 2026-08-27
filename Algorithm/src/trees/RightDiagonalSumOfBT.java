@@ -14,14 +14,13 @@ public class RightDiagonalSumOfBT {
     System.out.println(map.values());
   }
 
-  private static void rightDiagonalSumOfBT(Node node, int diagonal, Map<Integer, Integer> map) {
-    if (node == null) {
+  private static void rightDiagonalSumOfBT(Node root, int diagonal, Map<Integer, Integer> map) {
+    if (root == null) {
       return;
     }
-    int prevDiagonalSum = map.getOrDefault(diagonal, 0);
-    map.put(diagonal, prevDiagonalSum + node.num);                 // Add current node value to its diagonal
-    rightDiagonalSumOfBT(node.left, diagonal + 1, map); // Left child → next diagonal  When you move left, you go down to the next diagonal line.
-    rightDiagonalSumOfBT(node.right, diagonal, map);              // Right child → same diagonal When you move right, you stay on the same slanted line. From 1 → 3 → 7
+    map.put(diagonal, map.getOrDefault(diagonal, 0) + root.num); // Add current node value to its diagonal
+    rightDiagonalSumOfBT(root.left, diagonal + 1, map); // Left child → next diagonal  When you move left, you go down to the next diagonal line.
+    rightDiagonalSumOfBT(root.right, diagonal, map);              // Right child → same diagonal When you move right, you stay on the same slanted line. From 1 → 3 → 7
   }
 
   public static void main(String[] args) {
