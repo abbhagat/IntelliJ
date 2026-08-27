@@ -31,16 +31,16 @@ package jpmorgan;
 public class GasStation {
 
   private static int canCompleteCircuit(int[] gas, int[] cost) {
-    int prev = 0, restGas = 0, start = 0;
+    int totalGasDeficit = 0, remainingGas = 0, start = 0;
     for (int i = 0; i < gas.length; i++) {
-      restGas += gas[i] - cost[i];
-      if (restGas < 0) {
-        prev += restGas;  // accumulate the gas deficit from all failed starting attempts.
-        restGas = 0;
+      remainingGas += gas[i] - cost[i];
+      if (remainingGas < 0) {
+        totalGasDeficit += remainingGas;  // accumulate the gas deficit from all failed starting attempts.
+        remainingGas = 0;
         start = i + 1;
       }
     }
-    return prev + restGas < 0 ? -1 : start;
+    return totalGasDeficit + remainingGas < 0 ? -1 : start;
   }
 
   public static void main(String[] args) {
