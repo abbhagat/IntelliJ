@@ -53,14 +53,14 @@ public class TopKFrequentElementsInAnArrayII {
     Map<Integer, Integer> map = new HashMap<>();
     Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     List<Map.Entry<Integer, Integer>> list = map.entrySet()
-        .stream()
-        .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-        .toList();
+                                                .stream()
+                                                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                                                .toList();
     int[] result = list.subList(0, min(k, list.size()))
-        .stream()
-        .map(Map.Entry::getKey)
-        .mapToInt(x -> x)
-        .toArray();
+                       .stream()
+                       .map(Map.Entry::getKey)
+                       .mapToInt(x -> x)
+                       .toArray();
     printArray(result);
   }
 
