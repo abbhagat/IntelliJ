@@ -1,7 +1,7 @@
 package trees;
 
 import static trees.BinaryTree.createBST;
-import static trees.LCA.lca;
+import static trees.LCAOfBST.lca;
 
 public class DistanceBetweenTwoGivenNodesOfBST {
 

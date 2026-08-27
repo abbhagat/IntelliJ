@@ -4,14 +4,11 @@ import static trees.CreateBST.createBST;
 
 // Time Complexity: O(h) h = Height of the BST
 // Auxiliary Space: O(h) h = Height of the BST
-public class LCA {
+public class LCAOfBST {
 
   public static Node lca(Node root, int x, int y) {
     if (root == null) {
       return null;
-    }
-    if ((x < root.num && y > root.num) || (x > root.num && y < root.num)) {
-      return root;
     }
     if (x < root.num && y < root.num) {
       return lca(root.left, x, y);
