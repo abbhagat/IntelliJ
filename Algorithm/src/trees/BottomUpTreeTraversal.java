@@ -21,6 +21,12 @@ import static trees.BinaryTree.createBST;
 
 public class BottomUpTreeTraversal {
 
+  public static List<List<Integer>> bottomUpTraversal(Node root) {
+    List<List<Integer>> list = new ArrayList<>();
+    treeHeight(root, list);
+    return list;
+  }
+
   private static int treeHeight(Node root, List<List<Integer>> list) {
     if (root == null) {
       return -1;
@@ -33,12 +39,6 @@ public class BottomUpTreeTraversal {
     }
     list.get(height).add(root.num);
     return height;
-  }
-
-  public static List<List<Integer>> bottomUpTraversal(Node root) {
-    List<List<Integer>> list = new ArrayList<>();
-    treeHeight(root, list);
-    return list;
   }
 
   public static void main(String[] args) {

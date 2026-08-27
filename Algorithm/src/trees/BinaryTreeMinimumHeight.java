@@ -29,8 +29,8 @@ public class BinaryTreeMinimumHeight {
     if (root.left == null && root.right == null) {
       return 0;
     }
-    int lH = (root.left  == null) ? MAX_VALUE : treeMinHeight(root.left);
-    int rH = (root.right == null) ? MAX_VALUE : treeMinHeight(root.right);
+    int lH = (root.left  == null) ? MAX_VALUE : treeMinHeight(root.left);  // A null child is not a valid path to a leaf,
+    int rH = (root.right == null) ? MAX_VALUE : treeMinHeight(root.right); // so we must make sure it is never selected by min().
     return min(lH, rH) + 1;
   }
 
