@@ -3,7 +3,9 @@ package geeksforgeeks;
 /*
     strStr("hello", "ll") → 2
     strStr("aaaaa", "bba") → -1
-    strStr("abc", "") → 0      // empty needle always matches at index 0
+    strStr("bba", "aaaaa") → -1
+    strStr("abc", "") → 0      // empty string always matches at index 0
+    strStr("abc", "abc") → 0  //  exact string always matches at index 0
  */
 
 public class Implement_strStr {

@@ -1,6 +1,6 @@
 package jpmorgan;
 
-public class FindNextPrimeNumber {
+public class NextPrimeNumber {
 
   public static int findNextPrimeNumber(int n) {
     n = n <= 1 ? 2 : n + 1;

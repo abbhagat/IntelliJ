@@ -4,30 +4,16 @@ package trees;
 // Space Complexity : O(H)
 public class LCAOfBinaryTree {
 
-  private static class NodeWrapper {
-    Node node;
-  }
-
-  private static boolean findLCA(Node root, NodeWrapper lca, Node x, Node y) {
-    if (root == null) {
-      return false;
-    }
-    if (root == x || root == y) {
-      lca.node = root;
-      return true;
-    }
-    boolean left  = findLCA(root.left,  lca, x, y);
-    boolean right = findLCA(root.right, lca, x, y);
-    if (left && right) {
-      lca.node = root;
-    }
-    return left || right;
-  }
-
   public static Node findLCA(Node root, Node x, Node y) {
-    NodeWrapper lca = new NodeWrapper();
-    findLCA(root, lca, x, y);
-    return lca.node;
+    if (root == null || root == x || root == y) {
+      return root;
+    }
+    Node left  = findLCA(root.left,  x, y);
+    Node right = findLCA(root.right, x, y);
+    if (left != null && right != null) {
+      return root;
+    }
+    return left != null ? left : right;
   }
 
   public static void main(String[] args) {
