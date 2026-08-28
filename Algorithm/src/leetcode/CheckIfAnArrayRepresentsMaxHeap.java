@@ -9,23 +9,24 @@ package leetcode;
 // Time Complexity: O(n) where n is the number of elements in the array
 public class CheckIfAnArrayRepresentsMaxHeap {
 
-  private static boolean isMaxHeap(int[] a, int i, int n) {
-    if (n <= 2 * (i + 1)) {
-      return true;
+  private static boolean isMaxHeap(int[] a) {
+    for (int i = 0; i <= (a.length - 2) / 2; i++) {
+      int left  = 2 * i + 1;
+      int right = 2 * i + 2;
+      if (a[i] < a[left]) {
+        return false;
+      }
+      if (right < a.length && a[i] < a[right]) {
+        return false;
+      }
     }
-    int left  = 2 * i + 1;
-    int right = 2 * i + 2;
-    return a[i] >= a[left] && a[i] >= a[right] && isMaxHeap(a, left, n) && isMaxHeap(a, right, n);
+    return true;
   }
 
   public static void main(String[] args) {
-    int[] a = {90, 15, 10, 7, 12, 2, 7, 3};
-    int[] b = {10, 50, 80, 55, 57, 85, 90};
-    int[] c = {90, 15, 10, 7, 12, 2};
-    int[] d = {9, 15, 10, 7, 12, 11};
-    System.out.println(isMaxHeap(a, 0, a.length - 1));
-    System.out.println(isMaxHeap(b, 0, b.length - 1));
-    System.out.println(isMaxHeap(c, 0, c.length - 1));
-    System.out.println(isMaxHeap(d, 0, d.length - 1));
+    System.out.println(isMaxHeap(new int[]{90, 15, 10, 7, 12, 2, 7, 3}));
+    System.out.println(isMaxHeap(new int[]{10, 50, 80, 55, 57, 85, 90}));
+    System.out.println(isMaxHeap(new int[]{90, 15, 10, 7, 12, 2}));
+    System.out.println(isMaxHeap(new int[]{9, 15, 10, 7, 12, 11}));
   }
 }

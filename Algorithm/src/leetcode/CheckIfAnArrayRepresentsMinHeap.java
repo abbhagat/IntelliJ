@@ -9,19 +9,22 @@ package leetcode;
 // Time Complexity: O(n) where n is the number of elements in the array
 public class CheckIfAnArrayRepresentsMinHeap {
 
-  private static boolean isMinHeap(int[] a, int i, int n) {
-    if (n <= 2 * (i + 1)) {
-      return true;
+  private static boolean isMinHeap(int[] a) {
+    for (int i = 0; i <= (a.length - 2) / 2; i++) {
+      int left  = 2 * i + 1;
+      int right = 2 * i + 2;
+      if (a[i] > a[left]) {
+        return false;
+      }
+      if (right < a.length && a[i] > a[right]) {
+        return false;
+      }
     }
-    int left  = 2 * i + 1;
-    int right = 2 * i + 2;
-    return a[i] <= a[left] && a[i] <= a[right] && isMinHeap(a, left, n) && isMinHeap(a, right, n);
+    return true;
   }
 
   public static void main(String[] args) {
-    int[] a = {90, 15, 10, 7, 12, 2, 7, 3};
-    int[] b = {10, 50, 80, 55, 57, 85, 90};
-    System.out.println(isMinHeap(b, 0, a.length - 1));
-    System.out.println(isMinHeap(a, 0, a.length - 1));
+    System.out.println(isMinHeap(new int[] {90, 15, 10, 7, 12, 2, 7, 3}));
+    System.out.println(isMinHeap(new int[] {10, 50, 80, 55, 57, 85, 90}));
   }
 }
