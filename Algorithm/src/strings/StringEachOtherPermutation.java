@@ -5,15 +5,15 @@ import java.util.Arrays;
 public class StringEachOtherPermutation {
 
   private static boolean isPermutation(char[] c1, char[] c2) {
-    if (c1.length == c2.length) {
-      int[] temp = new int[128];
-      for (int i = 0; i < c1.length; i++) {
-        temp[c1[i]]++;
-        temp[c2[i]]--;
-      }
-      return Arrays.stream(temp).allMatch(x -> x == 0);
+    if (c1.length != c2.length) {
+      return false;
     }
-    return false;
+    int[] temp = new int[128];
+    for (int i = 0; i < c1.length; i++) {
+      temp[c1[i]]++;
+      temp[c2[i]]--;
+    }
+    return Arrays.stream(temp).allMatch(x -> x == 0);
   }
 
   public static void main(String[] args) {

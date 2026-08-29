@@ -1,12 +1,13 @@
 package strings;
 
+import static java.lang.Character.isAlphabetic;
+import static java.lang.Character.toUpperCase;
+
 public class ToggleAllCharactersInAString {
 
   private static char[] toggleCase(char[] c) {
     for (int i = 0; i < c.length; i++) {
-      if (Character.isAlphabetic(c[i])) {
-        c[i] += c[i] >= 65 && c[i] <= 90 ? 32 : -32;
-      }
+      c[i] = isAlphabetic(c[i]) ? toUpperCase(c[i]) : c[i];
     }
     return c;
   }
