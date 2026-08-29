@@ -26,7 +26,7 @@ public class HeapSort2 {
     int left  = 2 * i;
     int right = 2 * i + 1;
     int largest;
-    largest = left  <= n && a[left]  >= a[i]       ? left : i;
+    largest = left  <= n && a[left]  >= a[i]       ? left  : i;
     largest = right <= n && a[right] >= a[largest] ? right : largest;
     if (i != largest) {
       swap(a, i, largest);
