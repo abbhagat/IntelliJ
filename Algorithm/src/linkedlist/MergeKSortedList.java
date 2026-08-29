@@ -11,7 +11,7 @@ import static linkedlist.TraverseList.traverseList;
 public class MergeKSortedList {
 
   private static Node mergeKSortedList(List<Node> nodeList) {
-    PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(node -> node.num));  // (node1, node2) -> node1.num - node2.num
+    PriorityQueue<Node> pq = new PriorityQueue<>((node1, node2) -> node1.num - node2.num);  // Comparator.comparingInt(node -> node.num)
     for (Node node : nodeList) {
       if (node != null)
         pq.add(node);
