@@ -9,6 +9,15 @@ import static linkedlist.LinkList.add;
 // Space Complexity : O(n)
 public class IntersectionPointOfTwoLinkedList {
 
+  private static Node findIntersectionPoints(Node head1, Node head2) {
+    Node a = head1, b = head2;
+    while (a != b) {
+      a = a == null ? head2 : a.next;
+      b = b == null ? head1 : b.next;
+    }
+    return a;
+  }
+
   private static Node findIntersectionPoint(Node head1, Node head2) {
     Set<Integer> set = new HashSet<>();
     for (Node temp = head1; temp != null; temp = temp.next) {

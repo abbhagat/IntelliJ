@@ -30,10 +30,10 @@ public class ExchangeKthNodeFromStartAndKthNodeFromEnd {
       temp = temp.next;
     }
     Node prev_nthNode = nthNodeFromEnd(first, n);
-    Node nthNode = prev_nthNode.next;
+    Node nthNode      = prev_nthNode.next;
     Node nthNode_next = nthNode.next;
-    prev.next = nthNode;
-    nthNode.next = temp.next;
+    prev.next         = nthNode;
+    nthNode.next      = temp.next;
     prev_nthNode.next = temp;
     temp.next = nthNode_next;
     return head.next;

@@ -47,8 +47,7 @@ public class MatrixRotationBy90Degree {
   }
 
   public static void rotateBy90AntiClockwiseForNonSquareMatrix(int[][] M) {
-    int R = M.length;
-    int C = M[0].length;
+    int R = M.length, C = M[0].length;
     int[][] RM = new int[C][R];
     for (int i = 0; i < R; i++) {
       for (int j = 0; j < C; j++) {
