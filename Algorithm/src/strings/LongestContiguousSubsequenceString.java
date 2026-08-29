@@ -14,8 +14,10 @@ public class LongestContiguousSubsequenceString {
             maxLen   = i - start + 1;
             maxStart = start;
         }
-      } else if (c[i] != c[i - 1]) {
-        start = i;
+      } else {
+        if (c[i] != c[i - 1]) {
+          start = i;
+        }
       }
     }
     return new String(c, maxStart, maxLen);
