@@ -1,17 +1,17 @@
 package stack;
 
-// Input: exp = "abh)ina)w(ku(mar(bhagat))" Output: abhinaw(ku(mar(bhagat)))
-// Input: exp = "1+5)+5+)6+(5+9)*9"         Output: 1+5+5+6+(5+9)*9
-// Input: exp = "lee(t(c)o)de)")"           Output: lee(t(c)o)de
-// Input: exp = "ab(c)d"                    Output: ab(c)d
+// Input: s = "abh)ina)w(ku(mar(bhagat))" Output: abhinaw(ku(mar(bhagat)))
+// Input: s = "1+5)+5+)6+(5+9)*9"         Output: 1+5+5+6+(5+9)*9
+// Input: s = "lee(t(c)o)de)")"           Output: lee(t(c)o)de
+// Input: s = "ab(c)d"                    Output: ab(c)d
 
 // Time Complexity - O(n)
 public class BalanceStringAfterRemovingExtraBracket {
 
-  private static StringBuilder balancedString(String exp) {
+  private static StringBuilder balancedString(String s) {
     StringBuilder sb = new StringBuilder();
     int open = 0;
-    for (char c : exp.toCharArray()) {
+    for (char c : s.toCharArray()) {
       if (c == '(') {
         open++;
       }

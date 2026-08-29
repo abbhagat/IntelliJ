@@ -30,7 +30,7 @@ public class MergeSort {
     while (j <= high) {
       temp[k++] = a[j++];
     }
-    IntStream.range(low, high + 1).forEach(l -> a[l] = temp[l]);
+    System.arraycopy(temp, low, a, low, high - low + 1);
   }
 
   public static void main(String[] args) {
