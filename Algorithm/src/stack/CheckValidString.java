@@ -20,8 +20,7 @@ public class CheckValidString {
   // max -> maximum number of open bracket
 
   public static boolean checkValidString(String exp) {
-    int min = 0;
-    int max = 0;
+    int min = 0, max = 0;
     for (char c : exp.toCharArray()) {
       if (c == '(') {  // If current char is '('
         min++;
