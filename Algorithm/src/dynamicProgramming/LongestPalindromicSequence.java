@@ -12,38 +12,38 @@ import static java.lang.Integer.max;
 public class LongestPalindromicSequence {
 
   // Time Complexity : O(2^ⁿ)
-  private static int lps(char[] c, int low, int high) {
+  private static int lps(char[] a, int low, int high) {
     if (low > high) {
       return 0;
     }
     if (low == high) {
       return 1;
     }
-    if (c[low] == c[high]) {  // if 1st and last char are same
-      return 2 + lps(c, low + 1, high - 1);
+    if (a[low] == a[high]) {  // if 1st and last char are same
+      return 2 + lps(a, low + 1, high - 1);
     }
-    return max(lps(c, low + 1, high), lps(c, low, high - 1)); // If the first and last characters do not match
+    return max(lps(a, low + 1, high), lps(a, low, high - 1)); // If the first and last characters do not match
   }
 
   // Time Complexity : O(n²)
   // Time Complexity : O(n²)
-  private static int lps(char[] c) {
-    int n = c.length;
+  private static int lps(char[] a) {
+    int n = a.length;
     int[][] dp = new int[n][n];   // Create a table to store results of sub problems
     for (int i = 0; i < n; i++) {
       dp[i][i] = 1;              // Strings of length 1 are palindrome of length 1
     }
     for (int i = n - 2; i >= 0; i--) {
       for (int j = i + 1; j < n; j++) {
-        dp[i][j] = (c[i] == c[j]) ? dp[i + 1][j - 1] + 2 : max(dp[i + 1][j], dp[i][j - 1]);
+        dp[i][j] = (a[i] == a[j]) ? dp[i + 1][j - 1] + 2 : max(dp[i + 1][j], dp[i][j - 1]);
       }
     }
     return dp[0][n - 1];
   }
 
   public static void main(String[] args) {
-    char[] c = "BABCBCABB".toCharArray();
-    System.out.println("The length of the LPS is " + lps(c, 0, c.length - 1));
-    System.out.println("The length of the LPS is " + lps(c));
+    char[] a = "BABCBCABB".toCharArray();
+    System.out.println("The length of the LPS is " + lps(a, 0, a.length - 1));
+    System.out.println("The length of the LPS is " + lps(a));
   }
 }
