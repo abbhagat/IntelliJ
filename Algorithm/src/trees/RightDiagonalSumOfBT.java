@@ -20,7 +20,7 @@ public class RightDiagonalSumOfBT {
     }
     int prevDiagonalSum = map.getOrDefault(diagonal, 0);
     map.put(diagonal, prevDiagonalSum + root.num);                 // Add current node value to its diagonal
-    rightDiagonalSumOfBT(root.left, diagonal + 1, map); // Left child → next diagonal  When you move left, you go down to the next diagonal line.
+    rightDiagonalSumOfBT(root.left, diagonal + 1, map); // Left  child → next diagonal When you move left, you go down to the next diagonal line.
     rightDiagonalSumOfBT(root.right, diagonal, map);              // Right child → same diagonal When you move right, you stay on the same slanted line. From 1 → 3 → 7
   }
 
