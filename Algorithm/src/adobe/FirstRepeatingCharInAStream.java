@@ -14,7 +14,7 @@ public class FirstRepeatingCharInAStream {
     stream.forEach(c -> {
       temp[c]++;
       q.add(c);
-      while (!q.isEmpty() && temp[q.peek()] < 2) {
+      while (!q.isEmpty() && temp[q.peek()] == 1) {
         q.poll();
       }
       System.out.println(q.isEmpty() ? -1 : String.valueOf(q.peek()));
