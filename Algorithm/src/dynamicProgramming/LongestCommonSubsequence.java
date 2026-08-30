@@ -1,4 +1,4 @@
-package adobe;
+package dynamicProgramming;
 
 import static java.lang.Integer.max;
 
