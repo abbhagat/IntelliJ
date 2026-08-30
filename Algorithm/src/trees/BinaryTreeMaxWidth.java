@@ -35,8 +35,8 @@ public class BinaryTreeMaxWidth {
             q.add(node.right);
           }
           width++;
-          size--;
         }
+        size--;
       }
       maxWidth = max(maxWidth, width);
       width = 0;
