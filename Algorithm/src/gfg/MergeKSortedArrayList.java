@@ -21,10 +21,10 @@ public class MergeKSortedArrayList {
     int mid = (low + high) / 2;
     List<Integer> a = merge(list, low, mid);
     List<Integer> b = merge(list, mid + 1, high);
-    return sortList(a, b);
+    return merge(a, b);
   }
 
-  private static List<Integer> sortList(List<Integer> a, List<Integer> b) {
+  private static List<Integer> merge(List<Integer> a, List<Integer> b) {
     List<Integer> c = new ArrayList<>(a.size() + b.size());
     int i = 0, j = 0;
     while (i < a.size() && j < b.size()) {

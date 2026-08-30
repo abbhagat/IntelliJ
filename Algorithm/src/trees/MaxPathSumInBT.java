@@ -13,11 +13,11 @@ public class MaxPathSumInBT {
     int left  = findMaxPathSum(root.left);   // find maximum path sum "starting" from the left child
     int right = findMaxPathSum(root.right); //  find maximum path sum "starting" from the right child
     int max = sum;
-    max = max(max,     root.num);
-    max = max(max, root.num + left);
-    max = max(max, root.num + right);
-    max = max(max, root.num + left + right);
-    sum = max;
+        max = max(max,     root.num);
+        max = max(max, root.num + left);
+        max = max(max, root.num + right);
+        max = max(max, root.num + left + right);
+        sum = max;
     return max(root.num, root.num + max(left, right));
   }
 

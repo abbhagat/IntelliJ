@@ -51,12 +51,11 @@ public class LargestContiguousProductArrayPrint {
       } else {
         max = a[i] * max;
       }
-
       // Update global maximum
-      if (max > maxProduct) {
-        maxProduct = max;
-        start = maxStart;
-        end = i;
+      if (maxProduct < max) {
+          maxProduct = max;
+          start      = maxStart;
+          end        = i;
       }
     }
     System.out.println(maxProduct);

@@ -7,7 +7,7 @@ import java.util.Map;
 
 class SlidingWindow implements IRateLimiter {
 
-  private final int maxRequest;
+  private final int  maxRequest;
   private final long windowMillis;
   private final Map<String, Deque<Long>> requestTimestamps;
 
