@@ -19,6 +19,7 @@ public class MinCostToReachTopFloor {
   // Space Complexity : O(n)
   private static int minCostDP(int[] a, int n) {
     int[] dp = new int[n + 1];
+    dp[0] =   0;  // To reach stair 0, no cost
     dp[1] = a[0];  // To reach stair 1, you must step on stair 0 so cost = a[0]
     dp[2] = a[1]; //  To reach stair 2, you must step on stair 1 so cost = a[1]
     for (int i = 3; i <= n; i++) {

@@ -25,14 +25,14 @@ import static java.lang.Integer.max;
 public class MaxGoldCollected {
 
   // Time Complexity: O(2^(m+n))
-  private static int maxGoldCollected(int[][] a, int m, int n, int R, int C) {
+  private static int maxGoldCollected(int[][] cost, int m, int n, int R, int C) {
     if (m > R || n > C) {
       return Integer.MIN_VALUE;
     }
     if (m == R && n == C) {
-      return a[m][n];
+      return cost[m][n];
     }
-    return a[m][n] + max(maxGoldCollected(a, m + 1, n, R, C), maxGoldCollected(a, m, n + 1, R, C));
+    return cost[m][n] + max(maxGoldCollected(cost, m + 1, n, R, C), maxGoldCollected(cost, m, n + 1, R, C));
   }
 
   private static int maxGoldCollectedDP(int[][] cost, int m, int n) {
