@@ -22,7 +22,7 @@ import static trees.TreeTraversal.inorder;
  *            0    0 0   0
 
  * Inorder :- 0 4 0 20 0 12 0
- * Do a traversal of the given tree. In the traversal, store the old value of the current node,
+ * Do a post order tree traversal. In the traversal, store the old value of the current node,
  * recursively call for left and right subtrees and change the value of current node as sum of
  * the values returned by the recursive calls. Finally return the sum of new value and value
  * (which is sum of values in the subtree rooted with this node).

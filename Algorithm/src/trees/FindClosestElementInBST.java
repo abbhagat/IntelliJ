@@ -19,21 +19,19 @@ import static java.lang.Math.abs;
 
 public class FindClosestElementInBST {
 
-  private static class NodeWrapper {
-    Node node;
-  }
+  private static Node closetNode;
 
-  private static void findClosest(Node root, int k, int closest, NodeWrapper closetNode) {
+  private static void findClosest(Node root, int k, int closest) {
     if (root == null) {
       return;
     }
     int diff = abs(root.num - k);
     if (diff < closest) {
-      closest = diff;
-      closetNode.node = root;
+      closest    = diff;
+      closetNode = root;
     }
-    findClosest(root.left,  k, closest, closetNode);
-    findClosest(root.right, k, closest, closetNode);
+    findClosest(root.left,  k, closest);
+    findClosest(root.right, k, closest);
   }
 
   public static void main(String[] args) {
@@ -45,10 +43,9 @@ public class FindClosestElementInBST {
     root.left.right.left       = new Node(3);
     root.left.right.right      = new Node(6);
     root.left.right.left.right = new Node(4);
-    NodeWrapper closetNode = new NodeWrapper();
     int k = 13;
-    findClosest(root, k, Integer.MAX_VALUE, closetNode);
-    System.out.println(abs(closetNode.node.num - k));
+    findClosest(root, k, Integer.MAX_VALUE);
+    System.out.println(abs(closetNode.num - k));
   }
 
 }
