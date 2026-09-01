@@ -30,7 +30,7 @@ public class NumOfDistinctIsland {
     list.add((row - r) + "-" + (col - c));
     for (int k = 0; k < 4; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-        DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
+             DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
       }
     }
   }
