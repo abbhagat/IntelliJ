@@ -30,7 +30,7 @@ public class MaxPathSumInBT {
              20   1     -25
                         /  \
                        3    5
-         */
+        */
     Node root              = new Node(10);
     root.left              = new Node(2);
     root.right             = new Node(10);

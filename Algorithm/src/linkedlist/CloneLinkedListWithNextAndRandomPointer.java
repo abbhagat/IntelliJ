@@ -5,9 +5,6 @@ import static linkedlist.TraverseList.traverseList;
 public class CloneLinkedListWithNextAndRandomPointer {
 
   private static Node clone(Node head) {
-    if (head == null) {
-      return null;
-    }
     // Step 1: Insert cloned nodes between original nodes
     Node temp = head;
     while (temp != null) {

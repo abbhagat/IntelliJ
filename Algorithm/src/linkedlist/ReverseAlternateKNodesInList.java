@@ -18,7 +18,7 @@ public class ReverseAlternateKNodesInList {
       count++;
     }
     if (head != null) {   // head points to the 1st node i.e 1 and temp point to 4, So 4 is (k+1)th node.
-      head.next = temp;  // Change next of head to (k+1)th node
+      head.next = temp;  // Change next of head to (k+1)th node we are linking the list as 3->2->1->null so 1 should be linked to Node 4
     }
     // We do not want to reverse next k nodes. So move the current pointer to skip next k nodes
     count = 1;
@@ -34,13 +34,13 @@ public class ReverseAlternateKNodesInList {
   }
 
   public static void main(String[] args) {
-    int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     Node first = null;
     for (int x : a) {
       first = add(first, x);
     }
     traverseList(first);
-    first = reverse(first, 2);
+    first = reverse(first, 3);
     traverseList(first);
   }
 }
