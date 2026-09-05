@@ -8,12 +8,12 @@ public class TopologicalSortingOrKahnAlgorithm {
 
   public static List<String> schedule(List<String> tasks, List<String[]> dependencies) {
     Map<String, List<String>> graph = new HashMap<>();
-    Map<String, Integer> indegree = new HashMap<>();
+    Map<String, Integer> inDegree = new HashMap<>();
 
     // Initialize
     for (String task : tasks) {
       graph.put(task, new ArrayList<>());
-      indegree.put(task, 0);
+      inDegree.put(task, 0);
     }
 
     // Build graph
@@ -21,12 +21,12 @@ public class TopologicalSortingOrKahnAlgorithm {
       String from = dependency[0];
       String to = dependency[1];
       graph.get(from).add(to);
-      indegree.put(to, indegree.get(to) + 1);
+      inDegree.put(to, inDegree.get(to) + 1);
     }
     Queue<String> queue = new LinkedList<>();
     // Tasks with no dependency
     for (String task : tasks) {
-      if (indegree.get(task) == 0) {
+      if (inDegree.get(task) == 0) {
         queue.offer(task);
       }
     }
@@ -35,9 +35,9 @@ public class TopologicalSortingOrKahnAlgorithm {
       String task = queue.poll();
       result.add(task);
       for (String next : graph.get(task)) {
-        indegree.put(next, indegree.get(next) - 1);
+        inDegree.put(next, inDegree.get(next) - 1);
 
-        if (indegree.get(next) == 0) {
+        if (inDegree.get(next) == 0) {
           queue.offer(next);
         }
       }
@@ -52,11 +52,11 @@ public class TopologicalSortingOrKahnAlgorithm {
   public static void main(String[] args) {
     List<String> tasks = Arrays.asList("A", "B", "C", "D", "E");
     List<String[]> dependencies = Arrays.asList(
-        new String[]{"A", "C"},
-        new String[]{"B", "C"},
-        new String[]{"C", "D"},
-        new String[]{"C", "E"}
-    );
+                                                  new String[]{"A", "C"},
+                                                  new String[]{"B", "C"},
+                                                  new String[]{"C", "D"},
+                                                  new String[]{"C", "E"}
+                                              );
     System.out.println(schedule(tasks, dependencies));
   }
 }
