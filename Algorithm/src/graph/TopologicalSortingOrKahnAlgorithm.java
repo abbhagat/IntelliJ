@@ -7,6 +7,7 @@ import java.util.*;
 public class TopologicalSortingOrKahnAlgorithm {
 
   public static List<String> schedule(List<String> tasks, List<String[]> dependencies) {
+
     Map<String, List<String>> graph = new HashMap<>();
     Map<String, Integer> inDegree = new HashMap<>();
 
@@ -19,18 +20,22 @@ public class TopologicalSortingOrKahnAlgorithm {
     // Build graph
     for (String[] dependency : dependencies) {
       String from = dependency[0];
-      String to = dependency[1];
+      String   to = dependency[1];
       graph.get(from).add(to);
       inDegree.put(to, inDegree.get(to) + 1);
     }
+
     Queue<String> queue = new LinkedList<>();
+
     // Tasks with no dependency
     for (String task : tasks) {
       if (inDegree.get(task) == 0) {
         queue.offer(task);
       }
     }
+
     List<String> result = new ArrayList<>();
+
     while (!queue.isEmpty()) {
       String task = queue.poll();
       result.add(task);
