@@ -1,29 +1,26 @@
 package graph;
 
 import lombok.Getter;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 public class Graph {
 
   private final int v;
-  private final LinkedList<Integer>[] edge;
+  private final List<Integer>[] edge;
 
   @SuppressWarnings("unchecked")
   public Graph(int v) {
     this.v = v;
-    this.edge = new LinkedList[v];
+    edge = new ArrayList[v];
     for (int i = 0; i < v; i++) {
-      this.edge[i] = new LinkedList<>();
+      edge[i] = new ArrayList<>();
     }
   }
 
   public void addEdge(int v, int e) {
-    this.edge[v].addLast(e);
-  }
-
-  public void removeEdge(int v, int e) {
-    this.edge[v].remove(e);
+    edge[v].add(e);
   }
 
 }

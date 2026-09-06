@@ -9,7 +9,7 @@ public class TopologicalSortingOrKahnAlgorithm {
   public static List<String> schedule(List<String> tasks, List<String[]> dependencies) {
 
     Map<String, List<String>> graph = new HashMap<>();
-    Map<String, Integer> inDegree = new HashMap<>();
+    Map<String, Integer>   inDegree = new HashMap<>();
 
     // Initialize
     for (String task : tasks) {
