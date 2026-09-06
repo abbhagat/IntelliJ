@@ -37,29 +37,31 @@ public class GoldMineProblem {
 
   private static final int[][] gold = {
                                           {10, 33, 13, 15},
-                                          {22, 21,  4, 1},
-                                          {5,   0,  2, 3},
-                                          {0,   6, 14, 2}
+                                          {22, 21,  4,  1},
+                                          {5,   0,  2,  3},
+                                          {0,   6, 14,  2}
                                       };
+  private static final int ROW = gold.length;
+  private static final int COL = gold[0].length;
 
   // O(3^COL) (exponential ❌)
   private static int getMaxGoldRec() {
-    int ROW = gold.length, COL = gold[0].length;
+
     int max = Integer.MIN_VALUE;
     for (int row = 0; row < ROW; row++) {     // Try starting from each row in first column
-      int maxGold = maxGold(row, 0, ROW, COL);
+      int maxGold = maxGold(row, 0);
       max = max(max, maxGold);
     }
     return max;
   }
 
-  private static int maxGold(int row, int col, int ROW, int COL) {
+  private static int maxGold(int row, int col) {
     if (row < 0 || row >= ROW || col < 0 || col >= COL) {
       return 0;
     }
-    int right     = maxGold(row, col + 1, ROW, COL);
-    int rightUp   = maxGold(row - 1, col + 1, ROW, COL);
-    int rightDown = maxGold(row + 1, col + 1, ROW, COL);
+    int right     = maxGold(row, col + 1);
+    int rightUp   = maxGold(row - 1, col + 1);
+    int rightDown = maxGold(row + 1, col + 1);
     return gold[row][col] + maximum(right, rightUp, rightDown);
   }
 
