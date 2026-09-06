@@ -46,7 +46,6 @@ public class GoldMineProblem {
 
   // O(3^COL) (exponential ❌)
   private static int getMaxGoldRec() {
-
     int max = Integer.MIN_VALUE;
     for (int row = 0; row < ROW; row++) {     // Try starting from each row in first column
       int maxGold = maxGold(row, 0);
@@ -67,7 +66,6 @@ public class GoldMineProblem {
 
   // Returns maximum amount of gold that can be collected when a journey started from the first column and moves allowed are right, right-up and right-down
   private static int getMaxGold() {
-    int ROW = gold.length, COL = gold[0].length;
     int[][] dp = new int[ROW][COL];
     for (int col = COL - 1; col >= 0; col--) {
       for (int row = 0; row < ROW; row++) {
