@@ -27,6 +27,43 @@ public class FileSystem {
     }
   }
 
+  private FileSystemNode traversePath(String path) {
+    if (path.equals("/")) {
+      return root;
+    }
+    String[] dirNames = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
+    Directory currDir = root;
+    for (int i = 0; i < dirNames.length; i++) {
+      String dirName = dirNames[i];
+      FileSystemNode node = currDir.getNode(dirName);
+      if (node == null) {
+        Directory directory = new Directory(dirName, currDir);  // We are creating directories, so create one
+        currDir.addNode(directory);
+        currDir = directory;
+        continue;
+      }
+      if (i == dirNames.length - 1) {  // If this is the last component, it can be either File or Directory.
+        return node;
+      }
+      currDir = (Directory) node;
+    }
+    return currDir;
+  }
+
+  private Directory getParentDir(String[] parts) {
+    Directory currDir = root;
+    for (int i = 0; i < parts.length - 1; i++) {
+      String dirName = parts[i];
+      FileSystemNode node = currDir.getNode(dirName);
+      if (node instanceof Directory) {
+        currDir = (Directory) node;
+      } else {
+        throw new IllegalArgumentException("Invalid path");
+      }
+    }
+    return currDir;
+  }
+
   public void write(String path, String content) {
     File file = (File) traversePath(path);
     file.write(content);
@@ -60,54 +97,6 @@ public class FileSystem {
       throw new IllegalArgumentException("Cannot delete root");
     }
     node.getParent().remove(node.getName());
-  }
-
-  private File getFile(String path) {
-    FileSystemNode node = traversePath(path);
-    if (!(node instanceof File)) {
-      throw new IllegalArgumentException("Not a file");
-    }
-    return (File) node;
-  }
-
-  private FileSystemNode traversePath(String path) {
-    if (path.equals("/")) {
-      return root;
-    }
-    String[] dirNames = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
-    Directory currDir = root;
-    for (int i = 0; i < dirNames.length; i++) {
-      String dirName = dirNames[i];
-      FileSystemNode node = currDir.getNode(dirName);
-      if (node == null) {
-        Directory directory = new Directory(dirName, currDir);  // We are creating directories, so create one
-        currDir.addNode(directory);
-        currDir = directory;
-        continue;
-      }
-      if (i == dirNames.length - 1) {  // If this is the last component, it can be either File or Directory.
-        return node;
-      }
-      if (!node.isDirectory()) {  // Intermediate component must be a directory
-        throw new IllegalArgumentException(dirName + " is a file");
-      }
-      currDir = (Directory) node;
-    }
-    return currDir;
-  }
-
-  private Directory getParentDir(String[] parts) {
-    Directory currDir = root;
-    for (int i = 0; i < parts.length - 1; i++) {
-      String dirName = parts[i];
-      FileSystemNode node = currDir.getNode(dirName);
-      if (node instanceof Directory) {
-        currDir = (Directory) node;
-      } else {
-        throw new IllegalArgumentException("Invalid path");
-      }
-    }
-    return currDir;
   }
 
 }
