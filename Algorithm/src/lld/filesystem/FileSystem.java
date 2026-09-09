@@ -13,7 +13,7 @@ public class FileSystem {
   }
 
   public void mkdir(String path) {
-    traversePath(path, true);
+    traversePath(path);
   }
 
   public void createFile(String path) {
@@ -28,22 +28,22 @@ public class FileSystem {
   }
 
   public void write(String path, String content) {
-    File file = (File) traversePath(path, false);
+    File file = (File) traversePath(path);
     file.write(content);
   }
 
   public void append(String path, String content) {
-    File file = (File) traversePath(path, false);
+    File file = (File) traversePath(path);
     file.append(content);
   }
 
   public String read(String path) {
-    File file = (File) traversePath(path, false);
+    File file = (File) traversePath(path);
     return file.read();
   }
 
   public List<String> ls(String path) {
-    FileSystemNode node = traversePath(path, false);
+    FileSystemNode node = traversePath(path);
     if (node.isDirectory()) {
       Directory directory = (Directory) node;
       return directory.getAllFileSystemNodes()
@@ -55,7 +55,7 @@ public class FileSystem {
   }
 
   public void delete(String path) {
-    FileSystemNode node = traversePath(path, false);
+    FileSystemNode node = traversePath(path);
     if (node == root) {
       throw new IllegalArgumentException("Cannot delete root");
     }
@@ -63,14 +63,14 @@ public class FileSystem {
   }
 
   private File getFile(String path) {
-    FileSystemNode node = traversePath(path, false);
+    FileSystemNode node = traversePath(path);
     if (!(node instanceof File)) {
       throw new IllegalArgumentException("Not a file");
     }
     return (File) node;
   }
 
-  private FileSystemNode traversePath(String path, boolean createDirectories) {
+  private FileSystemNode traversePath(String path) {
     if (path.equals("/")) {
       return root;
     }
@@ -80,9 +80,6 @@ public class FileSystem {
       String dirName = dirNames[i];
       FileSystemNode node = currDir.getNode(dirName);
       if (node == null) {
-        if (!createDirectories) {
-          throw new IllegalArgumentException("Path not found: " + path);
-        }
         Directory directory = new Directory(dirName, currDir);  // We are creating directories, so create one
         currDir.addNode(directory);
         currDir = directory;

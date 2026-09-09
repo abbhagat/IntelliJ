@@ -1,16 +1,15 @@
 package geeks;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import static util.CommonUtils.printArray;
 
 // Time  Complexity: O(n)
 // Space Complexity: O(n)
 public class LongestZeroSumSubArray {
 
   private static class Index {
-    int start;
-    int end;
+    int start, end;
   }
 
   private static void longestSumSubArray(int[] a, int n, Index index) {
@@ -35,7 +34,7 @@ public class LongestZeroSumSubArray {
       }
     }
     System.out.print("Max SubArray ");
-    printArray(a, index.start, index.end + 1);
+    System.out.println(Arrays.toString(Arrays.copyOfRange(a, index.start, index.end + 1)));
     System.out.println("Length : " + max);
   }
 

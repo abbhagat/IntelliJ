@@ -1,16 +1,16 @@
 package jpmorgan;
 
+import static geeks.PrimeNumber.isPrime;
+import static java.lang.Integer.max;
+
 public class NextPrimeNumber {
 
   public static int findNextPrimeNumber(int n) {
-    n = n <= 1 ? 2 : n + 1;
-    for (int i = 2; i <= n / 2; i++) {
-      if (n % i == 0) {
-        n++;
-        i = 2;
+    for (int num = max(2, n + 1); ; num++) {
+      if (isPrime(num)) {
+        return num;
       }
     }
-    return n;
   }
 
   public static void main(String[] args) {

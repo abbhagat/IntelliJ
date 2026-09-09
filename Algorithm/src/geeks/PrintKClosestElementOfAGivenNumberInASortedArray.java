@@ -27,16 +27,20 @@ public class PrintKClosestElementOfAGivenNumberInASortedArray {
       }
       k--;
     }
-    System.out.println();
   }
 
   public static void main(String[] args) {
     int[] a = new int[]{12, 16, 22, 30, 35, 39, 42, 45, 48, 50, 53, 55, 56};
     printKClosestNum(a, 35, 4);
+    System.out.println();
     printKClosestNum(a, 35, 2);
+    System.out.println();
     printKClosestNum(a, 12, 3);
+    System.out.println();
     printKClosestNum(a, 56, 3);
+    System.out.println();
     printKClosestNum(a, 16, 3);
+    System.out.println();
     printKClosestNum(a, 55, 3);
   }
 }

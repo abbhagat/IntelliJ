@@ -1,6 +1,7 @@
 package jpmorgan;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,28 +31,19 @@ public class FindAllAnagramsInAString {
       sData[c]++;
       pData[c]++;
     }
-    if (matches(sData, pData)) {
+    if (Arrays.equals(sData, pData)) {
       list.add(0);
     }
     int j = 0;
     for (int i = p.length; i < s.length; i++) {  // traverse the larger string "s" from index = p to s.length
       sData[s[i]]++;
       sData[s[j]]--;
-      if (matches(sData, pData)) {
+      if (Arrays.equals(sData, pData)) {
         list.add(j + 1);
       }
       j++;
     }
     return list;
-  }
-
-  private static boolean matches(int[] sData, int[] pData) {
-    for (int i = 0; i < 128; i++) {
-      if (sData[i] != pData[i]) {
-        return false;
-      }
-    }
-    return true;
   }
 
   public static void main(String[] args) {

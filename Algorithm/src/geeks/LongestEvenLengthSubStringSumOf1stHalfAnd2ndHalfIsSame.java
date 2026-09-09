@@ -11,16 +11,16 @@ package geeks;
 // Space Complexity: O(1)
 public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
 
-  private static void findLength(String s) {
+  private static void findLength(String str) {
     String maxSubStr = "";
-    for (int k = 0; k < s.length(); k++) {
+    for (int k = 0; k < str.length(); k++) {
       int sum1 = 0, sum2 = 0, i = k, j = k + 1;
-      while (i >= 0 && j < s.length()) {
-        sum1 += s.charAt(i) - '0';
-        sum2 += s.charAt(j) - '0';
+      while (i >= 0 && j < str.length()) {
+        sum1 += str.charAt(i) - '0';
+        sum2 += str.charAt(j) - '0';
         if (sum1 == sum2) {
-          String str = s.substring(i, j + 1);
-          maxSubStr  = maxSubStr.length() < str.length() ? str : maxSubStr;
+          String s = str.substring(i, j + 1);
+          maxSubStr  = maxSubStr.length() < s.length() ? s : maxSubStr;
         }
         i--;
         j++;

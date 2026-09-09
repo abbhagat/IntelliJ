@@ -27,9 +27,7 @@ public class PrintAllSubSetOfArray {
 
   private static void findSubSet(int[] a, int index, LinkedList<Integer> list) {
     if (index == a.length) {
-      if (!list.isEmpty()) {
-        System.out.println(list);
-      }
+      System.out.println(list);
       return;
     }
     list.add(a[index]);

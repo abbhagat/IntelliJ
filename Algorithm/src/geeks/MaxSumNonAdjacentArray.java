@@ -15,11 +15,11 @@ public class MaxSumNonAdjacentArray {
   }
 
   private static int maxSumNonAdjacentArray(int[] a, int n) {
-    if(n < 0) {
+    if (n < 0) {
       return 0;
     }
-    int selected = a[n] + maxSumNonAdjacentArray(a, n - 2);
-    int unselected = maxSumNonAdjacentArray(a, n - 1);
+    int selected   = a[n] + maxSumNonAdjacentArray(a, n - 2);
+    int unselected =        maxSumNonAdjacentArray(a, n - 1);
     return max(selected, unselected);
   }
 
@@ -28,8 +28,8 @@ public class MaxSumNonAdjacentArray {
     int[] dp = new int[n + 1];
     dp[0] = a[0];
     dp[1] = max(a[0], a[1]);
-    for(int i = 2; i <= n; i++) {
-      dp[i] = max(dp[i - 1], a[i] + dp[i - 2]);
+    for (int i = 2; i <= n; i++) {
+      dp[i] = max(a[i] + dp[i - 2] , dp[i - 1]);
     }
     return dp[n];
   }

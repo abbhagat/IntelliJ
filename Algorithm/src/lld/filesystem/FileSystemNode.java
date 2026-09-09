@@ -11,4 +11,5 @@ public abstract class FileSystemNode {
   protected Directory parent;
 
   public abstract boolean isDirectory();
+
 }
