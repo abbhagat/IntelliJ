@@ -20,6 +20,7 @@ class ThreadPool implements IThreadPool {
     }
   }
 
+  @SuppressWarnings("ResultOfMethodCallIgnored")
   @Override
   public void submitTask(Runnable task) {
     if (this.isStopped) {
@@ -31,7 +32,7 @@ class ThreadPool implements IThreadPool {
   // A hint to the scheduler that the current thread is willing to yield its current use of a processor.
   // The scheduler is free to ignore this hint.
   @Override
-  public void awaitCompletion() {
+  public void awaitTaskCompletion() {
     while (!queue.isEmpty()) {
       Thread.yield();
     }

@@ -55,11 +55,7 @@ public class FileSystem {
     for (int i = 0; i < parts.length - 1; i++) {
       String dirName = parts[i];
       FileSystemNode node = currDir.getNode(dirName);
-      if (node instanceof Directory) {
-        currDir = (Directory) node;
-      } else {
-        throw new IllegalArgumentException("Invalid path");
-      }
+      currDir = node instanceof Directory ? (Directory) node : currDir;
     }
     return currDir;
   }

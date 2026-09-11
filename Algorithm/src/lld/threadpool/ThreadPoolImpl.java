@@ -9,7 +9,7 @@ public class ThreadPoolImpl {
       Runnable runnable = () -> System.out.println(Thread.currentThread().getName() + " is executing task " + task);
       threadPool.submitTask(runnable);
     }
-    threadPool.awaitCompletion();
+    threadPool.awaitTaskCompletion();
     threadPool.stop();
   }
 }

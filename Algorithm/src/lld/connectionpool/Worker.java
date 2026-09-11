@@ -21,7 +21,7 @@ public class Worker implements Runnable {
         Connection connection = connectionPool.get();  // blocks if none available
         System.out.println(Thread.currentThread().getName() + " acquired connection: " + connection);
         // Simulate DB work
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         connectionPool.put(connection);
         System.out.println("Thread - " + threadId + " returned connection");
       } catch (InterruptedException e) {
