@@ -11,8 +11,8 @@ public class Expense {
 
   private String expenseId;
   private String description;
-  private double amount;
   private User paidBy;
+  private double amount;
   private List<Split> splits;
   private ExpenseType expenseType;
   private Group group;

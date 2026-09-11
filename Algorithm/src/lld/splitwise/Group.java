@@ -17,7 +17,6 @@ public class Group {
     this.name     = name;
     this.members  = new ArrayList<>();
     this.expenses = new ArrayList<>();
-
   }
 
   public void addMember(User user) {
@@ -27,4 +26,5 @@ public class Group {
   public void addExpense(Expense expense) {
     this.expenses.add(expense);
   }
+
 }
