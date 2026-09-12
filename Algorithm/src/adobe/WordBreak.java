@@ -41,8 +41,8 @@ public class WordBreak {
       for (int j = 0; j <= i; j++) {
         String s = str.substring(j, i);
         if (dp[j] && list.contains(s)) {
-          dp[i] = true;
-          break;
+            dp[i] = true;
+            break;
         }
       }
     }

@@ -23,12 +23,13 @@ import java.util.List;
 public class WordBreakII {
 
   public static List<String> wordBreak(String str, List<String> list) {
-    List<String> al = new ArrayList<>();
-    wordBreak(0, str, new StringBuilder(), list, al);
+    List<String>  al = new ArrayList<>();
+    StringBuilder sb = new StringBuilder();
+    wordBreak(0, sb, al, str, list);
     return al;
   }
 
-  private static void wordBreak(int index, String str, StringBuilder sb, List<String> list, List<String> al) {
+  private static void wordBreak(int index, StringBuilder sb, List<String> al, String str, List<String> list) {
     if (index == str.length()) {
       al.add(sb.toString().trim());
       return;
@@ -38,7 +39,7 @@ public class WordBreakII {
       if (list.contains(s)) {
         int len = sb.length();
         sb.append(s).append(" ");
-        wordBreak(i + 1, str, sb, list, al);
+        wordBreak(i + 1, sb, al, str, list);
         sb.setLength(len);
       }
     }
