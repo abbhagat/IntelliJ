@@ -9,20 +9,16 @@ public class Doubleton implements Cloneable, Serializable {
   private static final long serialVersionUID = 1L;
 
   private static Doubleton instance1, instance2;
-  private static volatile int n = 1;
+  private static int n = 1;
 
-  private Doubleton() throws Exception {
-    if (null != instance1 || null != instance2) {
-      throw new Exception("Doubleton Already Initialized");
-    }
-  }
+  private Doubleton() {}
 
-  public static synchronized Doubleton getInstance() throws Exception {
-    if (null == instance1) {
+  public static synchronized Doubleton getInstance() {
+    if (instance1 == null) {
       instance1 = new Doubleton();
       return instance1;
     }
-    if (null == instance2) {
+    if (instance2 == null) {
       instance2 = new Doubleton();
       return instance2;
     }
@@ -30,16 +26,12 @@ public class Doubleton implements Cloneable, Serializable {
   }
 
   @Serial
-  protected Object readResolve() throws Exception {
+  protected Object readResolve() {
     return getInstance();
   }
 
   @Override
-  public Doubleton clone() throws CloneNotSupportedException {
-    try {
-      return getInstance();
-    } catch (Exception e) {
-      throw new CloneNotSupportedException();
-    }
+  public Doubleton clone() {
+    return getInstance();
   }
 }
