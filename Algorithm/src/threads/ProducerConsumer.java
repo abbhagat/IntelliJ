@@ -20,16 +20,19 @@ class QQ {
     }
   }
 
-  public synchronized void get() {
+  public synchronized int get() {
     try {
       while (!flag) {
         wait();
       }
-      System.out.println(Thread.currentThread().getName() + "\t" + this.n);
+      int n = this.n;
+      System.out.print(Thread.currentThread().getName() + "\t");
       flag = !flag;
       notify();
+      return n;
     } catch (InterruptedException e) {
       e.printStackTrace();
+      return -1;
     }
   }
 }
@@ -66,7 +69,7 @@ class Consumer1 implements Runnable {
   @Override
   public void run() {
     for (int i = 1; i <= 10; i++) {
-      this.q.get();
+      System.out.println(this.q.get());
     }
   }
 

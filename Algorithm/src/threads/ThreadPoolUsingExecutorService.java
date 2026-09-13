@@ -6,21 +6,13 @@ public class ThreadPoolUsingExecutorService {
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
     ExecutorService executorService = Executors.newFixedThreadPool(5);
-    for (int i = 1; i <= 5; i++) {
-      Future<?> future = executorService.submit(new WorkerThread(i, "Message " + i));
-      System.out.println(future.get());
+    for (int task = 1; task <= 10; task++) {
+      executorService.submit(new WorkerThread("Message " + task));
     }
     executorService.shutdown();
   }
 
-  private record WorkerThread(int threadId, String message) implements Runnable {
-
-    public WorkerThread(int threadId, String message) {
-      this.threadId = threadId;
-      this.message = message;
-      Thread thread = new Thread(this, "Thread " + threadId);
-      thread.start();
-    }
+  private record WorkerThread(String message) implements Runnable {
 
     @Override
     public void run() {
