@@ -1,39 +1,27 @@
 package geeks;
 
-import java.util.Arrays;
-
+// Time  Complexity O(n)
+// Space Complexity O(1)
 public class CountAllPermutationsOfVowels {
 
   private static final int MOD = 1000000007;
 
   public static int countVowelPermutation(int n) {
-    long[] current = {1, 1, 1, 1, 1};
-    for (int i = 1; i < n; i++) {
-      long[] next = {0, 0, 0, 0, 0};
-
-      next[1] += current[0];           // Each vowel 'a' may only be followed by an 'e'.
-
-      next[0] += current[1];          // Each vowel 'e' may only be followed by an 'a' or an 'i'.
-      next[2] += current[1];
-
-      next[0] += current[2];         // Each vowel 'i' may not be followed by another 'i'.
-      next[1] += current[2];
-      next[3] += current[2];
-      next[4] += current[2];
-
-      next[2] += current[3];        // Each vowel 'o' may only be followed by an 'i' or 'u'.
-      next[4] += current[3];
-
-      next[0] += current[4];       // Each vowel 'u' may only be followed by an 'a'.
-
-      current[0] = next[0] % MOD;
-      current[1] = next[1] % MOD;
-      current[2] = next[2] % MOD;
-      current[3] = next[3] % MOD;
-      current[4] = next[4] % MOD;
+    long a = 1, e = 1, i = 1, o = 1, u = 1;  // For a single vowel, there are 5 valid strings -> a, e, i, o, u
+    long na, ne, ni, no, nu;
+    for (int k = 2; k <= n; k++) {
+      na = (e + i + u) % MOD;  // a can be preceded by e, i, or u
+      ne = (a + i)     % MOD;  // e can be preceded by a or i
+      ni = (e + o)     % MOD; // i can be preceded by e or o
+      no =      i      % MOD; // o can be preceded by i
+      nu = (i + o)     % MOD; // u can be preceded by i or o
+      a = na;
+      e = ne;
+      i = ni;
+      o = no;
+      u = nu;
     }
-    long sum = Arrays.stream(current).sum();
-    return (int) (sum % MOD);
+    return (int) ((a + e + i + o + u) % MOD);
   }
 
   public static void main(String[] args) {

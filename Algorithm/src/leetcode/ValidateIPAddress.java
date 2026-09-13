@@ -16,10 +16,8 @@ public class ValidateIPAddress {
       if (s.charAt(0) == '0' && s.length() != 1) {
         return false;
       }
-      for (char c : s.toCharArray()) {
-        if (!Character.isDigit(c)) {
-          return false;
-        }
+      if (!s.chars().allMatch(Character::isDigit)) {
+        return false;
       }
       if (Integer.parseInt(s) > 255) {
         return false;
