@@ -16,7 +16,7 @@ class PrinterThread implements Runnable {
   public void run() {
     while (n <= 15) {
       try {
-        synchronized (monitor) {
+        synchronized (monitor) {  // Lock is taken on java.lang.Object class
           if (threadId != threadIdToRun) {
             monitor.wait();
           } else {
