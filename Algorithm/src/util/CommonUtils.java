@@ -145,4 +145,8 @@ public class CommonUtils {
   public static void print(int x, int y) {
     System.out.print(x + " " + y);
   }
+
+  public static String reverse(String str) {
+    return new StringBuilder(str).reverse().toString();
+  }
 }

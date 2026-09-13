@@ -9,9 +9,9 @@ public class BasicCalculatorII {
 
   public static int calculate(String s) {
     Stack<Integer> stack = new Stack<>();
-    int n = 0;
     char sign = '+';
-    for (int i = 0; i < s.length(); i++) {
+    int  i = 0, n = 0;
+    while (i < s.length()) {
       char c = s.charAt(i);
       if (isDigit(c)) {
         n = n * 10 + (c - '0');
@@ -26,6 +26,7 @@ public class BasicCalculatorII {
         sign = c;
         n = 0;
       }
+      i++;
     }
     return stack.stream()
                 .mapToInt(x -> x)

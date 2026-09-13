@@ -11,8 +11,8 @@ public class BasicCalculator {
 
   public static int calculate(String s) {
     Stack<Integer> stack = new Stack<>();
-    int n = 0;
     char sign = '+';
+    int     n = 0;
     while (i < s.length()) {
       char c = s.charAt(i);
       if (isDigit(c)) {
@@ -30,7 +30,7 @@ public class BasicCalculator {
           case '/' -> stack.push(stack.pop() / n);
         }
         sign = c;
-        n = 0;
+           n = 0;
       }
       if (c == ')') {
         break;  // end of this recursion level

@@ -1,6 +1,7 @@
 package leetcode;
 
 import static java.lang.Integer.min;
+import static util.CommonUtils.reverse;
 
 // Time Complexity O(n log n)
 public class LongestCommonSuffix {
@@ -13,10 +14,6 @@ public class LongestCommonSuffix {
     String left  = longestCommonSuffix(s, low, mid);
     String right = longestCommonSuffix(s, mid + 1, high);
     return longestCommonSuffix(left, right);
-  }
-
-  private static String reverse(String str) {
-    return new StringBuilder(str).reverse().toString();
   }
 
   private static String longestCommonSuffix(String left, String right) {

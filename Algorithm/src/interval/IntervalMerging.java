@@ -34,7 +34,7 @@ public class IntervalMerging {
         mergedInterval.getLast()[1] = max(mergedInterval.getLast()[1], interval[1]);
       }
     }
-    return mergedInterval.toArray(new int[mergedInterval.size()][2]);
+    return mergedInterval.toArray(new int[0][0]);
   }
 
   public static void main(String[] args) {

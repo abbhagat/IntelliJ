@@ -5,13 +5,13 @@ import static java.lang.Integer.min;
 // Time Complexity O(n log n)
 public class LongestCommonPrefix {
 
-  private static String longestCommonPrefix(String[] s, int low, int high) {
+  private static String longestCommonPrefix(String[] str, int low, int high) {
     if (low == high) {
-      return s[low];
+      return str[low];
     }
     int mid = (low + high) / 2;
-    String left  = longestCommonPrefix(s, low, mid);
-    String right = longestCommonPrefix(s, mid + 1, high);
+    String left  = longestCommonPrefix(str, low, mid);
+    String right = longestCommonPrefix(str, mid + 1, high);
     return commonPrefix(left, right);
   }
 
