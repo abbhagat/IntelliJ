@@ -1,24 +1,24 @@
 package stack;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 // Time Complexity: O(n)
 public class SimplifyPath {
 
   private static String simplifyPath(String path) {
-    Deque<String> stack = new ArrayDeque<>();
+    Deque<String> queue = new LinkedList<>();
     for (String s : path.split("/")) {
       if (s.isEmpty() || s.equals(".")) {
         continue;
       }
       if (s.equals("..")) {
-        stack.pollLast();   // removes and returns the last element -> Element / null
+        queue.pollLast();   // removes and returns the last element -> Element / null
       } else {
-        stack.addLast(s);    // Adds s to the end -> boolean
+        queue.addLast(s);   // Adds s to the end -> boolean
       }
     }
-    return "/" + String.join("/", stack);
+    return "/" + String.join("/", queue);
   }
 
   public static void main(String[] args) {

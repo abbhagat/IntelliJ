@@ -9,7 +9,7 @@ public class FindTheLongestBalancedBracketAndItsLength {
   private static void longestBalancedBracketLength(String s) {
     Stack<Integer> stack = new Stack<>();
     stack.push(-1);
-    int max = 0, end = -1;
+    int max = 0, end = 0;
     for (int i = 0; i < s.length(); i++) {
       if (s.charAt(i) == '{') {
         stack.push(i);
