@@ -20,14 +20,14 @@ public class LongestZeroSumSubArray {
       if (sum == n) {
         max = i + 1;
         index.start = 0;
-        index.end = i;
+        index.end   = i;
       }
       if (map.containsKey(sum)) {
         int length = i - map.get(sum);
         if (max < length) {
           max = length;
           index.start = map.get(sum) + 1;
-          index.end = i;
+          index.end   = i;
         }
       } else {
         map.put(sum, i);
