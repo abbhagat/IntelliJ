@@ -9,7 +9,8 @@ class PrinterThread implements Runnable {
 
   public PrinterThread(int threadId) {
     this.threadId = threadId;
-    new Thread(this, "Thread-" + threadId).start();
+    Thread thread = new Thread(this, "Thread-" + threadId);
+    thread.start();
   }
 
   @Override
@@ -20,7 +21,7 @@ class PrinterThread implements Runnable {
           if (threadId != threadIdToRun) {
             monitor.wait();
           } else {
-            System.out.println(n++ + " - " + Thread.currentThread().getName());
+            System.out.println(Thread.currentThread().getName() + " -> " + n++);
             switch (threadId) {
               case 1 -> threadIdToRun = 2;
               case 2 -> threadIdToRun = 3;
