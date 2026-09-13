@@ -12,7 +12,7 @@ public class DetectAndRemoveLoopInLinkedList {
       fast = fast.next.next;
       if (slow == fast) {
         removeCycle(head, fast);
-        return;
+        break;
       }
     }
   }
@@ -33,7 +33,7 @@ public class DetectAndRemoveLoopInLinkedList {
     for (int x : a) {
       head = add(head, x);
     }
-    head.next.next.next.next = head.next.next;
+    head.next.next.next.next.next = head.next.next;
     detectAndRemoveLoop(head);
     traverseList(head);
   }
