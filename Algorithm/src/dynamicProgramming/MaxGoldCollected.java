@@ -35,7 +35,8 @@ public class MaxGoldCollected {
     return cost[m][n] + max(maxGoldCollected(cost, m + 1, n, R, C), maxGoldCollected(cost, m, n + 1, R, C));
   }
 
-  private static int maxGoldCollectedDP(int[][] cost, int m, int n) {
+  private static int maxGoldCollectedDP(int[][] cost) {
+    int m = cost.length - 1, n = cost[0].length - 1;
     int[][] tc = new int[m + 1][n + 1];
     tc[0][0] = cost[0][0];
     for (int i = 1; i <= m; i++) {
@@ -54,12 +55,12 @@ public class MaxGoldCollected {
 
   public static void main(String[] args) {
     List<List<Integer>> listOfList = List.of(List.of(1, 4, 2, 2), List.of(6, 0, 0, 5));
-    int[][] a = listOfList.stream()
-                          .map(l -> l.stream()
-                                     .mapToInt(Integer::intValue)
-                                     .toArray()
+    int[][] cost = listOfList.stream()
+                          .map(list -> list.stream()
+                                           .mapToInt(Integer::intValue)
+                                           .toArray()
                               )
                           .toArray(int[][]::new);
-    System.out.println(maxGoldCollected(a, 0, 0, a.length - 1, a[0].length - 1) + "\t" + maxGoldCollectedDP(a, a.length - 1, a[0].length - 1));
+    System.out.println(maxGoldCollected(cost, 0, 0, cost.length - 1, cost[0].length - 1) + "\t" + maxGoldCollectedDP(cost));
   }
 }
