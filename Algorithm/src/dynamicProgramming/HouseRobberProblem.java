@@ -32,7 +32,7 @@ public class HouseRobberProblem {
       return 0;
     }
     int selected   = a[n] + maxGoldLooted(a, n - 2);
-    int unselected = maxGoldLooted(a, n - 1);
+    int unselected =        maxGoldLooted(a, n - 1);
     return max(selected, unselected);
   }
 
