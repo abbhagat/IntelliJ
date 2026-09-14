@@ -1,8 +1,6 @@
 package lld.digitalwallet;
 
 import lombok.Getter;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -10,9 +8,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Wallet {
 
   private final String id;
-  private double balance;
   private final List<Transaction> transactions;
   private final List<AuditRecord> auditHistory;
+  private double balance;
 
   public Wallet(String id) {
     this.id = id;
@@ -20,7 +18,7 @@ public class Wallet {
     this.auditHistory = new CopyOnWriteArrayList<>();
   }
 
-  public synchronized double getBalance() {  // read-modify-write operations.
+  public synchronized double getBalance() { // read-modify-write operations.the lock is on the current object (this)
     return balance;
   }
 

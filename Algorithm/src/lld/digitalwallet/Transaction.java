@@ -12,7 +12,7 @@ public class Transaction {
   private final String transId;
   private final String idempotencyKey;
   private final double amount;
-  private final long timestamp;
+  private final long   timestamp;
   private final TransactionType type;
   private       TransactionStatus status;
 
