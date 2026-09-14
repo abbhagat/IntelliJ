@@ -16,8 +16,8 @@ public class ATM {
     if (state != ATMState.IDLE) {
       throw new IllegalStateException("ATM is busy");
     }
-    this.card = card;
-    state = ATMState.CARD_INSERTED;
+    this.card  = card;
+    this.state = ATMState.CARD_INSERTED;
     System.out.println("Card Inserted");
   }
 
