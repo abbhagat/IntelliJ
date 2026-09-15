@@ -67,7 +67,7 @@ public class FirstAndLastPositionOfElementInSortedArray {
     if (startIndex != -1) {
       int endIndex = binarySearchEndIndex(a, startIndex + 1, a.length - 1, n);
       count = endIndex == -1 ? 1 : endIndex - startIndex + 1;
-      System.out.println(startIndex + " " + endIndex);
+      System.out.println(startIndex + "-" + endIndex);
     }
     System.out.println(count);
   }

@@ -1,6 +1,6 @@
 package gfg;
 
-/*
+/**
     The first Palindromic Numbers of length 1 are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
     The first Palindromic Numbers of length 3 is 101, which is the 10th smallest odd length palindrome number.
     Similarly, 11th, 12th, 13th, …, 99th smallest palindromic numbers are 111, 121, 131 …, 999 respectively.

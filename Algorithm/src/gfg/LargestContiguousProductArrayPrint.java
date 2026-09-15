@@ -33,7 +33,7 @@ public class LargestContiguousProductArrayPrint {
         min = max;
         max = t;
        // swap minStart with maxStart
-        t = minStart;
+        t        = minStart;
         minStart = maxStart;
         maxStart = t;
       }

@@ -8,7 +8,7 @@ public class LargestContiguousSumArrayPrint {
   private static int largestContiguousSum(int[] a) {
     int curSum = a[0], maxSum = a[0];
     for (int i = 1; i < a.length; i++) {
-      curSum = max(a[i], curSum + a[i]);
+      curSum = max(a[i], a[i] + curSum);
       maxSum = max(maxSum, curSum);
     }
     return maxSum;
@@ -17,7 +17,7 @@ public class LargestContiguousSumArrayPrint {
   private static void maxSumSubArray(int[] a) {
     int curSum = a[0], maxSum = a[0], start = 0, end = 0, index = 0;
     for (int i = 1; i < a.length; i++) {
-      if (curSum + a[i] < a[i]) {
+      if (a[i] > curSum + a[i]) {
           curSum = a[i];
           index  = i;
       } else {
