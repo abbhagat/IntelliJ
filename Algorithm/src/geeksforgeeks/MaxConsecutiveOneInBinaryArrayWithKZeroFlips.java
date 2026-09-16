@@ -10,36 +10,38 @@ import java.util.Arrays;
 public class MaxConsecutiveOneInBinaryArrayWithKZeroFlips {
 
   private static void slidingWindow(int[] a, int k) {
-    int i = 0, j = 0, startIndex = 0, bestWindow = 0, zeroCount = 0;
-    while (i < a.length) {
-      if (zeroCount <= k) {
-        zeroCount += a[i] == 0 ? 1 : 0;
-        i++;
+    int j = 0, zeroCount = 0, bestWindow = 0, startIndex = 0;
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] == 0) {
+        zeroCount++;
       }
-      if (zeroCount > k) {
-        zeroCount -= a[j] == 0 ? 1 : 0;
+      while (zeroCount > k) {
+        if (a[j] == 0) {
+          zeroCount--;
+        }
         j++;
       }
-      if (bestWindow < i - j && zeroCount <= k) {
-        bestWindow = i - j;
+      if (i - j + 1 > bestWindow) {
+        bestWindow = i - j + 1;
         startIndex = j;
       }
     }
-    System.out.print("Index Flipped ");
-    for (i = startIndex; i < startIndex + bestWindow; i++) {
+    System.out.print("Index Flipped: ");
+    for (int i = startIndex; i < startIndex + bestWindow; i++) {
       if (a[i] == 0) {
-          a[i] = 1;
-          System.out.print(i + " ");
+        a[i] = 1;
+        System.out.print(i + " ");
       }
     }
-    System.out.println("\tChanged Array After Flip " + Arrays.toString(a) + "\tMax Consecutive 1's: " + bestWindow);
+    System.out.println();
+    System.out.println("Changed Array After Flip: " + Arrays.toString(a));
+    System.out.println("Max Consecutive 1's: " + bestWindow);
   }
 
   public static void main(String[] args) {
     slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 6);
     slidingWindow(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2);
     slidingWindow(new int[]{1, 0, 0, 1, 1, 0, 1, 0, 1, 1}, 2);
-    slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
     slidingWindow(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3);
   }
 }
