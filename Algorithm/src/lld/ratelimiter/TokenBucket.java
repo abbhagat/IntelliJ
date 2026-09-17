@@ -8,7 +8,7 @@ public class TokenBucket {
   private final int capacity;
   private final int refillRate; // tokens per second
   private final AtomicInteger availableTokens;
-  private      long lastRefillTime;
+  private long lastRefillTime;
 
   public TokenBucket(int capacity, int refillRate) {
     this.capacity        = capacity;

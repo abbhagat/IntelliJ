@@ -5,14 +5,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class TokenBucketRateLimiter implements IRateLimiter {
 
-  private final Map<String, TokenBucket> tokenBucketMap;
   private final int capacity;
   private final int refillRate;
+  private final Map<String, TokenBucket> tokenBucketMap;
 
   public TokenBucketRateLimiter(int capacity, int refillRate) {
-    this.tokenBucketMap = new ConcurrentHashMap<>();
     this.capacity       = capacity;
     this.refillRate     = refillRate;
+    this.tokenBucketMap = new ConcurrentHashMap<>();
   }
 
   @Override
