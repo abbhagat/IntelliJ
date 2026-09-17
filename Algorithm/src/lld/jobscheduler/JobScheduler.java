@@ -18,7 +18,7 @@ public class JobScheduler {
   public JobScheduler() {
     this.queue       = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
     this.runningJobs = new ConcurrentHashMap<>();
-    this.executor    = Executors.newFixedThreadPool(3);
+    this.executor    = Executors.newFixedThreadPool(5);
     this.lock        = new Object();
     this.shutdown    = false;
     Thread thread    = new Thread(this::processJobs);
@@ -53,17 +53,16 @@ public class JobScheduler {
   }
 
   // Reschedule
-  public boolean reschedule(String jobId, long newExecuteAt) {
+  public void reschedule(String jobId, long newExecuteAt) {
     synchronized (lock) {
       Job job = runningJobs.get(jobId);
       if (job == null || job.getStatus() != JobStatus.SCHEDULED) {
-        return false;
+        return;
       }
       queue.remove(job);
       job.setExecuteAt(newExecuteAt);
       job.setStatus(JobStatus.SCHEDULED);
       queue.offer(job);
-      return true;
     }
   }
 
