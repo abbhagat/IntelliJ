@@ -2,8 +2,8 @@ package lld.ratelimiter;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 class SlidingWindow implements IRateLimiter {
 
@@ -14,7 +14,7 @@ class SlidingWindow implements IRateLimiter {
   public SlidingWindow(int maxRequest, long windowMillis) {
     this.maxRequest        = maxRequest;
     this.windowMillis      = windowMillis;
-    this.requestTimestamps = new HashMap<>();
+    this.requestTimestamps = new ConcurrentHashMap<>();
   }
 
   @Override
@@ -27,7 +27,7 @@ class SlidingWindow implements IRateLimiter {
     if (queue.size() >= maxRequest) {   // Limit reached
       return false;
     }
-    queue.offerLast(now);   // Add current request
+    queue.offerLast(now);             // Add current request
     return true;
   }
 }
