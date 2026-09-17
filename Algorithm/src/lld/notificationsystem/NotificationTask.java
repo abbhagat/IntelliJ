@@ -5,14 +5,14 @@ import static lld.notificationsystem.NotificationStatus.SENT;
 
 public class NotificationTask implements Runnable, Comparable<NotificationTask> {
 
-  private final Notification notification;
+  private final Notification        notification;
   private final NotificationChannel notificationChannel;
   private final int priority;
 
   public NotificationTask(Notification notification, NotificationChannel notificationChannel, int priority) {
-    this.notification = notification;
+    this.notification        = notification;
     this.notificationChannel = notificationChannel;
-    this.priority = priority;
+    this.priority            = priority;
   }
 
   @Override
