@@ -20,14 +20,14 @@ class SlidingWindow implements IRateLimiter {
   @Override
   public synchronized boolean allowRequest(String userId) {
     long now = System.currentTimeMillis();
-    Deque<Long> queue = requestTimestamps.computeIfAbsent(userId, key -> new ArrayDeque<>());
-    while (!queue.isEmpty() && queue.peekFirst() <= now - windowMillis) {  // Remove requests outside the sliding window
-      queue.pollFirst();
+    Deque<Long> deque = requestTimestamps.computeIfAbsent(userId, key -> new ArrayDeque<>());
+    while (!deque.isEmpty() && deque.peekFirst() <= now - windowMillis) {  // Remove requests outside the sliding window
+      deque.pollFirst();
     }
-    if (queue.size() >= maxRequest) {   // Limit reached
+    if (deque.size() >= maxRequest) {   // Limit reached
       return false;
     }
-    queue.offerLast(now);             // Add current request
+    deque.offerLast(now);             // Add current request
     return true;
   }
 }

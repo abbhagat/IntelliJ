@@ -28,7 +28,7 @@ public class RemoveOneElementToMakeArrayStrictlyIncreasing {
           return null;
         }
         if (i > 0 && a[i - 1] >= a[i + 1]) {  // elementToRemove if removing a[i] or a[i+1] works
-          n = a[i + 1];
+          n        = a[i + 1];
           a[i + 1] = a[i];                  // simulate removing a[i+1]
         } else {
           n = a[i];
