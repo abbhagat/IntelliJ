@@ -12,7 +12,7 @@ public class CouponDiscount implements DiscountStrategy {
 
   @Override
   public double applyDiscount(double amount) {
-    double discount = coupons.stream().mapToInt(Integer::intValue).sum();
+    int discount = coupons.stream().mapToInt(Integer::intValue).sum();
     System.out.println("Discount : " + discount);
     return Math.max(0, amount - discount);
   }
