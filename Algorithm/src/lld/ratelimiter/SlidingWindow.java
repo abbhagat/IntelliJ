@@ -27,7 +27,7 @@ class SlidingWindow implements IRateLimiter {
     if (deque.size() >= maxRequest) {   // Limit reached
       return false;
     }
-    deque.offerLast(now);             // Add current request
+    deque.addLast(now);             // Add current request
     return true;
   }
 }
