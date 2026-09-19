@@ -11,14 +11,20 @@ public class ShoppingCartImpl {
     Product milk   = new Product("P03", "Milk",   5000);
 
     ShoppingCart shoppingCart = new ShoppingCart();
+
     shoppingCart.addItem(iPhone, 1);
     shoppingCart.addItem(camera, 2);
+    shoppingCart.addItem(milk,   2);
+
     shoppingCart.updateItem(iPhone.id(), 2);
+
     shoppingCart.removeItem(milk.id());
 
-    System.out.println("Bill Details");
-    System.out.print(shoppingCart);
+    System.out.println("Bill Details ");
+    shoppingCart.getCartItemMap().values().forEach(System.out::println);
+
     double billAmount = calculateTotal(shoppingCart, new PercentageDiscount(10));
+
     System.out.println("Total Bill : " + billAmount);
   }
 }

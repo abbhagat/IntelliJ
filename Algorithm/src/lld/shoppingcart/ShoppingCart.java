@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -35,11 +36,6 @@ public class ShoppingCart implements IShoppingCart {
   @Override
   public void removeItem(String productId) {
     cartItemMap.remove(productId);
-  }
-
-  public String toString() {
-    cartItemMap.values().forEach(System.out::println);
-    return "";
   }
 
 }
