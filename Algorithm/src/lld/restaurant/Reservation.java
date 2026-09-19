@@ -5,7 +5,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Reservation implements IReservation {
 
-  private final List<Booking> bookings = new CopyOnWriteArrayList<>();
+  private final List<Booking> bookings;
+
+  public Reservation() {
+    this.bookings = new CopyOnWriteArrayList<>();
+  }
 
   public void save(Booking booking) {
     this.bookings.add(booking);

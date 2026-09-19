@@ -30,7 +30,7 @@ public class BookingService {
       }
       String bookingId   = UUID.randomUUID().toString();
       Booking booking = new Booking(bookingId, table, customer,  startTime, endTime);
-      reservation.save(booking);
+      this.reservation.save(booking);
       return booking;
     } finally {
       lock.unlock();
@@ -42,6 +42,6 @@ public class BookingService {
   }
 
   public boolean cancelBooking(Booking booking) {
-    return reservation.cancel(booking);
+    return this.reservation.cancel(booking);
   }
 }
