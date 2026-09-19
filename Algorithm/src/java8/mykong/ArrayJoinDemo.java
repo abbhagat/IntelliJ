@@ -13,8 +13,8 @@ public class ArrayJoinDemo {
 
     // join an object type array
     String[] result = Stream.of(s1, s2, s3)
-        .flatMap(Stream::of)
-        .toArray(String[]::new); // .toArray(size -> new String[size]);
+                            .flatMap(Stream::of)
+                            .toArray(String[]::new); // .toArray(size -> new String[size]);
     System.out.println(Arrays.toString(result));
 
     int[] int1 = new int[]{1, 2, 3};
