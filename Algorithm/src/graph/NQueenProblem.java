@@ -44,6 +44,8 @@ public class NQueenProblem {
     int[][] board = new int[4][4];
     if (solveNQUtil(board, 0)) {
       printMatrix(board);
+    } else {
+      System.out.println("No Solution Exist");
     }
   }
 }
