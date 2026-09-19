@@ -4,23 +4,21 @@ import java.util.*;
 import static java.lang.Integer.*;
 
 // Time  Complexity : O(n^2)
-// Space Complexity : O(n^2)
+// Space: O(p) where p = number of unique pairs
 public class FindPairCountWithSumDivisibleByK {
 
   private static int findPairs(int[] a, int k) {
-    Set<String> set = new HashSet<>();
+    Set<List<Integer>> set = new HashSet<>();
     for (int i = 0; i < a.length; i++) {
       for (int j = i + 1; j < a.length; j++) {
         if ((a[i] + a[j]) % k == 0) {
           int min  = min(a[i], a[j]);
           int max  = max(a[i], a[j]);
-          String pair = min + "," + max;
-          if (set.add(pair)) {
-            System.out.println("(" + min + "," + max + ")");
-          }
+          set.add(List.of(min, max));
         }
       }
     }
+    System.out.println("Size " + set.size() + " -> " + set);
     return set.size();
   }
 
