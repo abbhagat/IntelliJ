@@ -4,9 +4,10 @@ package pairs;
 // Space Complexity : O(n)
 public class FindPairsInArrayWithSmallestSum {
 
+  // If the array is 1D then divide it from mid into two arrays of a and b and use the same logic below
   private static void findKPairsInArrayWithSmallestSum(int[] a, int[] b, int k) {
     if (k > a.length * b.length) {
-      System.out.println("k pairs don't exist");
+      System.out.println("K pairs don't exist");
       return;
     }
     int[] c = new int[a.length];
