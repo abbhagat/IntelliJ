@@ -10,23 +10,23 @@ public class FindPairsInArrayWhoseDivIsGivenNumber {
 
   public static void findPairs(int[] a, int n) {
     Set<Integer> set = new HashSet<>();
-    Set<List<Integer>> result = new HashSet<>();
+    Set<List<Integer>> resultSet = new HashSet<>();
     for (int x : a) {
       try {
         if (set.contains(x / n)) {
-          result.add(List.of(x, x / n));
+          resultSet.add(List.of(x, x / n));
         }
         if (set.contains(x * n)) {
-          result.add(List.of(x, x * n));
+          resultSet.add(List.of(x, x * n));
         }
         set.add(x);
       } catch (ArithmeticException e) {
         if (x != 0) {
-          result.add(List.of(x, 0));
+          resultSet.add(List.of(x, 0));
         }
       }
     }
-    System.out.println(result);
+    System.out.println(resultSet);
   }
 
   public static void main(String[] args) {
