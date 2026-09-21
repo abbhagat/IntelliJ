@@ -1,7 +1,5 @@
 package dynamicProgramming;
 
-import static java.lang.Integer.max;
-
 public class LongestCommonSubsequenceString {
 
   // Time Complexity  : O(2^(m+n))
