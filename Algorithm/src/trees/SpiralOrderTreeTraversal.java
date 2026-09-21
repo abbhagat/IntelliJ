@@ -43,7 +43,7 @@ public class SpiralOrderTreeTraversal {
   }
 
   public static void main(String[] args) {
-             /*
+         /*
                   4
                 /  \
                2    6

@@ -1,6 +1,8 @@
 package trees;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static trees.CreateBST.createBST;
@@ -26,12 +28,14 @@ public class PairWithGivenSumInBalancedBST {
 
   private static void isPairPresent(Node root, int target) {
     Set<Integer> set = inorder(root, new HashSet<>());
+    List<List<Integer>> list = new ArrayList<>();
     for (int x : set) {
       int y = target - x;
       if (set.contains(y) && y > x) {
-        System.out.println(x + "," + y);
+        list.add(List.of(x,y));
       }
     }
+    System.out.println(list);
   }
 
   public static void main(String[] args) {
@@ -41,7 +45,6 @@ public class PairWithGivenSumInBalancedBST {
       root = createBST(root, x);
     }
     isPairPresent(root, 33);
-    System.out.println();
     isPairPresent(root, 25);
   }
 }
