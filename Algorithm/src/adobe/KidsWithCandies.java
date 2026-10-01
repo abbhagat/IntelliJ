@@ -8,9 +8,9 @@ public class KidsWithCandies {
 
   private static List<Boolean> kidsWithCandies(int[] candies, final int extraCandy) {
     int maxCandy = Arrays.stream(candies).max().orElse(0);
-    List<Boolean> list = new ArrayList<>();
-    Arrays.stream(candies).forEach(candy -> list.add(candy + extraCandy >= maxCandy));
-    return list;
+    List<Boolean> result = new ArrayList<>();
+    Arrays.stream(candies).forEach(candy -> result.add(candy + extraCandy >= maxCandy));
+    return result;
   }
 
   public static void main(String[] args) {
