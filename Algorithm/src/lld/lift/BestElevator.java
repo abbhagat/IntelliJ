@@ -2,7 +2,7 @@ package lld.lift;
 
 import java.util.List;
 
-public class BestElevator {
+class BestElevator {
 
   public Elevator selectElevator(List<Elevator> elevators, Request request) {
     Elevator bestElevator = null;

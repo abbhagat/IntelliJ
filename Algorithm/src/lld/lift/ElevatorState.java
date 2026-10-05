@@ -1,6 +1,6 @@
 package lld.lift;
 
-public enum ElevatorState {
+enum ElevatorState {
   MOVING, STOPPED, IDLE
 }
 

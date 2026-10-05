@@ -8,14 +8,14 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 @Getter
 @Setter
-public class Elevator {
+class Elevator {
 
   private int id;
   private int currentFloor;
   private Direction direction;
   private ElevatorState state;
 
-  private final BlockingQueue<Integer> upQueue   = new PriorityBlockingQueue<>();  // serve the nearest higher floors first
+  private final BlockingQueue<Integer> upQueue   = new PriorityBlockingQueue<>();  // serve the nearest higher floors first , min heap
   private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
 
   public Elevator(int id) {

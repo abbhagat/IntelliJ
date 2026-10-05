@@ -1,5 +1,5 @@
 package lld.lift;
 
-public enum Direction {
+enum Direction {
   UP, DOWN, IDLE
 }

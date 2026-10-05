@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class ElevatorSystem {
+class ElevatorSystem {
 
   private final List<Elevator> elevators;
   private final BestElevator bestElevator;
