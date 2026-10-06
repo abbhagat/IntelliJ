@@ -2,9 +2,9 @@ package lld.lift;
 
 import java.util.List;
 
-class BestElevator {
+class SelectElevator {
 
-  public Elevator selectElevator(List<Elevator> elevators, Request request) {
+  public Elevator bestElevator(List<Elevator> elevators, Request request) {
     Elevator bestElevator = null;
     int min = Integer.MAX_VALUE;
     for (Elevator elevator : elevators) {

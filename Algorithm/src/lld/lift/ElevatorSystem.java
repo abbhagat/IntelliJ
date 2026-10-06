@@ -2,17 +2,14 @@ package lld.lift;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 class ElevatorSystem {
 
   private final List<Elevator> elevators;
-  private final BestElevator bestElevator;
+  private final SelectElevator selectElevator;
 
   public ElevatorSystem(int numberOfElevators) {
-    bestElevator    = new BestElevator();
+    selectElevator = new SelectElevator();
     elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
       elevators.add(new Elevator(i));
@@ -20,7 +17,7 @@ class ElevatorSystem {
   }
 
   public void handleRequest(Request request) {
-    Elevator elevator = bestElevator.selectElevator(elevators, request);
+    Elevator elevator = selectElevator.bestElevator(elevators, request);
     if (elevator != null) {
       elevator.addRequest(request);
     }
