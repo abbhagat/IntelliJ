@@ -2,12 +2,14 @@ package com.kafka.streams.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafkaStreams;
 
 @SpringBootApplication
-public class SpringBootKafkaStreamApplication {
+@EnableKafkaStreams
+public class KafkaStreamApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringBootKafkaStreamApplication.class, args);
+    SpringApplication.run(KafkaStreamApplication.class, args);
   }
 
 }

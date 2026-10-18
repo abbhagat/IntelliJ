@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: greetings-kafka-stream
+  kafka:
+    streams:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      application-id: greetings-kafka-stream
+topic:
+  greetings:
+    input:
+      name: greetings
+    output:
+      name: greetings-output
+

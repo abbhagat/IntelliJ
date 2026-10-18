@@ -9,7 +9,7 @@ class ElevatorSystem {
   private final SelectElevator selectElevator;
 
   public ElevatorSystem(int numberOfElevators) {
-    selectElevator = new SelectElevator();
+    selectElevator  = new SelectElevator();
     elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
       elevators.add(new Elevator(i));
