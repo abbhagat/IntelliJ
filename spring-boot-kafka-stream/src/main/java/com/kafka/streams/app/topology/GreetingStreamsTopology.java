@@ -44,7 +44,12 @@ public class GreetingStreamsTopology {
   public void process(StreamsBuilder streamsBuilder) {
     KStream<String, Greeting> greetingsStream = streamsBuilder.stream(GREETINGS, Consumed.with(Serdes.String(), new JsonSerde<>(Greeting.class, objectMapper)));
     greetingsStream.print(Printed.<String, Greeting>toSysOut().withLabel("with-greetings-stream"));
-    KStream<String, Greeting> modifiedStream = greetingsStream.mapValues((readOnlyKey, value) -> new Greeting(value.message().toUpperCase(), value.timeStamp()));
+    KStream<String, Greeting> modifiedStream = greetingsStream.mapValues((readOnlyKey, value) -> {
+      if (value.message().equals("Error")) {
+        throw new RuntimeException("Error processing message: " + value.message());
+      }
+      return new Greeting(value.message().toUpperCase(), value.timeStamp());
+    });
     modifiedStream.print(Printed.<String, Greeting>toSysOut().withLabel("with-modified-stream"));
     modifiedStream.to(GREETINGS_OUTPUT, Produced.with(Serdes.String(), new JsonSerde<>(Greeting.class, objectMapper)));
   }
