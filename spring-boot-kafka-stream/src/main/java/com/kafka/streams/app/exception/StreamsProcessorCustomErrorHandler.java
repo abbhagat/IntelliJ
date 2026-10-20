@@ -6,6 +6,7 @@ import org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler;
 
 @Slf4j
 public class StreamsProcessorCustomErrorHandler implements StreamsUncaughtExceptionHandler {
+
     @Override
     public StreamThreadExceptionResponse handle(Throwable exception) {
         log.error("Exception in the Application : {} ",exception.getMessage(), exception);
