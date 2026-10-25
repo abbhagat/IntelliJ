@@ -5,9 +5,10 @@ spring:
     redis:
       host: localhost
       port: 6379
-      timeout: 2s
-      password: mypassword
       username:
+      password: mypassword
+      timeout: 2s
+      connect-timeout: 2s
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:XE
     driver-class-name: oracle.jdbc.OracleDriver
@@ -21,6 +22,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  cache:
+    type: redis
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
@@ -33,3 +36,14 @@ logging:
           sql: trace
 server:
   port: 8085
+  shutdown: graceful
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
