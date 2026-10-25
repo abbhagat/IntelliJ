@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-boot-redis-app
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2s
+      password: mypassword
+      username:
+server:
+  port: 8085
