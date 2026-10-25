@@ -1,0 +1,11 @@
+${AnsiColor.BRIGHT_RED}
+ ${AnsiStyle.BOLD}
+  _____  ______ _____ _____  _____
+ |  __ \|  ____|  __ \_   _|/ ____|
+ | |__) | |__  | |  | || | | (___
+ |  _  /|  __| | |  | || |  \___ \
+ | | \ \| |____| |__| || |_ ____) |
+ |_|  \_\______|_____/_____|_____/
+ Application: ${spring.application.name}
+ Version: ${spring-boot.version}
+ ${AnsiStyle.NORMAL}

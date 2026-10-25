@@ -4,14 +4,20 @@ import com.app.redis.model.Department;
 import com.app.redis.repository.DepartmentDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+
+/**
+ * The service uses Spring's cache abstraction. @Cacheable reads the shared cache before invoking the method;
+ * @CacheEvict invalidates a cached entry after a successful method invocation.
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class DepartmentService {
 
   private final DepartmentDAO departmentDAO;
@@ -26,22 +32,25 @@ public class DepartmentService {
     return departmentDAO.findAll();
   }
 
-  public Department getDepartmentById(int id) {
-    return departmentDAO.findById(id).orElseThrow(() -> new RuntimeException("Department not found with ID: " + id));
+  @Cacheable(cacheNames = "department", key = "#deptId")
+  public Department getDepartmentById(int deptId) {
+    return departmentDAO.findById(deptId).orElseThrow(() -> new RuntimeException("Department not found with ID: " + deptId));
   }
 
   @Transactional
-  public Department update(int id, Department updatedDepartment) {
-    Department department = getDepartmentById(id);
-    department.setDeptName(updatedDepartment.getDeptName());
-    department.setDeptLoc(updatedDepartment.getDeptLoc());
-    return departmentDAO.save(department);
+  @CacheEvict(cacheNames = "department", key = "#department.deptId")
+  public Department update(int deptId, Department department) {
+    Department dept = getDepartmentById(deptId);
+    dept.setDeptName(department.getDeptName());
+    dept.setDeptLoc(department.getDeptLoc());
+    return departmentDAO.save(dept);
   }
 
   @Transactional
-  public void delete(int id) {
-    departmentDAO.deleteById(id);
-    log.info("Deleted department with ID: {}", id);
+  @CacheEvict(cacheNames = "department", key = "#deptId")
+  public void delete(int deptId) {
+    departmentDAO.deleteById(deptId);
+    log.info("Deleted department with ID: {}", deptId);
   }
 
 }

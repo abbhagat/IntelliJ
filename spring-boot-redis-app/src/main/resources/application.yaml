@@ -1,6 +1,8 @@
 spring:
   application:
     name: spring-boot-redis-app
+  banner:
+    location: classpath:banner.txt
   data:
     redis:
       host: localhost
