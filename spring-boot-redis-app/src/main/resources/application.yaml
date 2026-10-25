@@ -8,5 +8,28 @@ spring:
       timeout: 2s
       password: mypassword
       username:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: system
+    password: zed
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        enable_lazy_load_no_trans: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  level:
+    org:
+      hibernate:
+        SQL: debug
+      type:
+        descriptor:
+          sql: trace
 server:
   port: 8085
