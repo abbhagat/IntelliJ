@@ -16,6 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Id;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ import java.util.List;
 @DynamicUpdate(value = true)
 public class Orders implements Serializable {
 
+  @Serial
   private static final long serialVersionUID = 1L;
 
   @Id

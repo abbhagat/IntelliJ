@@ -32,14 +32,14 @@ public class RedisCacheConfig {
   public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory, ObjectMapper objectMapper) {
     GenericJacksonJsonRedisSerializer jsonSerializer = new GenericJacksonJsonRedisSerializer(objectMapper);
     StringRedisSerializer stringSerializer = new StringRedisSerializer();
-    RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+    RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
         .entryTtl(Duration.ofMinutes(5))
         .disableCachingNullValues()
         .computePrefixWith(cacheName -> "department-service:" + cacheName + ":")
         .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(stringSerializer))
         .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jsonSerializer));
     return RedisCacheManager.builder(connectionFactory)
-        .cacheDefaults(config)
+        .cacheDefaults(redisCacheConfiguration)
         .build();
   }
 }
