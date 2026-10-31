@@ -128,7 +128,7 @@ public class OrdersMockDataProducer {
       var dateTime = LocalDateTime.now();
       if (dateTime.toLocalTime().getMinute() == localDateTime.getMinute()
           && dateTime.toLocalTime().getSecond() == timeToPublish) {
-        System.out.printf("Publishing the record with delay ");
+        System.out.print("Publishing the record with delay ");
         publishOrders(objectMapper, newOrders);
         flag = false;
       } else {
