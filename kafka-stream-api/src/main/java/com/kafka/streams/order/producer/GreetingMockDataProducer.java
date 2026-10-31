@@ -31,7 +31,7 @@ public class GreetingMockDataProducer {
     List<Greeting> englishGreetings = List.of(
         new Greeting("Hello, Good Morning!", LocalDateTime.now()),
         new Greeting("Hello, Good Evening!", LocalDateTime.now()),
-        new Greeting("Hello, Good Night!",   LocalDateTime.now())
+        new Greeting("Hello, Good Night!", LocalDateTime.now())
     );
     englishGreetings.forEach(greeting -> {
       try {
@@ -46,8 +46,8 @@ public class GreetingMockDataProducer {
 
   private static void spanishGreetings() {
     List<Greeting> spanishGreetings = List.of(
-        new Greeting("¡Hola buenos dias!",    LocalDateTime.now()),
-        new Greeting("¡Hola buenas tardes!",  LocalDateTime.now()),
+        new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
+        new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
         new Greeting("¡Hola, buenas noches!", LocalDateTime.now())
     );
     spanishGreetings.forEach(greeting -> {

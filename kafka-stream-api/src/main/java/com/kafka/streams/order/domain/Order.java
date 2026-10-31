@@ -6,4 +6,5 @@ import java.util.List;
 
 public record Order(Integer orderId, String locationId, BigDecimal finalAmount,
                     OrderType orderType,
-                    List<OrderLineItem> orderLineItems, LocalDateTime orderDateTime) {}
+                    List<OrderLineItem> orderLineItems, LocalDateTime orderDateTime) {
+}
