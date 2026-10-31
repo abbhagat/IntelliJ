@@ -1,6 +1,6 @@
 spring:
   application:
-    name: kafka-stream-order-app
+    name: kafka-stream-api
   profiles:
     active: local
 
