@@ -6,9 +6,11 @@ import React from "react";
 
 // Named Export -> export const Greet = ({ name }) => <h1>Hello, {name}!</h1>;
 const Greet = (props) => {
-    console.log(props.name)
+    const {name, empId} = props;
+    // console.log(props.name)
     return <div>
         <h1>Hello, {props.name}! Your empId is {props.empId}</h1>
+        <h1>Hello, {name}! Your empId is {empId}</h1>
         <h3>{props.children}</h3>
     </div>
 }
