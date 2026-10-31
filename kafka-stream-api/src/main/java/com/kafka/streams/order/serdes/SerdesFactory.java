@@ -1,12 +1,12 @@
 package com.kafka.streams.order.serdes;
 
-import com.kafka.streams.api.domain.Greeting;
+import com.kafka.streams.order.domain.Greeting;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
 
 public class SerdesFactory {
 
-  public static Serde<Greeting> greetingSerdes() {
+  public static GreetingSerdes greetingSerdes() {
     return new GreetingSerdes();
   }
 

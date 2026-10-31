@@ -1,16 +1,14 @@
 package com.kafka.streams.order.launcher;
 
-import com.kafka.streams.api.topology.KTableTopology;
+import com.kafka.streams.order.topology.KTableTopology;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
-
 import java.util.List;
 import java.util.Properties;
-
-import static com.kafka.streams.api.topology.KTableTopology.WORDS;
+import static com.kafka.streams.order.launcher.TopicUtil.WORDS;
 
 @Slf4j
 public class KTableStreamApp {

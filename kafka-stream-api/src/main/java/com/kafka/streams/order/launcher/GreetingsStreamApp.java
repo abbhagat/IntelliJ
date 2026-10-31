@@ -1,17 +1,15 @@
 package com.kafka.streams.order.launcher;
 
-import com.kafka.streams.api.topology.GreetingsTopology;
+import com.kafka.streams.order.topology.GreetingsTopology;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
-
 import java.util.List;
 import java.util.Properties;
-
-import static com.kafka.streams.api.launcher.TopicUtil.*;
+import static com.kafka.streams.order.launcher.TopicUtil.*;
 
 @Slf4j
 public class GreetingsStreamApp {

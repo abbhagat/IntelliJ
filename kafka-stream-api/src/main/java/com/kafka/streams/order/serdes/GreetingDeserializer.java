@@ -1,7 +1,7 @@
 package com.kafka.streams.order.serdes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kafka.streams.api.domain.Greeting;
+import com.kafka.streams.order.domain.Greeting;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
 
