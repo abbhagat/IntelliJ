@@ -7,14 +7,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.streams.order.domain.Order;
 import com.kafka.streams.order.domain.OrderLineItem;
 import com.kafka.streams.order.domain.OrderType;
-import com.kafka.streams.order.topology.OrdersTopology;
 import lombok.extern.slf4j.Slf4j;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-
+import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;
 import static java.lang.Thread.sleep;
 
@@ -247,7 +245,7 @@ public class OrdersMockDataProducer {
         .forEach(order -> {
           try {
             var ordersJSON = objectMapper.writeValueAsString(order);
-            var recordMetaData = publishMessageSync(OrdersTopology.ORDERS, order.orderId() + "", ordersJSON);
+            var recordMetaData = publishMessageSync(ORDERS, order.orderId() + "", ordersJSON);
             log.info("Published the order message : {} ", recordMetaData);
           } catch (JsonProcessingException e) {
             log.error("JsonProcessingException : {} ", e.getMessage(), e);
