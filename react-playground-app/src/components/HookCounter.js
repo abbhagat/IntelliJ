@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export function HookCounter() {
+export const HookCounter = () => {
 
     const [count, setCount] = useState(0);
 
@@ -9,4 +9,4 @@ export function HookCounter() {
             <button onClick={() => setCount(count + 1)}>Count {count}</button>
         </div>
     );
-}
+};
