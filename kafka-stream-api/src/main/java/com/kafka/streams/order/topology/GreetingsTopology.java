@@ -34,9 +34,9 @@ public class GreetingsTopology {
                                                .peek((key, value) -> log.info("Key : {} Value : {}", key, value))
                                                .flatMapValues(value -> {
                                                  List<String> newValues = List.of(value.split(""));
-                                                 List<String> result = newValues.stream()
-                                                                                .map(String::toUpperCase)
-                                                                                .collect(Collectors.toList());
+                                                 List<String> result    = newValues.stream()
+                                                                                   .map(String::toUpperCase)
+                                                                                   .collect(Collectors.toList());
                                                  return result;
                                                });
     modifiedStream.print(Printed.<String, String>toSysOut().withLabel("modifiedStream"));
@@ -47,7 +47,6 @@ public class GreetingsTopology {
 //                                                                                             .collect(Collectors.toList());
 //                                                  return result;
 //                                                });
-
     KStream<String, String> modifiedStream2 = greetingStream
         .flatMapValues((key, value) -> {
           List<String> newValues = List.of(value.split(""));
@@ -56,7 +55,6 @@ public class GreetingsTopology {
                                          .collect(Collectors.toList());
           return result;
         });
-
     modifiedStream2.print(Printed.<String, String>toSysOut().withLabel("modifiedStream2"));
     modifiedStream2.to(GREETING_UPPERCASE_TOPIC);  // Default Serdes in effect
 //  modifiedStream.to(GREETING_UPPERCASE, Produced.with(Serdes.String(), Serdes.String()));
@@ -74,8 +72,7 @@ public class GreetingsTopology {
     KStream<String, Greeting> mergedStream = greetingStream.merge(greetingSpanish);
     mergedStream.print(Printed.<String, Greeting>toSysOut().withLabel("mergedStream"));
 
-    KStream<String, Greeting> modifiedStream = mergedStream
-        .mapValues((key, value) -> new Greeting(value.message().toUpperCase(), value.timestamp()));
+    KStream<String, Greeting> modifiedStream = mergedStream.mapValues((key, value) -> new Greeting(value.message().toUpperCase(), value.timestamp()));
     modifiedStream.print(Printed.<String, Greeting>toSysOut().withLabel("modifiedStream"));
 
     modifiedStream.to(GREETING_UPPERCASE_TOPIC, Produced.with(Serdes.String(), SerdesFactory.getSerdes(Greeting.class)));
