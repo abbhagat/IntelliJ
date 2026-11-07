@@ -1,7 +1,6 @@
 package com.kafka.streams.order.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.streams.order.domain.Order;
 import com.kafka.streams.order.domain.OrderType;
 import lombok.extern.slf4j.Slf4j;
@@ -18,16 +17,15 @@ import static java.lang.Thread.sleep;
 public class OrdersMockDataProducer {
 
   public static void main(String[] args) throws InterruptedException {
-    publishOrders(buildOrders());
-    //publishBulkOrders(objectMapper);
-   // publishOrdersForGracePeriod(objectMapper, buildOrders());
-  //  publishFutureRecords(objectMapper);
-  //  publishExpiredRecords(objectMapper);
-
-
+    List<Order> orders = buildOrders();
+    publishOrders(orders);
+    publishBulkOrders();
+    publishOrdersForGracePeriod(orders);
+    publishFutureRecords();
+    publishExpiredRecords();
   }
 
-  private static void publishFutureRecords(ObjectMapper objectMapper) {
+  private static void publishFutureRecords() {
     var localDateTime = LocalDateTime.now().plusDays(1);
     var newOrders = buildOrders()
         .stream()
@@ -42,7 +40,7 @@ public class OrdersMockDataProducer {
     publishOrders(newOrders);
   }
 
-  private static void publishExpiredRecords(ObjectMapper objectMapper) {
+  private static void publishExpiredRecords() {
     var localDateTime = LocalDateTime.now().minusDays(1);
     var newOrders = buildOrders()
         .stream()
@@ -58,7 +56,7 @@ public class OrdersMockDataProducer {
 
   }
 
-  private static void publishOrdersForGracePeriod(ObjectMapper objectMapper, List<Order> orders) {
+  private static void publishOrdersForGracePeriod(List<Order> orders) {
     var localTime = LocalDateTime.now().toLocalTime();
     var modifiedTime = LocalTime.of(localTime.getHour(), localTime.getMinute(), 18);
     var localDateTime = LocalDateTime.now().with(modifiedTime);
