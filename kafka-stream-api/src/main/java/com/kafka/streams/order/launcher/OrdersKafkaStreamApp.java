@@ -10,23 +10,24 @@ import java.util.List;
 import java.util.Properties;
 import static com.kafka.streams.order.Util.BROKER_LIST;
 import static com.kafka.streams.order.Util.LATEST;
-import static com.kafka.streams.order.launcher.TopicUtil.createTopics;
 
 @Slf4j
 public class OrdersKafkaStreamApp {
 
-    public static void main(String[] args) {
-        // create an instance of the topology
-        Properties config = new Properties();
-        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app"); // consumer group
+    private static final Properties config = new Properties();
+
+    static {
+        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app");
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
-        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, LATEST); // read only the new messages
-        createTopics(config, List.of(TopicUtil.ORDERS, TopicUtil.STORES));
+        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, LATEST);
+
+        TopicUtil.createTopics(config, List.of(TopicUtil.ORDERS, TopicUtil.STORES));
+    }
+
+    public static void main(String[] args) {
         Topology topology = OrdersTopology.buildTopology();
-        //Create an instance of KafkaStreams
         var kafkaStreams = new KafkaStreams(topology, config);
-        //This closes the streams anytime the JVM shuts down normally or abruptly.
-        Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
+        Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));  //This closes the streams anytime the JVM shuts down normally or abruptly.
         try{
             kafkaStreams.start();
         }catch (Exception e ){
