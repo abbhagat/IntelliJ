@@ -45,7 +45,7 @@ public class OrdersMockDataProducer {
         .map(order ->
             new Order(order.orderId(),
                 order.locationId(),
-                order.finalAmount(),
+                order.totalAmount(),
                 order.orderType(),
                 order.orderLineItems(),
                 localDateTime))
@@ -62,7 +62,7 @@ public class OrdersMockDataProducer {
         .map(order ->
             new Order(order.orderId(),
                 order.locationId(),
-                order.finalAmount(),
+                order.totalAmount(),
                 order.orderType(),
                 order.orderLineItems(),
                 localDateTime))
@@ -96,7 +96,7 @@ public class OrdersMockDataProducer {
         .map(order ->
             new Order(order.orderId(),
                 order.locationId(),
-                order.finalAmount(),
+                order.totalAmount(),
                 order.orderType(),
                 order.orderLineItems(),
                 localDateTime))

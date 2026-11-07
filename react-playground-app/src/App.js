@@ -9,6 +9,8 @@ import {HookMouse} from "./components/HookMouse";
 import IntervalHookCounter from "./components/IntervalHookCounter";
 import {DataFetching} from "./components/DataFetching";
 import {SingleDataFetching} from "./components/SingleDataFetching";
+import {CounterOne} from "./components/CounterOne";
+import {CounterTwo} from "./components/CounterTwo";
 
 function App() {
     return (
@@ -22,7 +24,9 @@ function App() {
             {/*<HookMouse/>*/}
             {/*<IntervalHookCounter/>*/}
             {/*<DataFetching/>*/}
-            <SingleDataFetching/>
+            {/*<SingleDataFetching/>*/}
+            {/*<CounterOne/>*/}
+            <CounterTwo/>
         </div>
     );
 }
