@@ -30,7 +30,7 @@ public class GreetingsStreamApp {
   }
 
   public static void main(String[] args) {
-    Topology greetingsTopology = GreetingsTopology.buildCustomTopology();
+    Topology greetingsTopology = GreetingsTopology.buildGreetingsTopology();
     KafkaStreams kafkaStreams = new KafkaStreams(greetingsTopology, brokerConfig);
     Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
     try {
