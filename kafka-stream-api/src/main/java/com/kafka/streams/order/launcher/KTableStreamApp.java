@@ -8,6 +8,8 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import java.util.List;
 import java.util.Properties;
+import static com.kafka.streams.order.Util.BROKER_LIST;
+import static com.kafka.streams.order.Util.LATEST;
 import static com.kafka.streams.order.launcher.TopicUtil.WORDS;
 
 @Slf4j
@@ -16,9 +18,9 @@ public class KTableStreamApp {
   private static final Properties config = new Properties();
 
   static {
-    config.put(StreamsConfig.APPLICATION_ID_CONFIG, "ktable");
-    config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093,localhost:9094");
-    config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+    config.put(StreamsConfig.APPLICATION_ID_CONFIG, "kTable");
+    config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
+    config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, LATEST);
     TopicUtil.createTopics(config, List.of(WORDS));
   }
 
