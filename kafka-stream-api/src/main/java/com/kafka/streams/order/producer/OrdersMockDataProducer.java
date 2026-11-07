@@ -2,8 +2,6 @@ package com.kafka.streams.order.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.streams.order.domain.Order;
 import com.kafka.streams.order.domain.OrderType;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import static com.kafka.streams.order.Util.buildOrders;
+import static com.kafka.streams.order.Util.objectMapper;
 import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;
 import static java.lang.Thread.sleep;
@@ -19,26 +18,17 @@ import static java.lang.Thread.sleep;
 public class OrdersMockDataProducer {
 
   public static void main(String[] args) throws InterruptedException {
-    ObjectMapper objectMapper = new ObjectMapper()
-        .registerModule(new JavaTimeModule())
-        .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-    publishOrders(objectMapper, buildOrders());
+    publishOrders(buildOrders());
     //publishBulkOrders(objectMapper);
-
-    // grace-period
-   //  publishOrdersForGracePeriod(objectMapper, buildOrders());
-
-    //Future and Old Records
-//   publishFutureRecords(objectMapper);
-//   publishExpiredRecords(objectMapper);
+   // publishOrdersForGracePeriod(objectMapper, buildOrders());
+  //  publishFutureRecords(objectMapper);
+  //  publishExpiredRecords(objectMapper);
 
 
   }
 
   private static void publishFutureRecords(ObjectMapper objectMapper) {
     var localDateTime = LocalDateTime.now().plusDays(1);
-
     var newOrders = buildOrders()
         .stream()
         .map(order ->
@@ -49,7 +39,7 @@ public class OrdersMockDataProducer {
                 order.orderLineItems(),
                 localDateTime))
         .toList();
-    publishOrders(objectMapper, newOrders);
+    publishOrders(newOrders);
   }
 
   private static void publishExpiredRecords(ObjectMapper objectMapper) {
@@ -64,7 +54,7 @@ public class OrdersMockDataProducer {
                 order.orderLineItems(),
                 localDateTime))
         .toList();
-    publishOrders(objectMapper, newOrders);
+    publishOrders(newOrders);
 
   }
 
@@ -101,25 +91,23 @@ public class OrdersMockDataProducer {
         .stream()
         .filter(order -> order.orderType().equals(OrderType.GENERAL))
         .toList();
-
-    publishOrders(objectMapper, generalOrders);
+    publishOrders(generalOrders);
     //orders with the timestamp as 18th second
-    publishRecordsWithDelay(generalOrdersWithCustomTime, localDateTime, objectMapper, 18);
-
+    publishRecordsWithDelay(generalOrdersWithCustomTime, localDateTime, 18);
   }
 
-  private static void publishRecordsWithDelay(List<Order> newOrders, LocalDateTime localDateTime, ObjectMapper objectMapper) {
-    publishOrders(objectMapper, newOrders);
+  private static void publishRecordsWithDelay(List<Order> newOrders, LocalDateTime localDateTime) {
+    publishOrders(newOrders);
   }
 
-  private static void publishRecordsWithDelay(List<Order> newOrders, LocalDateTime localDateTime, ObjectMapper objectMapper, int timeToPublish) {
+  private static void publishRecordsWithDelay(List<Order> newOrders, LocalDateTime localDateTime, int timeToPublish) {
     var flag = true;
     while (flag) {
       var dateTime = LocalDateTime.now();
       if (dateTime.toLocalTime().getMinute() == localDateTime.getMinute()
           && dateTime.toLocalTime().getSecond() == timeToPublish) {
         System.out.print("Publishing the record with delay ");
-        publishOrders(objectMapper, newOrders);
+        publishOrders(newOrders);
         flag = false;
       } else {
         System.out.println(" Current Time is  and the record will be published at the 16th second: " + dateTime);
@@ -128,17 +116,17 @@ public class OrdersMockDataProducer {
     }
   }
 
-  private static void publishBulkOrders(ObjectMapper objectMapper) throws InterruptedException {
+  private static void publishBulkOrders() throws InterruptedException {
     int count = 0;
     while (count < 100) {
       var orders = buildOrders();
-      publishOrders(objectMapper, orders);
+      publishOrders(orders);
       sleep(1000);
       count++;
     }
   }
 
-  private static void publishOrders(ObjectMapper objectMapper, List<Order> orders) {
+  private static void publishOrders(List<Order> orders) {
     orders
         .forEach(order -> {
           try {
@@ -154,6 +142,4 @@ public class OrdersMockDataProducer {
           }
         });
   }
-
-
 }

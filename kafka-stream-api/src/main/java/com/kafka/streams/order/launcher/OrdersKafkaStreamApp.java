@@ -8,6 +8,8 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import java.util.List;
 import java.util.Properties;
+import static com.kafka.streams.order.Util.BROKER_LIST;
+import static com.kafka.streams.order.Util.LATEST;
 import static com.kafka.streams.order.launcher.TopicUtil.createTopics;
 
 @Slf4j
@@ -17,8 +19,8 @@ public class OrdersKafkaStreamApp {
         // create an instance of the topology
         Properties config = new Properties();
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app"); // consumer group
-        config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093,localhost:9094");
-        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest"); // read only the new messages
+        config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
+        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, LATEST); // read only the new messages
         createTopics(config, List.of(TopicUtil.ORDERS, TopicUtil.STORES));
         Topology topology = OrdersTopology.buildTopology();
         //Create an instance of KafkaStreams

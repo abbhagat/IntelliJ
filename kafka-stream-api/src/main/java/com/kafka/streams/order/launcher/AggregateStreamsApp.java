@@ -10,12 +10,13 @@ import org.apache.kafka.streams.Topology;
 
 import java.util.Properties;
 
+import static com.kafka.streams.order.Util.BROKER_LIST;
+import static com.kafka.streams.order.Util.LATEST;
+
 @Slf4j
 public class AggregateStreamsApp {
 
   private static final Properties config = new Properties();
-  private static final String BROKER_LIST = "localhost:9092,localhost:9093,localhost:9094";
-  private static final String LATEST = "latest";
 
   static {
     config.put(StreamsConfig.APPLICATION_ID_CONFIG, "aggregate-topology");

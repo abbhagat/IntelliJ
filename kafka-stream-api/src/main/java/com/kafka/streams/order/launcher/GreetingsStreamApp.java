@@ -9,6 +9,9 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import java.util.List;
 import java.util.Properties;
+
+import static com.kafka.streams.order.Util.BROKER_LIST;
+import static com.kafka.streams.order.Util.LATEST;
 import static com.kafka.streams.order.launcher.TopicUtil.*;
 
 @Slf4j
@@ -18,10 +21,10 @@ public class GreetingsStreamApp {
 
   static {
     brokerConfig.put(StreamsConfig.APPLICATION_ID_CONFIG, "greetings-app");
-    brokerConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092, localhost:9093, localhost:9094");
+    brokerConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
     brokerConfig.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
     brokerConfig.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
-    brokerConfig.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+    brokerConfig.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, LATEST);
 
     TopicUtil.createTopics(brokerConfig, List.of(GREETING_TOPIC, GREETING_UPPERCASE_TOPIC, GREETING_SPANISH_TOPIC, WORDS));
   }

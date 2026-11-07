@@ -4,16 +4,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.streams.order.domain.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Properties;
 
 public class Util {
 
   private Util() {
     // private constructor to prevent instantiation
   }
+
+  public static final Properties config = new Properties();
+  public static final String BROKER_LIST = "localhost:9092,localhost:9093,localhost:9094";
+  public static final String LATEST = "latest";
 
   public static ObjectMapper objectMapper = new ObjectMapper()
       .registerModule(new JavaTimeModule())
