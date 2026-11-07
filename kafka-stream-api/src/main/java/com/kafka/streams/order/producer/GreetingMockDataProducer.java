@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import java.time.LocalDateTime;
 import java.util.List;
-
 import static com.kafka.streams.order.launcher.TopicUtil.GREETING_SPANISH_TOPIC;
 import static com.kafka.streams.order.launcher.TopicUtil.GREETING_TOPIC;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;
@@ -21,17 +20,23 @@ public class GreetingMockDataProducer {
       .registerModule(new JavaTimeModule())
       .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-  public static void main(String[] args) {
-    englishGreetings();
-    spanishGreetings();
-  }
+  private static final List<Greeting> englishGreetings;
+  private static final List<Greeting> spanishGreetings;
 
-  private static void englishGreetings() {
-    List<Greeting> englishGreetings = List.of(
+  static {
+    englishGreetings = List.of(
         new Greeting("Hello, Good Morning!", LocalDateTime.now()),
         new Greeting("Hello, Good Evening!", LocalDateTime.now()),
         new Greeting("Hello, Good Night!", LocalDateTime.now())
     );
+    spanishGreetings = List.of(
+        new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
+        new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
+        new Greeting("¡Hola, buenas noches!", LocalDateTime.now())
+    );
+  }
+
+  private static void publishEnglishGreetings() {
     englishGreetings.forEach(greeting -> {
       try {
         String greetingJSON = objectMapper.writeValueAsString(greeting);
@@ -43,12 +48,7 @@ public class GreetingMockDataProducer {
     });
   }
 
-  private static void spanishGreetings() {
-    List<Greeting> spanishGreetings = List.of(
-        new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
-        new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
-        new Greeting("¡Hola, buenas noches!", LocalDateTime.now())
-    );
+  private static void publishSpanishGreetings() {
     spanishGreetings.forEach(greeting -> {
       try {
         String greetingJSON = objectMapper.writeValueAsString(greeting);
@@ -58,6 +58,11 @@ public class GreetingMockDataProducer {
         throw new RuntimeException(e);
       }
     });
+  }
+
+  public static void main(String[] args) {
+    publishEnglishGreetings();
+    publishSpanishGreetings();
   }
 
 }

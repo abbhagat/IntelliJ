@@ -1,19 +1,12 @@
 package com.kafka.streams.order.serdes;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serializer;
-
 import java.io.IOException;
+import static com.kafka.streams.order.Util.objectMapper;
 
 @Slf4j
 public class JsonSerializer<T> implements Serializer<T> {
-
-  private final ObjectMapper objectMapper = new ObjectMapper()
-                                                .registerModule(new JavaTimeModule())
-                                                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
   @Override
   public byte[] serialize(String topic, T t) {

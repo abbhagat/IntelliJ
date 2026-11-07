@@ -16,11 +16,9 @@ public class WordsProducer {
   private static final String word5 = "Baby";
 
   public static void main(String[] args) {
-
     log.info("Published the alphabet message : {} ", publishMessageSync(WORDS, KEY_A, word1));
     log.info("Published the alphabet message : {} ", publishMessageSync(WORDS, KEY_A, word2));
     log.info("Published the alphabet message : {} ", publishMessageSync(WORDS, KEY_A, word3));
-
     log.info("Published the alphabet message : {} ", publishMessageSync(WORDS, KEY_B, word4));
     log.info("Published the alphabet message : {} ", publishMessageSync(WORDS, KEY_B, word5));
   }
