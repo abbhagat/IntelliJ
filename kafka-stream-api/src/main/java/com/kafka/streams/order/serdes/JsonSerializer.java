@@ -12,8 +12,8 @@ import java.io.IOException;
 public class JsonSerializer<T> implements Serializer<T> {
 
   private final ObjectMapper objectMapper = new ObjectMapper()
-      .registerModule(new JavaTimeModule())
-      .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+                                                .registerModule(new JavaTimeModule())
+                                                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
   @Override
   public byte[] serialize(String topic, T t) {

@@ -21,7 +21,8 @@ public class OrdersTopology {
 
     StreamsBuilder streamsBuilder = new StreamsBuilder();
 
-    KStream<String, Order> ordersKStream = streamsBuilder.stream(ORDERS, Consumed.with(Serdes.String(), SerdesFactory.orderSerdes()));
+//    KStream<String, Order> ordersKStream = streamsBuilder.stream(ORDERS, Consumed.with(Serdes.String(), SerdesFactory.orderSerdes()));
+    KStream<String, Order> ordersKStream = streamsBuilder.stream(ORDERS, Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
 
     ordersKStream.print(Printed.<String, Order>toSysOut().withLabel("Orders Stream"));
 
@@ -29,11 +30,11 @@ public class OrdersTopology {
         .split(Named.as("general-restaurant-stream"))
         .branch(generalPredicate, Branched.withConsumer(generalOrderStream -> {
           generalOrderStream.print(Printed.<String, Order>toSysOut().withLabel("General Orders Stream"));
-          generalOrderStream.to("general-orders", Produced.with(Serdes.String(), SerdesFactory.orderSerdes()));
+          generalOrderStream.to("general-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
         }))
         .branch(restaurantPredicate, Branched.withConsumer(restaurantOrderStream -> {
           restaurantOrderStream.print(Printed.<String, Order>toSysOut().withLabel("Restaurant Orders Stream"));
-          restaurantOrderStream.to("restaurant-orders", Produced.with(Serdes.String(), SerdesFactory.orderSerdes()));
+          restaurantOrderStream.to("restaurant-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
         }));
 
     return streamsBuilder.build();
