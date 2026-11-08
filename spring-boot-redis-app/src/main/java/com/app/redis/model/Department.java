@@ -23,7 +23,7 @@ public class Department implements Serializable {
 
   @Id
   @Column(name = "DEPT_ID")
-  private int deptId;
+  private Long deptId;
 
   @Column(name = "DEPT_NAME")
   private String deptName;
