@@ -2,6 +2,7 @@ package com.kafka.streams.app.topology;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.streams.app.model.Greeting;
+import com.kafka.streams.app.serdes.SerdesFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
@@ -42,7 +43,7 @@ public class GreetingStreamsTopology {
   // Adding Custom Serde
   @Autowired
   public void process(StreamsBuilder streamsBuilder) {
-    KStream<String, Greeting> greetingsStream = streamsBuilder.stream(GREETINGS, Consumed.with(Serdes.String(), new JsonSerde<>(Greeting.class, objectMapper)));
+    KStream<String, Greeting> greetingsStream = streamsBuilder.stream(GREETINGS, Consumed.with(Serdes.String(), SerdesFactory.of(Greeting.class, objectMapper)));
     greetingsStream.print(Printed.<String, Greeting>toSysOut().withLabel("with-greetings-stream"));
     KStream<String, Greeting> modifiedStream = greetingsStream.mapValues((readOnlyKey, value) -> {
       if (value.message().equals("Error")) {

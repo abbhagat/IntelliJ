@@ -1,10 +1,10 @@
 spring:
   application:
-    name: greetings-kafka-stream
+    name: orders-kafka-stream
   kafka:
     streams:
-      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
-      application-id: greetings-kafka-stream
+      bootstrap-servers: localhost:9092,localhost:9094,localhost:9096
+      application-id: orders-kafka-stream
     properties:
       default:
         deserialization:
