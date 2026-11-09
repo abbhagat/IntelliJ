@@ -37,12 +37,18 @@ public class BeanConfig {
 
   @Bean
   public NewTopic greetingsTopic() {
-    return TopicBuilder.name(GREETINGS).partitions(3).replicas(3).build();
+    return TopicBuilder.name(GREETINGS)
+                       .partitions(3)
+                       .replicas(3)
+                       .build();
   }
 
   @Bean
   public NewTopic greetingsOutputTopic() {
-    return TopicBuilder.name(GREETINGS_OUTPUT).partitions(3).replicas(3).build();
+    return TopicBuilder.name(GREETINGS_OUTPUT)
+                       .partitions(3)
+                       .replicas(3)
+                       .build();
   }
 
   @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
@@ -55,9 +61,7 @@ public class BeanConfig {
 
   @Bean
   public StreamsBuilderFactoryBeanConfigurer streamsBuilderFactoryBeanConfigurer() {
-    return factoryBeanCofigurer -> {
-      factoryBeanCofigurer.setStreamsUncaughtExceptionHandler(new StreamsProcessorCustomErrorHandler());
-    };
+    return factoryBeanCofigurer -> factoryBeanCofigurer.setStreamsUncaughtExceptionHandler(new StreamsProcessorCustomErrorHandler());
   }
 
   private ConsumerRecordRecoverer recoverer() {

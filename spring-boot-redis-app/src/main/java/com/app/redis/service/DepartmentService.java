@@ -34,7 +34,7 @@ public class DepartmentService {
   }
 
   @Cacheable(cacheNames = "DEPT_CACHE", key = "#result.deptId", unless = "#result == null")
-  public Department getDepartmentById(int deptId) {
+  public Department getDepartmentById(long deptId) {
     return departmentRepository.findById(deptId).orElseThrow(() -> new RuntimeException("Department not found with ID: " + deptId));
   }
 
@@ -49,7 +49,7 @@ public class DepartmentService {
 
   @Transactional
   @CacheEvict(cacheNames = "DEPT_CACHE", key = "#result.deptId", condition = "#result != null")
-  public void delete(int deptId) {
+  public void delete(long deptId) {
     departmentRepository.deleteById(deptId);
     log.info("Deleted department with ID: {}", deptId);
   }
