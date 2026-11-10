@@ -7,9 +7,7 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
-
 import java.util.Properties;
-
 import static com.kafka.streams.order.Util.BROKER_LIST;
 import static com.kafka.streams.order.Util.LATEST;
 

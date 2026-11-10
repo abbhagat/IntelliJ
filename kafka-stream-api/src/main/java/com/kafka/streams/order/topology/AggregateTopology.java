@@ -21,14 +21,15 @@ public class AggregateTopology {
   }
 
   private static void exploreCount(KGroupedStream<String, String> groupedStream) {
-    KTable<String, Long> countByAlphabet = groupedStream.count(Named.as("count-per-alphabet"));
+    KTable<String, Long> countByAlphabet = groupedStream.count(Named.as("count-per-alphabet"), Materialized.as("count-per-alphabet-state-store"));
     countByAlphabet
         .toStream()
         .print(Printed.<String, Long>toSysOut().withLabel("count-per-alphabet"));
   }
 
   private static void exploreReduce(KGroupedStream<String, String> groupedStream) {
-    KTable<String, String> groupByKeyVal = groupedStream.reduce((value1, value2) -> value1.toUpperCase() + value2.toUpperCase());
+    Reducer<String> reducer = (value1, value2) -> String.join("_", value1.toUpperCase(), value2.toUpperCase());
+    KTable<String, String> groupByKeyVal = groupedStream.reduce(reducer, Materialized.as("reduce-per-alphabet-state-store"));
     groupByKeyVal
       .toStream()
       .print(Printed.<String, String>toSysOut().withLabel("reduce-per-alphabet"));
