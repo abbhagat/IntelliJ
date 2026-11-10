@@ -6,6 +6,7 @@ import org.apache.kafka.streams.errors.ErrorHandlerContext;
 import org.apache.kafka.streams.errors.ProductionExceptionHandler;
 import java.util.Map;
 
+// Thrown when we have issues connecting to Kafka topic while writing the aggregated data to the output topic.
 @Slf4j
 public class StreamsProductionErrorHandler implements ProductionExceptionHandler {
 

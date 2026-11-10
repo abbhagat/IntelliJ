@@ -20,6 +20,7 @@ public class GreetingMockDataProducer {
 
   static {
     englishGreetings = List.of(
+//        new Greeting("Error", LocalDateTime.now()),
         new Greeting("Hello, Good Morning!", LocalDateTime.now()),
         new Greeting("Hello, Good Evening!", LocalDateTime.now()),
         new Greeting("Hello, Good Night!",   LocalDateTime.now())
