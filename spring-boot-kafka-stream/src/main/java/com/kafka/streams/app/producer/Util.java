@@ -1,13 +1,7 @@
 package com.kafka.streams.app.producer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.springframework.core.annotation.Order;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 import java.util.Properties;
 
 public class Util {
@@ -20,9 +14,10 @@ public class Util {
   public static final String BROKER_LIST = "localhost:9092,localhost:9093,localhost:9094";
   public static final String LATEST = "latest";
 
-  public static ObjectMapper objectMapper = new ObjectMapper()
-      .registerModule(new JavaTimeModule())
-      .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+  public static JsonMapper jsonMapper = JsonMapper.builder()
+      .findAndAddModules()
+      .configure(SerializationFeature.INDENT_OUTPUT, false)
+      .build();
 
 //  public static List<Store> getStoresList() {
 //    Address address1 = new Address("1234 Street 1 ", "", "City1", "State1", "12345");

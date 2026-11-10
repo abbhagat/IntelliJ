@@ -1,8 +1,7 @@
-package com.kafka.streams.app;
+package com.kafka.streams.app.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 import com.kafka.streams.app.exception.StreamsProcessorCustomErrorHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -75,10 +74,11 @@ public class BeanConfig {
   }
 
   @Bean
-  public ObjectMapper objectMapper() {
-    return new ObjectMapper()
-        .registerModule(new JavaTimeModule())
-        .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+  public JsonMapper jsonMapper() {
+    return JsonMapper.builder()
+        .findAndAddModules()
+        .configure(SerializationFeature.INDENT_OUTPUT, false)
+        .build();
   }
 
 }

@@ -1,19 +1,19 @@
 package com.kafka.streams.app.serdes;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.json.JsonMapper;
 
 @Slf4j
 public class JsonDeserializer<T> implements Deserializer<T> {
 
   private final Class<T> destinationClass;
-  private final ObjectMapper objectMapper;
+  private final JsonMapper jsonMapper;
 
-  public JsonDeserializer(Class<T> destinationClass, ObjectMapper objectMapper) {
+  public JsonDeserializer(Class<T> destinationClass, JsonMapper jsonMapper) {
     this.destinationClass = destinationClass;
-    this.objectMapper = objectMapper;
+    this.jsonMapper = jsonMapper;
   }
 
   @Override
@@ -22,8 +22,8 @@ public class JsonDeserializer<T> implements Deserializer<T> {
       return null;
     }
     try {
-      return objectMapper.readValue(data, destinationClass);
-    } catch (IOException e) {
+      return jsonMapper.readValue(data, destinationClass);
+    } catch (JacksonException e) {
       log.error("IOException in Deserializer: {} ", e.getMessage());
       throw new RuntimeException(e);
     }
