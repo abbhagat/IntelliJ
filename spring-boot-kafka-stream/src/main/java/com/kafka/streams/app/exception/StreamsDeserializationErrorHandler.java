@@ -23,7 +23,7 @@ public class StreamsDeserializationErrorHandler implements DeserializationExcept
         count,
         exception
     );
-    if (count <= 10) {
+    if (count <= 5) {
       return Response.resume();
     }
     return Response.fail();
