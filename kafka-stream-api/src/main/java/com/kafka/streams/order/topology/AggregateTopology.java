@@ -20,6 +20,15 @@ public class AggregateTopology {
     return streamsBuilder.build();
   }
 
+  public static Topology buildTopologyByValue() {
+    KStream<String, String> aggregateStreams = streamsBuilder.stream("words");  // Default Serdes is StringSerde in effect
+    aggregateStreams.print(Printed.<String, String>toSysOut().withLabel("aggregate-by-value"));
+    KGroupedStream<String, String> groupedStream = aggregateStreams.groupBy((key, value) -> value, Grouped.with(Serdes.String(), Serdes.String()));
+    exploreCount(groupedStream);
+    exploreReduce(groupedStream);
+    return streamsBuilder.build();
+  }
+
   private static void exploreCount(KGroupedStream<String, String> groupedStream) {
     KTable<String, Long> countByAlphabet = groupedStream.count(Named.as("count-per-alphabet"), Materialized.as("count-per-alphabet-state-store"));
     countByAlphabet
