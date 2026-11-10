@@ -16,7 +16,7 @@ public class Util {
   }
 
   public static final Properties config = new Properties();
-  public static final String BROKER_LIST = "localhost:9092,localhost:9093,localhost:9094";
+  public static final String BROKER_LIST = "localhost:9092,localhost:9094,localhost:9096";
   public static final String LATEST = "latest";
 
   public static ObjectMapper objectMapper = new ObjectMapper()
