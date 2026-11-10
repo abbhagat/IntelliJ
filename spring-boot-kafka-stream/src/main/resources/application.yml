@@ -21,4 +21,8 @@ topic:
       name: greetings
     output:
       name: greetings-output
+  orders:
+    name: orders
+  stores:
+    name: stores
 

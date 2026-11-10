@@ -1,32 +1,23 @@
 package com.kafka.streams.app.config;
 
-import tools.jackson.databind.SerializationFeature;
-import tools.jackson.databind.json.JsonMapper;
 import com.kafka.streams.app.exception.StreamsProcessorCustomErrorHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.streams.StreamsConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.kafka.autoconfigure.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.KafkaStreamsDefaultConfiguration;
 import org.springframework.kafka.config.KafkaStreamsConfiguration;
 import org.springframework.kafka.config.StreamsBuilderFactoryBeanConfigurer;
-import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.listener.ConsumerRecordRecoverer;
 import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 import java.util.Map;
 
 @Slf4j
 @Configuration
 public class BeanConfig {
-
-  @Value("${topic.greetings.input.name:greetings}")
-  private String GREETINGS;
-
-  @Value("${topic.greetings.output.name:greetings-output}")
-  private String GREETINGS_OUTPUT;
 
   private final KafkaProperties kafkaProperties;
 
@@ -35,19 +26,11 @@ public class BeanConfig {
   }
 
   @Bean
-  public NewTopic greetingsTopic() {
-    return TopicBuilder.name(GREETINGS)
-                       .partitions(3)
-                       .replicas(3)
-                       .build();
-  }
-
-  @Bean
-  public NewTopic greetingsOutputTopic() {
-    return TopicBuilder.name(GREETINGS_OUTPUT)
-                       .partitions(3)
-                       .replicas(3)
-                       .build();
+  public JsonMapper jsonMapper() {
+    return JsonMapper.builder()
+        .findAndAddModules()
+        .configure(SerializationFeature.INDENT_OUTPUT, false)
+        .build();
   }
 
   @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
@@ -72,13 +55,4 @@ public class BeanConfig {
         e
     ));
   }
-
-  @Bean
-  public JsonMapper jsonMapper() {
-    return JsonMapper.builder()
-        .findAndAddModules()
-        .configure(SerializationFeature.INDENT_OUTPUT, false)
-        .build();
-  }
-
 }
