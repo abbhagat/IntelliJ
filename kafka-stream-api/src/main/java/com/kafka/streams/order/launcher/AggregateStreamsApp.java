@@ -28,8 +28,8 @@ public class AggregateStreamsApp {
   }
 
   public static void main(String[] args) {
-//  Topology aggregateTopology = AggregateTopology.buildTopology();
-    Topology aggregateTopology = AggregateTopology.buildTopologyByValue();
+    Topology aggregateTopology = AggregateTopology.buildTopology();
+//    Topology aggregateTopology = AggregateTopology.buildTopologyByValue();
     KafkaStreams kafkaStreams = new KafkaStreams(aggregateTopology, config);
     Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
     try {
