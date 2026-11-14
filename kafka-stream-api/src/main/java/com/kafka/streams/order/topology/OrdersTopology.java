@@ -25,8 +25,11 @@ public class OrdersTopology {
     StreamsBuilder streamsBuilder = new StreamsBuilder();
 
     KStream<String, Order> ordersKStream = streamsBuilder.stream(ORDERS, Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
+    // Re-key the stream by locationId to facilitate aggregation and joining with other streams or tables based on locationId
+    // ordersKStream = ordersKStream.selectKey((key, order) -> order.locationId());
+    // Print the orders stream to the console for debugging and monitoring purposes
     ordersKStream.print(Printed.<String, Order>toSysOut().withLabel("Orders Stream"));
-
+    // Split the orders stream into two branches based on the order type (general or restaurant) and process each branch separately
     ordersKStream
         .split(Named.as("order-stream"))
         .branch(generalPredicate, Branched.withConsumer(orderStream -> {
@@ -48,6 +51,7 @@ public class OrdersTopology {
           aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue");
         }));
 
+    // Create a KTable for the stores topic to maintain the latest state of each store, keyed by storeId, for joining with the orders stream
     KTable<String, Store> storeKTable = streamsBuilder.table("stores", Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Store.class)));
 
     return streamsBuilder.build();

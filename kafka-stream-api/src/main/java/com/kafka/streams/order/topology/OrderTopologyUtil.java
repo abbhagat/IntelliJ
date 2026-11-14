@@ -15,8 +15,14 @@ public class OrderTopologyUtil {
     // private constructor to prevent instantiation
   }
 
-  private static final Initializer<TotalRevenue> TOTAL_REVENUE_INITIALIZER = TotalRevenue::new;
-  private static final Aggregator<String, Order, TotalRevenue> REVENUE_AGGREGATOR = (key, value, totalRevenue) -> totalRevenue.calculateTotalRevenue(key, value);
+  private static final Initializer<TotalRevenue> TOTAL_REVENUE_INITIALIZER;
+  private static final Aggregator<String, Order, TotalRevenue> TOTAL_REVENUE_AGGREGATOR;
+
+  static {
+    TOTAL_REVENUE_INITIALIZER = TotalRevenue::new;
+    TOTAL_REVENUE_AGGREGATOR = (key, value, totalRevenue) -> totalRevenue.calculateTotalRevenue(key, value);
+
+  }
 
   public static void aggregateOrderByCount(KStream<String, Order> orderStream, String stateStore) {
     KTable<String, Long> orderKTable = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
@@ -29,7 +35,7 @@ public class OrderTopologyUtil {
     Materialized<String, TotalRevenue, KeyValueStore<Bytes, byte[]>> MATERIALIZED  = Materialized.<String, TotalRevenue, KeyValueStore<Bytes, byte[]>>as(stateStore).withKeySerde(Serdes.String()).withValueSerde(SerdesFactory.getSerdes(TotalRevenue.class));
     KTable<String, TotalRevenue> orderKTable = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
                                                           .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)))
-                                                          .aggregate(TOTAL_REVENUE_INITIALIZER, REVENUE_AGGREGATOR, MATERIALIZED);
+                                                          .aggregate(TOTAL_REVENUE_INITIALIZER, TOTAL_REVENUE_AGGREGATOR, MATERIALIZED);
     orderKTable.toStream().print(Printed.<String, TotalRevenue>toSysOut().withLabel(stateStore));
   }
 }
