@@ -13,7 +13,6 @@ import static java.time.Instant.now;
 public class JoinsMockDataProducer {
 
     public static void main(String[] args) throws InterruptedException {
-
         var alphabetMap = Map.of(
                                                          "A", "A is the first letter in English Alphabets.",
                                                          "B", "B is the second letter in English Alphabets."
