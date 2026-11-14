@@ -1,4 +1,4 @@
-package com.kafka.streams.order.domain;
+package com.kafka.streams.order.model;
 
 import java.math.BigDecimal;
 

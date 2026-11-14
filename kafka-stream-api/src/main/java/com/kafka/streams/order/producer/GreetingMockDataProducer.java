@@ -1,7 +1,7 @@
 package com.kafka.streams.order.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kafka.streams.order.domain.Greeting;
+import com.kafka.streams.order.model.Greeting;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import java.time.LocalDateTime;

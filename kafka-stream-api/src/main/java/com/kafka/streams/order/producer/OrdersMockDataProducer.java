@@ -1,8 +1,8 @@
 package com.kafka.streams.order.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kafka.streams.order.domain.Order;
-import com.kafka.streams.order.domain.OrderType;
+import com.kafka.streams.order.model.Order;
+import com.kafka.streams.order.model.OrderType;
 import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

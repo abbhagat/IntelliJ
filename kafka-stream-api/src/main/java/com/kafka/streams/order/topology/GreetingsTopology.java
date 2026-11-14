@@ -1,6 +1,6 @@
 package com.kafka.streams.order.topology;
 
-import com.kafka.streams.order.domain.Greeting;
+import com.kafka.streams.order.model.Greeting;
 import com.kafka.streams.order.serdes.SerdesFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;

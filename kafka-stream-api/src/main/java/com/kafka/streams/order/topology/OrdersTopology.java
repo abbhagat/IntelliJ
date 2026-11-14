@@ -1,14 +1,14 @@
 package com.kafka.streams.order.topology;
 
-import com.kafka.streams.order.domain.Order;
+import com.kafka.streams.order.model.Order;
 import com.kafka.streams.order.serdes.SerdesFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.*;
-import static com.kafka.streams.order.domain.OrderType.GENERAL;
-import static com.kafka.streams.order.domain.OrderType.RESTAURANT;
+import static com.kafka.streams.order.model.OrderType.GENERAL;
+import static com.kafka.streams.order.model.OrderType.RESTAURANT;
 import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 
 @Slf4j

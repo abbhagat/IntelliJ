@@ -1,3 +1,3 @@
-package com.kafka.streams.order.domain;
+package com.kafka.streams.order.model;
 
 public record Address(String addressLine1, String addressLine2, String city, String state, String zip) {}

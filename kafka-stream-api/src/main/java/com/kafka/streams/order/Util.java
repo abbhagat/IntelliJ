@@ -3,7 +3,7 @@ package com.kafka.streams.order;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.kafka.streams.order.domain.*;
+import com.kafka.streams.order.model.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
