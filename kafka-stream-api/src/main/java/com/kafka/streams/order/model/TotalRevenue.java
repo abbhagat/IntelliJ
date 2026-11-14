@@ -10,7 +10,7 @@ public record TotalRevenue(String locationId, Integer runningOrderCount, BigDeci
 
   public TotalRevenue calculateTotalRevenue(String key, Order order) {
     int newOrderCount = this.runningOrderCount + 1;
-    BigDecimal newRunningRevenue = this.runningRevenue.add(order.totalAmount());
-    return new TotalRevenue(key, newOrderCount, newRunningRevenue);
+    BigDecimal newRevenue = this.runningRevenue.add(order.totalAmount());
+    return new TotalRevenue(key, newOrderCount, newRevenue);
   }
 }
