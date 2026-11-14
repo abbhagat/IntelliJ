@@ -17,10 +17,12 @@ public class ExploreJoinsOperatorsTopology {
   public static Topology build() {
     StreamsBuilder streamsBuilder = new StreamsBuilder();
     joinKStreamWithKTable(streamsBuilder);
+    joinKStreamWithGlobalKTable(streamsBuilder);
     return streamsBuilder.build();
   }
 
   private static void joinKStreamWithKTable(StreamsBuilder streamsBuilder) {
+
     KStream<String, String> kStream = streamsBuilder.stream(ALPHABETS_ABBREVIATIONS, Consumed.with(Serdes.String(), Serdes.String()));
     kStream.print(Printed.<String, String>toSysOut().withLabel("alphabets_abbreviations-kStream"));
     KTable<String, String> kTable = streamsBuilder.table(ALPHABETS, Consumed.with(Serdes.String(), Serdes.String()), Materialized.as("alphabets-KTable"));
@@ -29,7 +31,21 @@ public class ExploreJoinsOperatorsTopology {
     ValueJoiner<String, String, Alphabet> valueJoiner = Alphabet::new;
 
     KStream<String, Alphabet> joinedStream = kStream.join(kTable, valueJoiner);
-    joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("joinedStream"));
+    joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-KTable"));
+  }
+
+  private static void joinKStreamWithGlobalKTable(StreamsBuilder streamsBuilder) {
+
+    KStream<String, String> kStream = streamsBuilder.stream(ALPHABETS_ABBREVIATIONS, Consumed.with(Serdes.String(), Serdes.String()));
+    kStream.print(Printed.<String, String>toSysOut().withLabel("alphabets_abbreviations-kStream"));
+    GlobalKTable<String, String> globalKTable = streamsBuilder.globalTable(ALPHABETS, Consumed.with(Serdes.String(), Serdes.String()), Materialized.as("alphabets-global-KTable"));
+
+    ValueJoiner<String, String, Alphabet> valueJoiner = Alphabet::new;
+    KeyValueMapper<String, String, String> keyValueMapper = (leftKey, rightKey) -> leftKey;
+
+    KStream<String, Alphabet> joinedStream = kStream.join(globalKTable, keyValueMapper, valueJoiner);
+
+    joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-GlobalKTable"));
   }
 
 }

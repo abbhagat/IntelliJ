@@ -14,17 +14,17 @@ public class JoinsMockDataProducer {
 
     public static void main(String[] args) throws InterruptedException {
         var alphabetMap = Map.of(
-                                                         "A", "A is the first letter in English Alphabets.",
-                                                         "B", "B is the second letter in English Alphabets."
+                                                         "A", "A is the 1st letter in English Alphabet",
+                                                         "B", "B is the 2nd letter in English Alphabet"
                                                        );
         //publishMessages(alphabetMap, ALPHABETS);
         //JoinWindows
         //-4 & 4 will trigger the join
         //-6 -5 & 5, 6 won't trigger the join
         //publishMessagesWithDelay(alphabetMap, ALPHABETS, 4);
-        var alphabetAbbrevationMap = Map.of("A", "Apple","B", "Bus" , "C", "Cat");
-        publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVIATIONS);
-        alphabetAbbrevationMap = Map.of("A", "Airplane", "B", "Baby.");
+        var alphabetAbbreviationMap = Map.of("A", "Apple","B", "Bus" , "C", "Cat");
+        publishMessages(alphabetAbbreviationMap, ALPHABETS_ABBREVIATIONS);
+      alphabetAbbreviationMap = Map.of("A", "Airplane", "B", "Baby");
         // publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVIATIONS);
     }
 
