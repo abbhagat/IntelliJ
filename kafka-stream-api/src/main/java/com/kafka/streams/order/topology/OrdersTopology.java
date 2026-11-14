@@ -12,6 +12,7 @@ import static com.kafka.streams.order.model.OrderType.GENERAL;
 import static com.kafka.streams.order.model.OrderType.RESTAURANT;
 import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByCount;
+import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByRevenue;
 
 @Slf4j
 public class OrdersTopology {
@@ -34,6 +35,8 @@ public class OrdersTopology {
           orderStream.to("general-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
           // Aggregate the general orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "general-orders-count");
+          // Aggregate the general orders by locationId and revenue, storing the result in a state store
+          aggregateOrderByRevenue(orderStream, "general-orders-revenue");
         }))
         .branch(restaurantPredicate, Branched.withConsumer(orderStream -> {
           orderStream.print(Printed.<String, Order>toSysOut().withLabel("Restaurant Orders Stream"));
@@ -41,6 +44,8 @@ public class OrdersTopology {
           orderStream.to("restaurant-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
           // Aggregate the restaurant orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "restaurant-orders-count");
+          // Aggregate the restaurant orders by locationId and revenue, storing the result in a state store
+          aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue");
         }));
 
     KTable<String, Store> storeKTable = streamsBuilder.table("stores", Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Store.class)));
