@@ -18,6 +18,8 @@ public class ExploreJoinsOperatorsTopology {
     StreamsBuilder streamsBuilder = new StreamsBuilder();
     joinKStreamWithKTable(streamsBuilder);
     joinKStreamWithGlobalKTable(streamsBuilder);
+    joinKTableWithKTable(streamsBuilder);
+    joinKStreamWithKStream(streamsBuilder);
     return streamsBuilder.build();
   }
 
@@ -48,4 +50,34 @@ public class ExploreJoinsOperatorsTopology {
     joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-GlobalKTable"));
   }
 
+  private static void joinKTableWithKTable(StreamsBuilder streamsBuilder) {
+
+    KTable<String, String> alphaAbbrevKTable = streamsBuilder.table(ALPHABETS_ABBREVIATIONS, Consumed.with(Serdes.String(), Serdes.String()), Materialized.as("alphabets_abbreviations-KTable"));
+    alphaAbbrevKTable.toStream().print(Printed.<String, String>toSysOut().withLabel("alphabets_abbreviations-KTable"));
+
+    KTable<String, String> alphaKTable = streamsBuilder.table(ALPHABETS, Consumed.with(Serdes.String(), Serdes.String()), Materialized.as("alphabets-KTable"));
+    alphaKTable.toStream().print(Printed.<String, String>toSysOut().withLabel("alphabets-KTable"));
+
+    ValueJoiner<String, String, Alphabet> valueJoiner = Alphabet::new;
+
+    KTable<String, Alphabet> joinedStream = alphaAbbrevKTable.join(alphaKTable, valueJoiner);
+    joinedStream.toStream().print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-KTable"));
+  }
+
+  private static void joinKStreamWithKStream(StreamsBuilder streamsBuilder) {
+    KStream<String, String> alphaAbbrevKStream = streamsBuilder.stream(ALPHABETS_ABBREVIATIONS, Consumed.with(Serdes.String(), Serdes.String()));
+    alphaAbbrevKStream.print(Printed.<String, String>toSysOut().withLabel("alphabets_abbreviations-kStream"));
+
+    KStream<String, String> alphaKStream = streamsBuilder.stream(ALPHABETS, Consumed.with(Serdes.String(), Serdes.String()));
+    alphaKStream.print(Printed.<String, String>toSysOut().withLabel("alphabets-KStream"));
+
+    ValueJoiner<String, String, Alphabet> valueJoiner = Alphabet::new;
+
+    KStream<String, Alphabet> joinedStream      = alphaAbbrevKStream.join(alphaKStream, valueJoiner, null, null);
+    KStream<String, Alphabet> leftJoinedStream  = alphaAbbrevKStream.leftJoin(alphaKStream, valueJoiner, null, null);
+    KStream<String, Alphabet> outerJoinedStream = alphaAbbrevKStream.outerJoin(alphaKStream, valueJoiner, null, null);
+    joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-KStream"));
+    leftJoinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("leftJoin-KStream-With-KStream"));
+    outerJoinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("outerJoin-KStream-With-KStream"));
+  }
 }
