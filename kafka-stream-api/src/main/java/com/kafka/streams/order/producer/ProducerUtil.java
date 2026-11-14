@@ -7,8 +7,11 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 @Slf4j
 public class ProducerUtil {
@@ -33,5 +36,29 @@ public class ProducerUtil {
       log.error("Exception in  publishMessageSync : {}  ", e.getMessage(), e);
     }
     return recordMetadata;
+  }
+
+  public static RecordMetadata publishMessageSyncWithDelay(String topicName, String key, String message , long delay){
+    ProducerRecord<String,String> producerRecord = new ProducerRecord<>(topicName, 0, LocalTime.now().plusSeconds(delay).toNanoOfDay(), key, message);
+    return getRecordMetadata(producerRecord);
+  }
+
+  private static RecordMetadata getRecordMetadata(ProducerRecord<String, String> producerRecord) {
+    RecordMetadata recordMetadata=null;
+    try {
+      log.info("producerRecord : " + producerRecord);
+      recordMetadata = kafkaProducer.send(producerRecord).get();
+    } catch (InterruptedException e) {
+      log.error("InterruptedException in  publishMessageSync : {}  ", e.getMessage(), e);
+    } catch (ExecutionException e) {
+      log.error("ExecutionException in  publishMessageSync : {}  ", e.getMessage(), e);
+    }catch(Exception e){
+      log.error("Exception in  publishMessageSync : {}  ", e.getMessage(), e);
+    }
+    return recordMetadata;
+  }
+
+  public static void publishMessageSync(ArrayList<ProducerRecord<String, String>> producerRecords) {
+    producerRecords.forEach(ProducerUtil::getRecordMetadata);
   }
 }
