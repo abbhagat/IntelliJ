@@ -10,7 +10,6 @@ import org.apache.kafka.streams.kstream.*;
 @Slf4j
 public class ExploreJoinsOperatorsTopology {
 
-
   public static String ALPHABETS = "alphabets"; // A -> First letter in the english alphabet
   public static String ALPHABETS_ABBREVIATIONS = "alphabets_abbreviations"; // A ->  Apple
 
