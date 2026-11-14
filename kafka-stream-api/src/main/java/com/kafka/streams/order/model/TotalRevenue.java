@@ -13,4 +13,9 @@ public record TotalRevenue(String locationId, Integer runningOrderCount, BigDeci
     BigDecimal newRevenue = this.runningRevenue.add(order.totalAmount());
     return new TotalRevenue(key, newOrderCount, newRevenue);
   }
+
+  @Override
+  public String toString() {
+    return "TotalRevenue { " + "locationId='" + locationId + '\'' + ", runningOrderCount=" + runningOrderCount + ", runningRevenue=" + runningRevenue + '}';
+  }
 }
