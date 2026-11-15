@@ -23,6 +23,9 @@ public class OrdersTopology {
   public static Topology buildTopology() {
 
     StreamsBuilder streamsBuilder = new StreamsBuilder();
+    // Create a KTable for the stores topic to maintain the latest state of each store, keyed by storeId, for joining with the orders stream
+    KTable<String, Store> storeKTable = streamsBuilder.table("stores", Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Store.class)));
+    storeKTable.toStream().print(Printed.<String, Store>toSysOut().withLabel("Stores Table"));
 
     KStream<String, Order> ordersKStream = streamsBuilder.stream(ORDERS, Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
     // Re-key the stream by locationId to facilitate aggregation and joining with other streams or tables based on locationId
@@ -39,7 +42,7 @@ public class OrdersTopology {
           // Aggregate the general orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "general-orders-count");
           // Aggregate the general orders by locationId and revenue, storing the result in a state store
-          aggregateOrderByRevenue(orderStream, "general-orders-revenue");
+          aggregateOrderByRevenue(orderStream, "general-orders-revenue", storeKTable);
         }))
         .branch(restaurantPredicate, Branched.withConsumer(orderStream -> {
           orderStream.print(Printed.<String, Order>toSysOut().withLabel("Restaurant Orders Stream"));
@@ -48,12 +51,8 @@ public class OrdersTopology {
           // Aggregate the restaurant orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "restaurant-orders-count");
           // Aggregate the restaurant orders by locationId and revenue, storing the result in a state store
-          aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue");
+          aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue", storeKTable);
         }));
-
-    // Create a KTable for the stores topic to maintain the latest state of each store, keyed by storeId, for joining with the orders stream
-    KTable<String, Store> storeKTable = streamsBuilder.table("stores", Consumed.with(Serdes.String(), SerdesFactory.getSerdes(Store.class)));
-
     return streamsBuilder.build();
   }
 }
