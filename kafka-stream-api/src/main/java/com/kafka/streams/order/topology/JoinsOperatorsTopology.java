@@ -14,6 +14,20 @@ public class JoinsOperatorsTopology {
   public static String ALPHABETS = "alphabets"; // A -> First letter in the english alphabet
   public static String ALPHABETS_ABBREVIATIONS = "alphabets_abbreviations"; // A ->  Apple
 
+  private static final ValueJoiner<String, String, Alphabet> valueJoiner;
+  private static final JoinWindows joinWindows;
+  private static final StreamJoined<String, String, String> streamJoined;
+  private static final StreamJoined<String, String, String> leftStreamJoined;
+  private static final StreamJoined<String, String, String> outerStreamJoined;
+
+  static {
+    valueJoiner       = Alphabet::new;
+    joinWindows       = JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofSeconds(5));
+    streamJoined      = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("innerJoin-KStream-With-KStream");
+    leftStreamJoined  = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("leftJoin-KStream-With-KStream");
+    outerStreamJoined = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("outerJoin-KStream-With-KStream");
+  }
+
   public static Topology build() {
     StreamsBuilder streamsBuilder = new StreamsBuilder();
     joinKStreamWithKTable(streamsBuilder);
@@ -72,17 +86,13 @@ public class JoinsOperatorsTopology {
     KStream<String, String> alphaKStream = streamsBuilder.stream(ALPHABETS, Consumed.with(Serdes.String(), Serdes.String()));
     alphaKStream.print(Printed.<String, String>toSysOut().withLabel("alphabets-KStream"));
 
-    ValueJoiner<String, String, Alphabet> valueJoiner = Alphabet::new;
-    JoinWindows joinWindows = JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofSeconds(5));
-    StreamJoined<String, String, String> streamJoined = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String());
-
     KStream<String, Alphabet> joinedStream      = alphaAbbrevKStream.join(alphaKStream, valueJoiner, joinWindows, streamJoined);
     joinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("join-KStream-With-KStream"));
 
-    KStream<String, Alphabet> leftJoinedStream  = alphaAbbrevKStream.leftJoin(alphaKStream, valueJoiner, joinWindows, streamJoined);
+    KStream<String, Alphabet> leftJoinedStream  = alphaAbbrevKStream.leftJoin(alphaKStream, valueJoiner, joinWindows, leftStreamJoined);
     leftJoinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("leftJoin-KStream-With-KStream"));
 
-    KStream<String, Alphabet> outerJoinedStream = alphaAbbrevKStream.outerJoin(alphaKStream, valueJoiner, joinWindows, streamJoined);
+    KStream<String, Alphabet> outerJoinedStream = alphaAbbrevKStream.outerJoin(alphaKStream, valueJoiner, joinWindows, outerStreamJoined);
     outerJoinedStream.print(Printed.<String, Alphabet>toSysOut().withLabel("outerJoin-KStream-With-KStream"));
   }
 }

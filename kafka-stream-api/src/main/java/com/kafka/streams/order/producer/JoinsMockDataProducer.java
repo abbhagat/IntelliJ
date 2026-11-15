@@ -17,15 +17,14 @@ public class JoinsMockDataProducer {
                                                          "A", "A is the 1st letter in English Alphabet",
                                                          "B", "B is the 2nd letter in English Alphabet"
                                                        );
-        //publishMessages(alphabetMap, ALPHABETS);
-        //JoinWindows
-        //-4 & 4 will trigger the join
-        //-6 -5 & 5, 6 won't trigger the join
-        //publishMessagesWithDelay(alphabetMap, ALPHABETS, 4);
-        var alphabetAbbreviationMap = Map.of("A", "Apple","B", "Bus" , "C", "Cat");
-        publishMessages(alphabetAbbreviationMap, ALPHABETS_ABBREVIATIONS);
+       //publishMessages(alphabetMap, ALPHABETS);
+      //JoinWindows
+      //-4 & 4 will trigger the join -6 -5 & 5, 6 won't trigger the join
+      //publishMessagesWithDelay(alphabetMap, ALPHABETS, 4);
+      var alphabetAbbreviationMap = Map.of("A", "Apple","B", "Bus" , "C", "Cat");
+      publishMessages(alphabetAbbreviationMap, ALPHABETS_ABBREVIATIONS);
       alphabetAbbreviationMap = Map.of("A", "Airplane", "B", "Baby");
-        // publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVIATIONS);
+      // publishMessages(alphabetAbbreviationMap, ALPHABETS_ABBREVIATIONS);
     }
 
     private static void publishMessagesToSimulateGrace(Map<String, String> alphabetMap, String topicName, int delaySeconds) throws InterruptedException {
