@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSyncWithDelay;
-import static com.kafka.streams.order.topology.ExploreJoinsOperatorsTopology.ALPHABETS_ABBREVIATIONS;
+import static com.kafka.streams.order.topology.JoinsOperatorsTopology.ALPHABETS_ABBREVIATIONS;
 import static java.time.Instant.now;
 
 @Slf4j

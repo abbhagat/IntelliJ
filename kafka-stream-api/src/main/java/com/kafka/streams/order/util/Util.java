@@ -1,4 +1,4 @@
-package com.kafka.streams.order;
+package com.kafka.streams.order.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

@@ -5,7 +5,7 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 
 @Slf4j
-public class ExploreAggregateOperatorsTopology {
+public class AggregateOperatorsTopology {
 
     public static String AGGREGATE = "aggregate";
 

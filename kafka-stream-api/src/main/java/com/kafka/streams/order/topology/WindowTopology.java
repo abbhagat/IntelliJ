@@ -2,16 +2,14 @@ package com.kafka.streams.order.topology;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.*;
 
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 
 @Slf4j
-public class ExploreWindowTopology {
+public class WindowTopology {
 
     public static final String WINDOW_WORDS = "windows-words";
 

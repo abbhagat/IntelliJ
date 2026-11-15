@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import java.time.LocalDateTime;
 import java.util.List;
-import static com.kafka.streams.order.Util.objectMapper;
+import static com.kafka.streams.order.util.Util.objectMapper;
 import static com.kafka.streams.order.launcher.TopicUtil.GREETING_SPANISH_TOPIC;
 import static com.kafka.streams.order.launcher.TopicUtil.GREETING_TOPIC;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;

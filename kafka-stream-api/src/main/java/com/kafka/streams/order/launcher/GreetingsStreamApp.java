@@ -10,8 +10,8 @@ import org.apache.kafka.streams.Topology;
 import java.util.List;
 import java.util.Properties;
 
-import static com.kafka.streams.order.Util.BROKER_LIST;
-import static com.kafka.streams.order.Util.LATEST;
+import static com.kafka.streams.order.util.Util.BROKER_LIST;
+import static com.kafka.streams.order.util.Util.LATEST;
 import static com.kafka.streams.order.launcher.TopicUtil.*;
 
 @Slf4j
