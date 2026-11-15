@@ -23,9 +23,15 @@ public class JoinsOperatorsTopology {
   static {
     valueJoiner       = Alphabet::new;
     joinWindows       = JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofSeconds(5));
-    streamJoined      = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("innerJoin-KStream-With-KStream");
-    leftStreamJoined  = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("leftJoin-KStream-With-KStream");
-    outerStreamJoined = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()).withName("outerJoin-KStream-With-KStream");
+    streamJoined      = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String())
+                                    .withName("innerJoin-KStream-With-KStream")
+                                    .withStoreName("innerJoin-KStream-With-KStream");
+    leftStreamJoined  = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String())
+                                    .withName("leftJoin-KStream-With-KStream")
+                                    .withStoreName("leftJoin-KStream-With-KStream");
+    outerStreamJoined = StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String())
+                                    .withName("outerJoin-KStream-With-KStream")
+                                    .withStoreName("outerJoin-KStream-With-KStream");
   }
 
   public static Topology build() {
