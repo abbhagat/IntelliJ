@@ -17,7 +17,8 @@ Open the local URL printed by Create React App (normally http://localhost:3000).
 npm run build
 ```
 
-The app starts with realistic in-memory sample employees. Search filters, pagination, sorting, employee add/edit/delete, and Excel export work in the browser. Data resets when the page is refreshed.
+The app starts with realistic in-memory sample employees. Search filters, pagination, sorting, employee add/edit/delete,
+and Excel export work in the browser. Data resets when the page is refreshed.
 
 ### Connect a REST API
 
@@ -28,4 +29,5 @@ In `src/App.js`, replace the local list/filter and mutation code with calls to y
 - Update: `PUT /api/employees/:id`.
 - Delete: `DELETE /api/employees/:id`.
 
-The relevant replacement points are marked inline next to the local state handlers. Keep the API record shape aligned with the employee fields used by the grid.
+The relevant replacement points are marked inline next to the local state handlers. Keep the API record shape aligned
+with the employee fields used by the grid.
