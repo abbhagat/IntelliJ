@@ -14,11 +14,27 @@ public class TinyUrl {
   private final AtomicInteger counter;
 
   public TinyUrl() {
-    counter       = new AtomicInteger(1);
+    counter = new AtomicInteger(1);
     urlToIndexMap = new ConcurrentHashMap<>();
     indexToUrlMap = new ConcurrentHashMap<>();
-    BASE_62       = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    BASE_URL      = "http://www.tinyurl.com/";
+    BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    BASE_URL = "http://www.tinyurl.com/";
+  }
+
+  public static void main(String[] args) {
+    TinyUrl tinyUrl = new TinyUrl();
+    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
+    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    String longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
+    url = "https://leetcode.com/problems/encode-and-decode-tinyurls";
+    shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
   }
 
   private String encode(String longURL) {
@@ -46,26 +62,10 @@ public class TinyUrl {
   private String decode(String shortURL) {
     int n = 0;
     int index = shortURL.lastIndexOf("/");
-    String encodedString = shortURL.substring( index + 1);
+    String encodedString = shortURL.substring(index + 1);
     for (char c : encodedString.toCharArray()) {
       n = n * 62 + BASE_62.indexOf(c);
     }
     return indexToUrlMap.get(n);
-  }
-
-  public static void main(String[] args) {
-    TinyUrl tinyUrl = new TinyUrl();
-    String url      = "https://leetcode.com/problems/encode-and-decode-tinyurl";
-    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    String longURL  = tinyUrl.decode(shortURL);
-    System.out.println(shortURL);
-    System.out.println(longURL);
-    System.out.println(url.equals(longURL));
-    url      = "https://leetcode.com/problems/encode-and-decode-tinyurls";
-    shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    longURL  = tinyUrl.decode(shortURL);
-    System.out.println(shortURL);
-    System.out.println(longURL);
-    System.out.println(url.equals(longURL));
   }
 }

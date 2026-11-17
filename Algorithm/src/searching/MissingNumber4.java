@@ -17,7 +17,7 @@ public class MissingNumber4 {
         count++;
       }
     }
-    if(count == 0) {
+    if (count == 0) {
       System.out.print((max + 1) + "\t" + (max + 2));
     }
     System.out.println();

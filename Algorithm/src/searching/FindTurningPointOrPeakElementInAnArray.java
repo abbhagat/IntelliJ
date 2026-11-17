@@ -30,9 +30,9 @@ public class FindTurningPointOrPeakElementInAnArray {
   }
 
   public static void main(String[] args) {
-    findPeakAscToDesc(new int[] {1, 3, 2});
-    findPeakDescToAsc(new int[] {3, 1, 2});
-    findPeakAscToDesc(new int[] {1, 3, 8, 12, 9, 5, 2});
-    findPeakDescToAsc(new int[] {9, 8, 7, 6, 10, 11, 12});
+    findPeakAscToDesc(new int[]{1, 3, 2});
+    findPeakDescToAsc(new int[]{3, 1, 2});
+    findPeakAscToDesc(new int[]{1, 3, 8, 12, 9, 5, 2});
+    findPeakDescToAsc(new int[]{9, 8, 7, 6, 10, 11, 12});
   }
 }

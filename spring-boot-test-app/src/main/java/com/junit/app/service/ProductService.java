@@ -10,22 +10,22 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    @Autowired
-    private ProductRepository productDAO;
+  @Autowired
+  private ProductRepository productDAO;
 
-    public List<Product> getAllProducts() {
-        return productDAO.findAll();
-    }
+  public List<Product> getAllProducts() {
+    return productDAO.findAll();
+  }
 
-    public Product getProductByID(Long productID) {
-        return productDAO.getOne(productID);
-    }
+  public Product getProductByID(Long productID) {
+    return productDAO.getOne(productID);
+  }
 
-    public Product saveProduct(Product product) {
-        return productDAO.save(product);
-    }
+  public Product saveProduct(Product product) {
+    return productDAO.save(product);
+  }
 
-    public void deleteProductByID(Long productID) {
-        productDAO.deleteById(productID);
-    }
+  public void deleteProductByID(Long productID) {
+    productDAO.deleteById(productID);
+  }
 }

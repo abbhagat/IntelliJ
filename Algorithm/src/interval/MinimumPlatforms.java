@@ -54,13 +54,13 @@ public class MinimumPlatforms {
     int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
     System.out.println(minPlatforms(arr, dep));
     int[][] a = {
-                  {900, 910},
-                  {940, 1200},
-                  {950, 1120},
-                  {1100, 1130},
-                  {1500, 1900},
-                  {1800, 2000},
-                };
+        {900, 910},
+        {940, 1200},
+        {950, 1120},
+        {1100, 1130},
+        {1500, 1900},
+        {1800, 2000},
+    };
     System.out.println(minPlatforms(a));
   }
 }

@@ -16,15 +16,15 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class FailureRecord {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
-    private Integer key;
-    private Integer partition;
-    private String topic;
-    private String errorRecord;
-    private String exception;
-    private String status;
-    private long offset_value;
+  @Id
+  @GeneratedValue
+  private Integer id;
+  private Integer key;
+  private Integer partition;
+  private String topic;
+  private String errorRecord;
+  private String exception;
+  private String status;
+  private long offset_value;
 
 }

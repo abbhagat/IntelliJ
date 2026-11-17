@@ -1,6 +1,7 @@
 package geeks;
 
 import java.util.stream.IntStream;
+
 import static geeks.EquilibriumPointInAnArray.findEquilibriumPoint;
 
 public class DivideArrayInTwoEqualHalf {

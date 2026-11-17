@@ -10,12 +10,12 @@ import java.lang.annotation.*;
 @Documented
 public @interface IsValidStatus {
 
-    String[] listOfValidStatus() default {"Active", "InActive"};
+  String[] listOfValidStatus() default {"Active", "InActive"};
 
-    String message() default "Please provide valid status. Accepted Values are Active or Inactive";
+  String message() default "Please provide valid status. Accepted Values are Active or Inactive";
 
-    Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
+  Class<? extends Payload>[] payload() default {};
 
 }

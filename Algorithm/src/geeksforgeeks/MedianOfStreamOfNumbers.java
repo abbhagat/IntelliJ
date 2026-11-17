@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 // Space Complexity : O(n)
 public class MedianOfStreamOfNumbers {
 
-  private static final PriorityQueue<Integer> left  = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
+  private static final PriorityQueue<Integer> left = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
   private static final PriorityQueue<Integer> right = new PriorityQueue<>(); // Min heap
 
   public static float findMedian(int n) {

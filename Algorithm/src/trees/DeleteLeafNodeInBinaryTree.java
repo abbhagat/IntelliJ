@@ -13,7 +13,7 @@ public class DeleteLeafNodeInBinaryTree {
     if (root.left == null && root.right == null) {
       return null;
     }
-    root.left  = deleteLeafNode(root.left);
+    root.left = deleteLeafNode(root.left);
     root.right = deleteLeafNode(root.right);
     return root;
   }

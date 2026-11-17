@@ -23,7 +23,7 @@ import java.util.List;
 public class WordBreakII {
 
   public static List<String> wordBreak(String str, List<String> list) {
-    List<String>  al = new ArrayList<>();
+    List<String> al = new ArrayList<>();
     StringBuilder sb = new StringBuilder();
     wordBreak(0, sb, al, str, list);
     return al;
@@ -46,8 +46,8 @@ public class WordBreakII {
   }
 
   public static void main(String[] args) {
-    System.out.println((wordBreak("catsanddog",        List.of("cat", "cats", "and", "sand", "dog"))));
-    System.out.println((wordBreak("catsandog",         List.of("cats","dog","sand","and","cat"))));
-    System.out.println((wordBreak("pineapplepenapple", List.of("apple","pen","applepen","pine","pineapple"))));
+    System.out.println((wordBreak("catsanddog", List.of("cat", "cats", "and", "sand", "dog"))));
+    System.out.println((wordBreak("catsandog", List.of("cats", "dog", "sand", "and", "cat"))));
+    System.out.println((wordBreak("pineapplepenapple", List.of("apple", "pen", "applepen", "pine", "pineapple"))));
   }
 }

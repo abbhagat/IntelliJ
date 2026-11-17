@@ -1,8 +1,8 @@
 package linkedlist;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
+
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 

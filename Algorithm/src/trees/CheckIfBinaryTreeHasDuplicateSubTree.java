@@ -5,27 +5,27 @@ import java.util.Map;
 
 /**
  * A duplicate subtree means two or more subtrees with the same structure and same node values exist in a binary tree.
-          1
-         / \
-        2   3
-       /   / \
-      4   2   4
-         /
-        4
-
- Duplicate subtrees
-
-          2  4 (leaf ignored usually)
-         /
-        4
-
- The idea behind this algorithm is:
- Serialize every subtree into a unique string.
- Store each serialization in a HashMap.
- If the same serialization appears more than once, then an identical subtree exists.
- The serialization of each leaf 4 is: 4,null,null
- If you didn't ignore leaf nodes, the map would contain: "4,null,null" -> 2 and your algorithm would return true
-*/
+ * 1
+ * / \
+ * 2   3
+ * /   / \
+ * 4   2   4
+ * /
+ * 4
+ * <p>
+ * Duplicate subtrees
+ * <p>
+ * 2  4 (leaf ignored usually)
+ * /
+ * 4
+ * <p>
+ * The idea behind this algorithm is:
+ * Serialize every subtree into a unique string.
+ * Store each serialization in a HashMap.
+ * If the same serialization appears more than once, then an identical subtree exists.
+ * The serialization of each leaf 4 is: 4,null,null
+ * If you didn't ignore leaf nodes, the map would contain: "4,null,null" -> 2 and your algorithm would return true
+ */
 
 // Time Complexity : O(n)
 // Space Complexity: O(n)
@@ -43,8 +43,8 @@ public class CheckIfBinaryTreeHasDuplicateSubTree {
     if (root == null) {
       return "null";
     }
-    String left    = serialize(root.left);
-    String right   = serialize(root.right);
+    String left = serialize(root.left);
+    String right = serialize(root.right);
     String subtree = root.num + "," + left + "," + right;
     if (!left.equals("null") || !right.equals("null")) {       // Process this subtree only if it has at least one child
       int count = map.getOrDefault(subtree, 0);
@@ -57,12 +57,12 @@ public class CheckIfBinaryTreeHasDuplicateSubTree {
   }
 
   public static void main(String[] args) {
-    Node root            = new Node(1);
-    root.left            = new Node(2);
-    root.right           = new Node(3);
-    root.left.left       = new Node(4);
-    root.right.left      = new Node(2);
-    root.right.right     = new Node(4);
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.right.left = new Node(2);
+    root.right.right = new Node(4);
     root.right.left.left = new Node(4);
     System.out.println(hasDuplicateSubtree(root));
   }

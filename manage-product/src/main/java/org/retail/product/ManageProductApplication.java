@@ -9,8 +9,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties(ProductProperties.class)
 public class ManageProductApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ManageProductApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ManageProductApplication.class, args);
+  }
 
 }

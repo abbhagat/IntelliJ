@@ -7,14 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SBI implements CommandLineRunner {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SBI.class, args);
-    }
+  public static void main(String[] args) throws Exception {
+    SpringApplication.run(SBI.class, args);
+  }
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Command Line Runner Invoked");
-    }
+  @Override
+  public void run(String... args) throws Exception {
+    System.out.println("Command Line Runner Invoked");
+  }
 }
 
 /*

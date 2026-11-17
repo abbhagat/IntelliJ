@@ -28,8 +28,8 @@ public class BookingService {
           System.out.println("Table already booked");
         }
       }
-      String bookingId   = UUID.randomUUID().toString();
-      Booking booking = new Booking(bookingId, table, customer,  startTime, endTime);
+      String bookingId = UUID.randomUUID().toString();
+      Booking booking = new Booking(bookingId, table, customer, startTime, endTime);
       this.reservation.save(booking);
       return booking;
     } finally {

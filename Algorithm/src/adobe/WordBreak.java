@@ -41,8 +41,8 @@ public class WordBreak {
       for (int j = 0; j <= i; j++) {
         String s = str.substring(j, i);
         if (dp[j] && list.contains(s)) {
-            dp[i] = true;
-            break;
+          dp[i] = true;
+          break;
         }
       }
     }
@@ -53,16 +53,20 @@ public class WordBreak {
     List<String> list;
     String str;
 
-    str  = "catsanddog"; list = List.of("cat", "cats", "and", "sand", "dog");
+    str = "catsanddog";
+    list = List.of("cat", "cats", "and", "sand", "dog");
     System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
 
-    str  = "catsandog"; list = List.of("cats", "dog", "sand", "and", "cat");
+    str = "catsandog";
+    list = List.of("cats", "dog", "sand", "and", "cat");
     System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
 
-    str  = "applepenapple"; list = List.of("apple", "pen");
+    str = "applepenapple";
+    list = List.of("apple", "pen");
     System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
 
-    str  = "leetcode"; list = List.of("leet", "code");
+    str = "leetcode";
+    list = List.of("leet", "code");
     System.out.println(wordBreak(str, list) + "\t" + wordBreak(0, str, list));
   }
 }

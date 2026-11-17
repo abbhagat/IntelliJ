@@ -1,7 +1,6 @@
 package gfg;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
@@ -13,8 +12,8 @@ public class LargestContiguousProductArrayPrint {
     for (int i = 1; i < a.length; i++) {
       if (a[i] < 0) {
         int t = min;
-          min = max;
-          max = t;
+        min = max;
+        max = t;
       }
       min = min(a[i], a[i] * min);
       max = max(a[i], a[i] * max);
@@ -30,32 +29,32 @@ public class LargestContiguousProductArrayPrint {
       if (a[i] < 0) {
         // swap min with max
         int t = min;
-          min = max;
-          max = t;
-       // swap minStart with maxStart
-        t        = minStart;
+        min = max;
+        max = t;
+        // swap minStart with maxStart
+        t = minStart;
         minStart = maxStart;
         maxStart = t;
       }
       // Calculate new minimum
       if (a[i] < a[i] * min) {
-        min      = a[i];
+        min = a[i];
         minStart = i;
       } else {
         min = a[i] * min;
       }
       // Calculate new maximum
       if (a[i] > a[i] * max) {
-        max      = a[i];
+        max = a[i];
         maxStart = i;
       } else {
         max = a[i] * max;
       }
       // Update global maximum
       if (maxProduct < max) {
-          maxProduct = max;
-          start      = maxStart;
-          end        = i;
+        maxProduct = max;
+        start = maxStart;
+        end = i;
       }
     }
     System.out.println(maxProduct);

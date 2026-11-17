@@ -1,7 +1,9 @@
 package trees;
 
 import lombok.Getter;
+
 import java.util.Stack;
+
 import static trees.BinaryTree.createBST;
 
 interface Iterable {
@@ -10,8 +12,10 @@ interface Iterable {
 
 interface Iterator {
   boolean hasNext();
-  Node    curr();
-  Node    next();
+
+  Node curr();
+
+  Node next();
 }
 
 @Getter

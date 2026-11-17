@@ -1,7 +1,6 @@
 package trees;
 
 import java.util.LinkedList;
-import static trees.BinaryTree.createBST;
 
 // Time complexity: O(n)
 public class PrintPathFromRootToAGivenTargetNode {
@@ -14,7 +13,7 @@ public class PrintPathFromRootToAGivenTargetNode {
       System.out.print(root.num + " ");
       return true;
     }
-    boolean left  = printPath(root.left, num);
+    boolean left = printPath(root.left, num);
     boolean right = printPath(root.right, num);
     if (left || right) {
       System.out.print(root.num + " ");
@@ -33,7 +32,7 @@ public class PrintPathFromRootToAGivenTargetNode {
       list.removeLast();
       return;
     }
-    printPath(root.left,  target, list);
+    printPath(root.left, target, list);
     printPath(root.right, target, list);
     list.removeLast();
   }
@@ -50,15 +49,15 @@ public class PrintPathFromRootToAGivenTargetNode {
                         \
                         10
      */
-    Node root                    = new Node(1);
-    root.left                    = new Node(2);
-    root.right                   = new Node(3);
-    root.left.left               = new Node(4);
-    root.left.right              = new Node(5);
-    root.right.right             = new Node(6);
-    root.left.right.left         = new Node(7);
-    root.left.right.right        = new Node(8);
-    root.right.right.right       = new Node(9);
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.left.right = new Node(5);
+    root.right.right = new Node(6);
+    root.left.right.left = new Node(7);
+    root.left.right.right = new Node(8);
+    root.right.right.right = new Node(9);
     root.right.right.right.right = new Node(10);
     if (!printPath(root, 8)) {
       System.out.println("No Path");

@@ -11,7 +11,7 @@ public class CheckIfAnArrayRepresentsMinHeap {
 
   private static boolean isMinHeap(int[] a) {
     for (int i = 0; i <= (a.length - 2) / 2; i++) {
-      int left  = 2 * i + 1;
+      int left = 2 * i + 1;
       int right = 2 * i + 2;
       if (a[i] > a[left]) {
         return false;
@@ -24,7 +24,7 @@ public class CheckIfAnArrayRepresentsMinHeap {
   }
 
   public static void main(String[] args) {
-    System.out.println(isMinHeap(new int[] {90, 15, 10, 7, 12, 2, 7, 3}));
-    System.out.println(isMinHeap(new int[] {10, 50, 80, 55, 57, 85, 90}));
+    System.out.println(isMinHeap(new int[]{90, 15, 10, 7, 12, 2, 7, 3}));
+    System.out.println(isMinHeap(new int[]{10, 50, 80, 55, 57, 85, 90}));
   }
 }

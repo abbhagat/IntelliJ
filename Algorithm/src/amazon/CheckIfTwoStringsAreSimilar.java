@@ -25,7 +25,7 @@ public class CheckIfTwoStringsAreSimilar {
     if (j == -1) {
       return false; // Only one mismatch
     }
-    return s1.charAt(i)  == s2.charAt(j) && s1.charAt(j) == s2.charAt(i);
+    return s1.charAt(i) == s2.charAt(j) && s1.charAt(j) == s2.charAt(i);
   }
 
   public static void main(String... args) {

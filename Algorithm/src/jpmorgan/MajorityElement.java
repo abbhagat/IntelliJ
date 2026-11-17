@@ -21,10 +21,10 @@ public class MajorityElement {
     Map<Integer, Integer> map = new HashMap<>();
     Arrays.stream(a).forEach(x -> map.put(x, map.getOrDefault(x, 0) + 1));
     return map.keySet()
-              .stream()
-              .filter(x -> map.get(x) > a.length / 2)
-              .findFirst()
-              .orElse(-1);
+        .stream()
+        .filter(x -> map.get(x) > a.length / 2)
+        .findFirst()
+        .orElse(-1);
   }
 
   public static void main(String[] args) {

@@ -19,14 +19,14 @@ public class ValidateSudoku {
   private static boolean solveSudoku(int[][] board) {
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
-          for (int c = 1; c <= 9; c++) {
-            if (isValid(board, i, j, c)) {
-              if (solveSudoku(board)) {
-                return true;
-              }
+        for (int c = 1; c <= 9; c++) {
+          if (isValid(board, i, j, c)) {
+            if (solveSudoku(board)) {
+              return true;
             }
           }
-          return false;
+        }
+        return false;
       }
     }
     return true;

@@ -23,15 +23,15 @@ public class ThreadDeadLock {
     }
   };
 
+  public static void main(String[] args) {
+    ThreadDeadLock threadDeadLock = new ThreadDeadLock();
+    threadDeadLock.simulateDeadlock();
+  }
+
   private void simulateDeadlock() {
     Thread t1 = new Thread(r1, "Thread-1");
     Thread t2 = new Thread(r2, "Thread-2");
     t1.start();
     t2.start();
-  }
-
-  public static void main(String[] args) {
-    ThreadDeadLock threadDeadLock = new ThreadDeadLock();
-    threadDeadLock.simulateDeadlock();
   }
 }

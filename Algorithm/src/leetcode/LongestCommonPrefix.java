@@ -10,7 +10,7 @@ public class LongestCommonPrefix {
       return str[low];
     }
     int mid = (low + high) / 2;
-    String left  = longestCommonPrefix(str, low, mid);
+    String left = longestCommonPrefix(str, low, mid);
     String right = longestCommonPrefix(str, mid + 1, high);
     return commonPrefix(left, right);
   }
@@ -26,8 +26,8 @@ public class LongestCommonPrefix {
   }
 
   public static void main(String[] args) {
-    System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}, 0, 3));
-    System.out.println(longestCommonPrefix(new String[] {"flower", "flow"}, 0, 2));
-    System.out.println(longestCommonPrefix(new String[] {"flower"}, 0, 1));
+    System.out.println(longestCommonPrefix(new String[]{"flower", "flow", "flight"}, 0, 3));
+    System.out.println(longestCommonPrefix(new String[]{"flower", "flow"}, 0, 2));
+    System.out.println(longestCommonPrefix(new String[]{"flower"}, 0, 1));
   }
 }

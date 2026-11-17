@@ -5,6 +5,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.*;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
@@ -30,11 +31,6 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
   @Override
   public void setBeanName(String beanName) {
     System.out.println("BeanNameAware " + beanName);
-  }
-
-  @Override
-  public void setApplicationContext(ApplicationContext applicationContext) {
-    this.applicationContext = applicationContext;
   }
 
   @Override
@@ -65,11 +61,6 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
     System.out.println("@PreDestroy");
   }
 
-  @Override
-  public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-    this.applicationEventPublisher = applicationEventPublisher;
-  }
-
   public List<Point> getPoints() {
     return points;
   }
@@ -90,7 +81,17 @@ public class Triangle implements Shape, BeanNameAware, ApplicationContextAware, 
     return applicationContext;
   }
 
+  @Override
+  public void setApplicationContext(ApplicationContext applicationContext) {
+    this.applicationContext = applicationContext;
+  }
+
   public ApplicationEventPublisher getApplicationEventPublisher() {
     return applicationEventPublisher;
+  }
+
+  @Override
+  public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+    this.applicationEventPublisher = applicationEventPublisher;
   }
 }

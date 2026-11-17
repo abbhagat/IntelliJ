@@ -30,7 +30,7 @@ public class RecoverBST {
     recoverBSTUtil(root.left);
     if (temp != null && root.num < temp.num) {
       if (first == null) {
-        first  = temp;
+        first = temp;
         middle = root;
       } else {
         last = root;
@@ -62,8 +62,8 @@ public class RecoverBST {
                / \ / \
               1  3 7 12
     */
-    Node root  = new Node(1);
-    root.left  = new Node(2);
+    Node root = new Node(1);
+    root.left = new Node(2);
     root.right = new Node(3);
     System.out.println("Original Tree");
     inorder(root);

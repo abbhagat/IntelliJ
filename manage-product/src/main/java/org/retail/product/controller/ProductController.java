@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -16,36 +18,36 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = "/product")
 public class ProductController {
 
-    @Autowired
-    private ProductService service;
+  @Autowired
+  private ProductService service;
 
-    @GetMapping(value = "/getAllProducts", produces = APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Product> getAllProducts() {
-        return service.getAllProducts();
-    }
+  @GetMapping(value = "/getAllProducts", produces = APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public List<Product> getAllProducts() {
+    return service.getAllProducts();
+  }
 
-    @GetMapping(value = "/getProductByID/{productID}", produces = APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public Product getProductByID(@PathVariable Long productID) {
-        return service.getProductByID(productID);
-    }
+  @GetMapping(value = "/getProductByID/{productID}", produces = APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public Product getProductByID(@PathVariable Long productID) {
+    return service.getProductByID(productID);
+  }
 
-    @PostMapping(value = "/saveProduct", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public void saveProduct(@RequestBody Product product) {
-        service.saveProduct(product);
-    }
+  @PostMapping(value = "/saveProduct", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public void saveProduct(@RequestBody Product product) {
+    service.saveProduct(product);
+  }
 
-    @DeleteMapping(value = "/deleteProductByID/{productID}")
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteProductByID(@PathVariable Long productID) {
-        service.deleteProductByID(productID);
-    }
+  @DeleteMapping(value = "/deleteProductByID/{productID}")
+  @ResponseStatus(HttpStatus.OK)
+  public void deleteProductByID(@PathVariable Long productID) {
+    service.deleteProductByID(productID);
+  }
 
-    @GetMapping(value = "/getProductConfig", produces = APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getProductConfig() {
-        return service.getProductProperties();
-    }
+  @GetMapping(value = "/getProductConfig", produces = APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public ResponseEntity<?> getProductConfig() {
+    return service.getProductProperties();
+  }
 }

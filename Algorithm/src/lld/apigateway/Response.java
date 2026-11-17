@@ -1,3 +1,4 @@
 package lld.apigateway;
 
-public record Response(int statusCode, String responseBody) {}
+public record Response(int statusCode, String responseBody) {
+}

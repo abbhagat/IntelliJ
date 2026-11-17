@@ -8,10 +8,6 @@ import java.util.Map;
 // Space Complexity: O(n)
 public class LongestZeroSumSubArray {
 
-  private static class Index {
-    int start, end;
-  }
-
   private static void longestSumSubArray(int[] a, int n, Index index) {
     Map<Integer, Integer> map = new HashMap<>();  // to store key as sum and the value as index i
     int sum = 0, max = 0;
@@ -20,14 +16,14 @@ public class LongestZeroSumSubArray {
       if (sum == n) {
         max = i + 1;
         index.start = 0;
-        index.end   = i;
+        index.end = i;
       }
       if (map.containsKey(sum)) {
         int length = i - map.get(sum);
         if (max < length) {
           max = length;
           index.start = map.get(sum) + 1;
-          index.end   = i;
+          index.end = i;
         }
       } else {
         map.put(sum, i);
@@ -45,5 +41,9 @@ public class LongestZeroSumSubArray {
     longestSumSubArray(new int[]{15, -2, 2, -8, 1, 7, 10, 23}, 33, new Index());
     longestSumSubArray(new int[]{1, -2, 2, -8, 1, 7, -1}, 0, new Index());
     longestSumSubArray(new int[]{1, -2, 2, -8, 1, 7, -1}, 1, new Index());
+  }
+
+  private static class Index {
+    int start, end;
   }
 }

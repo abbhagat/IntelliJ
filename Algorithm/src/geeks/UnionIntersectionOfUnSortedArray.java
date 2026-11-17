@@ -1,7 +1,6 @@
 package geeks;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -9,8 +8,8 @@ public class UnionIntersectionOfUnSortedArray {
 
   private static void unionIntersection(int[] a, int[] b) {
     Set<Integer> set = Arrays.stream(a)
-                             .boxed()
-                             .collect(Collectors.toSet());
+        .boxed()
+        .collect(Collectors.toSet());
     System.out.print("Intersection : ");
     Arrays.stream(b).forEach(x -> {
       if (!set.add(x)) {

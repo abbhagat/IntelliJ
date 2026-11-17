@@ -11,10 +11,10 @@ public class CountAllPermutationsOfVowels {
     long na, ne, ni, no, nu;
     for (int k = 2; k <= n; k++) {
       na = (e + i + u) % MOD;  // a can be preceded by e, i, or u
-      ne = (a + i)     % MOD;  // e can be preceded by a or i
-      ni = (e + o)     % MOD; // i can be preceded by e or o
-      no =      i      % MOD; // o can be preceded by i
-      nu = (i + o)     % MOD; // u can be preceded by i or o
+      ne = (a + i) % MOD;  // e can be preceded by a or i
+      ni = (e + o) % MOD; // i can be preceded by e or o
+      no = i % MOD; // o can be preceded by i
+      nu = (i + o) % MOD; // u can be preceded by i or o
       a = na;
       e = ne;
       i = ni;

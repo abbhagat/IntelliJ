@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
 import static lld.restaurant.TableStatus.AVAILABLE;
 
 public class BookingImpl {
@@ -23,7 +24,7 @@ public class BookingImpl {
     final int TOTAL_TABLE = tables.length;
 
     LocalDateTime start = LocalDateTime.of(2026, 7, 25, 19, 0);
-    LocalDateTime end   = LocalDateTime.of(2026, 7, 25, 20, 0);
+    LocalDateTime end = LocalDateTime.of(2026, 7, 25, 20, 0);
 
     ExecutorService executor = Executors.newFixedThreadPool(5);
     // 10 customers are trying to book the 5 available tables

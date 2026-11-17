@@ -7,12 +7,12 @@ import static java.lang.Integer.max;
 public class AreaOfLargestIslandIn2DMatrix {
 
   private static final int[][] M = new int[][]{
-                                                {1, 1, 0, 0, 0},
-                                                {1, 1, 0, 1, 1},
-                                                {0, 0, 0, 1, 1},
-                                                {1, 0, 1, 0, 1},
-                                                {1, 0, 1, 0, 1}
-                                              };
+      {1, 1, 0, 0, 0},
+      {1, 1, 0, 1, 1},
+      {0, 0, 0, 1, 1},
+      {1, 0, 1, 0, 1},
+      {1, 0, 1, 0, 1}
+  };
   private static final int ROW = M.length;
   private static final int COL = M[0].length;
   private static final boolean[][] visited = new boolean[ROW][COL];
@@ -28,14 +28,14 @@ public class AreaOfLargestIslandIn2DMatrix {
     visited[row][col] = true;
     for (int k = 0; k < 8; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-             area++;
-             DFS(row + rowIdx[k], col + colIdx[k]);
+        area++;
+        DFS(row + rowIdx[k], col + colIdx[k]);
       }
     }
   }
 
   private static void findLargestIsland() {
-    int maxArea  = 0, numOfIsland = 0;
+    int maxArea = 0, numOfIsland = 0;
     for (int row = 0; row < ROW; row++) {
       for (int col = 0; col < COL; col++) {
         if (M[row][col] == 1 && !visited[row][col]) {

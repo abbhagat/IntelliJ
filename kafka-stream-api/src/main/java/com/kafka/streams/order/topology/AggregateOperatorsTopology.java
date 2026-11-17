@@ -7,12 +7,12 @@ import org.apache.kafka.streams.Topology;
 @Slf4j
 public class AggregateOperatorsTopology {
 
-    public static String AGGREGATE = "aggregate";
+  public static String AGGREGATE = "aggregate";
 
-    public static Topology build(){
-        StreamsBuilder streamsBuilder = new StreamsBuilder();
+  public static Topology build() {
+    StreamsBuilder streamsBuilder = new StreamsBuilder();
 
-        return streamsBuilder.build();
-    }
+    return streamsBuilder.build();
+  }
 
 }

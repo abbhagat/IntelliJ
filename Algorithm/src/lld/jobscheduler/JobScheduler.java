@@ -16,12 +16,12 @@ public class JobScheduler {
   private volatile boolean shutdown;
 
   public JobScheduler() {
-    this.queue       = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
+    this.queue = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
     this.runningJobs = new ConcurrentHashMap<>();
-    this.executor    = Executors.newFixedThreadPool(5);
-    this.lock        = new Object();
-    this.shutdown    = false;
-    Thread thread    = new Thread(this::processJobs);
+    this.executor = Executors.newFixedThreadPool(5);
+    this.lock = new Object();
+    this.shutdown = false;
+    Thread thread = new Thread(this::processJobs);
     thread.start();
   }
 
@@ -91,7 +91,7 @@ public class JobScheduler {
           return;
         }
         job = queue.peek();
-        long delay = job.getExecuteAt()  - System.currentTimeMillis();
+        long delay = job.getExecuteAt() - System.currentTimeMillis();
         if (delay > 0) {
           try {
             lock.wait(delay);

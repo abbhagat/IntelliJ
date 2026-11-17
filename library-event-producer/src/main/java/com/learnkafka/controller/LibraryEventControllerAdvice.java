@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class LibraryEventControllerAdvice {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handleException(MethodArgumentNotValidException e) {
-        List<FieldError> errorList = e.getBindingResult().getFieldErrors();
-        var errorMessage = errorList.stream()
-                .map(fieldError -> fieldError.getField() + "-" + fieldError.getDefaultMessage())
-                .sorted()
-                .collect(Collectors.joining(","));
-        log.info("errorMessage {} ", errorMessage);
-        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
-    }
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  public ResponseEntity<?> handleException(MethodArgumentNotValidException e) {
+    List<FieldError> errorList = e.getBindingResult().getFieldErrors();
+    var errorMessage = errorList.stream()
+        .map(fieldError -> fieldError.getField() + "-" + fieldError.getDefaultMessage())
+        .sorted()
+        .collect(Collectors.joining(","));
+    log.info("errorMessage {} ", errorMessage);
+    return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+  }
 }

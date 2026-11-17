@@ -2,6 +2,7 @@ package adobe;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import static java.lang.Integer.min;
 
 // Time  Complexity : O(n log n)
@@ -16,7 +17,7 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
     for (int i = start; i < end; i++) {
       char c = s.charAt(i);
       if (map.get(c) < k) {
-        int left  = longestSubString(s, start, i, k);
+        int left = longestSubString(s, start, i, k);
         int right = longestSubString(s, i + 1, end, k);
         return left >= right ? left : right;
       }
@@ -29,7 +30,7 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
     s.chars().forEach(c -> map.put((char) c, map.getOrDefault((char) c, 0) + 1));
     for (int i = start; i < end; i++) {
       if (map.get(s.charAt(i)) < k) {
-        int left  = smallestSubString(s, start, i, k);
+        int left = smallestSubString(s, start, i, k);
         int right = smallestSubString(s, i + 1, end, k);
         return min(left, right);
       }
@@ -39,17 +40,17 @@ public class LongestSubstringWithAtLeastKRepeatingCharacters {
 
   public static void main(String[] args) {
     System.out.println(longestSubString("ababbc", 0, "ababbc".length(), 2));
-    System.out.println(longestSubString("aaabb",  0, "aaabb".length(),  2));
+    System.out.println(longestSubString("aaabb", 0, "aaabb".length(), 2));
     System.out.println(longestSubString("aaabbb", 0, "aaabbb".length(), 2));
     System.out.println(longestSubString("ababbc", 0, "ababbc".length(), 3));
-    System.out.println(longestSubString("aaabb",  0, "aaabb".length(),  3));
+    System.out.println(longestSubString("aaabb", 0, "aaabb".length(), 3));
     System.out.println(longestSubString("aaabbb", 0, "aaabbb".length(), 3));
     System.out.println("-----------------------");
     System.out.println(smallestSubString("ababbc", 0, "ababbc".length(), 2));
-    System.out.println(smallestSubString("aaabb",  0, "aaabb".length(),  2));
+    System.out.println(smallestSubString("aaabb", 0, "aaabb".length(), 2));
     System.out.println(smallestSubString("aaabbb", 0, "aaabbb".length(), 2));
     System.out.println(smallestSubString("ababbc", 0, "ababbc".length(), 3));
-    System.out.println(smallestSubString("aaabb",  0, "aaabb".length(),  3));
+    System.out.println(smallestSubString("aaabb", 0, "aaabb".length(), 3));
     System.out.println(smallestSubString("aaabbb", 0, "aaabbb".length(), 3));
   }
 }

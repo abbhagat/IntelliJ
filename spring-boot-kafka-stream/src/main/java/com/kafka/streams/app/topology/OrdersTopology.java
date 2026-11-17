@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.support.serializer.JacksonJsonSerde;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.json.JsonMapper;
+
 import static com.kafka.streams.app.model.OrderType.GENERAL;
 import static com.kafka.streams.app.model.OrderType.RESTAURANT;
 import static com.kafka.streams.app.producer.TopicUtil.ORDERS;
@@ -18,7 +19,7 @@ import static com.kafka.streams.app.producer.TopicUtil.ORDERS;
 @Component
 public class OrdersTopology {
 
-  private static final Predicate<String, Order> generalPredicate    = (key, order) -> GENERAL.equals(order.orderType());
+  private static final Predicate<String, Order> generalPredicate = (key, order) -> GENERAL.equals(order.orderType());
   private static final Predicate<String, Order> restaurantPredicate = (key, order) -> RESTAURANT.equals(order.orderType());
 
   private final JsonMapper jsonMapper;

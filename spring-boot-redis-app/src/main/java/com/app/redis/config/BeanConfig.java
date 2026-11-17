@@ -22,7 +22,7 @@ public class BeanConfig {
     RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(connectionFactory);
     StringRedisSerializer stringSerializer = new StringRedisSerializer();
-    GenericJacksonJsonRedisSerializer jsonSerializer =  new GenericJacksonJsonRedisSerializer(objectMapper);
+    GenericJacksonJsonRedisSerializer jsonSerializer = new GenericJacksonJsonRedisSerializer(objectMapper);
     redisTemplate.setKeySerializer(stringSerializer);
     redisTemplate.setHashKeySerializer(stringSerializer);
     redisTemplate.setValueSerializer(jsonSerializer);

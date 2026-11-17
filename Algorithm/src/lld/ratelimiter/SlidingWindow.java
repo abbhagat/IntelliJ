@@ -7,13 +7,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 class SlidingWindow implements IRateLimiter {
 
-  private final int  maxRequest;
+  private final int maxRequest;
   private final long windowMillis;
   private final Map<String, Deque<Long>> requestTimestamps;
 
   public SlidingWindow(int maxRequest, long windowMillis) {
-    this.maxRequest        = maxRequest;
-    this.windowMillis      = windowMillis;
+    this.maxRequest = maxRequest;
+    this.windowMillis = windowMillis;
     this.requestTimestamps = new ConcurrentHashMap<>();
   }
 

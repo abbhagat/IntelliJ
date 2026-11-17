@@ -3,6 +3,7 @@ package amazon;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import static util.CommonUtils.isPalindrome;
 
 // Time  Complexity: O(n*2^n)
@@ -45,7 +46,7 @@ public class AllPalindromicPermutationOfAString {
     findAllPalindromicPermutation(0, "nitin", new LinkedList<>());
     findAllPalindromicPermutation(0, "geeks", new LinkedList<>());
     System.out.println();
-    System.out.println(findAllPalindromicPermutation(0, "xx",    new LinkedList<>(), new ArrayList<>()));
+    System.out.println(findAllPalindromicPermutation(0, "xx", new LinkedList<>(), new ArrayList<>()));
     System.out.println(findAllPalindromicPermutation(0, "madam", new LinkedList<>(), new ArrayList<>()));
     System.out.println(findAllPalindromicPermutation(0, "nitin", new LinkedList<>(), new ArrayList<>()));
     System.out.println(findAllPalindromicPermutation(0, "geeks", new LinkedList<>(), new ArrayList<>()));

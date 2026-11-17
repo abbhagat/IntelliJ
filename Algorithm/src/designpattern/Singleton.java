@@ -26,6 +26,11 @@ public class Singleton implements Cloneable, Serializable {
     return singleton;
   }
 
+  public static void main(String[] args) {
+    Singleton singleton = Singleton.getInstance();
+    System.out.println(singleton.hashCode() + "\t" + Singleton.getInstance().hashCode());
+  }
+
   @Serial
   protected Object readResolve() {
     return getInstance();
@@ -34,10 +39,5 @@ public class Singleton implements Cloneable, Serializable {
   @Override
   public Object clone() {
     return getInstance();
-  }
-
-  public static void main(String[] args) {
-    Singleton singleton = Singleton.getInstance();
-    System.out.println(singleton.hashCode() + "\t" + Singleton.getInstance().hashCode());
   }
 }

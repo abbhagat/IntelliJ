@@ -7,7 +7,7 @@ import tools.jackson.databind.json.JsonMapper;
 public class SerdesFactory {
 
   public static <T> Serde<T> of(Class<T> clazz, JsonMapper jsonMapper) {
-    JsonSerializer<T> jsonSerializer     = new JsonSerializer<>(jsonMapper);
+    JsonSerializer<T> jsonSerializer = new JsonSerializer<>(jsonMapper);
     JsonDeserializer<T> jsonDeserializer = new JsonDeserializer<>(clazz, jsonMapper);
     return Serdes.serdeFrom(jsonSerializer, jsonDeserializer);
   }

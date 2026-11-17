@@ -11,10 +11,10 @@ import org.springframework.messaging.handler.annotation.Payload;
 
 public class KafkaListenerOrConsumerFromParticularPartition {
 
-    Logger LOG = LoggerFactory.getLogger(KafkaListenerOrConsumerFromParticularPartition.class);
+  Logger LOG = LoggerFactory.getLogger(KafkaListenerOrConsumerFromParticularPartition.class);
 
-    @KafkaListener(groupId = "topic-group", topicPartitions = @TopicPartition(topic = "topic-1", partitionOffsets = {@PartitionOffset(partition = "0", initialOffset = "0")}))
-    void listenToPartitionWithOffset(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, @Header(KafkaHeaders.OFFSET) int offset) {
-        LOG.info("Received message [{}] from partition-{} with offset-{}", message, partition, offset);
-    }
+  @KafkaListener(groupId = "topic-group", topicPartitions = @TopicPartition(topic = "topic-1", partitionOffsets = {@PartitionOffset(partition = "0", initialOffset = "0")}))
+  void listenToPartitionWithOffset(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, @Header(KafkaHeaders.OFFSET) int offset) {
+    LOG.info("Received message [{}] from partition-{} with offset-{}", message, partition, offset);
+  }
 }

@@ -47,7 +47,7 @@ public class FindPairsWithPerfectSquareSum {
     int[] a = {1, 2, 3, 5, 6, 9, 10, 20, 30};
     int sum = maxPairSum(a);
     List<Integer> list = getPerfectSquares(sum);
-    Set<Integer> set   = Arrays.stream(a).boxed().collect(Collectors.toSet());
+    Set<Integer> set = Arrays.stream(a).boxed().collect(Collectors.toSet());
     int count = 0;
     for (int x : a) {
       count += countPairs(x, list, set);

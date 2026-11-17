@@ -20,7 +20,7 @@ public class FindPairsInArrayWithSmallestSum {
   }
 
   private static int getMinIndex(int[] a, int[] b, int[] c) {
-    int index  = 0, minSum = Integer.MAX_VALUE;
+    int index = 0, minSum = Integer.MAX_VALUE;
     for (int i = 0; i < a.length; i++) {
       if (c[i] < b.length && a[i] + b[c[i]] < minSum) {
         index = i;

@@ -11,7 +11,7 @@ public class CountPairsWhoseProductIsLessThanAGivenNumber {
     int i = 0, j = a.length - 1, count = 0;
     while (i < j) {
       count += a[i] * a[j] < n ? j - i : 0;
-      int  k = a[i] * a[j] < n ? i++   : j--;
+      int k = a[i] * a[j] < n ? i++ : j--;
     }
     return count;
   }

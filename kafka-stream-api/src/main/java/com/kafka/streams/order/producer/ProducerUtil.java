@@ -38,13 +38,13 @@ public class ProducerUtil {
     return recordMetadata;
   }
 
-  public static RecordMetadata publishMessageSyncWithDelay(String topicName, String key, String message , long delay){
-    ProducerRecord<String,String> producerRecord = new ProducerRecord<>(topicName, 0, LocalTime.now().plusSeconds(delay).toNanoOfDay(), key, message);
+  public static RecordMetadata publishMessageSyncWithDelay(String topicName, String key, String message, long delay) {
+    ProducerRecord<String, String> producerRecord = new ProducerRecord<>(topicName, 0, LocalTime.now().plusSeconds(delay).toNanoOfDay(), key, message);
     return getRecordMetadata(producerRecord);
   }
 
   private static RecordMetadata getRecordMetadata(ProducerRecord<String, String> producerRecord) {
-    RecordMetadata recordMetadata=null;
+    RecordMetadata recordMetadata = null;
     try {
       log.info("producerRecord : " + producerRecord);
       recordMetadata = kafkaProducer.send(producerRecord).get();
@@ -52,7 +52,7 @@ public class ProducerUtil {
       log.error("InterruptedException in  publishMessageSync : {}  ", e.getMessage(), e);
     } catch (ExecutionException e) {
       log.error("ExecutionException in  publishMessageSync : {}  ", e.getMessage(), e);
-    }catch(Exception e){
+    } catch (Exception e) {
       log.error("Exception in  publishMessageSync : {}  ", e.getMessage(), e);
     }
     return recordMetadata;

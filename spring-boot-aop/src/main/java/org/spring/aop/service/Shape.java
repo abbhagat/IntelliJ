@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Shape {
 
-    @Autowired
-    private Triangle triangle;
+  @Autowired
+  private Triangle triangle;
 
 }

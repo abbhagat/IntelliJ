@@ -9,16 +9,16 @@ import java.util.List;
  * All data must be processed.Multiple users' data cannot be combined for processing.
  * The number of batches across all users cannot exceed a limit.
  * Determine the minimum batch size.
-
+ * <p>
  * Example 1 Input: dataSamples = [1, 5, 7], maxBatches = 8 Output: 2
-
+ * <p>
  * Explanation:
  * If the batch size is 1, the number of batches required is 1 + 5 + 7 = 13 (exceeds the limit).
  * If the batch size is 2, the number of batches required is:
  * ceil(1/2) + ceil(5/2) + ceil(7/2) = 1 + 3 + 4 = 8 (meets the limit).
-
+ * <p>
  * Example 2 Input: dataSamples = [2, 4, 5], maxBatches = 10 Output: 2
-
+ * <p>
  * Explanation:
  * If the batch size is 1, the number of batches required is 2 + 4 + 5 = 11 (exceeds the limit).
  * If the batch size is 2, the number of batches required is:
@@ -39,7 +39,7 @@ public class MinBatchSize {
         }
       }
       if (batches > maxBatches) {
-        low  = mid + 1;
+        low = mid + 1;
       } else {
         high = mid - 1;
       }

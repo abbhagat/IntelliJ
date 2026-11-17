@@ -5,10 +5,10 @@ import static util.CommonUtils.printMatrix;
 public class MatrixInversion {
 
   private static final int[][] a = {
-                                       {1, 2, 3},
-                                       {4, 5, 6},
-                                       {7, 8, 9}
-                                   };
+      {1, 2, 3},
+      {4, 5, 6},
+      {7, 8, 9}
+  };
 
   private static void matrixInversion() {
     int j = 2, n = a.length;

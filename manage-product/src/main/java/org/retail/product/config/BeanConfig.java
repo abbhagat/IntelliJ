@@ -11,15 +11,15 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class BeanConfig {
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate getRestTemplate() {
-        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setConnectionRequestTimeout(5000);
-        return new RestTemplate(factory);
-    }
+  @Autowired
+  private DiscoveryClient discoveryClient;
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
+  @Bean
+  @LoadBalanced
+  public RestTemplate getRestTemplate() {
+    HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+    factory.setConnectionRequestTimeout(5000);
+    return new RestTemplate(factory);
+  }
 
 }

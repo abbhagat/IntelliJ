@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class InterestRateService {
 
-    @Autowired
-    private InterestRateDAO interestRateDAO;
+  @Autowired
+  private InterestRateDAO interestRateDAO;
 
-    public List<InterestRate> getAllInterestRate() {
-        return interestRateDAO.findAll();
-    }
+  public List<InterestRate> getAllInterestRate() {
+    return interestRateDAO.findAll();
+  }
 
-    public void saveInterestRate(InterestRate interestRate) {
-        interestRateDAO.save(interestRate);
-    }
+  public void saveInterestRate(InterestRate interestRate) {
+    interestRateDAO.save(interestRate);
+  }
 }

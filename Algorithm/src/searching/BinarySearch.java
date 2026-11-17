@@ -1,7 +1,6 @@
 package searching;
 
 import java.util.Arrays;
-import static util.CommonUtils.printArray;
 
 // Time Complexity O(n log n)
 public class BinarySearch {

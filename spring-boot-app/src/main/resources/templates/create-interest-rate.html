@@ -8,16 +8,16 @@
 <body>
 <div><h1>Enter Interest Rate Details</h1><br/></div>
 <div>
-    <form th:action="@{/interestRate/saveInterestRate}" th:object="${interestRates}" method="post">
+    <form method="post" th:action="@{/interestRate/saveInterestRate}" th:object="${interestRates}">
 
-        <label>Interest Rate</label> <input type="text" th:field="*{interestRate}" id="interestRate">
+        <label>Interest Rate</label> <input id="interestRate" th:field="*{interestRate}" type="text">
         &emsp;&emsp;&emsp;&emsp;
-        <label>Months</label> <input type="text" th:field="*{months}" id="months">
+        <label>Months</label> <input id="months" th:field="*{months}" type="text">
         &emsp;&emsp;&emsp;&emsp;
-        <label>Years</label> <input type="text" th:field="*{years}" id="email">
+        <label>Years</label> <input id="email" th:field="*{years}" type="text">
 
-        <label>Days</label> <input type="text" th:field="*{days}" id="phoneNumber">
-        <input th:type="submit" th:name="action" th:id="save" th:value="Save">&emsp;
+        <label>Days</label> <input id="phoneNumber" th:field="*{days}" type="text">
+        <input th:id="save" th:name="action" th:type="submit" th:value="Save">&emsp;
     </form>
 </div>
 </body>

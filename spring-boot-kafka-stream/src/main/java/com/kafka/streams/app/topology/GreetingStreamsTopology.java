@@ -18,13 +18,11 @@ import tools.jackson.databind.json.JsonMapper;
 @Component
 public class GreetingStreamsTopology {
 
+  private final JsonMapper jsonMapper;
   @Value("${topic.greetings.input.name:greetings}")
   private String GREETINGS;
-
   @Value("${topic.greetings.output.name:greetings-output}")
   private String GREETINGS_OUTPUT;
-
-  private final JsonMapper jsonMapper;
 
   public GreetingStreamsTopology(JsonMapper jsonMapper) {
     this.jsonMapper = jsonMapper;
@@ -41,7 +39,7 @@ public class GreetingStreamsTopology {
       return new Greeting(value.message().toUpperCase(), value.timeStamp());
     });
     modifiedStream.print(Printed.<String, Greeting>toSysOut().withLabel("with-modified-stream"));
-    modifiedStream.to(GREETINGS_OUTPUT, Produced.with(Serdes.String(),  new JacksonJsonSerde<>(Greeting.class, jsonMapper)));
+    modifiedStream.to(GREETINGS_OUTPUT, Produced.with(Serdes.String(), new JacksonJsonSerde<>(Greeting.class, jsonMapper)));
   }
 
 }

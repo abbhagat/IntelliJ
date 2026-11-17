@@ -6,18 +6,18 @@ public class MissingNumber {
 
   private static int findMissingNumber(int[] a) {
     int sum2 = Arrays.stream(a).sum();
-    int min  = Arrays.stream(a).min().getAsInt();
-    int max  = Arrays.stream(a).max().getAsInt();
-    int n    = a.length + 1;
+    int min = Arrays.stream(a).min().getAsInt();
+    int max = Arrays.stream(a).max().getAsInt();
+    int n = a.length + 1;
     int sum1 = n * (min + max) / 2;
     return sum1 - sum2;
   }
 
   public static void main(String[] args) {
     int[] a;
-    a = new int[] {9, 7, 3, 4, 10, 1, 2, 8, 6};
+    a = new int[]{9, 7, 3, 4, 10, 1, 2, 8, 6};
     System.out.println("Missing Num : " + findMissingNumber(a));
-    a = new int[] {4, 1, 2, 5};
+    a = new int[]{4, 1, 2, 5};
     System.out.println("Missing Num : " + findMissingNumber(a));
   }
 }

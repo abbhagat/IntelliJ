@@ -13,12 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 public class BankBranchList implements Serializable {
 
-    private static final Long serialversionUID = 1L;
+  private static final Long serialversionUID = 1L;
 
-    private List<BankBranch> bankBranchList;
+  private List<BankBranch> bankBranchList;
 
-    public BankBranchList() {
-        this.bankBranchList = new ArrayList<>();
-    }
+  public BankBranchList() {
+    this.bankBranchList = new ArrayList<>();
+  }
 
 }

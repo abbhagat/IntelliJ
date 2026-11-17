@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class LibraryEventsConsumer {
 
-    @Autowired
-    private LibraryEventsService libraryEventsService;
+  @Autowired
+  private LibraryEventsService libraryEventsService;
 
-    @KafkaListener(topics = {"library-events"}, groupId = "library-events-listener-groups")
-    public void onMessage(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
-        log.info("ConsumerRecord : {} ", consumerRecord);
-        consumerRecord.headers().forEach(header -> log.info("Key : {}, Value : {} ", header.key(), new String(header.value())));
-        libraryEventsService.processLibraryEvent(consumerRecord);
-    }
+  @KafkaListener(topics = {"library-events"}, groupId = "library-events-listener-groups")
+  public void onMessage(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
+    log.info("ConsumerRecord : {} ", consumerRecord);
+    consumerRecord.headers().forEach(header -> log.info("Key : {}, Value : {} ", header.key(), new String(header.value())));
+    libraryEventsService.processLibraryEvent(consumerRecord);
+  }
 }

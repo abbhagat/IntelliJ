@@ -2,11 +2,10 @@ package lld.atm;
 
 public class ATM {
 
+  private final BankService bankService;
   private Card card;
   private Account account;
   private ATMState state = ATMState.IDLE;
-
-  private final BankService bankService;
 
   public ATM(BankService bankService) {
     this.bankService = bankService;
@@ -16,7 +15,7 @@ public class ATM {
     if (state != ATMState.IDLE) {
       throw new IllegalStateException("ATM is busy");
     }
-    this.card  = card;
+    this.card = card;
     this.state = ATMState.CARD_INSERTED;
     System.out.println("Card Inserted");
   }
@@ -63,9 +62,9 @@ public class ATM {
     if (state == ATMState.IDLE) {
       return;
     }
-    card    = null;
+    card = null;
     account = null;
-    state   = ATMState.IDLE;
+    state = ATMState.IDLE;
     System.out.println("Card ejected");
   }
 

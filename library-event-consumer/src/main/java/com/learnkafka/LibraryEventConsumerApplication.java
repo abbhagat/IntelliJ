@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class LibraryEventConsumerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(LibraryEventConsumerApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(LibraryEventConsumerApplication.class, args);
+  }
 }

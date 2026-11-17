@@ -3,6 +3,7 @@ package pairs;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -13,8 +14,8 @@ public class FindPairCountWithProductDivisibleByK {
     for (int i = 0; i < a.length; i++) {
       for (int j = i + 1; j < a.length; j++) {
         if ((a[i] * a[j]) % k == 0) {
-          int min  = min(a[i], a[j]);
-          int max  = max(a[i], a[j]);
+          int min = min(a[i], a[j]);
+          int max = max(a[i], a[j]);
           set.add(List.of(min, max));
         }
       }

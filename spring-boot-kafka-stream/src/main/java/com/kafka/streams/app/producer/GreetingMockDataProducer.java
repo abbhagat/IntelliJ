@@ -7,6 +7,7 @@ import tools.jackson.core.JacksonException;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 import static com.kafka.streams.app.producer.ProducerUtil.publishMessageSync;
 import static com.kafka.streams.app.producer.TopicUtil.GREETING_SPANISH_TOPIC;
 import static com.kafka.streams.app.producer.TopicUtil.GREETING_TOPIC;
@@ -23,11 +24,11 @@ public class GreetingMockDataProducer {
 //        new Greeting("Error", LocalDateTime.now()),
         new Greeting("Hello, Good Morning!", LocalDateTime.now()),
         new Greeting("Hello, Good Evening!", LocalDateTime.now()),
-        new Greeting("Hello, Good Night!",   LocalDateTime.now())
+        new Greeting("Hello, Good Night!", LocalDateTime.now())
     );
     spanishGreetings = List.of(
-        new Greeting("¡Hola buenos dias!",    LocalDateTime.now()),
-        new Greeting("¡Hola buenas tardes!",  LocalDateTime.now()),
+        new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
+        new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
         new Greeting("¡Hola, buenas noches!", LocalDateTime.now())
     );
   }

@@ -19,9 +19,9 @@ public class WaterAndJugProblem {
       } else if (to == y) {
         to = 0;                   // Empty jug y
       } else {
-        pour  = min(from, y - to);
+        pour = min(from, y - to);
         from -= pour;
-        to   += pour;
+        to += pour;
       }
       steps++;
     }
@@ -29,13 +29,13 @@ public class WaterAndJugProblem {
   }
 
   private static boolean canMeasure(int x, int y, int z) {
-    return z <= max(x, y)  && z % gcd(x, y) == 0;
+    return z <= max(x, y) && z % gcd(x, y) == 0;
   }
 
   public static void main(String[] args) {
-    System.out.println(canMeasure(3, 5, 4)  ? min(minSteps(3, 5, 4),  minSteps(5, 3, 4))  : -1);
-    System.out.println(canMeasure(5, 3, 3)  ? min(minSteps(3, 5, 3),  minSteps(5, 3, 3))  : -1);
-    System.out.println(canMeasure(5, 3, 5)  ? min(minSteps(3, 5, 5),  minSteps(5, 3, 5))  : -1);
+    System.out.println(canMeasure(3, 5, 4) ? min(minSteps(3, 5, 4), minSteps(5, 3, 4)) : -1);
+    System.out.println(canMeasure(5, 3, 3) ? min(minSteps(3, 5, 3), minSteps(5, 3, 3)) : -1);
+    System.out.println(canMeasure(5, 3, 5) ? min(minSteps(3, 5, 5), minSteps(5, 3, 5)) : -1);
     System.out.println(canMeasure(5, 3, 15) ? min(minSteps(3, 5, 15), minSteps(5, 3, 15)) : -1);
   }
 }

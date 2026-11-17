@@ -11,13 +11,13 @@ public class LongestCommonSuffix {
       return s[low];
     }
     int mid = (low + high) / 2;
-    String left  = longestCommonSuffix(s, low, mid);
+    String left = longestCommonSuffix(s, low, mid);
     String right = longestCommonSuffix(s, mid + 1, high);
     return longestCommonSuffix(left, right);
   }
 
   private static String longestCommonSuffix(String left, String right) {
-    left  = reverse(left);
+    left = reverse(left);
     right = reverse(right);
     int min = min(left.length(), right.length());
     for (int i = 0; i < min; i++) {
@@ -29,7 +29,7 @@ public class LongestCommonSuffix {
   }
 
   public static void main(String[] args) {
-    System.out.println(longestCommonSuffix(new String[] {"ABCDEBUILD", "QOUCTBUILD"}, 0, 1));
-    System.out.println(longestCommonSuffix(new String[] {"ABCDEBUILD", "ABCDEBUILD"}, 0, 1));
+    System.out.println(longestCommonSuffix(new String[]{"ABCDEBUILD", "QOUCTBUILD"}, 0, 1));
+    System.out.println(longestCommonSuffix(new String[]{"ABCDEBUILD", "ABCDEBUILD"}, 0, 1));
   }
 }

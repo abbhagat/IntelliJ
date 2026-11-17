@@ -17,9 +17,9 @@ public class PercentSplit extends Split {
       throw new RuntimeException("Percentage splits are required");
     }
     double totalPercent = expense.getSplits()
-                                 .stream()
-                                 .mapToDouble(split -> ((PercentSplit) split).getPercent())
-                                 .sum();
+        .stream()
+        .mapToDouble(split -> ((PercentSplit) split).getPercent())
+        .sum();
     if (Double.compare(totalPercent, 100.0) != 0) {
       throw new RuntimeException("Percentages must add up to 100");
     }

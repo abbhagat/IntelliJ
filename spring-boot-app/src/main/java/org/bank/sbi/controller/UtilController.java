@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class UtilController {
 
-    @GetMapping(value = "/interceptor_error")
-    @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
-    public String interceptorError() {
-        return "interceptor_error";
-    }
+  @GetMapping(value = "/interceptor_error")
+  @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+  public String interceptorError() {
+    return "interceptor_error";
+  }
 }

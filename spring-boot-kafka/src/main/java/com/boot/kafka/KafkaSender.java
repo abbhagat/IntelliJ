@@ -10,26 +10,26 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Component
 public class KafkaSender {
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+  @Autowired
+  private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(String message, String topic) {
-        kafkaTemplate.send(message, topic);
-    }
+  public void sendMessage(String message, String topic) {
+    kafkaTemplate.send(message, topic);
+  }
 
-    public void sendMessageWithCallBack(String message, String topic) {
-        ListenableFuture<SendResult<String, String>> future = (ListenableFuture<SendResult<String, String>>) kafkaTemplate.send(topic, message);
+  public void sendMessageWithCallBack(String message, String topic) {
+    ListenableFuture<SendResult<String, String>> future = (ListenableFuture<SendResult<String, String>>) kafkaTemplate.send(topic, message);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
-            @Override
-            public void onSuccess(SendResult<String, String> result) {
-                System.out.println("Message [{}] delivered with offset {}" + message + result.getRecordMetadata().offset());
-            }
+    future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+      @Override
+      public void onSuccess(SendResult<String, String> result) {
+        System.out.println("Message [{}] delivered with offset {}" + message + result.getRecordMetadata().offset());
+      }
 
-            @Override
-            public void onFailure(Throwable ex) {
-                System.out.println("Unable to deliver message [{}]. {}" + message + ex.getMessage());
-            }
-        });
-    }
+      @Override
+      public void onFailure(Throwable ex) {
+        System.out.println("Unable to deliver message [{}]. {}" + message + ex.getMessage());
+      }
+    });
+  }
 }

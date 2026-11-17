@@ -30,7 +30,7 @@ public class HuffmanCoding {
       list.removeLast();
       return;
     }
-    findPath(root.left,  c, list, '0');
+    findPath(root.left, c, list, '0');
     findPath(root.right, c, list, '1');
     list.removeLast();
   }
@@ -42,9 +42,9 @@ public class HuffmanCoding {
     if (root.num == c) {
       result.append(root.num);
     }
-    boolean left  = findPath(root.left,  c, '0');
+    boolean left = findPath(root.left, c, '0');
     boolean right = findPath(root.right, c, '1');
-    if(left || right) {
+    if (left || right) {
       result.append(root.num);
       return true;
     }

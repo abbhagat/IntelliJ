@@ -13,18 +13,18 @@ import java.util.List;
 @RequestMapping(value = "/emp")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService service;
+  @Autowired
+  private EmployeeService service;
 
-    @GetMapping(value = "/getAllEmp", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Employee> getAllEmp() {
-        return service.getAllEmp();
-    }
+  @GetMapping(value = "/getAllEmp", produces = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public List<Employee> getAllEmp() {
+    return service.getAllEmp();
+  }
 
-    @PostMapping(value = "/saveEmp", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public void saveEmp(@RequestBody Employee emp){
-        service.saveEmp(emp);
-    }
+  @PostMapping(value = "/saveEmp", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseStatus(HttpStatus.OK)
+  public void saveEmp(@RequestBody Employee emp) {
+    service.saveEmp(emp);
+  }
 }

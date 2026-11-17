@@ -1,6 +1,7 @@
 package graph;
 
 import util.Point;
+
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
@@ -34,7 +35,7 @@ public class KClosestPointsII {
   }
 
   public static void main(String[] args) {
-    Point[] points = new Point[]{ new Point(1, 1), new Point(2, 2),new Point(3, 3)};
+    Point[] points = new Point[]{new Point(1, 1), new Point(2, 2), new Point(3, 3)};
     System.out.println(Arrays.deepToString(kClosest(points, 1)));
   }
 }

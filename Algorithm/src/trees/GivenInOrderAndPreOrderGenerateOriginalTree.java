@@ -4,10 +4,6 @@ import static trees.TreeTraversal.preorder;
 
 public class GivenInOrderAndPreOrderGenerateOriginalTree {
 
-  public static class PreIndex {
-    int index;
-  }
-
   public static Node buildTree(int[] inorder, int[] preorder, int start, int end, PreIndex preIndex) {
     if (start > end) {
       return null;
@@ -16,8 +12,8 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
     if (start == end) {
       return root;
     }
-    int mid    = search(inorder, root.num, start, end);
-    root.left  = buildTree(inorder, preorder, start, mid - 1, preIndex);
+    int mid = search(inorder, root.num, start, end);
+    root.left = buildTree(inorder, preorder, start, mid - 1, preIndex);
     root.right = buildTree(inorder, preorder, mid + 1, end, preIndex);
     return root;
   }
@@ -38,5 +34,9 @@ public class GivenInOrderAndPreOrderGenerateOriginalTree {
     preIndex.index = 0;
     Node root = buildTree(inorder, preorder, 0, inorder.length - 1, preIndex);
     preorder(root);
+  }
+
+  public static class PreIndex {
+    int index;
   }
 }

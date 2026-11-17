@@ -9,7 +9,7 @@ public class TopologicalSortingOrKahnAlgorithm {
   public static List<String> schedule(List<String> tasks, List<String[]> dependencies) {
 
     Map<String, List<String>> graph = new HashMap<>();
-    Map<String, Integer>   inDegree = new HashMap<>();
+    Map<String, Integer> inDegree = new HashMap<>();
 
     // Initialize
     for (String task : tasks) {
@@ -20,7 +20,7 @@ public class TopologicalSortingOrKahnAlgorithm {
     // Build graph
     for (String[] dependency : dependencies) {
       String from = dependency[0];
-      String   to = dependency[1];
+      String to = dependency[1];
       graph.get(from).add(to);
       inDegree.put(to, inDegree.get(to) + 1);
     }
@@ -57,11 +57,11 @@ public class TopologicalSortingOrKahnAlgorithm {
   public static void main(String[] args) {
     List<String> tasks = Arrays.asList("A", "B", "C", "D", "E");
     List<String[]> dependencies = Arrays.asList(
-                                                  new String[]{"A", "C"},
-                                                  new String[]{"B", "C"},
-                                                  new String[]{"C", "D"},
-                                                  new String[]{"C", "E"}
-                                              );
+        new String[]{"A", "C"},
+        new String[]{"B", "C"},
+        new String[]{"C", "D"},
+        new String[]{"C", "E"}
+    );
     System.out.println(schedule(tasks, dependencies));
   }
 }

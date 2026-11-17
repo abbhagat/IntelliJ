@@ -16,11 +16,11 @@ public class Ride {
   private double fare;
 
   public Ride(String id, Rider rider, Location source, Location destination) {
-    this.id          = id;
-    this.rider       = rider;
-    this.source      = source;
+    this.id = id;
+    this.rider = rider;
+    this.source = source;
     this.destination = destination;
-    this.status      = RideStatus.REQUESTED;
+    this.status = RideStatus.REQUESTED;
   }
 
   public synchronized void accept(Driver driver) {

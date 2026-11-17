@@ -10,24 +10,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class FailureRecordService {
 
-    private final FailureRecordRepository failureRecordRepository;
+  private final FailureRecordRepository failureRecordRepository;
 
-    public FailureRecordService(FailureRecordRepository repository) {
-        this.failureRecordRepository = repository;
-    }
+  public FailureRecordService(FailureRecordRepository repository) {
+    this.failureRecordRepository = repository;
+  }
 
 
-    public void saveFailureRecord(ConsumerRecord<Integer,String> consumerRecord, Exception e, String status) {
-        var failureRecord = FailureRecord.builder()
-                .id(null)
-                .topic(consumerRecord.topic())
-                .key(consumerRecord.key())
-                .errorRecord(consumerRecord.value())
-                .partition(consumerRecord.partition())
-                .offset_value(consumerRecord.offset())
-                .exception(e.getCause().getMessage())
-                .status(status)
-                .build();
-        failureRecordRepository.save(failureRecord);
-    }
+  public void saveFailureRecord(ConsumerRecord<Integer, String> consumerRecord, Exception e, String status) {
+    var failureRecord = FailureRecord.builder()
+        .id(null)
+        .topic(consumerRecord.topic())
+        .key(consumerRecord.key())
+        .errorRecord(consumerRecord.value())
+        .partition(consumerRecord.partition())
+        .offset_value(consumerRecord.offset())
+        .exception(e.getCause().getMessage())
+        .status(status)
+        .build();
+    failureRecordRepository.save(failureRecord);
+  }
 }

@@ -39,9 +39,9 @@ public class PrintAllSubSetOfArray {
   public static void main(String[] args) {
     int n = 12;
     int[] a = String.valueOf(n)
-                    .chars()
-                    .map(c -> c - '0')
-                    .toArray();
+        .chars()
+        .map(c -> c - '0')
+        .toArray();
     findSubSet(a, 0, new LinkedList<>());
     System.out.println("------------------");
     findSubSet(new int[]{1, 2, 3}, 0, new LinkedList<>());

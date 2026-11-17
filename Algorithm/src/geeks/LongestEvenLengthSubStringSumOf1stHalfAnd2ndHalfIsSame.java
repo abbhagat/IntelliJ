@@ -20,7 +20,7 @@ public class LongestEvenLengthSubStringSumOf1stHalfAnd2ndHalfIsSame {
         sum2 += str.charAt(j) - '0';
         if (sum1 == sum2) {
           String s = str.substring(i, j + 1);
-          maxSubStr  = maxSubStr.length() < s.length() ? s : maxSubStr;
+          maxSubStr = maxSubStr.length() < s.length() ? s : maxSubStr;
         }
         i--;
         j++;

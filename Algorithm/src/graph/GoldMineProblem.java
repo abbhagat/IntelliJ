@@ -9,9 +9,9 @@ import static util.CommonUtils.maximum;
  * that is from a given cell, the miner can move to the cell diagonally up towards the right or diagonally down towards the right.
  * Find out the maximum amount of gold he can collect.
  * Input: M[][] =    {{1, 3, 3},
- *                    {2, 1, 4},
- *                    {0, 6, 4}
- *                   };
+ * {2, 1, 4},
+ * {0, 6, 4}
+ * };
  * Output: 12 {(1,0)->(2,1)->(1,2)}
  * Input: M[][] =  {  {1, 3, 1, 5},
  * {2, 2, 4, 1},
@@ -36,11 +36,11 @@ import static util.CommonUtils.maximum;
 public class GoldMineProblem {
 
   private static final int[][] gold = {
-                                          {10, 33, 13, 15},
-                                          {22, 21,  4,  1},
-                                          {5,   0,  2,  3},
-                                          {0,   6, 14,  2}
-                                      };
+      {10, 33, 13, 15},
+      {22, 21, 4, 1},
+      {5, 0, 2, 3},
+      {0, 6, 14, 2}
+  };
   private static final int ROW = gold.length;
   private static final int COL = gold[0].length;
 
@@ -58,8 +58,8 @@ public class GoldMineProblem {
     if (row < 0 || row >= ROW || col < 0 || col >= COL) {
       return 0;
     }
-    int right     = maxGold(row, col + 1);
-    int rightUp   = maxGold(row - 1, col + 1);
+    int right = maxGold(row, col + 1);
+    int rightUp = maxGold(row - 1, col + 1);
     int rightDown = maxGold(row + 1, col + 1);
     return gold[row][col] + maximum(right, rightUp, rightDown);
   }
@@ -69,10 +69,10 @@ public class GoldMineProblem {
     int[][] dp = new int[ROW][COL];
     for (int col = COL - 1; col >= 0; col--) {
       for (int row = 0; row < ROW; row++) {
-        int right          =                   col == COL - 1 ? 0 : dp[row]    [col + 1]; // Gold collected on going to the cell on the right
-        int rightUp        = row == 0       || col == COL - 1 ? 0 : dp[row - 1][col + 1]; // Gold collected on going to the cell to right up
-        int rightDown      = row == ROW - 1 || col == COL - 1 ? 0 : dp[row + 1][col + 1]; // Gold collected on going to the cell to right down
-        dp[row][col]       = gold[row][col] + maximum(right, rightUp, rightDown);         // Max gold collected from taking either of the above 3 paths
+        int right = col == COL - 1 ? 0 : dp[row][col + 1]; // Gold collected on going to the cell on the right
+        int rightUp = row == 0 || col == COL - 1 ? 0 : dp[row - 1][col + 1]; // Gold collected on going to the cell to right up
+        int rightDown = row == ROW - 1 || col == COL - 1 ? 0 : dp[row + 1][col + 1]; // Gold collected on going to the cell to right down
+        dp[row][col] = gold[row][col] + maximum(right, rightUp, rightDown);         // Max gold collected from taking either of the above 3 paths
       }
     }
     int max = dp[0][0];
@@ -83,6 +83,6 @@ public class GoldMineProblem {
   }
 
   public static void main(String[] arg) {
-    System.out.println(getMaxGold()  + "\t" + getMaxGoldRec());
+    System.out.println(getMaxGold() + "\t" + getMaxGoldRec());
   }
 }

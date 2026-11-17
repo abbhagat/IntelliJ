@@ -1,7 +1,6 @@
 package adobe;
 
 /**
- *
  * There is a one-dimensional garden on the x-axis.
  * The garden starts at the point 0 and ends at the point n. (i.e., the length of the garden is n).
  * There are n + 1 taps located at points [0, 1, ..., n] in the garden.
@@ -40,7 +39,7 @@ public class MinTapsToWaterGarden {
         return -1;     // If max is not updated in this loop, it means we can't extend the reach further. Return -1 as it's not possible.
       }
       count++;       // Increment the count of taps used.
-       min = max;   // Update the minimum reach to the newly reached maximum position.
+      min = max;   // Update the minimum reach to the newly reached maximum position.
     }
     return count; // Return the count of taps used to cover the entire range.
   }

@@ -17,15 +17,15 @@ public class GroupByStreamExample {
 
     Map<String, Long> finalMap = new LinkedHashMap<>();
     map.entrySet()
-       .stream()
-       .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-       .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+        .stream()
+        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+        .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
     System.out.println(finalMap);
 
     map.entrySet()
-       .stream()
-       .sorted(Map.Entry.<String, Long>comparingByKey().reversed())
-       .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+        .stream()
+        .sorted(Map.Entry.<String, Long>comparingByKey().reversed())
+        .forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
     System.out.println(finalMap);
 
     map.clear();

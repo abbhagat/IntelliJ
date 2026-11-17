@@ -13,11 +13,11 @@ public class MaxDiffBtwTwoElementSuchThatLargerElementAppearsAfterSmallerNumber 
 
   private static int maxDiff(int[] a) {
     int prevDiff = a[1] - a[0];
-    int maxDiff  = prevDiff;
+    int maxDiff = prevDiff;
     for (int i = 2; i < a.length; i++) {
       int currDiff = a[i] - a[i - 1];
       prevDiff = max(currDiff, prevDiff + currDiff);
-      maxDiff  = max(maxDiff, prevDiff);
+      maxDiff = max(maxDiff, prevDiff);
     }
     return maxDiff;
   }

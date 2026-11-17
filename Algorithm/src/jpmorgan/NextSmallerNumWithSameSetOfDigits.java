@@ -1,7 +1,7 @@
 package jpmorgan;
 
-import static util.CommonUtils.swap;
 import static util.CommonUtils.reverse;
+import static util.CommonUtils.swap;
 
 // Time  Complexity : O(n)
 // Space Complexity : O(n)

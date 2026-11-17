@@ -25,77 +25,77 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class BankBranch implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(generator = "PRIMARY_KEY_GEN", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "PRIMARY_KEY_GEN", sequenceName = "PRIMARY_KEY_SEQUENCE", allocationSize = 1, initialValue = 1)
-    @Column(name = "BRANCH_ID")
-    private Long branchID;
+  @Id
+  @GeneratedValue(generator = "PRIMARY_KEY_GEN", strategy = GenerationType.SEQUENCE)
+  @SequenceGenerator(name = "PRIMARY_KEY_GEN", sequenceName = "PRIMARY_KEY_SEQUENCE", allocationSize = 1, initialValue = 1)
+  @Column(name = "BRANCH_ID")
+  private Long branchID;
 
-    @Column(name = "BRANCH_NAME")
-    private String branchName;
+  @Column(name = "BRANCH_NAME")
+  private String branchName;
 
-    @Column(name = "ADDRESS")
-    private String address;
+  @Column(name = "ADDRESS")
+  private String address;
 
-    @Column(name = "STATE_CITY_ID")
-    private Long stateCityID;
+  @Column(name = "STATE_CITY_ID")
+  private Long stateCityID;
 
-    @Column(name = "PHONE_NUMBER")
-    private String phoneNumber;
+  @Column(name = "PHONE_NUMBER")
+  private String phoneNumber;
 
-    @Column(name = "IFSC_CODE")
-    private String ifscCode;
+  @Column(name = "IFSC_CODE")
+  private String ifscCode;
 
-    @Column(name = "MICR_CODE")
-    private String micrCode;
+  @Column(name = "MICR_CODE")
+  private String micrCode;
 
-    @Column(name = "BRANCH_MANAGER")
-    private String branchManager;
+  @Column(name = "BRANCH_MANAGER")
+  private String branchManager;
 
-    @Column(name = "STATUS")
-    @IsValidStatus(listOfValidStatus = {"Active", "InActive", "NA"})
-    private String status;
+  @Column(name = "STATUS")
+  @IsValidStatus(listOfValidStatus = {"Active", "InActive", "NA"})
+  private String status;
 
-    @DateTimeFormat(pattern = "dd-MMM-yyyy")
-    @Temporal(TemporalType.DATE)
-    @PastOrPresent
-    @Column(name = "START_DATE")
-    private Date startDate;
+  @DateTimeFormat(pattern = "dd-MMM-yyyy")
+  @Temporal(TemporalType.DATE)
+  @PastOrPresent
+  @Column(name = "START_DATE")
+  private Date startDate;
 
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd-MMM-yyyy")
-    @FutureOrPresent
-    @Column(name = "DISABLE_DATE")
-    private Date disableDate;
+  @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "dd-MMM-yyyy")
+  @FutureOrPresent
+  @Column(name = "DISABLE_DATE")
+  private Date disableDate;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
+  @Column(name = "DESCRIPTION")
+  private String description;
 
-    @Column(name = "XML")
-    private byte[] xml;
+  @Column(name = "XML")
+  private byte[] xml;
 
-    @CreatedBy
-    @Column(name = "CREATED_BY", updatable = false)
-    private String createdBy;
+  @CreatedBy
+  @Column(name = "CREATED_BY", updatable = false)
+  private String createdBy;
 
-    @Column(name = "CREATED_DATE", updatable = false)
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd-MMM-yyyy")
-    @CreatedDate
-    private Date createdDate;
+  @Column(name = "CREATED_DATE", updatable = false)
+  @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "dd-MMM-yyyy")
+  @CreatedDate
+  private Date createdDate;
 
-    @LastModifiedBy
-    @Column(name = "LAST_MODIFIED_BY", updatable = false)
-    private String lastModifiedBy;
+  @LastModifiedBy
+  @Column(name = "LAST_MODIFIED_BY", updatable = false)
+  private String lastModifiedBy;
 
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "LAST_MODIFIED_DATE", updatable = false)
-    @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
-    private Date lastModifiedDate;
+  @LastModifiedDate
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "LAST_MODIFIED_DATE", updatable = false)
+  @DateTimeFormat(pattern = "dd-MMM-yyyy hh:mm:ss")
+  private Date lastModifiedDate;
 
-    @Column(name = "VERSION", updatable = false)
-    private Integer version;
+  @Column(name = "VERSION", updatable = false)
+  private Integer version;
 }

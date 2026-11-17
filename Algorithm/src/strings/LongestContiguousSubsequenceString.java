@@ -10,9 +10,9 @@ public class LongestContiguousSubsequenceString {
     int start = 0, maxStart = 0, maxLen = 1;
     for (int i = 1; i < c.length; i++) {
       if (c[i] - c[i - 1] == 1) {
-        if (maxLen   < i - start + 1) {
-            maxLen   = i - start + 1;
-            maxStart = start;
+        if (maxLen < i - start + 1) {
+          maxLen = i - start + 1;
+          maxStart = start;
         }
       } else {
         if (c[i] != c[i - 1]) {

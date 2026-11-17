@@ -21,9 +21,9 @@ public class FileSystem {
     if (node.isDirectory()) {
       Directory directory = (Directory) node;
       return directory.getAllFileSystemNodes()
-                      .stream()
-                      .map(FileSystemNode::getName)
-                      .collect(Collectors.toList());
+          .stream()
+          .map(FileSystemNode::getName)
+          .collect(Collectors.toList());
     }
     return List.of(node.getName());
   }
@@ -37,9 +37,9 @@ public class FileSystem {
   }
 
   public void createFile(String path) {
-    String[] parts      = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
+    String[] parts = Arrays.stream(path.split("/")).filter(s -> !s.isEmpty()).toArray(String[]::new);
     Directory parentDir = getParentDir(parts);
-    String fileName     = parts[parts.length - 1];
+    String fileName = parts[parts.length - 1];
     FileSystemNode node = parentDir.getNode(fileName);
     if (node == null) {
       File file = new File(fileName, parentDir);

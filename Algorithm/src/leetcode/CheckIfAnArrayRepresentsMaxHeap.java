@@ -11,7 +11,7 @@ public class CheckIfAnArrayRepresentsMaxHeap {
 
   private static boolean isMaxHeap(int[] a) {
     for (int i = 0; i <= (a.length - 2) / 2; i++) {
-      int left  = 2 * i + 1;
+      int left = 2 * i + 1;
       int right = 2 * i + 2;
       if (a[i] < a[left]) {
         return false;

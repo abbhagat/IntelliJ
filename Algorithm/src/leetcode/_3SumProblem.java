@@ -18,12 +18,12 @@ public class _3SumProblem {
     combinationForSum(a, index + 1, currSum, givenSum, list);
     currSum -= a[index];
     list.removeLast();
-    combinationForSum(a, index + 1, currSum, givenSum,  list);
+    combinationForSum(a, index + 1, currSum, givenSum, list);
   }
 
   public static void main(String[] args) {
     int[] a = {-1, 0, 1, 2, -1, -4};
-    combinationForSum(a, 0, 0, 0,  new LinkedList<>());
+    combinationForSum(a, 0, 0, 0, new LinkedList<>());
     System.out.println();
     combinationForSum(a, 0, 0, -1, new LinkedList<>());
   }

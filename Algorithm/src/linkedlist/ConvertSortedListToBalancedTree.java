@@ -6,15 +6,6 @@ import static linkedlist.MidPointOfLinkedList.findPrevMidPoint;
 // Time complexity: O(n log n)
 public class ConvertSortedListToBalancedTree {
 
-  private static class TreeNode {
-    int num;
-    TreeNode left, right;
-
-    TreeNode(int num) {
-      this.num = num;
-    }
-  }
-
   private static TreeNode sortedListToBST(Node head) {
     if (head == null) {
       return null;
@@ -22,12 +13,12 @@ public class ConvertSortedListToBalancedTree {
     if (head.next == null) {
       return new TreeNode(head.num);
     }
-    Node prevMid  = findPrevMidPoint(head);
-    Node mid      = prevMid.next;
-    prevMid.next  = null;
+    Node prevMid = findPrevMidPoint(head);
+    Node mid = prevMid.next;
+    prevMid.next = null;
     TreeNode root = new TreeNode(mid.num);
-    root.left     = sortedListToBST(head);
-    root.right    = sortedListToBST(mid.next);
+    root.left = sortedListToBST(head);
+    root.right = sortedListToBST(mid.next);
     return root;
   }
 
@@ -47,6 +38,15 @@ public class ConvertSortedListToBalancedTree {
     }
     TreeNode root = sortedListToBST(first);
     preOrder(root);
+  }
+
+  private static class TreeNode {
+    int num;
+    TreeNode left, right;
+
+    TreeNode(int num) {
+      this.num = num;
+    }
   }
 
 }

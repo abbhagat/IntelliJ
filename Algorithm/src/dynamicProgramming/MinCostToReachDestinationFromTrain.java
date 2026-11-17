@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
+
 import static java.lang.Integer.min;
 
 public class MinCostToReachDestinationFromTrain {
@@ -15,7 +16,7 @@ public class MinCostToReachDestinationFromTrain {
     for (int i = s + 1; i < d; i++) {
       int cost1 = minCost(cost, s, i);
       int cost2 = minCost(cost, i, d);
-      min   = min(min, cost1 + cost2);
+      min = min(min, cost1 + cost2);
     }
     return min;
   }
@@ -37,11 +38,11 @@ public class MinCostToReachDestinationFromTrain {
   public static void main(String[] args) {
     final int M = Integer.MAX_VALUE;
     final int[][] cost = {
-                           {0, 15, 80, 90},
-                           {M,  0, 40, 50},
-                           {M,  M,  0, 70},
-                           {M,  M,  M,  0}
-                         };
+        {0, 15, 80, 90},
+        {M, 0, 40, 50},
+        {M, M, 0, 70},
+        {M, M, M, 0}
+    };
     System.out.println(minCost(cost, 0, cost.length - 1) + "\t" + minCostDP(cost, cost.length - 1));
   }
 }

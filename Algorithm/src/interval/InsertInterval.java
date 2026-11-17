@@ -1,10 +1,12 @@
 package interval;
 
 import util.Interval;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -20,7 +22,7 @@ public class InsertInterval {
     while (i < intervalList.size() && intervalList.get(i).end >= newInterval.start) {
       Interval interval = intervalList.remove(i);
       newInterval.start = min(newInterval.start, interval.start);
-      newInterval.end   = max(newInterval.end, interval.end);
+      newInterval.end = max(newInterval.end, interval.end);
     }
     intervalList.add(i, newInterval);
   }
@@ -49,9 +51,9 @@ public class InsertInterval {
     System.out.println("----------------------");
     List<int[]> list1 = new LinkedList<>();
     int[][] intervalList1 = new int[][]{{1, 5},
-                                        {6, 10},
-                                        {6, 15}
-                                       };
+        {6, 10},
+        {6, 15}
+    };
     Arrays.stream(intervalList1).forEach(newInterval -> insertInterval(list1, newInterval));
     list1.forEach(a -> System.out.println(Arrays.toString(a)));
   }

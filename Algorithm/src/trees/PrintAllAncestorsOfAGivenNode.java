@@ -14,7 +14,7 @@ public class PrintAllAncestorsOfAGivenNode {
       System.out.print("");
       return true;
     }
-    boolean left  = printAllAncestor(root.left,  num);
+    boolean left = printAllAncestor(root.left, num);
     boolean right = printAllAncestor(root.right, num);
     if (left || right) {
       System.out.print(root.num + " ");
@@ -33,7 +33,7 @@ public class PrintAllAncestorsOfAGivenNode {
       System.out.println(list);
       return;
     }
-    printAllAncestor(root.left,  num, list);
+    printAllAncestor(root.left, num, list);
     printAllAncestor(root.right, num, list);
     list.removeLast();
   }
@@ -50,15 +50,15 @@ public class PrintAllAncestorsOfAGivenNode {
                         \
                         10
      */
-    Node root                    = new Node(1);
-    root.left                    = new Node(2);
-    root.right                   = new Node(3);
-    root.left.left               = new Node(4);
-    root.left.right              = new Node(5);
-    root.right.right             = new Node(6);
-    root.left.right.left         = new Node(7);
-    root.left.right.right        = new Node(8);
-    root.right.right.right       = new Node(9);
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.left.right = new Node(5);
+    root.right.right = new Node(6);
+    root.left.right.left = new Node(7);
+    root.left.right.right = new Node(8);
+    root.right.right.right = new Node(9);
     root.right.right.right.right = new Node(10);
     printAllAncestor(root, 10);
     System.out.println();

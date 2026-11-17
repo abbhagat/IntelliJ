@@ -1,12 +1,13 @@
 package stack;
 
 import java.util.Stack;
+
 import static java.lang.Character.isDigit;
 
 public class DecodeString {
 
   private static String decodeString(String str) {
-    Stack<String>  stack = new Stack<>();
+    Stack<String> stack = new Stack<>();
     Stack<Integer> count = new Stack<>();
     String decode = "";
     int n = 0;
@@ -20,9 +21,9 @@ public class DecodeString {
         n = 0;
       } else if (c == ']') {
         String s = decode;
-        decode   = stack.pop();
-        int k    = count.pop();
-        decode  += s.repeat(k);
+        decode = stack.pop();
+        int k = count.pop();
+        decode += s.repeat(k);
       } else {
         decode += c;
       }

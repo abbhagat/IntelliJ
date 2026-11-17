@@ -12,7 +12,7 @@ public class MissingCharacter {
       sum1 += c;
     }
     int n = a.length + 1;
-    int sum2  = n * (min + max) / 2;
+    int sum2 = n * (min + max) / 2;
     return (char) (sum2 - sum1);
   }
 

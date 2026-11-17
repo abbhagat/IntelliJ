@@ -4,10 +4,6 @@ import static trees.TreeTraversal.postorder;
 
 public class GivenInOrderAndPostOrderGenerateOriginalTree {
 
-  public static class PostIndex {
-    int index;
-  }
-
   public static Node buildTree(int[] inorder, int[] postOrder, int start, int end, PostIndex postIndex) {
     if (start > end) {
       return null;
@@ -16,9 +12,9 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
     if (start == end) {
       return root;
     }
-    int mid    = search(inorder, root.num, start, end);
+    int mid = search(inorder, root.num, start, end);
     root.right = buildTree(inorder, postOrder, mid + 1, end, postIndex);
-    root.left  = buildTree(inorder, postOrder, start, mid - 1, postIndex);
+    root.left = buildTree(inorder, postOrder, start, mid - 1, postIndex);
     return root;
   }
 
@@ -38,6 +34,10 @@ public class GivenInOrderAndPostOrderGenerateOriginalTree {
     postIndex.index = postorder.length - 1;
     Node root = buildTree(inorder, postorder, 0, inorder.length - 1, postIndex);
     postorder(root);
+  }
+
+  public static class PostIndex {
+    int index;
   }
 
 }

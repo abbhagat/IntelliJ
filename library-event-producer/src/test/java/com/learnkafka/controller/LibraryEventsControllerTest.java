@@ -22,64 +22,64 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class LibraryEventsControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+  @Autowired
+  private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+  @Autowired
+  private ObjectMapper objectMapper;
 
-    @MockBean
-    private LibraryEventProducer libraryEventProducer;
+  @MockBean
+  private LibraryEventProducer libraryEventProducer;
 
-    @Test
-    public void postLibraryEvents() throws Exception {
-        Book book = Book.builder()
-                .bookId(123)
-                .bookAuthor("Abhinaw")
-                .bookName("Kafka")
-                .build();
-        LibraryEvent libraryEvent = LibraryEvent.builder()
-                .libraryEventId(null)
-                .libraryEventType(LibraryEventType.NEW)
-                .book(book).build();
-        String json = objectMapper.writeValueAsString(libraryEvent);
-        doNothing().when(libraryEventProducer).sendLibraryEvent(libraryEvent);
-        mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isCreated());
-    }
+  @Test
+  public void postLibraryEvents() throws Exception {
+    Book book = Book.builder()
+        .bookId(123)
+        .bookAuthor("Abhinaw")
+        .bookName("Kafka")
+        .build();
+    LibraryEvent libraryEvent = LibraryEvent.builder()
+        .libraryEventId(null)
+        .libraryEventType(LibraryEventType.NEW)
+        .book(book).build();
+    String json = objectMapper.writeValueAsString(libraryEvent);
+    doNothing().when(libraryEventProducer).sendLibraryEvent(libraryEvent);
+    mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().isCreated());
+  }
 
-    @Test
-    public void postLibraryEvents_4xx() throws Exception {
-        Book book = Book.builder()
-                .bookId(123)
-                .bookAuthor(null)
-                .bookName(null)
-                .build();
-        LibraryEvent libraryEvent = LibraryEvent.builder()
-                .libraryEventId(null)
-                .libraryEventType(LibraryEventType.NEW)
-                .book(book)
-                .build();
-        String json = objectMapper.writeValueAsString(libraryEvent);
-        doNothing().when(libraryEventProducer).sendLibraryEventApproach2(libraryEvent);
-        String expectedErrorMessage = "book.bookAuthor-must not be blank,book.bookName-must not be blank";
-        mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().is4xxClientError())
-                .andExpect(content().string(expectedErrorMessage));
-    }
+  @Test
+  public void postLibraryEvents_4xx() throws Exception {
+    Book book = Book.builder()
+        .bookId(123)
+        .bookAuthor(null)
+        .bookName(null)
+        .build();
+    LibraryEvent libraryEvent = LibraryEvent.builder()
+        .libraryEventId(null)
+        .libraryEventType(LibraryEventType.NEW)
+        .book(book)
+        .build();
+    String json = objectMapper.writeValueAsString(libraryEvent);
+    doNothing().when(libraryEventProducer).sendLibraryEventApproach2(libraryEvent);
+    String expectedErrorMessage = "book.bookAuthor-must not be blank,book.bookName-must not be blank";
+    mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().is4xxClientError())
+        .andExpect(content().string(expectedErrorMessage));
+  }
 
-    @Test
-    public void postLibraryEvents_4xxx() throws Exception {
-        LibraryEvent libraryEvent = LibraryEvent.builder()
-                .libraryEventId(null)
-                .libraryEventType(LibraryEventType.NEW)
-                .book(null)
-                .build();
-        String json = objectMapper.writeValueAsString(libraryEvent);
-        doNothing().when(libraryEventProducer).sendLibraryEventApproach2(libraryEvent);
-        String expectedErrorMessage = "book-must not be null";
-        mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().is4xxClientError())
-                .andExpect(content().string(expectedErrorMessage));
-    }
+  @Test
+  public void postLibraryEvents_4xxx() throws Exception {
+    LibraryEvent libraryEvent = LibraryEvent.builder()
+        .libraryEventId(null)
+        .libraryEventType(LibraryEventType.NEW)
+        .book(null)
+        .build();
+    String json = objectMapper.writeValueAsString(libraryEvent);
+    doNothing().when(libraryEventProducer).sendLibraryEventApproach2(libraryEvent);
+    String expectedErrorMessage = "book-must not be null";
+    mockMvc.perform(post("/v1/libraryEvent").content(json).contentType(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().is4xxClientError())
+        .andExpect(content().string(expectedErrorMessage));
+  }
 }

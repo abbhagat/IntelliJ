@@ -11,7 +11,7 @@ class BlockingQueue<E> {
   private final int maxSize;
 
   public BlockingQueue(int maxSize) {
-    this.q       = new LinkedList<>();
+    this.q = new LinkedList<>();
     this.maxSize = maxSize;
   }
 

@@ -12,9 +12,9 @@ public class DistanceBetweenTwoGivenNodesOfBST {
     if (root.num == target) {
       return level;
     }
-    int distance = findLevel(root.left,  target, level + 1);
+    int distance = findLevel(root.left, target, level + 1);
     if (distance == 0) {
-        distance = findLevel(root.right, target, level + 1);
+      distance = findLevel(root.right, target, level + 1);
     }
     return distance;
   }
@@ -27,7 +27,7 @@ public class DistanceBetweenTwoGivenNodesOfBST {
   public static void main(String[] args) {
     Node root = createBST();
     System.out.println(findDistance(root, 1, 7));
-    System.out.println(findDistance(root, 3,  6));
-    System.out.println(findDistance(root, 2,  5));
+    System.out.println(findDistance(root, 3, 6));
+    System.out.println(findDistance(root, 2, 5));
   }
 }

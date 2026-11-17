@@ -4,10 +4,6 @@ package recursion;
 // Space Complexity: O(n)
 public class DifferentWaysToDisplay5 {
 
-  private static class Count {
-    int count;
-  }
-
   private static void countWays(String prefix, int n, Count count) {
     if (n == 0) {
       count.count++;
@@ -43,5 +39,9 @@ public class DifferentWaysToDisplay5 {
     count = new Count();
     uniqueCountWays("", 5, 5, count);
     System.out.println("Unique Count : " + count.count);
+  }
+
+  private static class Count {
+    int count;
   }
 }

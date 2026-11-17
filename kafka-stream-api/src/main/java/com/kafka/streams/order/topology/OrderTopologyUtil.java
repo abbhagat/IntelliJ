@@ -13,10 +13,6 @@ import org.apache.kafka.streams.state.KeyValueStore;
 
 public class OrderTopologyUtil {
 
-  private OrderTopologyUtil() {
-    // private constructor to prevent instantiation
-  }
-
   private static final Initializer<TotalRevenue> TOTAL_REVENUE_INITIALIZER;
   private static final Aggregator<String, Order, TotalRevenue> TOTAL_REVENUE_AGGREGATOR;
   private static final ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> TOTAL_REVENUE_WITH_ADDRESS_VALUE_JOINER;
@@ -28,18 +24,22 @@ public class OrderTopologyUtil {
 
   }
 
+  private OrderTopologyUtil() {
+    // private constructor to prevent instantiation
+  }
+
   public static void aggregateOrderByCount(KStream<String, Order> orderStream, String stateStore) {
     KTable<String, Long> orderKTable = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
-                                                  .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)))
-                                                  .count(Named.as(stateStore), Materialized.as(stateStore));
+        .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)))
+        .count(Named.as(stateStore), Materialized.as(stateStore));
     orderKTable.toStream().print(Printed.<String, Long>toSysOut().withLabel(stateStore));
   }
 
   public static void aggregateOrderByRevenue(KStream<String, Order> orderStream, String stateStore, KTable<String, Store> storeKTable) {
-    Materialized<String, TotalRevenue, KeyValueStore<Bytes, byte[]>> MATERIALIZED  = Materialized.<String, TotalRevenue, KeyValueStore<Bytes, byte[]>>as(stateStore).withKeySerde(Serdes.String()).withValueSerde(SerdesFactory.getSerdes(TotalRevenue.class));
+    Materialized<String, TotalRevenue, KeyValueStore<Bytes, byte[]>> MATERIALIZED = Materialized.<String, TotalRevenue, KeyValueStore<Bytes, byte[]>>as(stateStore).withKeySerde(Serdes.String()).withValueSerde(SerdesFactory.getSerdes(TotalRevenue.class));
     KTable<String, TotalRevenue> orderKTable = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
-                                                          .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)))
-                                                          .aggregate(TOTAL_REVENUE_INITIALIZER, TOTAL_REVENUE_AGGREGATOR, MATERIALIZED);
+        .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)))
+        .aggregate(TOTAL_REVENUE_INITIALIZER, TOTAL_REVENUE_AGGREGATOR, MATERIALIZED);
     orderKTable.toStream().print(Printed.<String, TotalRevenue>toSysOut().withLabel(stateStore));
 
     // KTable to KTable Join

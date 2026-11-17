@@ -31,8 +31,8 @@ public class LongestRepeatingSubsequence {
     int max = 0;
     for (Map.Entry<String, Integer> entrySet : map.entrySet()) {
       if (max < entrySet.getValue()) {
-          str = entrySet.getKey();
-          max = entrySet.getValue();
+        str = entrySet.getKey();
+        max = entrySet.getValue();
       }
     }
     System.out.println(str + " " + max);

@@ -1,6 +1,7 @@
 package jpmorgan;
 
 import lombok.Getter;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,8 +11,8 @@ class TotalCartQty {
 
 class ItemCart {
 
-  private static final Map<String, Integer> itemQtyMap     = new ConcurrentHashMap<>();
-  private static final Map<String, String>  categoryMap    = new ConcurrentHashMap<>();
+  private static final Map<String, Integer> itemQtyMap = new ConcurrentHashMap<>();
+  private static final Map<String, String> categoryMap = new ConcurrentHashMap<>();
   private static final Map<String, Integer> categoryQtyMap = new ConcurrentHashMap<>();
 
   static {
@@ -21,12 +22,12 @@ class ItemCart {
     itemQtyMap.put("Mango", 12);
     itemQtyMap.put("Guava", 12);
 
-    categoryMap.put("Apple",  "Fruit");
+    categoryMap.put("Apple", "Fruit");
     categoryMap.put("Banana", "Fruit");
     categoryMap.put("Orange", "Fruit");
-    categoryMap.put("Mango",  "Fruit");
-    categoryMap.put("Guava",  "Fruit");
-    categoryMap.put("Pen",    "Stationery");
+    categoryMap.put("Mango", "Fruit");
+    categoryMap.put("Guava", "Fruit");
+    categoryMap.put("Pen", "Stationery");
     categoryMap.put("Pencil", "Stationery");
     categoryMap.put("Eraser", "Stationery");
 
@@ -44,14 +45,14 @@ class ItemCart {
     cartMap.putIfAbsent(category, new ConcurrentHashMap<>());
     Map<String, Integer> categoryItems = cartMap.get(category);
 
-    int itemLimit            = itemQtyMap.getOrDefault(item, Integer.MAX_VALUE);
-    int categoryLimit        = categoryQtyMap.getOrDefault(category, Integer.MAX_VALUE);
+    int itemLimit = itemQtyMap.getOrDefault(item, Integer.MAX_VALUE);
+    int categoryLimit = categoryQtyMap.getOrDefault(category, Integer.MAX_VALUE);
     int currentCategoryTotal = categoryItems.values().stream().reduce(0, Integer::sum);
-    int currentItemCount     = categoryItems.getOrDefault(item, 0);
+    int currentItemCount = categoryItems.getOrDefault(item, 0);
 
-    boolean withinItemLimit     = currentItemCount + qty <= itemLimit;
+    boolean withinItemLimit = currentItemCount + qty <= itemLimit;
     boolean withinCategoryLimit = currentCategoryTotal + qty <= categoryLimit;
-    boolean withinCartLimit     = totalCartQty.totalQtyInCart + qty <= 100;
+    boolean withinCartLimit = totalCartQty.totalQtyInCart + qty <= 100;
 
     if (withinItemLimit && withinCategoryLimit && withinCartLimit) {
       categoryItems.put(item, currentItemCount + qty);
@@ -67,7 +68,7 @@ public class AmazonShoppingCart {
   public static void main(String[] args) {
     ItemCart itemCart = new ItemCart();
     TotalCartQty totalCartQty = new TotalCartQty();
-    itemCart.addItemToCart("Apple",  5, totalCartQty);
+    itemCart.addItemToCart("Apple", 5, totalCartQty);
     itemCart.addItemToCart("Banana", 3, totalCartQty);
     itemCart.addItemToCart("Orange", 2, totalCartQty);
     itemCart.addItemToCart("Mango", 10, totalCartQty);

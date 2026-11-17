@@ -11,8 +11,8 @@ class SelectElevator {
       if (elevator.getState() == ElevatorState.IDLE) {
         int dist = Math.abs(elevator.getCurrentFloor() - request.floor());
         if (dist < min) {
-            min = dist;
-            bestElevator = elevator;
+          min = dist;
+          bestElevator = elevator;
         }
       }
     }

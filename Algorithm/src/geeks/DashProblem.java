@@ -10,9 +10,9 @@ public class DashProblem {
 
   private static StringBuilder dashProblem(String str) {
     int[] a = str.chars()
-                 .map(c -> c - '0')  // .map(Character::getNumericValue)
-                 .toArray();
-    boolean prevOdd  = a[0] % 2 == 1;
+        .map(c -> c - '0')  // .map(Character::getNumericValue)
+        .toArray();
+    boolean prevOdd = a[0] % 2 == 1;
     boolean prevEven = !prevOdd;
     int i;
     StringBuilder sb = new StringBuilder();
@@ -21,7 +21,7 @@ public class DashProblem {
       if (a[i] == 0) {
         continue;
       }
-      boolean currIsOdd  = a[i] % 2 == 1;
+      boolean currIsOdd = a[i] % 2 == 1;
       boolean currIsEven = !currIsOdd;
       if (currIsEven && prevEven) {
         sb.append("*");

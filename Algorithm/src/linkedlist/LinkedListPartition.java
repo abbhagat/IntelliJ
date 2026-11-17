@@ -18,10 +18,10 @@ public class LinkedListPartition {
     for (Node temp = head; temp != null; temp = temp.next) {
       if (temp.num < n) {
         p.next = temp;
-        p      = temp;
+        p = temp;
       } else {
         q.next = temp;
-        q      = temp;
+        q = temp;
       }
     }
     q.next = null;

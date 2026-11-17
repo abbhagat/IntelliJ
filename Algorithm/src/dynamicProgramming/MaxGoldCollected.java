@@ -56,11 +56,11 @@ public class MaxGoldCollected {
   public static void main(String[] args) {
     List<List<Integer>> listOfList = List.of(List.of(1, 4, 2, 2), List.of(6, 0, 0, 5));
     int[][] cost = listOfList.stream()
-                          .map(list -> list.stream()
-                                           .mapToInt(Integer::intValue)
-                                           .toArray()
-                              )
-                          .toArray(int[][]::new);
+        .map(list -> list.stream()
+            .mapToInt(Integer::intValue)
+            .toArray()
+        )
+        .toArray(int[][]::new);
     System.out.println(maxGoldCollected(cost, 0, 0, cost.length - 1, cost[0].length - 1) + "\t" + maxGoldCollectedDP(cost));
   }
 }

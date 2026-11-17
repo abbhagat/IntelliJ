@@ -3,6 +3,7 @@ package pairs;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
@@ -16,8 +17,8 @@ public class FindPairsInArrayWhoseSumIsGivenNumber {
     for (int x : a) {
       int y = n - x;
       if (set.contains(y)) {
-        int min  = min(x, y);
-        int max  = max(x, y);
+        int min = min(x, y);
+        int max = max(x, y);
         resultSet.add(List.of(min, max));
       }
       set.add(x);

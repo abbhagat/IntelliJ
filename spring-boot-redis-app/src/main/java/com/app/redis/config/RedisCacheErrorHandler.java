@@ -1,8 +1,6 @@
 package com.app.redis.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +27,7 @@ public class RedisCacheErrorHandler {
 
       @Override
       public void handleCacheGetError(RuntimeException exception, Cache cache, Object key) {
-        log.warn( "Redis cache GET failed; cache={}, key={}", cache.getName(), key, exception);
+        log.warn("Redis cache GET failed; cache={}, key={}", cache.getName(), key, exception);
       }
 
       @Override

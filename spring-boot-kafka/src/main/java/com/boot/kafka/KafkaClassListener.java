@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @KafkaListener(id = "class-level", topics = "topic-1")
 public class KafkaClassListener {
 
-    Logger LOG = LoggerFactory.getLogger(KafkaClassListener.class);
+  Logger LOG = LoggerFactory.getLogger(KafkaClassListener.class);
 
-    @KafkaHandler
-    void listen(String message) {
-        LOG.info("KafkaHandler[String] {}", message);
-    }
+  @KafkaHandler
+  void listen(String message) {
+    LOG.info("KafkaHandler[String] {}", message);
+  }
 
-    @KafkaHandler(isDefault = true)
-    void listenDefault(Object object) {
-        LOG.info("KafkaHandler[Default] {}", object);
-    }
+  @KafkaHandler(isDefault = true)
+  void listenDefault(Object object) {
+    LOG.info("KafkaHandler[Default] {}", object);
+  }
 }

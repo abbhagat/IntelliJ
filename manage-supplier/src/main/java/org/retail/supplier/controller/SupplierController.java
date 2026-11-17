@@ -11,27 +11,27 @@ import java.util.List;
 @RequestMapping(value = "/supplier")
 public class SupplierController {
 
-    @Autowired
-    private SupplierService service;
+  @Autowired
+  private SupplierService service;
 
-    @GetMapping(value = "/getAllSupplier")
-    public List<Supplier> getAllSupplier() {
-        return service.getAllSupplier();
-    }
+  @GetMapping(value = "/getAllSupplier")
+  public List<Supplier> getAllSupplier() {
+    return service.getAllSupplier();
+  }
 
-    @GetMapping(value = "/getSupplierByID/{supplierID}")
-    public Supplier getSupplierByID(@PathVariable Long supplierID) {
-        return service.getSupplierByID(supplierID);
-    }
+  @GetMapping(value = "/getSupplierByID/{supplierID}")
+  public Supplier getSupplierByID(@PathVariable Long supplierID) {
+    return service.getSupplierByID(supplierID);
+  }
 
-    @DeleteMapping(value = "/deleteSupplier/{supplierID}")
-    public void deleteSupplierByID(@PathVariable Long supplierID) {
-        service.deleteSupplierByID(supplierID);
-    }
+  @DeleteMapping(value = "/deleteSupplier/{supplierID}")
+  public void deleteSupplierByID(@PathVariable Long supplierID) {
+    service.deleteSupplierByID(supplierID);
+  }
 
-    @PostMapping(value = "/saveSupplier")
-    public void saveSupplier(@RequestBody Supplier supplier) {
-        service.saveSupplier(supplier);
-    }
+  @PostMapping(value = "/saveSupplier")
+  public void saveSupplier(@RequestBody Supplier supplier) {
+    service.saveSupplier(supplier);
+  }
 
 }

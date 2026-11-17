@@ -14,8 +14,8 @@ public class ArrayMulOtherThanOwnPosition {
     }
     int k = 1;
     for (int i = a.length - 1; i >= 0; i--) {
-          a[i] *= k;
-          k    *= nums[i];
+      a[i] *= k;
+      k *= nums[i];
     }
     return a;
   }
@@ -24,6 +24,6 @@ public class ArrayMulOtherThanOwnPosition {
     printArray(productExceptSelf(new int[]{0, 1, 2}));
     printArray(productExceptSelf(new int[]{1, 2, 3}));
     printArray(productExceptSelf(new int[]{1, 2, 0, 3}));
-    printArray(productExceptSelf(new int[]{1, 2, 0, 3, 0 , 1, 3}));
+    printArray(productExceptSelf(new int[]{1, 2, 0, 3, 0, 1, 3}));
   }
 }

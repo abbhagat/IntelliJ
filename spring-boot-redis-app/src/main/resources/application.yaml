@@ -5,10 +5,10 @@ spring:
     location: classpath:banner.txt
   data:
     redis:
-#      cluster:
-#        nodes:
-#          - ${REDIS_CONFIGURATION_ENDPOINT}:${REDIS_PORT:6379}
-#        max-redirects: 5
+      #      cluster:
+      #        nodes:
+      #          - ${REDIS_CONFIGURATION_ENDPOINT}:${REDIS_PORT:6379}
+      #        max-redirects: 5
       ssl:
         enabled: true
       host: localhost

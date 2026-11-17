@@ -24,10 +24,10 @@ public class WalletService {
       Transaction transaction = new Transaction(idempotencyKey, TransactionType.DEPOSIT, amount);
       try {
         wallet.depositAmount(amount);
-        status      = TransactionStatus.SUCCESS;
+        status = TransactionStatus.SUCCESS;
         auditRecord = new AuditRecord(transaction.getTransId(), "Deposited " + amount);
       } catch (Exception e) {
-        status      = TransactionStatus.FAILED;
+        status = TransactionStatus.FAILED;
         auditRecord = new AuditRecord(transaction.getTransId(), "Deposit failed");
       }
       transaction.setStatus(status);
@@ -55,10 +55,10 @@ public class WalletService {
       Transaction transaction = new Transaction(idempotencyKey, TransactionType.WITHDRAW, amount);
       try {
         wallet.withdrawAmount(amount);
-        status      = TransactionStatus.SUCCESS;
+        status = TransactionStatus.SUCCESS;
         auditRecord = new AuditRecord(transaction.getTransId(), "Withdrawn " + amount);
       } catch (Exception e) {
-        status      = TransactionStatus.FAILED;
+        status = TransactionStatus.FAILED;
         auditRecord = new AuditRecord(transaction.getTransId(), "Withdrawal failed");
       }
       transaction.setStatus(status);
@@ -81,7 +81,7 @@ public class WalletService {
     }
     Wallet first = from, second = to;
     if (from.getId().compareTo(to.getId()) > 0) {   // Lock wallets in deterministic order to prevent deadlock.
-      first  = to;
+      first = to;
       second = from;
     }
     synchronized (first) {

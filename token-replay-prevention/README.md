@@ -13,7 +13,8 @@ TokenReplayPreventionImpl class.
 
 ## Key requirements:
 
-* The replay prevention implementation must be thread safe. This class will be instantiated as a singleton by dependency injection. Thus,
+* The replay prevention implementation must be thread safe. This class will be instantiated as a singleton by dependency
+  injection. Thus,
   multiple threads may be invoking methods on an instance of the object at any
   given time.
 
@@ -50,7 +51,9 @@ Please return your implementation (included with the whole package) prior
 to the provided deadline.
 
 ## Part 2
-Let's say the enterprise server for which your replay prevention service has been implemented is being deployed to the cloud, and it now requires a token replay prevention microservice implementation.
 
+Let's say the enterprise server for which your replay prevention service has been implemented is being deployed to the
+cloud, and it now requires a token replay prevention microservice implementation.
 
-At a high level, please provide a diagram of what this might look like. Consider high throughput and resiliency in the face of any number of your microservice instances being terminated at any time.
+At a high level, please provide a diagram of what this might look like. Consider high throughput and resiliency in the
+face of any number of your microservice instances being terminated at any time.

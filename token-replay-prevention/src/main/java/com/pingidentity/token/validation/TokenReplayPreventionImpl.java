@@ -16,58 +16,58 @@ import java.util.logging.Logger;
  */
 
 public class TokenReplayPreventionImpl implements TokenReplayPrevention, InitializingBean, DisposableBean {
-    private static final Logger LOG = Logger.getLogger(TokenReplayPreventionImpl.class.getName());
+  private static final Logger LOG = Logger.getLogger(TokenReplayPreventionImpl.class.getName());
 
-    private final Map<String, Token> tokenMap;
-    private final TimeUnit cleanupPeriodTimeUnit;
-    private final long cleanupPeriod;
-    private final ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
+  private final Map<String, Token> tokenMap;
+  private final TimeUnit cleanupPeriodTimeUnit;
+  private final long cleanupPeriod;
+  private final ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
 
-    public TokenReplayPreventionImpl() {
-        this(TimeUnit.SECONDS, 1);
+  public TokenReplayPreventionImpl() {
+    this(TimeUnit.SECONDS, 1);
+  }
+
+  public TokenReplayPreventionImpl(TimeUnit cleanupPeriodTimeUnit, long cleanupPeriod) {
+    this.cleanupPeriodTimeUnit = cleanupPeriodTimeUnit;
+    this.cleanupPeriod = cleanupPeriod;
+    tokenMap = new ConcurrentHashMap<>();
+    scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
+  }
+
+  public int getTokenMapSize() {
+    return tokenMap.size();
+  }
+
+  public boolean isTokenReplayed(Token token) {
+    if (!isValidToken(token)) {
+      throw new IllegalArgumentException("Expired token passed");
     }
-
-    public TokenReplayPreventionImpl(TimeUnit cleanupPeriodTimeUnit, long cleanupPeriod) {
-        this.cleanupPeriodTimeUnit = cleanupPeriodTimeUnit;
-        this.cleanupPeriod = cleanupPeriod;
-        tokenMap = new ConcurrentHashMap<>();
-        scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
+    Token found = tokenMap.get(token.getTokenID());
+    if (found != null && !isValidToken(found)) {
+      tokenMap.remove(token.getTokenID());
     }
+    found = tokenMap.putIfAbsent(token.getTokenID(), token);
+    return found != null;
+  }
 
-    public int getTokenMapSize() {
-        return tokenMap.size();
-    }
+  private void cleanupExpiredTokens() {
+    LOG.info("Cleaning up expired tokenMap, map size before cleanup: " + tokenMap.size());
+    tokenMap.entrySet().removeIf(e -> !isValidToken(e.getValue())); // e represents Map.Entry<String, Token>
+    LOG.info("Map size after cleanup: " + tokenMap.size());
+  }
 
-    public boolean isTokenReplayed(Token token) {
-        if (!isValidToken(token)) {
-            throw new IllegalArgumentException("Expired token passed");
-        }
-        Token found = tokenMap.get(token.getTokenID());
-        if (found != null && !isValidToken(found)) {
-            tokenMap.remove(token.getTokenID());
-        }
-        found = tokenMap.putIfAbsent(token.getTokenID(), token);
-        return found != null;
-    }
+  private boolean isValidToken(Token token) {
+    Instant now = Instant.now();
+    return now.isAfter(token.getNotValidBefore()) && now.isBefore(token.getNotValidAfter());
+  }
 
-    private void cleanupExpiredTokens() {
-        LOG.info("Cleaning up expired tokenMap, map size before cleanup: " + tokenMap.size());
-        tokenMap.entrySet().removeIf(e -> !isValidToken(e.getValue())); // e represents Map.Entry<String, Token>
-        LOG.info("Map size after cleanup: " + tokenMap.size());
-    }
+  @Override
+  public void afterPropertiesSet() {
+    scheduledThreadPoolExecutor.scheduleAtFixedRate(this::cleanupExpiredTokens, 0, cleanupPeriod, cleanupPeriodTimeUnit);
+  }
 
-    private boolean isValidToken(Token token) {
-        Instant now = Instant.now();
-        return now.isAfter(token.getNotValidBefore()) && now.isBefore(token.getNotValidAfter());
-    }
-
-    @Override
-    public void afterPropertiesSet() {
-        scheduledThreadPoolExecutor.scheduleAtFixedRate(this::cleanupExpiredTokens, 0, cleanupPeriod, cleanupPeriodTimeUnit);
-    }
-
-    @Override
-    public void destroy() {
-        scheduledThreadPoolExecutor.shutdownNow();
-    }
+  @Override
+  public void destroy() {
+    scheduledThreadPoolExecutor.shutdownNow();
+  }
 }

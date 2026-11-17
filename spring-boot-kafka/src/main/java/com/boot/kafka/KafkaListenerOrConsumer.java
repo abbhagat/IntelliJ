@@ -9,21 +9,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaListenerOrConsumer {
 
-    Logger LOG = LoggerFactory.getLogger(KafkaListenerOrConsumer.class);
+  Logger LOG = LoggerFactory.getLogger(KafkaListenerOrConsumer.class);
 
-    @KafkaListener(topics = "topic-1")
-    void listener(String data) {
-        LOG.info(data);
-    }
+  @KafkaListener(topics = "topic-1")
+  void listener(String data) {
+    LOG.info(data);
+  }
 
-    @KafkaListener(topics = "topic-1, topic-2", groupId = "topic-group")
-    void commonListenerForMultipleTopics(String message) {
-        LOG.info("MultipleTopicListener - {}", message);
-    }
+  @KafkaListener(topics = "topic-1, topic-2", groupId = "topic-group")
+  void commonListenerForMultipleTopics(String message) {
+    LOG.info("MultipleTopicListener - {}", message);
+  }
 
-    @KafkaListener(topics = "topic-1")
-    @SendTo("topic-2")
-    void listenAndReply(String message) {
-        LOG.info("MultipleTopicListener - {}", message);
-    }
+  @KafkaListener(topics = "topic-1")
+  @SendTo("topic-2")
+  void listenAndReply(String message) {
+    LOG.info("MultipleTopicListener - {}", message);
+  }
 }

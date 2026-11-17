@@ -33,8 +33,8 @@ class ShapeFactory {
 
   public Shape getShape(String shape) {
     return switch (shape.toLowerCase()) {
-      case "circle"    -> new Circle();
-      case "square"    -> new Square();
+      case "circle" -> new Circle();
+      case "square" -> new Square();
       case "rectangle" -> new Rectangle();
       default -> null;
     };

@@ -1,6 +1,7 @@
 # Getting Started
 
 ### Reference Documentation
+
 For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
@@ -13,6 +14,7 @@ For further reference, please consider the following sections:
 * [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.4.3/reference/htmlsingle/#using-boot-devtools)
 
 ### Guides
+
 The following guides illustrate how to use some features concretely:
 
 * [Service Registration and Discovery with Eureka and Spring Cloud](https://spring.io/guides/gs/service-registration-and-discovery/)
@@ -20,6 +22,7 @@ The following guides illustrate how to use some features concretely:
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
 ### Additional Links
+
 These additional references should also help you:
 
 * [Sample of circuit-breaker metrics with Spring Cloud and Hystrix Dashboard](https://github.com/spring-cloud-samples/hystrix-dashboard)
@@ -29,13 +32,14 @@ These additional references should also help you:
 The dependencies listed below are in maintenance mode. We do not recommend adding them to
 new projects:
 
-*  Hystrix
-*  Hystrix Dashboard
+* Hystrix
+* Hystrix Dashboard
 
 The decision to move most of the Spring Cloud Netflix projects to maintenance mode was
 a response to Netflix not continuing maintenance of many of the libraries that we provided
 support for.
 
-Please see [this blog entry](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now#spring-cloud-netflix-projects-entering-maintenance-mode)
+Please
+see [this blog entry](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now#spring-cloud-netflix-projects-entering-maintenance-mode)
 for more information on maintenance mode and a list of suggested replacements for those
 libraries.

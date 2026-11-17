@@ -14,23 +14,23 @@ import java.util.Map;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Bean(name = "topic-1")
-    public NewTopic topic1(){
-        return TopicBuilder.name("topic-1").build();
-    }
+  @Value(value = "${spring.kafka.bootstrap-servers}")
+  private String bootstrapAddress;
 
-    @Bean(name = "topic-2")
-    public NewTopic topic2(){
-        return TopicBuilder.name("topic-2").build();
-    }
+  @Bean(name = "topic-1")
+  public NewTopic topic1() {
+    return TopicBuilder.name("topic-1").build();
+  }
 
-    @Value(value = "${spring.kafka.bootstrap-servers}")
-    private String bootstrapAddress;
+  @Bean(name = "topic-2")
+  public NewTopic topic2() {
+    return TopicBuilder.name("topic-2").build();
+  }
 
-    @Bean
-    public KafkaAdmin kafkaAdmin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        return new KafkaAdmin(configs);
-    }
+  @Bean
+  public KafkaAdmin kafkaAdmin() {
+    Map<String, Object> configs = new HashMap<>();
+    configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+    return new KafkaAdmin(configs);
+  }
 }

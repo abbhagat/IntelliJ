@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeDAO DAO;
+  @Autowired
+  private EmployeeDAO DAO;
 
-    public List<Employee> getAllEmp(){
-        return DAO.findAll();
-    }
+  public List<Employee> getAllEmp() {
+    return DAO.findAll();
+  }
 
-    public void saveEmp(Employee emp){
-        DAO.save(emp);
-    }
+  public void saveEmp(Employee emp) {
+    DAO.save(emp);
+  }
 }

@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class LibraryEventsRetryConsumer {
 
-    @Autowired
-    private LibraryEventsService libraryEventsService;
+  @Autowired
+  private LibraryEventsService libraryEventsService;
 
 
-    @KafkaListener(topics = {"${topics.retry}"}, groupId = "retry-listener-group" , autoStartup = "${retryListener.startup:true}")
-    public void onMessage(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
-        log.info("ConsumerRecord in Retry Consumer: {} ", consumerRecord);
-        libraryEventsService.processLibraryEvent(consumerRecord);
-    }
+  @KafkaListener(topics = {"${topics.retry}"}, groupId = "retry-listener-group", autoStartup = "${retryListener.startup:true}")
+  public void onMessage(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
+    log.info("ConsumerRecord in Retry Consumer: {} ", consumerRecord);
+    libraryEventsService.processLibraryEvent(consumerRecord);
+  }
 }

@@ -40,7 +40,7 @@ public class AggregateTopology {
     Reducer<String> reducer = (value1, value2) -> String.join("_", value1.toUpperCase(), value2.toUpperCase());
     KTable<String, String> groupByKeyVal = groupedStream.reduce(reducer, Materialized.as("reduce-per-alphabet-state-store"));
     groupByKeyVal
-      .toStream()
-      .print(Printed.<String, String>toSysOut().withLabel("reduce-per-alphabet"));
+        .toStream()
+        .print(Printed.<String, String>toSysOut().withLabel("reduce-per-alphabet"));
   }
 }

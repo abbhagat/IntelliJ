@@ -12,7 +12,7 @@ public class PairWithGivenSumInSortedDLL {
       int sum = low.num + high.num;
       if (sum == givenSum) {
         System.out.print("(" + low.num + ", " + high.num + ")" + "\t");
-        low  = low.next;
+        low = low.next;
         high = high.prev;
       } else if (sum < givenSum) {
         low = low.next;

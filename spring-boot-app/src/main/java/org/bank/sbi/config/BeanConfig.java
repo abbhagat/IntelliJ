@@ -10,11 +10,11 @@ import javax.persistence.EntityManagerFactory;
 @Configuration
 public class BeanConfig {
 
-    @Autowired
-    private EntityManagerFactory entityManagerFactory;
+  @Autowired
+  private EntityManagerFactory entityManagerFactory;
 
-    @Bean
-    public SessionFactory getSessionFactory() {
-        return entityManagerFactory.unwrap(SessionFactory.class);
-    }
+  @Bean
+  public SessionFactory getSessionFactory() {
+    return entityManagerFactory.unwrap(SessionFactory.class);
+  }
 }

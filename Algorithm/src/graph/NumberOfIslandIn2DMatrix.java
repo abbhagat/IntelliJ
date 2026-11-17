@@ -39,14 +39,14 @@ public class NumberOfIslandIn2DMatrix {
     visited[row][col] = true;
     for (int k = 0; k < 8; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-             DFS(row + rowIdx[k], col + colIdx[k]);
+        DFS(row + rowIdx[k], col + colIdx[k]);
       }
     }
   }
 
   private static int countIslands() {
     int count = 0;
-    for (int row= 0; row < ROW; row++)
+    for (int row = 0; row < ROW; row++)
       for (int col = 0; col < COL; col++)
         if (M[row][col] == 1 && !visited[row][col]) {
           DFS(row, col);

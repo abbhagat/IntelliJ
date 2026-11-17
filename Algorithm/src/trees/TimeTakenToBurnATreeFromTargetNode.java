@@ -67,14 +67,14 @@ public class TimeTakenToBurnATreeFromTargetNode {
                    /  \   /  \
                   21  24 22   23
          */
-    Node root              = new Node(12);
-    root.left              = new Node(13);
-    root.right             = new Node(10);
-    root.right.left        = new Node(14);
-    root.right.right       = new Node(15);
-    root.right.left.left   = new Node(21);
-    root.right.left.right  = new Node(24);
-    root.right.right.left  = new Node(22);
+    Node root = new Node(12);
+    root.left = new Node(13);
+    root.right = new Node(10);
+    root.right.left = new Node(14);
+    root.right.right = new Node(15);
+    root.right.left.left = new Node(21);
+    root.right.left.right = new Node(24);
+    root.right.right.left = new Node(22);
     root.right.right.right = new Node(23);
     burnTree(root, 14);
     while (!q.isEmpty()) {

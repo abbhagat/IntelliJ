@@ -11,21 +11,21 @@ import java.util.List;
 @RequestMapping(value = "/stateCity")
 public class StateCityController {
 
-    @Autowired
-    private StateCityService service;
+  @Autowired
+  private StateCityService service;
 
-    @GetMapping(value = "/getAllStateCity")
-    public List<StateCity> getAllStateCity() {
-        return service.getAllStateCity();
-    }
+  @GetMapping(value = "/getAllStateCity")
+  public List<StateCity> getAllStateCity() {
+    return service.getAllStateCity();
+  }
 
-    @DeleteMapping(value = "/deleteStateCity/{stateCityID}")
-    public void deleteStateCityByID(@PathVariable Long stateCityID) {
-        service.deleteStateCityByID(stateCityID);
-    }
+  @DeleteMapping(value = "/deleteStateCity/{stateCityID}")
+  public void deleteStateCityByID(@PathVariable Long stateCityID) {
+    service.deleteStateCityByID(stateCityID);
+  }
 
-    @PostMapping(value = "/saveStateCity")
-    public void saveStateCity(@RequestBody StateCity stateCity) {
-        service.saveStateCity(stateCity);
-    }
+  @PostMapping(value = "/saveStateCity")
+  public void saveStateCity(@RequestBody StateCity stateCity) {
+    service.saveStateCity(stateCity);
+  }
 }

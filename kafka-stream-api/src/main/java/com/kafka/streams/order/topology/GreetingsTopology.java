@@ -10,8 +10,10 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.kstream.Produced;
+
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static com.kafka.streams.order.launcher.TopicUtil.*;
 
 @Slf4j
@@ -30,15 +32,15 @@ public class GreetingsTopology {
     KStream<String, String> mergedStream = greetingStream.merge(greetingSpanish);
 
     KStream<String, String> modifiedStream = mergedStream
-                                               .filter((key, value) -> value.length() > 5)
-                                               .peek((key, value) -> log.info("Key : {} Value : {}", key, value))
-                                               .flatMapValues(value -> {
-                                                 List<String> newValues = List.of(value.split(""));
-                                                 List<String> result    = newValues.stream()
-                                                                                   .map(String::toUpperCase)
-                                                                                   .collect(Collectors.toList());
-                                                 return result;
-                                               });
+        .filter((key, value) -> value.length() > 5)
+        .peek((key, value) -> log.info("Key : {} Value : {}", key, value))
+        .flatMapValues(value -> {
+          List<String> newValues = List.of(value.split(""));
+          List<String> result = newValues.stream()
+              .map(String::toUpperCase)
+              .collect(Collectors.toList());
+          return result;
+        });
     modifiedStream.print(Printed.<String, String>toSysOut().withLabel("modifiedStream"));
 //                                                .flatMap((key, value) -> {
 //                                                  List<String> newValues = List.of(value.split(""));
@@ -51,8 +53,8 @@ public class GreetingsTopology {
         .flatMapValues((key, value) -> {
           List<String> newValues = List.of(value.split(""));
           List<String> result = newValues.stream()
-                                         .map(String::toUpperCase)
-                                         .collect(Collectors.toList());
+              .map(String::toUpperCase)
+              .collect(Collectors.toList());
           return result;
         });
     modifiedStream2.print(Printed.<String, String>toSysOut().withLabel("modifiedStream2"));

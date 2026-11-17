@@ -1,6 +1,9 @@
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import shape.*;
+import shape.Address;
+import shape.Employee;
+import shape.Rectangle;
+import shape.Shape;
 
 import java.util.Arrays;
 

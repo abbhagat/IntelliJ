@@ -11,19 +11,19 @@ import java.util.List;
 @Setter
 public class StateCityList implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    private List<StateCity> listOfStateCity;
+  private List<StateCity> listOfStateCity;
 
-    public StateCityList() {
-        this.listOfStateCity = new ArrayList<>();
-    }
+  public StateCityList() {
+    this.listOfStateCity = new ArrayList<>();
+  }
 
-    public StateCityList(List<StateCity> stateCityList) {
-        this.listOfStateCity = stateCityList;
-    }
+  public StateCityList(List<StateCity> stateCityList) {
+    this.listOfStateCity = stateCityList;
+  }
 
-    public void addStateCity(StateCity stateCity) {
-        this.listOfStateCity.add(0, stateCity);
-    }
+  public void addStateCity(StateCity stateCity) {
+    this.listOfStateCity.add(0, stateCity);
+  }
 }

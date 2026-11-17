@@ -9,29 +9,9 @@ public class HitCounter {
   private final int time;
 
   public HitCounter(int timeInSecs) {
-    this.hits  = new int[timeInSecs];
+    this.hits = new int[timeInSecs];
     this.times = new int[timeInSecs];
-    this.time  = timeInSecs;
-  }
-
-  public void hit(int timestamp) {
-    int i         = timestamp % time;
-    if (times[i] != timestamp) {
-        times[i]  = timestamp;
-         hits[i]  = 1;
-    } else {
-      hits[i]++;
-    }
-  }
-
-  public int getHits(int timestamp) {
-    int count = 0;
-    for (int i = 0; i < time; i++) {
-      if (timestamp - times[i] < time) {
-        count += hits[i];
-      }
-    }
-    return count;
+    this.time = timeInSecs;
   }
 
   public static void main(String[] args) {
@@ -46,5 +26,25 @@ public class HitCounter {
     System.out.println(counter.getHits(2));
     System.out.println(counter.getHits(3));
     System.out.println(counter.getHits(4));
+  }
+
+  public void hit(int timestamp) {
+    int i = timestamp % time;
+    if (times[i] != timestamp) {
+      times[i] = timestamp;
+      hits[i] = 1;
+    } else {
+      hits[i]++;
+    }
+  }
+
+  public int getHits(int timestamp) {
+    int count = 0;
+    for (int i = 0; i < time; i++) {
+      if (timestamp - times[i] < time) {
+        count += hits[i];
+      }
+    }
+    return count;
   }
 }

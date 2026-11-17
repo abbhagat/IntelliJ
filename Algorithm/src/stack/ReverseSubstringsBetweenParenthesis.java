@@ -21,11 +21,11 @@ public class ReverseSubstringsBetweenParenthesis {
     for (char c : str.toCharArray()) {
       switch (c) {
         case '(' -> {
-                      stack.push(sb);
-                      sb = new StringBuilder();
-                    }
-        case ')' ->   sb = stack.pop().append(sb.reverse());
-        default ->    sb.append(c);
+          stack.push(sb);
+          sb = new StringBuilder();
+        }
+        case ')' -> sb = stack.pop().append(sb.reverse());
+        default -> sb.append(c);
       }
     }
     return sb;

@@ -18,11 +18,11 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 public class Book {
 
-    @Id
-    private Integer bookId;
-    private String bookName;
-    private String bookAuthor;
-    @OneToOne
-    @JoinColumn(name = "libraryEventId")
-    private LibraryEvent libraryEvent;
+  @Id
+  private Integer bookId;
+  private String bookName;
+  private String bookAuthor;
+  @OneToOne
+  @JoinColumn(name = "libraryEventId")
+  private LibraryEvent libraryEvent;
 }

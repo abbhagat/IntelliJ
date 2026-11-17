@@ -17,20 +17,20 @@ public class ApiGatewayImpl {
     Router router = new Router(new HashMap<>());
     LoadBalancer loadBalancer = new LoadBalancer();
 
-    Service userService1  = new UserService();
-    Service userService2  = new UserService();
+    Service userService1 = new UserService();
+    Service userService2 = new UserService();
     Service orderService1 = new OrderService();
     Service orderService2 = new OrderService();
 
     loadBalancer.setUserServiceList(List.of(userService1, userService2));
     loadBalancer.setOrderServiceList(List.of(orderService1, orderService2));
 
-    router.registerRoute("/user",  "userService");
+    router.registerRoute("/user", "userService");
     router.registerRoute("/order", "orderService");
 
     ApiGateway apiGateway = new ApiGateway(authManager, rateLimiter, router, loadBalancer);
 
-    Map<String, String> headers = Map.of("Authorization","valid-token", "clientId", "abhinawb");
+    Map<String, String> headers = Map.of("Authorization", "valid-token", "clientId", "abhinawb");
     Request request = new Request("/user", "GET", headers, "Request Body");
 
     Response response = apiGateway.handleRequest(request);

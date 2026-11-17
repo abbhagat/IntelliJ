@@ -2,22 +2,22 @@ package com.kafka.streams.app.producer;
 
 import tools.jackson.databind.SerializationFeature;
 import tools.jackson.databind.json.JsonMapper;
+
 import java.util.Properties;
 
 public class Util {
 
-  private Util() {
-    // private constructor to prevent instantiation
-  }
-
   public static final Properties config = new Properties();
   public static final String BROKER_LIST = "localhost:9092,localhost:9093,localhost:9094";
   public static final String LATEST = "latest";
-
   public static JsonMapper jsonMapper = JsonMapper.builder()
       .findAndAddModules()
       .configure(SerializationFeature.INDENT_OUTPUT, false)
       .build();
+
+  private Util() {
+    // private constructor to prevent instantiation
+  }
 
 //  public static List<Store> getStoresList() {
 //    Address address1 = new Address("1234 Street 1 ", "", "City1", "State1", "12345");

@@ -3,13 +3,13 @@ package lld.filesystem;
 import java.util.List;
 
 /**
- *  create existing file
- *  create file inside non-existing directory
- *  read directory
- *  delete non-empty directory
- *  duplicate directory
- *  invalid path
- *  root directory "/"
+ * create existing file
+ * create file inside non-existing directory
+ * read directory
+ * delete non-empty directory
+ * duplicate directory
+ * invalid path
+ * root directory "/"
  */
 
 public class FileSystemImpl {

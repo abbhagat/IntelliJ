@@ -1,6 +1,7 @@
 package searching;
 
 import static searching.BinarySearch.binarySearch;
+
 // Time  Complexity: O(log n)
 // Space Complexity: O(1)
 public class SearchAnElementInSortedAndRotatedArray {

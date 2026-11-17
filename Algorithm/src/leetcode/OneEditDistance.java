@@ -4,16 +4,16 @@ import static java.lang.Integer.min;
 import static java.lang.Math.abs;
 
 /**
- One Edit Distance is a string problem where you check whether two strings are exactly one edit apart.
- ✅ Allowed edits (only ONE):
- Insert a character
- Delete a character
- Replace a character
-
- Key Idea
- Two strings s and t are one edit distance apart if:
- Their length difference is at most 1
- And you can make them equal using exactly one operation
+ * One Edit Distance is a string problem where you check whether two strings are exactly one edit apart.
+ * ✅ Allowed edits (only ONE):
+ * Insert a character
+ * Delete a character
+ * Replace a character
+ * <p>
+ * Key Idea
+ * Two strings s and t are one edit distance apart if:
+ * Their length difference is at most 1
+ * And you can make them equal using exactly one operation
  */
 
 // Time Complexity: O(n) n = length of the shorter string between s1 and s2.
@@ -30,7 +30,7 @@ public class OneEditDistance {
           return s1.substring(i + 1).equals(s2.substring(i + 1));
         }
         return m < n ? s1.substring(i).equals(s2.substring(i + 1))
-                     : s1.substring(i + 1).equals(s2.substring(i));
+            : s1.substring(i + 1).equals(s2.substring(i));
       }
     }
     return m != n;

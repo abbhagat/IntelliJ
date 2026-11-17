@@ -16,19 +16,19 @@ import java.util.Map;
 @ControllerAdvice
 public class ExceptionDefinition extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public String sendException(Model model) {
-        return "exception-page";
-    }
+  @ExceptionHandler(value = Exception.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String sendException(Model model) {
+    return "exception-page";
+  }
 
-    @ExceptionHandler(CityNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<Object> handleCityNotFoundException(CityNotFoundException e, WebRequest request) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        map.put("timestamp", LocalDateTime.now());
-        map.put("message", "City not found");
-        map.put("error", e.getCause());
-        return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
-    }
+  @ExceptionHandler(CityNotFoundException.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  public ResponseEntity<Object> handleCityNotFoundException(CityNotFoundException e, WebRequest request) {
+    Map<String, Object> map = new LinkedHashMap<>();
+    map.put("timestamp", LocalDateTime.now());
+    map.put("message", "City not found");
+    map.put("error", e.getCause());
+    return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+  }
 }

@@ -46,8 +46,8 @@ public class GoldMineProblem {
     if (row < 0 || row >= R || col < 0 || col >= C) {
       return 0;
     }
-    int right     = dfs(gold, row, col + 1, R, C);
-    int rightUp   = dfs(gold, row - 1, col + 1, R, C);
+    int right = dfs(gold, row, col + 1, R, C);
+    int rightUp = dfs(gold, row - 1, col + 1, R, C);
     int rightDown = dfs(gold, row + 1, col + 1, R, C);
     return gold[row][col] + maximum(right, rightUp, rightDown);
   }
@@ -59,8 +59,8 @@ public class GoldMineProblem {
     int[][] dp = new int[R][C];
     for (int j = C - 1; j >= 0; j--) {
       for (int i = 0; i < R; i++) {
-        int right     = j == C - 1               ? 0 : dp[i]    [j + 1];    // Gold collected on going to the cell on the right
-        int rightUp   = i == 0 || j == C - 1     ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
+        int right = j == C - 1 ? 0 : dp[i][j + 1];    // Gold collected on going to the cell on the right
+        int rightUp = i == 0 || j == C - 1 ? 0 : dp[i - 1][j + 1];   //  Gold collected on going to the cell to right up
         int rightDown = i == R - 1 || j == C - 1 ? 0 : dp[i + 1][j + 1];  //   Gold collected on going to the cell to right down
         dp[i][j] = gold[i][j] + maximum(right, rightUp, rightDown);      //    Max gold collected from taking either of the above 3 paths
       }

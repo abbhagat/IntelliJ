@@ -1,6 +1,7 @@
 package trees;
 
 import java.util.LinkedList;
+
 import static trees.BinaryTree.createBST;
 
 // Time  Complexity: O(n)
@@ -15,7 +16,7 @@ public class CheckIfTwoNodesAreOnSamePath {
     if (list.contains(x) && list.contains(y)) {
       return true;
     }
-    boolean left  = isOnSamePath(root.left,  x, y, list);
+    boolean left = isOnSamePath(root.left, x, y, list);
     boolean right = isOnSamePath(root.right, x, y, list);
     if (left || right) {
       return true;

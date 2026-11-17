@@ -10,14 +10,14 @@ public class MaxPathSumInBT {
     if (root == null) {
       return 0;
     }
-    int left  = findMaxPathSum(root.left);   // find maximum path sum "starting" from the left child
+    int left = findMaxPathSum(root.left);   // find maximum path sum "starting" from the left child
     int right = findMaxPathSum(root.right); //  find maximum path sum "starting" from the right child
     int max = sum;
-        max = max(max,     root.num);
-        max = max(max, root.num + left);
-        max = max(max, root.num + right);
-        max = max(max, root.num + left + right);
-        sum = max;
+    max = max(max, root.num);
+    max = max(max, root.num + left);
+    max = max(max, root.num + right);
+    max = max(max, root.num + left + right);
+    sum = max;
     return max(root.num, root.num + max(left, right));
   }
 
@@ -31,13 +31,13 @@ public class MaxPathSumInBT {
                         /  \
                        3    5
         */
-    Node root              = new Node(10);
-    root.left              = new Node(2);
-    root.right             = new Node(10);
-    root.left.left         = new Node(20);
-    root.left.right        = new Node(1);
-    root.right.right       = new Node(-25);
-    root.right.right.left  = new Node(3);
+    Node root = new Node(10);
+    root.left = new Node(2);
+    root.right = new Node(10);
+    root.left.left = new Node(20);
+    root.left.right = new Node(1);
+    root.right.right = new Node(-25);
+    root.right.right.left = new Node(3);
     root.right.right.right = new Node(5);
     findMaxPathSum(root);
     System.out.println("The maximum path sum is " + sum);

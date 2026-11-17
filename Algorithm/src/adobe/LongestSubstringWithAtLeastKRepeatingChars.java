@@ -7,8 +7,6 @@ import java.util.Map;
 // Space Complexity : O(log n)
 public class LongestSubstringWithAtLeastKRepeatingChars {
 
-  private record Index(int start, int end, int length) {}
-
   private static Index longestSubString(String s, int start, int end, int k) {
     Map<Character, Integer> map = new HashMap<>();
     for (char c : s.toCharArray()) {
@@ -17,7 +15,7 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
     for (int i = start; i < end; i++) {
       char c = s.charAt(i);
       if (map.get(c) < k) {
-        Index left  = longestSubString(s, start, i, k);
+        Index left = longestSubString(s, start, i, k);
         Index right = longestSubString(s, i + 1, end, k);
         return left.length >= right.length ? left : right;
       }
@@ -34,5 +32,8 @@ public class LongestSubstringWithAtLeastKRepeatingChars {
 
     index = longestSubString("aaabbb", 0, "aaabbb".length(), 3);
     System.out.println("aaabbb".substring(index.start, index.end) + "\t" + index.length);
+  }
+
+  private record Index(int start, int end, int length) {
   }
 }

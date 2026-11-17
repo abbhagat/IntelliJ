@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.Stack;
+
 import static java.lang.Character.isDigit;
 
 // Time  Complexity : O(n)
@@ -10,7 +11,7 @@ public class BasicCalculatorII {
   public static int calculate(String s) {
     Stack<Integer> stack = new Stack<>();
     char sign = '+';
-    int  i = 0, n = 0;
+    int i = 0, n = 0;
     while (i < s.length()) {
       char c = s.charAt(i);
       if (isDigit(c)) {
@@ -29,8 +30,8 @@ public class BasicCalculatorII {
       i++;
     }
     return stack.stream()
-                .mapToInt(x -> x)
-                .sum();
+        .mapToInt(x -> x)
+        .sum();
   }
 
   public static void main(String[] args) {

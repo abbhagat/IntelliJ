@@ -1,6 +1,7 @@
 package lld.parkinglot;
 
 import java.util.concurrent.TimeUnit;
+
 import static java.lang.Long.max;
 
 public class CarFeeStrategy implements FeeStrategy {

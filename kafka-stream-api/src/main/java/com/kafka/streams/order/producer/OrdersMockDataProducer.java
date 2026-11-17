@@ -4,13 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.streams.order.model.Order;
 import com.kafka.streams.order.model.OrderType;
 import lombok.extern.slf4j.Slf4j;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-import static com.kafka.streams.order.util.Util.buildOrders;
-import static com.kafka.streams.order.util.Util.objectMapper;
+
 import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.producer.ProducerUtil.publishMessageSync;
+import static com.kafka.streams.order.util.Util.buildOrders;
+import static com.kafka.streams.order.util.Util.objectMapper;
 import static java.lang.Thread.sleep;
 
 @Slf4j

@@ -29,10 +29,10 @@ public class CelebrityProblem {
 
   public static void main(String[] args) {
     boolean[][] M = {
-                      {false,  true,  true},
-                      {false, false,  true},
-                      {false, false, false}
-                    };
+        {false, true, true},
+        {false, false, true},
+        {false, false, false}
+    };
     int celebrity = findCelebrity(M);
     System.out.println(celebrity == -1 ? "No celebrity found" : "Celebrity is: " + celebrity);
   }

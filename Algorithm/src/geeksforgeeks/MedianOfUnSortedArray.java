@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 public class MedianOfUnSortedArray {
 
   public static float findMedian(int[] a) {
-    PriorityQueue<Integer> left  = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
+    PriorityQueue<Integer> left = new PriorityQueue<>(Comparator.reverseOrder()); // Max heap
     PriorityQueue<Integer> right = new PriorityQueue<>();                         //  Min heap
     for (int x : a) {
       left.add(x);                        // Step 1: Add to max heap

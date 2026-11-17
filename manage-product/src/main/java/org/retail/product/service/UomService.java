@@ -10,24 +10,24 @@ import java.util.List;
 @Service
 public class UomService {
 
-    @Autowired
-    private UomRepository uomDAO;
+  @Autowired
+  private UomRepository uomDAO;
 
-    public List<Uom> getAllUoms() {
-        return uomDAO.findAll();
-    }
+  public List<Uom> getAllUoms() {
+    return uomDAO.findAll();
+  }
 
-    public Uom getUomByID(Long uomID) {
-        return uomDAO.getOne(uomID);
-    }
+  public Uom getUomByID(Long uomID) {
+    return uomDAO.getOne(uomID);
+  }
 
-    public Uom saveUom(Uom uom) {
-        return uomDAO.save(uom);
-    }
+  public Uom saveUom(Uom uom) {
+    return uomDAO.save(uom);
+  }
 
-    public void deleteUomByID(Long uomID) {
-        uomDAO.deleteById(uomID);
-    }
+  public void deleteUomByID(Long uomID) {
+    uomDAO.deleteById(uomID);
+  }
 
 
 }

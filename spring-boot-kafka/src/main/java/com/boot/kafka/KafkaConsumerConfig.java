@@ -17,27 +17,27 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
 
-    @Value("${producer.bootstrap-servers}")
-    private String bootstrapServers;
+  @Value("${producer.bootstrap-servers}")
+  private String bootstrapServers;
 
-    @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaListenerContainerFactory(){
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        factory.setRecordFilterStrategy(record -> record.value().contains("ignored"));
-        return factory;
-    }
+  @Bean
+  public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaListenerContainerFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    factory.setConsumerFactory(consumerFactory());
+    factory.setRecordFilterStrategy(record -> record.value().contains("ignored"));
+    return factory;
+  }
 
-    @Bean
-    public ConsumerFactory<String, String> consumerFactory(){
-        return new DefaultKafkaConsumerFactory<>(consumerConfig());
-    }
+  @Bean
+  public ConsumerFactory<String, String> consumerFactory() {
+    return new DefaultKafkaConsumerFactory<>(consumerConfig());
+  }
 
-    @Bean
-    public Map<String,Object> consumerConfig() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        map.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        return map;
-    }
+  @Bean
+  public Map<String, Object> consumerConfig() {
+    Map<String, Object> map = new HashMap<>();
+    map.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+    map.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+    return map;
+  }
 }

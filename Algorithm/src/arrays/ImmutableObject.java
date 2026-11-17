@@ -4,6 +4,14 @@ import java.util.Date;
 
 public class ImmutableObject {
 
+  public static void main(String[] args) {
+    Emp e = new Emp(new Date());
+    System.out.println(e.hashCode());
+    Date d = e.getDate();
+    d.setTime(1000);
+    System.out.println(e.hashCode());
+  }
+
   private static final class Emp {
 
     private final Date date;
@@ -33,13 +41,5 @@ public class ImmutableObject {
       final Emp e = (Emp) obj;
       return e.getDate().compareTo(this.getDate()) == 0;
     }
-  }
-
-  public static void main(String[] args) {
-    Emp e = new Emp(new Date());
-    System.out.println(e.hashCode());
-    Date d = e.getDate();
-    d.setTime(1000);
-    System.out.println(e.hashCode());
   }
 }

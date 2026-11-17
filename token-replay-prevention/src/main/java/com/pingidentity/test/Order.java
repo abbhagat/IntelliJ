@@ -1,6 +1,9 @@
 package com.pingidentity.test;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -10,9 +13,9 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Order {
 
-    private UUID id;
-    private String name;
-    private int quantity;
-    private String address;
+  private UUID id;
+  private String name;
+  private int quantity;
+  private String address;
 
 }

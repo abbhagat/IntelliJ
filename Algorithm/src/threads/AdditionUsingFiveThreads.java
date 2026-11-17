@@ -8,7 +8,7 @@ public class AdditionUsingFiveThreads {
     ExecutorService service = Executors.newFixedThreadPool(5);
     WorkerThread[] workerThreads = new WorkerThread[10];
     for (int i = 0; i < 10; i++) {
-      workerThreads[i] = new WorkerThread(i + 10,  i + 20);
+      workerThreads[i] = new WorkerThread(i + 10, i + 20);
     }
     for (WorkerThread workerThread : workerThreads) {
       Future<Integer> future = service.submit(workerThread);

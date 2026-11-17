@@ -9,12 +9,12 @@ public class BinaryStringInAPattern {
       return;
     }
     if (c[i] == '?') {
-        c[i] =  '0';
-        printBinaryString(c, i + 1);
-        c[i] =  '1';
-        printBinaryString(c, i + 1);
+      c[i] = '0';
+      printBinaryString(c, i + 1);
+      c[i] = '1';
+      printBinaryString(c, i + 1);
     } else {
-        printBinaryString(c, i + 1);
+      printBinaryString(c, i + 1);
     }
   }
 

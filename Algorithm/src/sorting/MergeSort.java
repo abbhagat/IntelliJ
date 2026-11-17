@@ -1,6 +1,5 @@
 package sorting;
 
-import java.util.stream.IntStream;
 import static util.CommonUtils.printArray;
 
 // Time  Complexity O(n log n)

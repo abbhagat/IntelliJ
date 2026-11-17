@@ -7,9 +7,9 @@ public class ConvertSortedArrayToBalancedTree {
 
   private static Node sortedArrayToBST(int[] a, int low, int high) {
     if (low <= high) {
-      int mid    = (low + high) / 2;
-      Node root  = new Node(a[mid]);
-      root.left  = sortedArrayToBST(a, low, mid - 1);
+      int mid = (low + high) / 2;
+      Node root = new Node(a[mid]);
+      root.left = sortedArrayToBST(a, low, mid - 1);
       root.right = sortedArrayToBST(a, mid + 1, high);
       return root;
     }

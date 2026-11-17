@@ -9,50 +9,50 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Pointcut("execution(* org.spring.aop.shape*..set*(..))")
-    public void triangle() {
-    }
+  @Pointcut("execution(* org.spring.aop.shape*..set*(..))")
+  public void triangle() {
+  }
 
-    @Before("triangle())")
-    public void beforeAdvice(JoinPoint joinPoint) {
-        System.out.println("@Before " + joinPoint.getTarget());
-    }
+  @Before("triangle())")
+  public void beforeAdvice(JoinPoint joinPoint) {
+    System.out.println("@Before " + joinPoint.getTarget());
+  }
 
-    @After("triangle())")
-    public void afterLoggingAdvice(JoinPoint joinPoint) {
-        System.out.println("@After " + joinPoint.getTarget());
-    }
+  @After("triangle())")
+  public void afterLoggingAdvice(JoinPoint joinPoint) {
+    System.out.println("@After " + joinPoint.getTarget());
+  }
 
-    @AfterReturning(pointcut = "triangle()", returning = "name")
-    public void afterReturningAdvice(String name) {
-        System.out.println("@AfterReturning " + name);
-    }
+  @AfterReturning(pointcut = "triangle()", returning = "name")
+  public void afterReturningAdvice(String name) {
+    System.out.println("@AfterReturning " + name);
+  }
 
-    @AfterThrowing(pointcut = "triangle()", throwing = "ex")
-    public void afterThrowingAdvice(Exception ex) {
-        System.out.println("@AfterThrowing " + ex.toString());
-    }
+  @AfterThrowing(pointcut = "triangle()", throwing = "ex")
+  public void afterThrowingAdvice(Exception ex) {
+    System.out.println("@AfterThrowing " + ex.toString());
+  }
 
-    @Around("triangle()")
-    public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
-        System.out.println("******************************************************");
-        System.out.println("@Around Before Target");
-        try {
-            proceedingJoinPoint.proceed();  // Executes the target method
-            System.out.println("@Around AfterReturning Target");
-        } catch (Throwable t) {
-            System.out.println("@Around AfterThrowing Target");
-        }
-        System.out.println("@Around After Finally");
+  @Around("triangle()")
+  public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+    System.out.println("******************************************************");
+    System.out.println("@Around Before Target");
+    try {
+      proceedingJoinPoint.proceed();  // Executes the target method
+      System.out.println("@Around AfterReturning Target");
+    } catch (Throwable t) {
+      System.out.println("@Around AfterThrowing Target");
     }
+    System.out.println("@Around After Finally");
+  }
 
-    @Pointcut("args(org.spring.aop.service.Shape)")
-    public void argsWithShapeParameter() {
-    }
+  @Pointcut("args(org.spring.aop.service.Shape)")
+  public void argsWithShapeParameter() {
+  }
 
-    @Pointcut("within(org.spring.aop.shape.Triangle)")
-    public void withinTriangle() {
-    }
+  @Pointcut("within(org.spring.aop.shape.Triangle)")
+  public void withinTriangle() {
+  }
 
 /*    @Before("argsWithShapeParameter()")
     public void adviceForShapeArgs(Shape shape) {

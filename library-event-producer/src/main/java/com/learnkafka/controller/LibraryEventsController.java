@@ -19,34 +19,34 @@ import javax.validation.Valid;
 @RestController
 public class LibraryEventsController {
 
-    private final LibraryEventProducer libraryEventProducer;
+  private final LibraryEventProducer libraryEventProducer;
 
-    @Autowired
-    public LibraryEventsController(LibraryEventProducer libraryEventProducer) {
-        this.libraryEventProducer = libraryEventProducer;
-    }
+  @Autowired
+  public LibraryEventsController(LibraryEventProducer libraryEventProducer) {
+    this.libraryEventProducer = libraryEventProducer;
+  }
 
-    @PostMapping(value = "/v1/libraryEvent")
-    public ResponseEntity<LibraryEvent> postLibraryEvents(@RequestBody @Valid LibraryEvent libraryEvent) throws JsonProcessingException {
-        log.info("before call");
-        // Asynchronous Call
-        // libraryEventProducer.sendLibraryEvent(libraryEvent);
-        // Synchronous Call
-        // SendResult<Integer, String> sendResult = libraryEventProducer.sendLibraryEventSynchronous(libraryEvent);
-        // log.info("SendResult is {} ", sendResult.toString());
-        libraryEvent.setLibraryEventType(LibraryEventType.NEW);
-        libraryEventProducer.sendLibraryEventApproach2(libraryEvent);
-        log.info("after call");
-        return ResponseEntity.status(HttpStatus.CREATED).body(libraryEvent);
-    }
+  @PostMapping(value = "/v1/libraryEvent")
+  public ResponseEntity<LibraryEvent> postLibraryEvents(@RequestBody @Valid LibraryEvent libraryEvent) throws JsonProcessingException {
+    log.info("before call");
+    // Asynchronous Call
+    // libraryEventProducer.sendLibraryEvent(libraryEvent);
+    // Synchronous Call
+    // SendResult<Integer, String> sendResult = libraryEventProducer.sendLibraryEventSynchronous(libraryEvent);
+    // log.info("SendResult is {} ", sendResult.toString());
+    libraryEvent.setLibraryEventType(LibraryEventType.NEW);
+    libraryEventProducer.sendLibraryEventApproach2(libraryEvent);
+    log.info("after call");
+    return ResponseEntity.status(HttpStatus.CREATED).body(libraryEvent);
+  }
 
-    @PutMapping(value = "/v1/libraryEvent")
-    public ResponseEntity<?> putLibraryEvents(@RequestBody @Valid LibraryEvent libraryEvent) throws JsonProcessingException {
-        if(libraryEvent.getLibraryEventId() == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please pass the libraryEventId");
-        }
-        libraryEvent.setLibraryEventType(LibraryEventType.UPDATE);
-        libraryEventProducer.sendLibraryEventApproach2(libraryEvent);
-        return ResponseEntity.status(HttpStatus.OK).body(libraryEvent);
+  @PutMapping(value = "/v1/libraryEvent")
+  public ResponseEntity<?> putLibraryEvents(@RequestBody @Valid LibraryEvent libraryEvent) throws JsonProcessingException {
+    if (libraryEvent.getLibraryEventId() == null) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please pass the libraryEventId");
     }
+    libraryEvent.setLibraryEventType(LibraryEventType.UPDATE);
+    libraryEventProducer.sendLibraryEventApproach2(libraryEvent);
+    return ResponseEntity.status(HttpStatus.OK).body(libraryEvent);
+  }
 }

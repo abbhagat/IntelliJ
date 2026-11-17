@@ -1,3 +1,4 @@
 package lld.rapido;
 
-public record Rider(String id, String name) {}
+public record Rider(String id, String name) {
+}

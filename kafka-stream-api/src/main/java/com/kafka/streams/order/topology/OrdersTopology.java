@@ -8,16 +8,17 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.*;
+
+import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.model.OrderType.GENERAL;
 import static com.kafka.streams.order.model.OrderType.RESTAURANT;
-import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByCount;
 import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByRevenue;
 
 @Slf4j
 public class OrdersTopology {
 
-  private static final Predicate<String, Order> generalPredicate    = (key, order) -> GENERAL.equals(order.orderType());
+  private static final Predicate<String, Order> generalPredicate = (key, order) -> GENERAL.equals(order.orderType());
   private static final Predicate<String, Order> restaurantPredicate = (key, order) -> RESTAURANT.equals(order.orderType());
 
   public static Topology buildTopology() {

@@ -7,7 +7,7 @@ public class BinaryTree {
     if (root == null) {
       root = new Node(num);
     } else if (num % 2 == 0) {
-      root.left  = createBT(num, root.left);
+      root.left = createBT(num, root.left);
     } else {
       root.right = createBT(num, root.right);
     }
@@ -22,12 +22,12 @@ public class BinaryTree {
               / \  / \
              1  3 5   7
          */
-    Node root        = new Node(4);
-    root.left        = new Node(2);
-    root.right       = new Node(6);
-    root.left.left   = new Node(1);
-    root.left.right  = new Node(3);
-    root.right.left  = new Node(5);
+    Node root = new Node(4);
+    root.left = new Node(2);
+    root.right = new Node(6);
+    root.left.left = new Node(1);
+    root.left.right = new Node(3);
+    root.right.left = new Node(5);
     root.right.right = new Node(7);
     return root;
   }

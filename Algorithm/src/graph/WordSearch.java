@@ -3,12 +3,12 @@ package graph;
 public class WordSearch {
 
   private static final char[][] M = {
-                                        {'A', 'B', 'H', 'I'},
-                                        {'H', 'A', 'G', 'N'},
-                                        {'B', 'K', 'A', 'A'},
-                                        {'R', 'K', 'T', 'W'},
-                                        {'A', 'M', 'U', 'K'}
-                                    };
+      {'A', 'B', 'H', 'I'},
+      {'H', 'A', 'G', 'N'},
+      {'B', 'K', 'A', 'A'},
+      {'R', 'K', 'T', 'W'},
+      {'A', 'M', 'U', 'K'}
+  };
   private static final int ROW = M.length;
   private static final int COL = M[0].length;
   private static final int[] rowIdx = new int[]{-1, 1, 0, 0};

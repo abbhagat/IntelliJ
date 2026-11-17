@@ -17,11 +17,14 @@ public class DispenseState implements State {
   }
 
   @Override
-  public void insertCoin(Coin coin) {}
+  public void insertCoin(Coin coin) {
+  }
 
   @Override
-  public void selectProduct(Product product) {}
+  public void selectProduct(Product product) {
+  }
 
   @Override
-  public void cancelProduct() {}
+  public void cancelProduct() {
+  }
 }

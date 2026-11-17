@@ -1,9 +1,8 @@
 package geeks;
 
 /**
- *
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
-
+ * <p>
  * Approach: The idea is to traverse every array element and find the highest bars on the left and right sides.
  * Take the smaller of two heights. The difference between the smaller height and height of the current element
  * is the amount of water that can be stored in this array element.
@@ -28,14 +27,14 @@ public class TrappingRainWater {
     while (low <= high) {
       if (a[low] <= a[high]) {
         if (maxLeft <= a[low]) {
-            maxLeft = a[low];
+          maxLeft = a[low];
         } else {
           waterTrapped += maxLeft - a[low];   // waterTrapped = min(max height on left, max height on right) - current height
         }
         low++;
       } else {
         if (maxRight <= a[high]) {
-            maxRight = a[high];
+          maxRight = a[high];
         } else {
           waterTrapped += maxRight - a[high];
         }

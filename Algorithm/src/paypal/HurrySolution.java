@@ -3,6 +3,7 @@ package paypal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+
 import static java.lang.Integer.max;
 
 public class HurrySolution {

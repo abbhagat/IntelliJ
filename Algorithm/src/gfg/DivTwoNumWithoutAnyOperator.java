@@ -1,7 +1,11 @@
 package gfg;
 
-import java.io.*;
-import static java.lang.Integer.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 
 //Time  Complexity: O(x/y)
 //Space Complexity: O(x/y)

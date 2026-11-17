@@ -1,6 +1,7 @@
 package lld.ratelimiter;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
 import static java.lang.Integer.min;
 
 public class TokenBucket {
@@ -11,10 +12,10 @@ public class TokenBucket {
   private long lastRefillTime;
 
   public TokenBucket(int capacity, int refillRate) {
-    this.capacity        = capacity;
-    this.refillRate      = refillRate;
+    this.capacity = capacity;
+    this.refillRate = refillRate;
     this.availableTokens = new AtomicInteger(capacity);  // initial full capacity token available
-    this.lastRefillTime  = System.currentTimeMillis();
+    this.lastRefillTime = System.currentTimeMillis();
   }
 
   public synchronized boolean consumeTokens() {
@@ -30,7 +31,7 @@ public class TokenBucket {
     long now = System.currentTimeMillis();
     long secondsPassed = (now - lastRefillTime) / 1000;
     if (secondsPassed > 0) {
-      int newTokens     = (int) (secondsPassed * refillRate);
+      int newTokens = (int) (secondsPassed * refillRate);
       int currentTokens = availableTokens.get();
       int updatedTokens = min(capacity, currentTokens + newTokens);
       availableTokens.set(updatedTokens);

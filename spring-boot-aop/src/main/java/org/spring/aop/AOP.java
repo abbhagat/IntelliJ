@@ -10,22 +10,22 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @SpringBootApplication
 public class AOP implements CommandLineRunner {
 
-    @Autowired
-    private AnnotationConfigApplicationContext context;
+  @Autowired
+  private AnnotationConfigApplicationContext context;
 
-    public static void main(String[] args) {
-        SpringApplication.run(AOP.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(AOP.class, args);
+  }
 
-    @Override
-    public void run(String... args) {
-        Shape shape = context.getBean("shape", Shape.class);
-        shape.getTriangle().setName("Equilateral");
-        shape.getTriangle().setNameAndReturn("Equilateral");
-        try {
-            shape.getTriangle().setNameAndThrowException("Equilateral");
-        } catch (Exception e) {
-            System.out.println("Exception Caught");
-        }
+  @Override
+  public void run(String... args) {
+    Shape shape = context.getBean("shape", Shape.class);
+    shape.getTriangle().setName("Equilateral");
+    shape.getTriangle().setNameAndReturn("Equilateral");
+    try {
+      shape.getTriangle().setNameAndThrowException("Equilateral");
+    } catch (Exception e) {
+      System.out.println("Exception Caught");
     }
+  }
 }

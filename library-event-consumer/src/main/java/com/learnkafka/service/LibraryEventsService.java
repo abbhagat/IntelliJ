@@ -17,47 +17,50 @@ import java.util.Optional;
 @Service
 public class LibraryEventsService {
 
-    private final ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
 
-    private final LibraryEventsRepository libraryEventsRepository;
+  private final LibraryEventsRepository libraryEventsRepository;
 
-    @Autowired
-    public LibraryEventsService(ObjectMapper objectMapper, LibraryEventsRepository libraryEventsRepository) {
-        this.objectMapper = objectMapper;
-        this.libraryEventsRepository = libraryEventsRepository;
+  @Autowired
+  public LibraryEventsService(ObjectMapper objectMapper, LibraryEventsRepository libraryEventsRepository) {
+    this.objectMapper = objectMapper;
+    this.libraryEventsRepository = libraryEventsRepository;
+  }
+
+  public void processLibraryEvent(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
+    LibraryEvent libraryEvent = objectMapper.readValue(consumerRecord.value(), LibraryEvent.class);
+    log.info("LibraryEvent {} : ", libraryEvent);
+    if (libraryEvent != null && libraryEvent.getLibraryEventId() != null && libraryEvent.getLibraryEventId() == 999) {
+      throw new RecoverableDataAccessException("Temporary Network Issue");
     }
-
-    public void processLibraryEvent(ConsumerRecord<Integer, String> consumerRecord) throws JsonProcessingException {
-        LibraryEvent libraryEvent = objectMapper.readValue(consumerRecord.value(), LibraryEvent.class);
-        log.info("LibraryEvent {} : ", libraryEvent);
-        if (libraryEvent != null && libraryEvent.getLibraryEventId() != null && libraryEvent.getLibraryEventId() == 999) {
-            throw new RecoverableDataAccessException("Temporary Network Issue");
-        }
-        switch (Objects.requireNonNull(libraryEvent).getLibraryEventType()) {
-            case NEW: save(libraryEvent);
-                      break;
-            case UPDATE: validate(libraryEvent);
-                         save(libraryEvent);
-                         break;
-            default:     log.info("Invalid Library Event Type");
-        }
+    switch (Objects.requireNonNull(libraryEvent).getLibraryEventType()) {
+      case NEW:
+        save(libraryEvent);
+        break;
+      case UPDATE:
+        validate(libraryEvent);
+        save(libraryEvent);
+        break;
+      default:
+        log.info("Invalid Library Event Type");
     }
+  }
 
-    private void validate(LibraryEvent libraryEvent) {
-        if (libraryEvent.getLibraryEventId() == null) {
-            throw new IllegalArgumentException("Library Event Id is missing");
-        }
-        Optional<LibraryEvent> libraryEventOptional = libraryEventsRepository.findById(libraryEvent.getLibraryEventId());
-        if (libraryEventOptional.isEmpty()) {
-            throw new IllegalArgumentException("Not a valid library event");
-        }
-        log.info("Validation is successful for the library Event : {} ", libraryEventOptional.get());
+  private void validate(LibraryEvent libraryEvent) {
+    if (libraryEvent.getLibraryEventId() == null) {
+      throw new IllegalArgumentException("Library Event Id is missing");
     }
+    Optional<LibraryEvent> libraryEventOptional = libraryEventsRepository.findById(libraryEvent.getLibraryEventId());
+    if (libraryEventOptional.isEmpty()) {
+      throw new IllegalArgumentException("Not a valid library event");
+    }
+    log.info("Validation is successful for the library Event : {} ", libraryEventOptional.get());
+  }
 
-    private void save(LibraryEvent libraryEvent) {
-        libraryEvent.getBook().setLibraryEvent(libraryEvent);
-        libraryEventsRepository.save(libraryEvent);
-        log.info("Successfully Persisted the library Event {} : ", libraryEvent);
-    }
+  private void save(LibraryEvent libraryEvent) {
+    libraryEvent.getBook().setLibraryEvent(libraryEvent);
+    libraryEventsRepository.save(libraryEvent);
+    log.info("Successfully Persisted the library Event {} : ", libraryEvent);
+  }
 
 }

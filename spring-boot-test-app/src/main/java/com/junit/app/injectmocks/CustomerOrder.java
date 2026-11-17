@@ -10,17 +10,17 @@ import java.util.List;
 @Service
 public class CustomerOrder {
 
-    @Autowired
-    private BreakfastWaiter breakfastWaiter;
+  @Autowired
+  private BreakfastWaiter breakfastWaiter;
 
-    @Autowired
-    private DinnerWaiter dinnerWaiter;
+  @Autowired
+  private DinnerWaiter dinnerWaiter;
 
-    public List<String> vegetarianBreakfast() {
-        return breakfastWaiter.getVegetarianMenu();
-    }
+  public List<String> vegetarianBreakfast() {
+    return breakfastWaiter.getVegetarianMenu();
+  }
 
-    public List<String> meatDinner() {
-        return dinnerWaiter.getMeatMenu();
-    }
+  public List<String> meatDinner() {
+    return dinnerWaiter.getMeatMenu();
+  }
 }

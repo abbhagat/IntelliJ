@@ -32,7 +32,7 @@ public class PairWithGivenSumInBalancedBST {
     for (int x : set) {
       int y = target - x;
       if (set.contains(y) && y > x) {
-        list.add(List.of(x,y));
+        list.add(List.of(x, y));
       }
     }
     System.out.println(list);

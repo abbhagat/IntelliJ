@@ -22,11 +22,6 @@ public class DepartmentCache {
     this.cache = Objects.requireNonNull(cacheManager.getCache(CacheNames.DEPARTMENTS), "Cache ' " + CacheNames.DEPARTMENTS + "' is not configured");
   }
 
-  // A cache hit. {@code department == null} means "known to not exist"
-  public record Entry(@Nullable DepartmentResponse department) {
-  }
-
-
   @Nullable
   public Entry lookUp(Long deptId) {
     Cache.ValueWrapper valueWrapper = cache.get(deptId);
@@ -42,13 +37,13 @@ public class DepartmentCache {
   public void fillIfAbsent(Long deptId, @Nullable DepartmentResponse department) {
     try {
       cache.putIfAbsent(deptId, department);
-    }catch (RuntimeException e){
+    } catch (RuntimeException e) {
       log.error("Error while putting value in cache for departmentId: {}", deptId, e);
     }
   }
 
   public void publishAfterCommit(Long deptId, DepartmentResponse department) {
-    if(!TransactionSynchronizationManager.isSynchronizationActive()) {
+    if (!TransactionSynchronizationManager.isSynchronizationActive()) {
       write(deptId, department);
       return;
     }
@@ -67,7 +62,7 @@ public class DepartmentCache {
   */
   public void publishWhileLocked(Long deptId, DepartmentResponse department) {
     write(deptId, department);
-    if(TransactionSynchronizationManager.isSynchronizationActive()) {
+    if (TransactionSynchronizationManager.isSynchronizationActive()) {
       TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
         @Override
         public void afterCompletion(int status) {
@@ -104,6 +99,10 @@ public class DepartmentCache {
     } catch (RuntimeException e) {
       log.error("Error while clearing cache", e);
     }
+  }
+
+  // A cache hit. {@code department == null} means "known to not exist"
+  public record Entry(@Nullable DepartmentResponse department) {
   }
 
 }

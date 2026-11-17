@@ -9,9 +9,9 @@ class PrintThread implements Runnable {
 
   private final int threadId;
   private final int[][] a = new int[][]{{1, 4, 7},
-                                        {2, 5, 8},
-                                        {3, 6, 9}
-                                       };
+      {2, 5, 8},
+      {3, 6, 9}
+  };
   private final int N = a.length * a[0].length;
 
   public PrintThread(int threadId) {

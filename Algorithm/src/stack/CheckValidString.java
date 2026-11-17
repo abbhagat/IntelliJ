@@ -25,8 +25,7 @@ public class CheckValidString {
       if (c == '(') {  // If current char is '('
         min++;
         max++;
-      }
-      else if (c == ')') {  // If current char is ')'
+      } else if (c == ')') {  // If current char is ')'
         min--;
         max--;
       } else {    // If current char is '*'
@@ -37,7 +36,7 @@ public class CheckValidString {
         return false;
       }
       if (min < 0) {  // min should never be negative
-          min = 0;
+        min = 0;
       }
     }
     return min == 0;  // Expression is valid only if all brackets can be balanced

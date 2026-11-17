@@ -8,10 +8,10 @@ import static java.lang.Integer.min;
  * The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
  * Why use Integer.MAX_VALUE?
  * Consider this tree:
- *     1
- *    /
- *   2
- *  /
+ * 1
+ * /
+ * 2
+ * /
  * 3
  * If you simply wrote: return Math.min(treeMinHeight(root.left), treeMinHeight(root.right)) + 1;
  * then: treeMinHeight(2) = min(0, ?) + 1
@@ -29,7 +29,7 @@ public class BinaryTreeMinimumHeight {
     if (root.left == null && root.right == null) {
       return 0;
     }
-    int lH = (root.left  == null) ? MAX_VALUE : treeMinHeight(root.left);  // A null child is not a valid path to a leaf,
+    int lH = (root.left == null) ? MAX_VALUE : treeMinHeight(root.left);  // A null child is not a valid path to a leaf,
     int rH = (root.right == null) ? MAX_VALUE : treeMinHeight(root.right); // so we must make sure it is never selected by min().
     return min(lH, rH) + 1;
   }
@@ -42,9 +42,9 @@ public class BinaryTreeMinimumHeight {
            /
           4
        */
-    Node root      = new Node(1);
-    root.left      = new Node(2);
-    root.right     = new Node(3);
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
     root.left.left = new Node(4);
     System.out.println("Tree Min Depth : " + treeMinHeight(root));
   }

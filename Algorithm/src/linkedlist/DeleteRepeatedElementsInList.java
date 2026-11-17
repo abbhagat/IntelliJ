@@ -2,6 +2,7 @@ package linkedlist;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import static linkedlist.LinkList.add;
 import static linkedlist.TraverseList.traverseList;
 

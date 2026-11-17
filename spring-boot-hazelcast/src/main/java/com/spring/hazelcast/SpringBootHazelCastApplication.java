@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootHazelCastApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootHazelCastApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(SpringBootHazelCastApplication.class, args);
+  }
 
 }

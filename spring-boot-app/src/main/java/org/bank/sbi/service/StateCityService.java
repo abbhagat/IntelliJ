@@ -12,27 +12,27 @@ import java.util.List;
 @Service
 public class StateCityService {
 
-    @Autowired
-    private StateCityDAO stateCityDAO;
+  @Autowired
+  private StateCityDAO stateCityDAO;
 
-    public List<StateCity> getAllStateCity() {
-        return stateCityDAO.findAll();
-    }
+  public List<StateCity> getAllStateCity() {
+    return stateCityDAO.findAll();
+  }
 
-    public List<StateCity> searchStateCity(StateCity stateCity) {
-        return stateCityDAO.findAll(Example.of(stateCity));
-    }
+  public List<StateCity> searchStateCity(StateCity stateCity) {
+    return stateCityDAO.findAll(Example.of(stateCity));
+  }
 
-    public void saveStateCity(StateCityList stateCityList) {
-        stateCityDAO.saveAll(stateCityList.getListOfStateCity());
-    }
+  public void saveStateCity(StateCityList stateCityList) {
+    stateCityDAO.saveAll(stateCityList.getListOfStateCity());
+  }
 
-    public StateCityList createStateCity(StateCityList stateCityList) {
-        stateCityList.getListOfStateCity().add(0, new StateCity());
-        return stateCityList;
-    }
+  public StateCityList createStateCity(StateCityList stateCityList) {
+    stateCityList.getListOfStateCity().add(0, new StateCity());
+    return stateCityList;
+  }
 
-    public void deleteStateCityByID(Long stateCityID) {
-        stateCityDAO.deleteById(stateCityID);
-    }
+  public void deleteStateCityByID(Long stateCityID) {
+    stateCityDAO.deleteById(stateCityID);
+  }
 }

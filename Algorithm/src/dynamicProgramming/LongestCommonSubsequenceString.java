@@ -11,7 +11,7 @@ public class LongestCommonSubsequenceString {
     if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
       return lcs(s1, s2, m - 1, n - 1) + s1.charAt(m - 1);
     }
-    String left  = lcs(s1, s2, m - 1, n);
+    String left = lcs(s1, s2, m - 1, n);
     String right = lcs(s1, s2, m, n - 1);
     return left.length() >= right.length() ? left : right;
   }
@@ -40,7 +40,7 @@ public class LongestCommonSubsequenceString {
   }
 
   public static void main(String[] args) {
-    System.out.println(lcs("cat", "cut",    3, 3) + "\t" + lcs("cat", "cut"));
+    System.out.println(lcs("cat", "cut", 3, 3) + "\t" + lcs("cat", "cut"));
     System.out.println(lcs("geek", "gesek", 4, 5) + "\t" + lcs("geek", "gesek"));
   }
 

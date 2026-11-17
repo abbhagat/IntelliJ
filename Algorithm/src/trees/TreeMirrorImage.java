@@ -2,6 +2,7 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
 import static trees.BinaryTree.createBST;
 import static trees.TreeTraversal.inorder;
 
@@ -12,9 +13,9 @@ public class TreeMirrorImage {
     if (root == null) {
       return null;
     }
-    Node left  = mirrorImage(root.left);
+    Node left = mirrorImage(root.left);
     Node right = mirrorImage(root.right);
-    root.left  = right;
+    root.left = right;
     root.right = left;
     return root;
   }

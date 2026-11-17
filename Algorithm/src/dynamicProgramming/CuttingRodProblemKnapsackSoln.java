@@ -1,6 +1,7 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
+
 import static java.lang.Integer.max;
 
 // Time  Complexity: O(n^2)
@@ -8,7 +9,7 @@ import static java.lang.Integer.max;
 public class CuttingRodProblemKnapsackSoln {
 
   private static int cutRod(int[] price) {
-    int    n = price.length;
+    int n = price.length;
     int[] dp = new int[n + 1];
     int[] wt = new int[n];
     Arrays.setAll(wt, i -> i + 1);

@@ -31,8 +31,8 @@ public class ArrayRotation {
   }
 
   public static void main(String[] args) {
-    rotate(new int[]{1, 2, 3, 4, 5},       2, "right");     // [4, 5, 1, 2, 3]
-    rotate(new int[]{1, 2, 3, 4, 5},       2, "left");     //  [3, 4, 5, 1, 2]
+    rotate(new int[]{1, 2, 3, 4, 5}, 2, "right");     // [4, 5, 1, 2, 3]
+    rotate(new int[]{1, 2, 3, 4, 5}, 2, "left");     //  [3, 4, 5, 1, 2]
     rotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 2, "right");   //   [6, 7, 1, 2, 3, 4, 5]
     rotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 2, "left");   //    [3, 4, 5, 6, 7, 1, 2]
     rotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3, "right"); //     [5, 6, 7, 1, 2, 3, 4]

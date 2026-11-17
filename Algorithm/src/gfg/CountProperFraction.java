@@ -1,7 +1,6 @@
 package gfg;
 
 import static java.lang.Integer.max;
-import static java.lang.Integer.min;
 
 public class CountProperFraction {
 

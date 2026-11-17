@@ -10,9 +10,9 @@ import java.util.List;
 @Setter
 public class CustomerList {
 
-    private List<Customer> customerList;
+  private List<Customer> customerList;
 
-    public CustomerList() {
-        customerList = new ArrayList<>();
-    }
+  public CustomerList() {
+    customerList = new ArrayList<>();
+  }
 }

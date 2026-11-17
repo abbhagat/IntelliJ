@@ -7,6 +7,11 @@ class OddEvenThreadPrinter implements Runnable {
   private static int n = 1;
   private final String threadID;
 
+  public OddEvenThreadPrinter(String threadID) {
+    this.threadID = threadID;
+    new Thread(this, "Thread - " + threadID).start();
+  }
+
   @Override
   public void run() {
     while (n <= 20) {
@@ -24,11 +29,6 @@ class OddEvenThreadPrinter implements Runnable {
         System.out.println("Exception occurred with " + e.getMessage());
       }
     }
-  }
-
-  public OddEvenThreadPrinter(String threadID) {
-    this.threadID = threadID;
-    new Thread(this, "Thread - " + threadID).start();
   }
 }
 

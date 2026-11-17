@@ -10,16 +10,16 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * Fallback is used to:
- *  1. Return default response
- *  2. Log error
- *  3. Store data temporarily
- *  4. Avoid crashing system
-
-  Hystrix Circuit Breaker has 3 states:- CLOSED, OPEN, HALF-OPEN
-   State	        Meaning
-   CLOSED	      Normal operation
-   OPEN	        Calls blocked, fallback only
-   HALF-OPEN	  Testing if service recovered
+ * 1. Return default response
+ * 2. Log error
+ * 3. Store data temporarily
+ * 4. Avoid crashing system
+ * <p>
+ * Hystrix Circuit Breaker has 3 states:- CLOSED, OPEN, HALF-OPEN
+ * State	        Meaning
+ * CLOSED	      Normal operation
+ * OPEN	        Calls blocked, fallback only
+ * HALF-OPEN	  Testing if service recovered
  */
 
 @Service

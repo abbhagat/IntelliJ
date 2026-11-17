@@ -2,6 +2,7 @@ package trees;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import static trees.BinaryTree.createBST;
 
 // Time  Complexity : O(n)
@@ -15,7 +16,7 @@ public class LeftDiagonalSumOfBT {
   }
 
   private static void leftDiagonalSum(Node root, int diagonal, Map<Integer, Integer> map) {
-    if(root == null) {
+    if (root == null) {
       return;
     }
     int prevDiagonalSum = map.getOrDefault(diagonal, 0);
