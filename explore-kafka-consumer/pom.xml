@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.learnkafka</groupId>
-    <artifactId>library-event-consumer</artifactId>
+    <artifactId>explore-kafka-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>library-event-consumer</name>
     <description>library-event-consumer</description>
