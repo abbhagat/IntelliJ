@@ -1,4 +1,4 @@
-package aays;
+package arrays;
 
 public class MaxSubsequence {
 
