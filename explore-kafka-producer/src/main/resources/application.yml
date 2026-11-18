@@ -1,6 +1,6 @@
 spring:
   application:
-    name: library-event-producer
+    name: explore-kafka-producer
   kafka:
     template:
       default-topic: "library-events"

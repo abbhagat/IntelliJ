@@ -11,8 +11,8 @@
     <groupId>com.learnkafka</groupId>
     <artifactId>explore-kafka-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>library-event-consumer</name>
-    <description>library-event-consumer</description>
+    <name>explore-kafka-consumer</name>
+    <description>explore-kafka-consumer</description>
     <properties>
         <java.version>17</java.version>
     </properties>

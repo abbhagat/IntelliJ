@@ -1,6 +1,6 @@
 spring:
   application:
-    name: library-event-consumer
+    name: explore-kafka-consumer
   kafka:
     template:
       default-topic: library-events
