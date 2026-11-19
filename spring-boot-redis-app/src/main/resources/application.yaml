@@ -3,6 +3,29 @@ spring:
     name: spring-boot-redis-app
   banner:
     location: classpath:banner.txt
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: system
+    password: zed
+    hikari:
+      maximum-pool-size: ${DB_MAX_POOL_SIZE:10}
+      connection-timeout: 3000 # Set the connection timeout for the Hikari connection pool
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        enable_lazy_load_no_trans: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false # never hold a database connection open for the entire request
+  cache:
+    type: redis
+  sql:
+    init:
+      mode: never
+
   data:
     redis:
       #      cluster:
@@ -15,23 +38,26 @@ spring:
       port: 6379
       username:
       password: mypassword
-      timeout: 2s
-      connect-timeout: 2s
-  datasource:
-    url: jdbc:oracle:thin:@localhost:1521:XE
-    driver-class-name: oracle.jdbc.OracleDriver
-    username: system
-    password: zed
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-        enable_lazy_load_no_trans: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+      timeout: 500ms  # Set the timeout for Redis operations. slow redis must not stall request
+      connect-timeout: 1s
+  lifecycle:
+    timeout-per-shutdown-phase: 30s # Set the timeout for graceful shutdown of the application context
+
+app:
+  workload: ${APP_WORKLOAD:all} # all(default) => API + warm-up in one process; api = serve only; warmer = warm-up only
   cache:
-    type: redis
+    ttl: 24h                   # safety net only; entries are also refreshed on every write
+    not-found-ttl: 60s         # how long "this department does not exist" is cached
+    breaker:
+      enabled: true
+      failure-threshold: 5    # consecutive Redis failure that opent the breaker
+      open-duration: 10s      # how long the Redis calls are skipped before one probe is let through
+    warmup:
+      enabled: true
+      batch-size: 500
+      refresh-interval: 6h   # how often the "fill missing entries" sweep may run
+      lock-ttl: 5m
+
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
@@ -42,9 +68,11 @@ logging:
       type:
         descriptor:
           sql: trace
+
 server:
   port: 8085
   shutdown: graceful
+
 management:
   endpoints:
     web:
@@ -55,3 +83,7 @@ management:
       probes:
         enabled: true
       show-details: never
+      group:
+        # Redis is intentionally NOT in readiness, if Redis is down the app degrades to DB reads and must keep receiving traffics
+        readiness:
+          include: readinessState,db
