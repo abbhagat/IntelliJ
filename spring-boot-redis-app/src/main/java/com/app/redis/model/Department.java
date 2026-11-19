@@ -1,10 +1,6 @@
 package com.app.redis.model;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +11,6 @@ import java.io.Serializable;
 
 @Entity
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "DEPARTMENT")
 public class Department implements Serializable {
 
@@ -25,6 +18,7 @@ public class Department implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "DEPT_ID")
   private Long deptId;
 
@@ -34,5 +28,16 @@ public class Department implements Serializable {
   @Column(name = "DEPT_LOC")
   private String deptLoc;
 
+  protected Department() {}
+
+  public Department(String deptName, String deptLoc) {
+    this.deptName = deptName;
+    this.deptLoc = deptLoc;
+  }
+
+  public void update(String deptName, String deptLoc) {
+    this.deptName = deptName;
+    this.deptLoc = deptLoc;
+  }
 }
 

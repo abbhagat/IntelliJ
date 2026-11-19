@@ -1,7 +1,7 @@
 package com.app.redis.cache;
 
 import com.app.redis.config.CacheNames;
-import com.app.redis.model.DepartmentResponse;
+import com.app.redis.dto.DepartmentResponse;
 import jakarta.annotation.Nullable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
