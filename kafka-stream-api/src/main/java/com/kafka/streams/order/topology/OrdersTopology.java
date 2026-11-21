@@ -41,9 +41,11 @@ public class OrdersTopology {
           // Aggregate the general orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "general-orders-count");
           // Aggregate the general orders by time window of 15 sec
-          aggregateOrdersCountByTimeWindows(orderStream, "general-orders-count- window");
+          aggregateOrdersCountByTimeWindows(orderStream, "general-orders-count-window");
           // Aggregate the general orders by locationId and revenue, storing the result in a state store
           aggregateOrderByRevenue(orderStream, "general-orders-revenue", storeKTable);
+          // Aggregate the general orders by locationId and revenue based on time window, storing the result in a state store
+          aggregateOrderByRevenueByTimeWindow(orderStream, "general-orders-revenue-window");
         }))
         .branch(restaurantPredicate, Branched.withConsumer(orderStream -> {
           orderStream.print(Printed.<String, Order>toSysOut().withLabel("Restaurant Orders Stream"));
@@ -52,9 +54,11 @@ public class OrdersTopology {
           // Aggregate the restaurant orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "restaurant-orders-count");
           // Aggregate the general orders by time window of 15 sec
-          aggregateOrdersCountByTimeWindows(orderStream, "restaurant-orders-count- window");
+          aggregateOrdersCountByTimeWindows(orderStream, "restaurant-orders-count-window");
           // Aggregate the restaurant orders by locationId and revenue, storing the result in a state store
           aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue", storeKTable);
+          // Aggregate the general orders by locationId and revenue based on time window, storing the result in a state store
+          aggregateOrderByRevenueByTimeWindow(orderStream, "restaurant-orders-revenue-window");
         }));
     return streamsBuilder.build();
   }
