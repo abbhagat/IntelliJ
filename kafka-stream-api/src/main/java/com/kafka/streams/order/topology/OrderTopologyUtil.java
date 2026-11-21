@@ -10,6 +10,11 @@ import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 
 import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+import static com.kafka.streams.order.util.Util.printLocalDateTimes;
 
 @Slf4j
 public class OrderTopologyUtil {
@@ -38,7 +43,7 @@ public class OrderTopologyUtil {
   }
 
   public static void aggregateOrdersCountByTimeWindows(KStream<String, Order> orderStream, String stateStore) {
-    Duration windowSize = Duration.ofSeconds(15);
+    Duration windowSize     = Duration.ofSeconds(15);
     TimeWindows timeWindows = TimeWindows.ofSizeWithNoGrace(windowSize);
     KGroupedStream<String, Order> kGroupedStream = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
                                                               .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
@@ -49,6 +54,7 @@ public class OrderTopologyUtil {
         .toStream()
         .peek((key, value) -> {
           log.info("State Store Name : {}, key : {} , value : {} ", stateStore, key, value);
+          printLocalDateTimes(key, value);
         })
         .print(Printed.<Windowed<String>, Long>toSysOut().withLabel(stateStore));
 

@@ -4,12 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.kafka.streams.order.model.*;
-
+import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.streams.kstream.Windowed;
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
-import java.util.Properties;
 
+@Slf4j
 public class Util {
 
   private Util() {
@@ -118,5 +121,13 @@ public class Util {
         order3,
         order4
     );
+  }
+
+  public static void printLocalDateTimes(Windowed<String> key, Long value) {
+    Instant startTime = key.window().startTime();
+    Instant endTime = key.window().endTime();
+    LocalDateTime startLDT = LocalDateTime.ofInstant(startTime, ZoneId.of(ZoneId.SHORT_IDS.get("CST")));
+    LocalDateTime endLDT = LocalDateTime.ofInstant(endTime, ZoneId.of(ZoneId.SHORT_IDS.get("CST")));
+    log.info("startLDT : {} , endLDT : {}, Count : {}", startLDT, endLDT, value);
   }
 }
