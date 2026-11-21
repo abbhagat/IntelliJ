@@ -9,12 +9,7 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.WindowStore;
-
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 import static com.kafka.streams.order.util.Util.printLocalDateTimes;
 
 @Slf4j
@@ -58,7 +53,6 @@ public class OrderTopologyUtil {
           printLocalDateTimes(key, value);
         })
         .print(Printed.<Windowed<String>, Long>toSysOut().withLabel(stateStore));
-
   }
 
   public static void aggregateOrderByRevenue(KStream<String, Order> orderStream, String stateStore, KTable<String, Store> storeKTable) {
@@ -74,22 +68,15 @@ public class OrderTopologyUtil {
   }
 
   public static void aggregateOrderByRevenueByTimeWindow(KStream<String, Order> orderStream, String stateStore) {
-
     Duration windowSize     = Duration.ofSeconds(15);
-
     TimeWindows timeWindows = TimeWindows.ofSizeWithNoGrace(windowSize);
-
     Materialized<String, TotalRevenue, WindowStore<Bytes, byte[]>> MATERIALIZED = Materialized.<String, TotalRevenue, WindowStore<Bytes, byte[]>>as(stateStore).withKeySerde(Serdes.String()).withValueSerde(SerdesFactory.getSerdes(TotalRevenue.class));
-
     KGroupedStream<String, Order> kGroupedStream = orderStream.map((key, value) -> KeyValue.pair(value.locationId(), value))
                                                               .groupByKey(Grouped.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
-
     TimeWindowedKStream<String, Order> timeWindowedKStream = kGroupedStream.windowedBy(timeWindows);
-
     KTable<Windowed<String>, TotalRevenue> orderKTable = timeWindowedKStream
         .aggregate(TOTAL_REVENUE_INITIALIZER, TOTAL_REVENUE_AGGREGATOR, MATERIALIZED)
         .suppress(Suppressed.untilWindowCloses(Suppressed.BufferConfig.unbounded().shutDownWhenFull()));
-
     orderKTable.toStream().print(Printed.<Windowed<String>, TotalRevenue>toSysOut().withLabel(stateStore));
     orderKTable
         .toStream()
