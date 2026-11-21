@@ -12,16 +12,13 @@ import java.util.Properties;
 
 public class Util {
 
-  public static final Properties config = new Properties();
-  public static final String BROKER_LIST = "localhost:9092,localhost:9094,localhost:9096";
-  public static final String LATEST = "latest";
-  public static ObjectMapper objectMapper = new ObjectMapper()
-      .registerModule(new JavaTimeModule())
-      .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
   private Util() {
     // private constructor to prevent instantiation
   }
+
+  public static final String BROKER_LIST = "localhost:9092,localhost:9094,localhost:9096";
+  public static final String LATEST = "latest";
+  public static ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule()).configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
   public static List<Store> getStoresList() {
     Address address1 = new Address("1234 Street 1 ", "", "City1", "State1", "12345");

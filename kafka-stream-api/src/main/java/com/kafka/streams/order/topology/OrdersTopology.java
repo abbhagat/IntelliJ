@@ -8,12 +8,10 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.*;
-
 import static com.kafka.streams.order.launcher.TopicUtil.ORDERS;
 import static com.kafka.streams.order.model.OrderType.GENERAL;
 import static com.kafka.streams.order.model.OrderType.RESTAURANT;
-import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByCount;
-import static com.kafka.streams.order.topology.OrderTopologyUtil.aggregateOrderByRevenue;
+import static com.kafka.streams.order.topology.OrderTopologyUtil.*;
 
 @Slf4j
 public class OrdersTopology {
@@ -42,6 +40,8 @@ public class OrdersTopology {
           orderStream.to("general-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
           // Aggregate the general orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "general-orders-count");
+          // Aggregate the general orders by time window of 15 sec
+          aggregateOrdersCountByTimeWindows(orderStream, "general-orders-count- window");
           // Aggregate the general orders by locationId and revenue, storing the result in a state store
           aggregateOrderByRevenue(orderStream, "general-orders-revenue", storeKTable);
         }))
@@ -51,6 +51,8 @@ public class OrdersTopology {
           orderStream.to("restaurant-orders", Produced.with(Serdes.String(), SerdesFactory.getSerdes(Order.class)));
           // Aggregate the restaurant orders by locationId and count them, storing the result in a state store
           aggregateOrderByCount(orderStream, "restaurant-orders-count");
+          // Aggregate the general orders by time window of 15 sec
+          aggregateOrdersCountByTimeWindows(orderStream, "restaurant-orders-count- window");
           // Aggregate the restaurant orders by locationId and revenue, storing the result in a state store
           aggregateOrderByRevenue(orderStream, "restaurant-orders-revenue", storeKTable);
         }));
