@@ -42,16 +42,17 @@ class HashMap<K, V> {
     Entry<K, V> prev = null;
     for (Entry<K, V> e = table[hash]; e != null; e = e.next) {
       if (Objects.equals(e.getKey(), key)) {
+        V v = e.getValue();
         e.setValue(value);
-        return null;
+        return v;
       }
       prev = e;
     }
-    Entry<K, V> entry = new Entry<>(key, value);
+    Entry<K, V> newEntry = new Entry<>(key, value);
     if (prev == null) {
-      table[hash] = entry;
+      table[hash] = newEntry;
     } else {
-      prev.next   = entry;
+      prev.next   = newEntry;
     }
     return null;
   }
@@ -83,17 +84,17 @@ class HashMap<K, V> {
 
   public static void main(String[] args) {
     HashMap<String, Integer> map = new HashMap<>();
-    map.put("Bhagat", 66);
-    map.put("D", 68);
-    map.put("D", 70);
-    map.put(null, 1);
-    map.put(null, 2);
-    map.put("A", 100);
-    map.put("Kumar", 66);
-    map.put("Z", 90);
-    map.put("D", 100);
-    map.put("Abhinaw", 100);
-    map.put("Z", 1);
+    System.out.println(map.put("Bhagat", 66));
+    System.out.println(map.put("D", 68));
+    System.out.println(map.put("D", 70));
+    System.out.println(map.put(null, 1));
+    System.out.println(map.put(null, 2));
+    System.out.println(map.put("A", 100));
+    System.out.println(map.put("Kumar", 66));
+    System.out.println(map.put("Z", 90));
+    System.out.println(map.put("D", 100));
+    System.out.println(map.put("Abhinaw", 100));
+    System.out.println(map.put("Z", 1));
     map.traverseHashMap();
     System.out.println("*********");
     System.out.println(map.remove("D"));
