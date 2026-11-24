@@ -11,18 +11,18 @@ public class EqualSplit extends Split {
     if (group == null) {
       throw new RuntimeException("Expense must belong to a group");
     }
-    if (group.getMembers().isEmpty()) {
+    if (group.getUsers().isEmpty()) {
       throw new RuntimeException("Group has no members");
     }
   }
 
   @Override
   public void splitExpense(Expense expense) {
-    Group group = expense.getGroup();
-    List<User> members = group.getMembers();
-    double perUser = expense.getAmount() / members.size();
+    Group group      = expense.getGroup();
+    List<User> users = group.getUsers();
+    double perUser   = expense.getAmount() / users.size();
     List<Split> splits = new ArrayList<>();
-    for (User user : members) {
+    for (User user : users) {
       Split split = new EqualSplit();
       split.setUser(user);
       split.setAmount(perUser);

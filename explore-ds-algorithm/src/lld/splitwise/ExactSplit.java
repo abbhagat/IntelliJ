@@ -21,12 +21,13 @@ public class ExactSplit extends Split {
 
   @Override
   public void splitExpense(Expense expense) {
-    List<User> members = expense.getGroup().getMembers();
+    List<User> members = expense.getGroup().getUsers();
     List<Split> exactSplits = new ArrayList<>();
+    double perUser   = expense.getAmount() / members.size();
     for (User user : members) {
       ExactSplit exactSplit = new ExactSplit();
       exactSplit.setUser(user);
-      exactSplit.setAmount(2000);
+      exactSplit.setAmount(perUser);
       exactSplits.add(exactSplit);
     }
     expense.setSplits(exactSplits);

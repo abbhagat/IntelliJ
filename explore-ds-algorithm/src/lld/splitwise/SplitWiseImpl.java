@@ -9,8 +9,8 @@ public class SplitWiseImpl {
 
   public static void main(String[] args) {
 
-    User alice = new User("U1", "Alice", "alice@test.com", "9999999991");
-    User bob = new User("U2", "Bob", "bob@test.com", "9999999992");
+    User alice   = new User("U1", "Alice", "alice@test.com", "9999999991");
+    User bob     = new User("U2", "Bob", "bob@test.com", "9999999992");
     User charlie = new User("U3", "Charlie", "charlie@test.com", "9999999993");
 
     Group group = new Group("G1", "Goa Trip");
@@ -121,8 +121,7 @@ public class SplitWiseImpl {
     System.out.println();
   }
 
-  private static void printBalanceSheet(
-      BalanceSheet balanceSheet) {
+  private static void printBalanceSheet(BalanceSheet balanceSheet) {
     System.out.println("-------------------------------------");
     for (Map.Entry<String, Map<String, Double>> user : balanceSheet.getBalanceSheet().entrySet()) {
       System.out.println(user.getKey());
