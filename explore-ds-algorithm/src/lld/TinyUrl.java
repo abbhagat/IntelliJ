@@ -21,22 +21,6 @@ public class TinyUrl {
     BASE_URL = "http://www.tinyurl.com/";
   }
 
-  public static void main(String[] args) {
-    TinyUrl tinyUrl = new TinyUrl();
-    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
-    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    String longURL = tinyUrl.decode(shortURL);
-    System.out.println(shortURL);
-    System.out.println(longURL);
-    System.out.println(url.equals(longURL));
-    url = "https://leetcode.com/problems/encode-and-decode-tinyurls";
-    shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
-    longURL = tinyUrl.decode(shortURL);
-    System.out.println(shortURL);
-    System.out.println(longURL);
-    System.out.println(url.equals(longURL));
-  }
-
   private String encode(String longURL) {
     if (!urlToIndexMap.containsKey(longURL)) {
       int n = counter.get();
@@ -68,4 +52,21 @@ public class TinyUrl {
     }
     return indexToUrlMap.get(n);
   }
+
+  public static void main(String[] args) {
+    TinyUrl tinyUrl = new TinyUrl();
+    String url = "https://leetcode.com/problems/encode-and-decode-tinyurl";
+    String shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    String longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
+    url = "https://leetcode.com/problems/encode-and-decode-tinyurls";
+    shortURL = tinyUrl.encode(url);   // http://www.tinyurl.com/0000001
+    longURL = tinyUrl.decode(shortURL);
+    System.out.println(shortURL);
+    System.out.println(longURL);
+    System.out.println(url.equals(longURL));
+  }
+
 }
