@@ -1,7 +1,6 @@
 package lld.splitwise;
 
 import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class Group {
   private final List<Expense> expenses;
 
   public Group(String id, String name) {
-    this.id = id;
-    this.name = name;
-    this.members = new ArrayList<>();
+    this.id       = id;
+    this.name     = name;
+    this.members  = new ArrayList<>();
     this.expenses = new ArrayList<>();
   }
 

@@ -14,11 +14,11 @@ public class TinyUrl {
   private final AtomicInteger counter;
 
   public TinyUrl() {
-    counter = new AtomicInteger(1);
+    counter       = new AtomicInteger(1);
     urlToIndexMap = new ConcurrentHashMap<>();
     indexToUrlMap = new ConcurrentHashMap<>();
-    BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    BASE_URL = "http://www.tinyurl.com/";
+    BASE_62       = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    BASE_URL      = "http://www.tinyurl.com/";
   }
 
   private String encode(String longURL) {
@@ -68,5 +68,4 @@ public class TinyUrl {
     System.out.println(longURL);
     System.out.println(url.equals(longURL));
   }
-
 }

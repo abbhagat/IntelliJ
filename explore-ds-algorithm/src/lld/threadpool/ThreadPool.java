@@ -11,8 +11,8 @@ class ThreadPool implements IThreadPool {
   private volatile boolean isStopped;
 
   public ThreadPool(int poolSize) {
-    this.queue = new LinkedBlockingQueue<>();
-    this.threads = new Thread[poolSize];
+    this.queue     = new LinkedBlockingQueue<>();
+    this.threads   = new Thread[poolSize];
     this.isStopped = false;
     for (int i = 0; i < poolSize; i++) {
       this.threads[i] = new Worker(queue);
