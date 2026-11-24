@@ -8,12 +8,12 @@ import java.util.concurrent.ConcurrentHashMap;
 class SlidingWindow implements IRateLimiter {
 
   private final int  maxRequest;
-  private final long windowMillis;
+  private final long timeWindow;
   private final Map<String, Deque<Long>> requestTimestamps;
 
-  public SlidingWindow(int maxRequest, long windowMillis) {
+  public SlidingWindow(int maxRequest, long timeWindow) {
     this.maxRequest        = maxRequest;
-    this.windowMillis      = windowMillis;
+    this.timeWindow        = timeWindow;
     this.requestTimestamps = new ConcurrentHashMap<>();
   }
 
@@ -21,7 +21,7 @@ class SlidingWindow implements IRateLimiter {
   public synchronized boolean allowRequest(String userId) {
     long now = System.currentTimeMillis();
     Deque<Long> deque = requestTimestamps.computeIfAbsent(userId, key -> new ArrayDeque<>());
-    while (!deque.isEmpty() && deque.peekFirst() <= now - windowMillis) {  // Remove requests outside the sliding window
+    while (!deque.isEmpty() && deque.peekFirst() <= now - timeWindow) {  // Remove requests outside the sliding window
       deque.pollFirst();
     }
     if (deque.size() >= maxRequest) {   // Limit reached
