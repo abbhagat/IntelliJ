@@ -25,16 +25,16 @@ public class AddTwoNumInLinkedList {
     while (l1 != null || l2 != null || carry != 0) {
       int sum = 0;
       if (l1 != null) {
-        sum += l1.num;
-        l1 = l1.next;
+         sum += l1.num;
+         l1   = l1.next;
       }
       if (l2 != null) {
-        sum += l2.num;
-        l2 = l2.next;
+         sum += l2.num;
+         l2   = l2.next;
       }
-      sum += carry;
+      sum  += carry;
       carry = sum / 10;
-      int num = sum % 10;
+      int num   = sum % 10;
       Node node = new Node(num);
       temp.next = node;
       temp = node;
