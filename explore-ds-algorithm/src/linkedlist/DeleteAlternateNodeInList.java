@@ -10,8 +10,8 @@ public class DeleteAlternateNodeInList {
   private static void deleteAlternateNode(Node head) {
     Node temp = head;
     while (temp != null && temp.next != null) {
-      temp.next = temp.next.next;
-      temp = temp.next;
+      temp.next  = temp.next.next;
+      temp       = temp.next;
     }
   }
 

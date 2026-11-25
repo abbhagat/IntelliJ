@@ -11,7 +11,7 @@ public class DeleteNodeWithoutHeadPointer {
     if (node == null || node.next == null) {
       return;
     }
-    node.num = node.next.num;
+    node.num  = node.next.num;
     node.next = node.next.next;
   }
 
