@@ -1,7 +1,6 @@
 package graph;
 
 import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +12,15 @@ public class Graph {
 
   @SuppressWarnings("unchecked")
   public Graph(int v) {
-    this.v = v;
-    edge = new ArrayList[v];
+    this.v     = v;
+    this.edge  = new ArrayList[v];
     for (int i = 0; i < v; i++) {
-      edge[i] = new ArrayList<>();
+      this.edge[i] = new ArrayList<>();
     }
   }
 
   public void addEdge(int v, int e) {
-    edge[v].add(e);
+    this.edge[v].add(e);
   }
 
 }
