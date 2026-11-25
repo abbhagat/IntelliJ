@@ -11,6 +11,7 @@ import java.io.Serializable;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "DEPARTMENT")
 public class Department implements Serializable {
 
