@@ -10,11 +10,11 @@ import java.util.Set;
 public class NumOfDistinctIsland {
 
   private static final int[][] M = new int[][]{
-      {1, 1, 0, 0, 0},
-      {1, 1, 0, 0, 0},
-      {0, 0, 0, 1, 1},
-      {0, 0, 0, 1, 1}
-  };
+                                                  {1, 1, 0, 0, 0},
+                                                  {1, 1, 0, 0, 0},
+                                                  {0, 0, 0, 1, 1},
+                                                  {0, 0, 0, 1, 1}
+                                              };
   private static final int ROW = M.length;
   private static final int COL = M[0].length;
   private static final boolean[][] visited = new boolean[ROW][COL];
@@ -30,7 +30,7 @@ public class NumOfDistinctIsland {
     list.add((row - r) + "-" + (col - c));
     for (int k = 0; k < 4; k++) {
       if (isSafe(row + rowIdx[k], col + colIdx[k])) {
-        DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
+             DFS(row + rowIdx[k], col + colIdx[k], r, c, list);
       }
     }
   }
@@ -42,7 +42,7 @@ public class NumOfDistinctIsland {
         if (M[row][col] == 1 && !visited[row][col]) {
           List<String> list = new ArrayList<>();
           DFS(row, col, row, col, list);
-          System.out.println("Island : " + "\n" + list);  // list will contain the index of Matrix Column
+          System.out.println("Island : " +  "\n" + list);  // list will contain the index of Matrix Column
           set.add(list);
         }
       }
