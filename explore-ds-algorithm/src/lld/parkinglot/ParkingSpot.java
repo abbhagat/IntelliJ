@@ -9,10 +9,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ParkingSpot {
 
-  private String spotId;
+  private String   spotId;
   private SpotType spotType;
-  private boolean isFree;
-  private Vehicle parkedVehicle;
+  private boolean  isFree;
+  private Vehicle  parkedVehicle;
 
   public synchronized void park(Vehicle vehicle) {
     if (!isFree || !vehicle.getVehicleType().name().equals(spotType.name())) {

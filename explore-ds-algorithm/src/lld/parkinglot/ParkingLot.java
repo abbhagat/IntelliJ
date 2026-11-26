@@ -2,13 +2,11 @@ package lld.parkinglot;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-
 import static lld.parkinglot.ParkingFeeCalculator.calculateFee;
 
 @Getter
@@ -40,10 +38,10 @@ public class ParkingLot {
 
   public double unPark(ParkingTicket parkingTicket) {
     activeTickets.remove(parkingTicket.getTicketId());
-    long parkDuration = System.currentTimeMillis() - parkingTicket.getEntryTime();
+    long parkDuration       = System.currentTimeMillis() - parkingTicket.getEntryTime();
     ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
-    Vehicle parkedVehicle = parkingSpot.getParkedVehicle();
-    String vehicleType = parkedVehicle.getVehicleType().name();
+    Vehicle parkedVehicle   = parkingSpot.getParkedVehicle();
+    String vehicleType      = parkedVehicle.getVehicleType().name();
     parkingSpot.unPark();
     return calculateFee(parkDuration, vehicleType);
   }

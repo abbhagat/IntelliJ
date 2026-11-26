@@ -3,7 +3,6 @@ package lld.parkinglot;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Date;
 
 @Getter
@@ -13,7 +12,7 @@ public class ParkingTicket {
 
   private String ticketId;
   private String vehicleNumber;
-  private long entryTime;
+  private long   entryTime;
   private ParkingSpot parkingSpot;
 
   @Override
