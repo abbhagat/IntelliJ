@@ -2,7 +2,6 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 import static trees.TreeTraversal.inorder;
 
 public class InsertNodeInLevelOrderTraversal {
@@ -28,11 +27,11 @@ public class InsertNodeInLevelOrderTraversal {
   }
 
   public static void main(String[] args) {
-    Node root = new Node(5);
-    root.left = new Node(3);
-    root.left.left = new Node(2);
-    root.right = new Node(7);
-    root.right.left = new Node(6);
+    Node root        = new Node(5);
+    root.left        = new Node(3);
+    root.left.left   = new Node(2);
+    root.right       = new Node(7);
+    root.right.left  = new Node(6);
     root.right.right = new Node(9);
     inorder(root);
     insertNode(root, 4);

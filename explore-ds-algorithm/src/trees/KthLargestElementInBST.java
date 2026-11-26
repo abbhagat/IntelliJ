@@ -4,17 +4,14 @@ import static trees.CreateBST.createBST;
 
 public class KthLargestElementInBST {
 
-  private static int k = 2;
-
-  private static void findKthLargest(Node root) {
+  private static void findKthLargest(Node root, int k) {
     if (root != null) {
-      findKthLargest(root.right);
-      k--;
+      findKthLargest(root.right, --k);
       if (k == 0) {
         System.out.println(root.num);
         return;
       }
-      findKthLargest(root.left);
+      findKthLargest(root.left, --k);
     }
   }
 
@@ -24,6 +21,6 @@ public class KthLargestElementInBST {
     for (int x : a) {
       root = createBST(root, x);
     }
-    findKthLargest(root);
+    findKthLargest(root, 2);
   }
 }

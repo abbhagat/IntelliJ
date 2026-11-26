@@ -10,7 +10,7 @@ public class LCAOfBinaryTree {
     if (root == null || root == x || root == y) {
       return root;
     }
-    Node left = findLCA(root.left, x, y);
+    Node left  = findLCA(root.left,  x, y);
     Node right = findLCA(root.right, x, y);
     if (left != null && right != null) {
       return root;
@@ -19,7 +19,7 @@ public class LCAOfBinaryTree {
   }
 
   public static void main(String[] args) {
-    Node root = createBST();
+    Node root  = createBST();
     Node lca = findLCA(root, root.left, root.right.right.right);
     System.out.println(lca != null ? "LCA is " + lca.num : "LCA does not exist");
   }
