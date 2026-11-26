@@ -16,12 +16,12 @@ public class JobScheduler {
   private volatile boolean shutdown;
 
   public JobScheduler() {
-    this.queue = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
+    this.queue       = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
     this.runningJobs = new ConcurrentHashMap<>();
-    this.executor = Executors.newFixedThreadPool(5);
-    this.lock = new Object();
-    this.shutdown = false;
-    Thread thread = new Thread(this::processJobs);
+    this.executor    = Executors.newFixedThreadPool(5);
+    this.lock        = new Object();
+    this.shutdown    = false;
+    Thread thread    = new Thread(this::processJobs);
     thread.start();
   }
 
@@ -36,6 +36,7 @@ public class JobScheduler {
       }
       runningJobs.put(job.getId(), job);
       queue.offer(job);
+      lock.notifyAll();
     }
   }
 
@@ -47,6 +48,7 @@ public class JobScheduler {
         return false;
       }
       queue.remove(job);
+      lock.notifyAll();
       job.setStatus(JobStatus.CANCELLED);
       return true;
     }
@@ -63,6 +65,7 @@ public class JobScheduler {
       job.setExecuteAt(newExecuteAt);
       job.setStatus(JobStatus.SCHEDULED);
       queue.offer(job);
+      lock.notifyAll();
     }
   }
 
@@ -91,7 +94,7 @@ public class JobScheduler {
           return;
         }
         job = queue.peek();
-        long delay = job.getExecuteAt() - System.currentTimeMillis();
+        long delay = job.getExecuteAt()  - System.currentTimeMillis();
         if (delay > 0) {
           try {
             lock.wait(delay);
@@ -106,7 +109,7 @@ public class JobScheduler {
         }
         job.setStatus(JobStatus.RUNNING);
       }
-      execute(job);
+      executor.execute(() -> execute(job));  // Submit while holding lock to avoid shutdown race
     }
   }
 
@@ -133,6 +136,7 @@ public class JobScheduler {
         job.setExecuteAt(System.currentTimeMillis() + 1000);  // Retry after 1 second
         job.setStatus(JobStatus.SCHEDULED);
         queue.offer(job);
+        lock.notifyAll();
       } else {
         job.setStatus(JobStatus.FAILED);
       }
@@ -142,6 +146,11 @@ public class JobScheduler {
   public void shutdown() {
     synchronized (lock) {
       shutdown = true;
+      for (Job job : queue) {
+        job.setStatus(JobStatus.CANCELLED);
+      }
+      queue.clear();
+      lock.notifyAll();
     }
   }
 }
