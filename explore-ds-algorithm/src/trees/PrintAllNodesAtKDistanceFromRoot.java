@@ -12,7 +12,7 @@ public class PrintAllNodesAtKDistanceFromRoot {
       System.out.print(root.num + " ");
       return;
     }
-    printKDistanceNodesFromRoot(root.left, level - 1);
+    printKDistanceNodesFromRoot(root.left,  level - 1);
     printKDistanceNodesFromRoot(root.right, level - 1);
   }
 
@@ -26,11 +26,11 @@ public class PrintAllNodesAtKDistanceFromRoot {
                 /
                6
         */
-    Node root = new Node(1);
-    root.left = new Node(2);
-    root.right = new Node(3);
-    root.left.left = new Node(4);
-    root.left.right = new Node(5);
+    Node root           = new Node(1);
+    root.left           = new Node(2);
+    root.right          = new Node(3);
+    root.left.left      = new Node(4);
+    root.left.right     = new Node(5);
     root.left.left.left = new Node(6);
     printKDistanceNodesFromRoot(root, 0);
     System.out.println();
