@@ -11,17 +11,17 @@ public class JobScheduler {
 
   private final PriorityQueue<Job> queue;
   private final Map<String, Job> runningJobs;
-  private final ExecutorService executor;
+  private final ExecutorService executorService;
   private final Object lock;
   private volatile boolean shutdown;
 
   public JobScheduler() {
-    this.queue       = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
-    this.runningJobs = new ConcurrentHashMap<>();
-    this.executor    = Executors.newFixedThreadPool(5);
-    this.lock        = new Object();
-    this.shutdown    = false;
-    Thread thread    = new Thread(this::processJobs);
+    this.queue           = new PriorityQueue<>(Comparator.comparingLong(Job::getExecuteAt)); // min heap so the job with the smaller executeAt gets higher priority.
+    this.runningJobs     = new ConcurrentHashMap<>();
+    this.executorService = Executors.newFixedThreadPool(5);
+    this.lock            = new Object();
+    this.shutdown        = false;
+    Thread thread        = new Thread(this::processJobs);
     thread.start();
   }
 
@@ -86,11 +86,12 @@ public class JobScheduler {
           try {
             lock.wait();
           } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
             return;
           }
         }
         if (shutdown && queue.isEmpty()) {
-          executor.shutdown();
+          executorService.shutdown();
           return;
         }
         job = queue.peek();
@@ -99,6 +100,7 @@ public class JobScheduler {
           try {
             lock.wait(delay);
           } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
             return;
           }
           continue;
@@ -109,13 +111,13 @@ public class JobScheduler {
         }
         job.setStatus(JobStatus.RUNNING);
       }
-      executor.execute(() -> execute(job));  // Submit while holding lock to avoid shutdown race
+      execute(job);
     }
   }
 
   // Execute job
   private void execute(Job job) {
-    executor.submit(() -> {
+    executorService.submit(() -> {
       try {
         Runnable task = job.getTask();
         task.run();
