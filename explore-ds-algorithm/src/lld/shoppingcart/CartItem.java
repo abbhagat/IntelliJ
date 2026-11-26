@@ -10,7 +10,7 @@ import lombok.Setter;
 public class CartItem {
 
   private Product product;
-  private int quantity;
+  private int     quantity;
 
   public double getTotalPrice() {
     return product.price() * quantity;

@@ -6,13 +6,13 @@ public class PricingService {
 
   public static double calculateTotal(ShoppingCart shoppingCart, DiscountStrategy discountStrategy) {
     double subtotal = shoppingCart.getCartItemMap()
-        .values()
-        .stream()
-        .mapToDouble(CartItem::getTotalPrice)
-        .sum();
+                                  .values()
+                                  .stream()
+                                  .mapToDouble(CartItem::getTotalPrice)
+                                  .sum();
     System.out.println("Total Cost : " + subtotal);
     double cost = discountStrategy.applyDiscount(subtotal);
-    double gst = cost * GST_RATE;
+    double gst  = cost * GST_RATE;
     return cost + gst;
   }
 }
