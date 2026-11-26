@@ -8,7 +8,7 @@ public class QuickSort {
   private static void quickSort(Node low, Node high) {
     if (low != null && high != null && low != high && low != high.next) {
       Node pivot = partition(low, high);
-      Node temp = low;
+      Node temp  = low;
       while (temp.next != pivot) {
         temp = temp.next;          // temp will point to the prev node of pivot node
       }
@@ -19,7 +19,7 @@ public class QuickSort {
 
   private static Node partition(Node low, Node high) {
     int pivot = high.num;
-    Node i = null, j;
+    Node j, i = null;
     for (j = low; j != high; j = j.next) {
       if (j.num <= pivot) {  // j.num > pivot to sort in descending order
         i = (i == null) ? low : i.next;
