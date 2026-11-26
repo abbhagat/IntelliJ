@@ -13,7 +13,7 @@ public class MaxDistanceBetweenAnyNodes {
     }
     int lH = treeHeight(root.left);
     int rH = treeHeight(root.right);
-    max = max(max, lH + rH);
+    max    = max(max, lH + rH);
     return max(lH, rH) + 1;
   }
 
