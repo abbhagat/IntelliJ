@@ -24,12 +24,12 @@ public class BookingService {
     lock.lock();  // The code below this will not execute for same Table booking because lock is acquired by another Thread
     try {
       for (Booking booking : reservation.getReservations()) {
-        if (booking.table().tableId().equals(table.tableId()) && overlap(startTime, endTime, booking.startTime(), booking.endTime())) {
+        if (booking.table().tableId().equals(table.tableId()) && overlap(booking, startTime, endTime)) {
           System.out.println("Table already booked");
         }
       }
       String bookingId = UUID.randomUUID().toString();
-      Booking booking = new Booking(bookingId, table, customer, startTime, endTime);
+      Booking booking  = new Booking(bookingId, table, customer,  startTime, endTime);
       this.reservation.save(booking);
       return booking;
     } finally {
@@ -37,7 +37,9 @@ public class BookingService {
     }
   }
 
-  private boolean overlap(LocalDateTime startTime, LocalDateTime endTime, LocalDateTime reservedStartTime, LocalDateTime reservedEndTime) {
+  private boolean overlap(Booking booking, LocalDateTime startTime, LocalDateTime endTime) {
+    LocalDateTime reservedStartTime = booking.startTime();
+    LocalDateTime reservedEndTime   = booking.endTime();
     return startTime.isBefore(reservedEndTime) && endTime.isAfter(reservedStartTime);
   }
 
