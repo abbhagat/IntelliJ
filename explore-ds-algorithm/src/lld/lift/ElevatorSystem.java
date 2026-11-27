@@ -9,10 +9,17 @@ class ElevatorSystem {
   private final SelectElevator selectElevator;
 
   public ElevatorSystem(int numberOfElevators) {
-    selectElevator = new SelectElevator();
-    elevators = new ArrayList<>();
+    selectElevator  = new SelectElevator();
+    elevators       = new ArrayList<>();
     for (int i = 1; i <= numberOfElevators; i++) {
       elevators.add(new Elevator(i));
+    }
+  }
+
+  public void handleRequest(Request request) {
+    Elevator elevator = selectElevator.bestElevator(elevators, request);
+    if (elevator != null) {
+      elevator.addRequest(request);
     }
   }
 
@@ -21,12 +28,5 @@ class ElevatorSystem {
     elevatorSystem.handleRequest(new Request(2, Direction.UP));
     elevatorSystem.handleRequest(new Request(1, Direction.DOWN));
     elevatorSystem.handleRequest(new Request(3, Direction.UP));
-  }
-
-  public void handleRequest(Request request) {
-    Elevator elevator = selectElevator.bestElevator(elevators, request);
-    if (elevator != null) {
-      elevator.addRequest(request);
-    }
   }
 }

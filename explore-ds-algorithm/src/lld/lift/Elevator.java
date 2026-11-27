@@ -2,7 +2,6 @@ package lld.lift;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Comparator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -11,19 +10,20 @@ import java.util.concurrent.PriorityBlockingQueue;
 @Setter
 class Elevator {
 
-  private final BlockingQueue<Integer> upQueue = new PriorityBlockingQueue<>();  // serve the nearest higher floors first , min heap
-  private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
   private int id;
   private int currentFloor;
   private Direction direction;
   private ElevatorState state;
 
+  private final BlockingQueue<Integer> upQueue   = new PriorityBlockingQueue<>();  // serve the nearest higher floors first , min heap
+  private final BlockingQueue<Integer> downQueue = new PriorityBlockingQueue<>(10, Comparator.reverseOrder()); // (a, b) -> b - a serve the nearest lower floors first
+
   public Elevator(int id) {
-    this.id = id;
+    this.id           = id;
     this.currentFloor = 0;
-    this.direction = Direction.IDLE;
-    this.state = ElevatorState.IDLE;
-    Thread thread = new Thread(this::processRequests);
+    this.direction    = Direction.IDLE;
+    this.state        = ElevatorState.IDLE;
+    Thread thread     = new Thread(this::processRequests);
     thread.start();
   }
 
@@ -39,18 +39,18 @@ class Elevator {
         int destFloor;
         if (!upQueue.isEmpty()) {
           direction = Direction.UP;
-          state = ElevatorState.MOVING;
+          state     = ElevatorState.MOVING;
           destFloor = upQueue.take();        // blocks if Queue empty So you don’t need manual synchronization logic.
         } else if (!downQueue.isEmpty()) {
           direction = Direction.DOWN;
-          state = ElevatorState.MOVING;
+          state     = ElevatorState.MOVING;
           destFloor = downQueue.take();    // blocks if empty So you don’t need manual synchronization logic.
         } else {
           direction = Direction.IDLE;
-          state = ElevatorState.IDLE;
+          state     = ElevatorState.IDLE;
           destFloor = upQueue.take();    //  block until ANY request arrives
           direction = Direction.UP;
-          state = ElevatorState.MOVING;
+          state     = ElevatorState.MOVING;
         }
         moveToDestFloor(destFloor);
       } catch (InterruptedException e) {
