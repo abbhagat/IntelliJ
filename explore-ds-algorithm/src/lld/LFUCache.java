@@ -13,21 +13,21 @@ class LFUCache<K, V> {
     int freq;
 
     public Node(K key, V value) {
-      this.key = key;
+      this.key   = key;
       this.value = value;
-      this.freq = 1;
+      this.freq  = 1;
     }
   }
 
-  private final int cacheSize;
-  private int minFreq;
   private final Map<K, Node<K, V>> map;
   private final Map<Integer, Deque<Node<K, V>>> freqMap;
+  private final int cacheSize;
+  private       int minFreq;
 
   public LFUCache(int cacheSize) {
     this.cacheSize = cacheSize;
-    this.map = new HashMap<>();
-    this.freqMap = new HashMap<>();
+    this.map       = new HashMap<>();
+    this.freqMap   = new HashMap<>();
   }
 
   public V get(K key) {
@@ -40,9 +40,6 @@ class LFUCache<K, V> {
   }
 
   public void put(K key, V value) {
-    if (cacheSize == 0) {
-      return;
-    }
     // Update existing key
     if (map.containsKey(key)) {
       Node<K, V> node = map.get(key);
