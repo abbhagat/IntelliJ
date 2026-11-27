@@ -5,63 +5,67 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-class LFUCache {
+class LFUCache<K, V> {
 
-  private static class Node {
-    int key, value, freq = 1;
+  private static class Node<K, V> {
+    K key;
+    V value;
+    int freq;
 
-    Node(int key, int value) {
+    public Node(K key, V value) {
       this.key = key;
       this.value = value;
+      this.freq = 1;
     }
   }
 
-  private final int capacity;
+  private final int cacheSize;
   private int minFreq;
-  private final Map<Integer, Node> cache = new HashMap<>();
-  private final Map<Integer, Deque<Node>> freqMap = new HashMap<>();
+  private final Map<K, Node<K, V>> map;
+  private final Map<Integer, Deque<Node<K, V>>> freqMap;
 
-  public LFUCache(int capacity) {
-    this.capacity = capacity;
+  public LFUCache(int cacheSize) {
+    this.cacheSize = cacheSize;
+    this.map = new HashMap<>();
+    this.freqMap = new HashMap<>();
   }
 
-  public int get(int key) {
-    Node node = cache.get(key);
+  public V get(K key) {
+    Node<K, V> node = map.get(key);
     if (node == null) {
-      return -1;
+      return null;
     }
     updateFrequency(node);
     return node.value;
   }
 
-  public void put(int key, int value) {
-    if (capacity == 0) {
+  public void put(K key, V value) {
+    if (cacheSize == 0) {
       return;
     }
     // Update existing key
-    if (cache.containsKey(key)) {
-      Node node = cache.get(key);
+    if (map.containsKey(key)) {
+      Node<K, V> node = map.get(key);
       node.value = value;
       updateFrequency(node);
       return;
     }
-
     // Evict LFU + LRU node
-    if (cache.size() == capacity) {
-      Deque<Node> deque = freqMap.get(minFreq);
-      Node node = deque.pollLast();
-      cache.remove(node.key);
+    if (map.size() == cacheSize) {
+      Deque<Node<K, V>> deque = freqMap.get(minFreq);
+      Node<K, V> node = deque.pollLast();
+      map.remove(node.key);
     }
     // Insert new node
-    Node node = new Node(key, value);
-    cache.put(key, node);
+    Node<K, V> node = new Node<>(key, value);
+    map.put(key, node);
     freqMap.computeIfAbsent(1, k -> new LinkedList<>()).offerFirst(node);
     minFreq = 1;
   }
 
-  private void updateFrequency(Node node) {
+  private void updateFrequency(Node<K, V> node) {
     int oldFreq = node.freq;
-    Deque<Node> oldDeque = freqMap.get(oldFreq);
+    Deque<Node<K, V>> oldDeque = freqMap.get(oldFreq);
     oldDeque.remove(node);
     if (oldFreq == minFreq && oldDeque.isEmpty()) {
       minFreq++;
@@ -71,6 +75,16 @@ class LFUCache {
   }
 
   public static void main(String[] args) {
-
+    LFUCache<Integer, String> map = new LFUCache<>(2);
+    map.put(1, "Apple");
+    map.put(2, "Banana");
+    System.out.println(map.get(1)); // Apple
+    map.put(3, "Orange");
+    System.out.println(map.get(2)); // null (evicted)
+    System.out.println(map.get(3)); // Orange
+    System.out.println(map.get(1)); // Apple
+    map.put(4, "Mango");
+    System.out.println(map.get(3)); // null (evicted)
+    System.out.println(map.get(4)); // Mango
   }
 }
